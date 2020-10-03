@@ -1,0 +1,134 @@
+.nh-table {
+  width: 100%;
+  thead {
+    tr {
+      th {
+        font-size: theme("fontSize.xs");
+        font-weight: theme("fontWeight.bold");
+        color: theme("colors.gray.600");
+        background-color: theme("colors.white");
+        text-transform: uppercase;
+        padding: 24px 24px 12px 0;
+        letter-spacing: 0.5px;
+        vertical-align: middle;
+        box-shadow: 0 1px 0 0 theme("colors.gray.200");
+        z-index: 10;
+
+        &:first-child {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        padding: 14px 20px 14px 0;
+        font-size: theme("fontSize.base");
+        font-weight: theme("fontWeight.normal");
+        color: theme("colors.gray.800");
+        border-bottom: thin solid theme("colors.gray.100");
+        vertical-align: middle;
+
+        a {
+          font-weight: theme("fontWeight.medium");
+          color: theme("colors.purple.500");
+          transition: all 0.3s;
+          &:hover {
+            color: theme("colors.purple.600");
+            text-decoration: underline;
+          }
+        }
+
+        &:first-child {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        label {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.nh-table.nh-table--avatar {
+  tbody {
+    tr {
+      td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.nh-table.nh-table--checkbox {
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        &:first-child {
+          width: 56px;
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.nh-table.nh-table--name {
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        &:first-child {
+          width: auto;
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.nh-table.nh-table--actions {
+  th,
+  td {
+    &:last-of-type {
+      opacity: 0;
+    }
+    &:first-of-type {
+      opacity: 1;
+    }
+  }
+
+  td.visible-actions,
+  th.visible-actions {
+    opacity: 1;
+  }
+
+  tr {
+    &:hover {
+      th,
+      td {
+        &:last-of-type {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

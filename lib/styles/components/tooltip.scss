@@ -1,0 +1,31 @@
+.bp3-tooltip {
+  border-radius: theme("borderRadius.default");
+  font-size: theme("fontSize.xs");
+  .bp3-popover-arrow-fill {
+    fill: theme("colors.gray.800");
+  }
+  .bp3-popover-arrow-border {
+    fill: theme("colors.gray.800");
+    fill-opacity: 0.3;
+  }
+  .bp3-popover-content {
+    border-radius: theme("borderRadius.default");
+    background: theme("colors.gray.800");
+    padding: 6px 10px;
+  }
+
+  &--md {
+    width: 144px;
+  }
+
+  &--lg {
+    width: 264px;
+  }
+
+  &--md,
+  &--lg {
+    .bp3-popover-content {
+      text-align: center;
+    }
+  }
+}

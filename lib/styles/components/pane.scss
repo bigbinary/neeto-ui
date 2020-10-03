@@ -1,0 +1,30 @@
+.bp3-drawer.nh-pane--wrapper {
+  min-width: 35rem;
+  max-width: 40rem;
+  .bp3-drawer-header {
+    padding: theme("padding.6");
+    box-shadow: none;
+    .bp3-heading {
+      font-size: theme("fontSize.2xl");
+    }
+  }
+
+  .nh-pane--body {
+    height: calc(100vh - #{$pane-header-height});
+    overflow-y: auto;
+
+    &.nh-pane--body__has-footer {
+      height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
+    }
+  }
+
+  .nh-pane--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    border-top: thin solid theme("colors.gray.200");
+    min-height: $pane-footer-height;
+  }
+}

@@ -1,0 +1,58 @@
+.nh-timeline-item--wrapper {
+  padding: 0 0 0 32px;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: theme("colors.gray.200");
+  }
+
+  &:after {
+    width: 1px;
+    height: calc(100% + 8px);
+    top: 12px;
+    left: 4px;
+  }
+
+  &:before {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    left: 1px;
+    top: 0;
+  }
+
+  .nh-timeline-item--container {
+    border: thin solid theme("colors.gray.200");
+    border-radius: theme("borderRadius.default");
+    padding: 20px;
+    margin: 0 0 24px;
+    transition: all 0.3s;
+    box-shadow: theme("boxShadow.sm");
+
+    &.nh-timeline-item--container__note {
+      background-color: rgba(254, 237, 175, 0.3);
+    }
+  }
+
+  &:last-child {
+    &:after {
+      height: calc(100% - 12px);
+    }
+
+    .nh-timeline-item--container {
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: theme("colors.gray.200");
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        left: 1px;
+        bottom: -12px;
+      }
+    }
+  }
+}

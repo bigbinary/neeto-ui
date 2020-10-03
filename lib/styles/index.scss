@@ -1,0 +1,26 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+//Abstracts
+@import "./abstracts/variables";
+
+//Components
+@import "./components/button";
+@import "./components/dropdown";
+@import "./components/select";
+@import "./components/table";
+@import "./components/pane";
+@import "./components/modal";
+@import "./components/tab";
+@import "./components/timeline";
+@import "./components/tooltip";
+@import "./components/tooltip";
+@import "./components/common";
+
+//Layout
+@import "./layout/sidebar";
+@import "./layout/header";
+
+//Utilities
+@import "./utilities/animations";

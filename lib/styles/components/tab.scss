@@ -1,0 +1,52 @@
+.nh-tab--wrapper {
+  .nh-tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 12px;
+    font-weight: theme("fontWeight.medium");
+    color: theme("colors.gray.500");
+    position: relative;
+    padding: 1em 0;
+    font-size: theme("fontSize.sm");
+    transition: all 0.3s;
+    outline: none;
+    text-decoration: none;
+
+    &:after {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100%;
+      height: 2px;
+      background-color: theme("colors.purple.600");
+      transition: inherit;
+    }
+
+    &:hover:not(:disabled, .active) {
+      color: theme("colors.gray.700");
+    }
+
+    &.active {
+      color: theme("colors.purple.600");
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

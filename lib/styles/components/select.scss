@@ -1,0 +1,175 @@
+.nh-react-select-container.nh-react-select-container--error {
+  .nh-react-select__control {
+    border: thin solid theme("colors.red.500");
+  }
+}
+
+.nh-react-select-container {
+  width: 100%;
+  font-size: 16px;
+
+  &.nh-react-select-container--mini {
+    font-size: 14px;
+
+    .nh-react-select__value-container {
+      min-height: 30px;
+    }
+  }
+
+  &.nh-react-select-container--naked {
+    .nh-react-select__control {
+      border: none;
+      background-color: transparent;
+    }
+
+    .nh-react-select__control.nh-react-select__control--is-focused {
+      border: none;
+    }
+
+    .nh-react-select__value-container {
+      padding: 0;
+    }
+
+    .nh-react-select__indicator {
+      padding: 0;
+    }
+  }
+
+  &.nh-react-select--is-disabled {
+    cursor: not-allowed;
+    pointer-events: all;
+
+    .nh-react-select__indicators {
+      pointer-events: none;
+    }
+  }
+
+  .nh-react-select__control.nh-react-select__control--is-disabled {
+    background-color: theme("colors.gray.100");
+    cursor: not-allowed;
+  }
+
+  .nh-react-select__control.nh-react-select__control--is-focused {
+    border: thin solid theme("colors.purple.500");
+    transition: all ease-in-out 200ms;
+    outline: none;
+    box-shadow: theme("boxShadow.focus-purple");
+  }
+
+  .nh-react-select__control {
+    border: thin solid theme("colors.gray.200");
+    border-radius: theme("borderRadius.lg");
+    background-color: theme("colors.white");
+    min-height: 0;
+    box-shadow: none;
+    transition: border 0.3s;
+  }
+
+  .nh-react-select__value-container {
+    padding: 0 8px;
+    min-height: 36px;
+
+    &.nh-react-select__value-container--is-multi {
+      padding: 0 4px;
+    }
+  }
+
+  .nh-react-select__placeholder {
+    color: theme("colors.gray.400");
+    font-size: inherit;
+  }
+
+  .nh-react-select__input {
+    color: theme("colors.gray.800");
+    font-size: inherit;
+  }
+
+  .nh-react-select__indicator-separator {
+    display: none;
+  }
+
+  .nh-react-select__indicator {
+    padding: 0 4px 0 0;
+    cursor: pointer;
+  }
+
+  .nh-react-select__menu {
+    border-radius: 0px;
+    margin: 0 0 16px;
+
+    .nh-react-select__menu-list {
+      position: relative;
+    }
+
+    .nh-react-select__option {
+      color: theme("colors.gray.800");
+      font-size: inherit;
+      cursor: pointer;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .nh-react-select__option--is-focused {
+      background-color: theme("colors.cool-gray.100");
+    }
+
+    .nh-react-select__option--is-disabled {
+      color: theme("colors.gray.200");
+      cursor: not-allowed;
+    }
+
+    .nh-react-select__option--is-selected {
+      background-color: theme("colors.purple.500");
+      color: theme("colors.white");
+    }
+
+    .nh_react-select__fixed-option {
+      width: 100%;
+      font-size: inherit;
+      border-top: thin solid theme("colors.gray.200");
+      padding: 2px 0;
+      cursor: pointer;
+
+      a {
+        width: 100%;
+        display: inline-block;
+        color: theme("colors.purple.500");
+        transition: all 0.3s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 8px 12px;
+      }
+
+      &:hover {
+        a {
+          color: theme("colors.purple.700");
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .nh-react-select__multi-value {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: theme("colors.cool-gray.100");
+    border: thin solid theme("colors.purple.500");
+    .nh-react-select__multi-value__label {
+      line-height: 24px;
+      margin: 0 4px 0 0;
+    }
+  }
+
+  .nh-react-select__multi-value__remove {
+    cursor: pointer;
+    transition: all 0.3s;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}

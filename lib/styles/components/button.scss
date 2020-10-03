@@ -1,0 +1,138 @@
+.nh-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  border-radius: 4px;
+  font-size: theme("fontSize.sm");
+  font-weight: theme("fontWeight.medium");
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.nh-btn--primary {
+    padding: 6px 12px;
+    color: theme("colors.white");
+    background-color: theme("colors.purple.500");
+    border: thin solid transparent;
+    box-shadow: theme("boxShadow.sm");
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      background-color: theme("colors.purple.600");
+    }
+
+    &:active,
+    &:focus {
+      border: thin solid theme("colors.purple.600");
+    }
+  }
+
+  &.nh-btn--danger {
+    padding: 6px 12px;
+    color: theme("colors.white");
+    background-color: theme("colors.red.500");
+    border: thin solid transparent;
+    box-shadow: theme("boxShadow.sm");
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      background-color: theme("colors.red.600");
+    }
+
+    &:active,
+    &:focus {
+      border: thin solid theme("colors.red.600");
+    }
+  }
+
+  &.nh-btn--secondary {
+    padding: 6px 12px;
+    color: theme("colors.gray.600");
+    background-color: theme("colors.white");
+    border: thin solid theme("colors.gray.300");
+    box-shadow: theme("boxShadow.sm");
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      color: theme("colors.gray.800");
+      background-color: theme("colors.gray.50");
+    }
+  }
+
+  &.nh-btn--text {
+    font-size: theme("fontSize.base");
+    color: theme("colors.gray.600");
+    padding: 0;
+
+    &:hover:not(:disabled) {
+      color: theme("colors.gray.800");
+    }
+
+    &:active,
+    &:focus {
+      color: theme("colors.purple.600");
+    }
+  }
+
+  &.nh-btn--link {
+    color: theme("colors.purple.600");
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      color: theme("colors.purple.800");
+    }
+  }
+
+  &.nh-btn--icon {
+    font-size: 20px;
+    opacity: 0.75;
+    color: theme("colors.gray.600");
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.nh-btn--loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: inherit;
+  cursor: default;
+
+  div {
+    display: inherit;
+  }
+
+  div > div {
+    background-color: currentColor;
+  }
+}
