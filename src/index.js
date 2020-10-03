@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "../lib/styles/index.scss"
+import { Button } from '../lib'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="bg-red-500">Test</div>
+    <Button style="primary" label="Hellon"/>
   </React.StrictMode>,
   document.getElementById('root')
 );

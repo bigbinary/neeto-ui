@@ -24,6 +24,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@tailwindcss/ui": "^0.6.2",
     "classnames": "^2.2.6",
     "css-loader": "^4.3.0",
     "react": "^16.13.1",
