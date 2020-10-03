@@ -1,4 +1,4 @@
-.nh-btn {
+.nui-btn {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -20,7 +20,7 @@
     text-decoration: none;
   }
 
-  &.nh-btn--primary {
+  &.nui-btn--primary {
     padding: 6px 12px;
     color: theme("colors.white");
     background-color: theme("colors.purple.500");
@@ -39,7 +39,7 @@
     }
   }
 
-  &.nh-btn--danger {
+  &.nui-btn--danger {
     padding: 6px 12px;
     color: theme("colors.white");
     background-color: theme("colors.red.500");
@@ -58,7 +58,7 @@
     }
   }
 
-  &.nh-btn--secondary {
+  &.nui-btn--secondary {
     padding: 6px 12px;
     color: theme("colors.gray.600");
     background-color: theme("colors.white");
@@ -73,7 +73,7 @@
     }
   }
 
-  &.nh-btn--text {
+  &.nui-btn--text {
     font-size: theme("fontSize.base");
     color: theme("colors.gray.600");
     padding: 0;
@@ -88,7 +88,7 @@
     }
   }
 
-  &.nh-btn--link {
+  &.nui-btn--link {
     color: theme("colors.purple.600");
     &:hover:not(:disabled),
     &:active,
@@ -97,7 +97,7 @@
     }
   }
 
-  &.nh-btn--icon {
+  &.nui-btn--icon {
     font-size: 20px;
     opacity: 0.75;
     color: theme("colors.gray.600");
@@ -114,7 +114,7 @@
   }
 }
 
-.nh-btn--loader {
+.nui-btn--loader {
   display: flex;
   flex-direction: row;
   justify-content: center;

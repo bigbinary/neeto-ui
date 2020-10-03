@@ -1,4 +1,4 @@
-.nh-file-upload {
+.nui-file-upload {
   label {
     cursor: pointer;
   }
@@ -14,22 +14,22 @@
   z-index: 21;
 }
 
-.nh-label {
+.nui-label {
   @apply text-sm;
   @apply text-gray-700;
   @apply font-medium;
   @apply leading-5;
 }
 
-ul.nh-list {
+ul.nui-list {
   list-style: disc;
 }
 
-ol.nh-list {
+ol.nui-list {
   list-style: decimal;
 }
 
-.nh-list {
+.nui-list {
   li {
     font-weight: theme("fontWeight.normal");
     color: inherit;

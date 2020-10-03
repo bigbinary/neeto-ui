@@ -1,33 +1,33 @@
-.nh-modal--wrapper {
+.nui-modal--wrapper {
   width: 50%;
   max-width: 100%;
   min-height: 52vh;
   padding: 24px;
-  &.nh-modal--wrapper__sm {
+  &.nui-modal--wrapper__sm {
     width: 40%;
     max-width: 544px;
     min-height: 40vh;
   }
 
-  &.nh-modal--wrapper__md {
+  &.nui-modal--wrapper__md {
     width: 65%;
     min-height: 65vh;
   }
 
-  &.nh-modal--wrapper__lg {
+  &.nui-modal--wrapper__lg {
     width: 100%;
     min-height: 100%;
   }
 
-  &.nh-modal--auto-height {
+  &.nui-modal--auto-height {
     min-height: auto;
   }
 
-  &.nh-modal--auto-width {
+  &.nui-modal--auto-width {
     width: auto;
   }
 
-  &.nh-modal--wrapper__footer {
+  &.nui-modal--wrapper__footer {
     padding-bottom: $modal-footer-padding;
   }
 }

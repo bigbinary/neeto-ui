@@ -1,4 +1,4 @@
-.nh-sidebar {
+.nui-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,11 +9,11 @@
   background-color: theme("colors.cool-gray.100");
 }
 
-.nh-main-wrapper {
+.nui-main-wrapper {
   max-width: calc(100vw - #{$sidebar-width});
 }
 
-.nh-action-sidebar {
+.nui-action-sidebar {
   width: 400px;
   min-width: 400px;
   height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
@@ -26,7 +26,7 @@
   padding: 16px 24px;
 }
 
-.nh-logo {
+.nui-logo {
   min-height: 72px;
   @apply flex items-center justify-center w-full px-3 py-2 border-b;
 }

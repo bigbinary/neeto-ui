@@ -1,4 +1,4 @@
-.bp3-drawer.nh-pane--wrapper {
+.bp3-drawer.nui-pane--wrapper {
   min-width: 35rem;
   max-width: 40rem;
   .bp3-drawer-header {
@@ -9,16 +9,16 @@
     }
   }
 
-  .nh-pane--body {
+  .nui-pane--body {
     height: calc(100vh - #{$pane-header-height});
     overflow-y: auto;
 
-    &.nh-pane--body__has-footer {
+    &.nui-pane--body__has-footer {
       height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
     }
   }
 
-  .nh-pane--footer {
+  .nui-pane--footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

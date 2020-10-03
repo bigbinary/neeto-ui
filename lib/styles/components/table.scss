@@ -1,4 +1,4 @@
-.nh-table {
+.nui-table {
   width: 100%;
   thead {
     tr {
@@ -64,7 +64,7 @@
   }
 }
 
-.nh-table.nh-table--avatar {
+.nui-table.nui-table--avatar {
   tbody {
     tr {
       td {
@@ -75,7 +75,7 @@
   }
 }
 
-.nh-table.nh-table--checkbox {
+.nui-table.nui-table--checkbox {
   thead,
   tbody {
     tr {
@@ -90,7 +90,7 @@
   }
 }
 
-.nh-table.nh-table--name {
+.nui-table.nui-table--name {
   thead,
   tbody {
     tr {
@@ -105,7 +105,7 @@
   }
 }
 
-.nh-table.nh-table--actions {
+.nui-table.nui-table--actions {
   th,
   td {
     &:last-of-type {

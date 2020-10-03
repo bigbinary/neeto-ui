@@ -1,6 +1,6 @@
-.bp3-popover.bp3-minimal.nh-dropdown--wrapper {
+.bp3-popover.bp3-minimal.nui-dropdown--wrapper {
   box-shadow: none;
-  .nh-dropdown--container {
+  .nui-dropdown--container {
     border-radius: theme("borderRadius.md");
     box-shadow: theme("boxShadow.lg");
     ul {
@@ -18,7 +18,7 @@
       }
 
       li,
-      .nh-dropdown--item {
+      .nui-dropdown--item {
         display: flex;
         cursor: pointer;
         position: relative;
@@ -80,10 +80,10 @@
         }
       }
     }
-    &.nh-dropdown-container--agent {
+    &.nui-dropdown-container--agent {
       ul {
         min-width: 280px;
-        .nh-dropdown-scrollable--wrapper {
+        .nui-dropdown-scrollable--wrapper {
           min-height: 144px;
           max-height: 234px;
           overflow-y: auto;
