@@ -20,7 +20,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "build": "webpack --mode production"
   },
   "dependencies": {
