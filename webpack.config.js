@@ -32,5 +32,11 @@ module.exports = {
         ],
       },
     ]
-  }
+  },
+    output: {
+    path: __dirname + "/dist",
+    filename: 'nitroui.js',
+    library: 'nitroui',
+    libraryTarget:'umd'
+  },
 };
