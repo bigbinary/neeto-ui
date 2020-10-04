@@ -6,11 +6,15 @@
 yarn add https://github.com/bigbinary/nitroui.git
 ```
 
-
-### Dependencies
-
-Install [Remixicons](https://remixicon.com/). 
-Use CDN or install it as a package through NPM [as mentioned here](https://github.com/Remix-Design/remixicon#usage).
+NitroUI relies on [Remixicons](https://remixicon.com/) for it's icons. 
+Install it by doing 
+```
+yarn install remixicons
+```
+Import the styles in your `application.scss` file by doing
+```
+import 'remixicon/fonts/remixicon.css'
+```
 
 ## Documentation
 
