@@ -1,4 +1,4 @@
-**NitroUI** is a component library from [BigBinary](https://www.bigbinary.com). 
+**NitroUI** is a component library from [BigBinary](https://www.bigbinary.com). Checkout the [online demo and documentation](https://nitroui.netlify.app).
 
 ## Installation
 
