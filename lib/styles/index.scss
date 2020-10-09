@@ -4,6 +4,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "react-toastify/dist/ReactToastify.min.css";
+
+
 //Abstracts
 @import "./abstracts/variables";
 
@@ -16,7 +19,7 @@
 @import "./components/modal";
 @import "./components/tab";
 @import "./components/timeline";
-@import "./components/tooltip";
+@import "./components/toastr";
 @import "./components/tooltip";
 @import "./components/common";
 
