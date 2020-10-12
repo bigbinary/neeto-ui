@@ -9,7 +9,7 @@ yarn add https://github.com/bigbinary/nitroui.git
 NitroUI relies on [Remixicons](https://remixicon.com/) for it's icons. 
 Install it by doing 
 ```
-yarn install remixicons
+yarn add remixicon
 ```
 Import the styles in your `application.scss` file by doing
 ```
