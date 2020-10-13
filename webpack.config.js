@@ -1,7 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./lib/index.js",
+  entry: {
+    nitroui: "./lib/index.js",
+    formik: "./lib/components/formik/index.js"
+  },
   module: {
     rules: [
       {
@@ -35,7 +38,7 @@ module.exports = {
   },
     output: {
     path: __dirname + "/dist",
-    filename: 'nitroui.js',
+    filename: '[name].js',
     library: 'nitroui',
     libraryTarget:'umd'
   },
