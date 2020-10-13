@@ -3,7 +3,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
     nitroui: "./lib/index.js",
-    formik: "./lib/components/formik/index.js"
+    formik: "./lib/components/formik/index.js",
+    layouts: "./lib/layouts/index.js",
   },
   module: {
     rules: [
