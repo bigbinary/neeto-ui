@@ -1,7 +1,10 @@
 {
   "name": "nitroui",
-  "version": "0.3.3",
-  "main": "./nitroui.js",
+  "version": "0.3.4",
+  "exports": {
+    "./": "./dist/nitroui.js",
+    "./formik": "./dist/formik.js"
+  },
   "author": "Vinay Chandran",
   "license": "MIT",
   "devDependencies": {
