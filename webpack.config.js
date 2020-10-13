@@ -37,7 +37,7 @@ module.exports = {
     ]
   },
     output: {
-    path: __dirname + "/dist",
+    path: __dirname,
     filename: '[name].js',
     library: 'nitroui',
     libraryTarget:'umd'
