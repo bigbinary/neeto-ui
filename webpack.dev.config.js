@@ -1,7 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
+  externals:{
+    "react": "react",
+  }
   module: {
     rules: [
       {
@@ -40,6 +44,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
+    new PeerDepsExternalsPlugin(),
   ]
 };

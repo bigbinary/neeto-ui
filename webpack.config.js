@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -43,4 +44,7 @@ module.exports = {
     library: 'nitroui',
     libraryTarget:'umd'
   },
+  plugins: [
+    new PeerDepsExternalsPlugin(),
+  ]
 };
