@@ -1,6 +1,6 @@
 {
   "name": "nitroui",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "main": "./nitroui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
@@ -17,18 +17,7 @@
     "postcss-preset-env": "^6.7.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
-    "build": "webpack --mode production"
-  },
-  "peerDependencies": {
-    "formik": "^2.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.11.0",
     "@blueprintjs/core": "^3.33.0",
     "@tailwindcss/ui": "^0.6.2",
     "classnames": "^2.2.6",
@@ -46,5 +35,15 @@
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.8.10"
-  }
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
+    "build": "webpack --mode production"
+  },
+  "peerDependencies": {
+    "formik": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {}
 }
