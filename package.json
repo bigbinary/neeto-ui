@@ -1,6 +1,6 @@
 {
   "name": "nitroui",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "main": "./nitroui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
@@ -22,6 +22,9 @@
   "scripts": {
     "start": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "build": "webpack --mode production"
+  },
+  "peerDependencies": {
+    "formik": "^2.2.0"
   },
   "dependencies": {
     "@blueprintjs/core": "^3.33.0",
