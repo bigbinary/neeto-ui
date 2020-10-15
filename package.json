@@ -1,6 +1,6 @@
 {
   "name": "nitroui",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "main": "./nitroui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
@@ -24,7 +24,9 @@
     "build": "webpack --mode production"
   },
   "peerDependencies": {
-    "formik": "^2.2.0"
+    "formik": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@blueprintjs/core": "^3.33.0",
