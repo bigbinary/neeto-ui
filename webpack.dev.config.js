@@ -1,5 +1,4 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
@@ -9,16 +8,16 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-        },
+          loader: "babel-loader"
+        }
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
-          },
-        ],
+            loader: "html-loader"
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -37,13 +36,13 @@ module.exports = {
           "css-loader",
           "postcss-loader",
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-    ],
+          "sass-loader"
+        ]
+      }
+    ]
   },
   output: {
-    path: __dirname + "/build",
+    path: __dirname + "/build"
   },
   plugins: [
     new HtmlWebPackPlugin({
