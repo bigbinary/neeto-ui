@@ -3,9 +3,6 @@ const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
-  externals:{
-    "react": "react",
-  }
   module: {
     rules: [
       {
@@ -20,6 +17,14 @@ module.exports = {
         use: [
           {
             loader: "html-loader",
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
           },
         ],
       },
@@ -45,6 +50,5 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new PeerDepsExternalsPlugin(),
   ]
 };

@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Button, Input, showToastr, showErrorToastr, ToastContainer } from "../lib";
+import { Avatar, Button, Input } from "../lib";
 
 const App = () => {
   return (
     <>
-      <ToastContainer />
     <div className="grid grid-flow-row gap-8 p-6">
       <div>
+      <Avatar size={32} />
         <Button label="Show toastr" onClick={() => {
           showToastr("I'm a happy toastr."); 
         }} />
