@@ -1,9 +1,9 @@
 @import "@blueprintjs/core/lib/css/blueprint";
+@import "@blueprintjs/datetime/lib/css/blueprint-datetime";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
 
 //Abstracts
 @import "./abstracts/variables";
@@ -20,6 +20,7 @@
 @import "./components/toastr";
 @import "./components/tooltip";
 @import "./components/common";
+@import "./components/dateinput";
 
 //Layout
 @import "./layout/sidebar";

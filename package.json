@@ -1,6 +1,6 @@
 {
   "name": "nitroui",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "main": "./nitroui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@blueprintjs/core": "^3.33.0",
+    "@blueprintjs/datetime": "^3.19.3",
     "@tailwindcss/ui": "^0.6.2",
     "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
@@ -45,6 +46,7 @@
   },
   "peerDependencies": {
     "formik": "^2.2.0",
+    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
