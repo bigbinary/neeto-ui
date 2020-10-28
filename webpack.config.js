@@ -4,7 +4,7 @@ const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 module.exports = {
   entry: {
     nitroui: "./lib/index.js",
-    formik: "./lib/components/formik/index.js",
+    formik: "./lib/components/Formik/index.js",
     layouts: "./lib/layouts/index.js",
   },
   module: {
