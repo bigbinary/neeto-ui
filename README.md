@@ -17,19 +17,16 @@ import 'remixicon/fonts/remixicon.css'
 ```
 
 ## Development
-Install all the dependencies first:-
+Install all the dependencies by running:
 ```
 yarn
 ```
-You can create new components in the `lib/components` and add a reference to the same in `src/index.js`.  
+You can create new components in the `lib/components` and export them from `lib/index.js`.
 
-Run the following to test it out:-
-```
-yarn start
-```
+Running the `yarn start` command starts a CRA app which resides in `src` folder. Use this application to test out changes. Note that nothing in the `src` folder will be bundled with NitroUI.
 
 ## Building
-Once everything is done. Run `yarn build` to build new bundle files and **increment the version number** in `package.json`
+Run `yarn build` to build new bundle files and **increment the version number** in `package.json`. Make sure to commit and push the changes to Github. In the host application, run `yarn add https://github.com/bigbinary/nitroui.git` to update it to the latest version.
 
 ## Documentation
 
