@@ -19,7 +19,7 @@ const App = () => {
         </div>
         <div className="w-1/5">
           <DateInput value={moment().toDate()} label="DateInput" popoverProps={{ position: Position.BOTTOM}}/>
-      </div>
+        </div>
     </div>
     </>
   );
