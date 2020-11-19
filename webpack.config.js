@@ -1,11 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
+const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
 
 module.exports = {
   entry: {
-    nitroui: "./lib/index.js",
+    neetoui: "./lib/index.js",
     formik: "./lib/components/formik/index.js",
-    layouts: "./lib/layouts/index.js",
+    layouts: "./lib/layouts/index.js"
   },
   module: {
     rules: [
@@ -28,31 +28,29 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: 'file-loader',
-          },
-        ],
+            loader: "file-loader"
+          }
+        ]
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          'style-loader',
+          "style-loader",
           // Translates CSS into CommonJS
-          'css-loader',
-          'postcss-loader',
+          "css-loader",
+          "postcss-loader",
           // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
+          "sass-loader"
+        ]
+      }
     ]
   },
-    output: {
+  output: {
     path: __dirname,
-    filename: '[name].js',
-    library: 'nitroui',
-    libraryTarget:'umd'
+    filename: "[name].js",
+    library: "neetoui",
+    libraryTarget: "umd"
   },
-  plugins: [
-    new PeerDepsExternalsPlugin(),
-  ]
+  plugins: [new PeerDepsExternalsPlugin()]
 };
