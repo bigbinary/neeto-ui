@@ -1,7 +1,7 @@
 {
-  "name": "nitroui",
-  "version": "0.5.8",
-  "main": "./nitroui.js",
+  "name": "neetoui",
+  "version": "0.6.0",
+  "main": "./neetoui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
   "devDependencies": {
