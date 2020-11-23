@@ -1,6 +1,6 @@
 {
   "name": "neetoui",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "./neetoui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
@@ -53,5 +53,8 @@
     "react-router-nav-prompt": "^0.4.0",
     "react-toastify": "^6.0.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.29.1",
+    "yup": "^0.30.0"
+  }
 }
