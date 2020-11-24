@@ -47,10 +47,10 @@ Migration to NeetoUI. Migration to version `0.60` has breaking impact on the app
 
 Old import statement ( version < 0.58 )
 
-`import { Buttton } from "nitroui"`
+`import { Button } from "nitroui"`
 
 New import statement ( version > 0.60 )
 
-`import { Buttton } from "neetoui"`
+`import { Button } from "neetoui"`
 
 
