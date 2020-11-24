@@ -40,3 +40,17 @@ Make sure to commit and push the changes to Github. In the host application, run
 ## Documentation
 
 Read the docs here: https://neeto-ui.netlify.app.
+
+## Migration
+
+Migration to NeetoUI. Migration to version `0.60` has breaking impact on the application. 
+
+Old import statement ( version < 0.58 )
+
+`import { Buttton } from "nitroui"`
+
+New import statement ( version > 0.60 )
+
+`import { Buttton } from "neetoui"`
+
+
