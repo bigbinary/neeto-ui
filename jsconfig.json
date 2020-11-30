@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "allowSyntheticDefaultImports": true,
+      "module": "commonJS",
+      "baseUrl": ".",
+      "paths": {
+        "*": ["*"]
+      },
+      "esModuleInterop": true,
+      "checkJs": true,
+      "jsx": "react"
+    },
+    "exclude": ["formik.js", "neetoui.jsx", "layouts.js"],
+    "include": ["./**/*.js", "./**/*.jsx"]
+  }
