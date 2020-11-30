@@ -1,0 +1,26 @@
+.nui-badge {
+    font-size: 12px !important;
+    background-color: theme("colors.cool-gray.200");
+    transition: all 0.3s;
+
+    span {
+        display: inline-flex;
+    }
+
+    i {
+        display: none;
+        font-size: 14px;
+    }
+
+    &:hover {
+        background-color: transparent;
+
+        span {
+            display: none;
+        }
+
+        i {
+            display: inline-flex;
+        }
+    }
+}
