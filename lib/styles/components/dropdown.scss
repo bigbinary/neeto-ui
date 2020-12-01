@@ -1,5 +1,6 @@
 .bp3-popover.bp3-minimal.nui-dropdown--wrapper {
   box-shadow: none;
+
   .nui-dropdown--container {
     border-radius: theme("borderRadius.md");
     box-shadow: theme("boxShadow.lg");
@@ -27,7 +28,7 @@
         font-size: theme("fontSize.sm");
         font-weight: theme("fontWeight.normal");
         color: theme("colors.gray.800");
-        padding: 8px 16px;
+        padding: 8px 40px 8px 16px;
         text-decoration: none;
         outline: none;
 
@@ -80,6 +81,7 @@
         }
       }
     }
+
     &.nui-dropdown-container--agent {
       ul {
         min-width: 280px;
