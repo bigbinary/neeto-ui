@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Card, IconPicker } from "../lib";
+import { Card, Dropdown, IconPicker } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -17,6 +17,11 @@ const App = () => {
         <p>Card Item 1</p>
         <p>Card Item 2</p>
       </Card>
+
+      <Dropdown buttonStyle="icon" icon="ri-more-2-fill">
+        <li>Download Transcript</li>
+        <li>End Chat</li>
+      </Dropdown>
     </>
   );
 };
