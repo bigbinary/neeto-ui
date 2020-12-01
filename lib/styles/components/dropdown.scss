@@ -1,10 +1,6 @@
 .bp3-popover.bp3-minimal.nui-dropdown--wrapper {
   box-shadow: none;
 
-  &.mt-2 {
-    margin-top: 0.5rem !important;
-  }
-
   .nui-dropdown--container {
     border-radius: theme("borderRadius.md");
     box-shadow: theme("boxShadow.lg");
