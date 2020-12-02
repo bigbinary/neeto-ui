@@ -44,7 +44,7 @@ const App = () => {
         size={32}
         className="mr-3"
         activity="type"
-        isOnline
+        status
         contact={{ name: 'Sam Smith' }}
       />
 
