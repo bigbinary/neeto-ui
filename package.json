@@ -1,6 +1,6 @@
 {
   "name": "neetoui",
-  "version": "0.7.5",
+  "version": "0.7.4",
   "main": "./neetoui.js",
   "author": "Vinay Chandran",
   "license": "MIT",
