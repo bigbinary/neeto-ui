@@ -47,6 +47,7 @@ const App = () => {
 
       <Button
         dataTestId="add-new-ticket"
+        label="Add Ticket"
         icon="ri-add-line ri-lg"
       />
     </>
