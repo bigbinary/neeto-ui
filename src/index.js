@@ -41,11 +41,8 @@ const App = () => {
       </Label>
 
       <Avatar
-        size={32}
-        className="mr-3"
-        activity="type"
         status="online"
-        contact={{ name: 'Sam Smith' }}
+        contact={{ name: "Oliver Smith" }}
       />
 
       <Button
