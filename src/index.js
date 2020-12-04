@@ -32,6 +32,7 @@ const App = () => {
       </Callout>
 
       <Label
+        required
         helpText="Help Text"
         className="mb-1"
         data-cy="cypress-attrs"
