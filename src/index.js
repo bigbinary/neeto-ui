@@ -41,10 +41,8 @@ const App = () => {
       </Label>
 
       <Button
-        label="New Ticket"
         dataTestId="add-new-ticket"
         icon="ri-add-fill ri-lg"
-        className="h-10"
       />
     </>
   );
