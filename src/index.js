@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Button, Callout, Card, Dropdown, IconPicker, Label } from "../lib";
+import { Avatar, Button, Callout, Card, Dropdown, IconPicker, Label } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -40,9 +40,15 @@ const App = () => {
         My Label
       </Label>
 
+      <Avatar
+        status="online"
+        contact={{ name: "Oliver Smith" }}
+      />
+
       <Button
         dataTestId="add-new-ticket"
-        icon="ri-add-fill ri-lg"
+        label="Add Ticket"
+        icon="ri-add-line ri-lg"
       />
     </>
   );
