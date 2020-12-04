@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Card, Dropdown, IconPicker } from "../lib";
+import { Callout, Card, Dropdown, IconPicker } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -22,6 +22,14 @@ const App = () => {
         <li>Download Transcript</li>
         <li>End Chat</li>
       </Dropdown>
+
+      <Callout icon={false} style="info">
+        <span className="leading-relaxed">
+          Press
+          <span className="font-semibold"> Shift + ?</span> on your
+          keyboard at any point.
+        </span>
+      </Callout>
     </>
   );
 };
