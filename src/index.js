@@ -1,9 +1,14 @@
+import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, Dropdown, IconPicker, Label } from "../lib";
+import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
+
+  const [startDate, setStartDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
+  const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
+
   return (
     <>
       Hello
@@ -49,6 +54,19 @@ const App = () => {
         dataTestId="add-new-ticket"
         label="Add Ticket"
         icon="ri-add-line ri-lg"
+      />
+
+      <DateRangeInput
+        label="Time period"
+        startDateId="start_date_id"
+        endDateId="end_date_id"
+        value={[startDate, endDate]}
+        onChange={([startDate, endDate]) => {
+          setStartDate(startDate);
+          setEndDate(endDate);
+        }}
+        minDate={moment("2019-01-01").toDate()}
+        maxDate={moment().toDate()}
       />
     </>
   );
