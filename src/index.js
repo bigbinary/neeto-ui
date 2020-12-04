@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Callout, Card, Dropdown, IconPicker } from "../lib";
+import { Callout, Card, Dropdown, IconPicker, Label } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -30,6 +30,15 @@ const App = () => {
           keyboard at any point.
         </span>
       </Callout>
+
+      <Label
+        required
+        helpText="Help Text"
+        className="mb-1"
+        data-cy="cypress-attrs"
+      >
+        My Label
+      </Label>
     </>
   );
 };
