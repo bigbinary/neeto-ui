@@ -1,13 +1,15 @@
 import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label } from "../lib";
+import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
 
   const [startDate, setStartDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
   const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
+  const [pageNo, setPageNo] = useState(1);
+  const PAGE_SIZE = 5;
 
   return (
     <>
@@ -67,6 +69,12 @@ const App = () => {
         }}
         minDate={moment("2019-01-01").toDate()}
         maxDate={moment().toDate()}
+
+      <Pagination
+        count={10}
+        pageNo={pageNo}
+        pageSize={PAGE_SIZE}
+        navigate={index => setPageNo(index)}
       />
     </>
   );
