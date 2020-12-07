@@ -69,9 +69,10 @@ const App = () => {
         }}
         minDate={moment("2019-01-01").toDate()}
         maxDate={moment().toDate()}
+      />
 
       <Pagination
-        count={10}
+        count={17}
         pageNo={pageNo}
         pageSize={PAGE_SIZE}
         navigate={index => setPageNo(index)}
