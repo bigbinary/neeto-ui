@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination } from "../lib";
+import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -77,6 +77,8 @@ const App = () => {
         pageSize={PAGE_SIZE}
         navigate={index => setPageNo(index)}
       />
+
+      <PageLoader />
     </>
   );
 };
