@@ -125,7 +125,7 @@ const App = () => {
       </Tab>
 
       <Button
-        dataTestId="open-pane"
+        data-test-id="open-pane"
         label="Open Pane"
         icon="ri-add-line ri-lg"
         onClick={() => setIsPaneOpen(true)}
