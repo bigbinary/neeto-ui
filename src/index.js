@@ -31,7 +31,7 @@ const App = () => {
   ];
   const [selectedAnswer, setSelectedAnswer] = useState({});
 
-  const [isPaneOpen, setIsPaneOpen] = useState(true);
+  const [isPaneOpen, setIsPaneOpen] = useState(false);
 
   return (
     <>
