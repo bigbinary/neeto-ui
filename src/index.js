@@ -145,7 +145,7 @@ const App = () => {
       <Input
         type="text"
         label="Name"
-        dataTestId="name-input"
+        data-test-id="name-input"
         placeholder="Enter your name"
         error={isEmpty(name) && "Your name required*"}
         onChange={e => setName(e.target.value)}
