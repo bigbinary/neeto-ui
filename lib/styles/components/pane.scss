@@ -1,4 +1,4 @@
-.bp3-drawer.nui-pane--wrapper {
+.bp3-drawer.nui-pane__wrapper {
   min-width: 35rem;
   max-width: 40rem;
   .bp3-drawer-header {
@@ -9,11 +9,11 @@
     }
   }
 
-  .nui-pane--body {
+  .nui-pane__body {
     height: calc(100vh - #{$pane-header-height});
     overflow-y: auto;
 
-    &.nui-pane--body__has-footer {
+    &.nui-pane__body--has-footer {
       height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
     }
   }
@@ -27,8 +27,11 @@
     background: theme("colors.white");
     border-top: thin solid theme("colors.gray.200");
     min-height: $pane-footer-height;
-    &--absolute {
-      @apply absolute bottom-0 left-0 w-full;
+    &.nui-pane__footer--absolute {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
     }
   }
 }
