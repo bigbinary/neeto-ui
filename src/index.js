@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader, Select } from "../lib";
+import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader, Select, Tab } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -97,6 +97,23 @@ const App = () => {
         onChange={e => setSelectedAnswer(e)}
         isSearchable
       />
+
+      <Tab className="w-full px-6 border-bottom">
+        <Tab.Item
+          icon="ri-brush-line"
+          onClick={() => { }}
+          active={true}
+        >
+          Design
+        </Tab.Item>
+        <Tab.Item
+          icon="ri-chat-settings-line"
+          onClick={() => { }}
+          active={false}
+        >
+          Settings
+        </Tab.Item>
+      </Tab>
     </>
   );
 };
