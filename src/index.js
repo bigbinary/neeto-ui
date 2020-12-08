@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader } from "../lib";
+import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader, Select } from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -10,6 +10,13 @@ const App = () => {
   const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
   const [pageNo, setPageNo] = useState(1);
   const PAGE_SIZE = 5;
+
+  const selectOptions = [
+    { label: "Option 1", value: 1 },
+    { label: "Option 2", value: 2 },
+  ];
+  const [selectedAnswer, setSelectedAnswer] = useState({});
+
 
   return (
     <>
@@ -79,6 +86,17 @@ const App = () => {
       />
 
       <PageLoader />
+
+      <Select
+        className="mt-4"
+        label="Try out the select component"
+        required
+        placeholder="Select an answer..."
+        value={selectedAnswer}
+        options={selectOptions}
+        onChange={e => setSelectedAnswer(e)}
+        isSearchable
+      />
     </>
   );
 };

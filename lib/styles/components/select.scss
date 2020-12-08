@@ -6,11 +6,9 @@
 
 .nui-react-select-container {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
 
   &.nui-react-select-container--mini {
-    font-size: 14px;
-
     .nui-react-select__value-container {
       min-height: 30px;
     }
@@ -57,11 +55,11 @@
   }
 
   .nui-react-select__control {
-    border: thin solid theme("colors.gray.200");
-    border-radius: theme("borderRadius.lg");
+    border: thin solid theme("colors.gray.300");
+    border-radius: theme("borderRadius.md");
     background-color: theme("colors.white");
     min-height: 0;
-    box-shadow: none;
+    box-shadow: theme("boxShadow.sm");
     transition: border 0.3s;
   }
 
@@ -71,6 +69,9 @@
 
     &.nui-react-select__value-container--is-multi {
       padding: 0 4px;
+      &.nui-react-select__value-container--has-value {
+        padding: 6px 12px;
+      }
     }
   }
 
@@ -96,6 +97,7 @@
   .nui-react-select__menu {
     border-radius: 0px;
     margin: 0 0 16px;
+    z-index: 20;
 
     .nui-react-select__menu-list {
       position: relative;
@@ -158,8 +160,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: theme("colors.cool-gray.100");
+    background-color: theme("colors.purple.100");
     border: thin solid theme("colors.purple.500");
+    border-radius: 3px;
+    margin: 3px 6px 3px 0;
     .nui-react-select__multi-value__label {
       line-height: 24px;
       margin: 0 4px 0 0;
@@ -171,5 +175,6 @@
     transition: all 0.3s;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    color: theme("colors.purple.500");
   }
 }
