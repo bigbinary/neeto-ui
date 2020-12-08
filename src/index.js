@@ -1,7 +1,21 @@
 import moment from "moment";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Avatar, Button, Callout, Card, DateRangeInput, Dropdown, IconPicker, Label, Pagination, PageLoader, Select, Tab } from "../lib";
+import {
+  Avatar,
+  Button,
+  Callout,
+  Card,
+  DateRangeInput,
+  Dropdown,
+  IconPicker,
+  Label,
+  Pagination,
+  PageLoader,
+  Pane,
+  Select,
+  Tab,
+} from "../lib";
 
 const App = () => {
   const [icon, setIcon] = useState(null)
@@ -17,6 +31,7 @@ const App = () => {
   ];
   const [selectedAnswer, setSelectedAnswer] = useState({});
 
+  const [isPaneOpen, setIsPaneOpen] = useState(true);
 
   return (
     <>
@@ -57,12 +72,6 @@ const App = () => {
       <Avatar
         status="online"
         contact={{ name: "Oliver Smith" }}
-      />
-
-      <Button
-        dataTestId="add-new-ticket"
-        label="Add Ticket"
-        icon="ri-add-line ri-lg"
       />
 
       <DateRangeInput
@@ -114,6 +123,21 @@ const App = () => {
           Settings
         </Tab.Item>
       </Tab>
+
+      <Button
+        dataTestId="open-pane"
+        label="Open Pane"
+        icon="ri-add-line ri-lg"
+        onClick={() => setIsPaneOpen(true)}
+      />
+
+      <Pane
+        title="Open Pane"
+        isOpen={isPaneOpen}
+        onClose={() => setIsPaneOpen(false)}
+      >
+        <p>Pane Content</p>
+      </Pane>
     </>
   );
 };

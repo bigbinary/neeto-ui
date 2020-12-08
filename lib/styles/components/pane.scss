@@ -1,4 +1,4 @@
-.bp3-drawer.nui-pane--wrapper {
+.bp3-drawer.nh-pane--wrapper {
   min-width: 35rem;
   max-width: 40rem;
   .bp3-drawer-header {
@@ -18,13 +18,17 @@
     }
   }
 
-  .nui-pane--footer {
+  .nui-pane__footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     padding: 16px 24px;
+    background: theme("colors.white");
     border-top: thin solid theme("colors.gray.200");
     min-height: $pane-footer-height;
+    &--absolute {
+      @apply absolute bottom-0 left-0 w-full;
+    }
   }
 }
