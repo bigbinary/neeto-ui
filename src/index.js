@@ -2,6 +2,8 @@ import moment from "moment";
 import { isEmpty } from "ramda";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { Form, Formik } from "formik";
+import { ActionBlock } from "../lib/components/formik";
 import {
   Avatar,
   Button,
@@ -153,6 +155,17 @@ const App = () => {
         required={true}
         maxLength={35}
       />
+
+      <Formik
+        initialValues=""
+        onSubmit={() => { }}
+      >
+        <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
+          <ActionBlock
+            reset-data-test-id="test-id-1"
+          />
+        </Form>
+      </Formik>
     </div>
   );
 };
