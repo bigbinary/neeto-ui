@@ -19,6 +19,7 @@ import {
   Pane,
   Select,
   Tab,
+  Checkbox,
 } from "../lib";
 
 const App = () => {
@@ -154,6 +155,12 @@ const App = () => {
         value={name}
         required={true}
         maxLength={35}
+      />
+
+      <Checkbox
+        id="uniqueId"
+        name="checkbox"
+        label="Checkbox"
       />
 
       <Formik
