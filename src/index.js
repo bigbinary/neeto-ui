@@ -1,4 +1,5 @@
 import moment from "moment";
+import { isEmpty } from "ramda";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import {
@@ -9,6 +10,7 @@ import {
   DateRangeInput,
   Dropdown,
   IconPicker,
+  Input,
   Label,
   Pagination,
   PageLoader,
@@ -18,7 +20,8 @@ import {
 } from "../lib";
 
 const App = () => {
-  const [icon, setIcon] = useState(null)
+  const [icon, setIcon] = useState(null);
+  const [name, setName] = useState("");
 
   const [startDate, setStartDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
   const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
@@ -34,7 +37,7 @@ const App = () => {
   const [isPaneOpen, setIsPaneOpen] = useState(false);
 
   return (
-    <>
+    <div className="flex flex-col m-5 p-5">
       Hello
       <IconPicker value={icon} onChange={setIcon} />
 
@@ -138,7 +141,19 @@ const App = () => {
       >
         <p>Pane Content</p>
       </Pane>
-    </>
+
+      <Input
+        type="text"
+        label="Name"
+        data-test-id="name-input"
+        placeholder="Enter your name"
+        error={isEmpty(name) && "Your name required*"}
+        onChange={e => setName(e.target.value)}
+        value={name}
+        required={true}
+        maxLength={35}
+      />
+    </div>
   );
 };
 
