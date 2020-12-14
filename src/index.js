@@ -3,7 +3,7 @@ import { isEmpty } from "ramda";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Form, Formik } from "formik";
-import { ActionBlock } from "../lib/components/formik";
+import { ActionBlock, Input as FormikInput } from "../lib/components/formik";
 import {
   Avatar,
   Button,
@@ -165,12 +165,19 @@ const App = () => {
       />
 
       <Formik
-        initialValues=""
+        initialValues={{ inputField: "" }}
         onSubmit={() => { }}
       >
         <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
           <ActionBlock
             reset-data-test-id="test-id-1"
+          />
+          <FormikInput
+            name="inputField"
+            type="text"
+            label="Name"
+            data-test-id="formik-input"
+            placeholder="Enter your name"
           />
         </Form>
       </Formik>
