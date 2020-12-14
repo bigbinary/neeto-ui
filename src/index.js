@@ -160,6 +160,7 @@ const App = () => {
       <Checkbox
         id="uniqueId"
         name="checkbox"
+        required
         label="Checkbox"
       />
 
