@@ -178,6 +178,7 @@ const App = () => {
             label="Name"
             data-test-id="formik-input"
             placeholder="Enter your name"
+            error="Custom error message"
           />
         </Form>
       </Formik>
