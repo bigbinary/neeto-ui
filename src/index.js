@@ -3,7 +3,11 @@ import { isEmpty } from "ramda";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Form, Formik } from "formik";
-import { ActionBlock, Input as FormikInput } from "../lib/components/formik";
+import {
+  ActionBlock,
+  Input as FormikInput,
+  Radio as FormikRadio,
+} from "../lib/components/formik";
 import {
   Avatar,
   Button,
@@ -38,6 +42,19 @@ const App = () => {
   const [selectedAnswer, setSelectedAnswer] = useState({});
 
   const [isPaneOpen, setIsPaneOpen] = useState(false);
+
+  const formikRadioOptions = [
+    {
+      label: "Everyone",
+      value: true,
+      id: "Everyone"
+    },
+    {
+      label: "Logged in users only",
+      value: false,
+      id: "Logged in users only"
+    }
+  ];
 
   return (
     <div className="flex flex-col m-5 p-5">
@@ -165,7 +182,7 @@ const App = () => {
       />
 
       <Formik
-        initialValues={{ inputField: "" }}
+        initialValues={{ allow_anyone_to_submit_ticket: "" }}
         onSubmit={() => { }}
       >
         <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
@@ -179,6 +196,13 @@ const App = () => {
             data-test-id="formik-input"
             placeholder="Enter your name"
             error="Custom error message"
+          />
+          <FormikRadio
+            name="allow_anyone_to_submit_ticket"
+            label="Who can submit a ticket?"
+            stacked
+            options={formikRadioOptions}
+            customOption="Logged in users only"
           />
         </Form>
       </Formik>
