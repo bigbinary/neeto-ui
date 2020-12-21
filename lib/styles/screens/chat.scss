@@ -1,0 +1,270 @@
+.nui-icon-picker--item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  color: theme("colors.gray.500");
+  border: thin solid theme("colors.gray.200");
+  transition: all 0.3s;
+  margin: 0 20px 0 0;
+  cursor: pointer;
+
+  i {
+    color: inherit;
+    font-size: theme("fontSize.2xl");
+    line-height: 1;
+  }
+
+  img {
+    height: auto;
+    max-width: 24px;
+  }
+}
+
+.nui-chat-button--theme {
+  color: var(--neeto-chat-font-color);
+  background: linear-gradient(
+    90deg,
+    var(--neeto-chat-background-color) 0%,
+    var(--neeto-chat-background-color-darker) 100%
+  );
+}
+
+.nui-chat-sidebar--wrapper {
+  width: 25%;
+  height: 100%;
+  max-width: 420px;
+  min-width: 360px;
+  border-right: thin solid theme("colors.gray.200");
+  .nui-chat-sidebar--container {
+    height: calc(100vh - #{$main-header-height});
+    overflow-y: auto;
+
+    .nui-emoji-font {
+      font-family: "Inter", "Noto Color Emoji", "Apple Color Emoji",
+        "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002,
+        Musica, serif, LastResort;
+    }
+  }
+}
+
+.nui-chat-messenger--block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.nui-chat-messenger--wrapper {
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+.nui-chat-messenger--edit-composer {
+  border-bottom: thin solid theme("colors.gray.200");
+}
+
+.nui-chat-messenger--edit-wrapper {
+  border: thin solid theme("colors.gray.200");
+}
+
+.nui-chat-messenger--footer {
+  width: 100%;
+  padding: 20px 24px;
+  border-top: thin solid theme("colors.gray.200");
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  transition: height 0.3s ease-in-out;
+
+  textarea {
+    flex-grow: 1;
+    resize: none;
+    font-size: 14px;
+    color: theme("colors.gray.800");
+    /* font-family to fix certain broken emojis; see https://stackoverflow.com/a/54775872/6473435 */
+    font-family: "Inter", "Noto Color Emoji", "Apple Color Emoji",
+      "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002,
+      Musica, serif, LastResort;
+    line-height: 1.4;
+    padding: 2px 12px 0 0;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .nui-chat-file-input--wrapper {
+    position: relative;
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      font-size: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    i {
+      color: theme("colors.gray.600");
+      opacity: 0.75;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      i {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.nui-chat-bubble--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 12px;
+  width: 100%;
+
+  &:last-child {
+    margin: 0;
+    padding-bottom: 8px;
+  }
+
+  .nui-chat-bubble--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .nui-chat-bubble {
+      border-radius: theme("borderRadius.md");
+      padding: 16px;
+      line-height: 1.618;
+      font-size: 14px;
+      margin: 0 8px 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      max-width: 800px;
+      white-space: pre-wrap;
+
+      .css-0 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 480px;
+      }
+
+      &--emoji {
+        font-size: 24px;
+        /* font-family to fix certain broken emojis; see https://stackoverflow.com/a/54775872/6473435 */
+        font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji",
+          Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif,
+          LastResort;
+        padding: 0 1px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .nui-chat-timestamp {
+    font-size: 10px;
+    color: theme("colors.gray.400");
+    padding: 0 32px 0 0;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &.nui-chat-bubble--visitor {
+    align-items: flex-start;
+    .nui-chat-bubble--container {
+      flex-direction: row-reverse;
+      .nui-chat-bubble {
+        background-color: #dddddd;
+        margin: 0 0 0 8px;
+
+        .css-0 {
+          div {
+            background-color: theme("colors.gray.800");
+          }
+        }
+      }
+    }
+    .nui-chat-timestamp {
+      padding: 0 0 0 32px;
+      justify-content: flex-start;
+    }
+  }
+
+  &.nui-chat-bubble--bot {
+    .nui-chat-bubble {
+      background-color: #eeeeee;
+    }
+  }
+
+  &.nui-chat-bubble--agent {
+    .nui-chat-bubble {
+      background-color: theme("colors.cool-gray.100");
+    }
+  }
+}
+
+.nui-chat-conversation--wrapper {
+  width: 75%;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+.nui-chat-notes__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: thin solid theme("colors.gray.200");
+
+  .nui-chat-notes__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s;
+    margin-left: 8px;
+  }
+
+  &:hover {
+    .nui-chat-notes__actions {
+      opacity: 1;
+    }
+  }
+}
