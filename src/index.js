@@ -202,7 +202,6 @@ const App = () => {
             label="Who can submit a ticket?"
             stacked
             options={formikRadioOptions}
-            customOption="Logged in users only"
           />
         </Form>
       </Formik>
