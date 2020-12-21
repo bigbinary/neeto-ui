@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "moment": "^2.29.1",
+    "react-color": "^2.19.3",
     "yup": "^0.30.0"
   }
 }

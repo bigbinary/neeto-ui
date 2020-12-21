@@ -24,6 +24,9 @@ import {
   Select,
   Tab,
   Checkbox,
+  ColorPalette,
+  ColorPicker,
+  Accordion,
 } from "../lib";
 
 const App = () => {
@@ -54,6 +57,16 @@ const App = () => {
       value: false,
       id: "Logged in users only"
     }
+  ];
+
+  const DEFAULT_COLORS = [
+    { from: "purple-1000", to: "purple-1050", hexCode: "#6671E5" },
+    { from: "ash-1000", to: "ash-1050", hexCode: "#606C88" },
+    { from: "kimoby-1000", to: "kimoby-1050", hexCode: "#396AFC" },
+    { from: "turquoise-1000", to: "turquoise-1050", hexCode: "#136A8A" },
+    { from: "shrimpy-1000", to: "shrimpy-1050", hexCode: "#E43A15" },
+    { from: "veryblue-1000", to: "veryblue-1050", hexCode: "#0575E6" },
+    { from: "fbmessenger-1000", to: "fbmessenger-1050", hexCode: "#00C6FF" }
   ];
 
   return (
@@ -180,6 +193,27 @@ const App = () => {
         required
         label="Checkbox"
       />
+
+      <ColorPalette
+        colors={DEFAULT_COLORS}
+        selectedColor={DEFAULT_COLORS[0]}
+        handleColorChange={() => { }}
+      />
+
+      <ColorPicker
+        handleChange={value => { }}
+        color="#fefefe"
+        active={true}
+      />
+
+      <Accordion className="mt-2" defaultActiveKey={0}>
+        <Accordion.Item title="Opened Heading" isOpen>
+          <h1>This one is already open</h1>
+        </Accordion.Item>
+        <Accordion.Item title="Closed Heading">
+          <h1>Yay! I have opened the accordion</h1>
+        </Accordion.Item>
+      </Accordion>
 
       <Formik
         initialValues={{ allow_anyone_to_submit_ticket: "" }}
