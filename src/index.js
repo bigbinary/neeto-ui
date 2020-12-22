@@ -195,19 +195,21 @@ const App = () => {
       />
 
       <ColorPalette
-        colors={DEFAULT_COLORS}
-        selectedColor={DEFAULT_COLORS[0]}
-        handleColorChange={() => { }}
+        color={{ from: "purple-1000", to: "purple-1050" }}
+        onChange={() => { }}
       />
 
       <ColorPicker
-        handleChange={value => { }}
+        onChange={value => { }}
         color="#fefefe"
-        active={true}
+        colorPaletteProps={{
+          color: "#fefefe",
+          onChange: () => { }
+        }}
       />
 
       <Accordion className="mt-2" defaultActiveKey={0}>
-        <Accordion.Item title="Opened Heading" isOpen>
+        <Accordion.Item title="Opened Heading">
           <h1>This one is already open</h1>
         </Accordion.Item>
         <Accordion.Item title="Closed Heading">
