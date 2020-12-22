@@ -22,13 +22,11 @@
 @import "./components/tooltip";
 @import "./components/common";
 @import "./components/dateinput";
+@import "./components/color-picker";
 
 //Layout
 @import "./layout/sidebar";
 @import "./layout/header";
-
-//Screens
-@import "./screens/chat.scss";
 
 //Utilities
 @import "./utilities/animations";
