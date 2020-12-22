@@ -59,16 +59,6 @@ const App = () => {
     }
   ];
 
-  const DEFAULT_COLORS = [
-    { from: "purple-1000", to: "purple-1050", hexCode: "#6671E5" },
-    { from: "ash-1000", to: "ash-1050", hexCode: "#606C88" },
-    { from: "kimoby-1000", to: "kimoby-1050", hexCode: "#396AFC" },
-    { from: "turquoise-1000", to: "turquoise-1050", hexCode: "#136A8A" },
-    { from: "shrimpy-1000", to: "shrimpy-1050", hexCode: "#E43A15" },
-    { from: "veryblue-1000", to: "veryblue-1050", hexCode: "#0575E6" },
-    { from: "fbmessenger-1000", to: "fbmessenger-1050", hexCode: "#00C6FF" }
-  ];
-
   return (
     <div className="flex flex-col m-5 p-5">
       Hello
