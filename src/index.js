@@ -24,6 +24,9 @@ import {
   Select,
   Tab,
   Checkbox,
+  ColorPalette,
+  ColorPicker,
+  Accordion,
 } from "../lib";
 
 const App = () => {
@@ -181,6 +184,29 @@ const App = () => {
         label="Checkbox"
       />
 
+      <ColorPalette
+        color={{ from: "purple-1000", to: "purple-1050" }}
+        onChange={() => { }}
+      />
+
+      <ColorPicker
+        onChange={value => { }}
+        color="#fefefe"
+        colorPaletteProps={{
+          color: "#fefefe",
+          onChange: () => { }
+        }}
+      />
+
+      <Accordion className="mt-2" defaultActiveKey={0}>
+        <Accordion.Item title="Opened Heading">
+          <h1>This one is already open</h1>
+        </Accordion.Item>
+        <Accordion.Item title="Closed Heading">
+          <h1>Yay! I have opened the accordion</h1>
+        </Accordion.Item>
+      </Accordion>
+
       <Formik
         initialValues={{ allow_anyone_to_submit_ticket: "" }}
         onSubmit={() => { }}
@@ -202,7 +228,6 @@ const App = () => {
             label="Who can submit a ticket?"
             stacked
             options={formikRadioOptions}
-            customOption="Logged in users only"
           />
         </Form>
       </Formik>
