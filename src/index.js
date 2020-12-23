@@ -7,6 +7,7 @@ import {
   ActionBlock,
   Input as FormikInput,
   Radio as FormikRadio,
+  Select as FormikSelect,
 } from "../lib/components/formik";
 import {
   Avatar,
@@ -56,6 +57,17 @@ const App = () => {
       label: "Logged in users only",
       value: false,
       id: "Logged in users only"
+    }
+  ];
+
+  const formikSelectOptions = [
+    {
+      label: "Option 1",
+      value: "fselect-opt1",
+    },
+    {
+      label: "Option 2",
+      value: "fselect-opt2",
     }
   ];
 
@@ -123,6 +135,7 @@ const App = () => {
       <PageLoader />
 
       <Select
+        data-test-id="select-component-test-id"
         className="mt-4"
         label="Try out the select component"
         required
@@ -208,7 +221,7 @@ const App = () => {
       </Accordion>
 
       <Formik
-        initialValues={{ allow_anyone_to_submit_ticket: "" }}
+        initialValues={{ allow_anyone_to_submit_ticket: "", fselect: "" }}
         onSubmit={() => { }}
       >
         <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
@@ -228,6 +241,13 @@ const App = () => {
             label="Who can submit a ticket?"
             stacked
             options={formikRadioOptions}
+          />
+          <FormikSelect
+            name="fselect"
+            isMulti
+            data-test-id="formik-select-test-id"
+            label="Formik Select Component"
+            options={formikSelectOptions}
           />
         </Form>
       </Formik>
