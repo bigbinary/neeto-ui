@@ -1,0 +1,143 @@
+.nui-menubar--wrapper {
+  opacity: 1;
+  width: 280px;
+  background-color: theme("colors.cool-gray.50");
+  transition-property: width, opacity;
+  transition-duration: 0.3s;
+
+  &.nui-menubar--hide {
+    width: 0;
+    opacity: 0;
+  }
+
+  .nui-menubar--container {
+    width: 280px;
+    height: 100vh;
+    padding: 24px;
+    overflow-y: auto;
+
+    .nui-menubar--block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      margin: 0 0 4px;
+      color: theme("colors.gray.600");
+      border-radius: theme("borderRadius.md");
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: theme("fontWeight.medium");
+      }
+
+      .nui-badge {
+        font-size: 12px !important;
+        background-color: theme("colors.cool-gray.200");
+        transition: all 0.3s;
+
+        span {
+          display: inline-flex;
+        }
+
+        i {
+          display: none;
+          font-size: 14px;
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+        background-color: theme("colors.cool-gray.200");
+        color: theme("colors.gray.700");
+
+        .nui-badge {
+          background-color: transparent;
+
+          span {
+            display: none;
+          }
+
+          i {
+            display: inline-flex;
+          }
+        }
+      }
+
+      &.active {
+        background-color: theme("colors.cool-gray.200");
+        color: theme("colors.gray.800");
+
+        .nui-badge {
+          background-color: theme("colors.cool-gray.300");
+        }
+      }
+    }
+
+    .nui-menubar--item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 16px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: theme("fontWeight.medium");
+        color: theme("colors.gray.600");
+        transition: all 0.3s;
+      }
+
+      i {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .ri-check-line {
+        display: none;
+      }
+
+      .nui-btn--icon {
+        display: none;
+        font-size: 16px;
+      }
+
+      &.active {
+        .ri-check-line {
+          display: inline-flex;
+        }
+
+        p {
+          color: theme("colors.purple.500");
+        }
+      }
+
+      &:hover {
+        p {
+          color: theme("colors.gray.800");
+        }
+
+        .nui-btn--icon {
+          display: inline-flex;
+        }
+
+        .ri-check-line {
+          display: none;
+        }
+      }
+    }
+  }
+}
