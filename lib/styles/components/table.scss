@@ -8,11 +8,10 @@
         color: theme("colors.gray.600");
         background-color: theme("colors.white");
         text-transform: uppercase;
-        text-align: left;
         padding: 24px 24px 12px 0;
         letter-spacing: 0.5px;
         vertical-align: middle;
-        box-shadow: 0 1px 0 0 theme("colors.gray.200");
+        box-shadow: 0 1px 0 0 theme("colors.gray.100");
         z-index: 10;
 
         &:first-child {
@@ -24,15 +23,14 @@
   tbody {
     tr {
       td {
-        text-align: left;
         padding: 14px 20px 14px 0;
-        font-size: theme("fontSize.base");
+        font-size: theme("fontSize.sm");
         font-weight: theme("fontWeight.normal");
         color: theme("colors.gray.800");
         border-bottom: thin solid theme("colors.gray.100");
         vertical-align: middle;
 
-        a {
+        a:not(.nui-btn) {
           font-weight: theme("fontWeight.medium");
           color: theme("colors.purple.500");
           transition: all 0.3s;
@@ -64,73 +62,75 @@
       }
     }
   }
-}
 
-.nui-table.nui-table--avatar {
-  tbody {
-    tr {
-      td {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-    }
-  }
-}
-
-.nui-table.nui-table--checkbox {
-  thead,
-  tbody {
-    tr {
-      th,
-      td {
-        &:first-child {
-          width: 56px;
-          padding-right: 8px;
+  &.nui-table--avatar {
+    tbody {
+      tr {
+        td {
+          padding-top: 10px;
+          padding-bottom: 10px;
         }
       }
     }
   }
-}
 
-.nui-table.nui-table--name {
-  thead,
-  tbody {
+  &.nui-table--checkbox {
+    thead,
+    tbody {
+      tr {
+        th,
+        td {
+          &:first-child {
+            width: 48px;
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &.nui-table--actions {
     tr {
-      th,
-      td {
-        &:first-child {
+      td,
+      th {
+        &:last-of-type {
+          width: 144px;
+        }
+        &:first-of-type {
           width: auto;
-          padding-right: 8px;
         }
       }
-    }
-  }
-}
-
-.nui-table.nui-table--actions {
-  th,
-  td {
-    &:last-of-type {
-      opacity: 0;
-    }
-    &:first-of-type {
-      opacity: 1;
-    }
-  }
-
-  td.visible-actions,
-  th.visible-actions {
-    opacity: 1;
-  }
-
-  tr {
-    &:hover {
-      th,
       td {
         &:last-of-type {
+          opacity: 0;
+        }
+        &:first-of-type {
           opacity: 1;
         }
       }
+      &:hover {
+        td {
+          &:last-of-type {
+            opacity: 1;
+          }
+        }
+      }
     }
+  }
+
+  &.nui-table--hover {
+    tbody {
+      tr {
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: theme("colors.gray.50");
+        }
+      }
+    }
+  }
+
+  &.nui-table--layout-fixed {
+    table-layout: fixed;
   }
 }
