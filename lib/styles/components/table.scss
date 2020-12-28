@@ -108,7 +108,6 @@
 }
 
 .nui-table.nui-table--actions {
-  th,
   td {
     &:last-of-type {
       opacity: 0;
@@ -118,14 +117,12 @@
     }
   }
 
-  td.visible-actions,
-  th.visible-actions {
+  td.visible-actions {
     opacity: 1;
   }
 
   tr {
     &:hover {
-      th,
       td {
         &:last-of-type {
           opacity: 1;
