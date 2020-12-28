@@ -1,0 +1,19 @@
+.nui-filterbar--wrapper {
+  opacity: 1;
+  width: 360px;
+  background-color: theme("colors.cool-gray.100");
+  transition-property: width, opacity;
+  transition-duration: 0.3s;
+
+  &.nui-filterbar--hide {
+    width: 0;
+    opacity: 0;
+  }
+
+  .nui-filterbar--container {
+    width: 360px;
+    height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
+    padding: 24px;
+    overflow-y: auto;
+  }
+}
