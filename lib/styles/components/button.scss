@@ -108,6 +108,23 @@
     }
   }
 
+  &.nui-btn--icon_bordered {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    justify-content: center;
+    border: thin solid theme("colors.gray.200");
+    border-radius: theme("borderRadius.md");
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      color: theme("colors.gray.800");
+      background-color: theme("colors.gray.50");
+    }
+  }
+
   &.disabled {
     opacity: 0.5;
     cursor: not-allowed;
