@@ -1,50 +1,122 @@
-.bp3-input-group.bp3-small .bp3-input,
-.bp3-input {
-  box-shadow: theme("boxShadow.sm");
-  border: 1px solid theme("colors.gray.300");
-  border-radius: theme("borderRadius.md");
-  color: theme("colors.gray.800");
-  font-size: theme("fontSize.sm");
-  font-weight: theme("fontWeight.normal");
-  height: 38px;
-  transition: all ease-in-out 200ms;
-  cursor: pointer;
-  &:focus,
-  &:active {
-    transition: all ease-in-out 200ms;
-    border-color: theme("colors.purple.500");
-    outline: none;
-    box-shadow: theme("boxShadow.focus-purple");
+.bp3-datepicker.bp3-daterangepicker.bp3-daterangepicker-contiguous.bp3-daterangepicker-single-month {
+  .bp3-menu.bp3-daterangepicker-shortcuts {
+    .bp3-menu-item.bp3-popover-dismiss.bp3-popover-dismiss-override {
+      transition: all 0.3s ease-in;
+      &:hover {
+        background-color: theme("colors.gray.100");
+      }
+    }
+
+    .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss.bp3-popover-dismiss-override {
+      background-color: theme("colors.purple.500");
+      color: theme("colors.white");
+    }
+  }
+
+  .DayPicker {
+    .DayPicker-wrapper {
+      .bp3-datepicker-navbar.DayPicker-NavBar {
+        button {
+          transition: all 0.3s ease-in;
+          &:hover {
+            background-color: theme("colors.gray.100");
+          }
+        }
+      }
+
+      .DayPicker-Months {
+        .DayPicker-Month {
+          .DayPicker-Caption {
+            .bp3-datepicker-caption {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+              align-items: center;
+              margin: 0 16px 4px;
+
+              & > :first-child {
+                flex-grow: 0;
+              }
+
+              .bp3-html-select.bp3-minimal {
+                select {
+                  transition: all 0.3s ease-in;
+                  &:hover {
+                    background-color: theme("colors.gray.100") !important;
+                  }
+                }
+                span {
+                  right: 0 !important;
+                }
+              }
+            }
+          }
+
+          .DayPicker-Body {
+            .DayPicker-Week {
+              .DayPicker-Day {
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                  background-color: theme("colors.gray.100");
+                }
+
+                &--selected {
+                  background-color: theme("colors.purple.500");
+
+                  &:active,
+                  &:hover {
+                    background-color: theme("colors.purple.600");
+                  }
+                }
+
+                &--selected-range {
+                  background-color: theme("colors.purple.100");
+                  &:hover,
+                  &:active {
+                    background-color: theme("colors.purple.200");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-.bp3-datepicker .DayPicker-Day.DayPicker-Day--selected {
-  background-color: theme("colors.purple.500");
-  &:active,
-  &:hover {
-    background-color: theme("colors.purple.600");
-  }
-}
-
-.bp3-datepicker .DayPicker-Day:hover {
-  @apply bg-gray-200;
-}
-
-.bp3-daterangepicker .DayPicker-Day--selected-range {
-  background-color: theme("colors.purple.500");
-  color: theme("colors.white");
-}
-
-.bp3-daterangepicker .DayPicker-Day--selected-range:hover,
-.bp3-daterangepicker .DayPicker-Day--selected-range:active {
-  background-color: theme("colors.purple.600");
-  color: theme("colors.white");
-}
-
-.nui-date-range--input {
-  @apply flex flex-col items-start justify-start;
+.nui-date-range-picker {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   .bp3-control-group {
-    @apply grid gap-1 grid-cols-2;
+    display: grid;
+    grid-gap: 12px;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bp3-input-group.bp3-small .bp3-input,
+  .bp3-input {
+    box-shadow: theme("boxShadow.sm");
+    border: thin solid theme("colors.gray.200");
+    border-radius: theme("borderRadius.md");
+    color: theme("colors.gray.800");
+    font-size: theme("fontSize.sm");
+    font-weight: theme("fontWeight.normal");
+    height: 38px;
+    transition: all ease-in-out 200ms;
+    cursor: pointer;
+
+    &:focus,
+    &:active {
+      transition: all ease-in-out 200ms;
+      border-color: theme("colors.purple.500");
+      outline: none;
+      box-shadow: theme("boxShadow.focus-purple");
+    }
   }
 }
