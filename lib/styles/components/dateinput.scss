@@ -1,137 +1,80 @@
-.bp3-popover.bp3-minimal {
-  border-radius: theme("borderRadius.sm");
+.bp3-datepicker.bp3-daterangepicker.bp3-daterangepicker-contiguous.bp3-daterangepicker-single-month {
+  .bp3-menu.bp3-daterangepicker-shortcuts {
+    .bp3-menu-item.bp3-popover-dismiss.bp3-popover-dismiss-override {
+      transition: all 0.3s ease-in;
+      &:hover {
+        background-color: theme("colors.gray.100");
+      }
+    }
 
-  .bp3-popover-content {
-    padding: 0.5rem;
+    .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss.bp3-popover-dismiss-override {
+      background-color: theme("colors.purple.500");
+      color: theme("colors.white");
+    }
+  }
 
-    .bp3-datepicker.bp3-daterangepicker.bp3-daterangepicker-contiguous.bp3-daterangepicker-single-month {
-      padding: 0;
-
-      .bp3-menu.bp3-daterangepicker-shortcuts {
-        padding: 0 1rem 0 0;
-
-        &:focus {
-          outline: none;
-          border: none;
-        }
-
-        li {
-          margin: 0.5rem 0 0;
-        }
-
-        .bp3-menu-item.bp3-popover-dismiss.bp3-popover-dismiss-override {
-          transition: all ease-in 300ms;
-          border-radius: theme("borderRadius.sm");
-
+  .DayPicker {
+    .DayPicker-wrapper {
+      .bp3-datepicker-navbar.DayPicker-NavBar {
+        button {
+          transition: all 0.3s ease-in;
           &:hover {
-            background: theme("colors.gray.200");
+            background-color: theme("colors.gray.100");
           }
         }
-
-        .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss.bp3-popover-dismiss-override {
-          background-color: theme("colors.purple.500");
-          color: theme("colors.white");
-        }
       }
 
-      .bp3-divider+div {
-        padding: 0 0 0 1rem;
-      }
+      .DayPicker-Months {
+        .DayPicker-Month {
+          .DayPicker-Caption {
+            .bp3-datepicker-caption {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+              align-items: center;
+              margin: 0 16px 4px;
 
-      .DayPicker {
-        height: 100%;
-
-        .DayPicker-wrapper {
-          height: 100%;
-
-          .bp3-datepicker-navbar.DayPicker-NavBar {
-            button {
-              transition: all ease-in 300ms;
-
-              &:hover {
-                background: theme("colors.gray.200");
+              & > :first-child {
+                flex-grow: 0;
               }
 
-              &:focus {
-                outline: none;
-                border: none;
+              .bp3-html-select.bp3-minimal {
+                select {
+                  transition: all 0.3s ease-in;
+                  &:hover {
+                    background-color: theme("colors.gray.100") !important;
+                  }
+                }
+                span {
+                  right: 0 !important;
+                }
               }
             }
           }
 
-          .DayPicker-Months {
-            height: 100%;
+          .DayPicker-Body {
+            .DayPicker-Week {
+              .DayPicker-Day {
+                transition: all 0.3s ease-in;
 
-            .DayPicker-Month {
-              height: 80%;
-              border-collapse: separate;
-              border-spacing: 0 .25rem;
+                &:hover {
+                  background-color: theme("colors.gray.100");
+                }
 
-              .DayPicker-Caption {
-                .bp3-datepicker-caption {
-                  justify-content: space-around;
-                  margin: 0 16px 5px;
+                &--selected {
+                  background-color: theme("colors.purple.500");
 
-                  &>:first-child {
-                    flex-grow: 0;
-                  }
-
-                  .bp3-html-select.bp3-minimal {
-                    border-radius: theme("borderRadius.sm");
-
-                    select {
-                      transition: all ease-in 300ms;
-
-                      &:focus {
-                        outline: none;
-                        border: none;
-                      }
-
-                      &:hover {
-                        background: theme("colors.gray.200") !important;
-                      }
-                    }
-
-                    span {
-                      right: 0 !important;
-                    }
+                  &:active,
+                  &:hover {
+                    background-color: theme("colors.purple.600");
                   }
                 }
-              }
 
-              .DayPicker-Body {
-                .DayPicker-Week {
-                  .DayPicker-Day {
-                    margin: 0.5rem 0;
-                    transition: all ease-in 200ms;
-
-                    &:hover {
-                      background: theme("backgroundColor.gray.200");
-                    }
-
-                    &:focus {
-                      outline: none;
-                      border: none;
-                    }
-
-                    &--selected {
-                      background-color: theme("colors.purple.500");
-
-                      &:active,
-                      &:hover {
-                        background-color: theme("colors.purple.600");
-                      }
-                    }
-
-                    &--selected-range {
-                      background-color: theme("colors.purple.400");
-                      color: theme("colors.white");
-
-                      &:hover,
-                      &:active {
-                        background-color: theme("colors.purple.600");
-                      }
-                    }
+                &--selected-range {
+                  background-color: theme("colors.purple.100");
+                  &:hover,
+                  &:active {
+                    background-color: theme("colors.purple.200");
                   }
                 }
               }
@@ -143,31 +86,37 @@
   }
 }
 
-.bp3-input-group.bp3-small .bp3-input,
-.bp3-input {
-  box-shadow: theme("boxShadow.sm");
-  border: 1px solid theme("colors.gray.300");
-  border-radius: theme("borderRadius.md");
-  color: theme("colors.gray.800");
-  font-size: theme("fontSize.sm");
-  font-weight: theme("fontWeight.normal");
-  height: 38px;
-  transition: all ease-in-out 200ms;
-  cursor: pointer;
-
-  &:focus,
-  &:active {
-    transition: all ease-in-out 200ms;
-    border-color: theme("colors.purple.500");
-    outline: none;
-    box-shadow: theme("boxShadow.focus-purple");
-  }
-}
-
-.nui-date-range--input {
-  @apply flex flex-col items-start justify-start;
+.nui-date-range-picker {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   .bp3-control-group {
-    @apply grid gap-1 grid-cols-2;
+    display: grid;
+    grid-gap: 12px;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bp3-input-group.bp3-small .bp3-input,
+  .bp3-input {
+    box-shadow: theme("boxShadow.sm");
+    border: thin solid theme("colors.gray.200");
+    border-radius: theme("borderRadius.md");
+    color: theme("colors.gray.800");
+    font-size: theme("fontSize.sm");
+    font-weight: theme("fontWeight.normal");
+    height: 38px;
+    transition: all ease-in-out 200ms;
+    cursor: pointer;
+
+    &:focus,
+    &:active {
+      transition: all ease-in-out 200ms;
+      border-color: theme("colors.purple.500");
+      outline: none;
+      box-shadow: theme("boxShadow.focus-purple");
+    }
   }
 }
