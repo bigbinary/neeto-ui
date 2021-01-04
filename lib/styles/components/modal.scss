@@ -1,33 +1,61 @@
-.nui-modal--wrapper {
+.nui-modal__wrapper {
   width: 50%;
   max-width: 100%;
   min-height: 52vh;
   padding: 24px;
-  &.nui-modal--wrapper__sm {
+  position: relative;
+  background-color: theme("colors.white");
+  border-radius: theme("borderRadius.lg");
+  box-shadow: theme("boxShadow.xl");
+  overflow: hidden;
+
+  &.nui-modal__wrapper--sm {
     width: 40%;
     max-width: 544px;
     min-height: 40vh;
   }
 
-  &.nui-modal--wrapper__md {
+  &.nui-modal__wrapper--md {
     width: 65%;
     min-height: 65vh;
   }
 
-  &.nui-modal--wrapper__lg {
+  &.nui-modal__wrapper--lg {
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+
+    .nui-modal__close {
+      .nui-btn {
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        border: thin solid theme("colors.gray.200");
+        border-radius: theme("borderRadius.full");
+
+        &:hover {
+          border-color: theme("colors.gray.300");
+        }
+      }
+    }
   }
 
-  &.nui-modal--auto-height {
+  &.nui-modal__wrapper--auto-height {
     min-height: auto;
   }
 
-  &.nui-modal--auto-width {
+  &.nui-modal__wrapper--auto-width {
     width: auto;
   }
 
-  &.nui-modal--wrapper__footer {
+  &.nui-modal__wrapper--footer {
     padding-bottom: $modal-footer-padding;
+  }
+
+  .nui-modal__close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
   }
 }
