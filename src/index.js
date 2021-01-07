@@ -72,7 +72,7 @@ const App = () => {
   ];
 
   return (
-    <div className="flex flex-col m-5 p-5">
+    <div className="flex flex-col p-5 m-5">
       Hello
       <IconPicker value={icon} onChange={setIcon} />
 
@@ -226,7 +226,9 @@ const App = () => {
       >
         <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
           <ActionBlock
-            reset-data-test-id="test-id-1"
+            cancelButtonProps={{
+              'data-test-id': "test-id-1"
+            }}
           />
           <FormikInput
             name="inputField"
