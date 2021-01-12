@@ -1,0 +1,18 @@
+.nui-label {
+  @apply text-sm;
+  @apply text-gray-700;
+  @apply font-medium;
+  @apply leading-5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nui-label--uppercase {
+  @apply text-xs;
+  @apply uppercase;
+  @apply tracking-wider;
+  @apply font-semibold;
+  @apply text-gray-400;
+}
