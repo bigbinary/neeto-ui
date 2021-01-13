@@ -149,15 +149,18 @@ const App = () => {
       />
 
       <Slider
-          min={0}
-          max={10}
-          stepSize={1}
-          labelStepSize={10}
-          value={sliderCount}
-          onChange={value => {
-            setSliderCount(value);
-          }}
-        />
+        min={0}
+        max={10}
+        label="Slider Label"
+        required
+        helpText="Slider Help Text"
+        stepSize={1}
+        labelStepSize={10}
+        value={sliderCount}
+        onChange={value => {
+          setSliderCount(value);
+        }}
+      />
 
       <Tab className="w-full px-6 border-bottom">
         <Tab.Item
