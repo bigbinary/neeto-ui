@@ -23,6 +23,7 @@ import {
   PageLoader,
   Pane,
   Select,
+  Slider,
   Tab,
   Checkbox,
   ColorPalette,
@@ -37,6 +38,7 @@ const App = () => {
   const [startDate, setStartDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
   const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
   const [pageNo, setPageNo] = useState(1);
+  const [sliderCount, setSliderCount] = useState(0)
   const PAGE_SIZE = 5;
 
   const selectOptions = [
@@ -145,6 +147,17 @@ const App = () => {
         onChange={e => setSelectedAnswer(e)}
         isSearchable
       />
+
+      <Slider
+          min={0}
+          max={10}
+          stepSize={1}
+          labelStepSize={10}
+          value={sliderCount}
+          onChange={value => {
+            setSliderCount(value);
+          }}
+        />
 
       <Tab className="w-full px-6 border-bottom">
         <Tab.Item
