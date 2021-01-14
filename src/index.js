@@ -29,6 +29,7 @@ import {
   ColorPalette,
   ColorPicker,
   Accordion,
+  ActionDropdown,
 } from "../lib";
 
 const App = () => {
@@ -87,10 +88,40 @@ const App = () => {
         <p>Card Item 2</p>
       </Card>
 
-      <Dropdown buttonStyle="icon" icon="ri-more-2-fill">
+      <Dropdown buttonStyle="icon" icon="ri-more-2-fill" className="mb-4">
         <li>Download Transcript</li>
         <li>End Chat</li>
       </Dropdown>
+
+      <Dropdown
+        label="Dropdown with Action Button"
+        style="secondary"
+        actionButtonProps={{
+          style: 'link',
+          icon: 'ri-add-line ri-lg',
+          label: 'Action Button',
+          className: "hover:bg-gray-50"
+        }}
+        className="mb-4"
+        position="bottom"
+      >
+        <li>Click Me</li>
+        <li>Hover Me</li>
+      </Dropdown>
+
+      <div className="flex">
+        <ActionDropdown
+          style="primary"
+          buttonProps={{
+            label: "Save Draft",
+          }}
+          dropdownProps={{
+            autoWidth: true
+          }}
+        >
+          <li>Publish</li>
+        </ActionDropdown>
+      </div>
 
       <Callout icon={false} style="info">
         <span className="leading-relaxed">
