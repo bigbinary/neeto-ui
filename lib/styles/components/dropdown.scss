@@ -94,3 +94,56 @@
     }
   }
 }
+
+.nui-action-dropdown {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: theme("borderRadius.default");
+
+  //Common
+  .nui-btn {
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    &:focus {
+      border: none;
+    }
+  }
+
+  //Action Button
+  > .nui-btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  //Dropdown Button
+  .bp3-popover-wrapper {
+    .nui-btn {
+      padding-left: 9px;
+      padding-right: 9px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.nui-action-dropdown--primary {
+    background: $primary-gradient;
+
+    > .nui-btn {
+      border-right: thin solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &.nui-action-dropdown--secondary {
+    border: thin solid theme("colors.gray.200");
+
+    > .nui-btn {
+      border-right: thin solid theme("colors.gray.200");
+    }
+  }
+}
