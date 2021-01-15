@@ -1,6 +1,6 @@
 {
   "name": "neetoui",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "main": "./neetoui.js",
   "author": "BigBinary",
   "license": "MIT",
@@ -46,7 +46,6 @@
   },
   "peerDependencies": {
     "formik": "^2.2.0",
-    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -54,7 +53,7 @@
     "react-toastify": "^6.0.9"
   },
   "dependencies": {
-    "moment": "^2.29.1",
+    "dayjs": "^1.10.3",
     "react-color": "^2.19.3",
     "yup": "^0.30.0"
   }
