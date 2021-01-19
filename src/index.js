@@ -1,4 +1,4 @@
-import moment from "moment";
+import * as dayjs from "dayjs";
 import { isEmpty } from "ramda";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
@@ -14,6 +14,7 @@ import {
   Button,
   Callout,
   Card,
+  DateInput,
   DateRangeInput,
   Dropdown,
   IconPicker,
@@ -36,10 +37,14 @@ const App = () => {
   const [icon, setIcon] = useState(null);
   const [name, setName] = useState("");
 
-  const [startDate, setStartDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
-  const [endDate, setEndDate] = useState(moment("04-12-2020", "DD-MM-YYYY").toDate());
+  const [startDate, setStartDate] = useState(
+    dayjs("04-12-2020", "DD-MM-YYYY").toDate()
+  );
+  const [endDate, setEndDate] = useState(
+    dayjs("04-12-2020", "DD-MM-YYYY").toDate()
+  );
   const [pageNo, setPageNo] = useState(1);
-  const [sliderCount, setSliderCount] = useState(0)
+  const [sliderCount, setSliderCount] = useState(0);
   const PAGE_SIZE = 5;
 
   const selectOptions = [
@@ -54,13 +59,13 @@ const App = () => {
     {
       label: "Everyone",
       value: true,
-      id: "Everyone"
+      id: "Everyone",
     },
     {
       label: "Logged in users only",
       value: false,
-      id: "Logged in users only"
-    }
+      id: "Logged in users only",
+    },
   ];
 
   const formikSelectOptions = [
@@ -71,36 +76,30 @@ const App = () => {
     {
       label: "Option 2",
       value: "fselect-opt2",
-    }
+    },
   ];
 
   return (
     <div className="flex flex-col p-5 m-5">
       Hello
       <IconPicker value={icon} onChange={setIcon} />
-
-      <Card
-        rows={1}
-        className="mt-6"
-      >
+      <Card rows={1} className="mt-6">
         <Card.Title>My Card Title</Card.Title>
         <p>Card Item 1</p>
         <p>Card Item 2</p>
       </Card>
-
       <Dropdown buttonStyle="icon" icon="ri-more-2-fill" className="mb-4">
         <li>Download Transcript</li>
         <li>End Chat</li>
       </Dropdown>
-
       <Dropdown
         label="Dropdown with Action Button"
         style="secondary"
         actionButtonProps={{
-          style: 'link',
-          icon: 'ri-add-line ri-lg',
-          label: 'Action Button',
-          className: "hover:bg-gray-50"
+          style: "link",
+          icon: "ri-add-line ri-lg",
+          label: "Action Button",
+          className: "hover:bg-gray-50",
         }}
         className="mb-4"
         position="bottom"
@@ -108,7 +107,6 @@ const App = () => {
         <li>Click Me</li>
         <li>Hover Me</li>
       </Dropdown>
-
       <div className="flex">
         <ActionDropdown
           style="primary"
@@ -116,21 +114,19 @@ const App = () => {
             label: "Save Draft",
           }}
           dropdownProps={{
-            autoWidth: true
+            autoWidth: true,
           }}
         >
           <li>Publish</li>
         </ActionDropdown>
       </div>
-
       <Callout icon={false} style="info">
         <span className="leading-relaxed">
           Press
-          <span className="font-semibold"> Shift + ?</span> on your
-          keyboard at any point.
+          <span className="font-semibold"> Shift + ?</span> on your keyboard at
+          any point.
         </span>
       </Callout>
-
       <Label
         required
         helpText="Help Text"
@@ -139,14 +135,17 @@ const App = () => {
       >
         My Label
       </Label>
-
-      <Avatar
-        status="online"
-        contact={{ name: "Oliver Smith" }}
+      <Avatar status="online" contact={{ name: "Oliver Smith" }} />
+      <DateInput
+        label="Date Input"
+        startDateId="start_date_id"
+        value={startDate}
+        onChange={(startDate) => {
+          setStartDate(startDate);
+        }}
       />
-
       <DateRangeInput
-        label="Time period"
+        label="Date Range Input"
         startDateId="start_date_id"
         endDateId="end_date_id"
         value={[startDate, endDate]}
@@ -154,19 +153,16 @@ const App = () => {
           setStartDate(startDate);
           setEndDate(endDate);
         }}
-        minDate={moment("2019-01-01").toDate()}
-        maxDate={moment().toDate()}
+        minDate={dayjs("2019-01-01").toDate()}
+        maxDate={dayjs().toDate()}
       />
-
       <Pagination
         count={17}
         pageNo={pageNo}
         pageSize={PAGE_SIZE}
-        navigate={index => setPageNo(index)}
+        navigate={(index) => setPageNo(index)}
       />
-
       <PageLoader />
-
       <Select
         data-test-id="select-component-test-id"
         className="mt-4"
@@ -175,10 +171,9 @@ const App = () => {
         placeholder="Select an answer..."
         value={selectedAnswer}
         options={selectOptions}
-        onChange={e => setSelectedAnswer(e)}
+        onChange={(e) => setSelectedAnswer(e)}
         isSearchable
       />
-
       <Slider
         min={0}
         max={10}
@@ -188,35 +183,28 @@ const App = () => {
         stepSize={1}
         labelStepSize={10}
         value={sliderCount}
-        onChange={value => {
+        onChange={(value) => {
           setSliderCount(value);
         }}
       />
-
       <Tab className="w-full px-6 border-bottom">
-        <Tab.Item
-          icon="ri-brush-line"
-          onClick={() => { }}
-          active={true}
-        >
+        <Tab.Item icon="ri-brush-line" onClick={() => {}} active={true}>
           Design
         </Tab.Item>
         <Tab.Item
           icon="ri-chat-settings-line"
-          onClick={() => { }}
+          onClick={() => {}}
           active={false}
         >
           Settings
         </Tab.Item>
       </Tab>
-
       <Button
         data-test-id="open-pane"
         label="Open Pane"
         icon="ri-add-line ri-lg"
         onClick={() => setIsPaneOpen(true)}
       />
-
       <Pane
         title="Open Pane"
         isOpen={isPaneOpen}
@@ -224,40 +212,30 @@ const App = () => {
       >
         <p>Pane Content</p>
       </Pane>
-
       <Input
         type="text"
         label="Name"
         data-test-id="name-input"
         placeholder="Enter your name"
         error={isEmpty(name) && "Your name required*"}
-        onChange={e => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         value={name}
         required={true}
         maxLength={35}
       />
-
-      <Checkbox
-        id="uniqueId"
-        name="checkbox"
-        required
-        label="Checkbox"
-      />
-
+      <Checkbox id="uniqueId" name="checkbox" required label="Checkbox" />
       <ColorPalette
         color={{ from: "purple-1000", to: "purple-1050" }}
-        onChange={() => { }}
+        onChange={() => {}}
       />
-
       <ColorPicker
-        onChange={value => { }}
+        onChange={(value) => {}}
         color="#fefefe"
         colorPaletteProps={{
           color: "#fefefe",
-          onChange: () => { }
+          onChange: () => {},
         }}
       />
-
       <Accordion className="mt-2" defaultActiveKey={0}>
         <Accordion.Item title="Opened Heading">
           <h1>This one is already open</h1>
@@ -266,15 +244,14 @@ const App = () => {
           <h1>Yay! I have opened the accordion</h1>
         </Accordion.Item>
       </Accordion>
-
       <Formik
         initialValues={{ allow_anyone_to_submit_ticket: "", fselect: "" }}
-        onSubmit={() => { }}
+        onSubmit={() => {}}
       >
         <Form className="w-full px-10 py-8 bg-white border rounded-lg shadow-sm">
           <ActionBlock
             cancelButtonProps={{
-              'data-test-id': "test-id-1"
+              "data-test-id": "test-id-1",
             }}
           />
           <FormikInput
