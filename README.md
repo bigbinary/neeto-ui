@@ -43,7 +43,7 @@ Read the docs here: https://neeto-ui.netlify.app.
 
 ## Migration
 
-Migration to NeetoUI. Migration to version `0.60` has breaking impact on the application. 
+Migration to version `0.60` has breaking impact on the application. 
 
 Old import statement ( version < 0.58 )
 
@@ -53,4 +53,4 @@ New import statement ( version > 0.60 )
 
 `import { Button } from "neetoui"`
 
-
+Migration to version `0.87` has breaking changes to Alert Component.
