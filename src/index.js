@@ -135,7 +135,10 @@ const App = () => {
       >
         My Label
       </Label>
-      <Avatar status="online" contact={{ name: "Oliver Smith" }} />
+      <Avatar
+        status="online"
+        contact={{ name: "Oliver Smith" }}
+      />
       <DateInput
         label="Date Input"
         startDateId="start_date_id"
