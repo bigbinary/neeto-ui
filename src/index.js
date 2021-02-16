@@ -31,6 +31,7 @@ import {
   ColorPicker,
   Accordion,
   ActionDropdown,
+  TimeInput,
 } from "../lib";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
   const [endDate, setEndDate] = useState(
     dayjs("04-12-2020", "DD-MM-YYYY").toDate()
   );
+  const [time, setTime] = useState(dayjs().toDate());
   const [pageNo, setPageNo] = useState(1);
   const [sliderCount, setSliderCount] = useState(0);
   const PAGE_SIZE = 5;
@@ -135,10 +137,7 @@ const App = () => {
       >
         My Label
       </Label>
-      <Avatar
-        status="online"
-        contact={{ name: "Oliver Smith" }}
-      />
+      <Avatar status="online" contact={{ name: "Oliver Smith" }} />
       <DateInput
         label="Date Input"
         startDateId="start_date_id"
@@ -280,6 +279,12 @@ const App = () => {
           />
         </Form>
       </Formik>
+      <TimeInput
+        label="Time"
+        required
+        value={time}
+        onChange={(value) => setTime(value)}
+      />
     </div>
   );
 };
