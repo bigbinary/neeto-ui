@@ -1,0 +1,26 @@
+.nui-time-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .bp3-timepicker {
+    .bp3-timepicker-input-row {
+      height: 36px;
+      border-radius: theme("borderRadius.md");
+      .bp3-timepicker-input {
+        height: 36px;
+      }
+    }
+  }
+
+  .bp3-html-select,
+  .bp3-select {
+    select {
+      height: 36px;
+    }
+
+    .bp3-icon {
+      top: 10px;
+    }
+  }
+}
