@@ -131,7 +131,7 @@ const App = () => {
       </Callout>
       <Label
         required
-        helpText="Help Text"
+        infoText="Help Text"
         className="mb-1"
         data-cy="cypress-attrs"
       >
@@ -181,7 +181,7 @@ const App = () => {
         max={10}
         label="Slider Label"
         required
-        helpText="Slider Help Text"
+        infoText="Slider Help Text"
         stepSize={1}
         labelStepSize={10}
         value={sliderCount}
