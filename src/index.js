@@ -224,6 +224,7 @@ const App = () => {
         value={name}
         required={true}
         maxLength={35}
+        iconLeft={"ri-user-line"}
       />
       <Checkbox id="uniqueId" name="checkbox" required label="Checkbox" />
       <ColorPalette
