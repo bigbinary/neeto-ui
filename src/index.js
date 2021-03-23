@@ -32,6 +32,7 @@ import {
   Accordion,
   ActionDropdown,
   TimeInput,
+  Alert,
 } from "../lib";
 
 const App = () => {
@@ -56,7 +57,7 @@ const App = () => {
   const [selectedAnswer, setSelectedAnswer] = useState({});
 
   const [isPaneOpen, setIsPaneOpen] = useState(false);
-
+  const [showAlert, setShowAlert] = useState(false);
   const formikRadioOptions = [
     {
       label: "Everyone",
@@ -285,6 +286,29 @@ const App = () => {
         value={time}
         onChange={(value) => setTime(value)}
       />
+      <div className="p-4">
+        <Button
+          style="primary"
+          label="Click here to open Alert Component"
+          onClick={() => setShowAlert(true)}
+        />
+        <Alert
+          isOpen={showAlert}
+          title="Alert Title"
+          info="true"
+          icon="ri-information-line text-purple-500 text-3xl"
+          className="-mt-1"
+          message="This is an alert message"
+          onClose={() => setShowAlert(false)}
+          cancelButtonProps={{
+            onClick: () => setShowAlert(false),
+          }}
+          submitButtonProps={{
+            className: "nui-btn nui-btn--primary ml-3",
+            onClick: () => setShowAlert(false),
+          }}
+        />
+      </div>
     </div>
   );
 };
