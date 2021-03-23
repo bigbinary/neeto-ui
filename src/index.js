@@ -293,18 +293,17 @@ const App = () => {
           onClick={() => setShowAlert(true)}
         />
         <Alert
+          style="info"
           isOpen={showAlert}
-          title="Alert Title"
-          info="true"
-          icon="ri-information-line text-purple-500 text-3xl"
-          className="-mt-1"
-          message="This is an alert message"
           onClose={() => setShowAlert(false)}
+          title="Alert Title"
+          message="This is an alert message"
+          icon="ri-information-line text-blue-500"
           cancelButtonProps={{
             onClick: () => setShowAlert(false),
           }}
           submitButtonProps={{
-            className: "nui-btn nui-btn--primary ml-3",
+            style: "primary",
             onClick: () => setShowAlert(false),
           }}
         />
