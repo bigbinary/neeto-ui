@@ -42,7 +42,11 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + "/build"
+    path: __dirname + "/build",
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
