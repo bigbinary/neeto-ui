@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import * as dayjs from "dayjs";
 import {
   Input,
@@ -12,10 +12,9 @@ import {
 } from "../../lib";
 import { isEmpty } from "ramda";
 
-import Header from '../Header';
+import Header from "../Header";
 
 const FormElements = () => {
-
   const SELECT_OPTIONS = [
     { label: "Option 1", value: 1 },
     { label: "Option 2", value: 2 },
@@ -25,7 +24,7 @@ const FormElements = () => {
   const [time, setTime] = useState(dayjs().toDate());
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [sliderCount, setSliderCount] = useState(0);
-  
+
   const [startDate, setStartDate] = useState(
     dayjs("04-12-2020", "DD-MM-YYYY").toDate()
   );
@@ -35,7 +34,7 @@ const FormElements = () => {
 
   return (
     <div className="w-full">
-      <Header title="Form Elements"/>
+      <Header title="Form Elements" />
       <div className="flex flex-col items-start justify-start p-6">
         <div className="grid w-2/3 grid-cols-2 gap-6 mb-8">
           <Input
@@ -77,13 +76,23 @@ const FormElements = () => {
         </div>
         <div className="grid w-2/3 grid-cols-2 gap-6 mb-12">
           <div className="grid grid-cols-2 gap-2">
-            <Checkbox id="uniqueId" name="checkbox" label="Checkbox 1" />
-            <Checkbox id="uniqueId" name="checkbox" label="Checkbox 2" />
+            <Checkbox
+              id="uniqueId"
+              name="checkbox"
+              label="Checkbox 1"
+              checked={true}
+            />
+            <Checkbox
+              id="uniqueId"
+              name="checkbox"
+              label="Checkbox 2"
+              disabled={true}
+            />
           </div>
           <Radio>
-            <Radio.Item label="Radio 1" value={1}/>
-            <Radio.Item label="Radio 2" value={2}/>
-            <Radio.Item label="Radio 3" value={3}/>
+            <Radio.Item label="Radio 1" value={1} />
+            <Radio.Item label="Radio 2" value={2} />
+            <Radio.Item label="Radio 3" value={3} />
           </Radio>
         </div>
         <div className="grid w-2/3 grid-cols-2 gap-6">
@@ -104,14 +113,14 @@ const FormElements = () => {
                 setSliderCount(value);
               }}
               labelProps={{
-                className: "mb-3 -ml-2"
+                className: "mb-3 -ml-2",
               }}
             />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default FormElements;
