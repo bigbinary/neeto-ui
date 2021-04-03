@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as dayjs from "dayjs";
 import {
   Input,
+  Textarea,
   Select,
   Radio,
   Checkbox,
@@ -36,7 +37,7 @@ const FormElements = () => {
     <div className="w-full">
       <Header title="Form Elements" />
       <div className="flex flex-col items-start justify-start p-6">
-        <div className="grid w-2/3 grid-cols-2 gap-6 mb-8">
+        <div className="grid w-full grid-cols-3 gap-6 mb-8">
           <Input
             type="text"
             label="Input"
@@ -45,6 +46,10 @@ const FormElements = () => {
             onChange={(e) => setName(e.target.value)}
             error={isEmpty(name) && "Your name required*"}
             maxLength={32}
+          />
+          <Textarea
+            label="Textarea"
+            placeholder="Type Something"
           />
           <Select
             label="Select"
