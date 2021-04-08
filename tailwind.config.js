@@ -1,5 +1,3 @@
-const { colors } = require("tailwindcss/defaultTheme");
-
 module.exports = {
   important: true,
   purge: [],
@@ -11,11 +9,6 @@ module.exports = {
       spacing: {
         "1.5": "0.375rem",
         "2.5": "0.625rem",
-        "18": "4.5rem",
-        "34": "8.25rem",
-        "36": "8.5rem",
-        "140": "35rem",
-        "180": "45rem"
       },
       colors: {
         purple: {
@@ -31,38 +24,14 @@ module.exports = {
           900: "#192040"
         }
       },
-      minWidth: {
-        "5": "1.25rem",
-        "10": "2.5rem"
-      },
-      minHeight: {
-        "5": "1.25rem",
-        "10": "2.5rem"
-      },
       boxShadow: {
+        "xs": '0 0 0 1px rgba(0, 0, 0, 0.05)',
         "focus-purple": "0 0 0 3px rgba(84, 105, 212, 0.15)",
         "focus-red": "0 0 0 3px #FED7D7"
-      },
-      keyframes: {
-        "highlight-row": {
-          from: { backgroundColor: "#fcfca2" },
-          to: { backgroundColor: "#fff" }
-        }
-      },
-      animation: {
-        "highlight-row": "highlight-row 2s ease-out",
-        "spin-fast": "spin 0.6s linear infinite"
       },
       zIndex: {
         1: 1
       },
-      opacity: {
-        "10": ".1",
-        "20": ".2"
-      },
-      fontSize: {
-        tiny: ".375rem"
-      }
     }
   },
   variants: {
@@ -72,5 +41,8 @@ module.exports = {
     backgroundColor: ["responsive", "hover", "focus", "active"],
     color: ["responsive", "hover", "focus", "active"]
   },
-  plugins: [require("@tailwindcss/ui")]
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ]
 };
