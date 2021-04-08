@@ -131,3 +131,11 @@
     }
   }
 }
+
+.nui-radio {
+  width: 16px;
+  height: 16px;
+  color: theme("colors.purple.500");
+  transition: all 0.3s;
+  border: thin solid theme("colors.gray.300");
+}

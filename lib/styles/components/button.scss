@@ -21,6 +21,17 @@
     text-decoration: none;
   }
 
+  &.nui-btn--large {
+    padding: 10px 16px;
+  }
+
+  &.nui-btn--full {
+    width: 100%;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   &.nui-btn--primary {
     padding: 8px 12px;
     color: theme("colors.white");

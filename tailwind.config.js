@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  important: false,
+  important: true,
   purge: [],
   future: {
     removeDeprecatedGapUtilities: true
