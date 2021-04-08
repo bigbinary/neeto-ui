@@ -6,6 +6,7 @@ import {
   Select,
   Radio,
   Checkbox,
+  Switch,
   DateInput,
   DateRangeInput,
   TimeInput,
@@ -79,13 +80,13 @@ const FormElements = () => {
             maxDate={dayjs().toDate()}
           />
         </div>
-        <div className="grid w-2/3 grid-cols-2 gap-6 mb-12">
+        <div className="grid w-full grid-cols-3 gap-6 mb-12">
           <div className="grid grid-cols-2 gap-2">
             <Checkbox
               id="uniqueId"
               name="checkbox"
               label="Checkbox 1"
-              checked={true}
+              // checked={true}
             />
             <Checkbox
               id="uniqueId"
@@ -99,6 +100,19 @@ const FormElements = () => {
             <Radio.Item label="Radio 2" value={2} />
             <Radio.Item label="Radio 3" value={3} />
           </Radio>
+          <div className="grid grid-cols-2 gap-2">
+            <Switch
+              id="switch1"
+              name="switchOFF"
+              label="Switch OFF"
+            />
+            <Switch
+              id="switch2"
+              name="switchON"
+              label="Switch ON"
+              checked={true}
+            />
+          </div>
         </div>
         <div className="grid w-2/3 grid-cols-2 gap-6">
           <TimeInput
