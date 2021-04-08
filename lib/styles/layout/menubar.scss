@@ -1,7 +1,7 @@
 .nui-menubar--wrapper {
   opacity: 1;
   width: 280px;
-  background-color: theme("colors.cool-gray.50");
+  background-color: theme("colors.gray.50");
   transition-property: width, opacity;
   transition-duration: 0.3s;
 
@@ -39,7 +39,7 @@
 
       .nui-badge {
         font-size: 12px !important;
-        background-color: theme("colors.cool-gray.200");
+        background-color: theme("colors.gray.200");
         transition: all 0.3s;
 
         span {
@@ -54,7 +54,7 @@
 
       &:hover {
         text-decoration: none;
-        background-color: theme("colors.cool-gray.200");
+        background-color: theme("colors.gray.200");
         color: theme("colors.gray.700");
 
         .nui-badge {
@@ -71,11 +71,11 @@
       }
 
       &.active {
-        background-color: theme("colors.cool-gray.200");
+        background-color: theme("colors.gray.200");
         color: theme("colors.gray.800");
 
         .nui-badge {
-          background-color: theme("colors.cool-gray.300");
+          background-color: theme("colors.gray.300");
         }
       }
     }

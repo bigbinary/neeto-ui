@@ -65,7 +65,7 @@
 
   .nui-react-select__value-container {
     padding: 0 8px;
-    min-height: 36px;
+    min-height: 37px;
 
     &.nui-react-select__value-container--is-multi {
       padding: 0 4px;
@@ -113,7 +113,7 @@
     }
 
     .nui-react-select__option--is-focused {
-      background-color: theme("colors.cool-gray.100");
+      background-color: theme("colors.gray.100");
     }
 
     .nui-react-select__option--is-disabled {

@@ -23,6 +23,10 @@
       width: 100%;
       padding: 8px 10px;
       background-color: transparent;
+      border: none;
+      font-size: inherit;
+      line-height: inherit;
+      box-shadow: none;
 
       &:focus {
         outline: none;
@@ -32,6 +36,11 @@
     textarea {
       width: 100%;
       background-color: transparent;
+      border: none;
+      font-size: inherit;
+      line-height: inherit;
+      box-shadow: none;
+      padding: 0;
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {

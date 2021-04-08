@@ -3,9 +3,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-radius: theme("borderRadius.default");
+  border-radius: theme("borderRadius.DEFAULT");
   font-size: theme("fontSize.sm");
   font-weight: theme("fontWeight.medium");
+  line-height: 1;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -21,7 +22,7 @@
   }
 
   &.nui-btn--primary {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: theme("colors.white");
     background: $primary-gradient;
     border: thin solid transparent;
@@ -41,7 +42,7 @@
   }
 
   &.nui-btn--danger {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: theme("colors.white");
     background-color: theme("colors.red.500");
     border: thin solid transparent;
@@ -60,7 +61,7 @@
   }
 
   &.nui-btn--warning {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: theme("colors.red.500");
     background-color: theme("colors.white");
     border: thin solid theme("colors.gray.300");
@@ -75,7 +76,7 @@
   }
 
   &.nui-btn--secondary {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: theme("colors.gray.600");
     background-color: theme("colors.white");
     border: thin solid theme("colors.gray.300");
