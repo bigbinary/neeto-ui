@@ -1,5 +1,7 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-  important: true,
+  important: false,
   purge: [],
   future: {
     removeDeprecatedGapUtilities: true
@@ -11,6 +13,7 @@ module.exports = {
         "2.5": "0.625rem",
       },
       colors: {
+        ...colors,
         purple: {
           50: "#F6F8FD",
           100: "#EEF0FB",
