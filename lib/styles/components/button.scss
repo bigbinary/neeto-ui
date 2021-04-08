@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-radius: theme("borderRadius.default");
+  border-radius: theme("borderRadius.DEFAULT");
   font-size: theme("fontSize.sm");
   font-weight: theme("fontWeight.medium");
   transition-property: background-color, border-color, color, fill, stroke,

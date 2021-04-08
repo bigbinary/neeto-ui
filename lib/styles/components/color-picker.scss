@@ -11,7 +11,8 @@
     .nui-colorpicker__pointer {
       width: 4px;
       height: 4px;
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 1.5px, rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset,
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 1.5px,
+        rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset,
         rgba(0, 0, 0, 0.4) 0px 0px 1px 2px;
       border-radius: 50%;
       transform: translate(-2px, -2px);
@@ -67,7 +68,7 @@
   div {
     width: 100%;
     min-height: 100%;
-    border-radius: theme("borderRadius.default");
+    border-radius: theme("borderRadius.DEFAULT");
     overflow: hidden;
   }
 }
@@ -89,7 +90,7 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    box-shadow: theme("boxShadow.default");
+    box-shadow: theme("boxShadow.DEFAULT");
     border-radius: theme("borderRadius.md");
     background-color: theme("colors.white");
 

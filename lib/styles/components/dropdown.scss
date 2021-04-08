@@ -58,7 +58,7 @@
             border: solid 2px theme("colors.gray.200");
             border-top-color: theme("colors.black");
             border-left-color: theme("colors.black");
-            animation: theme("animation.spin-fast");
+            animation: theme("animation.spin");
           }
         }
 
@@ -100,7 +100,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: theme("borderRadius.default");
+  border-radius: theme("borderRadius.DEFAULT");
 
   //Common
   .nui-btn {
