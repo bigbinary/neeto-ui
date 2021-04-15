@@ -1,10 +1,9 @@
-**NeetoUI** is a component library from [BigBinary](https://www.bigbinary.com).
-Checkout the [online demo and documentation](https://neeto-ui.netlify.app).
+**NeetoUI** is the library that drives the experience in all Neeto products built at [BigBinary](https://www.bigbinary.com).
 
 ## Installation
 
 ```
-yarn add https://github.com/bigbinary/neeto-ui.git
+yarn add @bigbinary/neetoui
 ```
 
 NeetoUI relies on [Remixicons](https://remixicon.com/) for it's icons.
@@ -41,16 +40,3 @@ Make sure to commit and push the changes to Github. In the host application, run
 
 Read the docs here: https://neeto-ui.netlify.app.
 
-## Migration
-
-Migration to version `0.60` has breaking impact on the application. 
-
-Old import statement ( version < 0.58 )
-
-`import { Button } from "nitroui"`
-
-New import statement ( version > 0.60 )
-
-`import { Button } from "neetoui"`
-
-Migration to version `0.87` has breaking changes to Alert Component.
