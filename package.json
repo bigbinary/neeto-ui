@@ -1,5 +1,5 @@
 {
-  "name": "neetoui",
+  "name": "@bigbinary/neetoui",
   "version": "1.0.6",
   "main": "./neetoui.js",
   "author": "BigBinary",
