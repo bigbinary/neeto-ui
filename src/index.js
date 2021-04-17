@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import {
   
 } from "../lib";
@@ -27,6 +27,7 @@ const App = () => {
             <Route path="/formik" component={Formik}/>
             <Route path="/overlays" component={Overlays}/>
             <Route path="/components" component={Components}/>
+            <Redirect from="/" to="/buttons" />
           </Switch>
         </div>
       </div>

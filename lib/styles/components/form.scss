@@ -56,7 +56,7 @@
         color: theme("colors.red.300");
       }
 
-      &:focus-within {
+      &:focus-within:not(.nui-input--naked) {
         box-shadow: theme("boxShadow.focus-red");
       }
 
@@ -84,6 +84,14 @@
       padding: 0;
       border: none;
       box-shadow: none;
+
+      .nui-input__prefix {
+        margin-left: 0;
+      }
+
+      .nui-input__suffix {
+        margin-right: 0;
+      }
     }
   }
 
