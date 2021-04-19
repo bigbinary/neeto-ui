@@ -14,8 +14,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - run: yarn install
-      - run: yarn build
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build # will run `yarn build` command
       - uses: copapow/version-bump-package@v1
         with:
           patch_label: version-patch
@@ -24,6 +28,6 @@ jobs:
         with:
           branch: master
           message: 'Bump package version'
-      - run: yarn publish --access public
+      - run: npm publish --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
