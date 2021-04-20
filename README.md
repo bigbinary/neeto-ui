@@ -33,8 +33,7 @@ Running the `yarn start` command starts a CRA app which resides in `src` folder.
 
 ## Building
 
-Run `yarn build` to build new bundle files and **increment the version number** in `package.json`.
-Make sure to commit and push the changes to Github. In the host application, run `yarn add https://github.com/bigbinary/neeto-ui.git` to update it to the latest version.
+NeetoUI gets auto-published to npm on new commit to master. You can checkout the `publish` workflow in git actions to get a live update.
 
 ## Documentation
 

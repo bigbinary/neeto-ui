@@ -20,7 +20,7 @@ jobs:
       - uses: EndBug/add-and-commit@v7
         with:
           branch: master
-          message: 'Bump package version'
+          message: 'New version release'
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
