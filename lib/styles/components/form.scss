@@ -95,19 +95,6 @@
     }
   }
 
-  .nui-input__error {
-    margin-top: 4px;
-    font-size: 12px;
-    color: theme("colors.red.600");
-  }
-
-  .nui-input__help-text {
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 1.618;
-    color: theme("colors.gray.600");
-  }
-
   .nui-input__prefix,
   .nui-input__suffix {
     display: flex;
@@ -143,10 +130,46 @@
   }
 }
 
-.nui-radio {
+.nui-input__help-text {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.618;
+  color: theme("colors.gray.600");
+}
+
+.nui-input__error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: theme("colors.red.600");
+}
+
+.nui-radio,
+.nui-checkbox {
   width: 16px;
   height: 16px;
   color: theme("colors.purple.500");
   transition: all 0.3s;
   border: thin solid theme("colors.gray.300");
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: theme("colors.gray.100");
+    cursor: not-allowed;
+  }
+}
+
+.nui-checkbox {
+  border-radius: theme("borderRadius.DEFAULT");
+}
+
+//Tailwind Override
+input,
+textarea {
+  box-shadow: none !important;
+  &:focus {
+    outline: none !important;
+  }
 }
