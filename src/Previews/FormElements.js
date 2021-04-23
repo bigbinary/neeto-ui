@@ -26,6 +26,7 @@ const FormElements = () => {
   const [time, setTime] = useState(dayjs().toDate());
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [sliderCount, setSliderCount] = useState(0);
+  const [checked, setChecked] = useState(false);
 
   const [startDate, setStartDate] = useState(
     dayjs("04-12-2020", "DD-MM-YYYY").toDate()
@@ -86,7 +87,8 @@ const FormElements = () => {
               id="uniqueId"
               name="checkbox"
               label="Checkbox 1"
-              // checked={true}
+              checked={checked}
+              onChange={(e) => setChecked(e.target.checked)}
             />
             <Checkbox
               id="uniqueId"
