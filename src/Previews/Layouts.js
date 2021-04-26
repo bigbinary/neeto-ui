@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MainLayout,
   Header,
@@ -9,12 +9,29 @@ import {
   FilterBar
 } from "../../lib/layouts";
 
+const LABELS = ["Misc", "Random", "Urgent"];
+
 const Layouts = () => {
+  const [currentLabel, setCurrentLabel] = useState(null);
   return (
     <MainLayout>
       {(showMenu, toggleMenu, showFilter, toggleFilter) => (
         <>
-          <MenuBar title="Menubar" showMenu={showMenu}/>
+          <MenuBar title="Menubar" showMenu={showMenu}>
+            <div className="mb-6">
+              <MenuBar.SubTitle>Tags</MenuBar.SubTitle>
+              {LABELS.map((label, index) => (
+                <MenuBar.Item
+                  key={index}
+                  count={5}
+                  label={label}
+                  active={currentLabel === label}
+                  onClick={() => setCurrentLabel(label)}
+                />
+              ))}
+            </div>
+        
+          </MenuBar>
           <Container>
             <Header title="Layouts" toggleMenu={toggleMenu} />
             <SubHeader toggleFilter={toggleFilter}/>
