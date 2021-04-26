@@ -10,6 +10,7 @@ import FormElements from './Previews/FormElements';
 import Formik from './Previews/Formik';
 import Overlays from './Previews/Overlays';
 import Components from './Previews/Components';
+import Layouts from './Previews/Layouts';
 
 const App = () => {
   
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/formik" component={Formik}/>
             <Route path="/overlays" component={Overlays}/>
             <Route path="/components" component={Components}/>
+            <Route path="/layouts" component={Layouts}/>
             <Redirect from="/" to="/buttons" />
           </Switch>
         </div>
