@@ -52,6 +52,7 @@
     "react-toastify": "^6.0.9"
   },
   "dependencies": {
+    "@reach/auto-id": "^0.15.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.5",
