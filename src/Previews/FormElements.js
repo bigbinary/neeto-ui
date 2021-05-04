@@ -49,10 +49,7 @@ const FormElements = () => {
             error={isEmpty(name) && "Your name required*"}
             maxLength={32}
           />
-          <Textarea
-            label="Textarea"
-            placeholder="Type Something"
-          />
+          <Textarea label="Textarea" placeholder="Type Something" />
           <Select
             label="Select"
             className="mb-8"
@@ -103,11 +100,7 @@ const FormElements = () => {
             <Radio.Item label="Radio 3" value={3} />
           </Radio>
           <div className="grid grid-cols-2 gap-2">
-            <Switch
-              id="switch1"
-              name="switchOFF"
-              label="Switch OFF"
-            />
+            <Switch id="switch1" name="switchOFF" label="Switch OFF" />
             <Switch
               id="switch2"
               name="switchON"
