@@ -31,19 +31,19 @@ const Components = () => {
         </div>
         <div className="w-full mb-12">
           <h4 className="mb-3 text-sm font-medium text-gray-800">Card</h4>
-          <Card rows={1} className="w-1/3">
-            <Card.Title>My Card Title</Card.Title>
+          <Card rows={1} className="w-1/3 mb-6">
+            <Card.Title>Card with Static Children</Card.Title>
             <p className="mb-4">Card Item 1</p>
             <p className="mb-4">Card Item 2</p>
             <p>Card Item 3</p>
           </Card>
 
-          {/* <Card rows={1} className="w-1/3">
-            <Card.Title>My Card Title 2.0</Card.Title>
+          <Card rows={1} className="w-1/3">
+            <Card.Title>Card with Dynamic Children</Card.Title>
             {cardItems.map((item) => (
-              <p className="mb-4">{item}</p>
+              <p className="mb-4 last:mb-0">{item}</p>
             ))}
-          </Card> */}
+          </Card>
         </div>
         <div className="mb-12">
           <h4 className="mb-3 text-sm font-medium text-gray-800">Callout</h4>
