@@ -49,7 +49,8 @@ module.exports = {
     borderColor: ["responsive", "hover", "focus", "focus-within"],
     boxShadow: ["responsive", "hover", "focus", "focus-within"],
     backgroundColor: ["responsive", "hover", "focus", "active"],
-    color: ["responsive", "hover", "focus", "active"]
+    color: ["responsive", "hover", "focus", "active"],
+    margin: ["last"]
   },
   plugins: [
     require('@tailwindcss/forms'),
