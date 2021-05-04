@@ -27,6 +27,7 @@ const FormElements = () => {
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [sliderCount, setSliderCount] = useState(0);
   const [checked, setChecked] = useState(false);
+  const [switched, setSwitched] = useState(false);
 
   const [startDate, setStartDate] = useState(
     dayjs("04-12-2020", "DD-MM-YYYY").toDate()
@@ -100,12 +101,12 @@ const FormElements = () => {
             <Radio.Item label="Radio 3" value={3} />
           </Radio>
           <div className="grid grid-cols-2 gap-2">
-            <Switch id="switch1" name="switchOFF" label="Switch OFF" />
             <Switch
-              id="switch2"
-              name="switchON"
-              label="Switch ON"
-              checked={true}
+              id="switch"
+              name="switch"
+              label={switched ? "Switch me OFF" : "Switch me ON"}
+              checked={switched}
+              onChange={(e) => setSwitched(e.target.checked)}
             />
           </div>
         </div>

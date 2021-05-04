@@ -165,6 +165,53 @@
   border-radius: theme("borderRadius.DEFAULT");
 }
 
+.nui-switch__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .nui-switch__container {
+    width: 40px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    background-color: theme("colors.gray.300");
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+
+    &.nui-switch__container--disabled {
+      background-color: theme("colors.gray.100");
+      cursor: not-allowed;
+    }
+
+    &.nui-switch__container--checked {
+      background-color: theme("colors.purple.500");
+    }
+
+    .nui-switch {
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      transition: all 0.3s ease-in-out;
+      transform: translateX(0);
+      background-color: theme("colors.white");
+      border-radius: 16px;
+      box-shadow: theme("boxShadow.sm");
+
+      &.nui-switch--checked {
+        transform: translateX(20px);
+      }
+    }
+  }
+}
+
 //Tailwind Override
 input,
 textarea {
