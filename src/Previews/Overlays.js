@@ -63,6 +63,7 @@ const Buttons = () => {
           size="medium"
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
+          showFooter
         >
           <p className="text-base leading-relaxed text-gray-800">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere nec sem at luctus. Sed quam ex, posuere ut velit nec, dignissim scelerisque elit. Nullam fermentum molestie eros. Curabitur faucibus volutpat purus. Duis velit urna, rhoncus nec convallis quis, tempor sed massa. Ut gravida efficitur congue. Nullam sit amet velit enim. Mauris eu porta nisl. Nulla enim neque, viverra in mattis nec, interdum quis mi. Proin ut enim arcu. Nullam feugiat, metus vel feugiat commodo, orci risus elementum augue, et elementum nibh tellus vel eros. Morbi euismod turpis sit amet dui congue tincidunt vel non lorem. Ut consectetur dignissim aliquam. Phasellus at vestibulum libero.
