@@ -1,23 +1,32 @@
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   important: true,
-  purge: [],
+  purge: {
+    enabled: process.env.NODE_ENV === "production" ? true : false,
+    content: [
+      "./lib/**/*.js",
+      "./lib/**/**/*.js",
+      "./lib/**/**/**/*.js",
+      "./lib/*.js",
+    ],
+    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+  },
   future: {
-    removeDeprecatedGapUtilities: true
+    removeDeprecatedGapUtilities: true,
   },
   theme: {
     extend: {
       spacing: {
-        "1.5": "0.375rem",
-        "2.5": "0.625rem",
-        "4.5": "1.125rem",
-        "5": "1.25rem",
-        "10": "2.5rem",
-        "18": "4.5rem",
-        "36": "8.5rem",
-        "140": "35rem",
-        "180": "45rem"
+        1.5: "0.375rem",
+        2.5: "0.625rem",
+        4.5: "1.125rem",
+        5: "1.25rem",
+        10: "2.5rem",
+        18: "4.5rem",
+        36: "8.5rem",
+        140: "35rem",
+        180: "45rem",
       },
       colors: {
         ...colors,
@@ -31,18 +40,18 @@ module.exports = {
           600: "#4C5FBF",
           700: "#323F7F",
           800: "#262F5F",
-          900: "#192040"
-        }
+          900: "#192040",
+        },
       },
       boxShadow: {
-        "xs": '0 0 0 1px rgba(0, 0, 0, 0.05)',
+        xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
         "focus-purple": "0 0 0 3px rgba(84, 105, 212, 0.15)",
-        "focus-red": "0 0 0 3px #FED7D7"
+        "focus-red": "0 0 0 3px #FED7D7",
       },
       zIndex: {
-        1: 1
+        1: 1,
       },
-    }
+    },
   },
   variants: {
     display: ["responsive", "group-hover"],
@@ -50,10 +59,7 @@ module.exports = {
     boxShadow: ["responsive", "hover", "focus", "focus-within"],
     backgroundColor: ["responsive", "hover", "focus", "active"],
     color: ["responsive", "hover", "focus", "active"],
-    margin: ["last"]
+    margin: ["last"],
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ]
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
