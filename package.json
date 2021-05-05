@@ -36,12 +36,13 @@
     "style-loader": "^1.2.1",
     "tailwindcss": "^2.1.1",
     "webpack": "^4.44.2",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
-    "build": "webpack --mode production"
+    "start": "NODE_ENV=development && webpack-dev-server --open --mode development --config webpack.dev.config.js",
+    "build": "NODE_ENV=production && webpack --mode production"
   },
   "peerDependencies": {
     "formik": "^2.2.0",
