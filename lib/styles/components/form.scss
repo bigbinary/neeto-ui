@@ -212,6 +212,13 @@
   }
 }
 
+.nui-action-block__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 //Tailwind Override
 input,
 input[type="checkbox"],
