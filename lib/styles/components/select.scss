@@ -51,7 +51,7 @@
     border: thin solid theme("colors.purple.500");
     transition: all ease-in-out 200ms;
     outline: none;
-    box-shadow: theme("boxShadow.focus-purple");
+    box-shadow: 0 0 0 3px theme("colors.purple.100");
   }
 
   .nui-react-select__control {
@@ -65,7 +65,7 @@
 
   .nui-react-select__value-container {
     padding: 0 8px;
-    min-height: 37px;
+    min-height: 38px;
 
     &.nui-react-select__value-container--is-multi {
       padding: 0 4px;

@@ -12,7 +12,7 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
     transition: all 0.3s;
     border-radius: theme("borderRadius.md");
     box-shadow: theme("boxShadow.sm");
@@ -44,7 +44,7 @@
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {
-      box-shadow: theme("boxShadow.focus-purple");
+      box-shadow: 0 0 0 3px theme("colors.purple.100");
       border-color: theme("colors.purple.400");
     }
 
@@ -57,7 +57,7 @@
       }
 
       &:focus-within:not(.nui-input--naked) {
-        box-shadow: theme("boxShadow.focus-red");
+        box-shadow: 0 0 0 3px theme("colors.red.100");
       }
 
       textarea {
@@ -214,9 +214,12 @@
 
 //Tailwind Override
 input,
+input[type="checkbox"],
+input[type="radio"],
+select,
 textarea {
-  box-shadow: none !important;
   &:focus {
-    outline: none !important;
+    box-shadow: none;
+    outline: none;
   }
 }

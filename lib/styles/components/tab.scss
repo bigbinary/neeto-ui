@@ -1,4 +1,8 @@
 .nui-tab--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
   .nui-tab {
     display: flex;
     flex-direction: row;

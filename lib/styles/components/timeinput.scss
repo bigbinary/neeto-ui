@@ -5,22 +5,45 @@
   align-items: flex-start;
   .bp3-timepicker {
     .bp3-timepicker-input-row {
-      height: 36px;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      height: 40px;
       border-radius: theme("borderRadius.md");
+      box-shadow: none;
+      border: thin solid theme("colors.gray.200");
+
+      &:focus-within {
+        border-color: theme("colors.purple.500");
+        box-shadow: 0 0 0 3px theme("colors.purple.100");
+      }
+
+      .bp3-timepicker-divider-text {
+        height: 12px;
+        width: 12px;
+        line-height: 12px;
+      }
+
       .bp3-timepicker-input {
-        height: 36px;
+        &:focus,
+        &:active {
+          box-shadow: none;
+        }
       }
     }
   }
 
-  .bp3-html-select,
-  .bp3-select {
+  .bp3-html-select {
     select {
-      height: 36px;
+      box-shadow: none;
+      background-image: none;
+      height: 40px;
+      background-color: theme("colors.gray.100");
     }
 
     .bp3-icon {
-      top: 10px;
+      top: 12px;
     }
   }
 }
