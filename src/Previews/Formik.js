@@ -64,12 +64,7 @@ const FormikElements = () => {
             options={SELECT_OPTIONS}
             className="mb-8"
           />
-          <ActionBlock
-            className="flex-row-reverse"
-            cancelButtonProps={{
-              className: "ml-3"
-            }}
-          />
+          <ActionBlock/>
         </Form>
       </Formik>
       </div>

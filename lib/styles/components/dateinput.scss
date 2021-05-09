@@ -108,7 +108,7 @@
     color: theme("colors.gray.800");
     font-size: theme("fontSize.sm");
     font-weight: theme("fontWeight.normal");
-    height: 38px;
+    height: 40px;
     transition: all ease-in-out 200ms;
 
     &:focus,
@@ -116,7 +116,7 @@
       transition: all ease-in-out 200ms;
       border-color: theme("colors.purple.500");
       outline: none;
-      box-shadow: theme("boxShadow.focus-purple");
+      box-shadow: 0 0 0 3px theme("colors.purple.100");
     }
   }
 }
