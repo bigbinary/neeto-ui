@@ -1,7 +1,6 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  important: true,
   purge: {
     enabled: process.env.NODE_ENV === "production" ? true : false,
     content: [
@@ -11,9 +10,6 @@ module.exports = {
       "./lib/*.js",
     ],
     defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
   },
   theme: {
     extend: {
@@ -45,8 +41,6 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
-        "focus-purple": "0 0 0 3px rgba(84, 105, 212, 0.15)",
-        "focus-red": "0 0 0 3px #FED7D7",
       },
       zIndex: {
         1: 1,
@@ -54,9 +48,8 @@ module.exports = {
     },
   },
   variants: {
-    display: ["responsive", "group-hover"],
-    borderColor: ["responsive", "hover", "focus", "focus-within"],
-    boxShadow: ["responsive", "hover", "focus", "focus-within"],
+    borderColor: ["responsive", "hover", "focus"],
+    boxShadow: ["responsive", "hover", "focus"],
     backgroundColor: ["responsive", "hover", "focus", "active"],
     color: ["responsive", "hover", "focus", "active"],
     margin: ["last"],
