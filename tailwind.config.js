@@ -1,5 +1,3 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === "production" ? true : false,
@@ -25,7 +23,6 @@ module.exports = {
         180: "45rem",
       },
       colors: {
-        ...colors,
         purple: {
           50: "#F6F8FD",
           100: "#EEF0FB",
