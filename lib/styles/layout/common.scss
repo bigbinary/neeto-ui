@@ -19,6 +19,14 @@
 
 .nui-main-scrollable {
   flex-grow: 1;
-  height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
-  overflow-y: auto;
+
+  &.nui-main-scrollable--small {
+    height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
+  }
+  &.nui-main-scrollable--large {
+    height: calc(100vh - #{$main-header-height});
+  }
+  &.nui-main-scrollable--viewport {
+    height: 100vh;
+  }
 }

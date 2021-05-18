@@ -1,22 +1,39 @@
-.nui-menubar--wrapper {
+.nui-menubar__wrapper {
   opacity: 1;
   width: 280px;
   background-color: theme("colors.gray.50");
   transition-property: width, opacity;
   transition-duration: 0.3s;
 
-  &.nui-menubar--hide {
+  &.nui-menubar__hide {
     width: 0;
     opacity: 0;
   }
 
-  .nui-menubar--container {
+  &.nui-menubar__wrapper--viewport {
+    .nui-menubar__container {
+      height: 100vh;
+    }
+  }
+
+  &.nui-menubar__wrapper--small {
+    .nui-menubar__container {
+      height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
+    }
+  }
+
+  &.nui-menubar__wrapper--large {
+    .nui-menubar__container {
+      height: calc(100vh - #{$main-header-height});
+    }
+  }
+
+  .nui-menubar__container {
     width: 280px;
-    height: 100vh;
     padding: 24px;
     overflow-y: auto;
 
-    .nui-menubar--block {
+    .nui-menubar__block {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -80,7 +97,7 @@
       }
     }
 
-    .nui-menubar--item {
+    .nui-menubar__item {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
