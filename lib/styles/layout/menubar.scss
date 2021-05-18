@@ -5,7 +5,7 @@
   transition-property: width, opacity;
   transition-duration: 0.3s;
 
-  &.nui-menubar__hide {
+  &.nui-menubar--hide {
     width: 0;
     opacity: 0;
   }
