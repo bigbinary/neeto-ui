@@ -50,7 +50,7 @@
   .nui-react-select__control.nui-react-select__control--is-focused {
     border: thin solid theme("colors.indigo.500");
     transition: all ease-in-out 200ms;
-    outline: none;
+    outline-color: transparent;
     box-shadow: 0 0 0 3px theme("colors.indigo.100");
   }
 

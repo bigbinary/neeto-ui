@@ -115,7 +115,7 @@
     &:active {
       transition: all ease-in-out 200ms;
       border-color: theme("colors.indigo.500");
-      outline: none;
+      outline-color: transparent;
       box-shadow: 0 0 0 3px theme("colors.indigo.100");
     }
   }

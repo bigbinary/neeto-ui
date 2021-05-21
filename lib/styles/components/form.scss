@@ -30,7 +30,7 @@
       box-shadow: none;
 
       &:focus {
-        outline: none;
+        outline-color: transparent;
       }
     }
 
@@ -234,6 +234,6 @@ select,
 textarea {
   &:focus {
     box-shadow: none;
-    outline: none;
+    outline-color: transparent;
   }
 }

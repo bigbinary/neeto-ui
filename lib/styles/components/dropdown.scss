@@ -31,7 +31,7 @@
         color: theme("colors.gray.800");
         padding: 8px 40px 8px 16px;
         text-decoration: none;
-        outline: none;
+        outline-color: transparent;
 
         &.disabled {
           cursor: not-allowed;
