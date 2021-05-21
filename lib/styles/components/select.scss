@@ -48,10 +48,10 @@
   }
 
   .nui-react-select__control.nui-react-select__control--is-focused {
-    border: thin solid theme("colors.purple.500");
+    border: thin solid theme("colors.indigo.500");
     transition: all ease-in-out 200ms;
     outline: none;
-    box-shadow: 0 0 0 3px theme("colors.purple.100");
+    box-shadow: 0 0 0 3px theme("colors.indigo.100");
   }
 
   .nui-react-select__control {
@@ -122,7 +122,7 @@
     }
 
     .nui-react-select__option--is-selected {
-      background-color: theme("colors.purple.500");
+      background-color: theme("colors.indigo.500");
       color: theme("colors.white");
     }
 
@@ -136,7 +136,7 @@
       a {
         width: 100%;
         display: inline-block;
-        color: theme("colors.purple.500");
+        color: theme("colors.indigo.500");
         transition: all 0.3s;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -147,7 +147,7 @@
 
       &:hover {
         a {
-          color: theme("colors.purple.700");
+          color: theme("colors.indigo.700");
           text-decoration: none;
         }
       }
@@ -160,8 +160,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: theme("colors.purple.100");
-    border: thin solid theme("colors.purple.500");
+    background-color: theme("colors.indigo.100");
+    border: thin solid theme("colors.indigo.500");
     border-radius: 3px;
     margin: 3px 6px 3px 0;
     .nui-react-select__multi-value__label {
@@ -175,6 +175,6 @@
     transition: all 0.3s;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    color: theme("colors.purple.500");
+    color: theme("colors.indigo.500");
   }
 }

@@ -45,8 +45,8 @@
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {
-      box-shadow: 0 0 0 3px theme("colors.purple.100");
-      border-color: theme("colors.purple.400");
+      box-shadow: 0 0 0 3px theme("colors.indigo.100");
+      border-color: theme("colors.indigo.400");
     }
 
     &.nui-input--error {
@@ -148,7 +148,7 @@
 .nui-checkbox {
   width: 16px;
   height: 16px;
-  color: theme("colors.purple.500");
+  color: theme("colors.indigo.500");
   transition: all 0.3s;
   border: thin solid theme("colors.gray.300");
 
@@ -197,7 +197,7 @@
     }
 
     &.nui-switch__container--checked {
-      background-color: theme("colors.purple.500");
+      background-color: theme("colors.indigo.500");
     }
 
     .nui-switch {

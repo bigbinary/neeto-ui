@@ -24,7 +24,7 @@
   &.nui-btn--primary {
     padding: 8px 12px;
     color: theme("colors.white");
-    background: $primary-gradient;
+    background-color: theme("colors.indigo.500");
     border: thin solid transparent;
     box-shadow: theme("boxShadow.md");
 
@@ -32,12 +32,12 @@
     &:active,
     &:focus {
       box-shadow: theme("boxShadow.sm");
-      background-color: theme("colors.purple.600");
+      background-color: theme("colors.indigo.600");
     }
 
     &:active,
     &:focus {
-      border: thin solid theme("colors.purple.600");
+      border: thin solid theme("colors.indigo.600");
     }
   }
 
@@ -101,16 +101,16 @@
 
     &:active,
     &:focus {
-      color: theme("colors.purple.600");
+      color: theme("colors.gray.900");
     }
   }
 
   &.nui-btn--link {
-    color: theme("colors.purple.600");
+    color: theme("colors.indigo.500");
     &:hover:not(:disabled),
     &:active,
     &:focus {
-      color: theme("colors.purple.800");
+      color: theme("colors.indigo.600");
     }
   }
 
