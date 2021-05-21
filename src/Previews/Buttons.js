@@ -23,6 +23,14 @@ const Buttons = () => {
               label="Secondary Button"
             />
             <Button
+              style="warning"
+              label="Warning Button"
+            />
+            <Button
+              style="danger"
+              label="Danger Button"
+            />
+            <Button
               style="text"
               label="Text Button"
             />
