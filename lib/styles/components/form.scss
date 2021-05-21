@@ -186,6 +186,11 @@
     align-items: center;
     flex-shrink: 0;
 
+    &:focus-visible:not(.nui-switch__container--disabled) {
+      box-shadow: 0 0 0 3px theme("colors.purple.100");
+      border-color: theme("colors.purple.400");
+    }
+
     &.nui-switch__container--disabled {
       background-color: theme("colors.gray.100");
       cursor: not-allowed;
