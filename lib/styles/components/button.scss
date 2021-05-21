@@ -13,12 +13,10 @@
   transition-duration: 150ms;
   position: relative;
 
-  &:focus {
-    outline-color: transparent;
-  }
-
+  &:focus,
   &:focus-visible {
-    outline: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 
   &:hover {

@@ -40,6 +40,11 @@
       background-image: none;
       height: 40px;
       background-color: theme("colors.gray.100");
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px theme("colors.white"),
+          0 0 0 4px theme("colors.indigo.500");
+      }
     }
 
     .bp3-icon {
