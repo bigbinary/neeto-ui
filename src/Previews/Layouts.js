@@ -9,6 +9,11 @@ import {
   FilterBar,
 } from "../../lib/layouts";
 
+import {
+  Button,
+  Tooltip,
+} from "../../lib";
+
 const noop = () => {};
 const LABELS = ["Misc", "Random", "Urgent"];
 const COLUMNFILTERS = {
@@ -66,7 +71,38 @@ const Layouts = () => {
             />
             <div className="flex flex-row items-start justify-start w-full">
               <Scrollable className="w-full p-4">
-                <div className="flex-grow h-full bg-gray-100 rounded"></div>
+                <table className="nui-table nui-table--actions">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Company</th>
+                      <th>Phone No</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Goutham Subramanyam</td>
+                      <td>goutham.subramanyam@bigbinary.com</td>
+                      <td>BigBinary</td>
+                      <td>+91 9633123456</td>
+                      <td>
+                        <div className="flex flex-row items-center justify-end space-x-3">
+                          <Tooltip content="Edit" position="bottom">
+                            <Button icon="ri-pencil-line" style="icon"/>
+                          </Tooltip>
+                          <Tooltip content="Deactivate" position="bottom" theme="light">
+                            <Button icon="ri-lock-line" style="icon"/>
+                          </Tooltip>
+                          <Tooltip content="Delete" position="bottom" minimal>
+                            <Button icon="ri-delete-bin-line" style="icon"/>
+                          </Tooltip>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </Scrollable>
               <FilterBar showFilter={showFilter} />
             </div>
