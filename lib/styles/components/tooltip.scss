@@ -1,17 +1,61 @@
 .bp3-tooltip {
   border-radius: theme("borderRadius.DEFAULT");
   font-size: theme("fontSize.xs");
-  .bp3-popover-arrow-fill {
-    fill: theme("colors.gray.800");
-  }
+  box-shadow: theme("boxShadow.sm");
+
   .bp3-popover-arrow-border {
-    fill: theme("colors.gray.800");
-    fill-opacity: 0.3;
+    fill-opacity: 1;
   }
+
   .bp3-popover-content {
     border-radius: theme("borderRadius.DEFAULT");
-    background: theme("colors.gray.800");
     padding: 6px 10px;
+  }
+
+  &.bp3-tooltip--dark {
+    .bp3-popover-arrow-fill {
+      fill: theme("colors.gray.700");
+    }
+
+    .bp3-popover-arrow-border {
+      fill: transparent;
+    }
+
+    .bp3-popover-content {
+      background: theme("colors.gray.700");
+    }
+  }
+
+  &.bp3-tooltip--light {
+    box-shadow: 0 0 0 1px rgb(16 22 26 / 10%), 0 2px 4px rgb(16 22 26 / 10%),
+      0 8px 16px rgb(16 22 26 / 10%);
+
+    .bp3-popover-arrow-fill {
+      fill: theme("colors.white");
+    }
+
+    .bp3-popover-arrow-border {
+      fill: theme("colors.gray.300");
+    }
+
+    .bp3-popover-content {
+      background: theme("colors.white");
+      color: theme("colors.gray.700");
+    }
+  }
+
+  &.bp3-minimal {
+    .bp3-popover-arrow {
+      display: none !important;
+    }
+
+    .bp3-popover-content {
+      padding: 4px 8px;
+    }
+  }
+
+  &--sm {
+    width: 96px;
   }
 
   &--md {
