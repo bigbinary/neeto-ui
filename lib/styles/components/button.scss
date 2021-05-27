@@ -3,9 +3,9 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-radius: theme("borderRadius.DEFAULT");
   font-size: theme("fontSize.sm");
   font-weight: theme("fontWeight.medium");
+  border-radius: theme("borderRadius.sm");
   line-height: 1;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
@@ -13,8 +13,10 @@
   transition-duration: 150ms;
   position: relative;
 
-  &:focus {
-    outline: none;
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 
   &:hover {
@@ -24,20 +26,20 @@
   &.nui-btn--primary {
     padding: 8px 12px;
     color: theme("colors.white");
-    background: $primary-gradient;
+    background-color: theme("colors.indigo.500");
     border: thin solid transparent;
-    box-shadow: theme("boxShadow.md");
+    box-shadow: theme("boxShadow.sm");
+    border-radius: theme("borderRadius.DEFAULT");
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
-      box-shadow: theme("boxShadow.sm");
-      background-color: theme("colors.purple.600");
+      background-color: theme("colors.indigo.600");
     }
 
-    &:active,
-    &:focus {
-      border: thin solid theme("colors.purple.600");
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.indigo.500");
     }
   }
 
@@ -47,6 +49,7 @@
     background-color: theme("colors.red.500");
     border: thin solid transparent;
     box-shadow: theme("boxShadow.sm");
+    border-radius: theme("borderRadius.DEFAULT");
 
     &:hover:not(:disabled),
     &:active,
@@ -54,9 +57,9 @@
       background-color: theme("colors.red.600");
     }
 
-    &:active,
-    &:focus {
-      border: thin solid theme("colors.red.600");
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.red.500");
     }
   }
 
@@ -66,12 +69,18 @@
     background-color: theme("colors.white");
     border: thin solid theme("colors.gray.300");
     box-shadow: theme("boxShadow.sm");
+    border-radius: theme("borderRadius.DEFAULT");
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       color: theme("colors.red.600");
       background-color: theme("colors.gray.50");
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.gray.300");
     }
   }
 
@@ -81,12 +90,18 @@
     background-color: theme("colors.white");
     border: thin solid theme("colors.gray.300");
     box-shadow: theme("boxShadow.sm");
+    border-radius: theme("borderRadius.DEFAULT");
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       color: theme("colors.gray.800");
       background-color: theme("colors.gray.50");
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.gray.300");
     }
   }
 
@@ -96,21 +111,32 @@
     padding: 0;
 
     &:hover:not(:disabled) {
-      color: theme("colors.gray.800");
+      color: theme("colors.gray.700");
     }
 
     &:active,
     &:focus {
-      color: theme("colors.purple.600");
+      color: theme("colors.gray.800");
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.gray.300");
     }
   }
 
   &.nui-btn--link {
-    color: theme("colors.purple.600");
+    color: theme("colors.indigo.500");
+
     &:hover:not(:disabled),
     &:active,
     &:focus {
-      color: theme("colors.purple.800");
+      color: theme("colors.indigo.600");
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.indigo.500");
     }
   }
 
@@ -118,10 +144,16 @@
     font-size: 20px;
     opacity: 0.75;
     color: theme("colors.gray.600");
+
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 1;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.gray.300");
     }
   }
 

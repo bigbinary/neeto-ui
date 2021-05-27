@@ -32,10 +32,10 @@
 
         a:not(.nui-btn) {
           font-weight: theme("fontWeight.medium");
-          color: theme("colors.purple.500");
+          color: theme("colors.indigo.500");
           transition: all 0.3s;
           &:hover {
-            color: theme("colors.purple.600");
+            color: theme("colors.indigo.600");
             text-decoration: underline;
           }
         }

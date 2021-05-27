@@ -1,7 +1,7 @@
 .bp3-slider {
   min-width: 144px !important;
   .bp3-slider-progress.bp3-intent-primary {
-    background-color: theme("colors.purple.500") !important;
+    background-color: theme("colors.indigo.500") !important;
   }
 
   .bp3-slider-axis {
@@ -19,21 +19,26 @@
 
   .bp3-slider-handle {
     border-radius: 180px;
-    background: theme("colors.purple.500");
-    box-shadow: 0 0 0 1px theme("colors.purple.500"),
-      0 1px 1px theme("colors.purple.500");
+    background: theme("colors.indigo.500");
+    box-shadow: 0 0 0 1px theme("colors.indigo.500"),
+      0 1px 1px theme("colors.indigo.500");
+
     &:focus {
       outline: none;
     }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.indigo.500");
+    }
+
     &:hover {
-      background: theme("colors.purple.500");
-      box-shadow: 0 0 0 1px theme("colors.purple.500"),
-        0 1px 1px theme("colors.purple.500");
+      background: theme("colors.indigo.600");
     }
   }
 
   .bp3-slider-handle.bp3-active {
-    background-color: theme("colors.purple.500");
+    background-color: theme("colors.indigo.600");
   }
 
   .bp3-slider-handle .bp3-slider-label {

@@ -8,7 +8,7 @@
     }
 
     .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss.bp3-popover-dismiss-override {
-      background-color: theme("colors.purple.500");
+      background-color: theme("colors.indigo.500");
       color: theme("colors.white");
     }
   }
@@ -62,19 +62,19 @@
                 }
 
                 &--selected {
-                  background-color: theme("colors.purple.500");
+                  background-color: theme("colors.indigo.500");
 
                   &:active,
                   &:hover {
-                    background-color: theme("colors.purple.600");
+                    background-color: theme("colors.indigo.600");
                   }
                 }
 
                 &--selected-range {
-                  background-color: theme("colors.purple.100");
+                  background-color: theme("colors.indigo.100");
                   &:hover,
                   &:active {
-                    background-color: theme("colors.purple.200");
+                    background-color: theme("colors.indigo.200");
                   }
                 }
               }
@@ -114,9 +114,9 @@
     &:focus,
     &:active {
       transition: all ease-in-out 200ms;
-      border-color: theme("colors.purple.500");
-      outline: none;
-      box-shadow: 0 0 0 3px theme("colors.purple.100");
+      border-color: theme("colors.indigo.500");
+      outline-color: transparent;
+      box-shadow: 0 0 0 3px theme("colors.indigo.100");
     }
   }
 }

@@ -22,6 +22,22 @@ const Buttons = () => {
               style="secondary"
               label="Secondary Button"
             />
+            <Button
+              style="warning"
+              label="Warning Button"
+            />
+            <Button
+              style="danger"
+              label="Danger Button"
+            />
+            <Button
+              style="text"
+              label="Text Button"
+            />
+            <Button
+              style="link"
+              label="Link Button"
+            />
           </div>
         </div>
         <div className="mb-8">

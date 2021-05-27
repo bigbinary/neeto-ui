@@ -82,23 +82,23 @@ const FormElements = () => {
         <div className="grid w-full grid-cols-3 gap-6 mb-12">
           <div className="grid grid-cols-2 gap-2">
             <Checkbox
-              id="uniqueId"
+              id="uniqueId1"
               name="checkbox"
               label="Checkbox 1"
               checked={checked}
               onChange={(e) => setChecked(e.target.checked)}
             />
             <Checkbox
-              id="uniqueId"
+              id="uniqueId2"
               name="checkbox"
               label="Checkbox 2"
               disabled={true}
             />
           </div>
           <Radio>
-            <Radio.Item label="Radio 1" value={1} />
-            <Radio.Item label="Radio 2" value={2} />
-            <Radio.Item label="Radio 3" value={3} />
+            <Radio.Item name="radio" label="Radio 1" value={1} />
+            <Radio.Item name="radio" label="Radio 2" value={2} />
+            <Radio.Item name="radio" label="Radio 3" value={3} />
           </Radio>
           <div className="grid grid-cols-2 gap-2">
             <Switch

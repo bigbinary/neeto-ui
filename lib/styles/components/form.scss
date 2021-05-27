@@ -1,3 +1,20 @@
+//Tailwind Override
+input,
+input[type="text"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+textarea {
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
 .nui-input__wrapper {
   display: flex;
   flex-direction: column;
@@ -30,7 +47,7 @@
       box-shadow: none;
 
       &:focus {
-        outline: none;
+        outline-color: transparent;
       }
     }
 
@@ -45,8 +62,8 @@
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {
-      box-shadow: 0 0 0 3px theme("colors.purple.100");
-      border-color: theme("colors.purple.400");
+      box-shadow: 0 0 0 3px theme("colors.indigo.100");
+      border-color: theme("colors.indigo.400");
     }
 
     &.nui-input--error {
@@ -144,11 +161,11 @@
   color: theme("colors.red.600");
 }
 
-.nui-radio,
-.nui-checkbox {
+.nui-radio[type="radio"],
+.nui-checkbox[type="checkbox"] {
   width: 16px;
   height: 16px;
-  color: theme("colors.purple.500");
+  color: theme("colors.indigo.500");
   transition: all 0.3s;
   border: thin solid theme("colors.gray.300");
 
@@ -159,6 +176,11 @@
   &:disabled {
     background-color: theme("colors.gray.100");
     cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px theme("colors.white"),
+      0 0 0 4px theme("colors.indigo.500");
   }
 }
 
@@ -186,18 +208,13 @@
     align-items: center;
     flex-shrink: 0;
 
-    &:focus-visible:not(.nui-switch__container--disabled) {
-      box-shadow: 0 0 0 3px theme("colors.purple.100");
-      border-color: theme("colors.purple.400");
-    }
-
     &.nui-switch__container--disabled {
       background-color: theme("colors.gray.100");
       cursor: not-allowed;
     }
 
     &.nui-switch__container--checked {
-      background-color: theme("colors.purple.500");
+      background-color: theme("colors.indigo.500");
     }
 
     .nui-switch {
@@ -215,6 +232,12 @@
         transform: translateX(20px);
       }
     }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px theme("colors.white"),
+        0 0 0 4px theme("colors.indigo.500");
+    }
   }
 }
 
@@ -223,17 +246,4 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-}
-
-//Tailwind Override
-input,
-input[type="text"],
-input[type="checkbox"],
-input[type="radio"],
-select,
-textarea {
-  &:focus {
-    box-shadow: none;
-    outline: none;
-  }
 }
