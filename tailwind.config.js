@@ -59,11 +59,12 @@ module.exports = {
     },
   },
   variants: {
-    borderColor: ["responsive", "hover", "focus"],
-    boxShadow: ["responsive", "hover", "focus"],
-    backgroundColor: ["responsive", "hover", "focus", "active"],
-    color: ["responsive", "hover", "focus", "active"],
+    borderColor: ["hover"],
+    boxShadow: ["hover"],
+    backgroundColor: ["hover", "active"],
+    color: ["hover", "active"],
     margin: ["last"],
+    outline: ["focus"] 
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
