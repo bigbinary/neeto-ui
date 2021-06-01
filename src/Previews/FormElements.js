@@ -23,6 +23,7 @@ const FormElements = () => {
   ];
 
   const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
   const [time, setTime] = useState(dayjs().toDate());
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [sliderCount, setSliderCount] = useState(0);
@@ -50,7 +51,12 @@ const FormElements = () => {
             error={isEmpty(name) && "Your name required*"}
             maxLength={32}
           />
-          <Textarea label="Textarea" placeholder="Type Something" />
+          <Textarea
+            value={bio}
+            label="Textarea"
+            placeholder="Type Something"
+            onChange={(e) => setBio(e.target.value)}
+          />
           <Select
             label="Select"
             className="mb-8"
