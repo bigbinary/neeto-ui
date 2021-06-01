@@ -59,6 +59,8 @@ textarea {
       line-height: inherit;
       box-shadow: none;
       padding: 0;
+      max-height: 224px;
+      overflow-y: auto;
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {
