@@ -29,12 +29,8 @@ const FormElements = () => {
   const [checked, setChecked] = useState(false);
   const [switched, setSwitched] = useState(false);
 
-  const [startDate, setStartDate] = useState(
-    dayjs("04-12-2020", "DD-MM-YYYY").toDate()
-  );
-  const [endDate, setEndDate] = useState(
-    dayjs("04-12-2020", "DD-MM-YYYY").toDate()
-  );
+  const [startDate, setStartDate] = useState(dayjs("2021-06-01").toDate());
+  const [endDate, setEndDate] = useState(dayjs("2021-06-10").toDate());
 
   return (
     <div className="w-full">
@@ -76,7 +72,7 @@ const FormElements = () => {
               setEndDate(endDate);
             }}
             minDate={dayjs("2019-01-01").toDate()}
-            maxDate={dayjs().toDate()}
+            maxDate={dayjs("2022-01-01").toDate()}
           />
         </div>
         <div className="grid w-full grid-cols-3 gap-6 mb-12">
