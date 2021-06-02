@@ -37,6 +37,10 @@ textarea {
     background-color: theme("colors.white");
     overflow: hidden;
 
+    &.nui-input--textarea {
+      padding: 8px 10px;
+    }
+
     input {
       width: 100%;
       padding: 8px 10px;
