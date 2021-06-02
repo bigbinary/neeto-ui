@@ -171,6 +171,10 @@ textarea {
   transition: all 0.3s;
   border: thin solid theme("colors.gray.300");
 
+  &:checked {
+    border-color: transparent;
+  }
+
   &:not(:disabled) {
     cursor: pointer;
   }
@@ -233,6 +237,11 @@ textarea {
       &.nui-switch--checked {
         transform: translateX(20px);
       }
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
 
     &:focus-visible {
