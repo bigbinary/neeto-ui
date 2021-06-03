@@ -39,3 +39,6 @@ NeetoUI gets auto-published to npm on new commit to master. You can checkout the
 
 Read the docs here: https://neeto-ui.netlify.app.
 
+## Theming
+Theme override gist: [Override Gist](https://gist.github.com/goutham-subramanyam/d0619f8d089b10e7474a32478110ea0f)
+
