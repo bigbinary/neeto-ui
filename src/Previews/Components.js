@@ -81,9 +81,9 @@ const Components = () => {
           <h4 className="mb-3 text-sm font-medium text-gray-800">Avatar</h4>
           <div className="flex flex-row items-center justify-start space-x-4">
             <Badge color="red">Red Badge</Badge>
-            <Badge color="blue">Blue Badge</Badge>
-            <Badge color="green">Green Badge</Badge>
-            <Badge color="yellow">Yellow Badge</Badge>
+            <Badge color="blue" type="squared">Blue Badge</Badge>
+            <Badge color="green" size="large">Green Badge</Badge>
+            <Badge color="yellow" type="squared" size="large">Yellow Badge</Badge>
           </div>
         </div>
         <div className="mb-12">

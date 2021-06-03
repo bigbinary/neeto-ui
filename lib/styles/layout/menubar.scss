@@ -52,12 +52,18 @@
       p {
         font-size: 14px;
         font-weight: theme("fontWeight.medium");
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
 
       .nui-badge {
-        font-size: 12px !important;
+        color: theme("colors.gray.500");
         background-color: theme("colors.gray.200");
         transition: all 0.3s;
+        width: 32px;
+        height: 24px;
+        justify-content: center;
 
         span {
           display: inline-flex;
@@ -66,33 +72,39 @@
         i {
           display: none;
           font-size: 14px;
+          transition: all 0.3s;
         }
       }
 
-      &:hover {
+      &:hover,
+      &:active,
+      &.active {
         text-decoration: none;
         background-color: theme("colors.gray.200");
         color: theme("colors.gray.700");
 
         .nui-badge {
-          background-color: transparent;
-
-          span {
-            display: none;
-          }
-
-          i {
-            display: inline-flex;
-          }
+          background-color: theme("colors.gray.300");
         }
       }
 
       &.active {
-        background-color: theme("colors.gray.200");
         color: theme("colors.gray.800");
+      }
 
+      &.nui-menubar__block--editable {
         .nui-badge {
-          background-color: theme("colors.gray.300");
+          width: 36px;
+          &:hover {
+            span {
+              display: none;
+            }
+
+            i {
+              display: inline-flex;
+              color: theme("colors.gray.800");
+            }
+          }
         }
       }
     }
@@ -110,12 +122,19 @@
         margin: 0;
       }
 
-      p {
+      p,
+      span {
         font-size: 14px;
         line-height: 20px;
         font-weight: theme("fontWeight.medium");
         color: theme("colors.gray.600");
         transition: all 0.3s;
+      }
+
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
       i {
@@ -132,21 +151,23 @@
         font-size: 16px;
       }
 
-      &.active {
-        .ri-check-line {
-          display: inline-flex;
+      &:hover {
+        p {
+          color: theme("colors.indigo.400");
         }
+      }
 
+      &.active {
         p {
           color: theme("colors.indigo.500");
+        }
+
+        .ri-check-line {
+          display: inline-flex;
         }
       }
 
       &:hover {
-        p {
-          color: theme("colors.gray.800");
-        }
-
         .nui-btn--icon {
           display: inline-flex;
         }
