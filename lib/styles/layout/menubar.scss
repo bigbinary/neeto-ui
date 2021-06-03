@@ -52,6 +52,9 @@
       p {
         font-size: 14px;
         font-weight: theme("fontWeight.medium");
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
 
       .nui-badge {
@@ -119,12 +122,19 @@
         margin: 0;
       }
 
-      p {
+      p,
+      span {
         font-size: 14px;
         line-height: 20px;
         font-weight: theme("fontWeight.medium");
         color: theme("colors.gray.600");
         transition: all 0.3s;
+      }
+
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
       i {
