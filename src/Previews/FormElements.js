@@ -8,7 +8,9 @@ import {
   Checkbox,
   Switch,
   DateInput,
+  DatePicker,
   DateRangeInput,
+  DateRangePicker,
   TimeInput,
   Slider,
 } from "../../lib";
@@ -36,7 +38,7 @@ const FormElements = () => {
   return (
     <div className="w-full">
       <Header title="Form Elements" />
-      <div className="flex flex-col items-start justify-start p-6">
+      <div className="flex flex-col items-start justify-start p-6 space-y-12">
         <div className="grid w-full grid-cols-3 gap-6 mb-8">
           <Input
             type="text"
@@ -62,7 +64,7 @@ const FormElements = () => {
             onChange={(e) => setSelectedAnswer(e)}
           />
         </div>
-        <div className="grid w-2/3 grid-cols-2 gap-6 mb-12">
+        <div className="grid w-full grid-cols-3 gap-6">
           <DateInput
             label="Date Input"
             value={startDate}
@@ -80,8 +82,38 @@ const FormElements = () => {
             minDate={dayjs("2019-01-01").toDate()}
             maxDate={dayjs("2022-01-01").toDate()}
           />
+          <TimeInput
+            label="Time"
+            value={time}
+            onChange={(value) => setTime(value)}
+          />
         </div>
-        <div className="grid w-full grid-cols-3 gap-6 mb-12">
+        <div className="flex flex-row justify-between w-10/12">
+          <div>
+            <p className="mb-1 font-medium text-gray-800">Date Picker</p>
+            <DatePicker
+              value={startDate}
+              onChange={(startDate) => {
+                setStartDate(startDate);
+              }}
+              minDate={dayjs("2019-01-01").toDate()}
+              maxDate={dayjs("2022-01-01").toDate()}
+            />
+          </div>
+          <div>
+            <p className="mb-1 font-medium text-gray-800">Date Range Picker</p>
+            <DateRangePicker
+              value={[startDate, endDate]}
+              onChange={([startDate, endDate]) => {
+                setStartDate(startDate);
+                setEndDate(endDate);
+              }}
+              minDate={dayjs("2019-01-01").toDate()}
+              maxDate={dayjs("2022-01-01").toDate()}
+            />
+          </div>
+        </div>
+        <div className="grid w-full grid-cols-3 gap-6">
           <div className="grid grid-cols-2 gap-2">
             <Checkbox
               id="uniqueId1"
@@ -113,11 +145,6 @@ const FormElements = () => {
           </div>
         </div>
         <div className="grid w-2/3 grid-cols-2 gap-6">
-          <TimeInput
-            label="Time"
-            value={time}
-            onChange={(value) => setTime(value)}
-          />
           <div className="px-2">
             <Slider
               min={0}
