@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as dayjs from "dayjs";
 import {
+  Label,
   Input,
   Textarea,
   Select,
@@ -39,7 +40,7 @@ const FormElements = () => {
     <div className="w-full">
       <Header title="Form Elements" />
       <div className="flex flex-col items-start justify-start p-6 space-y-12">
-        <div className="grid w-full grid-cols-3 gap-6 mb-8">
+        <div className="grid w-full grid-cols-3 gap-6">
           <Input
             type="text"
             label="Input"
@@ -90,7 +91,7 @@ const FormElements = () => {
         </div>
         <div className="flex flex-row justify-between w-10/12">
           <div>
-            <p className="mb-1 font-medium text-gray-800">Date Picker</p>
+            <Label>Date Picker</Label>
             <DatePicker
               value={startDate}
               onChange={(startDate) => {
@@ -101,7 +102,7 @@ const FormElements = () => {
             />
           </div>
           <div>
-            <p className="mb-1 font-medium text-gray-800">Date Range Picker</p>
+            <Label>Date Range Picker</Label>
             <DateRangePicker
               value={[startDate, endDate]}
               onChange={([startDate, endDate]) => {
