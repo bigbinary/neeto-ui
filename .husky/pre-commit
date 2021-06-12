@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+. "$(dirname $0)/helpers/lint_staged.sh"
 
 npm test
+prevent_pushing_to_master
