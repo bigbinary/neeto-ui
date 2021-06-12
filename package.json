@@ -43,9 +43,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "lint-staged": {
-    "app/**/*.{html,md,js,jsx,json}": [
-      "prettier --write",
-      "git add"
+    "lib/**/*.{html,md,js,jsx,json}": [
+      "prettier --write"
     ]
   },
   "scripts": {
