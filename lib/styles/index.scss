@@ -8,6 +8,10 @@
 //Abstracts
 @import "./abstracts/variables";
 
+//Utilities
+@import "./utilities/animations";
+@import "./utilities/media-query";
+
 //Components
 @import "./components/badge";
 @import "./components/button";
@@ -33,6 +37,3 @@
 @import "./layout/filterbar";
 @import "./layout/header";
 @import "./layout/menubar";
-
-//Utilities
-@import "./utilities/animations";

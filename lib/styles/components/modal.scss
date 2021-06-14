@@ -18,6 +18,11 @@
   &.nui-modal__wrapper--md {
     width: 65%;
     min-height: 65vh;
+
+    @include viewport(mob){
+        width: 100%;
+        min-height: 65vh;
+    }
   }
 
   &.nui-modal__wrapper--lg {
