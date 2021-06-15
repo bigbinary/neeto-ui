@@ -13,15 +13,19 @@
     width: 40%;
     max-width: 544px;
     min-height: 40vh;
+
+    @include viewport(tab-min) {
+      margin: 0 8px;
+      width: 100%;
+    }
   }
 
   &.nui-modal__wrapper--md {
     width: 65%;
     min-height: 65vh;
 
-    @include viewport(mob){
-        width: 100%;
-        min-height: 65vh;
+    @include viewport(tab-min) {
+      width: 100%;
     }
   }
 
@@ -30,6 +34,14 @@
     min-height: 100vh;
     margin: 0;
     border-radius: 0;
+
+    @include viewport(tab-min) {
+      width: 100%;
+    }
+
+    @include viewport(mob) {
+      height: 100vh;
+    }
   }
 
   &.nui-modal__wrapper--auto-height {
@@ -61,6 +73,7 @@
     position: absolute;
     right: 24px;
     top: 24px;
+
     .nui-btn {
       width: 30px;
       height: 30px;
