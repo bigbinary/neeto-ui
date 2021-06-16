@@ -64,6 +64,10 @@ module.exports = {
       zIndex: {
         1: 1,
       },
+      screens: {
+        sm: "768px",
+        md: "991px",
+      },
     },
   },
   variants: {
@@ -72,7 +76,7 @@ module.exports = {
     backgroundColor: ["hover", "active"],
     color: ["hover", "active"],
     margin: ["last"],
-    outline: ["focus"] 
+    outline: ["focus"],
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
