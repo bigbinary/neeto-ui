@@ -43,11 +43,8 @@
     border-radius: 0;
 
     @include viewport(mob) {
-      width: 100%;
-    }
-
-    @include viewport(mob) {
       height: 100vh;
+      width: 100%;
     }
   }
 
@@ -63,7 +60,7 @@
     padding-bottom: $modal-footer-padding;
 
     @include viewport(mob) {
-      padding-bottom: 180px;
+      padding-bottom: $modal-footer-padding-mobile;
 
       button{
         width: 100%;
