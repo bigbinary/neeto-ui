@@ -7,17 +7,33 @@
   background-color: theme("colors.white");
   border-radius: theme("borderRadius.lg");
   box-shadow: theme("boxShadow.xl");
-  overflow: hidden;
 
   &.nui-modal__wrapper--sm {
     width: 40%;
     max-width: 544px;
     min-height: 40vh;
+
+    @include viewport(tab-min) {
+      width: 75%;
+    }
+
+    @include viewport(mob) {
+      margin: 0 8px;
+      width: 100%;
+    }
   }
 
   &.nui-modal__wrapper--md {
     width: 65%;
     min-height: 65vh;
+
+    @include viewport(tab-min) {
+      width: 75%;
+    }
+
+    @include viewport(mob) {
+      width: 100%;
+    }
   }
 
   &.nui-modal__wrapper--lg {
@@ -25,6 +41,11 @@
     min-height: 100vh;
     margin: 0;
     border-radius: 0;
+
+    @include viewport(mob) {
+      height: 100vh;
+      width: 100%;
+    }
   }
 
   &.nui-modal__wrapper--auto-height {
@@ -37,6 +58,18 @@
 
   &.nui-modal__wrapper--footer {
     padding-bottom: $modal-footer-padding;
+
+    @include viewport(mob) {
+      padding-bottom: $modal-footer-padding-mobile;
+
+      button{
+        width: 100%;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin: 8px 0;
+      }
+    }
   }
 
   .nui-modal__footer {
@@ -50,12 +83,17 @@
     width: 100%;
     padding: 14px 24px;
     background-color: theme("colors.gray.50");
+
+    @include viewport(mob){
+      flex-direction: column-reverse;
+    }
   }
 
   .nui-modal__close {
     position: absolute;
     right: 24px;
     top: 24px;
+
     .nui-btn {
       width: 30px;
       height: 30px;
