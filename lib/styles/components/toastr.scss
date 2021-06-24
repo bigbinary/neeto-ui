@@ -1,7 +1,7 @@
 .Toastify__toast-container {
   padding: 0 !important;
   width: auto !important;
-  max-width: 400px;
+  max-width: 520px;
   min-width: 400px;
 
   .Toastify__toast {
@@ -24,11 +24,11 @@
     }
 
     &.Toastify__toast--info {
-      background: #679bff;
+      background: theme("colors.blue.500");
     }
 
     &.Toastify__toast--default {
-      background: #679bff;
+      background: theme("colors.blue.500")
     }
 
     .Toastify__progress-bar {
@@ -43,6 +43,17 @@
       &:focus,
       &:active {
         opacity: 1;
+      }
+    }
+
+    .nui-btn--link {
+      color: theme("colors.gray.100");
+      margin-left: auto;
+      padding: 0 16px;
+      line-height: 20px;
+      font-weight: theme("fontWeight.medium");
+      &:hover {
+        color: theme("colors.white");
       }
     }
 
