@@ -1,0 +1,52 @@
+.nui-accordion__wrapper {
+  border-bottom: thin solid theme("colors.gray.200");
+
+  .nui-accordion__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    .nui-label {
+      font-weight: theme("fontWeight.medium");
+      color: theme("colors.gray.600");
+      transition: all 0.3s;
+    }
+
+    i {
+      font-size: 20px;
+      transition: all 0.3s;
+      color: theme("colors.gray.400");
+    }
+
+    &:focus-visible, &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      background-color: theme("colors.gray.50");
+    }
+
+    &:focus-visible, &:hover {
+      .nui-label {
+        color: theme("colors.gray.700");
+      }
+    }
+
+    &.nui-accordion__item--open {
+      .nui-label {
+        color: theme("colors.gray.800");
+      }
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .nui-accordion__section {
+    margin-bottom: 24px;
+  }
+}
