@@ -7,6 +7,7 @@
   background-color: theme("colors.white");
   border-radius: theme("borderRadius.lg");
   box-shadow: theme("boxShadow.xl");
+  overflow: hidden;
 
   &.nui-modal__wrapper--sm {
     width: 40%;
