@@ -1,11 +1,15 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./src/index.js",
   module: {
     rules: [
+      {
+        test: /\.md$/i,
+        use: "raw-loader",
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,

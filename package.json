@@ -66,9 +66,12 @@
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.5",
+    "catalog": "^3.6.2",
     "dayjs": "^1.10.3",
     "postcss": "^8.2.9",
+    "raw-loader": "^4.0.2",
     "react-color": "^2.19.3",
+    "react-router-nav-prompt": "^0.4.1",
     "yup": "^0.30.0"
   },
   "description": "NeetoUI is the library that drives the experience in all Neeto products built at BigBinary",
