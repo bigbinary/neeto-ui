@@ -48,8 +48,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + "/build",
-    publicPath: "/",
+    path: __dirname + "/dist",
   },
   devServer: {
     historyApiFallback: true,
