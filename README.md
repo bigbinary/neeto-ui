@@ -1,5 +1,6 @@
-**NeetoUI** is the library that drives the experience in all Neeto products built at [BigBinary](https://www.bigbinary.com).
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1026fc08-b879-4046-a480-cb6a29055fe0/deploy-status)](https://app.netlify.com/sites/adoring-mayer-6eabd9/deploys)
+
+**NeetoUI** is the library that drives the experience in all Neeto products built at [BigBinary](https://www.bigbinary.com).
 
 ## Installation
 
