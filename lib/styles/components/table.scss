@@ -27,7 +27,7 @@
         font-size: theme("fontSize.sm");
         font-weight: theme("fontWeight.normal");
         color: theme("colors.gray.800");
-        border-bottom: thin solid theme("colors.gray.100");
+        box-shadow: 0 1px 0 0 theme("colors.gray.100");
         vertical-align: middle;
 
         a:not(.nui-btn) {
@@ -98,22 +98,21 @@
         &:last-of-type {
           width: 144px;
         }
-        &:first-of-type {
-          width: auto;
-        }
       }
       td {
         &:last-of-type {
-          opacity: 0;
-        }
-        &:first-of-type {
-          opacity: 1;
+          & > div {
+            opacity: 0;
+            transition: all 0.3s;
+          }
         }
       }
       &:hover {
         td {
           &:last-of-type {
-            opacity: 1;
+            & > div {
+              opacity: 1;
+            }
           }
         }
       }
