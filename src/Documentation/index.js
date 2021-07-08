@@ -33,7 +33,7 @@ const componentNames = [
 export default function index() {
   return (
     <Catalog
-      title="My Styleguide"
+      title="neetoUI"
       pages={[
         {
           path: "/",
