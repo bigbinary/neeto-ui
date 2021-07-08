@@ -1,4 +1,5 @@
 **NeetoUI** is the library that drives the experience in all Neeto products built at [BigBinary](https://www.bigbinary.com).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1026fc08-b879-4046-a480-cb6a29055fe0/deploy-status)](https://app.netlify.com/sites/adoring-mayer-6eabd9/deploys)
 
 ## Installation
 
@@ -40,5 +41,5 @@ NeetoUI gets auto-published to npm on new commit to master. You can checkout the
 Read the docs here: https://neeto-ui.netlify.app.
 
 ## Theming
-Theme override gist: [Override Gist](https://gist.github.com/goutham-subramanyam/d0619f8d089b10e7474a32478110ea0f)
 
+Theme override gist: [Override Gist](https://gist.github.com/goutham-subramanyam/d0619f8d089b10e7474a32478110ea0f)
