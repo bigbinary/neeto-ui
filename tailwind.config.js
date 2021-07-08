@@ -6,6 +6,7 @@ module.exports = {
       "./lib/**/**/*.js",
       "./lib/**/**/**/*.js",
       "./lib/*.js",
+      "./src/**/*.js",
     ],
     defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
     options: {
