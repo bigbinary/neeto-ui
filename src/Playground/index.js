@@ -21,6 +21,7 @@ const Playground = () => {
           <Route path="/playground/overlays" component={Overlays} />
           <Route path="/playground/components" component={Components} />
           <Route path="/playground/layouts" component={Layouts} />
+          <Route path="*" component={Buttons} />
         </Switch>
       </div>
     </div>
