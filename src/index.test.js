@@ -1,9 +1,11 @@
+import * as React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import App from "./Playground/index";
 
 test("test buttons in playground", () => {
   render(<App />);
-  const buttonElement = screen.getByText(/Buttons/i);
+  const buttonElement = screen.getByText(/Primary Button/i);
   expect(buttonElement).toBeInTheDocument();
 });
 
