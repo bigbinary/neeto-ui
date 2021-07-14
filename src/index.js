@@ -9,6 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/playground" component={Playground} />
+        <Route path="/playground/*" component={Playground} />
         <Route path="/documentation" component={Documentation} />
         <Redirect from="/" to="/documentation" />
       </Switch>
