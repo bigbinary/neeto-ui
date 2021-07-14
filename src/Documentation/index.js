@@ -30,9 +30,7 @@ const componentNames = [
   "Tooltip",
 ];
 
-const layoutNames= [
-  'Header'
-]
+const layoutNames = ["Header", "SubHeader"];
 
 export default function index() {
   return (
@@ -80,9 +78,7 @@ export default function index() {
             imports: {
               [layoutName]: NeetoUI[layoutName],
             },
-            content: pageLoader(() =>
-              import(`./Layouts/${layoutName}.md`)
-            ),
+            content: pageLoader(() => import(`./Layouts/${layoutName}.md`)),
           })),
         },
         {
