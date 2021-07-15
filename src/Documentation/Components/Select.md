@@ -24,7 +24,7 @@ rows:
     Definition: 'To specify the help text that appears below the select component.'
     Type: 'String'
   - Prop: '**className**'
-    Definition: 'To specify external classnames as overrrides to the select component.'
+    Definition: 'To specify external classnames as overrides to the select component.'
     Type: 'String'
   - Prop: '**isCreateable**'
     Definition: 'To specify whether the select component is a creatable select component.'
