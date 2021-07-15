@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import {
   Label,
   Input,
@@ -49,6 +49,7 @@ const FormElements = () => {
             onChange={(e) => setName(e.target.value)}
             error={isEmpty(name) && "Your name required*"}
             maxLength={32}
+            data-testid="required-input"
           />
           <Textarea
             value={bio}

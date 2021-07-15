@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Form, Formik } from "formik";
 import {
   ActionBlock,
@@ -7,10 +7,9 @@ import {
   Select as FormikSelect,
 } from "../../lib/components/formik";
 
-import Header from '../Header';
+import Header from "../Header";
 
 const FormikElements = () => {
-
   const RADIO_OPTIONS = [
     {
       label: "Everyone",
@@ -37,39 +36,42 @@ const FormikElements = () => {
 
   return (
     <div className="w-full">
-      <Header title="Formik"/>
+      <Header title="Formik" />
       <div className="flex flex-col items-start justify-start p-6">
-      <Formik
-        initialValues={{ formikRadio: "", formikSelect: "" }}
-        onSubmit={() => {}}
-      >
-        <Form className="w-2/6">
-          <FormikInput
-            name="formikInput"
-            type="text"
-            label="Formik Input"
-            placeholder="Type Something"
-            error="Input error message"
-            className="mb-6"
-          />
-          <FormikRadio
-            name="formikRadio"
-            label="Formik Radio"
-            options={RADIO_OPTIONS}
-            className="mb-6"
-          />
-          <FormikSelect
-            name="formikSelect"
-            label="Formik Select"
-            options={SELECT_OPTIONS}
-            className="mb-8"
-          />
-          <ActionBlock/>
-        </Form>
-      </Formik>
+        <Formik
+          initialValues={{ formikRadio: "", formikSelect: "" }}
+          onSubmit={() => {}}
+        >
+          <Form className="w-2/6">
+            <FormikInput
+              name="formikInput"
+              type="text"
+              label="Formik Input"
+              placeholder="Type Something"
+              error="Input error message"
+              className="mb-6"
+              data-testid="formik-input"
+            />
+            <FormikRadio
+              name="formikRadio"
+              label="Formik Radio"
+              options={RADIO_OPTIONS}
+              className="mb-6"
+              data-testid="formik-radio"
+            />
+            <FormikSelect
+              name="formikSelect"
+              label="Formik Select"
+              options={SELECT_OPTIONS}
+              className="mb-8"
+              data-testid="formik-select"
+            />
+            <ActionBlock />
+          </Form>
+        </Formik>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default FormikElements;
