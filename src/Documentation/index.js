@@ -31,8 +31,7 @@ const componentNames = [
 ];
 
 const layoutNames= [
-  'Header',
-  'SubHeader'
+  'Header'
 ]
 
 export default function index() {
