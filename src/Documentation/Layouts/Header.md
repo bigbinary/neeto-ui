@@ -12,7 +12,7 @@ rows:
     Definition: 'To set a subtitle in the header section.'
     Type: 'String'
   - Prop: '**actionBlock**'
-    Definition: 'To specify the content to be rendered in the right side of the header component.'
+    Definition: 'To specify the content to be rendered in the right side of the header section.'
     Type: 'Valid JSX'
   - Prop: '**showMenu**'
     Definition: 'To change the icon in the menu button on opening and closing of the menu'
@@ -47,10 +47,10 @@ plain: true
 showSource: true
 
 ---
-const breadcrumbs = [{text:"Home",link:"/home"},{text:"Layouts",link:"/layouts"},{text:"Header",link:"/documentation#/header"}];
+const breadcrumbs = [{text:"Home",link:"/home"},{text:"Layouts",link:"/layouts"}];
 
 <div className="p-4">
-  <Header breadcrumbs={breadcrumbs} toggleMenu={()=>{}}/>
+  <Header title="Header" breadcrumbs={breadcrumbs} toggleMenu={()=>{}}/>
 </div>
 ```
 
@@ -65,8 +65,8 @@ showSource: true
     title="Layouts"
     toggleMenu={()=>{}}
     actionBlock={
-      <button type="secondary">
-        Add Layout
+      <button class="nui-btn nui-btn--primary">
+        Action Button
       </button>
     }
   />
