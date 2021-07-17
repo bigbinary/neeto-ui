@@ -22,7 +22,7 @@ const COLOR_PALETTER_LIST = [
   { from: "red-500", to: "red-600" },
   { from: "blue-500", to: "blue-600" },
   { from: "indigo-500", to: "indigo-600" },
-  { from: "yellow-500", to: "yellow-600" }
+  { from: "yellow-500", to: "yellow-600" },
 ];
 
 const Components = () => {
@@ -42,17 +42,19 @@ const Components = () => {
         </div>
         <div className="w-full mb-12">
           <h4 className="mb-3 text-sm font-medium text-gray-800">Card</h4>
-          <Card rows={1} className="w-1/3 mb-6">
+          <Card key="card1" rows={1} className="w-1/3 mb-6">
             <Card.Title>Card with Static Children</Card.Title>
             <p className="mb-4">Card Item 1</p>
             <p className="mb-4">Card Item 2</p>
             <p>Card Item 3</p>
           </Card>
 
-          <Card rows={1} className="w-1/3">
+          <Card key="card2" rows={1} className="w-1/3">
             <Card.Title>Card with Dynamic Children</Card.Title>
-            {cardItems.map((item) => (
-              <p className="mb-4 last:mb-0">{item}</p>
+            {cardItems.map((item, index) => (
+              <p key={index} className="mb-4 last:mb-0">
+                {item}
+              </p>
             ))}
           </Card>
         </div>
@@ -81,9 +83,15 @@ const Components = () => {
           <h4 className="mb-3 text-sm font-medium text-gray-800">Avatar</h4>
           <div className="flex flex-row items-center justify-start space-x-4">
             <Badge color="red">Red Badge</Badge>
-            <Badge color="blue" type="squared">Blue Badge</Badge>
-            <Badge color="green" size="large">Green Badge</Badge>
-            <Badge color="yellow" type="squared" size="large">Yellow Badge</Badge>
+            <Badge color="blue" type="squared">
+              Blue Badge
+            </Badge>
+            <Badge color="green" size="large">
+              Green Badge
+            </Badge>
+            <Badge color="yellow" type="squared" size="large">
+              Yellow Badge
+            </Badge>
           </div>
         </div>
         <div className="mb-12">
