@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../Components";
 
-test("test buttons in playground", () => {
+test("test components in playground", () => {
   render(<App />);
 
   expect(screen.getByText("Components")).toBeInTheDocument();

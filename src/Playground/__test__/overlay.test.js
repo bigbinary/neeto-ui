@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../Overlays";
 
-test("test formik inputs in playground", () => {
+test("test overlays in playground", () => {
   render(<App />);
 
   //Trigger pane

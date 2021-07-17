@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../Formik";
 
-test("test formik inputs in playground", () => {
+test("test formik components in playground", () => {
   render(<App />);
 
   //Formik input

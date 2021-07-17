@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../Buttons";
 
-test("test input in playground", () => {
+test("test form elements in playground", () => {
   render(<App />);
 
   //Inputs
