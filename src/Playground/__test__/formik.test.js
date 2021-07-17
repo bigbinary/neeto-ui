@@ -8,10 +8,10 @@ test("test formik components in playground", () => {
 
   //Formik input
   const formikInput = screen.getByTestId("formik-input");
-  expect(formikInput.value).toBe("");
+  expect(formikInput).toHaveValue("");
   expect(formikInput.placeholder).toBe("Type Something");
   fireEvent.change(formikInput, { target: { value: "foo" } });
-  expect(formikInput.value).toBe("foo");
+  expect(formikInput).toHaveValue("foo");
 
   //Formik radio
   const formikRadio = screen.getByText("Formik Radio");

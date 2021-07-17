@@ -56,6 +56,7 @@ const FormElements = () => {
             label="Textarea"
             placeholder="Type Something"
             onChange={(e) => setBio(e.target.value)}
+            data-testid="textarea"
           />
           <Select
             label="Select"
@@ -143,6 +144,7 @@ const FormElements = () => {
               label={switched ? "Switch me OFF" : "Switch me ON"}
               checked={switched}
               onChange={(e) => setSwitched(e.target.checked)}
+              data-testid="switch"
             />
           </div>
         </div>
