@@ -17,7 +17,7 @@ test("test formik inputs in playground", () => {
   const formikRadio = screen.getByText("Formik Radio");
   expect(formikRadio).toBeInTheDocument();
 
-  //Formik checkbox
+  //Formik select
   const formikSelect = screen.getByText("Formik Select");
   expect(formikSelect).toBeInTheDocument();
 });
