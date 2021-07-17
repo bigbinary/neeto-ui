@@ -7,6 +7,7 @@ test("test layouts in playground", () => {
   render(<App />);
 
   expect(screen.getByText("Layouts")).toBeInTheDocument();
+  expect(screen.getByText("Columns")).toBeInTheDocument();
 
   //Testing search input
   const searchInput = screen.getByTestId("search-input");
