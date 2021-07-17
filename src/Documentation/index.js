@@ -20,6 +20,7 @@ const componentNames = [
   "Input",
   "Modal",
   "PageLoader",
+  "Pagination",
   "Pane",
   "Radio",
   "Select",
