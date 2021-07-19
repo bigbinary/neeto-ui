@@ -3,7 +3,7 @@
 ```table
 rows:
   - Prop: '**title**'
-    Definition: 'To set a title in the header section'
+    Definition: 'To set a title in the header section.'
     Type: 'String'
   - Prop: '**subtitle**'
     Definition: 'To specify external classnames as overrides to the header.'
@@ -15,13 +15,13 @@ rows:
     Definition: 'To specify the content to be rendered in the right side of the header section.'
     Type: 'Valid JSX'
   - Prop: '**showMenu**'
-    Definition: 'To change the icon in the menu button on opening and closing of the menu'
+    Definition: 'To change the icon in the menu button on opening and closing of the menu.'
     Type: 'Boolean'
   - Prop: '**toggleMenu**'
     Definition: 'To specify the callback which will be invoked when the menu button is clicked.'
     Type: 'Function'
   - Prop: '**breadcrumbs**'
-    Definition: 'To show breadcrumbs in the header section'
+    Definition: 'To show breadcrumbs in the header section.'
     Type: 'Array of objects'
     Structure: '`[{text:"Main Section", link:"/main"}]`'
 ```
