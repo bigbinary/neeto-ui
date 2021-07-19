@@ -15,7 +15,7 @@ rows:
     Definition: 'To add delete button to the subheader section.'
     Type: 'Object'
   - Prop: '**paginationProps**'
-    Definition: 'To add the pagination component to the subheader section. It contain the current page number, total number of items, items per page and navigation buttons'
+    Definition: 'To add the pagination component to the subheader section. It contain the current page number, total number of items, items per page and navigation buttons.'
     Type: 'Object'
   - Prop: '**columnFilterProps**'
     Definition: 'To add the column filter button to the subheader section. It contains the list of columns with checkboxes.'
@@ -33,7 +33,7 @@ rows:
     Definition: 'To specify the content to be rendered in the right side of the header section.'
     Type: 'Valid JSX'
   - Prop: '**toggleFilter**'
-    Definition: 'To specify the callback which will be invoked when the filter button is clicked. Filter button will be displayed if this function is provided'
+    Definition: 'To specify the callback which will be invoked when the filter button is clicked. Filter button will be displayed if this function is provided.'
     Type: 'Function'
 ```
 
