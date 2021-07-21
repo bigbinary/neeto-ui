@@ -1,0 +1,42 @@
+.nui-modal--root {
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .nui-modal--wrapper {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    padding: 32px 24px 24px 24px;
+
+    &.nui-modal--sm {
+      max-width: 288px;
+    }
+
+    &.nui-modal--md {
+      max-width: 480px;
+    }
+
+    &.nui-modal--lg {
+      max-width: 720px;
+    }
+
+    .nui-modal--title {
+      margin-bottom: 8px;
+    }
+
+    .nui-modal--footer {
+      margin-top: 32px;
+    }
+  }
+}

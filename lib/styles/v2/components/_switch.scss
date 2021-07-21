@@ -1,0 +1,49 @@
+.nui-switch__item {
+  width: 44px;
+  height: 24px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  transition: $transition;
+  background-color: $gray-200;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+
+  &.nui-switch__item--disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &.nui-switch__item--checked {
+    background-color: $gray-800;
+  }
+
+  .nui-switch {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(0);
+    background-color: $white;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+
+    &.nui-switch--checked {
+      transform: translateX(20px);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px $gray-200;
+  }
+}

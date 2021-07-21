@@ -1,0 +1,45 @@
+/* Heading tags are nested inside the body tag for having higher specificity than Tailwind reset */
+
+body {
+  color: $gray-800;
+
+  h1 {
+    font-weight: $font-semibold;
+    font-size: $text-3xl;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-weight: $font-semibold;
+    font-size: $text-2xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-weight: $font-semibold;
+    font-size: $text-xl;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-weight: $font-semibold;
+    font-size: $text-base;
+    line-height: 1.2;
+  }
+
+  h5 {
+    font-weight: $font-semibold;
+    font-size: $text-sm;
+    line-height: 1.2;
+  }
+
+  h6 {
+    font-weight: $font-semibold;
+    font-size: $text-xs;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: $text-sm;
+  }
+}
