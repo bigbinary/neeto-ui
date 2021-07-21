@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import {
   Label,
   Input,
@@ -49,12 +49,14 @@ const FormElements = () => {
             onChange={(e) => setName(e.target.value)}
             error={isEmpty(name) && "Your name required*"}
             maxLength={32}
+            data-testid="required-input"
           />
           <Textarea
             value={bio}
             label="Textarea"
             placeholder="Type Something"
             onChange={(e) => setBio(e.target.value)}
+            data-testid="textarea"
           />
           <Select
             label="Select"
@@ -142,6 +144,7 @@ const FormElements = () => {
               label={switched ? "Switch me OFF" : "Switch me ON"}
               checked={switched}
               onChange={(e) => setSwitched(e.target.checked)}
+              data-testid="switch"
             />
           </div>
         </div>

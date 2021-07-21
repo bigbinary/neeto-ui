@@ -9,10 +9,7 @@ import {
   FilterBar,
 } from "../../lib/layouts";
 
-import {
-  Button,
-  Tooltip,
-} from "../../lib";
+import { Button, Tooltip } from "../../lib";
 
 const noop = () => {};
 const LABELS = ["Misc", "Random", "Urgent"];
@@ -59,6 +56,7 @@ const Layouts = () => {
                 value: searchString,
                 onChange: (e) => setSearchString(e.target.value),
                 clear: () => setSearchString(""),
+                "data-testid": "search-input",
               }}
               sortProps={{
                 options: [],
@@ -90,13 +88,17 @@ const Layouts = () => {
                       <td>
                         <div className="flex flex-row items-center justify-end space-x-3">
                           <Tooltip content="Edit" position="bottom">
-                            <Button icon="ri-pencil-line" style="icon"/>
+                            <Button icon="ri-pencil-line" style="icon" />
                           </Tooltip>
-                          <Tooltip content="Deactivate" position="bottom" theme="light">
-                            <Button icon="ri-lock-line" style="icon"/>
+                          <Tooltip
+                            content="Deactivate"
+                            position="bottom"
+                            theme="light"
+                          >
+                            <Button icon="ri-lock-line" style="icon" />
                           </Tooltip>
                           <Tooltip content="Delete" position="bottom" minimal>
-                            <Button icon="ri-delete-bin-line" style="icon"/>
+                            <Button icon="ri-delete-bin-line" style="icon" />
                           </Tooltip>
                         </div>
                       </td>

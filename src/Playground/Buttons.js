@@ -1,15 +1,11 @@
-import React from 'react';
-import {
-  Button,
-  Dropdown,
-  ActionDropdown,
-} from "../../lib";
-import Header from '../Header';
+import React from "react";
+import { Button, Dropdown, ActionDropdown } from "../../lib";
+import Header from "../Header";
 
 const Buttons = () => {
   return (
     <div className="w-full">
-      <Header title="Buttons"/>
+      <Header title="Buttons" />
       <div className="flex flex-col items-start justify-start p-6">
         <div className="mb-8">
           <h4 className="mb-3 text-sm font-medium text-gray-800">Buttons</h4>
@@ -17,26 +13,32 @@ const Buttons = () => {
             <Button
               style="primary"
               label="Primary Button"
+              data-testid="primary-button"
             />
             <Button
               style="secondary"
               label="Secondary Button"
+              data-testid="secondary-button"
             />
             <Button
               style="warning"
               label="Warning Button"
+              data-testid="warning-button"
             />
             <Button
               style="danger"
               label="Danger Button"
+              data-testid="danger-button"
             />
             <Button
               style="text"
               label="Text Button"
+              data-testid="text-button"
             />
             <Button
               style="link"
               label="Link Button"
+              data-testid="link-button"
             />
           </div>
         </div>
@@ -77,7 +79,7 @@ const Buttons = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Buttons
+export default Buttons;
