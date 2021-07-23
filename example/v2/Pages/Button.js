@@ -38,7 +38,7 @@ const Buttons = () => {
               />
               <Button onClick={toggle} size="large" label="Label" loading />
             </div>
-            <div className="space-x-8">
+            <div className="flex gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -423,7 +423,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
