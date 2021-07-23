@@ -14,9 +14,10 @@ import Header from "../Header";
 const Components = () => {
   const [showModal, setShowModal] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [tab, setTab] = useState(true);
   return (
     <div className="w-full">
-      <Header title="Components" />
+      <Header title="Form Elements" />
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Title>They're creepy & they're kooky</Modal.Title>
         Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
@@ -39,30 +40,36 @@ const Components = () => {
       </Modal>
       <div className="p-6 space-y-6">
         <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Tab</h2>
           <Tab className="grid grid-cols-2">
-            <Tab.Item active>Label 1</Tab.Item>
-            <Tab.Item>Label 2</Tab.Item>
+            <Tab.Item active={tab} onClick={() => setTab(true)}>
+              Tab 1
+            </Tab.Item>
+            <Tab.Item active={!tab} onClick={() => setTab(false)}>
+              Tab 2
+            </Tab.Item>
           </Tab>
           <Tab className="grid grid-cols-3">
-            <Tab.Item active>Label 1</Tab.Item>
-            <Tab.Item>Label 2</Tab.Item>
-            <Tab.Item>Label 3</Tab.Item>
+            <Tab.Item active>Tab 1</Tab.Item>
+            <Tab.Item>Tab 2</Tab.Item>
+            <Tab.Item>Tab 3</Tab.Item>
           </Tab>
           <Tab className="grid grid-cols-4">
-            <Tab.Item active>Label 1</Tab.Item>
-            <Tab.Item>Label 2</Tab.Item>
-            <Tab.Item>Label 3</Tab.Item>
-            <Tab.Item>Label 4</Tab.Item>
+            <Tab.Item active>Tab 1</Tab.Item>
+            <Tab.Item>Tab 2</Tab.Item>
+            <Tab.Item>Tab 3</Tab.Item>
+            <Tab.Item>Tab 4</Tab.Item>
           </Tab>
           <Tab className="grid grid-cols-5">
-            <Tab.Item active>Label 1</Tab.Item>
-            <Tab.Item>Label 2</Tab.Item>
-            <Tab.Item>Label 3</Tab.Item>
-            <Tab.Item>Label 4</Tab.Item>
-            <Tab.Item>Label 5</Tab.Item>
+            <Tab.Item active>Tab 1</Tab.Item>
+            <Tab.Item>Tab 2</Tab.Item>
+            <Tab.Item>Tab 3</Tab.Item>
+            <Tab.Item>Tab 4</Tab.Item>
+            <Tab.Item>Tab 5</Tab.Item>
           </Tab>
         </div>
         <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Radio, Checkbox and Toggle</h2>
           <div className="flex flex-row items-center justify-start space-x-6">
             <div>
               <Radio>

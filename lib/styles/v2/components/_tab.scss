@@ -18,6 +18,7 @@
     transition: $transition;
     position: relative;
     cursor: pointer;
+    outline: none;
 
     &:hover {
       color: $gray-600;

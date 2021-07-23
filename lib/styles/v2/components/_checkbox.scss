@@ -13,6 +13,10 @@
     border-color: $gray-400;
   }
 
+  &:checked{
+    border: none !important; 
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -21,4 +25,6 @@
   &:focus-visible {
     box-shadow: 0 0 0 2px $gray-200;
   }
+
+  
 }

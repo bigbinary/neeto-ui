@@ -15,6 +15,7 @@ const Buttons = () => {
         <Button onClick={toggle} label="Toggle Loading State" />
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Large/Primary</h2>
             <div className="space-x-8">
               <Button
                 loading={loading}
@@ -105,6 +106,7 @@ const Buttons = () => {
             </div>
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Default/Primary</h2>
             <div className="space-x-8">
               <Button loading={loading} onClick={toggle} label="Label" />
               <Button loading={loading} onClick={toggle} label="Label" />
@@ -180,6 +182,7 @@ const Buttons = () => {
         </div>
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Large/Secondary</h2>
             <div className="space-x-8">
               <Button
                 loading={loading}
@@ -288,6 +291,7 @@ const Buttons = () => {
             </div>
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Default/Secondary</h2>
             <div className="space-x-8">
               <Button
                 loading={loading}
@@ -386,6 +390,7 @@ const Buttons = () => {
         </div>
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Large/Danger</h2>
             <div className="space-x-8">
               <Button
                 loading={loading}
@@ -498,6 +503,7 @@ const Buttons = () => {
             </div>
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Default/Danger</h2>
             <div className="space-x-8">
               <Button
                 loading={loading}
