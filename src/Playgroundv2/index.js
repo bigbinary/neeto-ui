@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Buttons from "./Buttons";
-import Components from "./Components";
+import FormElements from "./FormElements";
 
 const Playground = () => {
   return (
@@ -12,7 +12,7 @@ const Playground = () => {
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
             <Route path="/v2/buttons" component={Buttons} />
-            <Route path="/v2/form-elements" component={Components} />
+            <Route path="/v2/form-elements" component={FormElements} />
             <Route path="*" component={Buttons} />
           </Switch>
         </div>
