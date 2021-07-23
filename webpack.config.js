@@ -6,6 +6,7 @@ module.exports = {
     neetoui: "./lib/index.js",
     formik: "./lib/components/formik/index.js",
     layouts: "./lib/layouts/index.js",
+    v2: "./lib/v2/index.js",
   },
   module: {
     rules: [
