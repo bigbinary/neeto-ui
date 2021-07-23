@@ -63,7 +63,7 @@
     @include viewport(mob) {
       padding-bottom: $modal-footer-padding-mobile;
 
-      button{
+      button {
         width: 100%;
         justify-content: center;
         padding-top: 12px;
@@ -85,7 +85,7 @@
     padding: 14px 24px;
     background-color: theme("colors.gray.50");
 
-    @include viewport(mob){
+    @include viewport(mob) {
       flex-direction: column-reverse;
     }
   }
@@ -103,6 +103,68 @@
 
       &:hover {
         background-color: theme("colors.gray.100");
+      }
+    }
+  }
+}
+
+.nui-alert__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  @include viewport(mob) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nui-alert__icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: theme("borderRadius.full");
+    margin-right: 16px;
+
+    @include viewport(mob) {
+      margin-right: 0px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .nui-alert__content {
+    width: auto;
+
+    @include viewport(mob) {
+      width: 100%;
+    }
+
+    h3 {
+      font-size: theme("fontSize.lg");
+      font-weight: theme("fontWeight.medium");
+      color: theme("colors.gray.800");
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: theme("fontSize.sm");
+      line-height: 20px;
+      font-weight: theme("fontWeight.normal");
+      color: theme("colors.gray.600");
+
+      &:not(&:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    h3,
+    p {
+      @include viewport(mob) {
+        text-align: center;
       }
     }
   }
