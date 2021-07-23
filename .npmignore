@@ -10,6 +10,8 @@
 
 # production
 /build
+/dist
+/lib
 
 # misc
 .DS_Store
@@ -18,6 +20,8 @@
 .env.test.local
 .env.production.local
 .husky
+.github
+.editorconfig
 
 npm-debug.log*
 yarn-debug.log*

@@ -1,0 +1,192 @@
+.nui-v2-btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  border-radius: $rounded-sm;
+  line-height: 1.5;
+  transition: $transition;
+  position: relative;
+
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid transparent;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:not(.nui-btn--iconLeft) {
+    & > i,
+    svg,
+    div {
+      &:last-child:not(:first-child) {
+        margin-left: 24px;
+      }
+    }
+  }
+
+  &.nui-btn--iconLeft {
+    flex-direction: row-reverse;
+
+    & > i,
+    svg,
+    div {
+      &:last-child:not(:first-child) {
+        margin-right: 12px;
+      }
+      &:first-child:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &.nui-btn--primary {
+    padding: 8px 12px;
+    color: $white;
+    background-color: $gray-800;
+
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $gray-700;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px $gray-200;
+    }
+
+    &:disabled {
+      background-color: $gray-400;
+      color: $gray-500;
+    }
+  }
+
+  &.nui-btn--danger {
+    padding: 8px 12px;
+    color: $primary-red;
+    background-color: $pastel-red;
+
+    &:hover:not(:disabled),
+    &:active {
+      background-color: darken($pastel-red, 2.5%);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px $pastel-red;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &.nui-btn--secondary {
+    padding: 8px 12px;
+    color: $gray-800;
+    background-color: $gray-200;
+
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $gray-300;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px $gray-300;
+    }
+
+    &:disabled {
+      background-color: $gray-200;
+      color: $gray-400;
+    }
+  }
+
+  &.nui-btn--text {
+    font-size: theme("fontSize.sm");
+    color: theme("colors.gray.600");
+    padding: 0;
+
+    &:hover:not(:disabled) {
+      color: theme("colors.gray.700");
+    }
+
+    &:active,
+    &:focus {
+      color: theme("colors.gray.800");
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $white, 0 0 0 4px theme("colors.gray.300");
+    }
+  }
+
+  &.nui-btn--link {
+    color: $gray-800;
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      color: $gray-700;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-800;
+    }
+  }
+
+  &.nui-btn--icon {
+    font-size: 20px;
+    opacity: 0.75;
+    color: theme("colors.gray.600");
+
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $white, 0 0 0 4px theme("colors.gray.300");
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.nui-btn--large {
+    font-size: $text-base;
+  }
+
+  &.nui-btn--full {
+    width: 100%;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.nui-v2-btn--loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: inherit;
+  cursor: default;
+
+  div {
+    display: inherit;
+  }
+
+  div > div {
+    background-color: currentColor;
+  }
+}

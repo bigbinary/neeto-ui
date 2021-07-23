@@ -1,0 +1,30 @@
+.nui-v2-checkbox[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  color: $gray-800;
+  border: 2px solid $gray-300;
+  border-radius: $rounded-sm;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled, :checked) {
+    border-color: $gray-400;
+  }
+
+  &:checked{
+    border: none !important; 
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px $gray-200;
+  }
+
+  
+}

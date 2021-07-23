@@ -11,6 +11,6 @@
       "checkJs": true,
       "jsx": "react"
     },
-    "exclude": ["formik.js", "neetoui.jsx", "layouts.js"],
+    "exclude": ["formik.js", "neetoui.js", "layouts.js", "v2.js"],
     "include": ["./**/*.js", "./**/*.jsx"]
   }

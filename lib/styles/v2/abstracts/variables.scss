@@ -1,0 +1,62 @@
+//SCSS Variables
+
+//Weights
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+//Sizes
+$text-xs: 12px;
+$text-sm: 14px;
+$text-base: 16px;
+$text-lg: 18px;
+$text-xl: 20px;
+$text-2xl: 24px;
+$text-3xl: 32px;
+$text-4xl: 48px;
+
+//Border Radius
+
+$rounded-sm: 2px;
+$rounded: 4px;
+$rounded-md: 6px;
+$rounded-lg: 8px;
+$rounded-xl: 10px;
+$rounded-full: 999px;
+
+//Transition
+$transition: all 0.3s ease-in-out;
+
+//Shadows
+
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// Breakpoints
+$mob-479: 479px;
+$tab-768: 768px;
+$tab-1024: 1024px;
+$desk-1200: 1200px;
+
+//Colors
+
+$primary-blue: #505dea;
+$primary-green: #00ba88;
+$primary-yellow: #ffd426;
+$primary-red: #ff6961;
+$pastel-blue: #eff3fe;
+$pastel-green: #e6f2ed;
+$pastel-yellow: #fffaf0;
+$pastel-red: #ffefed;
+$white: #ffffff;
+$black: #1b1f23;
+$gray-800: #2f3941;
+$gray-700: #49545c;
+$gray-600: #68737d;
+$gray-500: #87929d;
+$gray-400: #c2c8cc;
+$gray-300: #d8dcde;
+$gray-200: #e9ebed;
+$gray-100: #f8f9f9;
