@@ -55,6 +55,13 @@ const Sidebar = () => {
           >
             Form Elements
           </NavLink>
+          <NavLink
+            to="/v2/input-fields"
+            className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
+            activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
+          >
+            Input Fields
+          </NavLink>
           <a
             href="/documentation"
             className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
