@@ -8,6 +8,7 @@ import {
   Switch,
   Modal,
   Toastr,
+  Pagination
 } from "../../lib/v2";
 import Header from "../Header";
 
@@ -67,6 +68,16 @@ const Components = () => {
             <Tab.Item>Tab 4</Tab.Item>
             <Tab.Item>Tab 5</Tab.Item>
           </Tab>
+        </div>
+        <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Pagination</h2>
+          <Pagination
+            count={200}
+            pageNo={1}
+            pageSize={20}
+            siblingCount={1}
+            navigate={() => {}}
+          />
         </div>
         <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Radio, Checkbox and Toggle</h2>
