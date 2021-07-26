@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Buttons from "./Buttons";
 import FormElements from "./FormElements";
+import InputFields from "./InputFields";
 
 const Playground = () => {
   return (
@@ -13,6 +14,8 @@ const Playground = () => {
           <Switch>
             <Route path="/v2/buttons" component={Buttons} />
             <Route path="/v2/form-elements" component={FormElements} />
+            <Route path="/v2/input-fields" component={InputFields} />
+
             <Route path="*" component={Buttons} />
           </Switch>
         </div>
