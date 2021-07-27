@@ -1,0 +1,177 @@
+.nui-sidebar {
+  width: 320px;
+  min-width: 320px;
+  height: 100vh;
+  background-color: $gray-100;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .nui-sidebar__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 40px;
+    margin-bottom: 120px;
+
+    .nui-sidebar__logo {
+      width: 48px;
+      height: 48px;
+      border-radius: theme("borderRadius.DEFAULT");
+      background-color: $gray-800;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nui-sidebar__info {
+      margin-left: 12px;
+      h2 {
+        font-size: 14px;
+        font-weight: theme("fontWeight.medium");
+        color: $gray-800;
+        margin-bottom: 4px;
+      }
+      p {
+        font-size: 14px;
+        color: $gray-500;
+      }
+    }
+  }
+
+  .nui-sidebar__links {
+    width: 100%;
+
+    .nui-sidebar__link {
+      padding: 8px 40px;
+      font-size: 16px;
+      font-weight: theme("fontWeight.medium");
+      color: $gray-600;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:not(&:last-child) {
+        margin-bottom: 16px;
+      }
+
+      svg {
+        flex-shrink: 0;
+        transition: transform 0.3s ease-in-out;
+        path {
+          transition: all 0.3s;
+        }
+      }
+
+      span {
+        margin-left: 12px;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+
+      &:hover {
+        color: $gray-700;
+      }
+
+      &:active,
+      &.active {
+        color: $gray-800;
+      }
+    }
+  }
+
+  .nui-sidebar__footer {
+    margin-top: auto;
+    width: 100%;
+
+    .nui-sidebar__profile-wrapper {
+      padding: 0 24px;
+
+      .nui-sidebar__profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding: 12px 16px;
+        background-color: $white;
+        margin-bottom: 24px;
+
+        .nui-sidebar__avatar {
+          width: 40px;
+          height: 40px;
+          background-color: #fff2e1;
+          border-radius: theme("borderRadius.full");
+          text-align: center;
+          line-height: 40px;
+          font-size: 14px;
+          font-weight: theme("fontWeight.semibold");
+          color: rgba($gray-800, 0.5);
+        }
+
+        .nui-sidebar__profile-info {
+          margin-left: 12px;
+          h2 {
+            font-size: 16px;
+            font-weight: theme("fontWeight.medium");
+            color: $gray-800;
+          }
+          p {
+            font-size: 12px;
+            color: $gray-500;
+          }
+        }
+      }
+    }
+  }
+
+  &.nui-sidebar--collapsed {
+    width: 80px;
+    min-width: 80px;
+
+    .nui-sidebar__header {
+      padding: 0 16px;
+    }
+
+    .nui-sidebar__links {
+      .nui-sidebar__link {
+        padding-left: 24px;
+        padding-right: 24px;
+        justify-content: center;
+      }
+    }
+
+    .nui-sidebar__footer {
+      .nui-sidebar__profile-wrapper {
+        padding: 0;
+
+        .nui-sidebar__profile {
+          background-color: transparent;
+          justify-content: center;
+        }
+      }
+
+      .nui-sidebar__links {
+        .nui-sidebar__link {
+          &:last-child {
+            svg {
+              transform: rotateY(180deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
