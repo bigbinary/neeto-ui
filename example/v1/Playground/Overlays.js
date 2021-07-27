@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pane, Alert, Modal, Button } from "../../lib";
+import { Pane, Alert, Modal, Button } from "../../../lib";
 import Header from "../Header";
 
 const Buttons = () => {

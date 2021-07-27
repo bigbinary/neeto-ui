@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Dropdown, ActionDropdown } from "../../lib";
+import { Button, Dropdown, ActionDropdown } from "../../../lib";
 import Header from "../Header";
 
 const Buttons = () => {

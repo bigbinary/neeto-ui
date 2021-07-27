@@ -1,6 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import { Sidebar } from "../../lib/layouts";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { Sidebar } from "../../../lib/layouts";
 import Buttons from "./Buttons";
 import FormElements from "./FormElements";
 import Formik from "./Formik";
@@ -29,7 +34,7 @@ const navLinks = [
     label: "Layouts",
     to: "/playground/Layouts",
   },
-]
+];
 
 const Playground = () => {
   return (
@@ -38,7 +43,7 @@ const Playground = () => {
         <Sidebar
           organizationInfo={{
             name: "neetoUI",
-            subdomain: "neetoui.netlify.app"
+            subdomain: "neetoui.netlify.app",
           }}
           navLinks={navLinks}
         />

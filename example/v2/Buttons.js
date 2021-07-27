@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../../lib/v2";
-import Header from "../Header";
+import Header from "./Header";
 import { Keyboard } from "@bigbinary/neeto-icons";
 
 const Buttons = () => {

@@ -10,7 +10,7 @@ import {
   Tab,
   ColorPicker,
   Accordion,
-} from "../../lib";
+} from "../../../lib";
 import Header from "../Header";
 
 const cardItems = ["Card Item 1", "Card Item 2", "Card Item 3"];
