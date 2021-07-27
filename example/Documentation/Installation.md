@@ -1,5 +1,5 @@
 ```hint|directive
-To use NeetoUI, you need a recent version of [React.js](https://react.org/) installed (version 16.13.1+ recommended).
+To use NeetoUI, you need a recent version of [React.js](https://reactjs.org/) installed (version 16.13.1+ recommended).
 ```
 
 ## Installation
