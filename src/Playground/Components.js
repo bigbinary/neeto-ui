@@ -10,6 +10,8 @@ import {
   Tab,
   ColorPicker,
   Accordion,
+  Button,
+  Toastr,
 } from "../../lib";
 import Header from "../Header";
 
@@ -163,6 +165,28 @@ const Components = () => {
                 </p>
               </Accordion.Item>
             </Accordion>
+          </div>
+        </div>
+        <div className="w-1/2 mb-12">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button
+              label="Show toastr success"
+              onClick={() => Toastr.success("Hey there")}
+            />
+            <Button
+              label="Show toastr error"
+              onClick={() =>
+                Toastr.error(
+                  Error(
+                    "Some error occured! Please visit https://github.com/bigbinary/neeto-ui"
+                  )
+                )
+              }
+            />
+            <Button
+              label="Show toastr info"
+              onClick={() => Toastr.info("Toaster info")}
+            />
           </div>
         </div>
       </div>

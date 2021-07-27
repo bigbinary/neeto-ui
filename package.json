@@ -83,6 +83,8 @@
     "raw-loader": "^4.0.2",
     "react-color": "^2.19.3",
     "react-hotkeys-hook": "^3.3.2",
+    "react-linkify": "^1.0.0-alpha",
+    "react-popper": "^2.2.5",
     "react-router-nav-prompt": "^0.4.1",
     "yup": "^0.30.0"
   },

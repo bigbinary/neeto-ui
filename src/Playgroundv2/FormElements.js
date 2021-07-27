@@ -122,8 +122,22 @@ const Components = () => {
         <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button
-              label="Show toastr"
+              label="Show toastr success"
               onClick={() => Toastr.success("Hey there")}
+            />
+            <Button
+              label="Show toastr error"
+              onClick={() =>
+                Toastr.error(
+                  Error(
+                    "Some error occured! Please visit https://github.com/bigbinary/neeto-ui"
+                  )
+                )
+              }
+            />
+            <Button
+              label="Show toastr info"
+              onClick={() => Toastr.info("Toaster info")}
             />
           </div>
         </div>
