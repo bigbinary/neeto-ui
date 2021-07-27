@@ -21,8 +21,6 @@ const COLOR_PALETTER_LIST = [
   { from: "green-500", to: "green-600" },
   { from: "red-500", to: "red-600" },
   { from: "blue-500", to: "blue-600" },
-  { from: "indigo-500", to: "indigo-600" },
-  { from: "yellow-500", to: "yellow-600" },
 ];
 
 const Components = () => {
@@ -130,9 +128,9 @@ const Components = () => {
           </h4>
           <ColorPicker
             onChange={() => {}}
-            color="#fefefe"
+            color="#7c3aed"
             colorPaletteProps={{
-              color: "#fefefe",
+              color: "#7c3aed",
               colorList: COLOR_PALETTER_LIST,
               onChange: () => {},
             }}
