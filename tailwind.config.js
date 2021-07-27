@@ -39,7 +39,7 @@ const safelist = [
 
 module.exports = {
   purge: {
-    enabled: process.env.NODE_ENV === "production" ? true : true,
+    enabled: process.env.NODE_ENV === "production" ? true : false,
     content: [
       "./lib/**/*.js",
       "./lib/**/**/*.js",
