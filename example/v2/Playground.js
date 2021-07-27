@@ -5,6 +5,8 @@ import Buttons from "./Buttons";
 import FormElements from "./FormElements";
 import InputFields from "./InputFields";
 
+import "./index.scss";
+
 const navLinks = [
   {
     label: "Buttons",
