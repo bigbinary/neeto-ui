@@ -15,7 +15,6 @@ const Playground = () => {
             <Route path="/v2/buttons" component={Buttons} />
             <Route path="/v2/form-elements" component={FormElements} />
             <Route path="/v2/input-fields" component={InputFields} />
-
             <Route path="*" component={Buttons} />
           </Switch>
         </div>
