@@ -7,9 +7,9 @@ import {
   Scrollable,
   MenuBar,
   FilterBar,
-} from "../../lib/layouts";
+} from "../../../lib/layouts";
 
-import { Button, Tooltip } from "../../lib";
+import { Button, Tooltip } from "../../../lib";
 
 const noop = () => {};
 const LABELS = ["Misc", "Random", "Urgent"];

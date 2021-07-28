@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./example/v1/index.js",
   module: {
     rules: [
       {
@@ -57,7 +57,7 @@ module.exports = {
   plugins: [
     // new BundleAnalyzerPlugin(),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./example/index.html",
       filename: "./index.html",
     }),
   ],

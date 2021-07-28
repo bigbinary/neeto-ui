@@ -1,4 +1,4 @@
-.nui-v2-btn {
+.nui-btn {
   display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -9,6 +9,8 @@
   line-height: 1.5;
   transition: $transition;
   position: relative;
+  border: none;
+  cursor: pointer;
 
   &:focus,
   &:focus-visible {
@@ -168,7 +170,7 @@
   }
 }
 
-.nui-v2-btn--loader {
+.nui-btn--loader {
   display: flex;
   flex-direction: row;
   justify-content: center;

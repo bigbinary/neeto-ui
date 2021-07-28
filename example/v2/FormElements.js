@@ -8,9 +8,9 @@ import {
   Switch,
   Modal,
   Toastr,
-  Pagination
+  Pagination,
 } from "../../lib/v2";
-import Header from "../Header";
+import Header from "./Header";
 
 const Components = () => {
   const [showModal, setShowModal] = useState(false);

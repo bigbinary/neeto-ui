@@ -1,6 +1,6 @@
 //Abstracts
+@import "./abstracts/normalize";
 @import "./abstracts/variables";
-@import "./abstracts/base";
 
 //Utilities
 @import "../utilities/animations";
@@ -17,8 +17,8 @@
 @import "./components/input";
 @import "./components/pagination";
 
+//Layouts
+@import "./layout/sidebar";
+
 //Typography
 @import "./utilities/typography";
-
-//Vendors
-@import "./vendors/toastify";

@@ -5,7 +5,7 @@ import {
   Input as FormikInput,
   Radio as FormikRadio,
   Select as FormikSelect,
-} from "../../lib/components/formik";
+} from "../../../lib/components/formik";
 
 import Header from "../Header";
 

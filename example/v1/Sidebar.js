@@ -41,7 +41,7 @@ const Sidebar = () => {
       <div className="flex flex-col flex-grow mt-6">
         <nav className="flex-1 space-y-1 bg-white" aria-label="Sidebar">
           <NavLink
-            to="/v2/buttons"
+            to="/playground/buttons"
             className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
             activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
           >
@@ -49,18 +49,43 @@ const Sidebar = () => {
           </NavLink>
 
           <NavLink
-            to="/v2/form-elements"
+            to="/playground/form-elements"
             className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
             activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
           >
             Form Elements
           </NavLink>
+
           <NavLink
-            to="/v2/input-fields"
+            to="/playground/formik"
             className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
             activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
           >
-            Input Fields
+            Formik
+          </NavLink>
+
+          <NavLink
+            to="/playground/overlays"
+            className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
+            activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
+          >
+            Overlays
+          </NavLink>
+
+          <NavLink
+            to="/playground/components"
+            className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
+            activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
+          >
+            Components
+          </NavLink>
+
+          <NavLink
+            to="/playground/layouts"
+            className="flex items-center px-4 py-3 text-sm font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:text-gray-900 group hover:no-underline"
+            activeClassName="text-purple-500 border-l-4 border-indigo-600 bg-indigo-50"
+          >
+            Layouts
           </NavLink>
           <a
             href="/documentation"

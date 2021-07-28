@@ -1,14 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: {
-    neetoui: "./lib/index.js",
-    formik: "./lib/components/formik/index.js",
-    layouts: "./lib/layouts/index.js",
-    v2: "./lib/v2/index.js",
-    layoutsv2: "./lib/layouts/v2.js",
-  },
+  entry: "./example/v2/index.js",
   module: {
     rules: [
       {
@@ -53,10 +48,17 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname,
-    filename: "[name].js",
-    library: "neetoui",
-    libraryTarget: "umd",
+    path: __dirname + "/dist",
+    publicPath: "/",
   },
-  plugins: [new PeerDepsExternalsPlugin()],
+  devServer: {
+    historyApiFallback: true,
+  },
+  plugins: [
+    // new BundleAnalyzerPlugin(),
+    new HtmlWebPackPlugin({
+      template: "./example/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };

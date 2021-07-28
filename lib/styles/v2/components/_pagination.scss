@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  list-style: none;
 
   .nui-pagination__item:not(.nui-pagination__item--dots, .nui-pagination__item--navigate) {
     margin: 0 4px;

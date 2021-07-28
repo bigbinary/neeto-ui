@@ -14,7 +14,7 @@ import {
   DateRangePicker,
   TimeInput,
   Slider,
-} from "../../lib";
+} from "../../../lib";
 import { isEmpty } from "ramda";
 
 import Header from "../Header";
