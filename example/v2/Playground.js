@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Sidebar } from "../../lib/layouts/v2";
 import Buttons from "./Buttons";
 import FormElements from "./FormElements";
@@ -38,7 +38,7 @@ const Playground = () => {
             <Route path="/buttons" component={Buttons} />
             <Route path="/form-elements" component={FormElements} />
             <Route path="/input-fields" component={InputFields} />
-            <Route path="*" component={Buttons} />
+            <Redirect path="/" to="/buttons" />
           </Switch>
         </div>
       </div>
