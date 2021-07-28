@@ -40,13 +40,14 @@
       &::placeholder {
         color: $gray-400;
       }
+
+      &:focus {
+        outline-color: transparent;
+      }
     }
 
     input {
       padding: 8px;
-      &:focus {
-        outline-color: transparent;
-      }
     }
 
     textarea {
