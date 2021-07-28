@@ -1,3 +1,25 @@
+//Colors
+$blue: #276ef1;
+$green: #00ba88;
+$light-green: #66d19e;
+$yellow: #f3cd82;
+$red: #f56a58;
+$indigo: #5e5ce6;
+$pastel-blue: #eaf3fc;
+$pastel-green: #ebf5ec;
+$pastel-yellow: #fff2d7;
+$pastel-red: #ffefed;
+$white: #ffffff;
+$black: #1b1f23;
+$gray-800: #2f3941;
+$gray-700: #49545c;
+$gray-600: #68737d;
+$gray-500: #87929d;
+$gray-400: #c2c8cc;
+$gray-300: #d8dcde;
+$gray-200: #e9ebed;
+$gray-100: #f8f9f9;
+
 //SCSS Variables
 
 //Weights
@@ -31,32 +53,10 @@ $transition: all 0.3s ease-in-out;
 
 //Shadows
 
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow: 0px 0px 0px 3px $gray-100;
 
 // Breakpoints
 $mob-479: 479px;
 $tab-768: 768px;
 $tab-1024: 1024px;
 $desk-1200: 1200px;
-
-//Colors
-
-$primary-blue: #505dea;
-$primary-green: #00ba88;
-$primary-yellow: #ffd426;
-$primary-red: #ff6961;
-$pastel-blue: #eff3fe;
-$pastel-green: #e6f2ed;
-$pastel-yellow: #fffaf0;
-$pastel-red: #ffefed;
-$white: #ffffff;
-$black: #1b1f23;
-$gray-800: #2f3941;
-$gray-700: #49545c;
-$gray-600: #68737d;
-$gray-500: #87929d;
-$gray-400: #c2c8cc;
-$gray-300: #d8dcde;
-$gray-200: #e9ebed;
-$gray-100: #f8f9f9;
