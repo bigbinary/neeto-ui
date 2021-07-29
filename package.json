@@ -59,6 +59,7 @@
     "v2": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.v2.config.js",
     "build": "NODE_ENV=production webpack --mode production",
     "build-catalog": "NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
+    "build-v2": "NODE_ENV=production webpack --mode production --config webpack.dev.v2.config.js",
     "prepare": "husky install",
     "test": "jest"
   },
