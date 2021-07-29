@@ -4,6 +4,7 @@ const BundleAnalyzerPlugin =
 
 module.exports = {
   entry: "./example/v2/index.js",
+  devtool: "eval-cheap-source-map",
   module: {
     rules: [
       {
