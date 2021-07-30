@@ -4,11 +4,12 @@ import Header from "../Header";
 
 const Dropdowns = () => {
   // const [loading, setLoading] = useState(false);
-  // const [dropdownOne, setDropdownOne] = useState(false);
+  const [dropdownOne, setDropdownOne] = useState(false);
   // const [dropdownTwo, setDropdownTwo] = useState(false);
   // const [dropdownThree, setDropdownThree] = useState(false);
   // const [dropdownFour, setDropdownFour] = useState(false);
   const listItems = ["Option 1", "Option 2", "Option 3"];
+
   return (
     <div className="w-full">
       <Header title="Dropdowns" />
@@ -18,12 +19,18 @@ const Dropdowns = () => {
             label="Primary Dropdown"
             buttonStyle="primary"
             position="bottom-end"
-            // isOpen={dropdownOne}
-            // buttonProps={{
-            //   onClick: () => {
-            //     setDropdownOne(!dropdownOne);
-            //   },
-            // }}
+            isOpen={dropdownOne}
+            onClose={() => {
+              console.log("calling on close");
+              setDropdownOne(false);
+            }}
+            buttonProps={{
+              onClick: () => {
+                setDropdownOne(!dropdownOne);
+              },
+            }}
+            closeOnSelect={false}
+            closeOnOutsideClick={false}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
