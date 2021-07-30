@@ -4,6 +4,10 @@ import Header from "../Header";
 
 const Dropdowns = () => {
   const [loading, setLoading] = useState(false);
+  const [dropdownOne, setDropdownOne] = useState(false);
+  const [dropdownTwo, setDropdownTwo] = useState(false);
+  const [dropdownThree, setDropdownThree] = useState(false);
+  const [dropdownFour, setDropdownFour] = useState(false);
   const listItems = ["Option 1", "Option 2", "Option 3"];
   return (
     <div className="w-full">
@@ -13,6 +17,13 @@ const Dropdowns = () => {
           <Dropdown
             label="Primary Dropdown"
             buttonStyle="primary"
+            position="bottom-end"
+            // isOpen={dropdownOne}
+            // buttonProps={{
+            //   onClick: () => {
+            //     setDropdownOne(!dropdownOne);
+            //   },
+            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -21,6 +32,14 @@ const Dropdowns = () => {
           <Dropdown
             label="Secondary Dropdown"
             buttonStyle="secondary"
+            closeOnOutsideClick={false}
+            position="bottom"
+            // isOpen={dropdownTwo}
+            // buttonProps={{
+            //   onClick: () => {
+            //     setDropdownTwo(!dropdownTwo);
+            //   },
+            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -29,6 +48,14 @@ const Dropdowns = () => {
           <Dropdown
             label="Text Dropdown"
             buttonStyle="text"
+            closeOnOutsideClick={false}
+            position="bottom-start"
+            // isOpen={dropdownThree}
+            // buttonProps={{
+            //   onClick: () => {
+            //     setDropdownThree(!dropdownThree);
+            //   },
+            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -37,20 +64,14 @@ const Dropdowns = () => {
           <Dropdown
             label="Dropdown with custom icon"
             icon="ri-send-plane-line"
-          >
-            {listItems.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </Dropdown>
-          <Dropdown
-            label="Dropdown with Action Button"
-            actionButtonProps={{
-              label: "Add New Item",
-              style: "seconary",
-              icon: "ri-add-line",
-              onClick: () => alert("You clicked on action button in dropdown"),
-            }}
-            buttonStyle="secondary"
+            positon="bottom-end"
+            // isOpen={dropdownFour}
+            // buttonProps={{
+            //   onClick: function () {
+            //     console.log("four");
+            //     setDropdownFour(!dropdownFour);
+            //   },
+            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
