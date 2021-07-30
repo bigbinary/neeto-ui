@@ -1,28 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Sidebar } from "../../lib/layouts/v2";
-import Buttons from "./Buttons";
-import FormElements from "./FormElements";
-import InputFields from "./InputFields";
-
+import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
 import "./index.scss";
 
-const navLinks = [
-  {
-    label: "Buttons",
-    to: "/buttons",
-  },
-  {
-    label: "Form Elements",
-    to: "/form-elements",
-  },
-  {
-    label: "Input Fields",
-    to: "/input-fields",
-  },
-];
-
 const Playground = () => {
+  let ROUTER_LINKS = [];
+  NAV_LINKS.map(navLink => {
+    if (navLink.items) {
+      navLink.items.map(item => {
+        ROUTER_LINKS.push(item);
+      })
+    } else {
+      ROUTER_LINKS.push(navLink);
+    }
+  });
   return (
     <Router>
       <div className="flex flex-row items-start justify-start">
@@ -31,14 +23,15 @@ const Playground = () => {
             name: "neetoUI",
             subdomain: "neetoui.netlify.app",
           }}
-          navLinks={navLinks}
+          navLinks={NAV_LINKS}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
-            <Route path="/buttons" component={Buttons} />
-            <Route path="/form-elements" component={FormElements} />
-            <Route path="/input-fields" component={InputFields} />
-            <Redirect path="/" to="/buttons" />
+            {ROUTER_LINKS && ROUTER_LINKS.map(({ label, to }, index) => {
+              return (
+                <Route key={index} path={to} component={COMPONENT_MAPPING[label]}/>
+              )
+            })}
           </Switch>
         </div>
       </div>
