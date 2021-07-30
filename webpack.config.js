@@ -8,6 +8,7 @@ module.exports = {
     layouts: "./lib/layouts/index.js",
     v2: "./lib/v2/index.js",
     layoutsv2: "./lib/layouts/v2.js",
+    formikv2: "./lib/v2/formik/index.js",
   },
   module: {
     rules: [
