@@ -3,11 +3,11 @@ import { Dropdown } from "../../../lib/v2";
 import Header from "../Header";
 
 const Dropdowns = () => {
-  const [loading, setLoading] = useState(false);
-  const [dropdownOne, setDropdownOne] = useState(false);
-  const [dropdownTwo, setDropdownTwo] = useState(false);
-  const [dropdownThree, setDropdownThree] = useState(false);
-  const [dropdownFour, setDropdownFour] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [dropdownOne, setDropdownOne] = useState(false);
+  // const [dropdownTwo, setDropdownTwo] = useState(false);
+  // const [dropdownThree, setDropdownThree] = useState(false);
+  // const [dropdownFour, setDropdownFour] = useState(false);
   const listItems = ["Option 1", "Option 2", "Option 3"];
   return (
     <div className="w-full">
@@ -32,14 +32,7 @@ const Dropdowns = () => {
           <Dropdown
             label="Secondary Dropdown"
             buttonStyle="secondary"
-            closeOnOutsideClick={false}
             position="bottom"
-            // isOpen={dropdownTwo}
-            // buttonProps={{
-            //   onClick: () => {
-            //     setDropdownTwo(!dropdownTwo);
-            //   },
-            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -48,14 +41,7 @@ const Dropdowns = () => {
           <Dropdown
             label="Text Dropdown"
             buttonStyle="text"
-            closeOnOutsideClick={false}
-            position="bottom-start"
-            // isOpen={dropdownThree}
-            // buttonProps={{
-            //   onClick: () => {
-            //     setDropdownThree(!dropdownThree);
-            //   },
-            // }}
+            position="bottom-end"
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -65,13 +51,6 @@ const Dropdowns = () => {
             label="Dropdown with custom icon"
             icon="ri-send-plane-line"
             positon="bottom-end"
-            // isOpen={dropdownFour}
-            // buttonProps={{
-            //   onClick: function () {
-            //     console.log("four");
-            //     setDropdownFour(!dropdownFour);
-            //   },
-            // }}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>

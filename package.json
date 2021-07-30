@@ -81,6 +81,7 @@
     "catalog": "^3.6.2",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
+    "merge-refs": "^1.0.0",
     "postcss": "^8.2.9",
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.2",
