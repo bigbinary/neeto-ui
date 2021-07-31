@@ -1,0 +1,27 @@
+.nui-callout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: $rounded-sm;
+  padding: 16px 12px;
+  font-size: $text-sm;
+  line-height: 20px;
+  color: $gray-700;
+
+  .nui-callout__icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+    color: $gray-600;
+  }
+
+  &.nui-callout--info {
+    background-color: $pastel-blue;
+  }
+  &.nui-callout--warning {
+    background-color: $pastel-yellow;
+  }
+  &.nui-callout--danger {
+    background-color: $pastel-red;
+  }
+}
