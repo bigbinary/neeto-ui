@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Check } from "@bigbinary/neeto-icons";
+import { Check, Email } from "@bigbinary/neeto-icons";
 import {
   Button,
   Tab,
@@ -9,6 +9,7 @@ import {
   Modal,
   Toastr,
   Pagination,
+  Callout,
 } from "../../lib/v2";
 import Header from "./Header";
 
@@ -78,6 +79,18 @@ const Components = () => {
             siblingCount={1}
             navigate={() => {}}
           />
+        </div>
+        <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Callout</h2>
+          <Callout icon={Email} style="info">
+            We just sent you a temporary sign up code. Please check your inbox and paste the sign up code below.
+          </Callout>
+          <Callout icon={Email} style="warning">
+            We just sent you a temporary sign up code. Please check your inbox and paste the sign up code below.
+          </Callout>
+          <Callout icon={Email} style="danger">
+            We just sent you a temporary sign up code. Please check your inbox and paste the sign up code below.
+          </Callout>
         </div>
         <div className="w-1/2 p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Radio, Checkbox and Toggle</h2>
