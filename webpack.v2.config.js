@@ -1,11 +1,13 @@
-const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  entry: "./example/v2/index.js",
-  devtool: "eval-cheap-source-map",
+  entry: {
+    v2: "./lib/v2/index.js",
+    layoutsv2: "./lib/layouts/v2.js",
+    formikv2: "./lib/v2/formik/index.js",
+  },
   module: {
     rules: [
       {
@@ -69,24 +71,16 @@ module.exports = {
               },
             },
           },
-          // Compiles Sass to CSS
           "sass-loader",
         ],
       },
     ],
   },
   output: {
-    path: __dirname + "/dist",
-    publicPath: "/",
+    path: __dirname,
+    filename: "[name].js",
+    library: "neetoui",
+    libraryTarget: "umd",
   },
-  devServer: {
-    historyApiFallback: true,
-  },
-  plugins: [
-    // new BundleAnalyzerPlugin(),
-    new HtmlWebPackPlugin({
-      template: "./example/index.html",
-      filename: "./index.html",
-    }),
-  ],
+  plugins: [new PeerDepsExternalsPlugin()],
 };

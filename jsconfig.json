@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-      "target": "ES6",
-      "allowSyntheticDefaultImports": true,
-      "module": "commonJS",
-      "baseUrl": ".",
-      "paths": {
-        "*": ["*"]
-      },
-      "esModuleInterop": true,
-      "checkJs": true,
-      "jsx": "react"
+  "compilerOptions": {
+    "target": "ES6",
+    "allowSyntheticDefaultImports": true,
+    "module": "commonJS",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"]
     },
-    "exclude": ["formik.js", "neetoui.js", "layouts.js", "v2.js"],
-    "include": ["./**/*.js", "./**/*.jsx"]
-  }
+    "esModuleInterop": true,
+    "checkJs": true,
+    "jsx": "react"
+  },
+  "exclude": ["formik.js", "neetoui.js", "layouts.js", "v2.js", "layoutsv2.js","formikv2.js"],
+  "include": ["./**/*.js", "./**/*.jsx"]
+}

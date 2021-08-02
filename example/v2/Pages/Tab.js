@@ -7,7 +7,7 @@ const Tabs = () => {
   return (
     <div className="w-full">
       <Header title="Tabs" />
-      <div className="w-1/2 px-6 py-8 space-y-6">
+      <div className="w-full px-6 py-8 space-y-6">
         <Tab className="grid grid-cols-2">
           <Tab.Item active={tab} onClick={() => setTab(true)}>
             Tab 1
