@@ -24,6 +24,20 @@ const Playground = () => {
             subdomain: "neetoui.netlify.app",
           }}
           navLinks={NAV_LINKS}
+          profileInfo={{
+            name: "Kieran Miller",
+            email: "kieranmiller@gmail.com",
+            dropdownProps: [
+              {
+                label: "Edit",
+                onClick: () => {},
+              },
+              {
+                label: "Logout",
+                onClick: () => {},
+              },
+            ],
+          }}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
