@@ -1,6 +1,6 @@
 .nui-sidebar {
-  width: 280px;
-  min-width: 280px;
+  width: 300px;
+  min-width: 300px;
   height: 100vh;
   background-color: $gray-100;
   padding: 48px 0;
@@ -160,6 +160,14 @@
         padding: 12px 16px;
         background-color: $white;
         margin-bottom: 24px;
+        border-radius: $rounded-sm;
+        border: thin solid $white;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $gray-200;
+        }
 
         .nui-sidebar__avatar {
           width: 40px;
@@ -171,6 +179,7 @@
           font-size: 14px;
           font-weight: theme("fontWeight.semibold");
           color: rgba($gray-800, 0.5);
+          flex-shrink: 0;
         }
 
         .nui-sidebar__profile-content {
@@ -178,13 +187,15 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
+          flex-grow: 1;
 
           .nui-sidebar__profile-info {
             margin-left: 12px;
-            h2 {
+            h4 {
               font-size: 16px;
               font-weight: theme("fontWeight.medium");
               color: $gray-800;
+              line-height: 1.5;
             }
             p {
               font-size: 12px;
@@ -192,10 +203,9 @@
             }
           }
 
-          .nui-btn {
-            &.nui-btn--icon {
-              margin-left: 16px;
-            }
+          svg {
+            color: $gray-500;
+            margin-left: 8px;
           }
         }
       }
