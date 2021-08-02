@@ -24,6 +24,10 @@ const Playground = () => {
             subdomain: "neetoui.netlify.app",
           }}
           navLinks={NAV_LINKS}
+          profileInfo={{
+            name: "Amal Dinesh",
+            email: "amaldinesh@gmail.com",
+          }}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>

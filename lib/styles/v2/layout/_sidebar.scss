@@ -173,16 +173,29 @@
           color: rgba($gray-800, 0.5);
         }
 
-        .nui-sidebar__profile-info {
-          margin-left: 12px;
-          h2 {
-            font-size: 16px;
-            font-weight: theme("fontWeight.medium");
-            color: $gray-800;
+        .nui-sidebar__profile-content {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .nui-sidebar__profile-info {
+            margin-left: 12px;
+            h2 {
+              font-size: 16px;
+              font-weight: theme("fontWeight.medium");
+              color: $gray-800;
+            }
+            p {
+              font-size: 12px;
+              color: $gray-500;
+            }
           }
-          p {
-            font-size: 12px;
-            color: $gray-500;
+
+          .nui-btn {
+            &.nui-btn--icon {
+              margin-left: 16px;
+            }
           }
         }
       }
