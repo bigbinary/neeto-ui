@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@bigbinary/neeto-icons": "^1.4.0",
+    "@popperjs/core": "^2.9.2",
     "@reach/auto-id": "^0.15.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
@@ -80,12 +81,14 @@
     "catalog": "^3.6.2",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
+    "merge-refs": "^1.0.0",
     "postcss": "^8.2.9",
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.2",
     "react-color": "^2.19.3",
     "react-hotkeys-hook": "^3.3.2",
     "react-linkify": "^1.0.0-alpha",
+    "react-popper": "^2.2.5",
     "react-router-nav-prompt": "^0.4.1"
   },
   "description": "NeetoUI is the library that drives the experience in all Neeto products built at BigBinary",

@@ -16,7 +16,7 @@ const Buttons = () => {
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Large/Primary</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -38,7 +38,7 @@ const Buttons = () => {
               />
               <Button onClick={toggle} size="large" label="Label" loading />
             </div>
-            <div className="space-x-8">
+            <div className="flex gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -69,7 +69,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -107,7 +107,7 @@ const Buttons = () => {
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Default/Primary</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button loading={loading} onClick={toggle} label="Label" />
               <Button loading={loading} onClick={toggle} label="Label" />
               <Button
@@ -118,7 +118,7 @@ const Buttons = () => {
               />
               <Button onClick={toggle} label="Label" loading />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -146,7 +146,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -183,7 +183,7 @@ const Buttons = () => {
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Large/Secondary</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -214,7 +214,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -249,7 +249,7 @@ const Buttons = () => {
                 icon={Keyboard}
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -292,7 +292,7 @@ const Buttons = () => {
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Default/Secondary</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -320,7 +320,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -351,7 +351,7 @@ const Buttons = () => {
                 icon={Keyboard}
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -391,7 +391,7 @@ const Buttons = () => {
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Large/Danger</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -423,7 +423,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -462,7 +462,7 @@ const Buttons = () => {
                 iconPosition="right"
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -504,7 +504,7 @@ const Buttons = () => {
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
             <h2 className="text-xl">Default/Danger</h2>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -531,7 +531,7 @@ const Buttons = () => {
                 label="Label"
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -562,7 +562,7 @@ const Buttons = () => {
                 loading
               />
             </div>
-            <div className="space-x-8">
+            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}

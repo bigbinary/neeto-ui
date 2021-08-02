@@ -1,6 +1,6 @@
 .nui-sidebar {
-  width: 320px;
-  min-width: 320px;
+  width: 280px;
+  min-width: 280px;
   height: 100vh;
   background-color: $gray-100;
   padding: 48px 0;
@@ -8,6 +8,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  @include min(1440px) {
+    width: 320px;
+    min-width: 320px;
+  }
 
   .nui-sidebar__header {
     width: 100%;
