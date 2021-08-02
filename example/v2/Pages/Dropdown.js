@@ -3,11 +3,7 @@ import { Dropdown } from "../../../lib/v2";
 import Header from "../Header";
 
 const Dropdowns = () => {
-  // const [loading, setLoading] = useState(false);
   const [dropdownOne, setDropdownOne] = useState(false);
-  // const [dropdownTwo, setDropdownTwo] = useState(false);
-  // const [dropdownThree, setDropdownThree] = useState(false);
-  // const [dropdownFour, setDropdownFour] = useState(false);
   const listItems = ["Option 1", "Option 2", "Option 3"];
 
   return (
