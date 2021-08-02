@@ -1,47 +1,73 @@
-.nui-pane--root {
+.nui-pane__backdrop {
   position: fixed;
   z-index: 99999;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
 
-  .nui-pane--wrapper {
+  .nui-pane__wrapper {
     display: flex;
     flex-direction: column;
-    background: white;
-    border-radius: 2px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: $white;
+    border-radius: $rounded-sm;
     overflow: hidden;
-    padding: 32px 24px 24px 24px;
-    width: 40%;
+    width: 35%;
+    height: 100vh;
+    max-width: 600px;
 
-    .nui-pane--header {
-      margin-bottom: 8px;
+    @include viewport(tab-min) {
+      width: 50%;
+    }
+
+    @include viewport(mob) {
+      width: 100%;
+      max-width: none;
+    }
+
+    .nui-modal__close {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+    }
+
+    .nui-pane__header {
+      width: 100%;
+      padding: 40px 40px 32px;
     }
 
     .nui-pane__body {
+      width: 100%;
       height: calc(100vh - #{$pane-header-height});
+      padding: 0 40px;
+      font-size: $text-sm;
+      line-height: 20px;
       overflow-y: auto;
 
-      &.nui-pane__body--has-footer {
+      &.nui-pane__body__has-footer {
         height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
       }
     }
 
-    .nui-pane--footer {
+    .nui-pane__footer {
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
-      padding: 16px 24px;
-      background: theme("colors.white");
-      border-top: thin solid theme("colors.gray.200");
+      padding: 32px 40px;
+      background-color: $white;
+      border-top: thin solid $gray-300;
       min-height: $pane-footer-height;
-      &.nui-pane__footer--absolute {
+
+      &.nui-pane__footer__absolute {
         width: 100%;
         position: absolute;
         left: 0;
