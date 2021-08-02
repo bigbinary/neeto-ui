@@ -51,7 +51,7 @@
       line-height: 20px;
       overflow-y: auto;
 
-      &.nui-pane__body__has-footer {
+      &.nui-pane__body--has-footer {
         height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
       }
     }

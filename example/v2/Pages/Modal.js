@@ -31,7 +31,7 @@ const Modals = () => {
           Tara, and son, Dorno, they team up to protect their planet from sinister
           invaders! All-strong! All-brave! All-heroes! They're The Herculoids!
         </Modal.Body>
-        <Modal.Footer className="flex space-x-4">
+        <Modal.Footer className="space-x-4">
           <Button
             icon={Check}
             label="Continue"
