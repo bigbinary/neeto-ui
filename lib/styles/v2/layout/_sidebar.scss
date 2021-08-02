@@ -60,9 +60,26 @@
       transition: all 0.3s;
       cursor: pointer;
       text-decoration: none;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 0px;
+        height: 28px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        background-color: $gray-800;
+      }
+
+      &:not(&:first-child) {
+        margin-top: 8px;
+      }
 
       &:not(&:last-child) {
-        margin-bottom: 16px;
+        margin-bottom: 8px;
       }
 
       svg {
@@ -79,6 +96,36 @@
         &:first-child {
           margin: 0;
         }
+      }
+
+      &:hover {
+        color: $gray-700;
+      }
+
+      &.active {
+        color: $gray-800;
+
+        &:before {
+          width: 4px;
+        }
+      }
+    }
+
+    .nui-sidebar__sublink {
+      padding: 4px 40px 4px 52px;
+      font-size: 14px;
+      font-weight: theme("fontWeight.medium");
+      color: $gray-600;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:not(&:last-child) {
+        margin-bottom: 12px;
       }
 
       &:hover {
