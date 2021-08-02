@@ -25,8 +25,18 @@ const Playground = () => {
           }}
           navLinks={NAV_LINKS}
           profileInfo={{
-            name: "Amal Dinesh",
-            email: "amaldinesh@gmail.com",
+            name: "Kieran Miller",
+            email: "kieranmiller@gmail.com",
+            dropdownProps: [
+              {
+                label: "Edit",
+                onClick: () => {},
+              },
+              {
+                label: "Logout",
+                onClick: () => {},
+              },
+            ],
           }}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
