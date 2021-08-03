@@ -4,9 +4,9 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    v2: "./lib/v2/index.js",
-    layoutsv2: "./lib/layouts/v2.js",
-    formikv2: "./lib/v2/formik/index.js",
+    index: "./lib/v2/index.js",
+    layouts: "./lib/layouts/v2.js",
+    formik: "./lib/v2/formik/index.js",
   },
   module: {
     rules: [
@@ -77,7 +77,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname,
+    path: __dirname + "/v2",
     filename: "[name].js",
     library: "neetoui",
     libraryTarget: "umd",
