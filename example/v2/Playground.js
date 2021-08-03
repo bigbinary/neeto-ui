@@ -6,11 +6,11 @@ import "./index.scss";
 
 const Playground = () => {
   let ROUTER_LINKS = [];
-  NAV_LINKS.map(navLink => {
+  NAV_LINKS.map((navLink) => {
     if (navLink.items) {
-      navLink.items.map(item => {
+      navLink.items.map((item) => {
         ROUTER_LINKS.push(item);
-      })
+      });
     } else {
       ROUTER_LINKS.push(navLink);
     }
@@ -24,14 +24,33 @@ const Playground = () => {
             subdomain: "neetoui.netlify.app",
           }}
           navLinks={NAV_LINKS}
+          profileInfo={{
+            name: "Kieran Miller",
+            email: "kieranmiller@gmail.com",
+            dropdownProps: [
+              {
+                label: "Edit",
+                onClick: () => {},
+              },
+              {
+                label: "Logout",
+                onClick: () => {},
+              },
+            ],
+          }}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
-            {ROUTER_LINKS && ROUTER_LINKS.map(({ label, to }, index) => {
-              return (
-                <Route key={index} path={to} component={COMPONENT_MAPPING[label]}/>
-              )
-            })}
+            {ROUTER_LINKS &&
+              ROUTER_LINKS.map(({ label, to }, index) => {
+                return (
+                  <Route
+                    key={index}
+                    path={to}
+                    component={COMPONENT_MAPPING[label]}
+                  />
+                );
+              })}
           </Switch>
         </div>
       </div>

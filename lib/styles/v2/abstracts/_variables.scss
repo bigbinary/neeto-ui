@@ -54,9 +54,15 @@ $transition: all 0.3s ease-in-out;
 //Shadows
 
 $shadow: 0px 0px 0px 3px $gray-100;
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Breakpoints
 $mob-479: 479px;
 $tab-768: 768px;
 $tab-1024: 1024px;
 $desk-1200: 1200px;
+
+//Constants
+$pane-header-height: 100px;
+$pane-footer-height: 104px;

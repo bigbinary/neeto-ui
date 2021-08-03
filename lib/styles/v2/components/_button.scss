@@ -11,10 +11,11 @@
   position: relative;
   border: none;
   cursor: pointer;
+  padding: 0;
 
   &:focus,
   &:focus-visible {
-    outline: 3px solid transparent;
+    outline-color: transparent;
   }
 
   &:hover {
@@ -139,9 +140,13 @@
   }
 
   &.nui-btn--icon {
-    font-size: 20px;
     opacity: 0.75;
-    color: theme("colors.gray.600");
+    color: $gray-700;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
 
     &:hover:not(:disabled),
     &:active,
@@ -150,7 +155,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px $white, 0 0 0 4px theme("colors.gray.300");
+      box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-300;
     }
   }
 

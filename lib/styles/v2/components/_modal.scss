@@ -1,42 +1,79 @@
-.nui-modal--root {
+.nui-modal__backdrop {
   position: fixed;
   z-index: 99999;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 
-  .nui-modal--wrapper {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 2px;
+  .nui-modal__wrapper {
+    width: 50%;
+    max-width: 100%;
+    position: relative;
+    background-color: $white;
+    border-radius: $rounded-sm;
     overflow: hidden;
-    padding: 32px 24px 24px 24px;
 
-    &.nui-modal--sm {
-      max-width: 288px;
+    .nui-modal__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
 
-    &.nui-modal--md {
-      max-width: 480px;
+    &.nui-modal__wrapper--sm {
+      width: 40%;
+      max-width: 544px;
+
+      @include viewport(tab-min) {
+        width: 75%;
+      }
+
+      @include viewport(mob) {
+        margin: 0 8px;
+        width: 100%;
+      }
     }
 
-    &.nui-modal--lg {
-      max-width: 720px;
+    &.nui-modal__wrapper--md {
+      width: 65%;
+
+      @include viewport(tab-min) {
+        width: 75%;
+      }
+
+      @include viewport(mob) {
+        width: 100%;
+      }
     }
 
-    .nui-modal--title {
-      margin-bottom: 8px;
+    &.nui-modal__wrapper--lg {
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+
+      @include viewport(mob) {
+        height: 100vh;
+        width: 100%;
+      }
     }
 
-    .nui-modal--footer {
-      margin-top: 32px;
+    .nui-modal__header {
+      padding: 32px 24px 24px;
+    }
+
+    .nui-modal__body {
+      padding: 0 24px;
+      font-size: $text-sm;
+      line-height: 20px;
+    }
+
+    .nui-modal__footer {
+      padding: 32px 24px;
     }
   }
 }
