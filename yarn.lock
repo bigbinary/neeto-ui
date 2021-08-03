@@ -3371,6 +3371,11 @@ babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26.0:
     lodash "^4.17.4"
     to-fast-properties "^1.0.3"
 
+babel@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel/-/babel-6.23.0.tgz#d0d1e7d803e974765beea3232d4e153c0efb90f4"
+  integrity sha1-0NHn2APpdHZb7qMjLU4VPA77kPQ=
+
 babylon@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
@@ -11104,10 +11109,11 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-react-classname-prefix-loader@^1.0.8:
+"react-classname-prefix-loader@git+https://github.com/edwinbbu/react-classname-prefix-loader":
   version "1.0.8"
-  resolved "https://registry.yarnpkg.com/react-classname-prefix-loader/-/react-classname-prefix-loader-1.0.8.tgz#7a8ed26d3886c48b84273016f65ee56710c8228d"
-  integrity sha512-92Glf8Okj5s7yhQiheIOTiCpjkIbhLG5tb7a4blNVeAf84v00hDG238ZNku9uvUj2p3EcZyOw5XZNhvKUIaM6g==
+  resolved "git+https://github.com/edwinbbu/react-classname-prefix-loader#52d1a9e7a07fc7f8a935b795103a76e5e2579e6f"
+  dependencies:
+    babel "^6.23.0"
 
 react-color@^2.19.3:
   version "2.19.3"
