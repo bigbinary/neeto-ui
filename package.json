@@ -62,7 +62,7 @@
     "build": "NODE_ENV=production webpack --mode production",
     "build-v2": "NODE_ENV=production webpack --mode production --config webpack.v2.config.js",
     "build-example": "NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
-    "build-example-v2": "NODE_ENV=production webpack --mode production --config webpack.dev.v2.config.js",
+    "build-example-v2": "NODE_ENV=dev webpack --mode production --config webpack.dev.v2.config.js",
     "prepare": "husky install",
     "test": "jest"
   },
