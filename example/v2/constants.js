@@ -64,7 +64,7 @@ export const NAV_LINKS = [
     to: "/misc",
   },
   {
-    label: "Overalys",
+    label: "Overlays",
     to: "/overlays",
     items: [
       {
