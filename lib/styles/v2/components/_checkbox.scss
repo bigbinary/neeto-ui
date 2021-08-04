@@ -4,7 +4,7 @@
   color: $gray-800;
   border: 2px solid $gray-300;
   border-radius: $rounded-sm;
-
+  margin-right: 4px;
   &:not(:disabled) {
     cursor: pointer;
   }
