@@ -8,7 +8,7 @@ const Misc = () => {
     <div className="w-full">
       <Header title="Toggles" />
       <div className="p-6 space-y-10">
-      <div className="w-1/2 space-y-6">
+        <div className="w-1/2 space-y-6">
           <h2 className="text-base">Radio, Checkbox and Toggle</h2>
           <div className="flex flex-row items-center justify-start space-x-6">
             <div>
@@ -52,6 +52,37 @@ const Misc = () => {
               <Switch checked onChange={() => {}} />
               <Switch checked disabled onChange={() => {}} />
             </div>
+          </div>
+          <div className="flex flex-col items-start justify-start space-x-6">
+            <h2 className="text-base">Checkbox with Label</h2>
+            <Checkbox checked onChange={() => {}} label="Checkbox" />
+            <Checkbox
+              checked
+              disabled
+              onChange={() => {}}
+              label="Checkbox disabled"
+            />
+          </div>
+          <div className="flex flex-col items-start justify-start space-x-6">
+            <h2 className="text-base">Radio with Label</h2>
+            <Radio>
+              <Radio.Item name="radio" label="Radio" />
+              <Radio.Item name="radio" disabled label="Radio disabled" />
+            </Radio>
+          </div>
+          <div className="flex flex-col items-start justify-start space-x-6">
+            <h2 className="text-base">Switch with Label</h2>
+            <Switch
+              checked={checked}
+              onChange={() => setChecked(!checked)}
+              label="Switch"
+            />
+            <Switch
+              disabled
+              checked={checked}
+              onChange={() => setChecked(!checked)}
+              label="Switch Disabled"
+            />
           </div>
         </div>
       </div>
