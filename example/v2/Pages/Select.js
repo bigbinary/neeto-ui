@@ -10,7 +10,7 @@ const SelectField = () => {
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Select/Large</h2>
           <div className="flex flex-row items-center justify-center space-x-8">
-            <Select placeholder="Select Placeholder" />
+            <Select placeholder="Select Placeholder" autoFocus/>
             <Select
               placeholder="Select Placeholder"
             />
