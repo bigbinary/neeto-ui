@@ -1,11 +1,30 @@
+.nui-radio__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
 .nui-radio__container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 
-  .nui-radio__item:not(:last-child) {
-    margin-right: 24px;
+  .nui-radio__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .nui-label {
+      margin-left: 8px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 
   .nui-radio[type="radio"] {
@@ -30,8 +49,8 @@
       cursor: not-allowed;
     }
 
-    &:checked{
-      border: none !important; 
+    &:checked {
+      border: none !important;
     }
 
     &:focus-visible {
