@@ -39,8 +39,13 @@
         cursor: not-allowed;
       }
 
+      &:focus,
       &:focus-visible {
-        box-shadow: 0 0 0 2px $gray-200;
+        outline: transparent;
+      }
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-300;
       }
     }
   }
