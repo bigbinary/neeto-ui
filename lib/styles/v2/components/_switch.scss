@@ -11,10 +11,6 @@
     justify-content: flex-start;
     align-items: center;
 
-    label:not(.nui-label) {
-      display: inline-flex;
-    }
-
     .nui-label {
       margin-left: 12px;
     }
@@ -64,12 +60,7 @@
         transform: translateX(20px);
       }
 
-      &:focus,
-      &:focus-visible {
-        outline: transparent;
-      }
-
-      &:focus-visible {
+      &:focus-within {
         box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-300;
       }
     }
