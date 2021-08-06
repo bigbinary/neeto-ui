@@ -8,6 +8,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:json/recommended",
+    "prettier",
   ],
   settings: {
     react: {
