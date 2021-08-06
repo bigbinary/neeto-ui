@@ -18,9 +18,9 @@ const FormikElements = () => {
       id: "Everyone",
     },
     {
-      label: "Logged in users only",
+      label: "Logged in users",
       value: false,
-      id: "Logged in users only",
+      id: "Logged in users",
     },
   ];
 
