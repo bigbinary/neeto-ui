@@ -1,0 +1,41 @@
+$solid-indigo: #5E5CE6;
+$solid-indigo-bg: #EAF3FC;
+
+.nui-tag {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: theme("colors.gray.800");
+  font-size: 12px;
+  line-height: 18px;
+  padding: 8px 12px;
+  min-width: 47px;
+  height: 22px;
+  background: white;
+  border: 1px solid theme("colors.gray.400");
+  border-radius: 3px;
+
+  &.nui-tag--large {
+    height: 26px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &.nui-tag--solid {
+    color: $solid-indigo;
+    background: $solid-indigo-bg;
+    border: 1px solid $solid-indigo;
+  }
+
+  &.nui-tag--largeSolid {
+    height: 26px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: $solid-indigo;
+    background: $solid-indigo-bg;
+    border: 1px solid $solid-indigo;
+  }
+}
