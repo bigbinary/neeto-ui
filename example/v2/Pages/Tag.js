@@ -27,6 +27,15 @@ const Tabs = () => {
               <h3>Clear button: </h3>
               <Tag icon="ri-pencil-line" content="Small" showClearOption />
               <Tag icon="ri-pencil-line" type="large" content="Large" showClearOption />
+              <Tag icon="ri-pencil-line" type="solid" content="Small Solid" showClearOption />
+              <Tag icon="ri-pencil-line" type="largeSolid" content="Large Solid" showClearOption />
+            </div>
+            <div className="flex flex-wrap space-x-4">
+              <h3>Color: </h3>
+              <Tag content="Green" type="color" color="#00BA88" />
+              <Tag content="Yellow" type="color" color="#F3CD82" />
+              <Tag content="Blue" type="color" color="#5E5CE6" />
+              <Tag content="Red" type="color" color="#F56A58" />
             </div>
           </div>
         </div>

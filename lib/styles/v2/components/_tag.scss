@@ -16,6 +16,13 @@ $solid-indigo-bg: #EAF3FC;
   border: 1px solid theme("colors.gray.400");
   border-radius: 3px;
 
+  .nui-tag--color {
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    margin-right: 0.25rem;
+  }
+
   .nui-tag--icon {
     margin-right: 0.25rem;
   }
