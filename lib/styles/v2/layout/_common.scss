@@ -1,0 +1,34 @@
+.nui-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.nui-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.nui-scrollable {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  &.nui-scrollable--small {
+    height: calc(
+      100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin}
+    );
+  }
+  &.nui-scrollable--large {
+    height: calc(100vh - #{$main-header-height});
+  }
+
+  &.nui-scrollable--viewport {
+    height: 100vh;
+  }
+}

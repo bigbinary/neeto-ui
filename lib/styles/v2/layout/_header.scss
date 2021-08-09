@@ -1,0 +1,75 @@
+.nui-header {
+  width: 100%;
+  min-height: $main-header-height;
+  background: $white;
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .nui-header__left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    h2 {
+      font-size: $text-2xl;
+      line-height: 1.25;
+      color: $gray-800;
+    }
+  }
+
+  .nui-header__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.nui-subheader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: $sub-header-height;
+  padding: 0px 40px;
+  margin-bottom: $sub-header-bottom-margin;
+  background-color: $white;
+
+  .nui-subheader__left {
+    width: 50%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .nui-input__prefix {
+      color: $gray-400;
+    }
+  }
+
+  .nui-subheader__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    * {
+      &:first-child {
+        margin-right: 6px;
+      }
+      &:last-child {
+        margin-left: 6px;
+      }
+      &:not(:first-child, :last-child, [hidden]) {
+        margin-right: 6px;
+        margin-left: 6px;
+      }
+    }
+  }
+}
