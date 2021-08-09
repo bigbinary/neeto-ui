@@ -3,10 +3,10 @@ $solid-indigo-bg: #EAF3FC;
 
 .nui-tag {
   display: inline-flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   color: theme("colors.gray.800");
+  line-height: 22px;
   font-size: 12px;
   padding: 0 12px;
   height: 22px;
@@ -14,27 +14,10 @@ $solid-indigo-bg: #EAF3FC;
   border: 1px solid theme("colors.gray.400");
   border-radius: 3px;
 
-  .nui-tag--color {
-    border-radius: 50%;
-    height: 8px;
-    width: 8px;
-    margin-right: 0.25rem;
-  }
-
-  .nui-tag--icon {
-    margin-right: 0.25rem;
-  }
-
-  .nui-tag--clear {
-    margin-left: 0.25rem;
-    cursor: pointer;
-  }
-
   &.nui-tag--large {
     height: 26px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 14px;
   }
 
   &.nui-tag--solid {
@@ -52,4 +35,20 @@ $solid-indigo-bg: #EAF3FC;
     background: $solid-indigo-bg;
     border: 1px solid $solid-indigo;
   }
+}
+
+.nui-tag--color {
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  margin-right: 0.25rem;
+}
+
+.nui-tag--icon {
+  margin-right: 0.25rem;
+}
+
+.nui-tag--clear {
+  margin-left: 0.25rem;
+  cursor: pointer;
 }
