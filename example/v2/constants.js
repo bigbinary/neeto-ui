@@ -8,19 +8,21 @@ import Modal from "./Pages/Modal";
 import Pane from "./Pages/Pane";
 import Toastr from "./Pages/Toastr";
 import Misc from "./Pages/Misc";
+import Formik from "./Pages/Formik";
 
 export const COMPONENT_MAPPING = {
-  "Button": Button,
-  "Dropdown": Dropdown,
-  "Tab": Tab,
-  "Input": Input,
-  "Select": Select,
-  "Toggles": Toggles,
-  "Modal": Modal,
-  "Pane": Pane,
-  "Toastr": Toastr,
-  "Misc": Misc,
-}
+  Button: Button,
+  Dropdown: Dropdown,
+  Tab: Tab,
+  Input: Input,
+  Select: Select,
+  Toggles: Toggles,
+  Modal: Modal,
+  Pane: Pane,
+  Toastr: Toastr,
+  Misc: Misc,
+  Formik: Formik,
+};
 
 export const NAV_LINKS = [
   {
@@ -39,7 +41,7 @@ export const NAV_LINKS = [
         label: "Tab",
         to: "/components/tab",
       },
-    ]
+    ],
   },
   {
     label: "Form Elements",
@@ -57,11 +59,15 @@ export const NAV_LINKS = [
         label: "Toggles",
         to: "/form-elements/Toggles",
       },
-    ]
+    ],
   },
   {
     label: "Misc",
     to: "/misc",
+  },
+  {
+    label: "Formik",
+    to: "/formik",
   },
   {
     label: "Overlays",
@@ -79,6 +85,6 @@ export const NAV_LINKS = [
         label: "Pane",
         to: "/overlays/pane",
       },
-    ]
+    ],
   },
 ];
