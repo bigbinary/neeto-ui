@@ -9,6 +9,7 @@ import Pane from "./Pages/Pane";
 import Toastr from "./Pages/Toastr";
 import Misc from "./Pages/Misc";
 import Formik from "./Pages/Formik";
+import Layouts from "./Pages/Layouts";
 
 export const COMPONENT_MAPPING = {
   Button: Button,
@@ -22,6 +23,7 @@ export const COMPONENT_MAPPING = {
   Toastr: Toastr,
   Misc: Misc,
   Formik: Formik,
+  Layouts: Layouts,
 };
 
 export const NAV_LINKS = [
@@ -86,5 +88,9 @@ export const NAV_LINKS = [
         to: "/overlays/pane",
       },
     ],
+  },
+  {
+    label: "Layouts",
+    to: "/layouts",
   },
 ];

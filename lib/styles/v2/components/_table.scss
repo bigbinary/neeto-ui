@@ -1,0 +1,137 @@
+.nui-table {
+  width: 100%;
+  thead {
+    tr {
+      th {
+        font-size: theme("fontSize.xs");
+        font-weight: theme("fontWeight.bold");
+        color: theme("colors.gray.600");
+        background-color: theme("colors.white");
+        text-transform: uppercase;
+        padding: 24px 24px 12px 0;
+        letter-spacing: 0.5px;
+        vertical-align: middle;
+        box-shadow: 0 1px 0 0 theme("colors.gray.100");
+        z-index: 10;
+
+        &:first-child {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        padding: 14px 20px 14px 0;
+        font-size: theme("fontSize.sm");
+        font-weight: theme("fontWeight.normal");
+        color: theme("colors.gray.800");
+        box-shadow: 0 1px 0 0 theme("colors.gray.100");
+        vertical-align: middle;
+
+        a:not(.nui-btn) {
+          font-weight: theme("fontWeight.medium");
+          color: theme("colors.indigo.500");
+          transition: all 0.3s;
+          &:hover {
+            color: theme("colors.indigo.600");
+            text-decoration: underline;
+          }
+        }
+
+        &:first-child {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        text-align: left;
+
+        label {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &.nui-table--avatar {
+    tbody {
+      tr {
+        td {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &.nui-table--checkbox {
+    thead,
+    tbody {
+      tr {
+        th,
+        td {
+          &:first-child {
+            width: 48px;
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &.nui-table--actions {
+    tr {
+      td,
+      th {
+        &:last-of-type {
+          width: 144px;
+        }
+      }
+      td {
+        &:last-of-type {
+          & > div {
+            opacity: 0;
+            transition: all 0.3s;
+          }
+        }
+      }
+      &:hover {
+        td {
+          &:last-of-type {
+            & > div {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.nui-table--hover {
+    tbody {
+      tr {
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: theme("colors.gray.50");
+        }
+      }
+    }
+  }
+
+  &.nui-table--layout-fixed {
+    table-layout: fixed;
+  }
+}

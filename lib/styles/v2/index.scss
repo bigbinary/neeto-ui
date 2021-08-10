@@ -24,9 +24,11 @@
 @import "./components/callout";
 @import "./components/pane";
 @import "./components/common";
-
+@import "./components/table";
 //Layouts
 @import "./layout/sidebar";
+@import "./layout/header";
+@import "./layout/common";
 
 //Typography
 @import "./utilities/typography";
