@@ -3,6 +3,11 @@ import { Tag } from '../../../lib/v2';
 import Header from '../Header';
 
 const Tabs = () => {
+
+  const onClick = () => {
+    alert('onClick event!');
+  };
+
   return (
     <>
       <Header title="Tags" />
@@ -25,10 +30,10 @@ const Tabs = () => {
             </div>
             <div className="flex space-x-4">
               <h3>Clear button: </h3>
-              <Tag icon="ri-pencil-line" content="Small" showClearOption />
-              <Tag icon="ri-pencil-line" type="large" content="Large" showClearOption />
-              <Tag icon="ri-pencil-line" type="solid" content="Small Solid" showClearOption />
-              <Tag icon="ri-pencil-line" type="largeSolid" content="Large Solid" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} content="Small" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} type="large" content="Large" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} type="solid" content="Small Solid" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} type="largeSolid" content="Large Solid" showClearOption />
             </div>
             <div className="flex space-x-4">
               <h3>Color: </h3>
