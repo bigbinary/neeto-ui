@@ -11,6 +11,9 @@ module.exports = {
       "./example/**/**/*.js",
     ],
     defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+    options: {
+      safelist: ["tw-flex", "tw-space-x-6", "tw-gap-8", "tw-p-4"],
+    },
   },
   theme: {
     extend: {
