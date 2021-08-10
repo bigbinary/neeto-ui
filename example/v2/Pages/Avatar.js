@@ -33,7 +33,7 @@ function Avatars() {
             <Avatar onClick={onClick} fallbackText="WX" size="xlarge" imageUrl="https://i.pravatar.cc/300" />
           </div>
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} fallbackText="YZ" size="small" imageUrl="https://i.pravatar.cc/300" />
+            <Avatar onClick={onClick} fallbackText="YZ" size="small" imageUrl="https://i.pravatar.cc/300" isRounded />
             <Avatar onClick={onClick} fallbackText="AB" size="medium" imageUrl="https://i.pravatar.cc/300" isRounded />
             <Avatar onClick={onClick} fallbackText="CD" size="large" imageUrl="https://i.pravatar.cc/300" isRounded />
             <Avatar onClick={onClick} fallbackText="EF" size="xlarge" imageUrl="https://i.pravatar.cc/300" isRounded />
