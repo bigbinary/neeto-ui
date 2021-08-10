@@ -25,23 +25,12 @@ $solid-indigo-bg: #EAF3FC;
     background: $solid-indigo-bg;
     border: 1px solid $solid-indigo;
   }
-
-  &.nui-tag--largeSolid {
-    height: 26px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 14px;
-    color: $solid-indigo;
-    background: $solid-indigo-bg;
-    border: 1px solid $solid-indigo;
-  }
 }
 
 .nui-tag--color {
   border-radius: 50%;
   height: 8px;
   width: 8px;
-  margin-right: 0.25rem;
 }
 
 .nui-tag--icon {

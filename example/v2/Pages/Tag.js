@@ -17,23 +17,24 @@ const Tabs = () => {
             <div className="flex space-x-4">
               <h3>Default: </h3>
               <Tag content="Small" />
-              <Tag type="large" content="Large" />
+              <Tag type="large" size="large" content="Large" />
               <Tag type="solid" content="Small Solid" />
-              <Tag type="largeSolid" content="Large Solid" />
+              <Tag type="solid" size="large" content="Large Solid" />
             </div>
             <div className="flex space-x-4">
               <h3>Icons: </h3>
               <Tag icon="ri-pencil-line" content="Small" />
-              <Tag icon="ri-pencil-line" type="large" content="Large" />
+              <Tag icon="ri-pencil-line" size="large" content="Large" />
               <Tag icon="ri-pencil-line" type="solid" content="Small Solid" />
-              <Tag icon="ri-pencil-line" type="largeSolid" content="Large Solid" />
+              <Tag icon="ri-pencil-line" size="large" type="solid" content="Large Solid" />
             </div>
             <div className="flex space-x-4">
               <h3>Clear button: </h3>
               <Tag icon="ri-pencil-line" onClick={onClick} content="Small" showClearOption />
-              <Tag icon="ri-pencil-line" onClick={onClick} type="large" content="Large" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} size="large" content="Large" showClearOption />
               <Tag icon="ri-pencil-line" onClick={onClick} type="solid" content="Small Solid" showClearOption />
-              <Tag icon="ri-pencil-line" onClick={onClick} type="largeSolid" content="Large Solid" showClearOption />
+              <Tag icon="ri-pencil-line" onClick={onClick} size="large" type="solid" content="Large Solid"
+                   showClearOption />
             </div>
             <div className="flex space-x-4">
               <h3>Color: </h3>
