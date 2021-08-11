@@ -8,6 +8,29 @@
   &.nui-avatar--container-round {
     border-radius: 50%;
   }
+
+  .nui-avatar--status {
+    position: absolute;
+    z-index: 5;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: white;
+    border: 0.5px solid white;
+    border-radius: 50%;
+    transform: translate(7px, -9px);
+
+    &.online {
+      background-color: $green;
+    }
+
+    &.idle {
+      background-color: $yellow;
+    }
+
+    &.offline {
+      background-color: $gray-300;
+    }
+  }
 }
 
 .nui-avatar {

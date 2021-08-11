@@ -5,6 +5,7 @@ import {
 } from '../../../lib/v2';
 
 function Avatars() {
+  const imageUrl = 'https://i.pravatar.cc/300';
   const onClick = () => {
     alert('onClick event!');
   };
@@ -15,28 +16,28 @@ function Avatars() {
       <div className="p-6">
         <div className="flex p-4 space-x-4 border border-indigo-500 border-dashed">
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} fallbackText="AB" size="small" />
-            <Avatar onClick={onClick} fallbackText="CD" size="medium" />
-            <Avatar onClick={onClick} fallbackText="EF" size="large" />
-            <Avatar onClick={onClick} fallbackText="GH" size="xlarge" />
+            <Avatar onClick={onClick} content={{ text: 'AB' }} size="small" />
+            <Avatar onClick={onClick} content={{ text: 'CD' }} size="medium" />
+            <Avatar onClick={onClick} content={{ text: 'EF' }} size="large" />
+            <Avatar onClick={onClick} content={{ text: 'GH' }} size="xlarge" />
           </div>
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} fallbackText="IJ" size="small" isRounded />
-            <Avatar onClick={onClick} fallbackText="KL" size="medium" isRounded />
-            <Avatar onClick={onClick} fallbackText="MN" size="large" isRounded />
-            <Avatar onClick={onClick} fallbackText="OP" size="xlarge" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'IJ' }} size="small" status="online" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'KL' }} size="medium" status="idle" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'MN' }} size="large" status="offline" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'OP' }} size="xlarge" status="online" isRounded />
           </div>
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} fallbackText="WR" size="small" imageUrl="https://i.pravatar.cc/300" />
-            <Avatar onClick={onClick} fallbackText="ST" size="medium" imageUrl="https://i.pravatar.cc/300" />
-            <Avatar onClick={onClick} fallbackText="UV" size="large" imageUrl="https://i.pravatar.cc/300" />
-            <Avatar onClick={onClick} fallbackText="WX" size="xlarge" imageUrl="https://i.pravatar.cc/300" />
+            <Avatar onClick={onClick} content={{ text: 'WR', imageUrl }} size="small" />
+            <Avatar onClick={onClick} content={{ text: 'ST', imageUrl }} size="medium" />
+            <Avatar onClick={onClick} content={{ text: 'UV', imageUrl }} size="large" />
+            <Avatar onClick={onClick} content={{ text: 'WX', imageUrl }} size="xlarge" />
           </div>
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} fallbackText="YZ" size="small" imageUrl="https://i.pravatar.cc/300" isRounded />
-            <Avatar onClick={onClick} fallbackText="AB" size="medium" imageUrl="https://i.pravatar.cc/300" isRounded />
-            <Avatar onClick={onClick} fallbackText="CD" size="large" imageUrl="https://i.pravatar.cc/300" isRounded />
-            <Avatar onClick={onClick} fallbackText="EF" size="xlarge" imageUrl="https://i.pravatar.cc/300" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'YZ', imageUrl }} size="small" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'AB', imageUrl }} size="medium" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'CD', imageUrl }} size="large" isRounded />
+            <Avatar onClick={onClick} content={{ text: 'EF', imageUrl }} size="xlarge" isRounded />
           </div>
         </div>
       </div>
