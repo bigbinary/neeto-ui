@@ -25,9 +25,13 @@
 @import "./components/pane";
 @import "./components/tag";
 @import "./components/common";
+@import "./components/table";
+@import "./components/pageloader";
 
 //Layouts
 @import "./layout/sidebar";
+@import "./layout/header";
+@import "./layout/common";
 
 //Typography
 @import "./utilities/typography";

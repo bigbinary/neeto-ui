@@ -200,58 +200,70 @@ textarea {
 
 .nui-switch__wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 
   .nui-switch__container {
-    width: 40px;
-    height: 20px;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    transition: all 0.3s ease-in-out;
-    background-color: theme("colors.gray.300");
-    cursor: pointer;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    flex-shrink: 0;
 
-    &.nui-switch__container--disabled {
-      background-color: theme("colors.gray.100");
-      cursor: not-allowed;
+    .nui-label {
+      margin-left: 12px;
     }
 
-    &.nui-switch__container--checked {
-      background-color: theme("colors.indigo.500");
-    }
-
-    .nui-switch {
-      position: relative;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
+    .nui-switch__item {
+      width: 40px;
+      height: 20px;
+      border: 2px solid transparent;
+      border-radius: theme("borderRadius.3xl");
       transition: all 0.3s ease-in-out;
-      transform: translateX(0);
-      background-color: theme("colors.white");
-      border-radius: 16px;
-      box-shadow: theme("boxShadow.sm");
+      background-color: theme("colors.gray.300");
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-shrink: 0;
 
-      &.nui-switch--checked {
+      input[type="checkbox"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        border: 0;
+      }
+
+      &.nui-switch__item--disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      &.nui-switch__item--checked {
+        background-color: theme("colors.indigo.500");
+      }
+
+      .nui-switch {
+        position: relative;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        transition: all 0.3s ease-in-out;
+        transform: translateX(0);
+        background-color: theme("colors.white");
+        border-radius: 16px;
+        box-shadow: theme("boxShadow.sm");
+      }
+
+      input:checked + .nui-switch {
         transform: translateX(20px);
       }
-    }
 
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    &:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 2px theme("colors.white"),
-        0 0 0 4px theme("colors.indigo.500");
+      &:focus-within {
+        box-shadow: 0 0 0 2px theme("colors.white"),
+          0 0 0 4px theme("colors.indigo.500");
+      }
     }
   }
 }

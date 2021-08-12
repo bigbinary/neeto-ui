@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Sidebar } from "../../lib/layouts/v2";
+import { Sidebar } from "../../lib/v2/layouts";
 import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
 import "./index.scss";
 

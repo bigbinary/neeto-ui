@@ -1,4 +1,3 @@
-
 module.exports = {
   plugins: [
     require("postcss-import"),
@@ -12,7 +11,7 @@ module.exports = {
     require("cssnano"),
     require("postcss-prefixer")({
       prefix: "v2-",
-      ignore: [/tw-/],
+      ignore: [/tw-/, /Toastify/],
     }),
   ],
 };

@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
   entry: {
     index: "./lib/v2/index.js",
-    layouts: "./lib/layouts/v2.js",
+    layouts: "./lib/v2/layouts/index.js",
     formik: "./lib/v2/formik/index.js",
   },
   module: {
