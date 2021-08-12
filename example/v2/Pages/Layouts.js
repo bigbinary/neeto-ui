@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import { Header, SubHeader, Container, Scrollable } from "../../../lib/v2/layouts";
-import { Button } from "../../../lib/v2";
+import React, { useState, useEffect } from "react";
+import {
+  Header,
+  SubHeader,
+  Container,
+  Scrollable,
+} from "../../../lib/v2/layouts";
+import { Button, PageLoader } from "../../../lib/v2";
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <Container>
-      <Header
-        title="Layouts"
-        actionBlock={
-          <Button
-            label="Primary Action"
-          />
-        }
-      />
+      <Header title="Layouts" actionBlock={<Button label="Primary Action" />} />
       <SubHeader
         searchProps={{
           value: searchString,
@@ -22,54 +28,58 @@ const Layouts = () => {
         deleteButtonProps={{
           count: 0,
           selectedIDs: [],
-          onClick: () => {}
+          onClick: () => {},
         }}
         disableButtonProps={{
           count: 0,
           selectedIDs: [],
-          onClick: () => {}
+          onClick: () => {},
         }}
       />
       <Scrollable className="w-full px-10">
-        <table className={`v2-nui-table v2-nui-table--actions`}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Company</th>
-              <th>Phone No</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Goutham Subramanyam</td>
-              <td>goutham.subramanyam@bigbinary.com</td>
-              <td>BigBinary</td>
-              <td>+91 9633123456</td>
-              <td>
-                <div className="flex flex-row items-center justify-end space-x-3">
-                  <Button icon="ri-pencil-line" style="icon" />
-                  <Button icon="ri-lock-line" style="icon" />
-                  <Button icon="ri-delete-bin-line" style="icon" />
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Edwin Babu</td>
-              <td>edwin.babu@bigbinary.com</td>
-              <td>BigBinary</td>
-              <td>+91 8281331983</td>
-              <td>
-                <div className="flex flex-row items-center justify-end space-x-3">
-                  <Button icon="ri-pencil-line" style="icon" />
-                  <Button icon="ri-lock-line" style="icon" />
-                  <Button icon="ri-delete-bin-line" style="icon" />
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {isLoading ? (
+          <PageLoader />
+        ) : (
+          <table className={`v2-nui-table v2-nui-table--actions`}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Phone No</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Goutham Subramanyam</td>
+                <td>goutham.subramanyam@bigbinary.com</td>
+                <td>BigBinary</td>
+                <td>+91 9633123456</td>
+                <td>
+                  <div className="flex flex-row items-center justify-end space-x-3">
+                    <Button icon="ri-pencil-line" style="icon" />
+                    <Button icon="ri-lock-line" style="icon" />
+                    <Button icon="ri-delete-bin-line" style="icon" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Edwin Babu</td>
+                <td>edwin.babu@bigbinary.com</td>
+                <td>BigBinary</td>
+                <td>+91 8281331983</td>
+                <td>
+                  <div className="flex flex-row items-center justify-end space-x-3">
+                    <Button icon="ri-pencil-line" style="icon" />
+                    <Button icon="ri-lock-line" style="icon" />
+                    <Button icon="ri-delete-bin-line" style="icon" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </Scrollable>
     </Container>
   );
