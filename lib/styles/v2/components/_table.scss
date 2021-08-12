@@ -12,7 +12,7 @@
         font-weight: $font-bold;
         background-color: $white;
         text-transform: uppercase;
-        padding: 12px 32px 12px 0;
+        padding: 12px 48px 12px 0;
       }
     }
   }
@@ -25,7 +25,7 @@
         font-size: $text-sm;
         vertical-align: middle;
         font-weight: $font-normal;
-        padding: 16px 32px 16px 0;
+        padding: 16px 48px 16px 0;
 
         a:not(.nui-btn) {
           color: $indigo;
@@ -124,8 +124,84 @@
       }
     }
   }
+}
 
-  &.nui-table--layout-fixed {
-    table-layout: fixed;
+//Handling Table Inner Scroll
+
+.nui-scrollable {
+  .nui-table {
+    thead {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    tbody {
+      display: block;
+      overflow: auto;
+
+      tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+    }
+  }
+
+  &.nui-scrollable--small {
+    .nui-table {
+      tbody {
+        height: calc(
+          100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
+            #{$pagination-block-height} - #{$table-header-height}
+        );
+      }
+    }
+    &.nui-scrollable--no-pagination {
+      .nui-table {
+        tbody {
+          height: calc(
+            100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
+              #{$table-header-height}
+          );
+        }
+      }
+    }
+  }
+
+  &.nui-scrollable--large {
+    .nui-table {
+      tbody {
+        height: calc(
+          100vh - #{$main-header-height} - #{$pagination-block-height} - #{$table-header-height}
+        );
+      }
+    }
+    &.nui-scrollable--no-pagination {
+      .nui-table {
+        tbody {
+          height: calc(
+            100vh - #{$main-header-height} - #{$table-header-height}
+          );
+        }
+      }
+    }
+  }
+
+  &.nui-scrollable--viewport {
+    .nui-table {
+      tbody {
+        height: calc(
+          100vh - #{$pagination-block-height} - #{$table-header-height}
+        );
+      }
+    }
+    &.nui-scrollable--no-pagination {
+      .nui-table {
+        tbody {
+          height: calc(100vh - #{$table-header-height});
+        }
+      }
+    }
   }
 }
