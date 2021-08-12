@@ -1,34 +1,32 @@
-$solid-indigo: #5E5CE6;
-$solid-indigo-bg: #EAF3FC;
-
 .nui-tag {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: theme("colors.gray.800");
+  color: $gray-800;
   line-height: 22px;
-  font-size: 12px;
-  padding: 0 12px;
-  height: 22px;
+  font-size: $text-xs;
+  padding: 2px 8px;
+  max-height: 22px;
   background: white;
-  border: 1px solid theme("colors.gray.400");
-  border-radius: 3px;
+  border: 1px solid $gray-400;
+  border-radius: $rounded-sm;
 
   &.nui-tag--large {
-    height: 26px;
-    font-weight: 400;
-    font-size: 14px;
+    padding: 6px 12px;
+    max-height: 26px;
+    font-weight: $font-normal;
+    font-size: $text-sm;
   }
 
   &.nui-tag--solid {
-    color: $solid-indigo;
-    background: $solid-indigo-bg;
-    border: 1px solid $solid-indigo;
+    color: $indigo;
+    background: $pastel-blue;
+    border: 1px solid $indigo;
   }
 }
 
-.nui-tag--color {
-  border-radius: 50%;
+.nui-tag__indicator {
+  border-radius: $rounded-full;
   height: 8px;
   width: 8px;
 }

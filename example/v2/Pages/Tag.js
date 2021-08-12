@@ -1,14 +1,14 @@
-import React from 'react';
-import { Tag } from '../../../lib/v2';
-import Header from '../Header';
-import { Favorite } from '@bigbinary/neeto-icons';
+import React from "react";
+import { Tag } from "../../../lib/v2";
+import Header from "../Header";
+import { Favorite } from "@bigbinary/neeto-icons";
 
 const Tabs = () => {
 
   const Icon = () => <Favorite size={15} />;
 
   const onClick = () => {
-    alert('onClick event!');
+    alert("onClick event!");
   };
 
   return (
@@ -37,13 +37,13 @@ const Tabs = () => {
               <Tag icon={Icon} onClick={onClick} size="large" label="Large" showClearOption />
               <Tag icon={Icon} onClick={onClick} type="solid" label="Small Solid" showClearOption />
               <Tag icon={Icon} onClick={onClick} size="large" type="solid" label="Large Solid"
-                   showClearOption />
+                showClearOption />
             </div>
             <div className="flex space-x-4">
               <h3>Color: </h3>
-              <Tag label="Green" type="color" indicatorColor="bg-red-500" />
-              <Tag label="Yellow" type="color" indicatorColor="bg-red-500" />
-              <Tag label="Blue" type="color" indicatorColor="bg-red-500" />
+              <Tag label="Green" type="color" indicatorColor="bg-green-500" />
+              <Tag label="Yellow" type="color" indicatorColor="bg-yellow-500" />
+              <Tag label="Blue" type="color" indicatorColor="bg-blue-500" />
               <Tag label="Red" type="color" indicatorColor="bg-red-500" />
             </div>
           </div>
