@@ -1,48 +1,46 @@
 .nui-table {
   width: 100%;
+  border-collapse: collapse;
+
   thead {
     tr {
       th {
-        font-size: theme("fontSize.xs");
-        font-weight: theme("fontWeight.bold");
-        color: theme("colors.gray.600");
-        background-color: theme("colors.white");
-        text-transform: uppercase;
-        padding: 24px 24px 12px 0;
-        letter-spacing: 0.5px;
+        color: $gray-400;
+        font-size: $text-xs;
+        letter-spacing: 0.2%;
         vertical-align: middle;
-        box-shadow: 0 1px 0 0 theme("colors.gray.100");
-        z-index: 10;
-
-        &:first-child {
-          padding-left: 8px;
-        }
+        font-weight: $font-bold;
+        background-color: $white;
+        text-transform: uppercase;
+        padding: 12px 32px 12px 0;
       }
     }
   }
+
   tbody {
     tr {
       td {
-        padding: 14px 20px 14px 0;
-        font-size: theme("fontSize.sm");
-        font-weight: theme("fontWeight.normal");
-        color: theme("colors.gray.800");
-        box-shadow: 0 1px 0 0 theme("colors.gray.100");
+        color: $gray-700;
+        line-height: 20px;
+        font-size: $text-sm;
         vertical-align: middle;
+        font-weight: $font-normal;
+        padding: 16px 32px 16px 0;
 
         a:not(.nui-btn) {
-          font-weight: theme("fontWeight.medium");
-          color: theme("colors.indigo.500");
-          transition: all 0.3s;
+          color: $indigo;
+          transition: $transition;
+          font-weight: $font-medium;
+
           &:hover {
-            color: theme("colors.indigo.600");
+            color: darken($indigo, 5%);
             text-decoration: underline;
           }
         }
+      }
 
-        &:first-child {
-          padding-left: 8px;
-        }
+      &:nth-child(even) {
+        background-color: $gray-100;
       }
     }
   }
@@ -55,11 +53,11 @@
         text-align: left;
 
         label {
+          margin: 0;
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          margin: 0;
         }
       }
     }
@@ -69,8 +67,8 @@
     tbody {
       tr {
         td {
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding-top: 12px;
+          padding-bottom: 12px;
         }
       }
     }
@@ -83,8 +81,13 @@
         th,
         td {
           &:first-child {
-            width: 48px;
+            width: 40px;
             padding-right: 8px;
+
+            .nui-checkbox__wrapper {
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
       }
@@ -96,22 +99,12 @@
       td,
       th {
         &:last-of-type {
-          width: 144px;
-        }
-      }
-      td {
-        &:last-of-type {
-          & > div {
-            opacity: 0;
-            transition: all 0.3s;
-          }
-        }
-      }
-      &:hover {
-        td {
-          &:last-of-type {
-            & > div {
-              opacity: 1;
+          width: 96px;
+
+          .nui-btn--icon {
+            svg {
+              width: 24px;
+              height: 24px;
             }
           }
         }
@@ -124,8 +117,9 @@
       tr {
         cursor: pointer;
         transition: background-color 0.3s;
+
         &:hover {
-          background-color: theme("colors.gray.50");
+          background-color: $gray-200;
         }
       }
     }

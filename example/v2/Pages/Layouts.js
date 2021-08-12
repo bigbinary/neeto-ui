@@ -5,7 +5,8 @@ import {
   Container,
   Scrollable,
 } from "../../../lib/v2/layouts";
-import { Button, PageLoader, Pagination } from "../../../lib/v2";
+import { Button, PageLoader, Pagination, Checkbox, Dropdown } from "../../../lib/v2";
+import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
@@ -40,9 +41,10 @@ const Layouts = () => {
         {isLoading ? (
           <PageLoader />
         ) : (
-          <table className={`v2-nui-table v2-nui-table--actions`}>
+          <table className={`v2-nui-table v2-nui-table--checkbox v2-nui-table--actions`}>
             <thead>
               <tr>
+                <th><Checkbox name="header"/></th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Company</th>
@@ -52,28 +54,32 @@ const Layouts = () => {
             </thead>
             <tbody>
               <tr>
+                <td><Checkbox name="1"/></td>
                 <td>Goutham Subramanyam</td>
                 <td>goutham.subramanyam@bigbinary.com</td>
                 <td>BigBinary</td>
                 <td>+91 9633123456</td>
                 <td>
                   <div className="flex flex-row items-center justify-end space-x-3">
-                    <Button icon="ri-pencil-line" style="icon" />
-                    <Button icon="ri-lock-line" style="icon" />
-                    <Button icon="ri-delete-bin-line" style="icon" />
+                    <Dropdown icon={MenuHorizontal} buttonStyle="icon" autoWidth>
+                      <li>Edit</li>
+                      <li>Delete</li>
+                    </Dropdown>
                   </div>
                 </td>
               </tr>
               <tr>
+                <td><Checkbox name="2"/></td>
                 <td>Edwin Babu</td>
                 <td>edwin.babu@bigbinary.com</td>
                 <td>BigBinary</td>
                 <td>+91 8281331983</td>
                 <td>
                   <div className="flex flex-row items-center justify-end space-x-3">
-                    <Button icon="ri-pencil-line" style="icon" />
-                    <Button icon="ri-lock-line" style="icon" />
-                    <Button icon="ri-delete-bin-line" style="icon" />
+                    <Dropdown icon={MenuHorizontal} buttonStyle="icon" autoWidth>
+                      <li>Edit</li>
+                      <li>Delete</li>
+                    </Dropdown>
                   </div>
                 </td>
               </tr>
