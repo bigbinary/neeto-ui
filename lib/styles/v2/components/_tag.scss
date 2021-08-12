@@ -5,16 +5,17 @@
   color: $gray-800;
   line-height: 22px;
   font-size: $text-xs;
+  font-weight: $font-normal;
   padding: 2px 8px;
   max-height: 22px;
   background: white;
   border: 1px solid $gray-400;
-  border-radius: $rounded-sm;
+  border-radius: $rounded;
 
   &.nui-tag--large {
     padding: 6px 12px;
     max-height: 26px;
-    font-weight: $font-normal;
+    font-weight: $font-medium;
     font-size: $text-sm;
   }
 
