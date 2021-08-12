@@ -37,6 +37,7 @@ module.exports = {
     "no-console": "error",
     "import/prefer-default-export": "off",
     "react/prop-types": 0,
+    "react/no-unescaped-entities": 0,
     quotes: ["error", "double", { avoidEscape: true }],
   },
 };

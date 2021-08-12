@@ -1,0 +1,25 @@
+.nui-pageloader__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .nui-pageloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .nui-pageloader__text {
+      margin-bottom: 4rem;
+      text-align: center;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      color: theme("colors.gray.800");
+    }
+  }
+}
