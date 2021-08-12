@@ -7,9 +7,7 @@ const Tabs = () => {
 
   const Icon = () => <Favorite size={15} />;
 
-  const onClick = () => {
-    alert("onClick event!");
-  };
+  const onClick = () => alert("onClick event!");
 
   return (
     <>
