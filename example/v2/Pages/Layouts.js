@@ -5,7 +5,7 @@ import {
   Container,
   Scrollable,
 } from "../../../lib/v2/layouts";
-import { Button, PageLoader } from "../../../lib/v2";
+import { Button, PageLoader, Pagination } from "../../../lib/v2";
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
@@ -36,7 +36,7 @@ const Layouts = () => {
           onClick: () => {},
         }}
       />
-      <Scrollable className="w-full px-10">
+      <Scrollable className="w-full">
         {isLoading ? (
           <PageLoader />
         ) : (
@@ -81,6 +81,14 @@ const Layouts = () => {
           </table>
         )}
       </Scrollable>
+      <div className="flex flex-row justify-end items-center w-full mt-6 mb-8">
+        <Pagination
+          count={300}
+          pageNo={1}
+          pageSize={25}
+          navigate={() => {}}
+        />
+      </div>
     </Container>
   );
 };
