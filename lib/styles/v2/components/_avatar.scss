@@ -2,83 +2,98 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFF2D7;
-  border-radius: 2px;
+  background-color: $pastel-yellow;
+  border-radius: $rounded-sm;
 
   &.nui-avatar--container-round {
-    border-radius: 50%;
+    border-radius: $rounded-full;
   }
 
-  .nui-avatar--status {
-    position: absolute;
-    z-index: 5;
-    width: 0.4rem;
-    height: 0.4rem;
-    background-color: white;
-    border: 0.5px solid white;
-    border-radius: 50%;
-    transform: translate(7px, -9px);
+  .nui-avatar__text {
+    font-weight: $font-semibold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: $text-xxs;
+    color: $gray-600;
 
-    &.online {
-      background-color: $green;
+    &.nui-avatar__text-medium {
+      font-size: $text-xs;
     }
 
-    &.idle {
-      background-color: $yellow;
+    &.nui-avatar__text-large {
+      font-size: $text-lg;
     }
 
-    &.offline {
-      background-color: $gray-300;
+    &.nui-avatar__text-xlarge {
+      font-size: $text-2xl;
+    }
+  }
+
+  .nui-avatar {
+    display: inline-block;
+    border-radius: $rounded-sm;
+    height: 24px;
+    width: 24px;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.nui-avatar--medium {
+      height: 32px;
+      width: 32px;
+    }
+
+    &.nui-avatar--large {
+      height: 40px;
+      width: 40px;
+    }
+
+    &.nui-avatar--xlarge {
+      height: 64px;
+      width: 64px;
+    }
+
+    &.nui-avatar--round {
+      border-radius: $rounded-full;
     }
   }
 }
 
-.nui-avatar {
-  display: inline-block;
-  border-radius: 2px;
-  height: 24px;
-  width: 24px;
+.nui-avatar__status {
+  position: absolute;
+  z-index: 5;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: $rounded-full;
+  transform: translate(7px, -9px);
 
-  &.hidden {
-    display: none;
+  &.nui-avatar__status-medium {
+    transform: translate(9px, -12px)
   }
 
-  &.nui-avatar--medium {
-    height: 32px;
-    width: 32px;
+  &.nui-avatar__status-large {
+    width: .563rem;
+    height: .563rem;
+    transform: translate(10px, -16px);
   }
 
-  &.nui-avatar--large {
-    height: 40px;
-    width: 40px;
+  &.nui-avatar__status-xlarge {
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: translate(17px, -25px);
   }
 
-  &.nui-avatar--xlarge {
-    height: 64px;
-    width: 64px;
+  &.online {
+    background-color: $green;
   }
 
-  &.nui-avatar--round {
-    border-radius: 50%;
-  }
-}
-
-.nui-avatar--text {
-  font-weight: 600;
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 10px;
-  color: theme("colors.gray.600");
-
-  &.nui-avatar--text-medium {
-    font-size: 12px;
+  &.idle {
+    background-color: $yellow;
   }
 
-  &.nui-avatar--text-large {
-    font-size: 18px;
-  }
-
-  &.nui-avatar--text-xlarge {
-    font-size: 24px;
+  &.offline {
+    background-color: $gray-300;
   }
 }
