@@ -26,10 +26,10 @@ function Avatars() {
             <Avatar onClick={onClick} content={{ text: "OP" }} size="xlarge" status="online" isRounded />
           </div>
           <div className="flex flex-col space-y-4 p-2">
-            <Avatar onClick={onClick} content={{ text: "WR", imageUrl }} size="small" />
-            <Avatar onClick={onClick} content={{ text: "ST", imageUrl }} size="medium" />
-            <Avatar onClick={onClick} content={{ text: "UV", imageUrl }} size="large" />
-            <Avatar onClick={onClick} content={{ text: "WX", imageUrl }} size="xlarge" />
+            <Avatar onClick={onClick} content={{ text: "WR", imageUrl }} status="online" size="small" />
+            <Avatar onClick={onClick} content={{ text: "ST", imageUrl }} status="idle" size="medium" />
+            <Avatar onClick={onClick} content={{ text: "UV", imageUrl }} status="offline" size="large" />
+            <Avatar onClick={onClick} content={{ text: "WX", imageUrl }} status="online" size="xlarge" />
           </div>
           <div className="flex flex-col space-y-4 p-2">
             <Avatar onClick={onClick} content={{ text: "YZ", imageUrl }} size="small" isRounded />
