@@ -33,15 +33,15 @@
   .nui-avatar__status {
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
     width: 0.4rem;
     height: 0.4rem;
     background-color: white;
     border-radius: $rounded-full;
-    transform: translateX(-50%);
+    transform: translateX(-60%);
 
     &.nui-avatar__status-square {
-      transform: translate(25%, 25%);
+      transform: translate(25%, -25%);
     }
 
     &.nui-avatar__status-medium {
