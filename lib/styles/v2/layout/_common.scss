@@ -13,6 +13,7 @@
   flex-grow: 1;
   height: 100vh;
   overflow-y: auto;
+  padding: 0 40px;
 }
 
 .nui-scrollable {
@@ -24,6 +25,7 @@
       100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin}
     );
   }
+
   &.nui-scrollable--large {
     height: calc(100vh - #{$main-header-height});
   }
