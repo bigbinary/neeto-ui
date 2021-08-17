@@ -27,6 +27,7 @@ const Playground = () => {
           profileInfo={{
             name: "Kieran Miller",
             email: "kieranmiller@gmail.com",
+            imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
             dropdownProps: [
               {
                 label: "Edit",
