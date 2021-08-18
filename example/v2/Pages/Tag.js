@@ -14,35 +14,48 @@ const Tabs = () => {
       <Header title="Tags" />
       <div className="p-6">
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-          <div className="flex flex-col space-y-4 p-2">
-            <div className="flex space-x-4">
-              <h3>Default: </h3>
-              <Tag label="Small" />
-              <Tag type="outline" size="large" label="Label" />
-              <Tag type="solid" label="Label" />
-              <Tag type="solid" size="large" label="Label" />
-            </div>
-            <div className="flex space-x-4">
-              <h3>Icons: </h3>
+          <div className="flex flex-col space-y-6 p-2">
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>Outline Small: </h5>
+              <Tag label="Label" />
               <Tag icon={Icon} label="Label" />
-              <Tag icon={Icon} size="large" label="Label" />
-              <Tag icon={Icon} type="solid" label="Label" />
-              <Tag icon={Icon} size="large" type="solid" label="Label" />
-            </div>
-            <div className="flex space-x-4">
-              <h3>Clear button: </h3>
+              <Tag onClose={onClose} label="Label" />
               <Tag icon={Icon} onClose={onClose} label="Label" />
-              <Tag icon={Icon} onClose={onClose} size="large" label="Label" />
-              <Tag icon={Icon} onClose={onClose} type="solid" label="Label" />
-              <Tag icon={Icon} onClose={onClose} size="large" type="solid" label="Label"
-                showClearOption />
             </div>
-            <div className="flex space-x-4">
-              <h3>Color: </h3>
-              <Tag label="Label" type="color" indicatorColor="bg-green-500" />
-              <Tag label="Label" type="color" indicatorColor="bg-yellow-500" />
-              <Tag label="Label" type="color" indicatorColor="bg-blue-500" />
-              <Tag label="Label" type="color" indicatorColor="bg-red-500" />
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>Outline Large: </h5>
+              <Tag size="large" label="Label" />
+              <Tag size="large" icon={Icon} label="Label" />
+              <Tag size="large" onClose={onClose} label="Label" />
+              <Tag size="large" icon={Icon} onClose={onClose} label="Label" />
+            </div>
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>Solid Small: </h5>
+              <Tag style="solid" label="Label" />
+              <Tag style="solid" icon={Icon} label="Label" />
+              <Tag style="solid" onClose={onClose} label="Label" />
+              <Tag style="solid" icon={Icon} onClose={onClose} label="Label" />
+            </div>
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>Solid Large : </h5>
+              <Tag style="solid" size="large" label="Label" />
+              <Tag style="solid" size="large" icon={Icon} label="Label" />
+              <Tag style="solid" size="large" onClose={onClose} label="Label" />
+              <Tag style="solid" size="large" icon={Icon} onClose={onClose} label="Label" />
+            </div>
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>With Indicator : </h5>
+              <Tag label="Label" indicator="bg-green-500" />
+              <Tag label="Label" indicator="bg-yellow-500" />
+              <Tag label="Label" indicator="bg-blue-500" />
+              <Tag label="Label" indicator="bg-red-500" />
+            </div>
+            <div className="flex flex-row justify-start items-start space-x-4">
+              <h5>With Indicator Large : </h5>
+              <Tag size="large" label="Label" indicator="bg-green-500" />
+              <Tag size="large" label="Label" indicator="bg-yellow-500" />
+              <Tag size="large" label="Label" indicator="bg-blue-500" />
+              <Tag size="large" label="Label" indicator="bg-red-500" />
             </div>
           </div>
         </div>

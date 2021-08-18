@@ -1,42 +1,76 @@
 .nui-tag {
   display: inline-flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   color: $gray-800;
-  line-height: 22px;
   font-size: $text-xs;
   font-weight: $font-normal;
   padding: 2px 8px;
-  max-height: 22px;
-  background: white;
-  border: 1px solid $gray-400;
+  line-height: 16px;
+  background-color: $white;
+  border: thin solid $gray-400;
   border-radius: $rounded;
 
+  .nui-tag__indicator {
+    border-radius: $rounded-full;
+    height: 8px;
+    width: 8px;
+    margin-right: 4px;
+  }
+
+  .nui-tag__icon {
+    margin-right: 4px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .nui-tag__close {
+    margin-left: 8px;
+    opacity: 0.8;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
   &.nui-tag--large {
-    padding: 6px 12px;
-    max-height: 26px;
+    padding: 4px 12px;
     font-weight: $font-medium;
     font-size: $text-sm;
+
+    .nui-tag__icon,
+    .nui-tag__close {
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .nui-tag__indicator {
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+    }
   }
 
   &.nui-tag--solid {
     color: $indigo;
-    background: $pastel-blue;
-    border: 1px solid $indigo;
+    background-color: $pastel-blue;
+    border: thin solid $indigo;
   }
-}
-
-.nui-tag__indicator {
-  border-radius: $rounded-full;
-  height: 8px;
-  width: 8px;
-}
-
-.nui-tag__icon {
-  margin-left: 0.25rem;
-}
-
-.nui-tag__clear {
-  margin-left: 0.25rem;
-  cursor: pointer;
 }

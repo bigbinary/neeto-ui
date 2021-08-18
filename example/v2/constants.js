@@ -21,7 +21,7 @@ export const COMPONENT_MAPPING = {
   Toggles: Toggles,
   Modal: Modal,
   Pane: Pane,
-  "Tag": Tag,
+  Tag: Tag,
   Toastr: Toastr,
   Misc: Misc,
   Formik: Formik,
