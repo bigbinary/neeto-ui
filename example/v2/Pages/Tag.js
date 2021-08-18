@@ -5,9 +5,7 @@ import { Favorite } from "@bigbinary/neeto-icons";
 
 const Tabs = () => {
 
-  const Icon = () => <Favorite size={15} />;
-
-  const onClose = () => alert("onClose celled!");
+  const onClose = () => alert("onClose Triggered!");
 
   return (
     <>
@@ -18,30 +16,30 @@ const Tabs = () => {
             <div className="flex flex-row justify-start items-start space-x-4">
               <h5>Outline Small: </h5>
               <Tag label="Label" />
-              <Tag icon={Icon} label="Label" />
+              <Tag icon={Favorite} label="Label" />
               <Tag onClose={onClose} label="Label" />
-              <Tag icon={Icon} onClose={onClose} label="Label" />
+              <Tag icon={Favorite} onClose={onClose} label="Label" />
             </div>
             <div className="flex flex-row justify-start items-start space-x-4">
               <h5>Outline Large: </h5>
               <Tag size="large" label="Label" />
-              <Tag size="large" icon={Icon} label="Label" />
+              <Tag size="large" icon={Favorite} label="Label" />
               <Tag size="large" onClose={onClose} label="Label" />
-              <Tag size="large" icon={Icon} onClose={onClose} label="Label" />
+              <Tag size="large" icon={Favorite} onClose={onClose} label="Label" />
             </div>
             <div className="flex flex-row justify-start items-start space-x-4">
               <h5>Solid Small: </h5>
               <Tag style="solid" label="Label" />
-              <Tag style="solid" icon={Icon} label="Label" />
+              <Tag style="solid" icon={Favorite} label="Label" />
               <Tag style="solid" onClose={onClose} label="Label" />
-              <Tag style="solid" icon={Icon} onClose={onClose} label="Label" />
+              <Tag style="solid" icon={Favorite} onClose={onClose} label="Label" />
             </div>
             <div className="flex flex-row justify-start items-start space-x-4">
               <h5>Solid Large : </h5>
               <Tag style="solid" size="large" label="Label" />
-              <Tag style="solid" size="large" icon={Icon} label="Label" />
+              <Tag style="solid" size="large" icon={Favorite} label="Label" />
               <Tag style="solid" size="large" onClose={onClose} label="Label" />
-              <Tag style="solid" size="large" icon={Icon} onClose={onClose} label="Label" />
+              <Tag style="solid" size="large" icon={Favorite} onClose={onClose} label="Label" />
             </div>
             <div className="flex flex-row justify-start items-start space-x-4">
               <h5>With Indicator : </h5>
