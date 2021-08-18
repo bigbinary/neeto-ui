@@ -27,6 +27,7 @@ const componentNames = [
   "Spinner",
   "Switch",
   "Tab",
+  "Tag",
   "TimeInput",
   "Tooltip",
 ];

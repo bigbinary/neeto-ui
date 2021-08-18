@@ -6,6 +6,7 @@ import Select from "./Pages/Select";
 import Toggles from "./Pages/Toggles";
 import Modal from "./Pages/Modal";
 import Pane from "./Pages/Pane";
+import Tag from "./Pages/Tag";
 import Toastr from "./Pages/Toastr";
 import Misc from "./Pages/Misc";
 import Formik from "./Pages/Formik";
@@ -20,6 +21,7 @@ export const COMPONENT_MAPPING = {
   Toggles: Toggles,
   Modal: Modal,
   Pane: Pane,
+  Tag: Tag,
   Toastr: Toastr,
   Misc: Misc,
   Formik: Formik,
@@ -42,6 +44,10 @@ export const NAV_LINKS = [
       {
         label: "Tab",
         to: "/components/tab",
+      },
+      {
+        label: "Tag",
+        to: "/components/tag",
       },
     ],
   },
