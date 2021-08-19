@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $pastel-yellow;
   border-radius: $rounded-sm;
   position: relative;
 
@@ -37,12 +36,9 @@
     width: 0.4rem;
     height: 0.4rem;
     background-color: white;
+    border: 0.5px solid white;
     border-radius: $rounded-full;
     transform: translateX(-40%);
-
-    &.nui-avatar__status-square {
-      transform: translate(25%, -25%);
-    }
 
     &.nui-avatar__status-medium {
       width: 0.465rem;
@@ -57,6 +53,11 @@
     &.nui-avatar__status-xlarge {
       width: 0.75rem;
       height: 0.75rem;
+      transform: translateX(-65%);
+    }
+
+    &.nui-avatar__status-square {
+      transform: translate(25%, -25%);
     }
 
     &.online {
