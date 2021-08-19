@@ -17,7 +17,6 @@ export const COMPONENT_MAPPING = {
   Button: Button,
   Dropdown: Dropdown,
   Tab: Tab,
-  Avatars: Avatars,
   Input: Input,
   Select: Select,
   Toggles: Toggles,
@@ -27,7 +26,8 @@ export const COMPONENT_MAPPING = {
   Toastr: Toastr,
   Misc: Misc,
   Formik: Formik,
-  Layouts: Layouts
+  Layouts: Layouts,
+  Avatar: Avatars
 };
 
 export const NAV_LINKS = [
