@@ -11,11 +11,13 @@ import Toastr from "./Pages/Toastr";
 import Misc from "./Pages/Misc";
 import Formik from "./Pages/Formik";
 import Layouts from "./Pages/Layouts";
+import Avatars from "./Pages/Avatar";
 
 export const COMPONENT_MAPPING = {
   Button: Button,
   Dropdown: Dropdown,
   Tab: Tab,
+  Avatars: Avatars,
   Input: Input,
   Select: Select,
   Toggles: Toggles,
@@ -25,7 +27,7 @@ export const COMPONENT_MAPPING = {
   Toastr: Toastr,
   Misc: Misc,
   Formik: Formik,
-  Layouts: Layouts,
+  Layouts: Layouts
 };
 
 export const NAV_LINKS = [
@@ -35,21 +37,25 @@ export const NAV_LINKS = [
     items: [
       {
         label: "Button",
-        to: "/components/button",
+        to: "/components/button"
       },
       {
         label: "Dropdown",
-        to: "/components/dropdown",
+        to: "/components/dropdown"
       },
       {
         label: "Tab",
-        to: "/components/tab",
+        to: "/components/tab"
       },
       {
         label: "Tag",
-        to: "/components/tag",
+        to: "/components/tag"
       },
-    ],
+      {
+        label: "Avatars",
+        to: "/components/avatar"
+      }
+    ]
   },
   {
     label: "Form Elements",
@@ -57,25 +63,25 @@ export const NAV_LINKS = [
     items: [
       {
         label: "Input",
-        to: "/form-elements/input",
+        to: "/form-elements/input"
       },
       {
         label: "Select",
-        to: "/form-elements/select",
+        to: "/form-elements/select"
       },
       {
         label: "Toggles",
-        to: "/form-elements/Toggles",
-      },
-    ],
+        to: "/form-elements/Toggles"
+      }
+    ]
   },
   {
     label: "Misc",
-    to: "/misc",
+    to: "/misc"
   },
   {
     label: "Formik",
-    to: "/formik",
+    to: "/formik"
   },
   {
     label: "Overlays",
@@ -83,20 +89,20 @@ export const NAV_LINKS = [
     items: [
       {
         label: "Modal",
-        to: "/overlays/modal",
+        to: "/overlays/modal"
       },
       {
         label: "Toastr",
-        to: "/overlays/toastr",
+        to: "/overlays/toastr"
       },
       {
         label: "Pane",
-        to: "/overlays/pane",
-      },
-    ],
+        to: "/overlays/pane"
+      }
+    ]
   },
   {
     label: "Layouts",
-    to: "/layouts",
-  },
+    to: "/layouts"
+  }
 ];
