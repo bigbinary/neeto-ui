@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, Callout } from "../../../lib/v2";
+import { Pagination, Callout } from "../../../lib/components";
 import { Email } from "@bigbinary/neeto-icons";
 import Header from "../Header";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Textarea } from "../../../lib/v2";
+import { Input, Textarea } from "../../../lib/components";
 import Header from "../Header";
 import { Favorite } from "@bigbinary/neeto-icons";
 

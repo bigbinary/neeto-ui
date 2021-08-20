@@ -4,8 +4,8 @@ import {
   SubHeader,
   Container,
   Scrollable,
-} from "../../../lib/v2/layouts";
-import { Button, PageLoader, Pagination, Checkbox, Dropdown } from "../../../lib/v2";
+} from "../../../lib/components/layouts";
+import { Button, PageLoader, Pagination, Checkbox, Dropdown } from "../../../lib/components";
 import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 const Layouts = () => {

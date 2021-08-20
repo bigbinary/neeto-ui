@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "14"
       - run: yarn install
-      - run: yarn build && yarn build-v2
+      - run: yarn build-v2
       - run: yarn version --patch --no-git-tag-version
       - run: git config core.hooksPath /dev/null
       - uses: EndBug/add-and-commit@v7

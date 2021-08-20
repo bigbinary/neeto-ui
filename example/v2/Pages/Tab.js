@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tab } from "../../../lib/v2";
+import { Tab } from "../../../lib/components";
 import Header from "../Header";
 
 const Tabs = () => {

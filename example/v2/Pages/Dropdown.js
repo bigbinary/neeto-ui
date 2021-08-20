@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dropdown } from "../../../lib/v2";
+import { Dropdown } from "../../../lib/components";
 import Header from "../Header";
 
 const Dropdowns = () => {

@@ -1,41 +1,36 @@
-@import "@blueprintjs/core/lib/css/blueprint";
-@import "@blueprintjs/datetime/lib/css/blueprint-datetime";
 @import "react-toastify/dist/ReactToastify.min.css";
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 //Abstracts
+@import "./abstracts/normalize";
 @import "./abstracts/variables";
 
 //Utilities
 @import "./utilities/animations";
 @import "./utilities/media-query";
+@import "./utilities/typography";
 
 //Components
-@import "./components/badge";
 @import "./components/button";
+@import "./components/checkbox";
 @import "./components/dropdown";
-@import "./components/form";
-@import "./components/select";
-@import "./components/table";
-@import "./components/pane";
 @import "./components/modal";
+@import "./components/radio";
+@import "./components/switch";
 @import "./components/tab";
-@import "./components/timeline";
-@import "./components/toastr";
-@import "./components/tooltip";
+@import "./components/toast";
+@import "./components/select";
+@import "./components/input";
+@import "./components/pagination";
+@import "./components/callout";
+@import "./components/pane";
+@import "./components/tag";
 @import "./components/common";
-@import "./components/dateinput";
-@import "./components/color-picker";
-@import "./components/label";
-@import "./components/slider";
-@import "./components/timeinput";
-@import "./components/accordion";
+@import "./components/table";
+@import "./components/pageloader";
+@import "./components/avatar";
 
-//Layout
-@import "./layout/common";
-@import "./layout/filterbar";
+//Layouts
+@import "./layout/sidebar";
 @import "./layout/header";
-@import "./layout/menubar";
+@import "./layout/common";

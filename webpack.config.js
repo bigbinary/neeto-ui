@@ -1,11 +1,12 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
+const path = require("path");
 
 module.exports = {
   entry: {
-    neetoui: "./lib/index.js",
+    index: "./lib/components/index.js",
+    layouts: "./lib/components/layouts/index.js",
     formik: "./lib/components/formik/index.js",
-    layouts: "./lib/layouts/index.js",
   },
   module: {
     rules: [
@@ -16,9 +17,28 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        include: [path.resolve(__dirname, "example")],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "react-classname-prefix-loader?prefix=tw",
+          },
+        ],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: [path.resolve(__dirname, "lib")],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "react-classname-prefix-loader?prefix=v2",
+          },
+        ],
       },
       {
         test: /\.html$/,
@@ -44,14 +64,13 @@ module.exports = {
           // Translates CSS into CommonJS
           "css-loader",
           "postcss-loader",
-          // Compiles Sass to CSS
           "sass-loader",
         ],
       },
     ],
   },
   output: {
-    path: __dirname,
+    path: __dirname + "/v2",
     filename: "[name].js",
     library: "neetoui",
     libraryTarget: "umd",

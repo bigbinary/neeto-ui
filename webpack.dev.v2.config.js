@@ -61,14 +61,7 @@ module.exports = {
           "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                config: path.resolve(__dirname, "postcss.v2.config.js"),
-              },
-            },
-          },
+          "postcss-loader",
           // Compiles Sass to CSS
           "sass-loader",
         ],

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Toastr } from "../../../lib/v2";
+import { Button, Toastr } from "../../../lib/components";
 import Header from "../Header";
 
 const Toastrs = () => {

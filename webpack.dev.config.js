@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: "./example/v1/index.js",
+  entry: "./example/index.js",
   module: {
     rules: [
       {
