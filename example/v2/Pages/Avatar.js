@@ -41,28 +41,28 @@ const AvatarExample = () => {
               user={{ name: "Akkshay Lawrence" }}
               size="small"
               status="online"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Vinay V" }}
               size="medium"
               status="idle"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Neeraj Singh" }}
               size="large"
               status="offline"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Goutham Subramanyam" }}
               size="xlarge"
               status="online"
-              isRounded
+              isSquare
             />
           </div>
           <div className="flex flex-col space-y-4 p-2">
@@ -96,25 +96,25 @@ const AvatarExample = () => {
               onClick={onClick}
               user={{ name: "Akkshay Lawrence", imageUrl }}
               size="small"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Vinay V", imageUrl }}
               size="medium"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Neeraj Singh", imageUrl }}
               size="large"
-              isRounded
+              isSquare
             />
             <Avatar
               onClick={onClick}
               user={{ name: "Goutham Subramanyam", imageUrl }}
               size="xlarge"
-              isRounded
+              isSquare
             />
           </div>
         </div>
