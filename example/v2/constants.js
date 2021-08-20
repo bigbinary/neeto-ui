@@ -11,6 +11,7 @@ import Toastr from "./Pages/Toastr";
 import Misc from "./Pages/Misc";
 import Formik from "./Pages/Formik";
 import Layouts from "./Pages/Layouts";
+import Avatar from "./Pages/Avatar";
 
 export const COMPONENT_MAPPING = {
   Button: Button,
@@ -26,6 +27,7 @@ export const COMPONENT_MAPPING = {
   Misc: Misc,
   Formik: Formik,
   Layouts: Layouts,
+  Avatar: Avatar,
 };
 
 export const NAV_LINKS = [
@@ -48,6 +50,10 @@ export const NAV_LINKS = [
       {
         label: "Tag",
         to: "/components/tag",
+      },
+      {
+        label: "Avatar",
+        to: "/components/avatar",
       },
     ],
   },

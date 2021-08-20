@@ -1,0 +1,105 @@
+.nui-avatar--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $rounded-sm;
+  position: relative;
+
+  &.nui-avatar--container-round {
+    border-radius: $rounded-full;
+  }
+
+  .nui-avatar__text {
+    font-weight: $font-semibold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: $text-xxs;
+    color: $gray-600;
+
+    &.nui-avatar__text-medium {
+      font-size: $text-xs;
+    }
+
+    &.nui-avatar__text-large {
+      font-size: $text-lg;
+    }
+
+    &.nui-avatar__text-xlarge {
+      font-size: $text-2xl;
+    }
+  }
+
+  .nui-avatar__status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: white;
+    border: 0.5px solid white;
+    border-radius: $rounded-full;
+    transform: translateX(-40%);
+
+    &.nui-avatar__status-medium {
+      width: 0.465rem;
+      height: 0.465rem;
+    }
+
+    &.nui-avatar__status-large {
+      width: 0.563rem;
+      height: 0.563rem;
+    }
+
+    &.nui-avatar__status-xlarge {
+      width: 0.75rem;
+      height: 0.75rem;
+      transform: translateX(-65%);
+    }
+
+    &.nui-avatar__status-square {
+      transform: translate(25%, -25%);
+    }
+
+    &.online {
+      background-color: $green;
+    }
+
+    &.idle {
+      background-color: $yellow;
+    }
+
+    &.offline {
+      background-color: $gray-300;
+    }
+  }
+
+  .nui-avatar {
+    display: inline-block;
+    border-radius: $rounded-sm;
+    height: 1.5rem;
+    width: 1.5rem;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.nui-avatar--medium {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &.nui-avatar--large {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    &.nui-avatar--xlarge {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    &.nui-avatar--round {
+      border-radius: $rounded-full;
+    }
+  }
+}

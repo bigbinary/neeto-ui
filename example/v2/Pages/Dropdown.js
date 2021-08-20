@@ -17,7 +17,6 @@ const Dropdowns = () => {
             position="bottom-end"
             isOpen={dropdownOne}
             onClose={() => {
-              console.log("calling on close");
               setDropdownOne(false);
             }}
             buttonProps={{
