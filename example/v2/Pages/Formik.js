@@ -6,7 +6,7 @@ import {
   Radio as FormikRadio,
   Select as FormikSelect,
   Switch as FormikSwitch,
-} from "../../../lib/v2/formik";
+} from "../../../lib/components/formik";
 
 import Header from "../Header";
 

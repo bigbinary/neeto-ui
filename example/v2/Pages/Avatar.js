@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header";
-import { Avatar } from "../../../lib/v2";
+import { Avatar } from "../../../lib/components";
 
 const AvatarExample = () => {
   const imageUrl = "https://i.pravatar.cc/300";

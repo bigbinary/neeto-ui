@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Radio, Checkbox } from "../../../lib/v2";
+import { Switch, Radio, Checkbox } from "../../../lib/components";
 import Header from "../Header";
 
 const Misc = () => {

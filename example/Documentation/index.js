@@ -1,6 +1,6 @@
 import React from "react";
 import { Catalog, pageLoader } from "catalog";
-import * as NeetoUI from "../../lib";
+import * as NeetoUI from "../../neetoui.js";
 
 const componentNames = [
   "Accordion",
@@ -27,7 +27,6 @@ const componentNames = [
   "Spinner",
   "Switch",
   "Tab",
-  "Tag",
   "TimeInput",
   "Tooltip",
 ];

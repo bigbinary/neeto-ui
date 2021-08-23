@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from "../../../lib/v2";
+import { Select } from "../../../lib/components";
 import Header from "../Header";
 
 const SelectField = () => {

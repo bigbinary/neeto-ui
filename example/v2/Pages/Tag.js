@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag } from "../../../lib/v2";
+import { Tag } from "../../../lib/components";
 import Header from "../Header";
 import { Favorite } from "@bigbinary/neeto-icons";
 

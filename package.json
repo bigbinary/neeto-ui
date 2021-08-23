@@ -64,7 +64,6 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "v2": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.v2.config.js",
-    "build": "NODE_ENV=production webpack --mode production",
     "build-v2": "NODE_ENV=production webpack --mode production --config webpack.v2.config.js",
     "build-example": "NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
     "build-example-v2": "NODE_ENV=production webpack --mode production --config webpack.dev.v2.config.js",

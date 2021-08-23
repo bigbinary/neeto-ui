@@ -3,7 +3,7 @@ import { Check } from "@bigbinary/neeto-icons";
 import {
   Button,
   Modal,
-} from "../../../lib/v2";
+} from "../../../lib/components";
 import Header from "../Header";
 
 const Modals = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../../../lib/v2";
+import { Button } from "../../../lib/components";
 import Header from "../Header";
 import { Keyboard } from "@bigbinary/neeto-icons";
 
