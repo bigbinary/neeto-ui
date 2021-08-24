@@ -13,7 +13,7 @@ const AvatarExample = () => {
       <Header title="Avatar" />
       <div className="p-6">
         <div className="flex p-4 space-x-4 border border-indigo-500 border-dashed">
-          <div className="flex flex-col space-y-4 p-2">
+          <div className="flex flex-col p-2 space-y-4">
             <Avatar
               onClick={onClick}
               user={{ name: "Akkshay Lawrence" }}
@@ -21,7 +21,7 @@ const AvatarExample = () => {
             />
             <Avatar
               onClick={onClick}
-              user={{ name: "Vinay V" }}
+              user={{ name: "Vinay V Chandran" }}
               size="medium"
             />
             <Avatar
@@ -35,7 +35,7 @@ const AvatarExample = () => {
               size="xlarge"
             />
           </div>
-          <div className="flex flex-col space-y-4 p-2">
+          <div className="flex flex-col p-2 space-y-4">
             <Avatar
               onClick={onClick}
               user={{ name: "Akkshay Lawrence" }}
@@ -65,7 +65,7 @@ const AvatarExample = () => {
               isSquare
             />
           </div>
-          <div className="flex flex-col space-y-4 p-2">
+          <div className="flex flex-col p-2 space-y-4">
             <Avatar
               onClick={onClick}
               user={{ name: "Akkshay Lawrence", imageUrl }}
@@ -91,7 +91,7 @@ const AvatarExample = () => {
               size="xlarge"
             />
           </div>
-          <div className="flex flex-col space-y-4 p-2">
+          <div className="flex flex-col p-2 space-y-4">
             <Avatar
               onClick={onClick}
               user={{ name: "Akkshay Lawrence", imageUrl }}
