@@ -6,6 +6,7 @@ import {
   Radio as FormikRadio,
   Select as FormikSelect,
   Switch as FormikSwitch,
+  BlockNavigation
 } from "../../../lib/components/formik";
 
 import Header from "../Header";
@@ -44,6 +45,7 @@ const FormikElements = () => {
           onSubmit={() => {}}
         >
           <Form className="w-2/6">
+            <BlockNavigation/>
             <FormikInput
               name="formikInput"
               type="text"
