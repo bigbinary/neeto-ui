@@ -1,7 +1,7 @@
 module.exports = {
   prefix: "tw-",
   purge: {
-    enabled: process.env.NODE_ENV === "production" ? true : false,
+    enabled: process.env.TAILWIND_ENV === "production" ? true : false,
     content: [
       "./lib/**/*.js",
       "./lib/**/**/*.js",
