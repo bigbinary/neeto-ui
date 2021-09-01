@@ -4,6 +4,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
+
+  .nui-radio__label {
+    margin-bottom: 12px;
+  }
 }
 
 .nui-radio__container {
