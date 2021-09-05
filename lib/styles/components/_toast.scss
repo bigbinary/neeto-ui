@@ -1,63 +1,71 @@
-.nui-toast {
-  min-height: unset;
-}
-
 .Toastify__toast-container {
   padding: 0 !important;
   width: auto !important;
-  max-width: 520px;
-  min-width: 300px;
+  max-width: 620px;
+  min-width: 320px;
 
-  .Toastify__toast {
-    border-radius: theme("borderRadius.sm");
+  .Toastify__toast,
+  .nui-toast {
     min-height: 40px;
-    padding: 12px;
+    padding: 0.5rem;
     margin: 0 0 1rem;
-    box-shadow: theme("boxShadow.sm");
+
+    box-shadow: none;
+
+    border-radius: $rounded-sm;
 
     .Toastify__toast-body {
       margin: 0;
+
+      color: $gray-800;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        p {
+          font-size: $text-sm;
+          margin: 0 0.75rem;
+        }
+      }
     }
 
-    // &.Toastify__toast--success {
-    //   background: theme("colors.green.600");
-    // }
+    &.Toastify__toast--success {
+      background: $pastel-green;
+      border: 1px solid $green;
+    }
 
     &.Toastify__toast--error {
-      background: theme("colors.red.500");
+      background: $pastel-red;
+      border: 1px solid $red;
     }
 
     &.Toastify__toast--info {
-      background: theme("colors.blue.500");
+      background: $pastel-blue;
+      border: 1px solid $blue;
+    }
+
+    &.Toastify__toast--warning {
+      background: $pastel-yellow;
+      border: 1px solid $yellow;
     }
 
     &.Toastify__toast--default {
-      background: theme("colors.blue.500");
+      background: $pastel-blue;
+      border: 1px solid $blue;
     }
 
-    .Toastify__progress-bar {
-      background-color: theme("colors.white");
-      height: 6px;
-    }
+    .nui-toastr__close-button {
+      opacity: 0.5;
+      margin: auto 0;
 
-    .Toastify__close-button {
-      opacity: 0.8;
+      transition: $transition;
 
       &:hover,
       &:focus,
       &:active {
         opacity: 1;
-      }
-    }
-
-    .nui-btn--link {
-      color: theme("colors.gray.100");
-      margin-left: auto;
-      padding: 0 16px;
-      line-height: 20px;
-      font-weight: theme("fontWeight.medium");
-      &:hover {
-        color: theme("colors.white");
       }
     }
   }

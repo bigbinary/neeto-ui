@@ -7,25 +7,31 @@ const Toastrs = () => {
     <div className="w-full">
       <Header title="Toastr" />
       <div className="p-6 space-y-6">
-        <div className="w-1/2 space-y-8">
+        <div className="space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button
+              label="Show toastr info"
+              onClick={() => Toastr.info("This is an info toastr.")}
+            />
+            <Button
+              label="Show toastr warning"
+              onClick={() => Toastr.warning("This is a warning toastr.")}
+            />
+            <Button
               label="Show toastr success"
-              onClick={() => Toastr.success("Form has been successfully saved")}
+              onClick={() =>
+                Toastr.success("Form has been successfully saved.")
+              }
             />
             <Button
               label="Show toastr error"
               onClick={() =>
                 Toastr.error(
                   Error(
-                    "Some error occured! Please visit https://github.com/bigbinary/neeto-ui. Some error occured!Some error occured!Some error occured!Some error occured!Some error occured!"
+                    "Some error occured! Please visit https://github.com/bigbinary/neeto-ui."
                   )
                 )
               }
-            />
-            <Button
-              label="Show toastr info"
-              onClick={() => Toastr.info("Toaster info")}
             />
           </div>
         </div>
