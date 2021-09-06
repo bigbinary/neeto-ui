@@ -1,47 +1,63 @@
-.nui-toast {
-  min-height: unset;
-}
-
 .Toastify__toast-container {
-  padding: 0 !important;
-  width: auto !important;
-  max-width: 520px;
-  min-width: 300px;
+  padding: 0;
 
-  .Toastify__toast {
-    border-radius: theme("borderRadius.sm");
+  width: auto;
+  max-width: 640px;
+  min-width: 320px;
+
+  .Toastify__toast,
+  .nui-toastr {
     min-height: 40px;
-    padding: 12px;
+    padding: 0.5rem;
     margin: 0 0 1rem;
-    box-shadow: theme("boxShadow.sm");
 
-    .Toastify__toast-body {
+    box-shadow: none;
+
+    border-radius: $rounded-sm;
+
+    .Toastify__toast-icon {
       margin: 0;
     }
 
-    // &.Toastify__toast--success {
-    //   background: theme("colors.green.600");
-    // }
+    .Toastify__toast-body {
+      margin: 0;
+      padding: 0;
 
-    &.Toastify__toast--error {
-      background: theme("colors.red.500");
+      color: $gray-800;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          font-size: $text-sm;
+          margin: 0 0.75rem;
+        }
+
+        button {
+          padding: 0;
+          margin: 0 0.25rem 0;
+          cursor: pointer;
+
+          color: $gray-800;
+          opacity: 0.5;
+
+          transition: $transition;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
     }
 
-    &.Toastify__toast--info {
-      background: theme("colors.blue.500");
-    }
+    .nui-toastr__close-button {
+      opacity: 0.5;
+      margin: auto 0;
 
-    &.Toastify__toast--default {
-      background: theme("colors.blue.500");
-    }
-
-    .Toastify__progress-bar {
-      background-color: theme("colors.white");
-      height: 6px;
-    }
-
-    .Toastify__close-button {
-      opacity: 0.8;
+      transition: $transition;
 
       &:hover,
       &:focus,
@@ -50,15 +66,30 @@
       }
     }
 
-    .nui-btn--link {
-      color: theme("colors.gray.100");
-      margin-left: auto;
-      padding: 0 16px;
-      line-height: 20px;
-      font-weight: theme("fontWeight.medium");
-      &:hover {
-        color: theme("colors.white");
-      }
+    &.Toastify__toast--success {
+      background: $pastel-green;
+      border: 1px solid $green;
     }
+
+    &.Toastify__toast--error {
+      background: $pastel-red;
+      border: 1px solid $red;
+    }
+
+    &.Toastify__toast--info {
+      background: $pastel-blue;
+      border: 1px solid $blue;
+    }
+
+    &.Toastify__toast--warning {
+      background: $pastel-yellow;
+      border: 1px solid $yellow;
+    }
+
+    &.Toastify__toast--default {
+      background: $pastel-blue;
+      border: 1px solid $blue;
+    }
+
   }
 }
