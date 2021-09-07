@@ -1,14 +1,4 @@
-// .tippy-box[data-theme~="dark"] {
-//   background-color: theme("colors.gray.700");
-//   color: black;
-//   border: 1px solid #ededed;
-//   border-radius: 0;
-// }
-
-// .tippy-box[data-theme~="dark"] > .tippy-svg-arrow {
-//   fill: tomato;
-// }
-
+// tippy core
 .tippy-box[data-animation="fade"][data-state="hidden"] {
   opacity: 0;
 }
@@ -21,8 +11,7 @@
   color: $white;
   border-radius: $rounded-sm;
   font-size: $text-xs;
-  line-height: 18px;
-  padding: 4px 8px;
+  line-height: 1.4;
   outline: 0;
   transition-property: transform, visibility, opacity;
 }
@@ -70,7 +59,7 @@
 .tippy-arrow {
   width: 16px;
   height: 16px;
-  color: #333;
+  color: $gray-800;
 }
 .tippy-arrow:before {
   content: "";
@@ -80,9 +69,11 @@
 }
 .tippy-content {
   position: relative;
+  padding: 5px 9px;
   z-index: 1;
 }
 
+// svg arrow
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow {
   bottom: 0;
 }
@@ -124,4 +115,32 @@
 .tippy-svg-arrow,
 .tippy-svg-arrow > svg {
   position: absolute;
+}
+
+// light theme
+.tippy-box[data-theme~="light"] {
+  color: $gray-800;
+  box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15),
+    0 4px 80px -8px rgba(36, 40, 47, 0.25),
+    0 4px 4px -2px rgba(91, 94, 105, 0.15);
+  background-color: $white;
+}
+.tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
+  border-top-color: $white;
+}
+.tippy-box[data-theme~="light"][data-placement^="bottom"]
+  > .tippy-arrow:before {
+  border-bottom-color: $white;
+}
+.tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
+  border-left-color: $white;
+}
+.tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
+  border-right-color: $white;
+}
+.tippy-box[data-theme~="light"] > .tippy-backdrop {
+  background-color: $white;
+}
+.tippy-box[data-theme~="light"] > .tippy-svg-arrow {
+  fill: $white;
 }
