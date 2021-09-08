@@ -95,7 +95,7 @@
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow > svg {
   transform: rotate(90deg);
   top: calc(50% - 3px);
-  left: 11px;
+  left: 13px;
 }
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow {
   left: 0;
@@ -104,7 +104,7 @@
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow > svg {
   transform: rotate(-90deg);
   top: calc(50% - 3px);
-  right: 11px;
+  right: 13px;
 }
 .tippy-svg-arrow {
   width: 16px;
@@ -117,7 +117,14 @@
   position: absolute;
 }
 
+.tippy-svg-arrow > svg > path{
+  fill: $gray-800;
+}
+
 // light theme
+.tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path{
+  fill: $white;
+}
 .tippy-box[data-theme~="light"] {
   color: $gray-800;
   box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15),
