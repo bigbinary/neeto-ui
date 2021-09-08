@@ -8,8 +8,6 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
-    "@blueprintjs/core": "^3.33.0",
-    "@blueprintjs/datetime": "^3.19.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.9",
@@ -61,11 +59,9 @@
     ]
   },
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
-    "v2": "TAILWIND_ENV=development NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.v2.config.js",
-    "build-v2": "TAILWIND_ENV=production NODE_ENV=production webpack --mode production --config webpack.config.js",
-    "build-example": "NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
-    "build-example-v2": "TAILWIND_ENV=development NODE_ENV=production webpack --mode production --config webpack.dev.v2.config.js",
+    "start": "TAILWIND_ENV=development NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
+    "build": "TAILWIND_ENV=production NODE_ENV=production webpack --mode production --config webpack.config.js",
+    "build-example": "TAILWIND_ENV=development NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
     "prepare": "husky install",
     "test": "jest"
   },
@@ -83,7 +79,6 @@
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.5",
-    "catalog": "^3.6.2",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
     "postcss": "^8.2.9",

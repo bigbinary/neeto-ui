@@ -1,9 +1,11 @@
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: "./example/index.js",
+  entry: "./example/src/index.js",
+  devtool: "eval-cheap-source-map",
   module: {
     rules: [
       {
@@ -13,9 +15,28 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        include: [path.resolve(__dirname, "example")],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "react-classname-prefix-loader?prefix=tw",
+          },
+        ],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: [path.resolve(__dirname, "lib")],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "react-classname-prefix-loader?prefix=v2",
+          },
+        ],
       },
       {
         test: /\.html$/,
