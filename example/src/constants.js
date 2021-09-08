@@ -57,6 +57,10 @@ export const NAV_LINKS = [
         label: "Avatar",
         to: "/components/avatar",
       },
+      {
+        label: "Tooltip",
+        to: "/components/tooltip",
+      },
     ],
   },
   {
