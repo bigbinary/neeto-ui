@@ -4,7 +4,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: "./example/v2/index.js",
+  entry: "./example/src/index.js",
   devtool: "eval-cheap-source-map",
   module: {
     rules: [
