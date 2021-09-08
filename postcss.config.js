@@ -11,7 +11,14 @@ module.exports = {
     require("cssnano"),
     require("postcss-prefixer")({
       prefix: "v2-",
-      ignore: [/tw-/, /Toastify/],
+      ignore: [
+        /tw-/,
+        /Toastify/,
+        /tippy-box/,
+        /tippy-arrow/,
+        /tippy-content/,
+        /tippy-svg-arrow/,
+      ],
     }),
   ],
 };
