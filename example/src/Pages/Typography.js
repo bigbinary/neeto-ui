@@ -75,7 +75,7 @@ const Text = () => {
               <Typography style="h1" weight="medium">
                 Typography - 500
               </Typography>
-              <Typography style="h1" weight="regular">
+              <Typography style="h1" weight="normal">
                 Typography - 400
               </Typography>
               <Typography style="h1" weight="light">
