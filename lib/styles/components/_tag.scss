@@ -3,17 +3,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: $gray-800;
-  font-size: $text-xs;
-  font-weight: $font-normal;
+  color: $nui-gray-800;
+  font-size: $nui-text-xs;
+  font-weight: $nui-font-normal;
   padding: 2px 8px;
   line-height: 16px;
-  background-color: $white;
-  border: thin solid $gray-400;
-  border-radius: $rounded;
+  background-color: $nui-white;
+  border: thin solid $nui-gray-400;
+  border-radius: $nui-rounded;
 
   .nui-tag__indicator {
-    border-radius: $rounded-full;
+    border-radius: $nui-rounded-full;
     height: 8px;
     width: 8px;
     margin-right: 4px;
@@ -35,7 +35,7 @@
   .nui-tag__close {
     margin-left: 8px;
     opacity: 0.8;
-    transition: $transition;
+    transition: $nui-transition;
     cursor: pointer;
 
     &:hover {
@@ -50,8 +50,8 @@
 
   &.nui-tag--large {
     padding: 4px 12px;
-    font-weight: $font-medium;
-    font-size: $text-sm;
+    font-weight: $nui-font-medium;
+    font-size: $nui-text-sm;
 
     .nui-tag__icon,
     .nui-tag__close {
@@ -69,8 +69,8 @@
   }
 
   &.nui-tag--solid {
-    color: $indigo;
-    background-color: $pastel-blue;
-    border: thin solid $indigo;
+    color: $nui-indigo;
+    background-color: $nui-pastel-blue;
+    border: thin solid $nui-indigo;
   }
 }

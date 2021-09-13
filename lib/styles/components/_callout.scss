@@ -3,25 +3,25 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  border-radius: $rounded-sm;
+  border-radius: $nui-rounded-sm;
   padding: 16px 12px;
-  font-size: $text-sm;
+  font-size: $nui-text-sm;
   line-height: 20px;
-  color: $gray-700;
+  color: $nui-gray-700;
 
   .nui-callout__icon {
     flex-shrink: 0;
     margin-right: 12px;
-    color: $gray-600;
+    color: $nui-gray-600;
   }
 
   &.nui-callout--info {
-    background-color: $pastel-blue;
+    background-color: $nui-pastel-blue;
   }
   &.nui-callout--warning {
-    background-color: $pastel-yellow;
+    background-color: $nui-pastel-yellow;
   }
   &.nui-callout--danger {
-    background-color: $pastel-red;
+    background-color: $nui-pastel-red;
   }
 }

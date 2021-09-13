@@ -5,12 +5,12 @@
   thead {
     tr {
       th {
-        color: $gray-400;
-        font-size: $text-xs;
+        color: $nui-gray-400;
+        font-size: $nui-text-xs;
         letter-spacing: 0.2%;
         vertical-align: middle;
-        font-weight: $font-bold;
-        background-color: $white;
+        font-weight: $nui-font-bold;
+        background-color: $nui-white;
         text-transform: uppercase;
         padding: 12px 48px 12px 0;
       }
@@ -20,27 +20,27 @@
   tbody {
     tr {
       td {
-        color: $gray-700;
+        color: $nui-gray-700;
         line-height: 20px;
-        font-size: $text-sm;
+        font-size: $nui-text-sm;
         vertical-align: middle;
-        font-weight: $font-normal;
+        font-weight: $nui-font-normal;
         padding: 16px 48px 16px 0;
 
         a:not(.nui-btn) {
-          color: $indigo;
-          transition: $transition;
-          font-weight: $font-medium;
+          color: $nui-indigo;
+          transition: $nui-transition;
+          font-weight: $nui-font-medium;
 
           &:hover {
-            color: darken($indigo, 5%);
+            color: darken($nui-indigo, 5%);
             text-decoration: underline;
           }
         }
       }
 
       &:nth-child(even) {
-        background-color: $gray-100;
+        background-color: $nui-gray-100;
       }
     }
   }
@@ -119,7 +119,7 @@
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: $gray-200;
+          background-color: $nui-gray-200;
         }
       }
     }

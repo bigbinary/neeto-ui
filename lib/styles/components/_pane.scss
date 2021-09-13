@@ -16,8 +16,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: $white;
-    border-radius: $rounded-sm;
+    background-color: $nui-white;
+    border-radius: $nui-rounded-sm;
     overflow: hidden;
     width: 35%;
     height: 100vh;
@@ -47,7 +47,7 @@
       width: 100%;
       height: calc(100vh - #{$pane-header-height});
       padding: 0 40px;
-      font-size: $text-sm;
+      font-size: $nui-text-sm;
       line-height: 20px;
       overflow-y: auto;
 
@@ -63,8 +63,8 @@
       justify-content: flex-start;
       align-items: center;
       padding: 32px 40px;
-      background-color: $white;
-      border-top: thin solid $gray-300;
+      background-color: $nui-white;
+      border-top: thin solid $nui-gray-300;
       min-height: $pane-footer-height;
 
       &.nui-pane__footer__absolute {

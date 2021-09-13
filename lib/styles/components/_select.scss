@@ -1,13 +1,13 @@
 .nui-react-select__container.nui-react-select__container--error {
   .nui-react-select__control {
-    border: thin solid $red;
-    box-shadow: 0 0 0 3px $pastel-red;
+    border: thin solid $nui-red;
+    box-shadow: 0 0 0 3px $nui-pastel-red;
   }
 }
 
 .nui-react-select__container {
   width: 100%;
-  font-size: $text-sm;
+  font-size: $nui-text-sm;
 
   &.nui-react-select__container--naked {
     .nui-react-select__control {
@@ -38,22 +38,23 @@
   }
 
   .nui-react-select__control.nui-react-select__control--is-disabled {
-    background-color: $gray-100;
+    background-color: $nui-gray-100;
     cursor: not-allowed;
   }
 
   .nui-react-select__control.nui-react-select__control--is-focused {
-    border: thin solid $gray-800;
-    transition: $transition;
+    border: thin solid $nui-gray-800;
+    transition: $nui-transition;
     outline-color: transparent;
-    box-shadow: $shadow;
+    box-shadow: $nui-shadow;
   }
 
   .nui-react-select__control {
-    border: thin solid $gray-400;
-    border-radius: $rounded-sm;
-    background-color: $white;
+    border: thin solid $nui-gray-400;
+    border-radius: $nui-rounded-sm;
+    background-color: $nui-white;
     min-height: 0;
+    box-shadow: $nui-shadow;
     transition: border 0.3s;
   }
 
@@ -76,12 +77,12 @@
   }
 
   .nui-react-select__placeholder {
-    color: $gray-400;
+    color: $nui-gray-400;
     font-size: inherit;
   }
 
   .nui-react-select__input {
-    color: $gray-800;
+    color: $nui-gray-800;
     font-size: inherit;
   }
 
@@ -104,7 +105,7 @@
     }
 
     .nui-react-select__option {
-      color: $gray-800;
+      color: $nui-gray-800;
       font-size: inherit;
       cursor: pointer;
       overflow-wrap: break-word;
@@ -113,31 +114,31 @@
     }
 
     .nui-react-select__option--is-focused {
-      background-color: $gray-100;
+      background-color: $nui-gray-100;
     }
 
     .nui-react-select__option--is-disabled {
-      color: $gray-200;
+      color: $nui-gray-200;
       cursor: not-allowed;
     }
 
     .nui-react-select__option--is-selected {
-      background-color: $gray-800;
-      color: $white;
+      background-color: $nui-gray-800;
+      color: $nui-white;
     }
 
     .nui-react-select__fixed-option {
       width: 100%;
       font-size: inherit;
-      border-top: thin solid $gray-100;
+      border-top: thin solid $nui-gray-100;
       padding: 2px 0;
       cursor: pointer;
 
       a {
         width: 100%;
         display: inline-block;
-        color: $gray-700;
-        transition: $transition;
+        color: $nui-gray-700;
+        transition: $nui-transition;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -147,7 +148,7 @@
 
       &:hover {
         a {
-          color: $gray-800;
+          color: $nui-gray-800;
           text-decoration: none;
         }
       }
@@ -160,8 +161,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: $gray-100;
-    border: thin solid $gray-800;
+    background-color: $nui-gray-100;
+    border: thin solid $nui-gray-800;
     border-radius: 3px;
     margin: 3px 6px 3px 0;
     .nui-react-select__multi-value__label {
@@ -172,9 +173,9 @@
 
   .nui-react-select__multi-value__remove {
     cursor: pointer;
-    transition: $transition;
+    transition: $nui-transition;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    color: $gray-800;
+    color: $nui-gray-800;
   }
 }

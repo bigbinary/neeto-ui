@@ -1,65 +1,81 @@
 //Colors
-$blue: #276ef1;
-$green: #00ba88;
-$light-green: #66d19e;
-$yellow: #f3cd82;
-$red: #f56a58;
-$indigo: #5e5ce6;
-$pastel-blue: #eaf3fc;
-$pastel-green: #ebf5ec;
-$pastel-yellow: #fff2d7;
-$pastel-red: #ffefed;
-$white: #ffffff;
-$black: #1b1f23;
-$gray-800: #2f3941;
-$gray-700: #49545c;
-$gray-600: #68737d;
-$gray-500: #87929d;
-$gray-400: #c2c8cc;
-$gray-300: #d8dcde;
-$gray-200: #e9ebed;
-$gray-100: #f8f9f9;
-
-//SCSS Variables
+$nui-blue: #276ef1;
+$nui-green: #00ba88;
+$nui-light-green: #66d19e;
+$nui-yellow: #f3cd82;
+$nui-red: #f56a58;
+$nui-indigo: #5e5ce6;
+$nui-pastel-blue: #eaf3fc;
+$nui-pastel-green: #ebf5ec;
+$nui-pastel-yellow: #fff2d7;
+$nui-pastel-red: #ffefed;
+$nui-white: #ffffff;
+$nui-black: #1b1f23;
+$nui-gray-800: #2f3941;
+$nui-gray-700: #49545c;
+$nui-gray-600: #68737d;
+$nui-gray-500: #87929d;
+$nui-gray-400: #c2c8cc;
+$nui-gray-300: #d8dcde;
+$nui-gray-200: #e9ebed;
+$nui-gray-100: #f8f9f9;
 
 //Weights
-$font-thin: 100;
-$font-extralight: 200;
-$font-light: 300;
-$font-normal: 400;
-$font-medium: 500;
-$font-semibold: 600;
-$font-bold: 700;
-$font-extrabold: 800;
-$font-black: 900;
+$nui-font-thin: 100;
+$nui-font-extralight: 200;
+$nui-font-light: 300;
+$nui-font-normal: 400;
+$nui-font-medium: 500;
+$nui-font-semibold: 600;
+$nui-font-bold: 700;
+$nui-font-extrabold: 800;
+$nui-font-black: 900;
 
 //Sizes
-$text-xxs: 10px;
-$text-xs: 12px;
-$text-sm: 14px;
-$text-base: 16px;
-$text-lg: 18px;
-$text-xl: 20px;
-$text-2xl: 24px;
-$text-3xl: 32px;
-$text-4xl: 48px;
+$nui-text-xxs: 10px;
+$nui-text-xs: 12px;
+$nui-text-sm: 14px;
+$nui-text-base: 16px;
+$nui-text-lg: 18px;
+$nui-text-xl: 20px;
+$nui-text-2xl: 24px;
+$nui-text-3xl: 32px;
+$nui-text-4xl: 48px;
+
+//Line height
+$nui-leading-none:1;
+$nui-leading-tight: 1.25;
+$nui-leading-snug: 1.375;
+$nui-leading-normal: 1.5;
+$nui-leading-relaxed: 1.625;
+$nui-leading-loose: 2;
+
+//Text-transform
+$nui-text-transform-none: none;
+$nui-text-transform-capitalize: capitalize;
+$nui-text-transform-uppercase: uppercase;
+$nui-text-transform-lowercase: lowercase;
+$nui-text-transform-fullwidth: full-width;
+$nui-text-transform-inherit: inherit;
+$nui-text-transform-initial: initial;
+$nui-text-transform-revert: revert;
+$nui-text-transform-unset: unset;
 
 //Border Radius
-
-$rounded-sm: 2px;
-$rounded: 4px;
-$rounded-md: 6px;
-$rounded-lg: 8px;
-$rounded-xl: 10px;
-$rounded-full: 999px;
+$nui-rounded-sm: 2px;
+$nui-rounded: 4px;
+$nui-rounded-md: 6px;
+$nui-rounded-lg: 8px;
+$nui-rounded-xl: 10px;
+$nui-rounded-full: 999px;
 
 //Transition
-$transition: all 0.3s ease-in-out;
+$nui-transition: all 0.3s ease-in-out;
 
 //Shadows
 
-$shadow: 0px 0px 0px 3px $gray-200;
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+$nui-shadow: 0px 0px 0px 3px $nui-gray-200;
+$nui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Breakpoints

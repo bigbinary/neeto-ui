@@ -2,7 +2,7 @@
   width: 300px;
   min-width: 300px;
   height: 100vh;
-  background-color: $gray-100;
+  background-color: $nui-gray-100;
   padding: 48px 0;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
       width: 48px;
       height: 48px;
       border-radius: theme("borderRadius.DEFAULT");
-      background-color: $gray-800;
+      background-color: $nui-gray-800;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -41,12 +41,12 @@
       h2 {
         font-size: 14px;
         font-weight: theme("fontWeight.medium");
-        color: $gray-800;
+        color: $nui-gray-800;
         margin-bottom: 4px;
       }
       p {
         font-size: 14px;
-        color: $gray-500;
+        color: $nui-gray-500;
       }
     }
   }
@@ -58,7 +58,7 @@
       padding: 8px 40px;
       font-size: 16px;
       font-weight: theme("fontWeight.medium");
-      color: $gray-600;
+      color: $nui-gray-600;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -77,7 +77,7 @@
         top: 0px;
         bottom: 0px;
         margin: auto;
-        background-color: $gray-800;
+        background-color: $nui-gray-800;
       }
 
       &:not(&:first-child) {
@@ -105,11 +105,11 @@
       }
 
       &:hover {
-        color: $gray-700;
+        color: $nui-gray-700;
       }
 
       &.active {
-        color: $gray-800;
+        color: $nui-gray-800;
 
         &:before {
           width: 4px;
@@ -121,7 +121,7 @@
       padding: 4px 40px 4px 52px;
       font-size: 14px;
       font-weight: theme("fontWeight.medium");
-      color: $gray-600;
+      color: $nui-gray-600;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -135,12 +135,12 @@
       }
 
       &:hover {
-        color: $gray-700;
+        color: $nui-gray-700;
       }
 
       &:active,
       &.active {
-        color: $gray-800;
+        color: $nui-gray-800;
       }
     }
   }
@@ -159,25 +159,25 @@
         align-items: center;
         width: 100%;
         padding: 12px 16px;
-        background-color: $white;
+        background-color: $nui-white;
         margin-bottom: 24px;
-        border-radius: $rounded-sm;
-        border: thin solid $white;
-        transition: $transition;
+        border-radius: $nui-rounded-sm;
+        border: thin solid $nui-white;
+        transition: $nui-transition;
         cursor: pointer;
 
         &:hover {
-          border-color: $gray-200;
+          border-color: $nui-gray-200;
         }
 
         .nui-sidebar__avatar {
           width: 40px;
           height: 40px;
-          background-color: $pastel-yellow;
+          background-color: $nui-pastel-yellow;
           border-radius: theme("borderRadius.full");
           font-size: 14px;
           font-weight: theme("fontWeight.semibold");
-          color: rgba($gray-800, 0.5);
+          color: rgba($nui-gray-800, 0.5);
           overflow: hidden;
           flex-shrink: 0;
           display: flex;
@@ -204,17 +204,17 @@
             h4 {
               font-size: 16px;
               font-weight: theme("fontWeight.medium");
-              color: $gray-800;
+              color: $nui-gray-800;
               line-height: 1.5;
             }
             p {
               font-size: 12px;
-              color: $gray-500;
+              color: $nui-gray-500;
             }
           }
 
           svg {
-            color: $gray-500;
+            color: $nui-gray-500;
             margin-left: 8px;
           }
         }

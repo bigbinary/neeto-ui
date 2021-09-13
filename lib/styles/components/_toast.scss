@@ -13,7 +13,7 @@
 
     box-shadow: none;
 
-    border-radius: $rounded-sm;
+    border-radius: $nui-rounded-sm;
 
     .Toastify__toast-icon {
       margin: 0;
@@ -23,7 +23,7 @@
       margin: 0;
       padding: 0;
 
-      color: $gray-800;
+      color: $nui-gray-800;
 
       div {
         display: flex;
@@ -32,7 +32,7 @@
         align-items: center;
 
         p {
-          font-size: $text-sm;
+          font-size: $nui-text-sm;
           margin: 0 0.75rem;
         }
 
@@ -41,10 +41,10 @@
           margin: 0 0.25rem 0;
           cursor: pointer;
 
-          color: $gray-800;
+          color: $nui-gray-800;
           opacity: 0.5;
 
-          transition: $transition;
+          transition: $nui-transition;
 
           &:hover {
             opacity: 1;
@@ -57,7 +57,7 @@
       opacity: 0.5;
       margin: auto 0;
 
-      transition: $transition;
+      transition: $nui-transition;
 
       &:hover,
       &:focus,
@@ -67,28 +67,28 @@
     }
 
     &.Toastify__toast--success {
-      background: $pastel-green;
-      border: 1px solid $green;
+      background: $nui-pastel-green;
+      border: 1px solid $nui-green;
     }
 
     &.Toastify__toast--error {
-      background: $pastel-red;
-      border: 1px solid $red;
+      background: $nui-pastel-red;
+      border: 1px solid $nui-red;
     }
 
     &.Toastify__toast--info {
-      background: $pastel-blue;
-      border: 1px solid $blue;
+      background: $nui-pastel-blue;
+      border: 1px solid $nui-blue;
     }
 
     &.Toastify__toast--warning {
-      background: $pastel-yellow;
-      border: 1px solid $yellow;
+      background: $nui-pastel-yellow;
+      border: 1px solid $nui-yellow;
     }
 
     &.Toastify__toast--default {
-      background: $pastel-blue;
-      border: 1px solid $blue;
+      background: $nui-pastel-blue;
+      border: 1px solid $nui-blue;
     }
 
   }
