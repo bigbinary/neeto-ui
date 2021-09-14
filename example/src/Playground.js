@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Sidebar } from "../../lib/components/layouts";
+import { Sidebar, AppSwitcher } from "../../lib/components/layouts";
 import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
 import "./index.scss";
 
@@ -15,6 +15,7 @@ const Playground = () => {
       ROUTER_LINKS.push(navLink);
     }
   });
+  const [appSwitcher, toggleAppSwitcher] = useState(false);
   return (
     <Router>
       <div className="flex flex-row items-start justify-start">
@@ -30,8 +31,8 @@ const Playground = () => {
             imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
             dropdownProps: [
               {
-                label: "Edit",
-                onClick: () => {},
+                label: "App Switcher",
+                onClick: () => toggleAppSwitcher(!appSwitcher),
               },
               {
                 label: "Logout",
@@ -39,6 +40,7 @@ const Playground = () => {
               },
             ],
           }}
+          toggleAppSwitcher={appSwitcher}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
@@ -55,6 +57,7 @@ const Playground = () => {
           </Switch>
         </div>
       </div>
+      {appSwitcher && <AppSwitcher />}
     </Router>
   );
 };
