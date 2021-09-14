@@ -10,7 +10,7 @@ const Text = () => {
       <div className="p-6 space-y-6">
         <div className="grid grid-cols-2 gap-6">
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Sizes</h2>
+            <h2 className="text-xl">Headings</h2>
             <div className="flex flex-col gap-5">
               <Typography style="h1">h1. Heading</Typography>
               <Typography style="h2">h2. Heading</Typography>
@@ -18,6 +18,11 @@ const Text = () => {
               <Typography style="h4">h4. Heading</Typography>
               <Typography style="h5">h5. Heading</Typography>
               <Typography style="h6">h6. Heading</Typography>
+            </div>
+          </div>
+          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Text Styles</h2>
+            <div className="flex flex-col gap-5">
               <Typography style="body1">
                 body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Quos blanditiis tenetur
@@ -58,7 +63,7 @@ const Text = () => {
             </div>
           </div>
           <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Weights</h2>
+            <h2 className="text-xl">Font Weights</h2>
             <div className="flex flex-col gap-5">
               <Typography style="h1" weight="black">
                 Typography - 900
@@ -86,6 +91,35 @@ const Text = () => {
               </Typography>
               <Typography style="h1" weight="thin">
                 Typography - 100
+              </Typography>
+            </div>
+          </div>
+          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+            <h2 className="text-xl">Line Heights</h2>
+            <div className="flex flex-col">
+              <h5 className="text-lg tw-leading-tight mb-2">lineHeight="none"</h5>
+              <Typography style="body2" lineHeight="none">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
+              </Typography>
+              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="tight"</h5>
+              <Typography style="body2" lineHeight="tight">
+                lineHeight="tight" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
+              </Typography>
+              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="snug"</h5>
+              <Typography style="body2" lineHeight="snug">
+                lineHeight="snug" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
+              </Typography>
+              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="normal"</h5>
+              <Typography style="body2" lineHeight="normal">
+                lineHeight="normal" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
+              </Typography>
+              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="relaxed"</h5>
+              <Typography style="body2" lineHeight="relaxed">
+                lineHeight="relaxed" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
+              </Typography>
+              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="loose"</h5>
+              <Typography style="body2" lineHeight="loose">
+                lineHeight="loose" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
               </Typography>
             </div>
           </div>
@@ -123,35 +157,6 @@ const Text = () => {
             <div className="flex flex-col gap-5">
               <Typography component="h2" style="h1">
                 h1 style with h2 tag.
-              </Typography>
-            </div>
-          </div>
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Line Heights</h2>
-            <div className="flex flex-col">
-              <h5 className="text-lg tw-leading-tight mb-2">lineHeight="none"</h5>
-              <Typography style="body2" lineHeight="none">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
-              </Typography>
-              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="tight"</h5>
-              <Typography style="body2" lineHeight="tight">
-                lineHeight="tight" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
-              </Typography>
-              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="snug"</h5>
-              <Typography style="body2" lineHeight="snug">
-                lineHeight="snug" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
-              </Typography>
-              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="normal"</h5>
-              <Typography style="body2" lineHeight="normal">
-                lineHeight="normal" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
-              </Typography>
-              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="relaxed"</h5>
-              <Typography style="body2" lineHeight="relaxed">
-                lineHeight="relaxed" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
-              </Typography>
-              <h5 className="text-lg tw-leading-tight mt-5 mb-2">lineHeight="loose"</h5>
-              <Typography style="body2" lineHeight="loose">
-                lineHeight="loose" - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.
               </Typography>
             </div>
           </div>
