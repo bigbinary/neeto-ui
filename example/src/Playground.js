@@ -57,7 +57,10 @@ const Playground = () => {
           </Switch>
         </div>
       </div>
-      {appSwitcher && <AppSwitcher />}
+      <AppSwitcher
+        isOpen={appSwitcher}
+        onClose={() => toggleAppSwitcher(false)}
+      />
     </Router>
   );
 };

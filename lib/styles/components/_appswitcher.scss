@@ -1,0 +1,145 @@
+.nui-switcher__backdrop {
+  position: fixed;
+  z-index: 99999;
+  left: 80px;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .nui-switcher__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: $white;
+    border-radius: $rounded-sm;
+    overflow: hidden;
+    width: 35%;
+    height: 100vh;
+    max-width: 400px;
+
+    @include viewport(tab-min) {
+      width: 50%;
+    }
+
+    @include viewport(mob) {
+      width: 100%;
+      max-width: none;
+    }
+
+    .nui-modal__close {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+    }
+
+    .nui-switcher__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      width: 100%;
+      padding: 40px 40px 32px;
+    }
+
+    .nui-switcher__body {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100vh - #{$pane-header-height});
+      padding: 0 40px;
+      font-size: $text-sm;
+      line-height: 20px;
+      overflow-y: auto;
+
+      &.nui-pane__body--has-footer {
+        height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
+      }
+    }
+  }
+}
+
+.app-links {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
+  padding: 8px;
+  align-items: center;
+  justify-content: start;
+  &.active {
+    background-color: $gray-300;
+  }
+}
+.app-links--href {
+  text-decoration: none;
+}
+
+.app-links-svg {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  margin-right: 12px;
+  svg {
+    margin: 0 auto;
+  }
+}
+
+.gradient--analytics {
+  background: linear-gradient(135deg, #fb923c 0%, #db2777 100%);
+}
+
+.gradient--chat {
+  background: linear-gradient(137.62deg, #a855f7 0%, #6366f1 95.83%);
+}
+
+.gradient--desk {
+  background: linear-gradient(135deg, #facc15 0%, #f97316 97.5%);
+}
+
+.gradient--form {
+  background: linear-gradient(90.13deg, #ec4899 0%, #f43f5e 100%);
+}
+
+.gradient--kb {
+  background: linear-gradient(134.25deg, #57de4a 0.62%, #14b4c6 97.5%);
+}
+
+.gradient--changelog {
+  background: linear-gradient(134.25deg, #57de4a 0.62%, #14b4c6 97.5%);
+}
+
+.gradient--cal {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--engage {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--insights {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--quiz {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--replay {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--invisible {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--planner {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--wireframe {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
+.gradient--interview {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+}
