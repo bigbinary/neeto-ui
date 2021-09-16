@@ -61,11 +61,11 @@
     }
 
     &.online {
-      background-color: $nui-green;
+      background-color: $nui-success;
     }
 
     &.idle {
-      background-color: $nui-yellow;
+      background-color: $nui-warning;
     }
 
     &.offline {

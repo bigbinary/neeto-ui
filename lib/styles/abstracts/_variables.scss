@@ -1,16 +1,9 @@
-//Colors
-$nui-blue: #276ef1;
-$nui-green: #00ba88;
-$nui-light-green: #66d19e;
-$nui-yellow: #f3cd82;
-$nui-red: #f56a58;
-$nui-indigo: #5e5ce6;
-$nui-pastel-blue: #eaf3fc;
-$nui-pastel-green: #ebf5ec;
-$nui-pastel-yellow: #fff2d7;
-$nui-pastel-red: #ffefed;
+// Color palette
+
+// primary
 $nui-white: #ffffff;
 $nui-black: #1b1f23;
+// content
 $nui-gray-800: #2f3941;
 $nui-gray-700: #49545c;
 $nui-gray-600: #68737d;
@@ -19,8 +12,23 @@ $nui-gray-400: #c2c8cc;
 $nui-gray-300: #d8dcde;
 $nui-gray-200: #e9ebed;
 $nui-gray-100: #f8f9f9;
+// states
+$nui-success: #00ba88;
+$nui-info: #276ef1;
+$nui-warning: #f3cd82;
+$nui-error: #f56a58;
+// pastel
+$nui-pastel-blue: #eaf3fc;
+$nui-pastel-green: #ebf5ec;
+$nui-pastel-yellow: #fff2d7;
+$nui-pastel-red: #ffefed;
+$nui-pastel-teal: #98f3f4;
+// secondary
+$nui-secondary-indigo: #5e5ce6;
+$nui-secondary-green: #00ba88;
+$nui-secondary-teal: #64d2ff;
 
-//Weights
+// Font Weights
 $nui-font-thin: 100;
 $nui-font-extralight: 200;
 $nui-font-light: 300;
@@ -31,7 +39,7 @@ $nui-font-bold: 700;
 $nui-font-extrabold: 800;
 $nui-font-black: 900;
 
-//Sizes
+// Font Sizes
 $nui-text-xxs: 10px;
 $nui-text-xs: 12px;
 $nui-text-sm: 14px;
@@ -42,15 +50,15 @@ $nui-text-2xl: 24px;
 $nui-text-3xl: 32px;
 $nui-text-4xl: 48px;
 
-//Line height
-$nui-leading-none:1;
+// Line Heights
+$nui-leading-none: 1;
 $nui-leading-tight: 1.25;
 $nui-leading-snug: 1.375;
 $nui-leading-normal: 1.5;
 $nui-leading-relaxed: 1.625;
 $nui-leading-loose: 2;
 
-//Text-transform
+// Text-transform
 $nui-text-transform-none: none;
 $nui-text-transform-capitalize: capitalize;
 $nui-text-transform-uppercase: uppercase;
@@ -61,7 +69,7 @@ $nui-text-transform-initial: initial;
 $nui-text-transform-revert: revert;
 $nui-text-transform-unset: unset;
 
-//Border Radius
+// Border Radius
 $nui-rounded-sm: 2px;
 $nui-rounded: 4px;
 $nui-rounded-md: 6px;
@@ -69,14 +77,14 @@ $nui-rounded-lg: 8px;
 $nui-rounded-xl: 10px;
 $nui-rounded-full: 999px;
 
-//Transition
+// Transition
 $nui-transition: all 0.3s ease-in-out;
 
-//Shadows
+// Shadows
 
 $nui-shadow: 0px 0px 0px 3px $nui-gray-200;
 $nui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Breakpoints
 $mob-479: 479px;
@@ -84,7 +92,7 @@ $tab-768: 768px;
 $tab-1024: 1024px;
 $desk-1200: 1200px;
 
-//Constants
+// Constants
 $pane-header-height: 100px;
 $pane-footer-height: 104px;
 $main-header-height: 117px;

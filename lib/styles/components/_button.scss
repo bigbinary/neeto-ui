@@ -77,7 +77,7 @@
   
     &:hover:not(:disabled),
     &:active {
-      background-color: $nui-nui-gray-700;
+      background-color: $nui-gray-700;
     }
   
     &:focus-visible {
@@ -113,19 +113,19 @@
   }
 
   &-link {
-    color: $nui-gray-800;
+    color: $nui-secondary-indigo;
     min-height: initial;
     padding: 0;
   
     &:hover:not(:disabled),
     &:active,
     &:focus {
-      color: $nui-nui-gray-700;
+      opacity: 0.8;
     }
   }
   
   &-danger {
-    color: $nui-red;
+    color: $nui-error;
     background-color: $nui-pastel-red;
   
     &:hover:not(:disabled),
