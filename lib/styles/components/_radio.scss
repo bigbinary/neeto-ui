@@ -34,8 +34,8 @@
   .nui-radio[type="radio"] {
     width: 16px;
     height: 16px;
-    color: $gray-800;
-    border: 2px solid $gray-300;
+    color: $nui-gray-800;
+    border: 2px solid $nui-gray-300;
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -44,7 +44,7 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: $gray-400;
+      border-color: $nui-gray-400;
     }
 
     &:disabled {
@@ -62,7 +62,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-300;
+      box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-300;
     }
   }
 

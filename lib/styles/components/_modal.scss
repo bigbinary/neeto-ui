@@ -15,8 +15,8 @@
     width: 50%;
     max-width: 100%;
     position: relative;
-    background-color: $white;
-    border-radius: $rounded-sm;
+    background-color: $nui-white;
+    border-radius: $nui-rounded-sm;
     overflow: hidden;
 
     .nui-modal__close {
@@ -68,7 +68,7 @@
 
     .nui-modal__body {
       padding: 0 24px;
-      font-size: $text-sm;
+      font-size: $nui-text-sm;
       line-height: 20px;
     }
 

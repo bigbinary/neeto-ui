@@ -13,6 +13,7 @@ import Formik from "./Pages/Formik";
 import Layouts from "./Pages/Layouts";
 import Avatar from "./Pages/Avatar";
 import Tooltip from "./Pages/Tooltip";
+import Typography from "./Pages/Typography";
 
 export const COMPONENT_MAPPING = {
   Button: Button,
@@ -30,6 +31,7 @@ export const COMPONENT_MAPPING = {
   Layouts: Layouts,
   Avatar: Avatar,
   Tooltip: Tooltip,
+  Typography: Typography,
 };
 
 export const NAV_LINKS = [
@@ -60,6 +62,10 @@ export const NAV_LINKS = [
       {
         label: "Tooltip",
         to: "/components/tooltip",
+      },
+      {
+        label: "Typography",
+        to: "/components/typography",
       },
     ],
   },

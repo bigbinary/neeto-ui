@@ -15,13 +15,13 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: $text-sm;
+    font-size: $nui-text-sm;
     line-height: 1.6;
-    transition: $transition;
-    border-radius: $rounded-sm;
-    border: thin solid $gray-400;
-    background-color: $white;
-    color: $gray-800;
+    transition: $nui-transition;
+    border-radius: $nui-rounded-sm;
+    border: thin solid $nui-gray-400;
+    background-color: $nui-white;
+    color: $nui-gray-800;
     overflow: hidden;
 
     &.nui-input--textarea {
@@ -38,7 +38,7 @@
       line-height: inherit;
       box-shadow: none;
       &::placeholder {
-        color: $gray-400;
+        color: $nui-gray-400;
       }
 
       &:focus {
@@ -57,19 +57,19 @@
     }
 
     &:focus-within:not(.nui-input--naked, .nui-input--error) {
-      border-color: $gray-800;
-      box-shadow: $shadow;
+      border-color: $nui-gray-800;
+      box-shadow: $nui-shadow;
     }
 
     &:hover:not(.nui-input--naked, .nui-input--error, .nui-input--disabled) {
-      border-color: $gray-700;
+      border-color: $nui-gray-700;
     }
 
     &.nui-input--error {
-      border-color: $red;
+      border-color: $nui-red;
 
       &:focus-within:not(.nui-input--naked) {
-        box-shadow: 0 0 0 3px $pastel-red;
+        box-shadow: 0 0 0 3px $nui-pastel-red;
       }
 
       textarea {
@@ -78,7 +78,7 @@
     }
 
     &.nui-input--disabled {
-      background-color: $gray-100;
+      background-color: $nui-gray-100;
       cursor: not-allowed;
 
       input {
@@ -142,13 +142,13 @@
 
 .nui-input__help-text {
   margin-top: 8px;
-  font-size: $text-xs;
-  color: $gray-500;
+  font-size: $nui-text-xs;
+  color: $nui-gray-500;
   line-height: 1.6;
 }
 
 .nui-input__error {
   margin-top: 4px;
-  font-size: $text-xs;
-  color: $red;
+  font-size: $nui-text-xs;
+  color: $nui-red;
 }

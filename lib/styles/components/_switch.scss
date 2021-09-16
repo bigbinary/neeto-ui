@@ -19,8 +19,8 @@
       height: 24px;
       border: 2px solid transparent;
       border-radius: 20px;
-      transition: $transition;
-      background-color: $gray-200;
+      transition: $nui-transition;
+      background-color: $nui-gray-200;
       cursor: pointer;
       display: inline-flex;
       flex-direction: row;
@@ -41,7 +41,7 @@
       }
 
       &.nui-switch__item--checked {
-        background-color: $gray-800;
+        background-color: $nui-gray-800;
       }
 
       .nui-switch {
@@ -51,7 +51,7 @@
         height: 20px;
         transition: all 0.3s ease-in-out;
         transform: translateX(0);
-        background-color: $white;
+        background-color: $nui-white;
         border-radius: 16px;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
       }
@@ -61,7 +61,7 @@
       }
 
       &:focus-within {
-        box-shadow: 0 0 0 2px $white, 0 0 0 4px $gray-300;
+        box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-300;
       }
     }
   }

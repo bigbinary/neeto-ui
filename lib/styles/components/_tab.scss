@@ -4,19 +4,19 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid $gray-200;
+  border-bottom: 2px solid $nui-gray-200;
 
   .nui-tab {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: $gray-500;
-    font-weight: $font-medium;
+    color: $nui-gray-500;
+    font-weight: $nui-font-medium;
     font-size: 14px;
     line-height: 1.5;
     padding: 8px 40px;
-    transition: $transition;
+    transition: $nui-transition;
     position: relative;
     cursor: pointer;
     outline: none;
@@ -32,7 +32,7 @@
     }
 
     &:hover {
-      color: $gray-600;
+      color: $nui-gray-600;
     }
 
     &:before {
@@ -44,14 +44,14 @@
       left: 0;
       right: 0;
       bottom: -1px;
-      transition: $transition;
+      transition: $nui-transition;
     }
 
     &.active {
-      color: $gray-800;
+      color: $nui-gray-800;
 
       &:before {
-        background-color: $gray-800;
+        background-color: $nui-gray-800;
       }
     }
   }

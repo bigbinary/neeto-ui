@@ -1,45 +1,153 @@
 /* Heading tags are nested inside the body tag for having higher specificity than Tailwind reset */
 
 body {
-  color: $gray-800;
+  color: $nui-gray-800;
 
   h1 {
-    font-weight: $font-semibold;
-    font-size: $text-3xl;
-    line-height: 1.2;
+    font-size: $nui-text-3xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   h2 {
-    font-weight: $font-semibold;
-    font-size: $text-2xl;
-    line-height: 1.2;
+    font-size: $nui-text-2xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   h3 {
-    font-weight: $font-semibold;
-    font-size: $text-xl;
-    line-height: 1.2;
+    font-size: $nui-text-xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   h4 {
-    font-weight: $font-semibold;
-    font-size: $text-base;
-    line-height: 1.2;
+    font-size: $nui-text-base;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   h5 {
-    font-weight: $font-semibold;
-    font-size: $text-sm;
-    line-height: 1.2;
+    font-size: $nui-text-sm;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   h6 {
-    font-weight: $font-semibold;
-    font-size: $text-xs;
-    line-height: 1.2;
+    font-size: $nui-text-xs;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
   }
 
   p {
-    font-size: $text-sm;
+    font-size: $nui-text-sm;
+    line-height: $nui-leading-normal;
+  }
+
+  // font sizes
+  .nui-text-h1 {
+    font-size: $nui-text-3xl;
+  }
+  .nui-text-h2 {
+    font-size: $nui-text-2xl;
+  }
+  .nui-text-h3 {
+    font-size: $nui-text-xl;
+  }
+  .nui-text-h4 {
+    font-size: $nui-text-base;
+  }
+  .nui-text-h5 {
+    font-size: $nui-text-sm;
+  }
+  .nui-text-h6 {
+    font-size: $nui-text-xs;
+  }
+  .nui-text-body1 {
+    font-size: $nui-text-base;
+  }
+  .nui-text-body2 {
+    font-size: $nui-text-sm;
+  }
+  .nui-text-body3 {
+    font-size: $nui-text-xs;
+  }
+
+  // font weights
+  .nui-font-thin {
+    font-weight: $nui-font-thin;
+  }
+  .nui-font-extralight {
+    font-weight: $nui-font-extralight;
+  }
+  .nui-font-light {
+    font-weight: $nui-font-light;
+  }
+  .nui-font-normal {
+    font-weight: $nui-font-normal;
+  }
+  .nui-font-medium {
+    font-weight: $nui-font-medium;
+  }
+  .nui-font-semibold {
+    font-weight: $nui-font-semibold;
+  }
+  .nui-font-bold {
+    font-weight: $nui-font-bold;
+  }
+  .nui-font-extrabold {
+    font-weight: $nui-font-extrabold;
+  }
+  .nui-font-black {
+    font-weight: $nui-font-black;
+  }
+
+  // line height
+  .nui-leading-none {
+    line-height: $nui-leading-none;
+  }
+  .nui-leading-tight {
+    line-height: $nui-leading-tight;
+  }
+  .nui-leading-snug {
+    line-height: $nui-leading-snug;
+  }
+  .nui-leading-normal {
+    line-height: $nui-leading-normal;
+  }
+  .nui-leading-relaxed {
+    line-height: $nui-leading-relaxed;
+  }
+  .nui-leading-loose {
+    line-height: $nui-leading-loose;
+  }
+
+  // text transform
+  .nui-text-transform-none {
+    text-transform: $nui-text-transform-none;
+  }
+  .nui-text-transform-capitalize {
+    text-transform: $nui-text-transform-capitalize;
+  }
+  .nui-text-transform-uppercase {
+    text-transform: $nui-text-transform-uppercase;
+  }
+  .nui-text-transform-lowercase {
+    text-transform: $nui-text-transform-lowercase;
+  }
+  .nui-text-transform-fullwidth {
+    text-transform: $nui-text-transform-fullwidth;
+  }
+  .nui-text-transform-inherit {
+    text-transform: $nui-text-transform-inherit;
+  }
+  .nui-text-transform-initial {
+    text-transform: $nui-text-transform-initial;
+  }
+  .nui-text-transform-revert {
+    text-transform: $nui-text-transform-revert;
+  }
+  .nui-text-transform-unset {
+    text-transform: $nui-text-transform-unset;
   }
 }
