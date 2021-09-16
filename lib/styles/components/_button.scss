@@ -122,6 +122,10 @@
     &:focus {
       opacity: 0.8;
     }
+
+    &:focus-visible {
+      color: darken($nui-secondary-indigo, 25%);
+    }
   }
   
   &-danger {
