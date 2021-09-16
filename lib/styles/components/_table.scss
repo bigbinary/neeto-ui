@@ -28,12 +28,12 @@
         padding: 16px 48px 16px 0;
 
         a:not(.nui-btn) {
-          color: $nui-indigo;
+          color: $nui-secondary-indigo;
           transition: $nui-transition;
           font-weight: $nui-font-medium;
 
           &:hover {
-            color: darken($nui-indigo, 5%);
+            color: darken($nui-secondary-indigo, 5%);
             text-decoration: underline;
           }
         }

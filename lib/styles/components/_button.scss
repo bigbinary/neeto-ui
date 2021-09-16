@@ -1,199 +1,144 @@
+
 .nui-btn {
   display: inline-flex;
-  flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
   font-size: $nui-text-sm;
   font-weight: $nui-font-medium;
   border-radius: $nui-rounded-sm;
-  line-height: 1.5;
+  line-height: 1.2;
   transition: $nui-transition;
   position: relative;
   border: none;
   cursor: pointer;
   padding: 0;
+  user-select: none;
+  padding: 0.4289em 0.7142857143em;
+  min-height: 28px;
+  letter-spacing: -0.15px;
+  outline: none;
 
   &:focus,
   &:focus-visible {
-    outline-color: transparent;
+    outline: none;
   }
 
   &:hover {
     text-decoration: none;
   }
 
-  &:not(.nui-btn--iconLeft) {
-    & > i,
-    svg,
-    div {
-      &:last-child:not(:first-child) {
-        margin-left: 24px;
-      }
-    }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
   }
 
-  &.nui-btn--iconLeft {
-    flex-direction: row-reverse;
-
-    & > i,
-    svg,
-    div {
-      &:last-child:not(:first-child) {
-        margin-right: 12px;
-      }
-      &:first-child:not(:last-child) {
-        margin-right: 12px;
-      }
-    }
+  .nui-btn__icon:last-child:not(:first-child),
+  .nui-btn__spinner:last-child:not(:first-child){
+    margin-left: .7142857143em;
   }
+}
 
-  &.nui-btn--primary {
-    padding: 8px 12px;
+.nui-btn--icon-left {
+  flex-direction: row-reverse;
+  .nui-btn__icon:last-child:not(:first-child),
+  .nui-btn__spinner:last-child:not(:first-child){
+    margin-right: .7142857143em;
+    margin-left: 0;
+  }
+}
+
+.nui-btn__icon,
+.nui-btn__spinner,
+.nui-btn__spinner-wrapper{
+  color: inherit;
+  svg{
+    color: inherit !important;
+  }
+}
+
+// width
+.nui-btn--width-full {
+  width: 100%;
+  justify-content: center;
+}
+
+// size
+.nui-btn--size-large {
+  font-size: $nui-text-base;
+  padding-top: 0.407em;
+  padding-bottom: 0.407em;
+  min-height: 32px;
+}
+
+// styles
+.nui-btn--style{
+  &-primary {
     color: $nui-white;
     background-color: $nui-gray-800;
-
+  
     &:hover:not(:disabled),
     &:active {
       background-color: $nui-gray-700;
     }
-
+  
     &:focus-visible {
-      box-shadow: 0 0 0 3px $nui-gray-200;
-    }
-
-    &:disabled {
-      background-color: $nui-gray-400;
-      color: $nui-gray-500;
+      box-shadow: 0 0 0 3px #E5E5E5;
     }
   }
 
-  &.nui-btn--danger {
-    padding: 8px 12px;
-    color: $nui-red;
-    background-color: $nui-pastel-red;
+  &-secondary {
+    color: $nui-gray-800;
+    background-color: $nui-gray-200;
+  
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $nui-gray-400;
+    }
+  
+    &:focus-visible {
+      box-shadow: 0 0 0 3px #E5E5E5;
+    }
+  }
 
+  &-text {
+    color: $nui-gray-800;
+  
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $nui-gray-200;
+    }
+  
+    &:focus-visible {
+      box-shadow: 0 0 0 3px #E5E5E5;
+    }
+  }
+
+  &-link {
+    color: $nui-secondary-indigo;
+    min-height: initial;
+    padding: 0;
+  
+    &:hover:not(:disabled),
+    &:active,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      color: darken($nui-secondary-indigo, 25%);
+    }
+  }
+  
+  &-danger {
+    color: $nui-error;
+    background-color: $nui-pastel-red;
+  
     &:hover:not(:disabled),
     &:active {
       background-color: darken($nui-pastel-red, 2.5%);
     }
-
+  
     &:focus-visible {
-      box-shadow: 0 0 0 3px $nui-pastel-red;
+      box-shadow: 0 0 0 3px darken($nui-pastel-red, 2.5%);
     }
-
-    &:disabled {
-      opacity: 0.5;
-    }
-  }
-
-  &.nui-btn--secondary {
-    padding: 8px 12px;
-    color: $nui-gray-800;
-    background-color: $nui-gray-200;
-
-    &:hover:not(:disabled),
-    &:active {
-      background-color: $nui-gray-300;
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0 3px $nui-gray-300;
-    }
-
-    &:disabled {
-      background-color: $nui-gray-200;
-      color: $nui-gray-400;
-    }
-  }
-
-  &.nui-btn--text {
-    font-size: theme("fontSize.sm");
-    color: theme("colors.gray.600");
-    padding: 0;
-
-    &:hover:not(:disabled) {
-      color: theme("colors.gray.700");
-    }
-
-    &:active,
-    &:focus {
-      color: theme("colors.gray.800");
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px theme("colors.gray.300");
-    }
-  }
-
-  &.nui-btn--link {
-    color: $nui-gray-800;
-
-    &:hover:not(:disabled),
-    &:active,
-    &:focus {
-      color: $nui-gray-700;
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-800;
-    }
-  }
-
-  &.nui-btn--icon {
-    opacity: 0.75;
-    color: $nui-gray-700;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    &:hover:not(:disabled),
-    &:active,
-    &:focus {
-      opacity: 1;
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-300;
-    }
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-  }
-
-  &.nui-btn--large {
-    font-size: $nui-text-base;
-  }
-
-  &.nui-btn--full {
-    width: 100%;
-    justify-content: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-}
-
-.nui-btn--loader {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: inherit;
-  cursor: default;
-
-  div {
-    display: inherit;
-  }
-
-  div > div {
-    background-color: currentColor;
   }
 }

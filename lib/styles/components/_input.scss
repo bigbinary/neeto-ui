@@ -66,7 +66,7 @@
     }
 
     &.nui-input--error {
-      border-color: $nui-red;
+      border-color: $nui-error;
 
       &:focus-within:not(.nui-input--naked) {
         box-shadow: 0 0 0 3px $nui-pastel-red;
@@ -150,5 +150,5 @@
 .nui-input__error {
   margin-top: 4px;
   font-size: $nui-text-xs;
-  color: $nui-red;
+  color: $nui-error;
 }

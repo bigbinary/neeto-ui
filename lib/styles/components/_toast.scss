@@ -68,27 +68,27 @@
 
     &.Toastify__toast--success {
       background: $nui-pastel-green;
-      border: 1px solid $nui-green;
+      border: 1px solid $nui-success;
     }
 
     &.Toastify__toast--error {
       background: $nui-pastel-red;
-      border: 1px solid $nui-red;
+      border: 1px solid $nui-error;
     }
 
     &.Toastify__toast--info {
       background: $nui-pastel-blue;
-      border: 1px solid $nui-blue;
+      border: 1px solid $nui-info;
     }
 
     &.Toastify__toast--warning {
       background: $nui-pastel-yellow;
-      border: 1px solid $nui-yellow;
+      border: 1px solid $nui-warning;
     }
 
     &.Toastify__toast--default {
       background: $nui-pastel-blue;
-      border: 1px solid $nui-blue;
+      border: 1px solid $nui-info;
     }
 
   }

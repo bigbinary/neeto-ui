@@ -13,590 +13,364 @@ const Buttons = () => {
       <Header title="Buttons" />
       <div className="p-6 space-y-6">
         <Button onClick={toggle} label="Toggle Loading State" />
-        <div className="grid grid-cols-2 gap-6">
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Large/Primary</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
+        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Styles</h2>
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-6 items-start">
               <Button
                 loading={loading}
                 onClick={toggle}
                 size="large"
-                label="Label"
+                label="Primary"
               />
               <Button
                 loading={loading}
                 onClick={toggle}
                 size="large"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Label"
+                label="Primary"
                 disabled
               />
-              <Button onClick={toggle} size="large" label="Label" loading />
-            </div>
-            <div className="flex gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
                 size="large"
-                label="Label"
+                label="Primary"
                 icon={Keyboard}
               />
               <Button
                 loading={loading}
                 onClick={toggle}
                 size="large"
-                label="Label"
+                label="Primary"
                 icon={Keyboard}
+                iconPosition="left"
               />
               <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Label"
-                disabled
-                icon={Keyboard}
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                label="Label"
-                icon={Keyboard}
                 loading
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
                 onClick={toggle}
                 size="large"
-                label="Label"
+                label="Primary"
                 icon={Keyboard}
-                iconPosition="left"
               />
               <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
                 loading
+                onClick={toggle}
+                size="large"
+                label="Primary"
+                icon={Keyboard}
+                iconPosition="left"
               />
+              <Button loading onClick={toggle} size="large" icon={Keyboard} />
             </div>
-          </div>
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Default/Primary</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button loading={loading} onClick={toggle} label="Label" />
-              <Button loading={loading} onClick={toggle} label="Label" />
+            <div className="flex flex-col gap-6 items-start">
               <Button
                 loading={loading}
                 onClick={toggle}
-                label="Label"
+                size="large"
+                label="Secondary"
+                style="secondary"
+              />
+              <Button
+                loading={loading}
+                onClick={toggle}
+                size="large"
+                label="Secondary"
+                style="secondary"
                 disabled
               />
-              <Button onClick={toggle} label="Label" loading />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
                 loading={loading}
                 onClick={toggle}
-                label="Label"
+                size="large"
+                label="Secondary"
+                style="secondary"
                 icon={Keyboard}
               />
               <Button
                 loading={loading}
                 onClick={toggle}
-                label="Label"
+                size="large"
+                label="Secondary"
+                style="secondary"
                 icon={Keyboard}
+                iconPosition="left"
               />
               <Button
-                loading={loading}
-                onClick={toggle}
-                label="Label"
-                disabled
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                label="Label"
-                icon={Keyboard}
                 loading
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
                 onClick={toggle}
-                label="Label"
+                size="large"
+                label="Secondary"
+                style="secondary"
                 icon={Keyboard}
-                iconPosition="left"
               />
               <Button
-                loading={loading}
-                onClick={toggle}
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                label="Label"
                 loading
+                onClick={toggle}
+                size="large"
+                label="Secondary"
+                style="secondary"
                 icon={Keyboard}
                 iconPosition="left"
               />
-            </div>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-6">
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Large/Secondary</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
               <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                disabled
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
                 loading
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
                 onClick={toggle}
                 size="large"
                 style="secondary"
-                label="Label"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                disabled
-                icon={Keyboard}
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                loading
-                icon={Keyboard}
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                label="Label"
-                loading
                 icon={Keyboard}
                 iconPosition="left"
               />
             </div>
-          </div>
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Default/Secondary</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
+            <div className="flex flex-col gap-6 items-start">
               <Button
                 loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
+                size="large"
+                label="Danger"
+                style="danger"
               />
               <Button
                 loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="secondary"
-                label="Label"
+                size="large"
+                label="Danger"
+                style="danger"
                 disabled
               />
               <Button
                 loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
+                size="large"
+                label="Danger"
+                style="danger"
+                icon={Keyboard}
+              />
+              <Button
+                loading={loading}
+                onClick={toggle}
+                size="large"
+                label="Danger"
+                style="danger"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
                 loading
+                onClick={toggle}
+                size="large"
+                label="Danger"
+                style="danger"
+                icon={Keyboard}
+              />
+              <Button
+                loading
+                onClick={toggle}
+                size="large"
+                label="Danger"
+                style="danger"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
+                loading
+                onClick={toggle}
+                size="large"
+                style="danger"
+                icon={Keyboard}
+                iconPosition="left"
               />
             </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
+            <div className="flex flex-col gap-6 items-start">
               <Button
                 loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
+                size="large"
+                label="Text"
+                style="text"
               />
               <Button
                 loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="secondary"
-                label="Label"
+                size="large"
+                label="Text"
+                style="text"
                 disabled
+              />
+              <Button
+                loading={loading}
+                onClick={toggle}
+                size="large"
+                label="Text"
+                style="text"
                 icon={Keyboard}
               />
               <Button
+                loading={loading}
                 onClick={toggle}
-                style="secondary"
-                label="Label"
+                size="large"
+                label="Text"
+                style="text"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
                 loading
+                onClick={toggle}
+                size="large"
+                label="Text"
+                style="text"
+                icon={Keyboard}
+              />
+              <Button
+                loading
+                onClick={toggle}
+                size="large"
+                label="Text"
+                style="text"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
+                loading
+                onClick={toggle}
+                size="large"
+                style="text"
                 icon={Keyboard}
               />
             </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="secondary"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                onClick={toggle}
-                style="secondary"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-                loading
-              />
+            <div className="flex flex-col gap-6 items-start">
+              <Button size="large" label="Link" style="link" />
+              <Button size="large" label="Link" style="link" disabled />
+              <Button size="large" label="Link" style="link" icon={Keyboard} />
+              <Button size="large" label="Link" style="link" icon={Keyboard} iconPosition="left"/>
+              <Button loading size="large" label="Link" style="link" icon={Keyboard} iconPosition="left"/>
+              <Button loading size="large" label="Link" style="link" icon={Keyboard}/>
+              <Button loading size="large" style="link" icon={Keyboard}/>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-6">
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Large/Danger</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                loading
-              />
-            </div>
-            <div className="flex gap-6">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="right"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="right"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="right"
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                loading
-                icon={Keyboard}
-                iconPosition="right"
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                onClick={toggle}
-                size="large"
-                style="danger"
-                label="Label"
-                loading
-                icon={Keyboard}
-                iconPosition="left"
-              />
-            </div>
+        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Sizes</h2>
+          <div className="flex flex-row flex-wrap items-center justify-start gap-4">
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              label="Large"
+              style="primary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              style="primary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              label="Large"
+              style="secondary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              style="secondary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              label="Large"
+              style="danger"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              style="danger"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              label="Large"
+              style="text"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              style="text"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="large"
+              label="Large"
+              style="link"
+            />
           </div>
-          <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-            <h2 className="text-xl">Default/Danger</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                disabled
-                icon={Keyboard}
-              />
-              <Button
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                loading
-              />
-            </div>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                disabled
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                onClick={toggle}
-                style="danger"
-                label="Label"
-                icon={Keyboard}
-                iconPosition="left"
-                loading
-              />
-            </div>
+          <div className="flex flex-row flex-wrap items-center justify-start gap-4">
+            <Button
+              loading={loading}
+              onClick={toggle}
+              label="Default"
+              style="primary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              style="primary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              label="Default"
+              style="secondary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              style="secondary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              label="Large"
+              style="danger"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              style="danger"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              label="Default"
+              style="text"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              style="text"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              label="Default"
+              style="link"
+            />
           </div>
         </div>
       </div>
