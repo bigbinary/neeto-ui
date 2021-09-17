@@ -63,6 +63,7 @@
   max-width: 100%;
   border-radius: $nui-rounded-sm;
   text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
 
   &:focus,
   &:focus-visible{
@@ -70,7 +71,7 @@
   }
 
   &:focus-visible{
-    background-color: $nui-gray-200;
+    background-color: $nui-gray-100;
   }
 
   &:not(.nui-app-switcher-link--active):hover {
@@ -122,6 +123,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  transition: color 0.3s ease-in-out;
 }
 
 .gradient--analytics {
