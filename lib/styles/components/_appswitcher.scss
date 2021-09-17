@@ -1,95 +1,127 @@
-.nui-switcher__backdrop {
+.nui-app-switcher__backdrop {
   position: fixed;
   z-index: 99999;
   left: 80px;
   top: 0;
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-
-  .nui-switcher__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: $white;
-    border-radius: $rounded-sm;
-    overflow: hidden;
-    width: 35%;
-    height: 100vh;
-    max-width: 400px;
-
-    @include viewport(tab-min) {
-      width: 50%;
-    }
-
-    @include viewport(mob) {
-      width: 100%;
-      max-width: none;
-    }
-
-    .nui-modal__close {
-      position: absolute;
-      top: 40px;
-      right: 40px;
-    }
-
-    .nui-switcher__header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: start;
-      width: 100%;
-      padding: 40px 40px 32px;
-    }
-
-    .nui-switcher__body {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: calc(100vh - #{$pane-header-height});
-      padding: 0 40px;
-      font-size: $text-sm;
-      line-height: 20px;
-      overflow-y: auto;
-
-      &.nui-pane__body--has-footer {
-        height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
-      }
-    }
-  }
 }
 
-.app-links {
+.nui-app-switcher__wrapper {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 2px;
-  padding: 8px;
-  align-items: center;
-  justify-content: start;
-  &.active {
-    background-color: $gray-300;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: $nui-white;
+  overflow-y: auto;
+  width: 342px;
+  height: 100vh;
+  overflow-y: auto;
+  max-width: 100%;
+  padding: 32px;
+  @include scrollbars(8px);
+}
+
+.nui-app-switcher__wrapper-size--lg {
+  width: 684px;
+  .nui-app-switcher__grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .nui-app-switcher-link {
+    width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
   }
 }
-.app-links--href {
+
+.nui-app-switcher__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.nui-app-switcher__header {
+  width: 100%;
+}
+
+.nui-app-switcher__body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: $nui-text-sm;
+  padding-top: 80px;
+}
+
+.nui-app-switcher-link {
+  width: 100%;
+  max-width: 100%;
+  border-radius: $nui-rounded-sm;
   text-decoration: none;
+
+  &:focus,
+  &:focus-visible{
+    outline: none;
+  }
+
+  &:focus-visible{
+    background-color: $nui-gray-200;
+  }
+
+  &:not(.nui-app-switcher-link--active):hover {
+    background-color: $nui-gray-100;
+  }
 }
 
-.app-links-svg {
+.nui-app-switcher-link--active {
+  background: $nui-pastel-blue;
+
+  .nui-app-switcher-link__title {
+    color: $nui-gray-800;
+  }
+}
+
+.nui-app-switcher-link__row {
   display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+}
+
+.nui-app-switcher-link__check-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nui-app-switcher-link__icon-holder {
   width: 32px;
   height: 32px;
-  flex-direction: row;
+  display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   margin-right: 12px;
-  svg {
-    margin: 0 auto;
-  }
+  border-radius: $nui-rounded-xl;
+  flex-shrink: 0;
+}
+
+.nui-app-switcher-link__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nui-app-switcher-link__title {
+  flex-grow: 1;
+  max-width: calc(100% - 80px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .gradient--analytics {
