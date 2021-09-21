@@ -1,0 +1,13 @@
+// color utility classes
+@each $color, $value in $nui-theme-colors {
+  .nui-text-#{$color} {
+    color: $value;
+  }
+}
+
+// background utility classes
+@each $color, $value in $nui-theme-colors {
+  .nui-bg-#{$color} {
+    background-color: $value;
+  }
+}

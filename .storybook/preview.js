@@ -9,4 +9,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Foundation', 'Components', 'Overlays', 'Layouts'],
+    },
+  },
 }
