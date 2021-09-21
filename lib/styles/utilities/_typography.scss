@@ -150,4 +150,36 @@ body {
   .nui-text-transform-unset {
     text-transform: $nui-text-transform-unset;
   }
+
+  // text color
+  .nui-text-white{
+    color: $nui-white;
+  }
+  .nui-text-black{
+    color: $nui-black;
+  }
+  .nui-text-gray-800{
+    color: $nui-gray-800;
+  }
+  .nui-text-gray-700{
+    color: $nui-gray-700;
+  }
+  .nui-text-gray-600{
+    color: $nui-gray-600;
+  }
+  .nui-text-gray-500{
+    color: $nui-gray-500;
+  }
+  .nui-text-gray-400{
+    color: $nui-gray-400;
+  }
+  .nui-text-gray-300{
+    color: $nui-gray-300;
+  }
+  .nui-text-gray-200{
+    color: $nui-gray-200;
+  }
+  .nui-text-gray-100{
+    color: $nui-gray-100;
+  }
 }

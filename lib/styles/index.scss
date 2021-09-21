@@ -3,6 +3,7 @@
 @import "./abstracts/variables";
 
 //Utilities
+@import "./utilities/misc";
 @import "./utilities/animations";
 @import "./utilities/media-query";
 @import "./utilities/typography";
@@ -27,6 +28,7 @@
 @import "./components/pageloader";
 @import "./components/avatar";
 @import "./components/tooltip";
+@import "./components/appswitcher";
 
 //Layouts
 @import "./layout/sidebar";
