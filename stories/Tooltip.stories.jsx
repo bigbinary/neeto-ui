@@ -9,6 +9,11 @@ export default {
   subcomponents: { Button },
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Tooltip } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

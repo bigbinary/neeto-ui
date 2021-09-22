@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 
 export default {
-  title: "Foundation/Icons",
+  title: "Foundation/Iconography",
 };
 
-export const Icons = () => {
+export const Iconography = () => {
   return (
     <div className="p-4">
       <p className="mb-4">

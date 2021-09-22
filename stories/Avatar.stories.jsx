@@ -12,6 +12,11 @@ export default {
   component: Avatar,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Avatar } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

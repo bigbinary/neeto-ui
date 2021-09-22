@@ -9,6 +9,11 @@ export default {
   component: Toastr,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Toastr } from "@bigbinary/neetoui";`'
+      }
+    }
   },
   subcomponents: { Button },
 };

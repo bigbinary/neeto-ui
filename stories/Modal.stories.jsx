@@ -11,6 +11,11 @@ export default {
   subcomponents: { Button, Alert },
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Modal } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

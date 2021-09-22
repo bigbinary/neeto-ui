@@ -8,6 +8,11 @@ export default {
   component: Dropdown,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Dropdown } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

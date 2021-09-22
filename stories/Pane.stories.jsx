@@ -10,6 +10,11 @@ export default {
   subcomponents: { Button },
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Pane } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

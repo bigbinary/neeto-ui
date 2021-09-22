@@ -8,7 +8,13 @@ export default {
   component: Button,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Button } from "@bigbinary/neetoui";`'
+      }
+    }
   },
+
 };
 
 const Template = (args) => <Button {...args} />;

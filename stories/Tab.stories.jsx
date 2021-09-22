@@ -7,6 +7,11 @@ export default {
   component: Tab,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Tab } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 

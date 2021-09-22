@@ -8,6 +8,11 @@ export default {
   component: Tag,
   parameters: {
     layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Tag } from "@bigbinary/neetoui";`'
+      }
+    }
   },
 };
 
