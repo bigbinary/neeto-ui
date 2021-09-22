@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 
 export default {
   title: "Foundation/Iconography",
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { ClockIcon } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<ClockIcon color="#1e1e20" size={24} />`',
+      }
+    }
+  },
 };
 
 export const Iconography = () => {
