@@ -1,9 +1,6 @@
 .nui-menubar__wrapper {
   opacity: 1;
-  width: 280px;
   background-color: theme("colors.gray.50");
-  transition-property: width, opacity;
-  transition-duration: 0.3s;
 
   &.nui-menubar--hide {
     width: 0;
