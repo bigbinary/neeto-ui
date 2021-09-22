@@ -3,8 +3,11 @@ import React from "react";
 import Typography from "../lib/components/Typography";
 
 export default {
-  title: "Components/Typography",
+  title: "Foundation/Typography",
   component: Typography,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 const Template = (args) => <Typography {...args}>Typography</Typography>;
@@ -34,71 +37,98 @@ Heading5.args = {
   style: "h5",
 };
 
+export const Body1 = Template.bind({});
+Body1.args = {
+  style: "body1",
+};
+
+export const Body2 = Template.bind({});
+Body2.args = {
+  style: "body2",
+};
+
+export const Body3 = Template.bind({});
+Body3.args = {
+  style: "body3",
+};
+
 export const AllVariants = (args) => {
-    return (
-      <>
-        <Typography className="mb-4" style="h1">h1. Heading</Typography>
-        <Typography className="mb-4" style="h2">h2. Heading</Typography>
-        <Typography className="mb-4" style="h3">h3. Heading</Typography>
-        <Typography className="mb-4" style="h4">h4. Heading</Typography>
-        <Typography className="mb-4" style="h5">h5. Heading</Typography>
-        <Typography className="mb-4" style="h6">h6. Heading</Typography>
-        <Typography className="mb-4" style="body1">
-          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-          blanditiis tenetur
+  return (
+    <>
+      <Typography className="mb-4" style="h1">
+        h1. Heading
+      </Typography>
+      <Typography className="mb-4" style="h2">
+        h2. Heading
+      </Typography>
+      <Typography className="mb-4" style="h3">
+        h3. Heading
+      </Typography>
+      <Typography className="mb-4" style="h4">
+        h4. Heading
+      </Typography>
+      <Typography className="mb-4" style="h5">
+        h5. Heading
+      </Typography>
+      <Typography className="mb-4" style="h6">
+        h6. Heading
+      </Typography>
+      <Typography className="mb-4" style="body1">
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur
+      </Typography>
+      <Typography className="mb-4" style="body2">
+        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur
+      </Typography>
+      <Typography className="mb-4" style="body3">
+        body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur
+      </Typography>
+      <div className="mb-4">
+        <Typography style="body3" component="del">
+          Represents a range of text that has been deleted from a document.
         </Typography>
-        <Typography className="mb-4" style="body2">
-          body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-          blanditiis tenetur
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="ins">
+          Represents a range of text that has been added to a document.
         </Typography>
-        <Typography className="mb-4" style="body3">
-          body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-          blanditiis tenetur
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="u">
+          This is rendered by default as a simple solid underline.
         </Typography>
-        <div className="mb-4">
-          <Typography style="body3" component="del">
-            Represents a range of text that has been deleted from a document.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="ins">
-            Represents a range of text that has been added to a document.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="u">
-            This is rendered by default as a simple solid underline.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="i">
-            Represents a range of text that is set off from the normal text for some
-            reason, such as idiomatic text, technical terms, taxonomical
-            designations, among others.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="em">
-            Marks text that has stress emphasis
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="strong">
-            Indicates that its contents have strong importance, seriousness, or
-            urgency.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="body3" component="b">
-            Used to draw the reader's attention to the element's contents, which are
-            not otherwise granted special importance.
-          </Typography>
-        </div>
-        <div className="mb-4">
-          <Typography style="h4" component="code">
-            Code
-          </Typography>
-        </div>
-      </>
-    );
-  };
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="i">
+          Represents a range of text that is set off from the normal text for
+          some reason, such as idiomatic text, technical terms, taxonomical
+          designations, among others.
+        </Typography>
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="em">
+          Marks text that has stress emphasis
+        </Typography>
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="strong">
+          Indicates that its contents have strong importance, seriousness, or
+          urgency.
+        </Typography>
+      </div>
+      <div className="mb-4">
+        <Typography style="body3" component="b">
+          Used to draw the reader's attention to the element's contents, which
+          are not otherwise granted special importance.
+        </Typography>
+      </div>
+      <div className="mb-4">
+        <Typography style="h4" component="code">
+          Code
+        </Typography>
+      </div>
+    </>
+  );
+};

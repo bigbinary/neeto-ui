@@ -7,39 +7,46 @@ export default {
   title: "Overlays/Tooltip",
   component: Tooltip,
   subcomponents: { Button },
+  parameters: {
+    layout: "padded",
+  },
 };
 
 export const FollowCursor = (args) => {
   return (
-    <Tooltip
-      placement={"top"}
-      followCursor={"horizontal"}
-      content={"Content is string"}
-    >
-      <Button style="secondary" label="Follow Cursor" />
-    </Tooltip>
+    <div className="space-y-8 p-10">
+      <Tooltip
+        placement={"top"}
+        followCursor={"horizontal"}
+        content={"Content is string"}
+      >
+        <Button style="secondary" label="Follow Cursor" />
+      </Tooltip>
+    </div>
   );
 };
 
 export const JSXContentInside = (args) => {
   return (
-    <Tooltip
-      placement={"top"}
-      trigger={"click"}
-      content={
-        <span>
-          Content is a <b>JSX</b> <u>Element</u>
-        </span>
-      }
-    >
-      <Button style="secondary" label="On Click" />
-    </Tooltip>
+    <div className="space-y-8 p-10">
+      <Tooltip
+        placement={"top"}
+        trigger={"click"}
+        content={
+          <span>
+            Content is a <b>JSX</b> <u>Element</u>
+          </span>
+        }
+      >
+        <Button style="secondary" label="On Click" />
+      </Tooltip>
+    </div>
   );
 };
 
 export const Placements = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 p-10">
       <div className="flex items-center justify-start gap-8">
         <Tooltip placement={"top"} content={"Tooltip"}>
           <Button style="secondary" label="top" />
@@ -90,7 +97,7 @@ export const Placements = () => {
 
 export const Themes = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 p-10">
       <h2 className="text-xl">Theme</h2>
       <div className="flex flex-row flex-wrap items-center justify-start gap-8">
         <Tooltip placement={"top"} content={"Tooltip"} theme={"dark"}>

@@ -6,6 +6,9 @@ import Dropdown from "../lib/components/Dropdown";
 export default {
   title: "Components/Dropdown",
   component: Dropdown,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 const listItems = ["Option 1", "Option 2", "Option 3"];
@@ -53,11 +56,7 @@ export const SecondaryDropdown = (args) => {
 
 export const TextDropdown = (args) => {
   return (
-    <Dropdown
-      label="Text Dropdown"
-      buttonStyle="text"
-      position="bottom-end"
-    >
+    <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
       {listItems.map((item, idx) => (
         <li key={idx}>{item}</li>
       ))}

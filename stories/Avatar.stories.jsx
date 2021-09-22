@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Avatar from '../lib/components/Avatar';
+import Avatar from "../lib/components/Avatar";
 
 const imageUrl = "https://i.pravatar.cc/300";
 const onClick = () => {
@@ -8,38 +8,41 @@ const onClick = () => {
 };
 
 export default {
-  title: 'Components/Avatar',
+  title: "Components/Avatar",
   component: Avatar,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 const Template = (args) => <Avatar {...args} />;
 
 export const Small = Template.bind({});
 Small.args = {
-    onClick:{onClick},
-    user:{name: "neeto UI"},
-    size:"small"
+  onClick: { onClick },
+  user: { name: "neeto UI" },
+  size: "small",
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-    onClick:{onClick},
-    user:{name: "neeto UI"},
-    size:"medium"
+  onClick: { onClick },
+  user: { name: "neeto UI" },
+  size: "medium",
 };
 
 export const Large = Template.bind({});
 Large.args = {
-    onClick:{onClick},
-    user:{name: "neeto UI"},
-    size:"large"
+  onClick: { onClick },
+  user: { name: "neeto UI" },
+  size: "large",
 };
 
 export const Xlarge = Template.bind({});
 Xlarge.args = {
-    onClick:{onClick},
-    user:{name: "neeto UI"},
-    size:"xlarge"
+  onClick: { onClick },
+  user: { name: "neeto UI" },
+  size: "xlarge",
 };
 
 export const AllVariants = () => {

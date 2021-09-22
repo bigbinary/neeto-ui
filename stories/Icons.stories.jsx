@@ -7,7 +7,7 @@ export default {
 
 export const Icons = () => {
   return (
-    <>
+    <div className="p-4">
       <p className="mb-4">
         <a
           href="https://github.com/bigbinary/neeto-icons"
@@ -44,6 +44,6 @@ export const Icons = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };

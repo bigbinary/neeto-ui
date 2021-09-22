@@ -2,6 +2,7 @@ import './style.scss'
 import '../lib/styles/index.scss'
 
 export const parameters = {
+  layout: 'fullscreen',
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -11,7 +12,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Foundation', 'Components', 'Overlays', 'Layouts'],
+      order: ['Introduction', 'Foundation', 'Components', 'Overlays', 'Layouts'],
     },
   },
 }

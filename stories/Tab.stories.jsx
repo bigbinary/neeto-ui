@@ -5,6 +5,9 @@ import Tab from "../lib/components/Tab";
 export default {
   title: "Components/Tab",
   component: Tab,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 export const TwoItems = () => {

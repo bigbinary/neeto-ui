@@ -8,13 +8,16 @@ export default {
   title: "Overlays/Pane",
   component: Pane,
   subcomponents: { Button },
+  parameters: {
+    layout: "padded",
+  },
 };
 
 export const Panes = () => {
   const [showPane, setShowPane] = useState(false);
   return (
     <div className="w-full">
-      <div className="p-6 space-y-6">
+      <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />

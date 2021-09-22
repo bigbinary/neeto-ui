@@ -1,43 +1,46 @@
 import React, { useState } from "react";
 import { Keyboard } from "@bigbinary/neeto-icons";
 
-import Button from '../lib/components/Button';
+import Button from "../lib/components/Button";
 
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  style: 'primary',
-  label: 'Button',
+  style: "primary",
+  label: "Button",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  style: 'secondary',
-  label: 'Button',
+  style: "secondary",
+  label: "Button",
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  style: 'danger',
-  label: 'Button',
+  style: "danger",
+  label: "Button",
 };
 
 export const Text = Template.bind({});
 Text.args = {
-  style: 'text',
-  label: 'Button',
+  style: "text",
+  label: "Button",
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  style: 'link',
-  label: 'Button',
+  style: "link",
+  label: "Button",
 };
 
 export const AllVariants = () => {
@@ -278,10 +281,29 @@ export const AllVariants = () => {
               <Button size="large" label="Link" style="link" />
               <Button size="large" label="Link" style="link" disabled />
               <Button size="large" label="Link" style="link" icon={Keyboard} />
-              <Button size="large" label="Link" style="link" icon={Keyboard} iconPosition="left"/>
-              <Button loading size="large" label="Link" style="link" icon={Keyboard} iconPosition="left"/>
-              <Button loading size="large" label="Link" style="link" icon={Keyboard}/>
-              <Button loading size="large" style="link" icon={Keyboard}/>
+              <Button
+                size="large"
+                label="Link"
+                style="link"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
+                loading
+                size="large"
+                label="Link"
+                style="link"
+                icon={Keyboard}
+                iconPosition="left"
+              />
+              <Button
+                loading
+                size="large"
+                label="Link"
+                style="link"
+                icon={Keyboard}
+              />
+              <Button loading size="large" style="link" icon={Keyboard} />
             </div>
           </div>
         </div>

@@ -6,6 +6,9 @@ import Tag from "../lib/components/Tag";
 export default {
   title: "Components/Tag",
   component: Tag,
+  parameters: {
+    layout: "padded",
+  },
 };
 
 export const Tags = () => {
