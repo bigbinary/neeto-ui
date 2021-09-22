@@ -21,6 +21,27 @@
     }
   }
 
+  .nui-header__breadcrumb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    a {
+      transition: all ease-in-out 300ms;
+      text-decoration: none;
+      h2 {
+        color: $nui-gray-500;
+        &:hover {
+          color: $nui-gray-800;
+        }
+      }
+    }
+  }
+
+  .nui-header__breadcrumb-separator {
+    margin: 0 4px;
+  }
+
   .nui-header__right {
     display: flex;
     flex-direction: row;
