@@ -110,6 +110,14 @@
       cursor: pointer;
       border-radius: $nui-rounded-sm;
 
+      &-header{
+        color: $nui-gray-700;
+      }
+
+      &-item-desc{
+        color: $nui-gray-500;
+      }
+
       &:hover,
       &:focus,
       &:focus-visible,

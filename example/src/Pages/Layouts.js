@@ -114,9 +114,9 @@ const Layouts = () => {
         <MenuBar.Block label="Asia" count={60} />
         <MenuBar.AddNew label="Add New Tag" />
         
-        <MenuBar.Item label="Pre Chat Survey" description="Create pre chat survey questions" />
-        <MenuBar.Item label="Post Chat Survey" active description="Create post chat survey questions" />
-        <MenuBar.Item label="Post Chat Survey" description="Create post chat survey questions" />
+        <MenuBar.Item label="General" description="Welcome Message, KB and Labels " />
+        <MenuBar.Item label="Styling" active description="Brand Color, Logo and Widget Position" />
+        <MenuBar.Item label="Widget Icon" description="Position, Icon and Label" />
 
       </MenuBar>
       <Container>
