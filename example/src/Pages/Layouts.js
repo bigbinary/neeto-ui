@@ -24,6 +24,22 @@ import {
   UserCircle,
 } from "@bigbinary/neeto-icons";
 
+const SidebarHandleIcon = ({size, color}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path stroke={color} strokeWidth="1.5" d="M3 7.25L21 7.25"></path>
+      <path stroke={color} strokeWidth="1.5" d="M3 11.25L15 11.25"></path>
+      <path stroke={color} strokeWidth="1.5" d="M3 15.25L11 15.25"></path>
+    </svg>
+  );
+}
+
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -107,15 +123,18 @@ const Layouts = () => {
         <Header
           title={
             <div className="flex items-center">
-              <Button
-                style="icon"
-                icon={() =>
-                  showMenu ? <LeftArrow size={24} /> : <RightArrow size={24} />
-                }
-                onClick={() => setShowMenu(!showMenu)}
-              />
               <h3>Layouts</h3>
             </div>
+          }
+          menuBarHandle={
+            <Button
+              style="text"
+              className="mr-2"
+              icon={() =>
+                <SidebarHandleIcon size={20} color={"#68737D"} />
+              }
+              onClick={() => setShowMenu(!showMenu)}
+            />
           }
           actionBlock={<Button label="Primary Action" />}
           breadcrumbs={[{ text: "Home", link: "/" }]}
