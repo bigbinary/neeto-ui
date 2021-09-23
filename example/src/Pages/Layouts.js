@@ -12,8 +12,17 @@ import {
   Pagination,
   Checkbox,
   Dropdown,
+  Typography,
 } from "../../../lib/components";
-import { MenuHorizontal, Settings, RightArrow, LeftArrow, Plus, Search, UserCircle } from "@bigbinary/neeto-icons";
+import {
+  MenuHorizontal,
+  Settings,
+  RightArrow,
+  LeftArrow,
+  Plus,
+  Search,
+  UserCircle,
+} from "@bigbinary/neeto-icons";
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
@@ -32,12 +41,36 @@ const Layouts = () => {
         showMenu={showMenu}
         title={
           <div className="flex justify-between">
-            <h2>Contacts</h2>
-            <Button style="icon" icon={() => <Settings size={24} />} />
+            <Typography style="h2">Contacts</Typography>
           </div>
         }
       >
+        <MenuBar.Block label="All" count={13} active />
+        <MenuBar.Block label="Users" count={2} />
+        <MenuBar.Block label="Leads" count={7} />
+        <MenuBar.Block label="Visitors" count={4} />
+
+        <MenuBar.SubTitle
+          iconProps={[
+            {
+              icon: () => <Search size={20} />,
+            },
+          ]}
+        >
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Segments
+          </Typography>
+        </MenuBar.SubTitle>
         <MenuBar.Search />
+        <MenuBar.Block label="Europe" count={80} />
+        <MenuBar.Block label="Middle-East" count={60} />
+        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.AddNew label="Add New Segments" />
         <MenuBar.SubTitle
           iconProps={[
             {
@@ -51,21 +84,36 @@ const Layouts = () => {
             },
           ]}
         >
-          Subtitle
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Tags
+          </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Item label="Item" count={200} />
-        <MenuBar.Item label="Item 1" count={13} />
-        <MenuBar.Item label="Item 2" count={56} />
-        <MenuBar.Block label="All" count={13} active />
-        <MenuBar.Block label="Users" count={2} icon={<UserCircle />} />
-        <MenuBar.Block label="Leads" count={7} />
-        <MenuBar.Block label="Visitors" count={4} />
+        <MenuBar.Block label="Europe" count={80} />
+        <MenuBar.Block label="Middle-East" count={60} />
+        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.AddNew label="Add New Tag" />
+        
+        <MenuBar.Item label="Pre Chat Survey" description="Create pre chat survey questions" />
+        <MenuBar.Item label="Post Chat Survey" active description="Create post chat survey questions" />
+        <MenuBar.Item label="Post Chat Survey" description="Create post chat survey questions" />
+
       </MenuBar>
       <Container>
         <Header
           title={
             <div className="flex items-center">
-              <Button style="icon" icon={() => showMenu ? <LeftArrow size={24} /> : <RightArrow size={24} />} onClick={() => setShowMenu(!showMenu)} />
+              <Button
+                style="icon"
+                icon={() =>
+                  showMenu ? <LeftArrow size={24} /> : <RightArrow size={24} />
+                }
+                onClick={() => setShowMenu(!showMenu)}
+              />
               <h3>Layouts</h3>
             </div>
           }
