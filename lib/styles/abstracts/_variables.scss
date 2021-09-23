@@ -28,6 +28,37 @@ $nui-secondary-indigo: #5e5ce6;
 $nui-secondary-green: #00ba88;
 $nui-secondary-teal: #64d2ff;
 
+// nui-theme-colors-map
+$nui-theme-colors: (
+  // primary
+  "black": $nui-black,
+  "white": $nui-white,
+  // content
+  "gray-800": $nui-gray-800,
+  "gray-700": $nui-gray-700,
+  "gray-600": $nui-gray-600,
+  "gray-500": $nui-gray-500,
+  "gray-400": $nui-gray-400,
+  "gray-300": $nui-gray-300,
+  "gray-200": $nui-gray-200,
+  "gray-100": $nui-gray-100,
+  // states
+  "success": $nui-success,
+  "info": $nui-info,
+  "warning": $nui-warning,
+  "error": $nui-error,
+  // pastel
+  "pastel-blue": $nui-pastel-blue,
+  "pastel-green": $nui-pastel-green,
+  "pastel-yellow": $nui-pastel-yellow,
+  "pastel-red": $nui-pastel-red,
+  "pastel-teal": $nui-pastel-teal,
+  // secondary
+  "secondary-indigo": $nui-secondary-indigo,
+  "secondary-green": $nui-secondary-green,
+  "secondary-teal": $nui-secondary-teal
+);
+
 // Font Weights
 $nui-font-thin: 100;
 $nui-font-extralight: 200;
