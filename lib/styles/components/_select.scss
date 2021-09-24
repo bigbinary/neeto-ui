@@ -1,5 +1,8 @@
 .nui-react-select__container.nui-react-select__container--error {
-  .nui-react-select__control {
+  .nui-react-select__control{
+    border: thin solid $nui-error;
+  }
+  .nui-react-select__control.nui-react-select__control--is-focused {
     border: thin solid $nui-error;
     box-shadow: 0 0 0 3px $nui-pastel-red;
   }
@@ -54,7 +57,6 @@
     border-radius: $nui-rounded-sm;
     background-color: $nui-white;
     min-height: 0;
-    box-shadow: $nui-shadow;
     transition: border 0.3s;
   }
 
