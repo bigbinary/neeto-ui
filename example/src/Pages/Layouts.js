@@ -17,11 +17,8 @@ import {
 import {
   MenuHorizontal,
   Settings,
-  RightArrow,
-  LeftArrow,
   Plus,
   Search,
-  UserCircle,
 } from "@bigbinary/neeto-icons";
 
 const SidebarHandleIcon = ({size, color}) => {
