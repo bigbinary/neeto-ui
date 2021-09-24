@@ -44,6 +44,7 @@ const Layouts = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,6 +71,7 @@ const Layouts = () => {
           iconProps={[
             {
               icon: () => <Search size={20} />,
+              onClick: () => setIsSearchCollapsed(!isSearchCollapsed)
             },
           ]}
         >
@@ -82,7 +84,7 @@ const Layouts = () => {
             Segments
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Search />
+        <MenuBar.Search collapse={isSearchCollapsed} onCollapse={() => setIsSearchCollapsed(true)} />
         <MenuBar.Block label="Europe" count={80} />
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
@@ -113,7 +115,7 @@ const Layouts = () => {
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
         <MenuBar.AddNew label="Add New Tag" />
-        
+
         <MenuBar.Item label="General" description="Welcome Message, KB and Labels " />
         <MenuBar.Item label="Styling" active description="Brand Color, Logo and Widget Position" />
         <MenuBar.Item label="Widget Icon" description="Position, Icon and Label" />
