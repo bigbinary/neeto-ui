@@ -1,0 +1,144 @@
+.nui-menubar__wrapper {
+  background-color: $nui-gray-100;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  .nui-menubar__container {
+    width: 324px;
+    padding: 24px;
+    height: 100vh;
+    overflow-y: auto;
+
+    .nui-menubar__title {
+      margin-bottom: 16px;
+    }
+
+    // search
+
+    .nui-menubar__search {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 4px;
+
+      .nui-input__prefix {
+        color: #c2c8cc;
+      }
+
+      .nui-input--small {
+        input {
+          padding-top: 4px;
+          padding-bottom: 4px;
+        }
+      }
+    }
+
+    // subtitle
+
+    .nui-menubar__subtitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+      &-actions {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+    }
+
+    // block
+
+    .nui-menubar__add-new-wrap {
+      padding: 7px 8px;
+      margin-bottom: 8px;
+    }
+
+    .nui-menubar__block {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 8px;
+      margin-bottom: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+      color: $nui-gray-600;
+      border-radius: $nui-rounded-sm;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        background-color: $nui-gray-200;
+        text-decoration: none;
+        outline: none;
+      }
+
+      &--active {
+        background-color: $nui-white;
+        color: $nui-gray-800;
+        box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
+
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:active {
+          background-color: $nui-white;
+        }
+      }
+
+      .nui-menubar__block-label {
+        display: flex;
+        align-items: center;
+      }
+      .nui-menubar__block-icon {
+        margin-right: 4px;
+      }
+    }
+
+    // item
+
+    .nui-menubar__item {
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 8px;
+      transition: all 0.3s;
+      text-align: left;
+      cursor: pointer;
+      border-radius: $nui-rounded-sm;
+
+      &-header{
+        color: $nui-gray-700;
+      }
+
+      &-item-desc{
+        color: $nui-gray-500;
+      }
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        background-color: $nui-gray-200;
+        outline: none;
+      }
+
+      &--active {
+        background-color: $nui-white;
+        color: $nui-gray-800;
+        box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
+
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:active {
+          background-color: $nui-white;
+        }
+      }
+    }
+  }
+}
