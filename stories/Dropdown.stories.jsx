@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Down } from "@bigbinary/neeto-icons";
+import { Settings } from "@bigbinary/neeto-icons";
 
 import Dropdown from "../lib/components/Dropdown";
 
@@ -73,7 +73,7 @@ export const CustomIcon = (args) => {
   return (
     <Dropdown
       label="Dropdown with custom icon"
-      icon="ri-send-plane-line"
+      icon={Settings}
       position="bottom-end"
     >
       {listItems.map((item, idx) => (
