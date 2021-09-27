@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import {
-  Settings,
-  Plus,
-  Search,
-} from "@bigbinary/neeto-icons";
+import { Settings, Plus, Search } from "@bigbinary/neeto-icons";
 
-import {
-  Container,
-  MenuBar,
-} from "../lib/components/layouts";
-import {
-  Button,
-  Typography
-} from "../lib/components";
+import { Container, MenuBar } from "../lib/components/layouts";
+import { Button, Typography } from "../lib/components";
 
 export default {
   title: "Layouts/MenuBar",
+  component: MenuBar,
+  subcomponents: {
+    Block: MenuBar.Block,
+    AddNew: MenuBar.AddNew,
+    SubTitle: MenuBar.SubTitle,
+    Search: MenuBar.Search,
+    Item: MenuBar.Item,
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: '`import { MenuBar } from "@bigbinary/neetoui/layouts";`',
+      },
+    },
+  },
 };
 
 export const MenuBarStory = () => {
@@ -105,10 +110,14 @@ export const MenuBarStory = () => {
       </MenuBar>
       <Container>
         <div className="w-full h-full flex justify-center items-center">
-          <Button label={`${showMenu ? "Close" : "Open"} MenuBar`} onClick={() => setShowMenu(!showMenu)} />
+          <Button
+            label={`${showMenu ? "Close" : "Open"} MenuBar`}
+            onClick={() => setShowMenu(!showMenu)}
+          />
         </div>
       </Container>
     </div>
   );
 };
-MenuBarStory.storyName = "MenuBar"
+
+MenuBarStory.storyName = "MenuBar";
