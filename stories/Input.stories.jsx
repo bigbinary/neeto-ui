@@ -85,7 +85,6 @@ export const AllVariants = () => {
               placeholder="Input Placeholder"
               onChange={(e) => setInput(e.target.value)}
               value={input}
-              autoFocus
             />
             <Input
               placeholder="Input Placeholder"
