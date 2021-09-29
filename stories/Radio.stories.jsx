@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Radio } from "@bigbinary/neetoui";`',
+        component: '`import { Radio } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

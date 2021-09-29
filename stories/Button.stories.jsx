@@ -10,11 +10,10 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Button } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Button } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
-
 };
 
 const Template = (args) => <Button {...args} />;

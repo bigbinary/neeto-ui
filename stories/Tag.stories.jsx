@@ -10,9 +10,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tag } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Tag } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
 };
 

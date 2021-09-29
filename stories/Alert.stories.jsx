@@ -10,7 +10,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Alert } from "@bigbinary/neetoui";`',
+        component: '`import { Alert } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

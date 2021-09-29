@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Pagination } from "@bigbinary/neetoui";`',
+        component: '`import { Pagination } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

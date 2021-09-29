@@ -9,9 +9,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tab } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Tab } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
 };
 
