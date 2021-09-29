@@ -11,9 +11,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Tooltip } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
 };
 

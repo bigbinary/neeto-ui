@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Checkbox } from "@bigbinary/neetoui";`',
+        component: '`import { Checkbox } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

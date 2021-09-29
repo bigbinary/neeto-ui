@@ -10,7 +10,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Input } from "@bigbinary/neetoui";`',
+        component: '`import { Input } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

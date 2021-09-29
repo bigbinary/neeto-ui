@@ -58,7 +58,10 @@ yarn add @bigbinary/neetoui
 For other installation methods, refer our [**official npm page**](https://www.npmjs.com/package/@bigbinary/neetoui)
 
 <div className="tip-wrapper">
-  <span className="tip">To use NeetoUI, you need a recent version of React.js installed (version 16.13.1+ recommended)</span>
+  <span className="tip">
+    To use NeetoUI, you need a recent version of React.js installed (version
+    16.13.1+ recommended)
+  </span>
 </div>
 
 <div className="subheading">Basic Usage</div>
@@ -68,14 +71,14 @@ For other installation methods, refer our [**official npm page**](https://www.np
 NeetoUI exports all it’s component as named exports. You can individually import necessary components in the following way:
 
 ```
-import { Button, Tooltip, } from "@bigbinary/neetoui";
+import { Button, Tooltip, } from "@bigbinary/neetoui/v2";
 ```
 
 If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from NeetoUI.
 
 ```
 import React from "react";
-import * as NeetoUI from "@bigbinary/neetoui";
+import * as NeetoUI from "@bigbinary/neetoui/v2";
 
 export default function index() {
   const Button = NeetoUI.Button;
@@ -96,5 +99,3 @@ export default function index() {
 #### Acceptable props for Components
 
 Refer documentation of each component for a detailed list of available props and their usage.
-
-

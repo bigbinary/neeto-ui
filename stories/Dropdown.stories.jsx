@@ -10,9 +10,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Dropdown } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Dropdown } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
 };
 

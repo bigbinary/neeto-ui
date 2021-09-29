@@ -14,9 +14,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Avatar } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Avatar } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
 };
 

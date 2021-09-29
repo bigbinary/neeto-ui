@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Label } from "@bigbinary/neetoui";`',
+        component: '`import { Label } from "@bigbinary/neetoui/v2";`',
       },
     },
   },

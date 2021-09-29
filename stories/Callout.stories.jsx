@@ -10,7 +10,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Callout } from "@bigbinary/neetoui";`',
+        component: '`import { Callout } from "@bigbinary/neetoui/v2";`',
       },
     },
   },
@@ -33,9 +33,5 @@ export const WarningCallout = () => {
 };
 
 export const DangerCallout = () => {
-  return (
-    <Callout style="danger">
-      This is an info callout!
-    </Callout>
-  );
+  return <Callout style="danger">This is an info callout!</Callout>;
 };

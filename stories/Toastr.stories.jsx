@@ -11,9 +11,9 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Toastr } from "@bigbinary/neetoui";`'
-      }
-    }
+        component: '`import { Toastr } from "@bigbinary/neetoui/v2";`',
+      },
+    },
   },
   subcomponents: { Button },
 };
