@@ -1,0 +1,66 @@
+// custom scrollbar
+
+@mixin scrollbars(
+  $size,
+  $foreground-color: $nui-gray-300,
+  $background-color: "transparent"
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+}
+
+// media queries
+
+@mixin viewport($media) {
+  @if $media==desk {
+    @media screen and (min-width: $nui-desk-1200) {
+      @content;
+    }
+  } @else if $media==tab-min {
+    @media screen and (max-width: $nui-tab-1024) {
+      @content;
+    }
+  } @else if $media==tab-only {
+    @media screen and (min-width: $nui-tab-768) and (max-width: $nui-tab-1024 - 1) {
+      @content;
+    }
+  } @else if $media==mob {
+    @media screen and (max-width: $nui-tab-768 - 1) {
+      @content;
+    }
+  } @else if $media==xs-mob {
+    @media screen and (max-width: $nui-mob-479) {
+      @content;
+    }
+  }
+}
+
+@mixin min-max($resMin, $resMax) {
+  @media (min-width: $resMin+px) and (max-width: $resMax+px) {
+    @content;
+  }
+}
+
+@mixin max($res) {
+  @media (max-width: $res+px) {
+    @content;
+  }
+}
+
+@mixin min($res) {
+  @media (min-width: $res+px) {
+    @content;
+  }
+}

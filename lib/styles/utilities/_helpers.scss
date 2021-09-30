@@ -1,0 +1,43 @@
+body {
+  // color utility classes
+  @each $color, $value in $nui-theme-colors {
+    .nui-text-#{$color} {
+      color: $value;
+    }
+  }
+
+  // background utility classes
+  @each $color, $value in $nui-theme-colors {
+    .nui-bg-#{$color} {
+      background-color: $value;
+    }
+  }
+
+  // font sizes
+  @each $size, $value in $nui-font-sizes {
+    .nui-text-#{$size} {
+      font-size: $value;
+    }
+  }
+
+  // font weights
+  @each $weight, $value in $nui-font-weights {
+    .nui-font-#{$weight} {
+      font-weight: $value;
+    }
+  }
+
+  // line height
+  @each $lh, $value in $nui-line-heights {
+    .nui-leading-#{$lh} {
+      line-height: $value;
+    }
+  }
+
+  // text transform
+  @each $tt, $value in $nui-text-transform {
+    .nui-text-transform-#{$tt} {
+        text-transform: $value;
+    }
+  }
+}

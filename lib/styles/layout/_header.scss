@@ -1,6 +1,6 @@
 .nui-header {
   width: 100%;
-  min-height: $main-header-height;
+  min-height: $nui-main-header-height;
   background: $nui-white;
   padding: 40px 0;
   display: flex;
@@ -56,8 +56,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-height: $sub-header-height;
-  margin-bottom: $sub-header-bottom-margin;
+  min-height: $nui-sub-header-height;
+  margin-bottom: $nui-sub-header-bottom-margin;
   background-color: $nui-white;
 
   .nui-subheader__left {

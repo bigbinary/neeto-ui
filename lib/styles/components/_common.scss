@@ -30,10 +30,10 @@
   overflow-y: auto;
 
   &.nui-main-scrollable--small {
-    // height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
+    // height: calc(100vh - #{$nui-main-header-height} - #{$nui-sub-header-height});
   }
   &.nui-main-scrollable--large {
-    // height: calc(100vh - #{$main-header-height});
+    // height: calc(100vh - #{$nui-main-header-height});
   }
   &.nui-main-scrollable--viewport {
     // height: 100vh;

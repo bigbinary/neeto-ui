@@ -1,0 +1,150 @@
+// Custom
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+}
+
+fieldset,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+  height: 1rem;
+  width: 1rem;
+  color: #2563eb;
+  background-color: #fff;
+  border-color: #6b7280;
+  border-width: 1px;
+}
+
+[type="checkbox"]:checked,
+[type="radio"]:checked {
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+[type="radio"]:checked {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3C/svg%3E");
+}
+
+[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+}
+
+[type="radio"] {
+  border-radius: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #222;
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Heading tags are nested inside the body tag for having higher specificity than Tailwind reset */
+
+body {
+  color: $nui-gray-800;
+
+  h1 {
+    font-size: $nui-text-3xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  h2 {
+    font-size: $nui-text-2xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  h3 {
+    font-size: $nui-text-xl;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  h4 {
+    font-size: $nui-text-base;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  h5 {
+    font-size: $nui-text-sm;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  h6 {
+    font-size: $nui-text-xs;
+    font-weight: $nui-font-semibold;
+    line-height: $nui-leading-tight;
+  }
+
+  p {
+    font-size: $nui-text-sm;
+    line-height: $nui-leading-normal;
+  }
+}

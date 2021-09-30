@@ -70,6 +70,19 @@ $nui-font-bold: 700;
 $nui-font-extrabold: 800;
 $nui-font-black: 900;
 
+// nui-font-weights-map
+$nui-font-weights: (
+  "thin": $nui-font-thin,
+  "extralight": $nui-font-extralight,
+  "light": $nui-font-light,
+  "normal": $nui-font-normal,
+  "medium": $nui-font-medium,
+  "semibold": $nui-font-semibold,
+  "bold": $nui-font-bold,
+  "extrabold": $nui-font-extrabold,
+  "black": $nui-font-black,
+);
+
 // Font Sizes
 $nui-text-xxs: 10px;
 $nui-text-xs: 12px;
@@ -81,6 +94,19 @@ $nui-text-2xl: 24px;
 $nui-text-3xl: 32px;
 $nui-text-4xl: 48px;
 
+// nui-font-sizes-map
+$nui-font-sizes: (
+  "h1": $nui-text-3xl,
+  "h2": $nui-text-2xl,
+  "h3": $nui-text-xl,
+  "h4": $nui-text-base,
+  "h5": $nui-text-sm,
+  "h6": $nui-text-xs,
+  "body1": $nui-text-base,
+  "body2": $nui-text-sm,
+  "body3": $nui-text-xs,
+);
+
 // Line Heights
 $nui-leading-none: 1;
 $nui-leading-tight: 1.25;
@@ -88,6 +114,16 @@ $nui-leading-snug: 1.375;
 $nui-leading-normal: 1.5;
 $nui-leading-relaxed: 1.625;
 $nui-leading-loose: 2;
+
+// nui-line-heights-map
+$nui-line-heights: (
+  "none": $nui-leading-none,
+  "tight": $nui-leading-tight,
+  "snug": $nui-leading-snug,
+  "normal": $nui-leading-normal,
+  "relaxed": $nui-leading-relaxed,
+  "loose": $nui-leading-loose,
+);
 
 // Text-transform
 $nui-text-transform-none: none;
@@ -100,7 +136,21 @@ $nui-text-transform-initial: initial;
 $nui-text-transform-revert: revert;
 $nui-text-transform-unset: unset;
 
+// nui-text-transform-map
+$nui-text-transform: (
+  "none": $nui-text-transform-none,
+  "capitalize": $nui-text-transform-capitalize,
+  "uppercase": $nui-text-transform-uppercase,
+  "lowercase": $nui-text-transform-lowercase,
+  "full-width": $nui-text-transform-fullwidth,
+  "inherit": $nui-text-transform-inherit,
+  "initial": $nui-text-transform-initial,
+  "revert": $nui-text-transform-revert,
+  "unset": $nui-text-transform-unset,
+);
+
 // Border Radius
+$nui-rounded-none: 0;
 $nui-rounded-sm: 2px;
 $nui-rounded: 4px;
 $nui-rounded-md: 6px;
@@ -112,22 +162,21 @@ $nui-rounded-full: 999px;
 $nui-transition: all 0.3s ease-in-out;
 
 // Shadows
-
 $nui-shadow: 0px 0px 0px 3px $nui-gray-200;
 $nui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
   0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Breakpoints
-$mob-479: 479px;
-$tab-768: 768px;
-$tab-1024: 1024px;
-$desk-1200: 1200px;
+$nui-mob-479: 479px;
+$nui-tab-768: 768px;
+$nui-tab-1024: 1024px;
+$nui-desk-1200: 1200px;
 
 // Constants
-$pane-header-height: 100px;
-$pane-footer-height: 104px;
-$main-header-height: 117px;
-$sub-header-height: 37px;
-$sub-header-bottom-margin: 20px;
-$pagination-block-height: 88px;
-$table-header-height: 40px;
+$nui-pane-header-height: 100px;
+$nui-pane-footer-height: 104px;
+$nui-main-header-height: 117px;
+$nui-sub-header-height: 37px;
+$nui-sub-header-bottom-margin: 20px;
+$nui-pagination-block-height: 88px;
+$nui-table-header-height: 40px;

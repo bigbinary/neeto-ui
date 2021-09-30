@@ -22,12 +22,12 @@
 
   &.nui-scrollable--small {
     height: calc(
-      100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin}
+      100vh - #{$nui-main-header-height} - #{$nui-sub-header-height} - #{$nui-sub-header-bottom-margin}
     );
   }
 
   &.nui-scrollable--large {
-    height: calc(100vh - #{$main-header-height});
+    height: calc(100vh - #{$nui-main-header-height});
   }
 
   &.nui-scrollable--viewport {

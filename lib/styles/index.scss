@@ -1,13 +1,14 @@
 //Abstracts
 @import "./abstracts/normalize";
 @import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+//Base
+@import "./base/base";
 
 //Utilities
-@import "./utilities/misc";
-@import "./utilities/color";
+@import "./utilities/helpers";
 @import "./utilities/animations";
-@import "./utilities/media-query";
-@import "./utilities/typography";
 
 //Components
 @import "./components/button";

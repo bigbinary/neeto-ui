@@ -45,14 +45,14 @@
 
     .nui-pane__body {
       width: 100%;
-      height: calc(100vh - #{$pane-header-height});
+      height: calc(100vh - #{$nui-pane-header-height});
       padding: 0 40px;
       font-size: $nui-text-sm;
       line-height: 20px;
       overflow-y: auto;
 
       &.nui-pane__body--has-footer {
-        height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
+        height: calc(100vh - #{$nui-pane-header-height} - #{$nui-pane-footer-height});
       }
     }
 
@@ -65,7 +65,7 @@
       padding: 32px 40px;
       background-color: $nui-white;
       border-top: thin solid $nui-gray-300;
-      min-height: $pane-footer-height;
+      min-height: $nui-pane-footer-height;
 
       &.nui-pane__footer__absolute {
         width: 100%;

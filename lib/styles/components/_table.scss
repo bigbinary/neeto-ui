@@ -152,8 +152,8 @@
     .nui-table {
       tbody {
         height: calc(
-          100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
-            #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$nui-main-header-height} - #{$nui-sub-header-height} - #{$nui-sub-header-bottom-margin} -
+            #{$nui-pagination-block-height} - #{$nui-table-header-height}
         );
       }
     }
@@ -161,8 +161,8 @@
       .nui-table {
         tbody {
           height: calc(
-            100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
-              #{$table-header-height}
+            100vh - #{$nui-main-header-height} - #{$nui-sub-header-height} - #{$nui-sub-header-bottom-margin} -
+              #{$nui-table-header-height}
           );
         }
       }
@@ -173,7 +173,7 @@
     .nui-table {
       tbody {
         height: calc(
-          100vh - #{$main-header-height} - #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$nui-main-header-height} - #{$nui-pagination-block-height} - #{$nui-table-header-height}
         );
       }
     }
@@ -181,7 +181,7 @@
       .nui-table {
         tbody {
           height: calc(
-            100vh - #{$main-header-height} - #{$table-header-height}
+            100vh - #{$nui-main-header-height} - #{$nui-table-header-height}
           );
         }
       }
@@ -192,14 +192,14 @@
     .nui-table {
       tbody {
         height: calc(
-          100vh - #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$nui-pagination-block-height} - #{$nui-table-header-height}
         );
       }
     }
     &.nui-scrollable--no-pagination {
       .nui-table {
         tbody {
-          height: calc(100vh - #{$table-header-height});
+          height: calc(100vh - #{$nui-table-header-height});
         }
       }
     }
