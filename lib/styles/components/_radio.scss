@@ -1,28 +1,28 @@
-.nui-radio__wrapper {
+.neeto-ui-radio__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
 
-  .nui-radio__label {
+  .neeto-ui-radio__label {
     margin-bottom: 12px;
   }
 }
 
-.nui-radio__container {
+.neeto-ui-radio__container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 
-  .nui-radio__item {
+  .neeto-ui-radio__item {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
-    .nui-label {
+    .neeto-ui-label {
       margin-left: 12px;
     }
 
@@ -31,11 +31,11 @@
     }
   }
 
-  .nui-radio[type="radio"] {
+  .neeto-ui-radio[type="radio"] {
     width: 16px;
     height: 16px;
-    color: $nui-gray-800;
-    border: 2px solid $nui-gray-300;
+    color: $neeto-ui-gray-800;
+    border: 2px solid $neeto-ui-gray-300;
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -44,7 +44,7 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: $nui-gray-400;
+      border-color: $neeto-ui-gray-400;
     }
 
     &:disabled {
@@ -62,15 +62,15 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-300;
+      box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
     }
   }
 
-  &.nui-radio__container--stacked {
+  &.neeto-ui-radio__container--stacked {
     flex-direction: column;
     align-items: flex-start;
 
-    .nui-radio__item:not(:last-child) {
+    .neeto-ui-radio__item:not(:last-child) {
       margin-bottom: 16px;
     }
   }

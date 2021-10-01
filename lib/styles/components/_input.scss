@@ -1,30 +1,30 @@
-.nui-input__wrapper {
+.neeto-ui-input__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
 
-  .nui-label {
+  .neeto-ui-label {
     margin-bottom: 4px;
   }
 
-  .nui-input {
+  .neeto-ui-input {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: $nui-text-sm;
+    font-size: $neeto-ui-text-sm;
     line-height: 1.6;
-    transition: $nui-transition;
-    border-radius: $nui-rounded-sm;
-    border: thin solid $nui-gray-400;
-    background-color: $nui-white;
-    color: $nui-gray-800;
+    transition: $neeto-ui-transition;
+    border-radius: $neeto-ui-rounded-sm;
+    border: thin solid $neeto-ui-gray-400;
+    background-color: $neeto-ui-white;
+    color: $neeto-ui-gray-800;
     overflow: hidden;
 
-    &.nui-input--textarea {
+    &.neeto-ui-input--textarea {
       padding: 8px;
     }
 
@@ -38,7 +38,7 @@
       line-height: inherit;
       box-shadow: none;
       &::placeholder {
-        color: $nui-gray-400;
+        color: $neeto-ui-gray-400;
       }
 
       &:focus {
@@ -56,20 +56,20 @@
       overflow-y: auto;
     }
 
-    &:focus-within:not(.nui-input--naked, .nui-input--error) {
-      border-color: $nui-gray-800;
-      box-shadow: $nui-shadow;
+    &:focus-within:not(.neeto-ui-input--naked, .neeto-ui-input--error) {
+      border-color: $neeto-ui-gray-800;
+      box-shadow: $neeto-ui-shadow;
     }
 
-    &:hover:not(.nui-input--naked, .nui-input--error, .nui-input--disabled) {
-      border-color: $nui-gray-700;
+    &:hover:not(.neeto-ui-input--naked, .neeto-ui-input--error, .neeto-ui-input--disabled) {
+      border-color: $neeto-ui-gray-700;
     }
 
-    &.nui-input--error {
-      border-color: $nui-error;
+    &.neeto-ui-input--error {
+      border-color: $neeto-ui-error;
 
-      &:focus-within:not(.nui-input--naked) {
-        box-shadow: 0 0 0 3px $nui-pastel-red;
+      &:focus-within:not(.neeto-ui-input--naked) {
+        box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
       }
 
       textarea {
@@ -77,8 +77,8 @@
       }
     }
 
-    &.nui-input--disabled {
-      background-color: $nui-gray-100;
+    &.neeto-ui-input--disabled {
+      background-color: $neeto-ui-gray-100;
       cursor: not-allowed;
 
       input {
@@ -86,69 +86,69 @@
       }
     }
 
-    &.nui-input--small {
+    &.neeto-ui-input--small {
       input {
         padding: 6px 8px;
       }
     }
 
-    &.nui-input--naked {
+    &.neeto-ui-input--naked {
       padding: 0;
       border: none;
       box-shadow: none;
 
-      .nui-input__prefix {
+      .neeto-ui-input__prefix {
         margin-left: 0;
       }
 
-      .nui-input__suffix {
+      .neeto-ui-input__suffix {
         margin-right: 0;
       }
     }
   }
 
-  .nui-input__prefix,
-  .nui-input__suffix {
+  .neeto-ui-input__prefix,
+  .neeto-ui-input__suffix {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     font-size: 14px;
-    color: theme("colors.gray.500");
+    color: $neeto-ui-gray-600;
   }
 
-  .nui-input__prefix {
+  .neeto-ui-input__prefix {
     margin-left: 10px;
   }
-  .nui-input__suffix {
+  .neeto-ui-input__suffix {
     margin-right: 10px;
   }
 
-  .nui-input--block-add-on {
-    .nui-input__prefix,
-    .nui-input__suffix {
+  .neeto-ui-input--block-add-on {
+    .neeto-ui-input__prefix,
+    .neeto-ui-input__suffix {
       margin: 0;
       padding: 8px 10px;
-      background-color: theme("colors.gray.50");
+      background-color: $neeto-ui-gray-100;
     }
-    .nui-input__prefix {
-      border-right: thin solid theme("colors.gray.300");
+    .neeto-ui-input__prefix {
+      border-right: thin solid $neeto-ui-gray-300;
     }
-    .nui-input__suffix {
-      border-left: thin solid theme("colors.gray.300");
+    .neeto-ui-input__suffix {
+      border-left: thin solid $neeto-ui-gray-300;
     }
   }
 }
 
-.nui-input__help-text {
+.neeto-ui-input__help-text {
   margin-top: 8px;
-  font-size: $nui-text-xs;
-  color: $nui-gray-500;
+  font-size: $neeto-ui-text-xs;
+  color: $neeto-ui-gray-500;
   line-height: 1.6;
 }
 
-.nui-input__error {
+.neeto-ui-input__error {
   margin-top: 4px;
-  font-size: $nui-text-xs;
-  color: $nui-error;
+  font-size: $neeto-ui-text-xs;
+  color: $neeto-ui-error;
 }

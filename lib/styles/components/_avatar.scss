@@ -1,35 +1,35 @@
-.nui-avatar--container {
+.neeto-ui-avatar--container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $nui-rounded-sm;
+  border-radius: $neeto-ui-rounded-sm;
   position: relative;
 
-  &.nui-avatar--container-round {
-    border-radius: $nui-rounded-full;
+  &.neeto-ui-avatar--container-round {
+    border-radius: $neeto-ui-rounded-full;
   }
 
-  .nui-avatar__text {
-    font-weight: $nui-font-semibold;
+  .neeto-ui-avatar__text {
+    font-weight: $neeto-ui-font-semibold;
     text-align: center;
     text-transform: capitalize;
-    font-size: $nui-text-xxs;
-    color: $nui-gray-600;
+    font-size: $neeto-ui-text-xxs;
+    color: $neeto-ui-gray-600;
 
-    &.nui-avatar__text-medium {
-      font-size: $nui-text-xs;
+    &.neeto-ui-avatar__text-medium {
+      font-size: $neeto-ui-text-xs;
     }
 
-    &.nui-avatar__text-large {
-      font-size: $nui-text-lg;
+    &.neeto-ui-avatar__text-large {
+      font-size: $neeto-ui-text-lg;
     }
 
-    &.nui-avatar__text-xlarge {
-      font-size: $nui-text-2xl;
+    &.neeto-ui-avatar__text-xlarge {
+      font-size: $neeto-ui-text-2xl;
     }
   }
 
-  .nui-avatar__status {
+  .neeto-ui-avatar__status {
     position: absolute;
     right: 0;
     top: 0;
@@ -37,45 +37,45 @@
     height: 0.4rem;
     background-color: white;
     border: 0.5px solid white;
-    border-radius: $nui-rounded-full;
+    border-radius: $neeto-ui-rounded-full;
     transform: translateX(-40%);
 
-    &.nui-avatar__status-medium {
+    &.neeto-ui-avatar__status-medium {
       width: 0.465rem;
       height: 0.465rem;
     }
 
-    &.nui-avatar__status-large {
+    &.neeto-ui-avatar__status-large {
       width: 0.563rem;
       height: 0.563rem;
     }
 
-    &.nui-avatar__status-xlarge {
+    &.neeto-ui-avatar__status-xlarge {
       width: 0.75rem;
       height: 0.75rem;
       transform: translateX(-65%);
     }
 
-    &.nui-avatar__status-square {
+    &.neeto-ui-avatar__status-square {
       transform: translate(25%, -25%);
     }
 
     &.online {
-      background-color: $nui-success;
+      background-color: $neeto-ui-success;
     }
 
     &.idle {
-      background-color: $nui-warning;
+      background-color: $neeto-ui-warning;
     }
 
     &.offline {
-      background-color: $nui-gray-300;
+      background-color: $neeto-ui-gray-300;
     }
   }
 
-  .nui-avatar {
+  .neeto-ui-avatar {
     display: inline-block;
-    border-radius: $nui-rounded-sm;
+    border-radius: $neeto-ui-rounded-sm;
     height: 1.5rem;
     width: 1.5rem;
 
@@ -83,23 +83,23 @@
       display: none;
     }
 
-    &.nui-avatar--medium {
+    &.neeto-ui-avatar--medium {
       height: 2rem;
       width: 2rem;
     }
 
-    &.nui-avatar--large {
+    &.neeto-ui-avatar--large {
       height: 2.5rem;
       width: 2.5rem;
     }
 
-    &.nui-avatar--xlarge {
+    &.neeto-ui-avatar--xlarge {
       height: 4rem;
       width: 4rem;
     }
 
-    &.nui-avatar--round {
-      border-radius: $nui-rounded-full;
+    &.neeto-ui-avatar--round {
+      border-radius: $neeto-ui-rounded-full;
     }
   }
 }

@@ -1,27 +1,27 @@
-.nui-header {
+.neeto-ui-header {
   width: 100%;
-  min-height: $main-header-height;
-  background: $nui-white;
+  min-height: $neeto-ui-main-header-height;
+  background: $neeto-ui-white;
   padding: 40px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  .nui-header__left {
+  .neeto-ui-header__left {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
     h2 {
-      font-size: $nui-text-2xl;
+      font-size: $neeto-ui-text-2xl;
       line-height: 1.25;
-      color: $nui-gray-800;
+      color: $neeto-ui-gray-800;
     }
   }
 
-  .nui-header__breadcrumb {
+  .neeto-ui-header__breadcrumb {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,19 +30,19 @@
       transition: all ease-in-out 300ms;
       text-decoration: none;
       h2 {
-        color: $nui-gray-500;
+        color: $neeto-ui-gray-500;
         &:hover {
-          color: $nui-gray-800;
+          color: $neeto-ui-gray-800;
         }
       }
     }
   }
 
-  .nui-header__breadcrumb-separator {
+  .neeto-ui-header__breadcrumb-separator {
     margin: 0 4px;
   }
 
-  .nui-header__right {
+  .neeto-ui-header__right {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -50,17 +50,17 @@
   }
 }
 
-.nui-subheader {
+.neeto-ui-subheader {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-height: $sub-header-height;
-  margin-bottom: $sub-header-bottom-margin;
-  background-color: $nui-white;
+  min-height: $neeto-ui-sub-header-height;
+  margin-bottom: $neeto-ui-sub-header-bottom-margin;
+  background-color: $neeto-ui-white;
 
-  .nui-subheader__left {
+  .neeto-ui-subheader__left {
     width: 50%;
     max-width: 280px;
     display: flex;
@@ -68,12 +68,12 @@
     justify-content: flex-start;
     align-items: center;
 
-    .nui-input__prefix {
-      color: $nui-gray-400;
+    .neeto-ui-input__prefix {
+      color: $neeto-ui-gray-400;
     }
   }
 
-  .nui-subheader__right {
+  .neeto-ui-subheader__right {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

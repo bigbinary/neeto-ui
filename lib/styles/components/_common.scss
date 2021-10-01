@@ -1,19 +1,19 @@
-.nui-label {
-  font-size: $nui-text-sm;
+.neeto-ui-label {
+  font-size: $neeto-ui-text-sm;
   line-height: 1;
-  color: $nui-gray-600;
-  font-weight: $nui-font-normal;
+  color: $neeto-ui-gray-600;
+  font-weight: $neeto-ui-font-normal;
   letter-spacing: -0.15px;
 }
 
-.nui-main-wrapper {
+.neeto-ui-main-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.nui-main-container {
+.neeto-ui-main-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -25,17 +25,17 @@
     0px 4px 24px 2px rgba(0, 0, 0, 0.1);
 }
 
-.nui-main-scrollable {
+.neeto-ui-main-scrollable {
   flex-grow: 1;
   overflow-y: auto;
 
-  &.nui-main-scrollable--small {
-    // height: calc(100vh - #{$main-header-height} - #{$sub-header-height});
+  &.neeto-ui-main-scrollable--small {
+    // height: calc(100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-sub-header-height});
   }
-  &.nui-main-scrollable--large {
-    // height: calc(100vh - #{$main-header-height});
+  &.neeto-ui-main-scrollable--large {
+    // height: calc(100vh - #{$neeto-ui-main-header-height});
   }
-  &.nui-main-scrollable--viewport {
+  &.neeto-ui-main-scrollable--viewport {
     // height: 100vh;
   }
 }

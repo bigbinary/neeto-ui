@@ -1,0 +1,43 @@
+body {
+  // color utility classes
+  @each $color, $value in $neeto-ui-theme-colors {
+    .neeto-ui-text-#{$color} {
+      color: $value;
+    }
+  }
+
+  // background utility classes
+  @each $color, $value in $neeto-ui-theme-colors {
+    .neeto-ui-bg-#{$color} {
+      background-color: $value;
+    }
+  }
+
+  // font sizes
+  @each $size, $value in $neeto-ui-font-sizes {
+    .neeto-ui-text-#{$size} {
+      font-size: $value;
+    }
+  }
+
+  // font weights
+  @each $weight, $value in $neeto-ui-font-weights {
+    .neeto-ui-font-#{$weight} {
+      font-weight: $value;
+    }
+  }
+
+  // line height
+  @each $lh, $value in $neeto-ui-line-heights {
+    .neeto-ui-leading-#{$lh} {
+      line-height: $value;
+    }
+  }
+
+  // text transform
+  @each $tt, $value in $neeto-ui-text-transform {
+    .neeto-ui-text-transform-#{$tt} {
+        text-transform: $value;
+    }
+  }
+}

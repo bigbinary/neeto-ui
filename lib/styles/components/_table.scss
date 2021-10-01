@@ -1,16 +1,16 @@
-.nui-table {
+.neeto-ui-table {
   width: 100%;
   border-collapse: collapse;
 
   thead {
     tr {
       th {
-        color: $nui-gray-400;
-        font-size: $nui-text-xs;
+        color: $neeto-ui-gray-400;
+        font-size: $neeto-ui-text-xs;
         letter-spacing: 0.2%;
         vertical-align: middle;
-        font-weight: $nui-font-bold;
-        background-color: $nui-white;
+        font-weight: $neeto-ui-font-bold;
+        background-color: $neeto-ui-white;
         text-transform: uppercase;
         padding: 12px 48px 12px 0;
       }
@@ -20,27 +20,27 @@
   tbody {
     tr {
       td {
-        color: $nui-gray-700;
+        color: $neeto-ui-gray-700;
         line-height: 20px;
-        font-size: $nui-text-sm;
+        font-size: $neeto-ui-text-sm;
         vertical-align: middle;
-        font-weight: $nui-font-normal;
+        font-weight: $neeto-ui-font-normal;
         padding: 16px 48px 16px 0;
 
-        a:not(.nui-btn) {
-          color: $nui-secondary-indigo;
-          transition: $nui-transition;
-          font-weight: $nui-font-medium;
+        a:not(.neeto-ui-btn) {
+          color: $neeto-ui-secondary-indigo;
+          transition: $neeto-ui-transition;
+          font-weight: $neeto-ui-font-medium;
 
           &:hover {
-            color: darken($nui-secondary-indigo, 5%);
+            color: darken($neeto-ui-secondary-indigo, 5%);
             text-decoration: underline;
           }
         }
       }
 
       &:nth-child(even) {
-        background-color: $nui-gray-100;
+        background-color: $neeto-ui-gray-100;
       }
     }
   }
@@ -63,7 +63,7 @@
     }
   }
 
-  &.nui-table--avatar {
+  &.neeto-ui-table--avatar {
     tbody {
       tr {
         td {
@@ -74,7 +74,7 @@
     }
   }
 
-  &.nui-table--checkbox {
+  &.neeto-ui-table--checkbox {
     thead,
     tbody {
       tr {
@@ -84,7 +84,7 @@
             width: 40px;
             padding-right: 8px;
 
-            .nui-checkbox__wrapper {
+            .neeto-ui-checkbox__wrapper {
               justify-content: center;
               align-items: center;
             }
@@ -94,14 +94,14 @@
     }
   }
 
-  &.nui-table--actions {
+  &.neeto-ui-table--actions {
     tr {
       td,
       th {
         &:last-of-type {
           width: 96px;
 
-          .nui-btn--icon {
+          .neeto-ui-btn--icon {
             svg {
               width: 24px;
               height: 24px;
@@ -112,14 +112,14 @@
     }
   }
 
-  &.nui-table--hover {
+  &.neeto-ui-table--hover {
     tbody {
       tr {
         cursor: pointer;
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: $nui-gray-200;
+          background-color: $neeto-ui-gray-200;
         }
       }
     }
@@ -128,8 +128,8 @@
 
 //Handling Table Inner Scroll
 
-.nui-scrollable {
-  .nui-table {
+.neeto-ui-scrollable {
+  .neeto-ui-table {
     thead {
       display: table;
       width: 100%;
@@ -148,58 +148,58 @@
     }
   }
 
-  &.nui-scrollable--small {
-    .nui-table {
+  &.neeto-ui-scrollable--small {
+    .neeto-ui-table {
       tbody {
         height: calc(
-          100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
-            #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-sub-header-height} - #{$neeto-ui-sub-header-bottom-margin} -
+            #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
         );
       }
     }
-    &.nui-scrollable--no-pagination {
-      .nui-table {
+    &.neeto-ui-scrollable--no-pagination {
+      .neeto-ui-table {
         tbody {
           height: calc(
-            100vh - #{$main-header-height} - #{$sub-header-height} - #{$sub-header-bottom-margin} -
-              #{$table-header-height}
+            100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-sub-header-height} - #{$neeto-ui-sub-header-bottom-margin} -
+              #{$neeto-ui-table-header-height}
           );
         }
       }
     }
   }
 
-  &.nui-scrollable--large {
-    .nui-table {
+  &.neeto-ui-scrollable--large {
+    .neeto-ui-table {
       tbody {
         height: calc(
-          100vh - #{$main-header-height} - #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
         );
       }
     }
-    &.nui-scrollable--no-pagination {
-      .nui-table {
+    &.neeto-ui-scrollable--no-pagination {
+      .neeto-ui-table {
         tbody {
           height: calc(
-            100vh - #{$main-header-height} - #{$table-header-height}
+            100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-table-header-height}
           );
         }
       }
     }
   }
 
-  &.nui-scrollable--viewport {
-    .nui-table {
+  &.neeto-ui-scrollable--viewport {
+    .neeto-ui-table {
       tbody {
         height: calc(
-          100vh - #{$pagination-block-height} - #{$table-header-height}
+          100vh - #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
         );
       }
     }
-    &.nui-scrollable--no-pagination {
-      .nui-table {
+    &.neeto-ui-scrollable--no-pagination {
+      .neeto-ui-table {
         tbody {
-          height: calc(100vh - #{$table-header-height});
+          height: calc(100vh - #{$neeto-ui-table-header-height});
         }
       }
     }

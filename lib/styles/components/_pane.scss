@@ -1,4 +1,4 @@
-.nui-pane__backdrop {
+.neeto-ui-pane__backdrop {
   position: fixed;
   z-index: 99999;
   left: 0;
@@ -11,13 +11,13 @@
   justify-content: flex-end;
   align-items: center;
 
-  .nui-pane__wrapper {
+  .neeto-ui-pane__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: $nui-white;
-    border-radius: $nui-rounded-sm;
+    background-color: $neeto-ui-white;
+    border-radius: $neeto-ui-rounded-sm;
     overflow: hidden;
     width: 35%;
     height: 100vh;
@@ -32,42 +32,42 @@
       max-width: none;
     }
 
-    .nui-modal__close {
+    .neeto-ui-modal__close {
       position: absolute;
       top: 40px;
       right: 40px;
     }
 
-    .nui-pane__header {
+    .neeto-ui-pane__header {
       width: 100%;
       padding: 40px 40px 32px;
     }
 
-    .nui-pane__body {
+    .neeto-ui-pane__body {
       width: 100%;
-      height: calc(100vh - #{$pane-header-height});
+      height: calc(100vh - #{$neeto-ui-pane-header-height});
       padding: 0 40px;
-      font-size: $nui-text-sm;
+      font-size: $neeto-ui-text-sm;
       line-height: 20px;
       overflow-y: auto;
 
-      &.nui-pane__body--has-footer {
-        height: calc(100vh - #{$pane-header-height} - #{$pane-footer-height});
+      &.neeto-ui-pane__body--has-footer {
+        height: calc(100vh - #{$neeto-ui-pane-header-height} - #{$neeto-ui-pane-footer-height});
       }
     }
 
-    .nui-pane__footer {
+    .neeto-ui-pane__footer {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       padding: 32px 40px;
-      background-color: $nui-white;
-      border-top: thin solid $nui-gray-300;
-      min-height: $pane-footer-height;
+      background-color: $neeto-ui-white;
+      border-top: thin solid $neeto-ui-gray-300;
+      min-height: $neeto-ui-pane-footer-height;
 
-      &.nui-pane__footer__absolute {
+      &.neeto-ui-pane__footer__absolute {
         width: 100%;
         position: absolute;
         left: 0;

@@ -1,13 +1,14 @@
 //Abstracts
 @import "./abstracts/normalize";
 @import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+//Base
+@import "./base/base";
 
 //Utilities
-@import "./utilities/misc";
-@import "./utilities/color";
+@import "./utilities/helpers";
 @import "./utilities/animations";
-@import "./utilities/media-query";
-@import "./utilities/typography";
 
 //Components
 @import "./components/button";
@@ -29,13 +30,13 @@
 @import "./components/pageloader";
 @import "./components/avatar";
 @import "./components/tooltip";
-@import "./components/appswitcher";
 
 //Layouts
 @import "./layout/sidebar";
 @import "./layout/header";
 @import "./layout/common";
 @import "./layout/menubar";
+@import "./layout/appswitcher";
 
 //Tooltip animations
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";
