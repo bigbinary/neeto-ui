@@ -56,34 +56,34 @@ export const AllVariants = (args) => {
   return (
     <>
       <Typography className="mb-4" style="h1">
-        h1. Heading
+        h1. Heading - 32px
       </Typography>
       <Typography className="mb-4" style="h2">
-        h2. Heading
+        h2. Heading - 24px
       </Typography>
       <Typography className="mb-4" style="h3">
-        h3. Heading
+        h3. Heading - 20px
       </Typography>
       <Typography className="mb-4" style="h4">
-        h4. Heading
+        h4. Heading - 16px
       </Typography>
       <Typography className="mb-4" style="h5">
-        h5. Heading
+        h5. Heading - 14px
       </Typography>
       <Typography className="mb-4" style="h6">
-        h6. Heading
+        h6. Heading - 12px
       </Typography>
       <Typography className="mb-4" style="body1">
         body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur
+        blanditiis tenetur - 16px
       </Typography>
       <Typography className="mb-4" style="body2">
         body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur
+        blanditiis tenetur - 14px
       </Typography>
       <Typography className="mb-4" style="body3">
         body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur
+        blanditiis tenetur - 12px
       </Typography>
       <div className="mb-4">
         <Typography style="body3" component="del">

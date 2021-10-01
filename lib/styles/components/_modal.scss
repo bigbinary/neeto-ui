@@ -43,7 +43,7 @@
 
     .neeto-ui-modal__body {
       padding: 0 32px;
-      font-size: $nui-text-sm;
+      font-size: $neeto-ui-text-sm;
       line-height: 1.5;
     }
 
@@ -54,7 +54,6 @@
     .neeto-ui-alert__footer {
       padding: 24px 32px 32px 32px;
       display: flex;
-      column-gap: 1rem;
     }
   }
 

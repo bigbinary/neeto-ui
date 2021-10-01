@@ -12,7 +12,7 @@
   cursor: pointer;
   padding: 0;
   user-select: none;
-  padding: 0.4289em 0.7142857143em;
+  padding: 4px 8px;
   min-height: 28px;
   letter-spacing: -0.15px;
   outline: none;
@@ -33,7 +33,7 @@
 
   .neeto-ui-btn__icon:last-child:not(:first-child),
   .neeto-ui-btn__spinner:last-child:not(:first-child){
-    margin-left: .7142857143em;
+    margin-left: 12px;
   }
 }
 
@@ -41,7 +41,7 @@
   flex-direction: row-reverse;
   .neeto-ui-btn__icon:last-child:not(:first-child),
   .neeto-ui-btn__spinner:last-child:not(:first-child){
-    margin-right: .7142857143em;
+    margin-right: 12px;
     margin-left: 0;
   }
 }
@@ -64,8 +64,7 @@
 // size
 .neeto-ui-btn--size-large {
   font-size: $neeto-ui-text-base;
-  padding-top: 0.407em;
-  padding-bottom: 0.407em;
+  padding: 6px 12px;
   min-height: 32px;
 }
 

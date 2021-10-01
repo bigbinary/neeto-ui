@@ -3,6 +3,7 @@ import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../lib/components/Button";
 import Modal from "../lib/components/Modal";
+import Typography from "../lib/components/Typography";
 
 export default {
   title: "Overlays/Modal",
@@ -33,17 +34,19 @@ export const Default = () => {
 
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header>
-          <h2>Add Label</h2>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous! Gloop and Gleep, the
-          formless, fearless wonders! With Zandor, their leader, and his wife,
-          Tara, and son, Dorno, they team up to protect their planet from
-          sinister invaders! All-strong! All-brave! All-heroes! They're The
-          Herculoids!
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             label="Continue"
@@ -88,13 +91,15 @@ export const ModalSizing = () => {
         size="xs"
       >
         <Modal.Header>
-          <h2>They're creepy & they're kooky</h2>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous!
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             size="large"
@@ -116,13 +121,15 @@ export const ModalSizing = () => {
         size="sm"
       >
         <Modal.Header>
-          <h2>They're creepy & they're kooky</h2>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous!
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             size="large"
@@ -144,17 +151,19 @@ export const ModalSizing = () => {
         size="md"
       >
         <Modal.Header>
-          <h2>Add Label</h2>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous! Gloop and Gleep, the
-          formless, fearless wonders! With Zandor, their leader, and his wife,
-          Tara, and son, Dorno, they team up to protect their planet from
-          sinister invaders! All-strong! All-brave! All-heroes! They're The
-          Herculoids!
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             size="large"
