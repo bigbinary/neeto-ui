@@ -1,8 +1,8 @@
-.nui-sidebar {
+.neeto-ui-sidebar {
   width: 300px;
   min-width: 300px;
   height: 100vh;
-  background-color: $nui-gray-200;
+  background-color: $neeto-ui-gray-200;
   padding: 48px 0;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
     min-width: 320px;
   }
 
-  .nui-sidebar__header {
+  .neeto-ui-sidebar__header {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -24,11 +24,11 @@
     padding: 0 40px;
     margin-bottom: 120px;
 
-    .nui-sidebar__logo {
+    .neeto-ui-sidebar__logo {
       width: 48px;
       height: 48px;
-      border-radius: theme("borderRadius.DEFAULT");
-      background-color: $nui-gray-800;
+      border-radius: $neeto-ui-rounded;
+      background-color: $neeto-ui-gray-800;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -36,29 +36,29 @@
       flex-shrink: 0;
     }
 
-    .nui-sidebar__info {
+    .neeto-ui-sidebar__info {
       margin-left: 12px;
       h2 {
         font-size: 14px;
-        font-weight: theme("fontWeight.medium");
-        color: $nui-gray-800;
+        font-weight: $neeto-ui-font-medium;
+        color: $neeto-ui-gray-800;
         margin-bottom: 4px;
       }
       p {
         font-size: 14px;
-        color: $nui-gray-500;
+        color: $neeto-ui-gray-500;
       }
     }
   }
 
-  .nui-sidebar__links {
+  .neeto-ui-sidebar__links {
     width: 100%;
 
-    .nui-sidebar__link {
+    .neeto-ui-sidebar__link {
       padding: 8px 40px;
       font-size: 16px;
-      font-weight: theme("fontWeight.medium");
-      color: $nui-gray-600;
+      font-weight: $neeto-ui-font-medium;
+      color: $neeto-ui-gray-600;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -77,7 +77,7 @@
         top: 0px;
         bottom: 0px;
         margin: auto;
-        background-color: $nui-gray-800;
+        background-color: $neeto-ui-gray-800;
       }
 
       &:not(&:first-child) {
@@ -105,11 +105,11 @@
       }
 
       &:hover {
-        color: $nui-gray-700;
+        color: $neeto-ui-gray-700;
       }
 
       &.active {
-        color: $nui-gray-800;
+        color: $neeto-ui-gray-800;
 
         &:before {
           width: 4px;
@@ -117,11 +117,11 @@
       }
     }
 
-    .nui-sidebar__sublink {
+    .neeto-ui-sidebar__sublink {
       padding: 4px 40px 4px 52px;
       font-size: 14px;
-      font-weight: theme("fontWeight.medium");
-      color: $nui-gray-600;
+      font-weight: $neeto-ui-font-medium;
+      color: $neeto-ui-gray-600;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -135,49 +135,48 @@
       }
 
       &:hover {
-        color: $nui-gray-700;
+        color: $neeto-ui-gray-700;
       }
 
       &:active,
       &.active {
-        color: $nui-gray-800;
+        color: $neeto-ui-gray-800;
       }
     }
   }
 
-  .nui-sidebar__footer {
+  .neeto-ui-sidebar__footer {
     margin-top: auto;
     width: 100%;
 
-    .nui-sidebar__profile-wrapper {
+    .neeto-ui-sidebar__profile-wrapper {
       padding: 0 24px;
 
-      .nui-sidebar__profile {
+      .neeto-ui-sidebar__profile {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
         padding: 12px 16px;
-        background-color: $nui-white;
+        background-color: $neeto-ui-white;
         margin-bottom: 24px;
-        border-radius: $nui-rounded-sm;
-        border: thin solid $nui-white;
-        transition: $nui-transition;
+        border-radius: $neeto-ui-rounded-sm;
+        transition: $neeto-ui-transition;
         cursor: pointer;
 
         &:hover {
-          border-color: $nui-gray-200;
+          border-color: $neeto-ui-gray-200;
         }
 
-        .nui-sidebar__avatar {
+        .neeto-ui-sidebar__avatar {
           width: 40px;
           height: 40px;
-          background-color: $nui-pastel-yellow;
-          border-radius: theme("borderRadius.full");
+          background-color: $neeto-ui-pastel-yellow;
+          border-radius: $neeto-ui-rounded-full;
           font-size: 14px;
-          font-weight: theme("fontWeight.semibold");
-          color: rgba($nui-gray-800, 0.5);
+          font-weight: $neeto-ui-font-semibold;
+          color: rgba($neeto-ui-gray-800, 0.5);
           overflow: hidden;
           flex-shrink: 0;
           display: flex;
@@ -192,29 +191,29 @@
           }
         }
 
-        .nui-sidebar__profile-content {
+        .neeto-ui-sidebar__profile-content {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
           flex-grow: 1;
 
-          .nui-sidebar__profile-info {
+          .neeto-ui-sidebar__profile-info {
             margin-left: 12px;
             h4 {
               font-size: 16px;
-              font-weight: theme("fontWeight.medium");
-              color: $nui-gray-800;
+              font-weight: $neeto-ui-font-medium;
+              color: $neeto-ui-gray-800;
               line-height: 1.5;
             }
             p {
               font-size: 12px;
-              color: $nui-gray-500;
+              color: $neeto-ui-gray-500;
             }
           }
 
           svg {
-            color: $nui-gray-500;
+            color: $neeto-ui-gray-500;
             margin-left: 8px;
           }
         }
@@ -222,34 +221,34 @@
     }
   }
 
-  &.nui-sidebar--collapsed {
+  &.neeto-ui-sidebar--collapsed {
     width: 80px;
     min-width: 80px;
 
-    .nui-sidebar__header {
+    .neeto-ui-sidebar__header {
       padding: 0 16px;
     }
 
-    .nui-sidebar__links {
-      .nui-sidebar__link {
+    .neeto-ui-sidebar__links {
+      .neeto-ui-sidebar__link {
         padding-left: 24px;
         padding-right: 24px;
         justify-content: center;
       }
     }
 
-    .nui-sidebar__footer {
-      .nui-sidebar__profile-wrapper {
+    .neeto-ui-sidebar__footer {
+      .neeto-ui-sidebar__profile-wrapper {
         padding: 0;
 
-        .nui-sidebar__profile {
+        .neeto-ui-sidebar__profile {
           background-color: transparent;
           justify-content: center;
         }
       }
 
-      .nui-sidebar__links {
-        .nui-sidebar__link {
+      .neeto-ui-sidebar__links {
+        .neeto-ui-sidebar__link {
           &:last-child {
             svg {
               transform: rotateY(180deg);

@@ -1,33 +1,33 @@
-.nui-checkbox__wrapper {
+.neeto-ui-checkbox__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
 
-  .nui-checkbox__container {
+  .neeto-ui-checkbox__container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
-    .nui-label {
+    .neeto-ui-label {
       margin-left: 12px;
     }
 
-    .nui-checkbox[type="checkbox"] {
+    .neeto-ui-checkbox[type="checkbox"] {
       width: 16px;
       height: 16px;
-      color: $nui-gray-800;
-      border: 2px solid $nui-gray-300;
-      border-radius: $nui-rounded-sm;
+      color: $neeto-ui-gray-800;
+      border: 2px solid $neeto-ui-gray-300;
+      border-radius: $neeto-ui-rounded-sm;
 
       &:not(:disabled) {
         cursor: pointer;
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: $nui-gray-400;
+        border-color: $neeto-ui-gray-400;
       }
 
       &:checked {
@@ -45,7 +45,7 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 2px $nui-white, 0 0 0 4px $nui-gray-300;
+        box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
       }
     }
   }

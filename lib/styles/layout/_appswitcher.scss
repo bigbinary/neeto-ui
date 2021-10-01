@@ -1,10 +1,11 @@
-.nui-app-switcher__backdrop {
+.neeto-ui-app-switcher__backdrop {
   position: fixed;
   z-index: 99999;
   left: 80px;
   top: 0;
   width: 100vw;
   height: 100vh;
+
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -12,12 +13,12 @@
   align-items: center;
 }
 
-.nui-app-switcher__wrapper {
+.neeto-ui-app-switcher__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: $nui-white;
+  background-color: $neeto-ui-white;
   overflow-y: auto;
   width: 342px;
   height: 100vh;
@@ -27,41 +28,41 @@
   @include scrollbars(8px);
 }
 
-.nui-app-switcher__wrapper-size--lg {
+.neeto-ui-app-switcher__wrapper-size--lg {
   width: 684px;
-  .nui-app-switcher__grid {
+  .neeto-ui-app-switcher__grid {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .nui-app-switcher-link {
+  .neeto-ui-app-switcher-link {
     width: calc(50% - 8px);
     max-width: calc(50% - 8px);
   }
 }
 
-.nui-app-switcher__grid {
+.neeto-ui-app-switcher__grid {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 8px;
 }
 
-.nui-app-switcher__header {
+.neeto-ui-app-switcher__header {
   width: 100%;
 }
 
-.nui-app-switcher__body {
+.neeto-ui-app-switcher__body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: $nui-text-sm;
+  font-size: $neeto-ui-text-sm;
   padding-top: 80px;
 }
 
-.nui-app-switcher-link {
+.neeto-ui-app-switcher-link {
   width: 100%;
   max-width: 100%;
-  border-radius: $nui-rounded-sm;
+  border-radius: $neeto-ui-rounded-sm;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 
@@ -71,53 +72,53 @@
   }
 
   &:focus-visible{
-    background-color: $nui-gray-100;
+    background-color: $neeto-ui-gray-100;
   }
 
-  &:not(.nui-app-switcher-link--active):hover {
-    background-color: $nui-gray-100;
-  }
-}
-
-.nui-app-switcher-link--active {
-  background: $nui-pastel-blue;
-
-  .nui-app-switcher-link__title {
-    color: $nui-gray-800;
+  &:not(.neeto-ui-app-switcher-link--active):hover {
+    background-color: $neeto-ui-gray-100;
   }
 }
 
-.nui-app-switcher-link__row {
+.neeto-ui-app-switcher-link--active {
+  background: $neeto-ui-pastel-blue;
+
+  .neeto-ui-app-switcher-link__title {
+    color: $neeto-ui-gray-800;
+  }
+}
+
+.neeto-ui-app-switcher-link__row {
   display: flex;
   align-items: center;
   padding: 8px;
   position: relative;
 }
 
-.nui-app-switcher-link__check-icon {
+.neeto-ui-app-switcher-link__check-icon {
   position: absolute;
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.nui-app-switcher-link__icon-holder {
+.neeto-ui-app-switcher-link__icon-holder {
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 12px;
-  border-radius: $nui-rounded-xl;
+  border-radius: $neeto-ui-rounded-xl;
   flex-shrink: 0;
 }
 
-.nui-app-switcher-link__icon {
+.neeto-ui-app-switcher-link__icon {
   width: 24px;
   height: 24px;
 }
 
-.nui-app-switcher-link__title {
+.neeto-ui-app-switcher-link__title {
   flex-grow: 1;
   max-width: calc(100% - 80px);
   white-space: nowrap;

@@ -30,13 +30,13 @@
 @import "./components/pageloader";
 @import "./components/avatar";
 @import "./components/tooltip";
-@import "./components/appswitcher";
 
 //Layouts
 @import "./layout/sidebar";
 @import "./layout/header";
 @import "./layout/common";
 @import "./layout/menubar";
+@import "./layout/appswitcher";
 
 //Tooltip animations
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";

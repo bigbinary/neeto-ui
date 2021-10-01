@@ -1,182 +1,182 @@
 // Color palette
 
 // primary
-$nui-white: #ffffff;
-$nui-black: #1b1f23;
+$neeto-ui-white: #ffffff;
+$neeto-ui-black: #1b1f23;
 // content
-$nui-gray-800: #2f3941;
-$nui-gray-700: #49545c;
-$nui-gray-600: #68737d;
-$nui-gray-500: #87929d;
-$nui-gray-400: #c2c8cc;
-$nui-gray-300: #d8dcde;
-$nui-gray-200: #e9ebed;
-$nui-gray-100: #f8f9f9;
+$neeto-ui-gray-800: #2f3941;
+$neeto-ui-gray-700: #49545c;
+$neeto-ui-gray-600: #68737d;
+$neeto-ui-gray-500: #87929d;
+$neeto-ui-gray-400: #c2c8cc;
+$neeto-ui-gray-300: #d8dcde;
+$neeto-ui-gray-200: #e9ebed;
+$neeto-ui-gray-100: #f8f9f9;
 // states
-$nui-success: #00ba88;
-$nui-info: #276ef1;
-$nui-warning: #f3cd82;
-$nui-error: #f56a58;
+$neeto-ui-success: #00ba88;
+$neeto-ui-info: #276ef1;
+$neeto-ui-warning: #f3cd82;
+$neeto-ui-error: #f56a58;
 // pastel
-$nui-pastel-blue: #eaf3fc;
-$nui-pastel-green: #ebf5ec;
-$nui-pastel-yellow: #fff2d7;
-$nui-pastel-red: #ffefed;
-$nui-pastel-teal: #98f3f4;
+$neeto-ui-pastel-blue: #eaf3fc;
+$neeto-ui-pastel-green: #ebf5ec;
+$neeto-ui-pastel-yellow: #fff2d7;
+$neeto-ui-pastel-red: #ffefed;
+$neeto-ui-pastel-teal: #98f3f4;
 // secondary
-$nui-secondary-indigo: #5e5ce6;
-$nui-secondary-green: #00ba88;
-$nui-secondary-teal: #64d2ff;
+$neeto-ui-secondary-indigo: #5e5ce6;
+$neeto-ui-secondary-green: #00ba88;
+$neeto-ui-secondary-teal: #64d2ff;
 
-// nui-theme-colors-map
-$nui-theme-colors: (
+// neeto-ui-theme-colors-map
+$neeto-ui-theme-colors: (
   // primary
-  "black": $nui-black,
-  "white": $nui-white,
+  "black": $neeto-ui-black,
+  "white": $neeto-ui-white,
   // content
-  "gray-800": $nui-gray-800,
-  "gray-700": $nui-gray-700,
-  "gray-600": $nui-gray-600,
-  "gray-500": $nui-gray-500,
-  "gray-400": $nui-gray-400,
-  "gray-300": $nui-gray-300,
-  "gray-200": $nui-gray-200,
-  "gray-100": $nui-gray-100,
+  "gray-800": $neeto-ui-gray-800,
+  "gray-700": $neeto-ui-gray-700,
+  "gray-600": $neeto-ui-gray-600,
+  "gray-500": $neeto-ui-gray-500,
+  "gray-400": $neeto-ui-gray-400,
+  "gray-300": $neeto-ui-gray-300,
+  "gray-200": $neeto-ui-gray-200,
+  "gray-100": $neeto-ui-gray-100,
   // states
-  "success": $nui-success,
-  "info": $nui-info,
-  "warning": $nui-warning,
-  "error": $nui-error,
+  "success": $neeto-ui-success,
+  "info": $neeto-ui-info,
+  "warning": $neeto-ui-warning,
+  "error": $neeto-ui-error,
   // pastel
-  "pastel-blue": $nui-pastel-blue,
-  "pastel-green": $nui-pastel-green,
-  "pastel-yellow": $nui-pastel-yellow,
-  "pastel-red": $nui-pastel-red,
-  "pastel-teal": $nui-pastel-teal,
+  "pastel-blue": $neeto-ui-pastel-blue,
+  "pastel-green": $neeto-ui-pastel-green,
+  "pastel-yellow": $neeto-ui-pastel-yellow,
+  "pastel-red": $neeto-ui-pastel-red,
+  "pastel-teal": $neeto-ui-pastel-teal,
   // secondary
-  "secondary-indigo": $nui-secondary-indigo,
-  "secondary-green": $nui-secondary-green,
-  "secondary-teal": $nui-secondary-teal
+  "secondary-indigo": $neeto-ui-secondary-indigo,
+  "secondary-green": $neeto-ui-secondary-green,
+  "secondary-teal": $neeto-ui-secondary-teal
 );
 
 // Font Weights
-$nui-font-thin: 100;
-$nui-font-extralight: 200;
-$nui-font-light: 300;
-$nui-font-normal: 400;
-$nui-font-medium: 500;
-$nui-font-semibold: 600;
-$nui-font-bold: 700;
-$nui-font-extrabold: 800;
-$nui-font-black: 900;
+$neeto-ui-font-thin: 100;
+$neeto-ui-font-extralight: 200;
+$neeto-ui-font-light: 300;
+$neeto-ui-font-normal: 400;
+$neeto-ui-font-medium: 500;
+$neeto-ui-font-semibold: 600;
+$neeto-ui-font-bold: 700;
+$neeto-ui-font-extrabold: 800;
+$neeto-ui-font-black: 900;
 
-// nui-font-weights-map
-$nui-font-weights: (
-  "thin": $nui-font-thin,
-  "extralight": $nui-font-extralight,
-  "light": $nui-font-light,
-  "normal": $nui-font-normal,
-  "medium": $nui-font-medium,
-  "semibold": $nui-font-semibold,
-  "bold": $nui-font-bold,
-  "extrabold": $nui-font-extrabold,
-  "black": $nui-font-black,
+// neeto-ui-font-weights-map
+$neeto-ui-font-weights: (
+  "thin": $neeto-ui-font-thin,
+  "extralight": $neeto-ui-font-extralight,
+  "light": $neeto-ui-font-light,
+  "normal": $neeto-ui-font-normal,
+  "medium": $neeto-ui-font-medium,
+  "semibold": $neeto-ui-font-semibold,
+  "bold": $neeto-ui-font-bold,
+  "extrabold": $neeto-ui-font-extrabold,
+  "black": $neeto-ui-font-black,
 );
 
 // Font Sizes
-$nui-text-xxs: 10px;
-$nui-text-xs: 12px;
-$nui-text-sm: 14px;
-$nui-text-base: 16px;
-$nui-text-lg: 18px;
-$nui-text-xl: 20px;
-$nui-text-2xl: 24px;
-$nui-text-3xl: 32px;
-$nui-text-4xl: 48px;
+$neeto-ui-text-xxs: 10px;
+$neeto-ui-text-xs: 12px;
+$neeto-ui-text-sm: 14px;
+$neeto-ui-text-base: 16px;
+$neeto-ui-text-lg: 18px;
+$neeto-ui-text-xl: 20px;
+$neeto-ui-text-2xl: 24px;
+$neeto-ui-text-3xl: 32px;
+$neeto-ui-text-4xl: 48px;
 
-// nui-font-sizes-map
-$nui-font-sizes: (
-  "h1": $nui-text-3xl,
-  "h2": $nui-text-2xl,
-  "h3": $nui-text-xl,
-  "h4": $nui-text-base,
-  "h5": $nui-text-sm,
-  "h6": $nui-text-xs,
-  "body1": $nui-text-base,
-  "body2": $nui-text-sm,
-  "body3": $nui-text-xs,
+// neeto-ui-font-sizes-map
+$neeto-ui-font-sizes: (
+  "h1": $neeto-ui-text-3xl,
+  "h2": $neeto-ui-text-2xl,
+  "h3": $neeto-ui-text-xl,
+  "h4": $neeto-ui-text-base,
+  "h5": $neeto-ui-text-sm,
+  "h6": $neeto-ui-text-xs,
+  "body1": $neeto-ui-text-base,
+  "body2": $neeto-ui-text-sm,
+  "body3": $neeto-ui-text-xs,
 );
 
 // Line Heights
-$nui-leading-none: 1;
-$nui-leading-tight: 1.25;
-$nui-leading-snug: 1.375;
-$nui-leading-normal: 1.5;
-$nui-leading-relaxed: 1.625;
-$nui-leading-loose: 2;
+$neeto-ui-leading-none: 1;
+$neeto-ui-leading-tight: 1.25;
+$neeto-ui-leading-snug: 1.375;
+$neeto-ui-leading-normal: 1.5;
+$neeto-ui-leading-relaxed: 1.625;
+$neeto-ui-leading-loose: 2;
 
-// nui-line-heights-map
-$nui-line-heights: (
-  "none": $nui-leading-none,
-  "tight": $nui-leading-tight,
-  "snug": $nui-leading-snug,
-  "normal": $nui-leading-normal,
-  "relaxed": $nui-leading-relaxed,
-  "loose": $nui-leading-loose,
+// neeto-ui-line-heights-map
+$neeto-ui-line-heights: (
+  "none": $neeto-ui-leading-none,
+  "tight": $neeto-ui-leading-tight,
+  "snug": $neeto-ui-leading-snug,
+  "normal": $neeto-ui-leading-normal,
+  "relaxed": $neeto-ui-leading-relaxed,
+  "loose": $neeto-ui-leading-loose,
 );
 
 // Text-transform
-$nui-text-transform-none: none;
-$nui-text-transform-capitalize: capitalize;
-$nui-text-transform-uppercase: uppercase;
-$nui-text-transform-lowercase: lowercase;
-$nui-text-transform-fullwidth: full-width;
-$nui-text-transform-inherit: inherit;
-$nui-text-transform-initial: initial;
-$nui-text-transform-revert: revert;
-$nui-text-transform-unset: unset;
+$neeto-ui-text-transform-none: none;
+$neeto-ui-text-transform-capitalize: capitalize;
+$neeto-ui-text-transform-uppercase: uppercase;
+$neeto-ui-text-transform-lowercase: lowercase;
+$neeto-ui-text-transform-fullwidth: full-width;
+$neeto-ui-text-transform-inherit: inherit;
+$neeto-ui-text-transform-initial: initial;
+$neeto-ui-text-transform-revert: revert;
+$neeto-ui-text-transform-unset: unset;
 
-// nui-text-transform-map
-$nui-text-transform: (
-  "none": $nui-text-transform-none,
-  "capitalize": $nui-text-transform-capitalize,
-  "uppercase": $nui-text-transform-uppercase,
-  "lowercase": $nui-text-transform-lowercase,
-  "full-width": $nui-text-transform-fullwidth,
-  "inherit": $nui-text-transform-inherit,
-  "initial": $nui-text-transform-initial,
-  "revert": $nui-text-transform-revert,
-  "unset": $nui-text-transform-unset,
+// neeto-ui-text-transform-map
+$neeto-ui-text-transform: (
+  "none": $neeto-ui-text-transform-none,
+  "capitalize": $neeto-ui-text-transform-capitalize,
+  "uppercase": $neeto-ui-text-transform-uppercase,
+  "lowercase": $neeto-ui-text-transform-lowercase,
+  "full-width": $neeto-ui-text-transform-fullwidth,
+  "inherit": $neeto-ui-text-transform-inherit,
+  "initial": $neeto-ui-text-transform-initial,
+  "revert": $neeto-ui-text-transform-revert,
+  "unset": $neeto-ui-text-transform-unset,
 );
 
 // Border Radius
-$nui-rounded-none: 0;
-$nui-rounded-sm: 2px;
-$nui-rounded: 4px;
-$nui-rounded-md: 6px;
-$nui-rounded-lg: 8px;
-$nui-rounded-xl: 10px;
-$nui-rounded-full: 999px;
+$neeto-ui-rounded-none: 0;
+$neeto-ui-rounded-sm: 2px;
+$neeto-ui-rounded: 4px;
+$neeto-ui-rounded-md: 6px;
+$neeto-ui-rounded-lg: 8px;
+$neeto-ui-rounded-xl: 10px;
+$neeto-ui-rounded-full: 999px;
 
 // Transition
-$nui-transition: all 0.3s ease-in-out;
+$neeto-ui-transition: all 0.3s ease-in-out;
 
 // Shadows
-$nui-shadow: 0px 0px 0px 3px $nui-gray-200;
-$nui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+$neeto-ui-shadow: 0px 0px 0px 3px $neeto-ui-gray-200;
+$neeto-ui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
   0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Breakpoints
-$nui-mob-479: 479px;
-$nui-tab-768: 768px;
-$nui-tab-1024: 1024px;
-$nui-desk-1200: 1200px;
+$neeto-ui-mob-479: 479px;
+$neeto-ui-tab-768: 768px;
+$neeto-ui-tab-1024: 1024px;
+$neeto-ui-desk-1200: 1200px;
 
 // Constants
-$nui-pane-header-height: 100px;
-$nui-pane-footer-height: 104px;
-$nui-main-header-height: 117px;
-$nui-sub-header-height: 37px;
-$nui-sub-header-bottom-margin: 20px;
-$nui-pagination-block-height: 88px;
-$nui-table-header-height: 40px;
+$neeto-ui-pane-header-height: 100px;
+$neeto-ui-pane-footer-height: 104px;
+$neeto-ui-main-header-height: 117px;
+$neeto-ui-sub-header-height: 37px;
+$neeto-ui-sub-header-bottom-margin: 20px;
+$neeto-ui-pagination-block-height: 88px;
+$neeto-ui-table-header-height: 40px;

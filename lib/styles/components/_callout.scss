@@ -1,27 +1,27 @@
-.nui-callout {
+.neeto-ui-callout {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  border-radius: $nui-rounded-sm;
+  border-radius: $neeto-ui-rounded-sm;
   padding: 16px 12px;
-  font-size: $nui-text-sm;
+  font-size: $neeto-ui-text-sm;
   line-height: 20px;
-  color: $nui-gray-700;
+  color: $neeto-ui-gray-700;
 
-  .nui-callout__icon {
+  .neeto-ui-callout__icon {
     flex-shrink: 0;
     margin-right: 12px;
-    color: $nui-gray-600;
+    color: $neeto-ui-gray-600;
   }
 
-  &.nui-callout--info {
-    background-color: $nui-pastel-blue;
+  &.neeto-ui-callout--info {
+    background-color: $neeto-ui-pastel-blue;
   }
-  &.nui-callout--warning {
-    background-color: $nui-pastel-yellow;
+  &.neeto-ui-callout--warning {
+    background-color: $neeto-ui-pastel-yellow;
   }
-  &.nui-callout--danger {
-    background-color: $nui-pastel-red;
+  &.neeto-ui-callout--danger {
+    background-color: $neeto-ui-pastel-red;
   }
 }

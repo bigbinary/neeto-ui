@@ -19,10 +19,7 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-          },
-          {
-            loader: "react-classname-prefix-loader?prefix=tw",
-          },
+          }
         ],
       },
       {
@@ -32,10 +29,7 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-          },
-          {
-            loader: "react-classname-prefix-loader?prefix=v2",
-          },
+          }
         ],
       },
       {
