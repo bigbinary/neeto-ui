@@ -4,7 +4,7 @@ import Alert from "../lib/components/Alert";
 import Button from "../lib/components/Button";
 
 export default {
-  title: "Components/Alert",
+  title: "Overlays/Alert",
   component: Alert,
   parameters: {
     layout: "padded",

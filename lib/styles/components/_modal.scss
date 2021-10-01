@@ -25,61 +25,35 @@
       right: 20px;
     }
 
+    &.neeto-ui-modal__wrapper--xs {
+      width: 320px;
+    }
+
     &.neeto-ui-modal__wrapper--sm {
-      width: 40%;
-      max-width: 544px;
-
-      @include viewport(tab-min) {
-        width: 75%;
-      }
-
-      @include viewport(mob) {
-        margin: 0 8px;
-        width: 100%;
-      }
+      width: 480px;
     }
 
     &.neeto-ui-modal__wrapper--md {
-      width: 65%;
-
-      @include viewport(tab-min) {
-        width: 75%;
-      }
-
-      @include viewport(mob) {
-        width: 100%;
-      }
-    }
-
-    &.neeto-ui-modal__wrapper--lg {
-      width: 100%;
-      margin: 0;
-      border-radius: 0;
-
-      @include viewport(mob) {
-        height: 100vh;
-        width: 100%;
-      }
+      width: 720px;
     }
 
     .neeto-ui-modal__header {
-      padding: 32px 24px 24px;
+      padding: 56px 32px 10px;
     }
 
     .neeto-ui-modal__body {
-      padding: 0 24px;
+      padding: 0 32px;
       font-size: $neeto-ui-text-sm;
-      line-height: 20px;
+      line-height: 1.5;
     }
 
     .neeto-ui-modal__footer {
-      padding: 32px 24px;
+      padding: 24px 32px 32px 32px;
     }
 
     .neeto-ui-alert__footer {
-      padding: 32px 24px;
+      padding: 24px 32px 32px 32px;
       display: flex;
-      column-gap: 1rem;
     }
   }
 
@@ -93,6 +67,5 @@
       margin: 1px 4px 0 0;
       font-weight: 500;
     }
-
   }
 }

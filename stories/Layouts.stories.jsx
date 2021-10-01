@@ -169,7 +169,7 @@ export const Page = () => {
             <PageLoader />
           ) : (
             <table
-              className={`nui-table nui-table--checkbox nui-table--actions`}
+              className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
             >
               <thead>
                 <tr>
@@ -236,7 +236,7 @@ export const Page = () => {
             </table>
           )}
         </Scrollable>
-        <div className="flex flex-row justify-end items-center w-full mt-6 mb-8">
+        <div className="flex flex-row items-center justify-end w-full mt-6 mb-8">
           <Pagination
             count={300}
             pageNo={1}
