@@ -1,3 +1,5 @@
+import { Copy, Design, UserCircle, NeetoInsights, Settings, Image  } from "@bigbinary/neeto-icons";
+
 import Button from "./Pages/Button";
 import Dropdown from "./Pages/Dropdown";
 import Tab from "./Pages/Tab";
@@ -38,6 +40,7 @@ export const NAV_LINKS = [
   {
     label: "Components",
     to: "/components",
+    icon: Copy,
     items: [
       {
         label: "Button",
@@ -72,6 +75,7 @@ export const NAV_LINKS = [
   {
     label: "Form Elements",
     to: "/form-elements",
+    icon: Design,
     items: [
       {
         label: "Input",
@@ -90,14 +94,17 @@ export const NAV_LINKS = [
   {
     label: "Misc",
     to: "/misc",
+    icon: UserCircle,
   },
   {
     label: "Formik",
     to: "/formik",
+    icon: NeetoInsights,
   },
   {
     label: "Overlays",
     to: "/overlays",
+    icon: Settings,
     items: [
       {
         label: "Modal",
@@ -120,5 +127,6 @@ export const NAV_LINKS = [
   {
     label: "Layouts",
     to: "/layouts",
+    icon: Image,
   },
 ];
