@@ -33,25 +33,26 @@ const SidebarHandleIcon = ({ size, color }) => {
   );
 };
 
-export const BasicUsage = () => {
-  return (
-    <Router>
-      <Header
-        title={
-          <div className="flex items-center">
-            <h3>Layouts</h3>
-          </div>
-        }
-        menuBarHandle={
-          <Button
-            style="text"
-            className="mr-2"
-            icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
-          />
-        }
-        actionBlock={<Button label="Primary Action" />}
-        breadcrumbs={[{ text: "Home", link: "/" }]}
-      />
-    </Router>
-  );
+const Template = (args) => (
+  <Router>
+    <Header {...args} />
+  </Router>
+);
+
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {
+  title: (
+    <div className="flex items-center">
+      <h3>Layouts</h3>
+    </div>
+  ),
+  menuBarHandle: (
+    <Button
+      style="text"
+      className="mr-2"
+      icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
+    />
+  ),
+  actionBlock: <Button label="Primary Action" />,
+  breadcrumbs: [{ text: "Home", link: "/" }],
 };
