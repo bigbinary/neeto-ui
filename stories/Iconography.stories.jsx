@@ -56,7 +56,6 @@ export const Iconography = () => {
         </a>
       </p>
       <div className="grid grid-cols-4 gap-3 lg:grid-cols-8">
-        {console.log(iconset.iconList)}
         {iconset.iconList.map((icon) => {
           const Component = iconset[icon];
           return (
