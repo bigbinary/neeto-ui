@@ -1,15 +1,32 @@
 import React from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 
+const applications = [
+  "NeetoAnalytics",
+  "NeetoCal",
+  "NeetoChangelog",
+  "NeetoChat",
+  "NeetoDesk",
+  "NeetoForm",
+  "NeetoInsights",
+  "NeetoInterview",
+  "NeetoInvisible",
+  "NeetoKb",
+  "NeetoQuiz",
+  "NeetoReplay",
+  "NeetoWireframe",
+];
+
 export default {
   title: "Foundation/Iconography",
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { ClockIcon } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<ClockIcon color="#1e1e20" size={24} />`',
-      }
-    }
+        component:
+          '`import { ClockIcon } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<ClockIcon color="#1e1e20" size={24} />`',
+      },
+    },
   },
 };
 
@@ -38,19 +55,65 @@ export const Iconography = () => {
           <span>Source</span>
         </a>
       </p>
-      <div className="grid grid-cols-4 lg:grid-cols-8 gap-3">
+      <div className="grid grid-cols-4 gap-3 lg:grid-cols-8">
         {iconset.iconList.map((icon) => {
           const Component = iconset[icon];
           return (
             <div
               key={icon}
-              className="flex items-center justify-center p-5 bg-gray-50 hover:bg-gray-100 rounded-lg flex-col cursor-pointer transition-colors"
+              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
             >
               <Component />
               <div className="mt-2 text-xs">{icon}</div>
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+};
+
+export const ApplicationIcons = () => {
+  return (
+    <div className="p-4">
+      <div className="table border-collapse">
+        <thead>
+          <tr>
+            <th className="p-4 text-left border border-gray-200"></th>
+            <th className="p-4 text-left border border-gray-200">Application</th>
+            <th className="p-4 text-left border border-gray-200">Gradient Class</th>
+            <th className="p-4 text-left border border-gray-200">Icon</th>
+          </tr>
+        </thead>
+        <tbody>
+          {applications.map((application) => {
+            const Component = iconset[application];
+            return (
+              <tr className="">
+                <td className="p-4 text-center border border-gray-200">  
+                  <div
+                    className={`neeto-ui-app-switcher-link__icon-holder m-0 ${application
+                      .toLocaleLowerCase()
+                      .replace("neeto", "gradient--")}`}
+                  >
+                    <Component color="#fff" />
+                  </div>
+                </td>
+                <td className="p-4 text-left border border-gray-200">
+                  <b className="p-1 px-2 text-xs">{application}</b>
+                </td>
+                <td className="p-4 text-left border border-gray-200">
+                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`.${application
+                    .toLocaleLowerCase()
+                    .replace("neeto", "gradient--")}`}</code>
+                </td>
+                <td className="p-4 text-left border border-gray-200">
+                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{application}</code>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </div>
     </div>
   );

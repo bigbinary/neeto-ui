@@ -39,7 +39,11 @@ NeetoUI gets auto-published to npm on new commit to master. You can checkout the
 
 ## Documentation
 
-Read the docs here: https://neetoui.netlify.app.
+Read the docs here
+
+v1 : https://neetoui.netlify.app
+
+v2 : https://neetoui-v2.netlify.app
 
 ## Theming
 

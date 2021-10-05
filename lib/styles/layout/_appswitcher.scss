@@ -67,11 +67,11 @@
   transition: background-color 0.3s ease-in-out;
 
   &:focus,
-  &:focus-visible{
+  &:focus-visible {
     outline: none;
   }
 
-  &:focus-visible{
+  &:focus-visible {
     background-color: $neeto-ui-gray-100;
   }
 
@@ -148,33 +148,41 @@
 }
 
 .gradient--changelog {
-  background: linear-gradient(134.25deg, #57de4a 0.62%, #14b4c6 97.5%);
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
 }
 
 .gradient--cal {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #39d0dd 0%, #0ea5e9 100%);
 }
+
 .gradient--engage {
   background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
 }
+
 .gradient--insights {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #7f7ff5 0%, #451ab3 97.5%);
 }
+
 .gradient--quiz {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #d0a8c2 0%, #5b5fe1 100%);
 }
+
 .gradient--replay {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(137.62deg, #e2e0a7 0%, #966eec 95.83%);
 }
+
 .gradient--invisible {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #f1e205 0%, #6366f1 100%);
 }
+
 .gradient--planner {
   background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
 }
+
 .gradient--wireframe {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(134.25deg, #f76d3b 0.62%, #a874c8 97.5%);
 }
+
 .gradient--interview {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #dcd4d3 0%, #21c77c 100%);
 }
