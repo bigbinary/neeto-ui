@@ -7,7 +7,7 @@ export default {
   title: "Layouts/Sidebar",
   component: Sidebar,
   parameters: {
-    layout: "padded",
+    layout: "fullscreen",
     docs: {
       description: {
         component: '`import { Sidebar } from "@bigbinary/neetoui/v2/layouts";`',
