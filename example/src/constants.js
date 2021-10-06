@@ -1,4 +1,4 @@
-import { Copy, Design, UserCircle, NeetoInsights, Settings, Image  } from "@bigbinary/neeto-icons";
+import { Copy, Design, UserCircle, Settings, Image  } from "@bigbinary/neeto-icons";
 
 import Button from "./Pages/Button";
 import Dropdown from "./Pages/Dropdown";
@@ -99,7 +99,7 @@ export const NAV_LINKS = [
   {
     label: "Formik",
     to: "/formik",
-    icon: NeetoInsights,
+    icon: Image,
   },
   {
     label: "Overlays",
