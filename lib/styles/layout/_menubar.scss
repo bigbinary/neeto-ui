@@ -8,6 +8,7 @@
     padding: 24px;
     height: 100vh;
     overflow-y: auto;
+    @include scrollbars(4px);
 
     .neeto-ui-menubar__title {
       margin-bottom: 16px;
