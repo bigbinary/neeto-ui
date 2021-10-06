@@ -1,6 +1,6 @@
 import './style.scss'
 import '../lib/styles/index.scss'
-import './v1.scss'
+// import './v1.scss'
 
 export const parameters = {
   layout: 'fullscreen',
