@@ -68,9 +68,62 @@
     }
   }
 
-  &.neeto-ui-tag--solid {
-    color: $neeto-ui-secondary-indigo;
+  &.neeto-ui-tag--red {
+    background-color: $neeto-ui-pastel-red;
+    border: thin solid $neeto-ui-error;
+    color: $neeto-ui-error;
+  }
+
+  &.neeto-ui-tag--blue {
     background-color: $neeto-ui-pastel-blue;
     border: thin solid $neeto-ui-secondary-indigo;
+    color: $neeto-ui-secondary-indigo;
+  }
+
+  &.neeto-ui-tag--green {
+    background-color: $neeto-ui-pastel-green;
+    border: thin solid $neeto-ui-secondary-green;
+    color: $neeto-ui-secondary-green;
+  }
+
+  &.neeto-ui-tag--yellow {
+    background-color: $neeto-ui-pastel-yellow;
+    border: thin solid $neeto-ui-warning;
+    color: $neeto-ui-warning;
+  }
+
+  &.neeto-ui-tag--grey {
+    background-color: $neeto-ui-gray-200;
+  }
+
+  &.neeto-ui-tag--solid {
+    background-color: $neeto-ui-pastel-blue;
+    color: $neeto-ui-gray-800;
+    padding: 3px 9px;
+    border: none;
+
+    &.neeto-ui-tag--large {
+      padding: 5px 13px;
+    }
+
+    &.neeto-ui-tag--red {
+      background-color: $neeto-ui-pastel-red;
+    }
+
+    &.neeto-ui-tag--blue {
+      background-color: $neeto-ui-pastel-blue;
+    }
+
+    &.neeto-ui-tag--green {
+      background-color: $neeto-ui-pastel-green;
+    }
+
+    &.neeto-ui-tag--yellow {
+      background-color: $neeto-ui-pastel-yellow;
+    }
+
+    &.neeto-ui-tag--grey {
+      background-color: $neeto-ui-gray-200;
+    }
   }
 }

@@ -38,6 +38,40 @@ export const Tags = () => {
             <Tag size="large" icon={Favorite} onClose={onClose} label="Label" />
           </div>
           <div className="flex flex-row justify-start items-start space-x-4">
+            <h5>Colored Outline Large : </h5>
+            <Tag
+              style="outline"
+              size="large"
+              color="grey"
+              icon={Favorite}
+              onClose={onClose}
+              label="Label"
+            />
+            <Tag style="outline" size="large" color="red" label="Label" />
+            <Tag
+              style="outline"
+              size="large"
+              color="green"
+              icon={Favorite}
+              label="Label"
+            />
+            <Tag
+              style="outline"
+              size="large"
+              color="blue"
+              onClose={onClose}
+              label="Label"
+            />
+            <Tag
+              style="outline"
+              size="large"
+              color="yellow"
+              icon={Favorite}
+              onClose={onClose}
+              label="Label"
+            />
+          </div>
+          <div className="flex flex-row justify-start items-start space-x-4">
             <h5>Solid Small: </h5>
             <Tag style="solid" label="Label" />
             <Tag style="solid" icon={Favorite} label="Label" />
@@ -63,6 +97,14 @@ export const Tags = () => {
             />
           </div>
           <div className="flex flex-row justify-start items-start space-x-4">
+            <h5>Solid With Colors : </h5>
+            <Tag size="large" style="solid" label="Label" color="grey" />
+            <Tag size="large" style="solid" label="Label" color="red" />
+            <Tag size="large" style="solid" label="Label" color="green" />
+            <Tag size="large" style="solid" label="Label" color="blue" />
+            <Tag size="large" style="solid" label="Label" color="yellow" />
+          </div>
+          <div className="flex flex-row justify-start items-start space-x-4">
             <h5>With Indicator : </h5>
             <Tag label="Label" indicator="bg-green-500" />
             <Tag label="Label" indicator="bg-yellow-500" />
@@ -80,4 +122,19 @@ export const Tags = () => {
       </div>
     </div>
   );
+};
+
+export const TagColorStory = (props) => (
+  <div className="flex items-center justify-center">
+    <Tag {...props} />
+  </div>
+);
+
+TagColorStory.storyName = "Tag with Color";
+TagColorStory.args = {
+  color: "green",
+  style: "outline",
+  label: "Label",
+  size: "large",
+  onClose: null,
 };
