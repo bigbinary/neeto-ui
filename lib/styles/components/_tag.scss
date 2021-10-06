@@ -1,28 +1,27 @@
 .neeto-ui-tag {
   display: inline-flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: $neeto-ui-gray-800;
   font-size: $neeto-ui-text-xs;
   font-weight: $neeto-ui-font-normal;
   padding: 2px 8px;
-  line-height: 16px;
-  background-color: $neeto-ui-white;
-  border: thin solid $neeto-ui-gray-400;
+  line-height: 1.1;
+  min-height: 20px;
   border-radius: $neeto-ui-rounded;
+  color: $neeto-ui-gray-800;
+  border-width: 1px;
+  border-style: solid;
 
-  .neeto-ui-tag__indicator {
+  &__indicator {
     border-radius: $neeto-ui-rounded-full;
     height: 8px;
     width: 8px;
-    margin-right: 4px;
+    margin-right: 8px;
   }
 
-  .neeto-ui-tag__icon {
-    margin-right: 4px;
+  &__icon {
+    margin-right: 8px;
     display: inline-flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -32,7 +31,7 @@
     }
   }
 
-  .neeto-ui-tag__close {
+  &__close {
     margin-left: 8px;
     opacity: 0.8;
     transition: $neeto-ui-transition;
@@ -48,10 +47,11 @@
     }
   }
 
-  &.neeto-ui-tag--large {
+  &--size-large {
     padding: 4px 12px;
     font-weight: $neeto-ui-font-medium;
     font-size: $neeto-ui-text-sm;
+    min-height: 26px;
 
     .neeto-ui-tag__icon,
     .neeto-ui-tag__close {
@@ -61,69 +61,81 @@
       }
     }
 
+    .neeto-ui-tag__icon {
+      margin-right: 12px;
+    }
+
     .neeto-ui-tag__indicator {
       width: 10px;
       height: 10px;
-      margin-right: 6px;
+      margin-right: 12px;
+    }
+
+    .neeto-ui-tag__close {
+      margin-left: 12px;
     }
   }
 
-  &.neeto-ui-tag--red {
-    background-color: $neeto-ui-pastel-red;
-    border: thin solid $neeto-ui-error;
-    color: $neeto-ui-error;
-  }
+  &--style-outline {
+    border-color: $neeto-ui-gray-400;
+    background-color: $neeto-ui-white;
 
-  &.neeto-ui-tag--blue {
-    background-color: $neeto-ui-pastel-blue;
-    border: thin solid $neeto-ui-secondary-indigo;
-    color: $neeto-ui-secondary-indigo;
-  }
-
-  &.neeto-ui-tag--green {
-    background-color: $neeto-ui-pastel-green;
-    border: thin solid $neeto-ui-secondary-green;
-    color: $neeto-ui-secondary-green;
-  }
-
-  &.neeto-ui-tag--yellow {
-    background-color: $neeto-ui-pastel-yellow;
-    border: thin solid $neeto-ui-warning;
-    color: $neeto-ui-warning;
-  }
-
-  &.neeto-ui-tag--grey {
-    background-color: $neeto-ui-gray-200;
-  }
-
-  &.neeto-ui-tag--solid {
-    background-color: $neeto-ui-pastel-blue;
-    color: $neeto-ui-gray-800;
-    padding: 3px 9px;
-    border: none;
-
-    &.neeto-ui-tag--large {
-      padding: 5px 13px;
-    }
-
-    &.neeto-ui-tag--red {
+    &.neeto-ui-tag--color-red {
       background-color: $neeto-ui-pastel-red;
+      border-color: $neeto-ui-error;
+      color: $neeto-ui-error;
     }
 
-    &.neeto-ui-tag--blue {
+    &.neeto-ui-tag--color-blue {
       background-color: $neeto-ui-pastel-blue;
+      border-color: $neeto-ui-secondary-indigo;
+      color: $neeto-ui-secondary-indigo;
     }
 
-    &.neeto-ui-tag--green {
+    &.neeto-ui-tag--color-green {
       background-color: $neeto-ui-pastel-green;
+      border-color: $neeto-ui-secondary-green;
+      color: $neeto-ui-secondary-green;
     }
 
-    &.neeto-ui-tag--yellow {
+    &.neeto-ui-tag--color-yellow {
       background-color: $neeto-ui-pastel-yellow;
+      border-color: $neeto-ui-warning;
+      color: $neeto-ui-warning;
     }
 
-    &.neeto-ui-tag--grey {
+    &.neeto-ui-tag--color-grey {
       background-color: $neeto-ui-gray-200;
+    }
+  }
+
+  &--style-solid {
+    border-color: $neeto-ui-pastel-blue;
+    background-color: $neeto-ui-pastel-blue;
+
+    &.neeto-ui-tag--color-red {
+      background-color: $neeto-ui-pastel-red;
+      border-color: $neeto-ui-pastel-red;
+    }
+
+    &.neeto-ui-tag--color-blue {
+      background-color: $neeto-ui-pastel-blue;
+      border-color: $neeto-ui-pastel-blue;
+    }
+
+    &.neeto-ui-tag--color-green {
+      background-color: $neeto-ui-pastel-green;
+      border-color: $neeto-ui-pastel-green;
+    }
+
+    &.neeto-ui-tag--color-yellow {
+      background-color: $neeto-ui-pastel-yellow;
+      border-color: $neeto-ui-pastel-yellow;
+    }
+
+    &.neeto-ui-tag--color-grey {
+      background-color: $neeto-ui-gray-200;
+      border-color: $neeto-ui-gray-200;
     }
   }
 }
