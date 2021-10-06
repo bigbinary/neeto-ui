@@ -128,17 +128,19 @@ export const AllVariants = () => {
           </div>
           <div className="flex flex-row items-start justify-start space-x-4">
             <h5>With Indicator : </h5>
-            <Tag label="Label" indicator="bg-green-500" />
-            <Tag label="Label" indicator="bg-yellow-500" />
-            <Tag label="Label" indicator="bg-blue-500" />
-            <Tag label="Label" indicator="bg-red-500" />
+            <Tag label="Label" indicatorColor="green" />
+            <Tag label="Label" indicatorColor="yellow" />
+            <Tag label="Label" indicatorColor="blue" />
+            <Tag label="Label" indicatorColor="red" />
+            <Tag label="Label" indicatorColor="grey" />
           </div>
           <div className="flex flex-row items-start justify-start space-x-4">
             <h5>With Indicator Large : </h5>
-            <Tag size="large" label="Label" indicator="bg-green-500" />
-            <Tag size="large" label="Label" indicator="bg-yellow-500" />
-            <Tag size="large" label="Label" indicator="bg-blue-500" />
-            <Tag size="large" label="Label" indicator="bg-red-500" />
+            <Tag size="large" label="Label" indicatorColor="green" />
+            <Tag size="large" label="Label" indicatorColor="yellow" />
+            <Tag size="large" label="Label" indicatorColor="blue" />
+            <Tag size="large" label="Label" indicatorColor="red" />
+            <Tag size="large" label="Label" indicatorColor="grey" />
           </div>
         </div>
       </div>
