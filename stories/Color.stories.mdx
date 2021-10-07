@@ -128,10 +128,10 @@ export const colorPalette = [
   <thead>
     <tr>
       <td></td>
-      <td>Hex Code</td>
-      <td>Variable Name</td>
-      <td>Text Color</td>
-      <td>Background Color</td>
+      <td>Hex code</td>
+      <td>Variable name</td>
+      <td>Text color class</td>
+      <td>Background color class</td>
     </tr>
   </thead>
   <tbody>
@@ -154,14 +154,14 @@ export const colorPalette = [
           </td>
           <td>
             <div className="flex justify-between">
-              <code>{`.${color.name.replace("$neeto-ui", "neeto-ui-text")}`}</code>
+              <code>{`${color.name.replace("$neeto-ui", "neeto-ui-text")}`}</code>
               <b className={`ml-2 ${color.name.replace("$neeto-ui", "neeto-ui-text")}`}>
                 Aa
               </b>
             </div>
           </td>
           <td className={`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}>
-            <code>{`.${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
+            <code>{`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
           </td>
         </tr>
       );

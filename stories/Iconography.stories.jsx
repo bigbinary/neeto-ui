@@ -81,7 +81,7 @@ export const ApplicationIcons = () => {
           <tr>
             <th className="p-4 text-left border border-gray-200"></th>
             <th className="p-4 text-left border border-gray-200">Application</th>
-            <th className="p-4 text-left border border-gray-200">Gradient Class</th>
+            <th className="p-4 text-left border border-gray-200">Gradient class</th>
             <th className="p-4 text-left border border-gray-200">Icon</th>
           </tr>
         </thead>
@@ -103,7 +103,7 @@ export const ApplicationIcons = () => {
                   <b className="p-1 px-2 text-xs">{application}</b>
                 </td>
                 <td className="p-4 text-left border border-gray-200">
-                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`.${application
+                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`${application
                     .toLocaleLowerCase()
                     .replace("neeto", "gradient--")}`}</code>
                 </td>
