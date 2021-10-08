@@ -92,7 +92,7 @@ export const ApplicationIcons = () => {
               <tr className="">
                 <td className="p-4 text-center border border-gray-200">  
                   <div
-                    className={`neeto-ui-app-switcher-link__icon-holder m-0 ${application
+                    className={`w-8 h-8 rounded-md mb-3 flex flex-row items-center justify-center ${application
                       .toLocaleLowerCase()
                       .replace("neeto", "gradient--")}`}
                   >
