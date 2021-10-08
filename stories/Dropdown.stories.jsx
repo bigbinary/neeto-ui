@@ -82,3 +82,23 @@ export const CustomIcon = (args) => {
     </Dropdown>
   );
 };
+
+export const DropdownStory = (args) => {
+  return (
+    <Dropdown
+      label="Dropdown"
+      position="bottom-end"
+      {...args}
+    >
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+    </Dropdown>
+  );
+};
+DropdownStory.storyName = "DropDown"
+DropdownStory.args = {
+  buttonProps: {
+    size: "large"
+  }
+}
