@@ -24,7 +24,7 @@ export default {
     docs: {
       description: {
         component:
-          '`import { ClockIcon } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<ClockIcon color="#1e1e20" size={24} />`',
+          '`import { Clock } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<Clock color="#1e1e20" size={24} />`',
       },
     },
   },
