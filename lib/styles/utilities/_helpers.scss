@@ -47,4 +47,12 @@ body {
       border-color: $value;
     }
   }
+
+  // box shadows
+  @each $shadow, $value in $neeto-ui-shadows {
+    .neeto-ui-shadow-#{$shadow} {
+      box-shadow: $value;
+    }
+  }
+
 }
