@@ -24,7 +24,7 @@ export default {
     docs: {
       description: {
         component:
-          '`import { ClockIcon } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<ClockIcon color="#1e1e20" size={24} />`',
+          '`import { Clock } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<Clock color="#1e1e20" size={24} />`',
       },
     },
   },
@@ -81,7 +81,7 @@ export const ApplicationIcons = () => {
           <tr>
             <th className="p-4 text-left border border-gray-200"></th>
             <th className="p-4 text-left border border-gray-200">Application</th>
-            <th className="p-4 text-left border border-gray-200">Gradient Class</th>
+            <th className="p-4 text-left border border-gray-200">Gradient class</th>
             <th className="p-4 text-left border border-gray-200">Icon</th>
           </tr>
         </thead>
@@ -92,7 +92,7 @@ export const ApplicationIcons = () => {
               <tr className="">
                 <td className="p-4 text-center border border-gray-200">  
                   <div
-                    className={`neeto-ui-app-switcher-link__icon-holder m-0 ${application
+                    className={`w-8 h-8 rounded-md mb-3 flex flex-row items-center justify-center ${application
                       .toLocaleLowerCase()
                       .replace("neeto", "gradient--")}`}
                   >
@@ -103,7 +103,7 @@ export const ApplicationIcons = () => {
                   <b className="p-1 px-2 text-xs">{application}</b>
                 </td>
                 <td className="p-4 text-left border border-gray-200">
-                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`.${application
+                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`${application
                     .toLocaleLowerCase()
                     .replace("neeto", "gradient--")}`}</code>
                 </td>

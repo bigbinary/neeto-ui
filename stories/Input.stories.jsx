@@ -41,8 +41,12 @@ export const Required = () => <Input label="Required Input" required={true} />;
 
 export const Disabled = () => <Input label="Disabled Input" disabled={true} />;
 
-export const SearchInput = () => (
-  <Input label="Search" prefix={<Search />} suffix=".neetohelp.com" />
+export const SearchInputSmall = () => (
+  <Input label="Search" prefix={<Search size={16} />} suffix=".neetohelp.com" />
+);
+
+export const SearchInputLarge = () => (
+  <Input label="Search" size="large" prefix={<Search size={20} />} suffix=".neetohelp.com" />
 );
 
 export const Error = () => <Input label="Error" error="Provide valid email" />;
@@ -62,15 +66,6 @@ export const AllVariants = () => {
       <div className="p-6 space-y-6">
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Input/Small/Default</h2>
-          <div className="flex flex-row items-center justify-center space-x-8">
-            <Input placeholder="Input Placeholder" data-cy="test123" />
-            <Input
-              placeholder="Input Placeholder"
-              prefix={<Favorite size={16} />}
-            />
-            <Input placeholder="Input Placeholder" />
-            <Input placeholder="Input Placeholder" />
-          </div>
           <div className="flex flex-row items-center justify-center space-x-8">
             <Input placeholder="Input Placeholder" />
             <Input
@@ -126,16 +121,6 @@ export const AllVariants = () => {
         </div>
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Input/Large</h2>
-          <div className="flex flex-row items-center justify-center space-x-8">
-            <Input placeholder="Input Placeholder" size="large" />
-            <Input
-              placeholder="Input Placeholder"
-              size="large"
-              prefix={<Favorite size={16} />}
-            />
-            <Input placeholder="Input Placeholder" size="large" />
-            <Input placeholder="Input Placeholder" size="large" />
-          </div>
           <div className="flex flex-row items-center justify-center space-x-8">
             <Input placeholder="Input Placeholder" size="large" />
             <Input

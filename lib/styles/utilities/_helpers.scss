@@ -40,4 +40,19 @@ body {
         text-transform: $value;
     }
   }
+
+  // border color
+  @each $color, $value in $neeto-ui-theme-colors {
+    .neeto-ui-border-#{$color} {
+      border-color: $value;
+    }
+  }
+
+  // box shadows
+  @each $shadow, $value in $neeto-ui-shadows {
+    .neeto-ui-shadow-#{$shadow} {
+      box-shadow: $value;
+    }
+  }
+
 }

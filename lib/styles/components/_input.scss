@@ -37,6 +37,8 @@
       font-size: inherit;
       line-height: inherit;
       box-shadow: none;
+      outline: none;
+      
       &::placeholder {
         color: $neeto-ui-gray-400;
       }
@@ -89,6 +91,7 @@
     &.neeto-ui-input--small {
       input {
         padding: 6px 8px;
+        line-height: 1.3;
       }
     }
 

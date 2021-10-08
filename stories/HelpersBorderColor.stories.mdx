@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta, Story } from "@storybook/addon-docs";
 
 export const colorPalette = [
   {
@@ -113,7 +113,7 @@ export const colorPalette = [
   },
 ];
 
-<Meta title="Foundation/Colors" />
+<Meta title="Foundation/Helpers/Border Color" />
 
 <style>{`
   .story-demo-table tr{
@@ -122,16 +122,14 @@ export const colorPalette = [
   
 `}</style>
 
-# Colors
+# Border Color
 
 <table className="story-demo-table">
   <thead>
     <tr>
       <td></td>
       <td>Hex code</td>
-      <td>Variable name</td>
-      <td>Text color class</td>
-      <td>Background color class</td>
+      <td>Class</td>
     </tr>
   </thead>
   <tbody>
@@ -140,9 +138,9 @@ export const colorPalette = [
         <tr key={color.name}>
           <td>
             <div
-              className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+              className={`w-12 h-12 border ${color.name.replace(
                 "$neeto-ui",
-                "neeto-ui-bg"
+                "neeto-ui-border"
               )}`}
             ></div>
           </td>
@@ -150,18 +148,12 @@ export const colorPalette = [
             <code>{color.value}</code>
           </td>
           <td>
-            <code>{color.name}</code>
-          </td>
-          <td>
             <div className="flex justify-between">
-              <code>{`${color.name.replace("$neeto-ui", "neeto-ui-text")}`}</code>
-              <b className={`ml-2 ${color.name.replace("$neeto-ui", "neeto-ui-text")}`}>
-                Aa
-              </b>
+              <code>{`${color.name.replace(
+                "$neeto-ui",
+                "neeto-ui-border"
+              )}`}</code>
             </div>
-          </td>
-          <td className={`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}>
-            <code>{`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
           </td>
         </tr>
       );
