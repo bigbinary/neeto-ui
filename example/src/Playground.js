@@ -60,7 +60,6 @@ const Playground = () => {
       <AppSwitcher
         isOpen={appSwitcher}
         onClose={() => toggleAppSwitcher(false)}
-        neetoApps={["Desk", "Chat", "KB", "Form"]}
       />
     </Router>
   );
