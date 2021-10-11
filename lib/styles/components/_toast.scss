@@ -1,3 +1,5 @@
+// neetoUI variables have been commented out to provide a hotfix for https://github.com/bigbinary/neeto-ui/issues/514
+
 body {
   .Toastify__toast-container {
     padding: 0;
@@ -14,9 +16,10 @@ body {
 
       box-shadow: none;
 
-      border-radius: $neeto-ui-rounded-sm;
+      // border-radius: $neeto-ui-rounded-sm;
+      border-radius: 2px;
 
-      &::after{
+      &::after {
         visibility: hidden;
       }
 
@@ -28,7 +31,8 @@ body {
         margin: 0;
         padding: 0;
 
-        color: $neeto-ui-gray-800;
+        // color: $neeto-ui-gray-800;
+        color: #2f3941;
 
         div {
           display: flex;
@@ -37,7 +41,8 @@ body {
           align-items: center;
 
           p {
-            font-size: $neeto-ui-text-sm;
+            // font-size: $neeto-ui-text-sm;
+            font-size: 14px;
             margin: 0 0.75rem;
           }
 
@@ -46,10 +51,12 @@ body {
             margin: 0 0.25rem 0;
             cursor: pointer;
 
-            color: $neeto-ui-gray-800;
+            // color: $neeto-ui-gray-800;
+            color: #2f3941;
             opacity: 0.5;
 
-            transition: $neeto-ui-transition;
+            // transition: $neeto-ui-transition;
+            transition: all 0.3s ease-in-out;
 
             &:hover {
               opacity: 1;
@@ -62,7 +69,8 @@ body {
         opacity: 0.5;
         margin: auto 0;
 
-        transition: $neeto-ui-transition;
+        // transition: $neeto-ui-transition;
+        transition: all 0.3s ease-in-out;
 
         &:hover,
         &:focus,
@@ -72,28 +80,38 @@ body {
       }
 
       &.Toastify__toast--success {
-        background: $neeto-ui-pastel-green;
-        border: 1px solid $neeto-ui-success;
+        // background: $neeto-ui-pastel-green;
+        background: #ebf5ec;
+        // border: 1px solid $neeto-ui-success;
+        border: 1px solid #00ba88;
       }
 
       &.Toastify__toast--error {
-        background: $neeto-ui-pastel-red;
-        border: 1px solid $neeto-ui-error;
+        // background: $neeto-ui-pastel-red;
+        background: #ffefed;
+        // border: 1px solid $neeto-ui-error;
+        border: 1px solid #f56a58;
       }
 
       &.Toastify__toast--info {
-        background: $neeto-ui-pastel-blue;
-        border: 1px solid $neeto-ui-info;
+        // background: $neeto-ui-pastel-blue;
+        background: #eaf3fc;
+        // border: 1px solid $neeto-ui-info;
+        border: 1px solid #276ef1;
       }
 
       &.Toastify__toast--warning {
-        background: $neeto-ui-pastel-yellow;
-        border: 1px solid $neeto-ui-warning;
+        // background: $neeto-ui-pastel-yellow;
+        background: #fff2d7;
+        // border: 1px solid $neeto-ui-warning;
+        border: 1px solid #f3cd82;
       }
 
       &.Toastify__toast--default {
-        background: $neeto-ui-pastel-blue;
-        border: 1px solid $neeto-ui-info;
+        // background: $neeto-ui-pastel-blue;
+        background: #eaf3fc;
+        // border: 1px solid $neeto-ui-info;
+        border: 1px solid #276ef1;
       }
     }
   }
