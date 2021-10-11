@@ -102,49 +102,47 @@ body {
   }
 }
 
-/* Heading tags are nested inside the body tag for having higher specificity than Tailwind reset */
-
 body {
   color: $neeto-ui-gray-800;
+}
 
-  h1 {
-    font-size: $neeto-ui-text-3xl;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h1 {
+  font-size: $neeto-ui-text-3xl;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  h2 {
-    font-size: $neeto-ui-text-2xl;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h2 {
+  font-size: $neeto-ui-text-2xl;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  h3 {
-    font-size: $neeto-ui-text-xl;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h3 {
+  font-size: $neeto-ui-text-xl;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  h4 {
-    font-size: $neeto-ui-text-base;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h4 {
+  font-size: $neeto-ui-text-base;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  h5 {
-    font-size: $neeto-ui-text-sm;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h5 {
+  font-size: $neeto-ui-text-sm;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  h6 {
-    font-size: $neeto-ui-text-xs;
-    font-weight: $neeto-ui-font-semibold;
-    line-height: $neeto-ui-leading-tight;
-  }
+h6 {
+  font-size: $neeto-ui-text-xs;
+  font-weight: $neeto-ui-font-semibold;
+  line-height: $neeto-ui-leading-tight;
+}
 
-  p {
-    font-size: $neeto-ui-text-sm;
-    line-height: $neeto-ui-leading-normal;
-  }
+p {
+  font-size: $neeto-ui-text-sm;
+  line-height: $neeto-ui-leading-normal;
 }
