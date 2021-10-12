@@ -1,4 +1,3 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
 const path = require("path");
 
@@ -13,16 +12,6 @@ module.exports = {
       {
         test: /\.md$/i,
         use: "raw-loader",
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        include: [path.resolve(__dirname, "example")],
-        use: [
-          {
-            loader: "babel-loader",
-          }
-        ],
       },
       {
         test: /\.(js|jsx)$/,
