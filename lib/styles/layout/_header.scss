@@ -72,18 +72,6 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-
-    * {
-      &:first-child {
-        margin-right: 6px;
-      }
-      &:last-child {
-        margin-left: 6px;
-      }
-      &:not(:first-child, :last-child, [hidden]) {
-        margin-right: 6px;
-        margin-left: 6px;
-      }
-    }
+    gap: 12px;
   }
 }
