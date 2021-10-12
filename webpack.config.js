@@ -1,5 +1,7 @@
 const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
 const path = require("path");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -58,5 +60,5 @@ module.exports = {
     library: "neetoui",
     libraryTarget: "umd",
   },
-  plugins: [new PeerDepsExternalsPlugin()],
+  plugins: [new BundleAnalyzerPlugin(), new PeerDepsExternalsPlugin()],
 };
