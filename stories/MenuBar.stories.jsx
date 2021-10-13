@@ -31,11 +31,7 @@ export const MenuBarStory = () => {
     <div className="flex">
       <MenuBar
         showMenu={showMenu}
-        title={
-          <div className="flex justify-between">
-            <Typography style="h2">Contacts</Typography>
-          </div>
-        }
+        title="Contacts"
       >
         <MenuBar.Block label="All" count={13} active />
         <MenuBar.Block label="Users" count={2} />
@@ -109,7 +105,7 @@ export const MenuBarStory = () => {
         />
       </MenuBar>
       <Container>
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="flex items-center justify-center w-full h-full">
           <Button
             label={`${showMenu ? "Close" : "Open"} MenuBar`}
             onClick={() => setShowMenu(!showMenu)}

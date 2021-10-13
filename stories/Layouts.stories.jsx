@@ -58,11 +58,7 @@ export const Page = () => {
     <div className="flex">
       <MenuBar
         showMenu={showMenu}
-        title={
-          <div className="flex justify-between">
-            <Typography style="h2">Contacts</Typography>
-          </div>
-        }
+        title="Contacts"
       >
         <MenuBar.Block label="All" count={13} active />
         <MenuBar.Block label="Users" count={2} />

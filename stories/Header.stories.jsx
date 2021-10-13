@@ -41,11 +41,20 @@ const Template = (args) => (
 
 export const BasicUsage = Template.bind({});
 BasicUsage.args = {
-  title: (
-    <div className="flex items-center">
-      <h3>Layouts</h3>
-    </div>
+  title: "Layouts",
+  menuBarHandle: (
+    <Button
+      style="text"
+      className="mr-2"
+      icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
+    />
   ),
+  actionBlock: <Button label="Primary Action" />,
+};
+
+export const WithBreadcrumbs = Template.bind({});
+WithBreadcrumbs.args = {
+  title: "Layouts",
   menuBarHandle: (
     <Button
       style="text"
