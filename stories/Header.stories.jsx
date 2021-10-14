@@ -17,22 +17,6 @@ export default {
   },
 };
 
-const SidebarHandleIcon = ({ size, color }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path stroke={color} strokeWidth="1.5" d="M3 7.25L21 7.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 11.25L15 11.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 15.25L11 15.25"></path>
-    </svg>
-  );
-};
-
 const Template = (args) => (
   <Router>
     <Header {...args} />
@@ -42,26 +26,20 @@ const Template = (args) => (
 export const BasicUsage = Template.bind({});
 BasicUsage.args = {
   title: "Layouts",
-  menuBarHandle: (
-    <Button
-      style="text"
-      className="mr-2"
-      icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
-    />
-  ),
+  actionBlock: <Button label="Primary Action" />,
+};
+
+export const WithMenuBarToggle = Template.bind({});
+WithMenuBarToggle.args = {
+  title: "Layouts",
+  menuBarToggle: () => alert('clicked'),
   actionBlock: <Button label="Primary Action" />,
 };
 
 export const WithBreadcrumbs = Template.bind({});
 WithBreadcrumbs.args = {
   title: "Layouts",
-  menuBarHandle: (
-    <Button
-      style="text"
-      className="mr-2"
-      icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
-    />
-  ),
+  menuBarToggle: () => alert('clicked'),
   actionBlock: <Button label="Primary Action" />,
   breadcrumbs: [{ text: "Home", link: "/" }],
 };
