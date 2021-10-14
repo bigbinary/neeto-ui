@@ -2,6 +2,7 @@
 
 body {
   .Toastify__toast-container {
+    z-index: 100000;
     padding: 0;
 
     width: auto;
