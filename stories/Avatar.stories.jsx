@@ -50,6 +50,15 @@ Xlarge.args = {
   size: "xlarge",
 };
 
+export const WithCustomClassName = Template.bind({});
+WithCustomClassName.storyName="With Custom className"
+WithCustomClassName.args = {
+  onClick: { onClick },
+  user: { name: "neeto UI" },
+  size: "xlarge",
+  className: "cursor-pointer"
+};
+
 export const AllVariants = () => {
   const imageUrl = "https://i.pravatar.cc/300";
   const onClick = () => {
