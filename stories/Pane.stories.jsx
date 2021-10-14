@@ -3,6 +3,7 @@ import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../lib/components/Button";
 import Pane from "../lib/components/Pane";
+import Typography from "../lib/components/Typography";
 
 export default {
   title: "Overlays/Pane",
@@ -32,24 +33,30 @@ export const Panes = () => {
 
       <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
-          <h2>User Info</h2>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
         </Pane.Header>
         <Pane.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous! Gloop and Gleep, the
-          formless, fearless wonders! With Zandor, their leader, and his wife,
-          Tara, and son, Dorno, they team up to protect their planet from
-          sinister invaders! All-strong! All-brave! All-heroes! They're The
-          Herculoids!
+          <Typography style="body2">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
         </Pane.Body>
-        <Pane.Footer className="flex space-x-4">
+        <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
+            size="large"
             label="Continue"
             onClick={() => setShowPane(false)}
           />
           <Button
             style="text"
+            size="large"
             label="Cancel"
             onClick={() => setShowPane(false)}
           />
