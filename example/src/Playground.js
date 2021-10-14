@@ -41,6 +41,9 @@ const Playground = () => {
             ],
           }}
           toggleAppSwitcher={appSwitcher}
+          showAppSwitcher
+          onAppSwitcherToggle={() => toggleAppSwitcher(open => !open)}
+          appName="neetoUI"
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>

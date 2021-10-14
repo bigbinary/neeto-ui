@@ -72,4 +72,6 @@ Sidenav.args = {
       },
     ],
   },
+  showAppSwitcher: true,
+  appName: "neetoUI"
 };
