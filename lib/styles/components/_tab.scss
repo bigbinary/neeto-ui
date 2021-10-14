@@ -1,58 +1,65 @@
 .neeto-ui-tab__wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
-  border-bottom: 2px solid $neeto-ui-gray-200;
+  border-bottom: 2px solid $neeto-ui-gray-300;
 
-  .neeto-ui-tab {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: $neeto-ui-gray-500;
-    font-weight: $neeto-ui-font-medium;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 8px 40px;
+  &--size-large {
+    .neeto-ui-tab {
+      font-size: $neeto-ui-text-xl;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+  &--underline-none {
+    border-bottom: none;
+    .neeto-ui-tab {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.neeto-ui-tab {
+  color: $neeto-ui-gray-500;
+  font-weight: $neeto-ui-font-semibold;
+  font-size: $neeto-ui-text-sm;
+  line-height: 1;
+  padding: 12px 8px;
+  transition: $neeto-ui-transition;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+
+  &__icon {
+    margin-right: 12px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    color: $neeto-ui-gray-600;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    left: 0;
+    right: 0;
+    bottom: -2px;
     transition: $neeto-ui-transition;
-    position: relative;
-    cursor: pointer;
-    outline: none;
+  }
 
-    svg,
-    i {
-      margin-right: 12px;
-    }
-
-    svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    &:hover {
-      color: $neeto-ui-gray-600;
-    }
+  &.active {
+    color: $neeto-ui-gray-800;
 
     &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background-color: transparent;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      transition: $neeto-ui-transition;
-    }
-
-    &.active {
-      color: $neeto-ui-gray-800;
-
-      &:before {
-        background-color: $neeto-ui-gray-800;
-      }
+      background-color: $neeto-ui-gray-800;
     }
   }
 }

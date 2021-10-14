@@ -15,15 +15,35 @@ export default {
   },
 };
 
+const Template = (args) => (
+  <Tab {...args}>
+    <Tab.Item active="true">Label</Tab.Item>
+    <Tab.Item>Label</Tab.Item>
+  </Tab>
+);
+
+export const Default = Template.bind({});
+
+export const Large = Template.bind({});
+Large.args = {
+  size: "large",
+};
+
+export const LargeWithoutUnderline = Template.bind({});
+LargeWithoutUnderline.args = {
+  size: "large",
+  noUnderline: true,
+};
+
 export const TwoItems = () => {
   const [tab, setTab] = useState(true);
   return (
-    <Tab className="grid grid-cols-2">
+    <Tab>
       <Tab.Item active={tab} onClick={() => setTab(true)}>
-        Tab 1
+        Label
       </Tab.Item>
       <Tab.Item active={!tab} onClick={() => setTab(false)}>
-        Tab 2
+        Label
       </Tab.Item>
     </Tab>
   );
@@ -31,21 +51,21 @@ export const TwoItems = () => {
 
 export const ThreeItems = () => {
   return (
-    <Tab className="grid grid-cols-3">
-      <Tab.Item active>Tab 1</Tab.Item>
-      <Tab.Item>Tab 2</Tab.Item>
-      <Tab.Item>Tab 3</Tab.Item>
+    <Tab>
+      <Tab.Item active>Label</Tab.Item>
+      <Tab.Item>Label</Tab.Item>
+      <Tab.Item>Label</Tab.Item>
     </Tab>
   );
 };
 
-export const FourItems = (args) => {
+export const FourItems = () => {
   return (
-    <Tab className="grid grid-cols-3">
-      <Tab.Item active>Tab 1</Tab.Item>
-      <Tab.Item>Tab 2</Tab.Item>
-      <Tab.Item>Tab 3</Tab.Item>
-      <Tab.Item>Tab 4</Tab.Item>
+    <Tab>
+      <Tab.Item active>Label</Tab.Item>
+      <Tab.Item>Label</Tab.Item>
+      <Tab.Item>Label</Tab.Item>
+      <Tab.Item>Label</Tab.Item>
     </Tab>
   );
 };
