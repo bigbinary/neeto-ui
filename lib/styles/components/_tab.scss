@@ -28,7 +28,16 @@
   transition: $neeto-ui-transition;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
   outline: none;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active{
+    text-decoration: none;
+    outline: none;
+  }
 
   &__icon {
     margin-right: 12px;
