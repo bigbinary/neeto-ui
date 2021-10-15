@@ -11,6 +11,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+
+  &--version-v2 {
+    left: 80px;
+  }
 }
 
 .neeto-ui-app-switcher__wrapper {
