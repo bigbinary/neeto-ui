@@ -2,6 +2,7 @@ import React from "react";
 
 import Button from "../lib/components/Button";
 import Tooltip from "../lib/components/Tooltip";
+import Typography from "../lib/components/Typography";
 
 export default {
   title: "Overlays/Tooltip",
@@ -112,6 +113,25 @@ export const Themes = () => {
           <Button style="secondary" label="light" />
         </Tooltip>
       </div>
+    </div>
+  );
+};
+
+export const TooltipOnText = () => {
+  return (
+    <div className=" p-10 flex items-center justify-center space-x-6">
+      <Tooltip placement="top" content={"Tooltip"}>
+        <Typography>Top</Typography>
+      </Tooltip>
+      <Tooltip placement="bottom" content={"Tooltip"}>
+        <Typography>Bottom</Typography>
+      </Tooltip>
+      <Tooltip placement="left" content={"Tooltip"}>
+        <Typography>Left</Typography>
+      </Tooltip>
+      <Tooltip placement="right" content={"Tooltip"}>
+        <Typography>Right</Typography>
+      </Tooltip>
     </div>
   );
 };
