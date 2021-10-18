@@ -8,14 +8,13 @@
 yarn add @bigbinary/neetoui
 ```
 
-NeetoUI relies on [Remixicons](https://remixicon.com/) for it's icons.
-Install it by executing following command.
+If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
 
 ```
 yarn add remixicon
 ```
 
-Import the styles in your `application.scss` file by doing
+Then import the Remixicon styles in your `application.scss` file by doing
 
 ```
 import 'remixicon/fonts/remixicon.css'
@@ -48,3 +47,8 @@ v2 : https://neetoui-v2.netlify.app
 ## Theming
 
 Theme override gist: [Override Gist](https://gist.github.com/goutham-subramanyam/d0619f8d089b10e7474a32478110ea0f)
+
+## Other Libraries
+
+- [neetoIcons](https://github.com/bigbinary/neeto-icons): **NeetoIcons** is the official icons library from BigBinary.
+- [neetoUtils](https://github.com/bigbinary/neeto-utils): **NeetoUtils** is a collection of react hooks and utility functions used at BigBinary.
