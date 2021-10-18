@@ -48,6 +48,15 @@ Link.args = {
   label: "Button",
 };
 
+export const Tooltip = Template.bind({});
+Tooltip.args = {
+  label: "Tooltip button",
+  tooltipProps: {
+    content: "Top",
+    placement: "top",
+  },
+};
+
 export const AllVariants = () => {
   const [loading, setLoading] = useState(false);
   const toggle = () => {
