@@ -43,7 +43,7 @@ WithLabel.args = {
 
 export const WithCustomLabel = Template.bind({});
 WithCustomLabel.args = {
-  label: <span className="ml-3 shadow-md">Switch Label Example</span>,
+  label: <span className="neeto-ui-text-info">Custom Label Example</span>,
 };
 
 export const WithChangeListner = Template.bind({});

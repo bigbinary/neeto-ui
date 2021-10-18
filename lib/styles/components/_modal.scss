@@ -14,10 +14,12 @@
   .neeto-ui-modal__wrapper {
     width: 50%;
     max-width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    @include scrollbars(4px);
     position: relative;
     background-color: $neeto-ui-white;
     border-radius: $neeto-ui-rounded-sm;
-    overflow: hidden;
 
     .neeto-ui-modal__close {
       position: absolute;

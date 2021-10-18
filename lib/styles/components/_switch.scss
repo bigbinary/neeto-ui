@@ -46,7 +46,9 @@
 
       .neeto-ui-switch {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         width: 20px;
         height: 20px;
         transition: all 0.3s ease-in-out;
