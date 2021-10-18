@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Sidebar from "../lib/components/layouts/Sidebar";
+import AppSwitcher from "../lib/components/layouts/AppSwitcher";
 import { NAV_LINKS, COMPONENT_MAPPING } from "../example/src/constants";
 
 export default {
@@ -71,4 +73,51 @@ Sidenav.args = {
       },
     ],
   },
+  showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
+export const SidebarWithAppSwitcher = (args) => {
+  const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
+
+  return (
+    <Router>
+        <Sidebar
+          {...args}
+          onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+          toggleAppSwitcher={isAppSwitcherOpen}
+        />
+        <AppSwitcher
+          isOpen={isAppSwitcherOpen}
+          onClose={() => setIsAppSwitcherOpen(false)}
+          v2
+        />
+    </Router>
+  );
+};
+
+SidebarWithAppSwitcher.storyName = "Sidebar with AppSwitcher"
+SidebarWithAppSwitcher.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieranmiller@gmail.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    dropdownProps: [
+      {
+        label: "Edit",
+        onClick: () => {},
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+      },
+    ],
+  },
+  showAppSwitcher: true,
+  appName: "neetoUI",
 };

@@ -41,6 +41,9 @@ const Playground = () => {
             ],
           }}
           toggleAppSwitcher={appSwitcher}
+          showAppSwitcher
+          onAppSwitcherToggle={() => toggleAppSwitcher(open => !open)}
+          appName="neetoUI"
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
@@ -60,6 +63,7 @@ const Playground = () => {
       <AppSwitcher
         isOpen={appSwitcher}
         onClose={() => toggleAppSwitcher(false)}
+        v2
       />
     </Router>
   );

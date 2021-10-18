@@ -11,6 +11,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+
+  &--version-v2 {
+    left: 80px;
+  }
 }
 
 .neeto-ui-app-switcher__wrapper {
@@ -25,7 +29,7 @@
   overflow-y: auto;
   max-width: 100%;
   padding: 32px;
-  @include scrollbars(8px);
+  @include scrollbars(4px);
 }
 
 .neeto-ui-app-switcher__wrapper-size--lg {
