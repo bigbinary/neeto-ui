@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Sidebar from "../lib/components/layouts/Sidebar";
@@ -52,8 +52,36 @@ const Template = (args) => {
   );
 };
 
-export const Sidenav = Template.bind({});
-Sidenav.args = {
+export const SidebarCollapsed = Template.bind({});
+SidebarCollapsed.storyName = "Collapsed Sidebar";
+SidebarCollapsed.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    dropdownProps: [
+      {
+        label: "Edit",
+        onClick: () => {},
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+      },
+    ],
+  },
+  showAppSwitcher: true,
+  isCollapsed: true,
+  appName: "neetoUI",
+};
+
+export const SidebarExpanded = Template.bind({});
+SidebarExpanded.storyName = "Expanded Sidebar";
+SidebarExpanded.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
@@ -79,24 +107,31 @@ Sidenav.args = {
 
 export const SidebarWithAppSwitcher = (args) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  useEffect(() => {
+    setIsSidebarCollapsed(args.isCollapsed);
+  }, [args.isCollapsed]);
 
   return (
     <Router>
-        <Sidebar
-          {...args}
-          onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
-          toggleAppSwitcher={isAppSwitcherOpen}
-        />
-        <AppSwitcher
-          isOpen={isAppSwitcherOpen}
-          onClose={() => setIsAppSwitcherOpen(false)}
-          v2
-        />
+      <Sidebar
+        {...args}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+      />
+      <AppSwitcher
+        isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!isSidebarCollapsed}
+        onClose={() => setIsAppSwitcherOpen(false)}
+        v2
+      />
     </Router>
   );
 };
 
-SidebarWithAppSwitcher.storyName = "Sidebar with AppSwitcher"
+SidebarWithAppSwitcher.storyName = "Controlled Sidebar with AppSwitcher";
 SidebarWithAppSwitcher.args = {
   organizationInfo: {
     name: "neetoUI",
@@ -105,7 +140,6 @@ SidebarWithAppSwitcher.args = {
   navLinks: NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
-    email: "kieranmiller@gmail.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     dropdownProps: [
       {
@@ -119,5 +153,35 @@ SidebarWithAppSwitcher.args = {
     ],
   },
   showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
+export const UncontrolledSidebar = ({ onCollapse, ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+
+UncontrolledSidebar.storyName = "Uncontrolled Sidebar";
+UncontrolledSidebar.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    dropdownProps: [
+      {
+        label: "Edit",
+        onClick: () => {},
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+      },
+    ],
+  },
   appName: "neetoUI",
 };

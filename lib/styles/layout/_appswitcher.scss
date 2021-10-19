@@ -11,9 +11,14 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  transition: left 0.3s ease-in-out;
 
-  &--version-v2 {
+  &__v2 {
     left: 80px;
+
+    &--expanded {
+      left: 300px;
+    }
   }
 }
 
