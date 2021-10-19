@@ -27,7 +27,6 @@ const Playground = () => {
           navLinks={NAV_LINKS}
           profileInfo={{
             name: "Kieran Miller",
-            email: "kieranmiller@gmail.com",
             imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
             dropdownProps: [
               {
