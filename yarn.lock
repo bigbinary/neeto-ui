@@ -1794,10 +1794,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bigbinary/neeto-icons@^1.7.6":
-  version "1.7.6"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.7.6.tgz#22961e938f46e18713226500516bf9eb58a00f33"
-  integrity sha512-MvLbFfkUN2gD1oy/Dy3OFtNzrCAMGzpdG0RnzgLj4lEhpYPFmXlZZ1c2zMIiop9it1Hms07E4Ufw0jfOrJ0ZXA==
+"@bigbinary/neeto-icons@^1.7.7":
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.7.7.tgz#38e605db794956375a85719b071ac0599396d202"
+  integrity sha512-E8TnLUPfl5hMO0tETaCOOlSiuEOC+VLhaUgnp92aliw1+LnH74erTxtmRwgdKkWtz0Jdo6hV/cI6SYHVsdXx1Q==
   dependencies:
     prop-types "^15.7.2"
     react "^17.0.2"
