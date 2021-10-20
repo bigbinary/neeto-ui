@@ -63,9 +63,10 @@ const Layouts = () => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    return () => clearTimeout(timer)
   }, []);
 
   const { items, performSort, sortConfig } = useSortTable(TABLE_DATA);
