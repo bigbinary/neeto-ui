@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import Table from "../lib/components/Table";
@@ -52,15 +52,10 @@ const useSortTable = (items, config = null) => {
   return { items: sortedItems, performSort, sortConfig };
 };
 
-const Template = (args) => {
-  const [isLoading, setIsLoading] = useState(true);
+const Template = ({ isLoading, ...args }) => {
   const { items, performSort, sortConfig } = useSortTable(TABLE_DATA, { key: "", direction: "" });
   const { key, direction } = sortConfig;
   const isSorted = (headerKey, sortDirection) => key === headerKey && direction === sortDirection;
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000)
-    return () => clearTimeout(timer)
-  }, [])
   return (
     <>
       <Table hasActions hasCheckbox {...args}>
@@ -83,11 +78,7 @@ const Template = (args) => {
           </Table.TR>
         </Table.Head>
         <Table.Body
-          isLoading={{
-            loading: isLoading,
-            rowCount: 50,
-            columnCount: 6,
-          }}
+          isLoading={isLoading}
         >
           {items.map(({ name, email, phone_number, pass_year }, idx) => (
             <Table.TR key={idx}>
@@ -118,5 +109,10 @@ export const TableStory = Template.bind({})
 TableStory.storyName = "Table";
 TableStory.args = {
   hasActions: true,
-  hasCheckbox: true
+  hasCheckbox: true,
+  isLoading: {
+    loading: false,
+    rowCount: 50,
+    columnCount: 6
+  }
 }
