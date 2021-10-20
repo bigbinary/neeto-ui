@@ -1,4 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import {
+  MenuHorizontal,
+  Settings,
+  Plus,
+  Search,
+} from "@bigbinary/neeto-icons";
+
 import {
   Header,
   SubHeader,
@@ -8,34 +15,46 @@ import {
 } from "../../../lib/components/layouts";
 import {
   Button,
-  PageLoader,
   Pagination,
   Checkbox,
   Dropdown,
   Typography,
+  Table,
 } from "../../../lib/components";
-import {
-  MenuHorizontal,
-  Settings,
-  Plus,
-  Search,
-} from "@bigbinary/neeto-icons";
+import { TABLE_DATA, TABLE_HEADERS } from "../constants";
 
-const SidebarHandleIcon = ({size, color}) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path stroke={color} strokeWidth="1.5" d="M3 7.25L21 7.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 11.25L15 11.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 15.25L11 15.25"></path>
-    </svg>
-  );
-}
+const useSortTable = (items, config = null) => {
+  const [sortConfig, setSortConfig] = useState(config);
+  const sortedItems = useMemo(() => {
+    let sortableItems = [...items];
+    if (sortConfig !== null) {
+      sortableItems.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === "ascending" ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === "ascending" ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+  }, [items, sortConfig]);
+
+  const performSort = (key) => {
+    let direction = "ascending";
+    if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === "ascending"
+    ) {
+      direction = "descending";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  return { items: sortedItems, performSort, sortConfig };
+};
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
@@ -48,6 +67,13 @@ const Layouts = () => {
       setIsLoading(false);
     }, 2000);
   }, []);
+
+  const { items, performSort, sortConfig } = useSortTable(TABLE_DATA);
+
+  const { key, direction } = sortConfig || { key: "", direction: "" };
+
+  const isSorted = (headerKey, sortDirection) =>
+    key === headerKey && direction === sortDirection;
 
   return (
     <div className="flex">
@@ -68,7 +94,7 @@ const Layouts = () => {
           iconProps={[
             {
               icon: () => <Search size={20} />,
-              onClick: () => setIsSearchCollapsed(!isSearchCollapsed)
+              onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
             },
           ]}
         >
@@ -81,7 +107,10 @@ const Layouts = () => {
             Segments
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Search collapse={isSearchCollapsed} onCollapse={() => setIsSearchCollapsed(true)} />
+        <MenuBar.Search
+          collapse={isSearchCollapsed}
+          onCollapse={() => setIsSearchCollapsed(true)}
+        />
         <MenuBar.Block label="Europe" count={80} />
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
@@ -120,21 +149,8 @@ const Layouts = () => {
       </MenuBar>
       <Container>
         <Header
-          title={
-            <div className="flex items-center">
-              <h3>Layouts</h3>
-            </div>
-          }
-          menuBarHandle={
-            <Button
-              style="text"
-              className="mr-2"
-              icon={() =>
-                <SidebarHandleIcon size={20} color={"#68737D"} />
-              }
-              onClick={() => setShowMenu(!showMenu)}
-            />
-          }
+          title="Layouts"
+          menuBarToggle={() => setShowMenu(!showMenu)}
           actionBlock={<Button label="Primary Action" />}
           breadcrumbs={[{ text: "Home", link: "/" }]}
         />
@@ -155,76 +171,55 @@ const Layouts = () => {
           }}
         />
         <Scrollable className="w-full">
-          {isLoading ? (
-            <PageLoader />
-          ) : (
-            <table
-              className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
+          <Table hasActions hasCheckbox>
+            <Table.Head>
+              <Table.TR>
+                <Table.TH />
+                {TABLE_HEADERS.map(({ label, key }, idx) => (
+                  <Table.TH
+                    key={idx}
+                    onClick={() => performSort(key)}
+                    isAscending={isSorted(key, "ascending")}
+                    isDescending={isSorted(key, "descending")}
+                  >
+                    {label}
+                  </Table.TH>
+                ))}
+                <Table.TH />
+              </Table.TR>
+            </Table.Head>
+            <Table.Body
+              isLoading={{
+                loading: isLoading,
+                rowCount: 50,
+                columnCount: 6,
+              }}
             >
-              <thead>
-                <tr>
-                  <th>
-                    <Checkbox name="header" />
-                  </th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Company</th>
-                  <th>Phone No</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {Array(50)
-                  .fill()
-                  .map((_, index) => (
-                    <React.Fragment key={index}>
-                      <tr>
-                        <td>
-                          <Checkbox name="1" />
-                        </td>
-                        <td>Goutham Subramanyam</td>
-                        <td>goutham.subramanyam@bigbinary.com</td>
-                        <td>BigBinary</td>
-                        <td>+91 9633123456</td>
-                        <td>
-                          <div className="flex flex-row items-center justify-end space-x-3">
-                            <Dropdown
-                              icon={MenuHorizontal}
-                              buttonStyle="icon"
-                              autoWidth
-                            >
-                              <li>Edit</li>
-                              <li>Delete</li>
-                            </Dropdown>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <Checkbox name="2" />
-                        </td>
-                        <td>Edwin Babu</td>
-                        <td>edwin.babu@bigbinary.com</td>
-                        <td>BigBinary</td>
-                        <td>+91 8281331983</td>
-                        <td>
-                          <div className="flex flex-row items-center justify-end space-x-3">
-                            <Dropdown
-                              icon={MenuHorizontal}
-                              buttonStyle="icon"
-                              autoWidth
-                            >
-                              <li>Edit</li>
-                              <li>Delete</li>
-                            </Dropdown>
-                          </div>
-                        </td>
-                      </tr>
-                    </React.Fragment>
-                  ))}
-              </tbody>
-            </table>
-          )}
+              {items.map(({ name, email, phone_number, pass_year }, idx) => (
+                <Table.TR key={idx}>
+                  <Table.TD>
+                    <Checkbox name={idx} />
+                  </Table.TD>
+                  <Table.TD center>{name}</Table.TD>
+                  <Table.TD center>{email}</Table.TD>
+                  <Table.TD center>{phone_number}</Table.TD>
+                  <Table.TD center>{pass_year}</Table.TD>
+                  <Table.TD>
+                    <div className="flex flex-row items-center justify-end space-x-3">
+                      <Dropdown
+                        icon={MenuHorizontal}
+                        buttonStyle="icon"
+                        autoWidth
+                      >
+                        <li>Edit</li>
+                        <li>Delete</li>
+                      </Dropdown>
+                    </div>
+                  </Table.TD>
+                </Table.TR>
+              ))}
+            </Table.Body>
+          </Table>
         </Scrollable>
         <div className="flex flex-row items-center justify-end w-full mt-6 mb-8">
           <Pagination

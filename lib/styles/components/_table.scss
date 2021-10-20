@@ -13,6 +13,18 @@
         background-color: $neeto-ui-white;
         text-transform: uppercase;
         padding: 12px 48px 12px 0;
+        cursor: pointer;
+      }
+      .sort-ascending::after{
+        content: '▼';
+        display: inline-block;
+        margin-left: 0.5rem;
+      }
+
+      .sort-descending::after{
+        content: '▲';
+        display: inline-block;
+        margin-left: 0.5rem;
       }
     }
   }
@@ -48,6 +60,7 @@
   thead,
   tbody {
     tr {
+
       th,
       td {
         text-align: left;
@@ -78,6 +91,7 @@
     thead,
     tbody {
       tr {
+
         th,
         td {
           &:first-child {
@@ -96,6 +110,7 @@
 
   &.neeto-ui-table--actions {
     tr {
+
       td,
       th {
         &:last-of-type {
@@ -204,4 +219,44 @@
       }
     }
   }
+}
+
+@keyframes skeleton-glow {
+  0% {
+    background: rgba(206, 217, 224, .2);
+    border-color: rgba(206, 217, 224, .2)
+  }
+
+  to {
+    background: rgba(92, 112, 128, .2);
+    border-color: rgba(92, 112, 128, .2)
+  }
+}
+
+.skeleton-loader {
+  animation: skeleton-glow 1s linear infinite alternate;
+  -webkit-animation: skeleton-glow 1s linear infinite alternate;
+
+  background: rgba(206, 217, 224, .2);
+  background-clip: padding-box !important;
+  border-color: rgba(206, 217, 224, .2) !important;
+  border-radius: 2px;
+
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+
+  color: transparent !important;
+  cursor: default;
+
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.skeleton-loader *,
+.skeleton-loader:after,
+.skeleton-loader:before {
+  visibility: hidden !important
 }
