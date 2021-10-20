@@ -91,7 +91,7 @@ const Template = ({ isLoading, ...args }) => {
               <Table.TD center>{pass_year}</Table.TD>
               <Table.TD>
                 <div className="flex flex-row items-center justify-end space-x-3">
-                  <Dropdown icon={MenuHorizontal} buttonStyle="icon" autoWidth>
+                  <Dropdown icon={MenuHorizontal} buttonStyle="text" autoWidth>
                     <li>Edit</li>
                     <li>Delete</li>
                   </Dropdown>
