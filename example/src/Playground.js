@@ -5,6 +5,7 @@ import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
 import "./index.scss";
 
 const Playground = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   let ROUTER_LINKS = [];
   NAV_LINKS.map((navLink) => {
     if (navLink.items) {
@@ -20,6 +21,8 @@ const Playground = () => {
     <Router>
       <div className="flex flex-row items-start justify-start">
         <Sidebar
+          isCollapsed={isSidebarCollapsed}
+          onCollapse={() => setIsSidebarCollapsed(isCollapsed => !isCollapsed)}
           organizationInfo={{
             name: "neetoUI",
             subdomain: "neetoui.netlify.app",
@@ -61,6 +64,7 @@ const Playground = () => {
       </div>
       <AppSwitcher
         isOpen={appSwitcher}
+        isSidebarOpen={!isSidebarCollapsed}
         onClose={() => toggleAppSwitcher(false)}
         v2
       />
