@@ -60,44 +60,44 @@ const Template = ({ isLoading, ...args }) => {
     <>
       <Table hasActions hasCheckbox {...args}>
         <Table.Head>
-          <Table.TR>
-            <Table.TH>
+          <Table.Tr>
+            <Table.Th>
             <Checkbox name="all" />
-            </Table.TH>
+            </Table.Th>
             {TABLE_HEADERS.map(({ label, key }, idx) => (
-              <Table.TH
+              <Table.Th
                 key={idx}
                 onClick={() => performSort(key)}
                 isAscending={isSorted(key, "ascending")}
                 isDescending={isSorted(key, "descending")}
               >
                 {label}
-              </Table.TH>
+              </Table.Th>
             ))}
-            <Table.TH />
-          </Table.TR>
+            <Table.Th />
+          </Table.Tr>
         </Table.Head>
         <Table.Body
           isLoading={isLoading}
         >
           {items.map(({ name, email, phone_number, pass_year }, idx) => (
-            <Table.TR key={idx}>
-              <Table.TD>
+            <Table.Tr key={idx}>
+              <Table.Td>
                 <Checkbox name={idx} />
-              </Table.TD>
-              <Table.TD center>{name}</Table.TD>
-              <Table.TD center>{email}</Table.TD>
-              <Table.TD center>{phone_number}</Table.TD>
-              <Table.TD center>{pass_year}</Table.TD>
-              <Table.TD>
+              </Table.Td>
+              <Table.Td center>{name}</Table.Td>
+              <Table.Td center>{email}</Table.Td>
+              <Table.Td center>{phone_number}</Table.Td>
+              <Table.Td center>{pass_year}</Table.Td>
+              <Table.Td>
                 <div className="flex flex-row items-center justify-end space-x-3">
                   <Dropdown icon={MenuHorizontal} buttonStyle="text" autoWidth>
                     <li>Edit</li>
                     <li>Delete</li>
                   </Dropdown>
                 </div>
-              </Table.TD>
-            </Table.TR>
+              </Table.Td>
+            </Table.Tr>
           ))}
         </Table.Body>
       </Table>
