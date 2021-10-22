@@ -11,18 +11,12 @@
     cursor: pointer;
     transition: all 0.3s;
 
-    .neeto-ui-label {
-      font-weight: $neeto-ui-font-medium;
-      color: $neeto-ui-gray-600;
-      transition: all 0.3s;
-    }
-
     &:focus-visible, &:focus {
       outline: none;
     }
 
     &:focus-visible, &:hover {
-      .neeto-ui-label {
+      .neeto-ui-accordion__item-handle {
         color: $neeto-ui-gray-700;
       }
     }
@@ -34,7 +28,7 @@
     }
   }
 
-  .neeto-ui-accordion__section {
+  .neeto-ui-accordion__drop {
     padding: 12px 0px 8px;
     margin-bottom: 0px;
   }

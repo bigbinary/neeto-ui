@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Accordion from "../lib/components/Accordion";
-// import Button from "../lib/components/Button";
 
 export default {
   title: "Components/Accordion",
   component: Accordion,
+  subcomponents: {
+    'Accordion.Item': Accordion.Item
+  },
   parameters: {
     layout: "padded",
     docs: {
@@ -16,9 +18,9 @@ export default {
   },
 };
 
-export const AccordionStory = () => {
+const Template = (args) => {
   return (
-    <Accordion>
+    <Accordion {...args}>
       <Accordion.Item title="Accordion 1">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
@@ -34,4 +36,37 @@ export const AccordionStory = () => {
     </Accordion>
   );
 };
+
+export const AccordionStory = Template.bind({});
 AccordionStory.storyName = "Accordion";
+
+export const DefaultActiveKeyStory = Template.bind({});
+DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";
+DefaultActiveKeyStory.args = {
+  defaultActiveKey: 1
+}
+
+export const AccordionWithCustomBackground = (args) => {
+  return (
+    <div className="neeto-ui-bg-gray-100 p-6">
+    <Accordion {...args}>
+      <Accordion.Item title="Accordion 1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+      <Accordion.Item title="Accordion 2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+      <Accordion.Item title="Accordion 3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+    </Accordion>
+    </div>
+  );
+};
+
+AccordionWithCustomBackground.parameters = {
+  layout: "default"
+}
