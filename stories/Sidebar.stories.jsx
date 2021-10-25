@@ -105,6 +105,31 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
+export const SidebarWithChangelogToggle = Template.bind({});
+SidebarWithChangelogToggle.storyName = "Sidebar with Changelog toggle";
+SidebarWithChangelogToggle.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    dropdownProps: [
+      {
+        label: "Edit",
+        onClick: () => {},
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+      },
+    ],
+  },
+  showChangelog: true,
+};
+
 export const SidebarWithAppSwitcher = (args) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
