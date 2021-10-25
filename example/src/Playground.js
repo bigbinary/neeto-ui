@@ -46,6 +46,8 @@ const Playground = () => {
           showAppSwitcher
           onAppSwitcherToggle={() => toggleAppSwitcher(open => !open)}
           appName="neetoUI"
+          showChangelog
+          onChangelogToggle={() => alert("onChangelogToggle")}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
