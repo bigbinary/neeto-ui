@@ -105,7 +105,12 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithChangelogToggle = Template.bind({});
+export const SidebarWithChangelogToggle = ({ onCollapse, ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+
 SidebarWithChangelogToggle.storyName = "Sidebar with Changelog toggle";
 SidebarWithChangelogToggle.args = {
   organizationInfo: {
@@ -208,5 +213,7 @@ UncontrolledSidebar.args = {
       },
     ],
   },
+  showChangelog: true,
+  showAppSwitcher: true,
   appName: "neetoUI",
 };
