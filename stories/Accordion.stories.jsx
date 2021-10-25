@@ -18,6 +18,19 @@ export default {
   },
 };
 
+export const AccordionStory = (args) => {
+  return (
+    <Accordion {...args}>
+      <Accordion.Item title="Accordion 1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+    </Accordion>
+  );
+};
+
+AccordionStory.storyName = "Single Accordion"
+
 const Template = (args) => {
   return (
     <Accordion {...args}>
@@ -37,8 +50,8 @@ const Template = (args) => {
   );
 };
 
-export const AccordionStory = Template.bind({});
-AccordionStory.storyName = "Accordion";
+export const MultipleAccordionStory = Template.bind({});
+MultipleAccordionStory.storyName = "Multiple Accordions";
 
 export const DefaultActiveKeyStory = Template.bind({});
 DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";
@@ -46,9 +59,8 @@ DefaultActiveKeyStory.args = {
   defaultActiveKey: 1
 }
 
-export const AccordionWithCustomBackground = (args) => {
+export const SecondaryAccordionWithPadding = (args) => {
   return (
-    <div className="neeto-ui-bg-gray-100 p-6">
     <Accordion {...args}>
       <Accordion.Item title="Accordion 1">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -63,10 +75,14 @@ export const AccordionWithCustomBackground = (args) => {
         tempor incididunt ut labore et dolore magna aliqua.
       </Accordion.Item>
     </Accordion>
-    </div>
   );
 };
 
-AccordionWithCustomBackground.parameters = {
+SecondaryAccordionWithPadding.args = {
+  padded: true,
+  style: "secondary"
+}
+
+SecondaryAccordionWithPadding.parameters = {
   layout: "default"
 }
