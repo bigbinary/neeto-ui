@@ -2,6 +2,7 @@ If you want to use a custom component element as a child of the Tooltip, ensure 
 
 ```
 import React, { forwardRef } from 'react';
+import { Tooltip } from '@bigbinary/neeto-ui/v2';
 
 const ThisWontWork = () => {
   return <button>Reference</button>;
@@ -13,9 +14,9 @@ const ThisWillWork = forwardRef((props, ref) => {
 
 function App() {
   return (
-    <Tippy content="Tooltip">
+    <Tooltip content="Tooltip">
       <ThisWillWork />
-    </Tippy>
+    </Tooltip>
   );
 }
 ```
