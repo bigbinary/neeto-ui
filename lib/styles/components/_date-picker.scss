@@ -1,0 +1,78 @@
+.neeto-ui-date-input,
+.ant-picker {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: $neeto-ui-text-sm;
+  line-height: 1.6;
+  transition: $neeto-ui-transition;
+  border-radius: $neeto-ui-rounded-sm;
+  border: thin solid $neeto-ui-gray-400;
+  background-color: $neeto-ui-white;
+  color: $neeto-ui-gray-800;
+  overflow: hidden;
+
+  &:hover {
+    border-color: $neeto-ui-gray-800 !important;
+  }
+
+}
+
+
+.ant-picker-range.ant-picker-focused .ant-picker-active-bar {
+  background: $neeto-ui-gray-800;
+}
+
+
+.ant-picker-focused {
+  border-color: $neeto-ui-gray-800 !important;
+  box-shadow: $neeto-ui-shadow !important;
+}
+
+.ant-picker-dropdown,
+.neeto-ui-date-input-dropdown {
+  .ant-picker-panel {
+    .ant-picker-header {
+      .ant-picker-header-view {
+        color: $neeto-ui-gray-600;
+
+        button {
+          &:hover {
+            color: $neeto-ui-gray-800
+          }
+        }
+      }
+    }
+
+    .ant-picker-body {
+      .ant-picker-content {
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
+          .ant-picker-cell-inner {
+            &::before {
+              border: 1px solid $neeto-ui-gray-800;
+            }
+          }
+
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-selected {
+          .ant-picker-cell-inner {
+            background: $neeto-ui-gray-800;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-picker-footer {
+    .ant-picker-today-btn {
+      color: $neeto-ui-gray-600;
+
+      &:hover {
+        color: $neeto-ui-gray-800
+      }
+    }
+  }
+}
