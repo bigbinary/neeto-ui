@@ -22,6 +22,6 @@ export const DateInput = (args) => {
 DateInput.storyName = "DatePicker";
 DateInput.args = {
   type: "date",
-  mode: "date",
+  picker: "date",
   showTime: false,
 };
