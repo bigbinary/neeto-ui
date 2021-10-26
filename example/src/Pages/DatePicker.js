@@ -8,7 +8,7 @@ const Date = () => {
       <Header title="Tags" />
       <div className="p-6">
         <div className="p-4 border border-indigo-500 border-dashed">
-          <div className="w-1/6 space-y-8">
+          <div className="w-2/6 space-y-8">
             <DatePicker type="date" />
             <DatePicker type="range" />
           </div>

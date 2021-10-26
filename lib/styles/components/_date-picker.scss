@@ -57,9 +57,40 @@
 
         }
 
+        .ant-picker-cell.ant-picker-cell-in-view {
+          &::after {
+            border-color: $neeto-ui-gray-400;
+          }
+        }
+
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-selected {
           .ant-picker-cell-inner {
             background: $neeto-ui-gray-800;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
+          &::before {
+            background: $neeto-ui-gray-200;
+          }
+
+          .ant-picker-cell-inner {
+            background: $neeto-ui-gray-800;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
+          &::before {
+            background: $neeto-ui-gray-200;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end {
+          &::before {
+            background: $neeto-ui-gray-400;
           }
         }
       }
