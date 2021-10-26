@@ -3,7 +3,7 @@ import React from "react";
 import DatePicker from "../lib/components/DatePicker";
 
 export default {
-  title: "Components/DatePicker",
+  title: "Components/Date and Time",
   component: DatePicker,
   parameters: {
     layout: "padded",
@@ -19,7 +19,7 @@ export const DateInput = (args) => {
   return <DatePicker {...args} />;
 };
 
-DateInput.storyName = "DropDown";
+DateInput.storyName = "DatePicker";
 DateInput.args = {
   type: "date",
   mode: "date",

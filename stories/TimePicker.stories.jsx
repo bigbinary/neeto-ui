@@ -3,7 +3,7 @@ import React from "react";
 import TimePicker from "../lib/components/TimePicker";
 
 export default {
-  title: "Components/TimePicker",
+  title: "Components/Date and Time",
   component: TimePicker,
   parameters: {
     layout: "padded",
