@@ -64,7 +64,7 @@ export const AllVariants = () => {
             <Tag
               style="outline"
               size="large"
-              color="grey"
+              color="gray"
               icon={Favorite}
               onClose={onClose}
               label="Label"
@@ -120,7 +120,7 @@ export const AllVariants = () => {
           </div>
           <div className="flex flex-row items-start justify-start space-x-4">
             <h5>Solid With Colors : </h5>
-            <Tag size="large" style="solid" label="Label" color="grey" />
+            <Tag size="large" style="solid" label="Label" color="gray" />
             <Tag size="large" style="solid" label="Label" color="red" />
             <Tag size="large" style="solid" label="Label" color="green" />
             <Tag size="large" style="solid" label="Label" color="blue" />
@@ -132,7 +132,7 @@ export const AllVariants = () => {
             <Tag label="Label" indicatorColor="yellow" />
             <Tag label="Label" indicatorColor="blue" />
             <Tag label="Label" indicatorColor="red" />
-            <Tag label="Label" indicatorColor="grey" />
+            <Tag label="Label" indicatorColor="gray" />
           </div>
           <div className="flex flex-row items-start justify-start space-x-4">
             <h5>With Indicator Large : </h5>
@@ -140,7 +140,7 @@ export const AllVariants = () => {
             <Tag size="large" label="Label" indicatorColor="yellow" />
             <Tag size="large" label="Label" indicatorColor="blue" />
             <Tag size="large" label="Label" indicatorColor="red" />
-            <Tag size="large" label="Label" indicatorColor="grey" />
+            <Tag size="large" label="Label" indicatorColor="gray" />
           </div>
         </div>
       </div>
