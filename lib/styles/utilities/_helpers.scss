@@ -1,15 +1,41 @@
 body {
   // color utility classes
   @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-text-#{$color} {
+    .neeto-ui-text-#{$color},
+    .hover\:neeto-ui-text-#{$color}:hover,
+    .focus\:neeto-ui-text-#{$color}:focus,
+    .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
       color: $value;
     }
   }
 
   // background utility classes
   @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-bg-#{$color} {
+    .neeto-ui-bg-#{$color},
+    .hover\:neeto-ui-bg-#{$color}:hover,
+    .focus\:neeto-ui-bg-#{$color}:focus,
+    .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
       background-color: $value;
+    }
+  }
+
+  // border color
+  @each $color, $value in $neeto-ui-theme-colors {
+    .neeto-ui-border-#{$color},
+    .hover\:neeto-ui-border-#{$color}:hover,
+    .focus\:neeto-ui-border-#{$color}:focus,
+    .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
+      border-color: $value;
+    }
+  }
+
+  // box shadows
+  @each $shadow, $value in $neeto-ui-shadows {
+    .neeto-ui-shadow-#{$shadow},
+    .hover\:neeto-ui-shadow-#{$shadow}:hover,
+    .focus\:neeto-ui-shadow-#{$shadow}:focus,
+    .focus-visible\:neeto-ui-shadow-#{$shadow}:focus-visible {
+      box-shadow: $value;
     }
   }
 
@@ -37,22 +63,7 @@ body {
   // text transform
   @each $tt, $value in $neeto-ui-text-transform {
     .neeto-ui-text-transform-#{$tt} {
-        text-transform: $value;
+      text-transform: $value;
     }
   }
-
-  // border color
-  @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-border-#{$color} {
-      border-color: $value;
-    }
-  }
-
-  // box shadows
-  @each $shadow, $value in $neeto-ui-shadows {
-    .neeto-ui-shadow-#{$shadow} {
-      box-shadow: $value;
-    }
-  }
-
 }
