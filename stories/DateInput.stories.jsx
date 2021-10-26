@@ -15,12 +15,13 @@ export default {
   },
 };
 
-export const DateInput = () => {
-  return <DatePicker />;
+export const DateInput = (args) => {
+  return <DatePicker {...args} />;
 };
 
-export const DateRangePicker = () => {
-  return <DatePicker type="range" />;
+DateInput.storyName = "DropDown";
+DateInput.args = {
+  type: "date",
+  mode: "date",
+  showTime: false,
 };
-
-DatePicker.storyName = "DropDown";
