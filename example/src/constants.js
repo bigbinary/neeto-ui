@@ -19,6 +19,7 @@ import Pane from "./Pages/Pane";
 import Select from "./Pages/Select";
 import Tab from "./Pages/Tab";
 import Tag from "./Pages/Tag";
+import TimePicker from "./Pages/TimePicker";
 import Toastr from "./Pages/Toastr";
 import Toggles from "./Pages/Toggles";
 import Tooltip from "./Pages/Tooltip";
@@ -38,6 +39,7 @@ export const COMPONENT_MAPPING = {
   Select: Select,
   Tab: Tab,
   Tag: Tag,
+  TimePicker: TimePicker,
   Toastr: Toastr,
   Toggles: Toggles,
   Tooltip: Tooltip,
@@ -77,6 +79,10 @@ export const NAV_LINKS = [
       {
         label: "Tooltip",
         to: "/components/tooltip",
+      },
+      {
+        label: "TimePicker",
+        to: "/components/time-picker",
       },
       {
         label: "Typography",
