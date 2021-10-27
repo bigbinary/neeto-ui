@@ -1,0 +1,137 @@
+.neeto-ui-date-input,
+.ant-picker {
+  width: 100%;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: $neeto-ui-text-sm;
+  line-height: 1.6;
+
+  transition: $neeto-ui-transition;
+
+  color: $neeto-ui-gray-800;
+  background-color: $neeto-ui-white;
+  border: thin solid $neeto-ui-gray-400;
+  border-radius: $neeto-ui-rounded-sm;
+
+  overflow: hidden;
+
+  &:hover {
+    border-color: $neeto-ui-gray-800 !important;
+  }
+}
+
+.ant-picker-time-panel {
+  .ant-picker-time-panel-column {
+    &>li.ant-picker-time-panel-cell-selected {
+      .ant-picker-time-panel-cell-inner {
+        background: $neeto-ui-gray-800;
+        color: $neeto-ui-white
+      }
+    }
+  }
+}
+
+.ant-picker-range.ant-picker-focused .ant-picker-active-bar {
+  background: $neeto-ui-gray-800;
+}
+
+.ant-picker-focused {
+  border-color: $neeto-ui-gray-800 !important;
+  box-shadow: $neeto-ui-shadow !important;
+}
+
+.ant-picker-dropdown,
+.neeto-ui-date-input-dropdown {
+  .ant-picker-panel {
+    .ant-picker-header {
+      .ant-picker-header-view {
+        color: $neeto-ui-gray-600;
+
+        button {
+          &:hover {
+            color: $neeto-ui-gray-800
+          }
+        }
+      }
+    }
+
+    .ant-picker-body {
+      .ant-picker-content {
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
+          .ant-picker-cell-inner {
+            &::before {
+              border: 1px solid $neeto-ui-gray-800;
+            }
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view {
+          &::after {
+            border-color: $neeto-ui-gray-400;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-selected {
+          .ant-picker-cell-inner {
+            background: $neeto-ui-gray-800;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
+          &::before {
+            background: $neeto-ui-gray-200;
+          }
+
+          .ant-picker-cell-inner {
+            background: $neeto-ui-gray-800;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
+          &::before {
+            background: $neeto-ui-gray-200;
+          }
+        }
+
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start,
+        .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end {
+          &::before {
+            background: $neeto-ui-gray-400;
+          }
+
+          .ant-picker-cell-inner {
+            &::after {
+              background: $neeto-ui-gray-400;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ant-picker-footer {
+
+    .ant-picker-today-btn,
+    .ant-picker-now-btn {
+      color: $neeto-ui-gray-600;
+
+      &:hover {
+        color: $neeto-ui-gray-800
+      }
+    }
+
+    .ant-picker-ok {
+      button {
+        color: $neeto-ui-white;
+        background: $neeto-ui-gray-800;
+        border-color: $neeto-ui-gray-800;
+      }
+    }
+  }
+}

@@ -1,37 +1,47 @@
-import { Copy, Design, UserCircle, Settings, Image  } from "@bigbinary/neeto-icons";
+import {
+  Copy,
+  Design,
+  UserCircle,
+  Settings,
+  Image,
+} from "@bigbinary/neeto-icons";
 
+import Avatar from "./Pages/Avatar";
 import Button from "./Pages/Button";
+import DatePicker from "./Pages/DatePicker";
 import Dropdown from "./Pages/Dropdown";
-import Tab from "./Pages/Tab";
+import Formik from "./Pages/Formik";
 import Input from "./Pages/Input";
-import Select from "./Pages/Select";
-import Toggles from "./Pages/Toggles";
+import Layouts from "./Pages/Layouts";
+import Misc from "./Pages/Misc";
 import Modal from "./Pages/Modal";
 import Pane from "./Pages/Pane";
+import Select from "./Pages/Select";
+import Tab from "./Pages/Tab";
 import Tag from "./Pages/Tag";
+import TimePicker from "./Pages/TimePicker";
 import Toastr from "./Pages/Toastr";
-import Misc from "./Pages/Misc";
-import Formik from "./Pages/Formik";
-import Layouts from "./Pages/Layouts";
-import Avatar from "./Pages/Avatar";
+import Toggles from "./Pages/Toggles";
 import Tooltip from "./Pages/Tooltip";
 import Typography from "./Pages/Typography";
 
 export const COMPONENT_MAPPING = {
+  Avatar: Avatar,
   Button: Button,
+  DatePicker: DatePicker,
   Dropdown: Dropdown,
-  Tab: Tab,
+  Formik: Formik,
   Input: Input,
-  Select: Select,
-  Toggles: Toggles,
+  Layouts: Layouts,
+  Misc: Misc,
   Modal: Modal,
   Pane: Pane,
+  Select: Select,
+  Tab: Tab,
   Tag: Tag,
+  TimePicker: TimePicker,
   Toastr: Toastr,
-  Misc: Misc,
-  Formik: Formik,
-  Layouts: Layouts,
-  Avatar: Avatar,
+  Toggles: Toggles,
   Tooltip: Tooltip,
   Typography: Typography,
 };
@@ -45,6 +55,10 @@ export const NAV_LINKS = [
       {
         label: "Button",
         to: "/components/button",
+      },
+      {
+        label: "DatePicker",
+        to: "/components/date-picker",
       },
       {
         label: "Dropdown",
@@ -65,6 +79,10 @@ export const NAV_LINKS = [
       {
         label: "Tooltip",
         to: "/components/tooltip",
+      },
+      {
+        label: "TimePicker",
+        to: "/components/time-picker",
       },
       {
         label: "Typography",
