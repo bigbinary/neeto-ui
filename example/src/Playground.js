@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Notification } from "@bigbinary/neeto-icons";
 import { Sidebar, AppSwitcher } from "../../lib/components/layouts";
-import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
+import { NAV_LINKS, COMPONENT_MAPPING, FOOTER_LINKS } from "./constants";
 import "./index.scss";
 
 const Playground = () => {
@@ -54,6 +54,7 @@ const Playground = () => {
             icon: Notification,
             onClick: () => alert("onChangelogToggle"),
           }}
+          footerLinks={FOOTER_LINKS}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>
