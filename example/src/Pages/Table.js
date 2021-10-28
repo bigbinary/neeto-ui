@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Tag, Avatar, Button } from "../../../lib/components";
+import { Table, Tooltip, Tag, Avatar, Button } from "../../../lib/components";
 import { TABLE_DATA } from "./constants";
 import Header from "../Header";
 import { MenuVertical } from "@bigbinary/neeto-icons";
@@ -78,7 +78,11 @@ const Tabs = () => {
       width: 75,
     },
     {
-      title: "IP Address",
+      title: () => (
+        <Tooltip content="IP Address can be used to track " placement="top">
+          <div>IP Address</div>
+        </Tooltip>
+      ),
       dataIndex: "ip_address",
       key: "ip_address",
       width: 150,
@@ -188,7 +192,7 @@ const Tabs = () => {
           defaultPageSize={20}
           currentPageNumber={pageNumber}
           scrollOffset={{ x: 3050, y: 550 }}
-          handlePageChange={() => setPageNumber((pageNumber) => pageNumber + 1)}
+          handlePageChange={(page, pageSize) => setPageNumber(page)}
         />
       </div>
     </div>
