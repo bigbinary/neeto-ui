@@ -21,9 +21,9 @@ export default {
 
 export const FollowCursor = (args) => {
   return (
-    <div className="space-y-8 p-10">
+    <div className="p-10 space-y-8">
       <Tooltip
-        placement={"top"}
+        position="top"
         followCursor={"horizontal"}
         content={"Content is string"}
       >
@@ -35,9 +35,9 @@ export const FollowCursor = (args) => {
 
 export const JSXContentInside = (args) => {
   return (
-    <div className="space-y-8 p-10">
+    <div className="p-10 space-y-8">
       <Tooltip
-        placement={"top"}
+        position="top"
         trigger={"click"}
         content={
           <span>
@@ -51,50 +51,50 @@ export const JSXContentInside = (args) => {
   );
 };
 
-export const Placements = () => {
+export const positions = () => {
   return (
-    <div className="space-y-8 p-10">
+    <div className="p-10 space-y-8">
       <div className="flex items-center justify-start gap-8">
-        <Tooltip placement={"top"} content={"Tooltip"}>
+        <Tooltip position="top" content="Tooltip">
           <Button style="secondary" label="top" />
         </Tooltip>
-        <Tooltip placement={"top-start"} content={"Tooltip"}>
+        <Tooltip position="top-start" content="Tooltip">
           <Button style="secondary" label="top-start" />
         </Tooltip>
-        <Tooltip placement={"top-end"} content={"Tooltip"}>
+        <Tooltip position="top-end" content="Tooltip">
           <Button style="secondary" label="top-end" />
         </Tooltip>
       </div>
       <div className="flex items-center justify-start gap-8">
-        <Tooltip placement={"right"} content={"Tooltip"}>
+        <Tooltip position="right" content="Tooltip">
           <Button style="secondary" label="right" />
         </Tooltip>
-        <Tooltip placement={"right-start"} content={"Tooltip"}>
+        <Tooltip position="right-start" content="Tooltip">
           <Button style="secondary" label="right-start" />
         </Tooltip>
-        <Tooltip placement={"right-end"} content={"Tooltip"}>
+        <Tooltip position="right-end" content="Tooltip">
           <Button style="secondary" label="right-end" />
         </Tooltip>
       </div>
       <div className="flex items-center justify-start gap-8">
-        <Tooltip placement={"bottom"} content={"Tooltip"}>
+        <Tooltip position="bottom" content="Tooltip">
           <Button style="secondary" label="bottom" />
         </Tooltip>
-        <Tooltip placement={"bottom-start"} content={"Tooltip"}>
+        <Tooltip position="bottom-start" content="Tooltip">
           <Button style="secondary" label="bottom-start" />
         </Tooltip>
-        <Tooltip placement={"bottom-end"} content={"Tooltip"}>
+        <Tooltip position="bottom-end" content="Tooltip">
           <Button style="secondary" label="bottom-end" />
         </Tooltip>
       </div>
       <div className="flex items-center justify-start gap-8">
-        <Tooltip placement={"left"} content={"Tooltip"}>
+        <Tooltip position="left" content="Tooltip">
           <Button style="secondary" label="left" />
         </Tooltip>
-        <Tooltip placement={"left-start"} content={"Tooltip"}>
+        <Tooltip position="left-start" content="Tooltip">
           <Button style="secondary" label="left-start" />
         </Tooltip>
-        <Tooltip placement={"left-end"} content={"Tooltip"}>
+        <Tooltip position="left-end" content="Tooltip">
           <Button style="secondary" label="left-end" />
         </Tooltip>
       </div>
@@ -104,13 +104,13 @@ export const Placements = () => {
 
 export const Themes = () => {
   return (
-    <div className="space-y-8 p-10">
+    <div className="p-10 space-y-8">
       <h2 className="text-xl">Theme</h2>
       <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Tooltip placement={"top"} content={"Tooltip"} theme={"dark"}>
+        <Tooltip position="top" content="Tooltip" theme="dark">
           <Button style="secondary" label="dark" />
         </Tooltip>
-        <Tooltip placement={"top"} content={"Tooltip"} theme={"light"}>
+        <Tooltip position="top" content="Tooltip" theme="light">
           <Button style="secondary" label="light" />
         </Tooltip>
       </div>
@@ -120,17 +120,17 @@ export const Themes = () => {
 
 export const TooltipOnText = () => {
   return (
-    <div className=" p-10 flex items-center justify-center space-x-6">
-      <Tooltip placement="top" content={"Tooltip"}>
+    <div className="flex items-center justify-center p-10 space-x-6 ">
+      <Tooltip position="top" content="Tooltip">
         <Typography>Top</Typography>
       </Tooltip>
-      <Tooltip placement="bottom" content={"Tooltip"}>
+      <Tooltip position="bottom" content="Tooltip">
         <Typography>Bottom</Typography>
       </Tooltip>
-      <Tooltip placement="left" content={"Tooltip"}>
+      <Tooltip position="left" content="Tooltip">
         <Typography>Left</Typography>
       </Tooltip>
-      <Tooltip placement="right" content={"Tooltip"}>
+      <Tooltip position="right" content="Tooltip">
         <Typography>Right</Typography>
       </Tooltip>
     </div>
@@ -138,20 +138,26 @@ export const TooltipOnText = () => {
 };
 
 const CustomComponent = forwardRef(({ text }, ref) => (
-  <div ref={ref} className="neeto-ui-shadow-lg p-10 rounded-md justify-center items-center neeto-ui-bg-black neeto-ui-text-white cursor-pointer">
+  <div
+    ref={ref}
+    className="items-center justify-center p-10 rounded-md cursor-pointer neeto-ui-shadow-lg neeto-ui-bg-black neeto-ui-text-white"
+  >
     {text}
   </div>
 ));
 
 export const TooltipOnCustomComponent = () => {
   const CustomComponent = forwardRef(({ text }, ref) => (
-    <div ref={ref} className="shadow-lg p-10 rounded-md justify-center items-center neeto-ui-bg-black neeto-ui-text-white cursor-pointer">
+    <div
+      ref={ref}
+      className="items-center justify-center p-10 rounded-md shadow-lg cursor-pointer neeto-ui-bg-black neeto-ui-text-white"
+    >
       {text}
     </div>
   ));
   return (
-    <div className=" p-10 flex items-center justify-center space-x-6">
-      <Tooltip placement="top" content={"Tooltip"}>
+    <div className="flex items-center justify-center p-10 space-x-6 ">
+      <Tooltip position="top" content="Tooltip">
         <CustomComponent text="Custom Component" />
       </Tooltip>
     </div>
@@ -159,5 +165,5 @@ export const TooltipOnCustomComponent = () => {
 };
 
 TooltipOnCustomComponent.parameters = {
-  docs: {description: { story: TooltipDocs }}
-}
+  docs: { description: { story: TooltipDocs } },
+};

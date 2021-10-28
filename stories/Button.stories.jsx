@@ -53,7 +53,7 @@ Tooltip.args = {
   label: "Tooltip button",
   tooltipProps: {
     content: "Top",
-    placement: "top",
+    position: "top",
   },
 };
 
@@ -69,7 +69,7 @@ export const AllVariants = () => {
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
           <h2 className="text-xl">Styles</h2>
           <div className="flex gap-10">
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col items-start gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -115,7 +115,7 @@ export const AllVariants = () => {
               />
               <Button loading onClick={toggle} size="large" icon={Keyboard} />
             </div>
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col items-start gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -174,7 +174,7 @@ export const AllVariants = () => {
                 iconPosition="left"
               />
             </div>
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col items-start gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -233,7 +233,7 @@ export const AllVariants = () => {
                 iconPosition="left"
               />
             </div>
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col items-start gap-6">
               <Button
                 loading={loading}
                 onClick={toggle}
@@ -291,7 +291,7 @@ export const AllVariants = () => {
                 icon={Keyboard}
               />
             </div>
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col items-start gap-6">
               <Button size="large" label="Link" style="link" />
               <Button size="large" label="Link" style="link" disabled />
               <Button size="large" label="Link" style="link" icon={Keyboard} />
