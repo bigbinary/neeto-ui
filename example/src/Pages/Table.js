@@ -1,9 +1,11 @@
-import React from "react";
-import { Table, Tag, Avatar } from "../../../lib/components";
+import React, { useState } from "react";
+import { Table, Tag, Avatar, Button } from "../../../lib/components";
 import { TABLE_DATA } from "./constants";
 import Header from "../Header";
+import { MenuVertical } from "@bigbinary/neeto-icons";
 
 const Tabs = () => {
+  const [pageNumber, setPageNumber] = useState(1);
   const columns = [
     {
       title: "ID",
@@ -158,6 +160,20 @@ const Tabs = () => {
         </>
       ),
     },
+    {
+      title: "Icon Button",
+      dataIndex: "icon_button",
+      key: "icon_button",
+      render: () => (
+        <>
+          <Button
+            icon={() => <MenuVertical />}
+            onClick={() => alert("Edit Action Clicked.")}
+            style="text"
+          />
+        </>
+      ),
+    },
   ];
   return (
     <div className="w-full">
@@ -169,7 +185,10 @@ const Tabs = () => {
           onRowClick={(selectedRowKeys, selectedRows) =>
             console.log(selectedRowKeys, selectedRows)
           }
-          scrollOffset={{ x: 3000, y: 500 }}
+          defaultPageSize={20}
+          currentPageNumber={pageNumber}
+          scrollOffset={{ x: 3050, y: 550 }}
+          handlePageChange={() => setPageNumber((pageNumber) => pageNumber + 1)}
         />
       </div>
     </div>
