@@ -7,13 +7,12 @@
   thead.ant-table-thead {
     tr {
       th {
-        color: $neeto-ui-gray-400;
+        color: $neeto-ui-gray-500;
         background-color: $neeto-ui-white;
 
         font-size: $neeto-ui-text-xs;
-        letter-spacing: 0.2%;
         vertical-align: middle;
-        font-weight: $neeto-ui-font-bold;
+        font-weight: $neeto-ui-font-semibold;
         text-transform: uppercase;
 
         &::before {
@@ -22,6 +21,9 @@
       }
 
       th.ant-table-cell.ant-table-column-has-sorters {
+        &:hover{
+          background-color: $neeto-ui-white;
+        }
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
             .ant-table-column-sorter-inner {
@@ -43,12 +45,14 @@
     }
   }
 
-  .neeto-ui-table--row {
+  .ant-table-tbody > tr.ant-table-row-selected > td {
+    background-color: $neeto-ui-pastel-blue;
+  }
 
+  .neeto-ui-table--row {
     color: $neeto-ui-gray-700;
     font-size: $neeto-ui-text-sm;
     font-weight: $neeto-ui-font-normal;
-
     vertical-align: middle;
 
     a:not(.neeto-ui-btn) {
@@ -61,54 +65,6 @@
         color: darken($neeto-ui-secondary-indigo, 5%);
 
         text-decoration: underline;
-      }
-    }
-  }
-
-  td.ant-table-cell.ant-table-selection-column {
-    .ant-checkbox-wrapper.ant-checkbox-wrapper-checked {
-      .ant-checkbox.ant-checkbox-checked {
-        input[type="checkbox"] {
-          width: 16px;
-          height: 16px;
-        }
-
-        .ant-checkbox-inner {
-          color: $neeto-ui-gray-800;
-          background-color: $neeto-ui-gray-800 !important;
-          border: 2px solid $neeto-ui-gray-300;
-          border-radius: $neeto-ui-rounded-sm;
-
-          &:not(:disabled) {
-            cursor: pointer;
-          }
-
-          &:hover:not(:disabled, :checked) {
-            border-color: $neeto-ui-gray-400;
-          }
-
-          &:checked {
-            border: none !important;
-          }
-
-          &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-          }
-
-          &:focus,
-          &:focus-visible {
-            outline: transparent;
-          }
-
-          &:focus-visible {
-            box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
-          }
-        }
-
-        &:hover {
-          border-color: $neeto-ui-gray-800;
-        }
       }
     }
   }
@@ -149,23 +105,40 @@
 
   .ant-pagination-jump-next.ant-pagination-jump-next-custom-icon,
   .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
-
     .anticon.anticon-double-right.ant-pagination-item-link-icon,
     .anticon.anticon-double-left.ant-pagination-item-link-icon {
       color: $neeto-ui-gray-800;
     }
   }
 
-  .ant-pagination-options {
-    div.ant-select.ant-pagination-options-size-changer.ant-select-single.ant-select-show-arrow {
+  .ant-table-tbody > tr > td,
+  .ant-table-thead > tr > th,
+  .ant-table tfoot > tr > td,
+  .ant-table tfoot > tr > th {
+    padding: 12px 16px;
+  }
 
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:active {
+  .ant-pagination-options {
+    div.ant-select {
+      &.ant-select-focused {
         .ant-select-selector {
-          border-color: $neeto-ui-gray-800;
+          border-color: $neeto-ui-gray-800 !important;
           box-shadow: $neeto-ui-shadow;
+          outline: none;
+
+          &:focus,
+          &:focus-visible,
+          &:active {
+            border-color: $neeto-ui-gray-800;
+            box-shadow: $neeto-ui-shadow;
+          }
+        }
+      }
+      &:hover {
+        .ant-select-selector {
+          border-color: $neeto-ui-gray-800 !important;
+          box-shadow: $neeto-ui-shadow;
+          outline: none;
 
           &:focus,
           &:focus-visible,
@@ -176,5 +149,15 @@
         }
       }
     }
+  }
+
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: $neeto-ui-gray-200;
+  }
+
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    color: $neeto-ui-white;
+    font-weight: inherit;
+    background-color: $neeto-ui-gray-800;
   }
 }
