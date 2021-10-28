@@ -1,92 +1,41 @@
-.neeto-ui-table {
+// Ant Table overrides
+
+.ant-table-wrapper {
   width: 100%;
   border-collapse: collapse;
 
-  thead {
+  thead.ant-table-thead {
     tr {
       th {
         color: $neeto-ui-gray-400;
+        background-color: $neeto-ui-white;
+
         font-size: $neeto-ui-text-xs;
         letter-spacing: 0.2%;
         vertical-align: middle;
         font-weight: $neeto-ui-font-bold;
-        background-color: $neeto-ui-white;
         text-transform: uppercase;
-        padding: 12px 48px 12px 0;
-      }
-    }
-  }
 
-  tbody {
-    tr {
-      td {
-        color: $neeto-ui-gray-700;
-        line-height: 20px;
-        font-size: $neeto-ui-text-sm;
-        vertical-align: middle;
-        font-weight: $neeto-ui-font-normal;
-        padding: 16px 48px 16px 0;
-
-        a:not(.neeto-ui-btn) {
-          color: $neeto-ui-secondary-indigo;
-          transition: $neeto-ui-transition;
-          font-weight: $neeto-ui-font-medium;
-
-          &:hover {
-            color: darken($neeto-ui-secondary-indigo, 5%);
-            text-decoration: underline;
-          }
+        &::before {
+          display: none;
         }
       }
 
-      &:nth-child(even) {
-        background-color: $neeto-ui-gray-100;
-      }
-    }
-  }
+      th.ant-table-cell.ant-table-column-has-sorters {
+        .ant-table-column-sorters {
+          .ant-table-column-sorter.ant-table-column-sorter-full {
+            .ant-table-column-sorter-inner {
+              .ant-table-column-sorter-up {
+                color: $neeto-ui-gray-300;
+              }
 
-  thead,
-  tbody {
-    tr {
-      th,
-      td {
-        text-align: left;
+              .ant-table-column-sorter-down {
+                color: $neeto-ui-gray-300;
+              }
 
-        label {
-          margin: 0;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    }
-  }
-
-  &.neeto-ui-table--avatar {
-    tbody {
-      tr {
-        td {
-          padding-top: 12px;
-          padding-bottom: 12px;
-        }
-      }
-    }
-  }
-
-  &.neeto-ui-table--checkbox {
-    thead,
-    tbody {
-      tr {
-        th,
-        td {
-          &:first-child {
-            width: 40px;
-            padding-right: 8px;
-
-            .neeto-ui-checkbox__wrapper {
-              justify-content: center;
-              align-items: center;
+              .active {
+                color: $neeto-ui-gray-800;
+              }
             }
           }
         }
@@ -94,112 +43,136 @@
     }
   }
 
-  &.neeto-ui-table--actions {
-    tr {
-      td,
-      th {
-        &:last-of-type {
-          width: 96px;
+  .neeto-ui-table--row {
 
-          .neeto-ui-btn--icon {
-            svg {
-              width: 24px;
-              height: 24px;
-            }
-          }
-        }
+    color: $neeto-ui-gray-700;
+    font-size: $neeto-ui-text-sm;
+    font-weight: $neeto-ui-font-normal;
+
+    vertical-align: middle;
+
+    a:not(.neeto-ui-btn) {
+      color: $neeto-ui-secondary-indigo;
+
+      transition: $neeto-ui-transition;
+      font-weight: $neeto-ui-font-medium;
+
+      &:hover {
+        color: darken($neeto-ui-secondary-indigo, 5%);
+
+        text-decoration: underline;
       }
     }
   }
 
-  &.neeto-ui-table--hover {
-    tbody {
-      tr {
-        cursor: pointer;
-        transition: background-color 0.3s;
+  td.ant-table-cell.ant-table-selection-column {
+    .ant-checkbox-wrapper.ant-checkbox-wrapper-checked {
+      .ant-checkbox.ant-checkbox-checked {
+        input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+        }
+
+        .ant-checkbox-inner {
+          color: $neeto-ui-gray-800;
+          background-color: $neeto-ui-gray-800 !important;
+          border: 2px solid $neeto-ui-gray-300;
+          border-radius: $neeto-ui-rounded-sm;
+
+          &:not(:disabled) {
+            cursor: pointer;
+          }
+
+          &:hover:not(:disabled, :checked) {
+            border-color: $neeto-ui-gray-400;
+          }
+
+          &:checked {
+            border: none !important;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+
+          &:focus,
+          &:focus-visible {
+            outline: transparent;
+          }
+
+          &:focus-visible {
+            box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+          }
+        }
 
         &:hover {
-          background-color: $neeto-ui-gray-200;
-        }
-      }
-    }
-  }
-}
-
-//Handling Table Inner Scroll
-
-.neeto-ui-scrollable {
-  .neeto-ui-table {
-    thead {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
-
-    tbody {
-      display: block;
-      overflow: auto;
-
-      tr {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-      }
-    }
-  }
-
-  &.neeto-ui-scrollable--small {
-    .neeto-ui-table {
-      tbody {
-        height: calc(
-          100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-sub-header-height} - #{$neeto-ui-sub-header-bottom-margin} -
-            #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
-        );
-      }
-    }
-    &.neeto-ui-scrollable--no-pagination {
-      .neeto-ui-table {
-        tbody {
-          height: calc(
-            100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-sub-header-height} - #{$neeto-ui-sub-header-bottom-margin} -
-              #{$neeto-ui-table-header-height}
-          );
+          border-color: $neeto-ui-gray-800;
         }
       }
     }
   }
 
-  &.neeto-ui-scrollable--large {
-    .neeto-ui-table {
-      tbody {
-        height: calc(
-          100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
-        );
+  ul.ant-pagination.ant-table-pagination.ant-table-pagination-right {
+    li.ant-pagination-item {
+      &:hover {
+        border-color: $neeto-ui-gray-700;
+
+        a {
+          color: $neeto-ui-gray-700;
+        }
       }
     }
-    &.neeto-ui-scrollable--no-pagination {
-      .neeto-ui-table {
-        tbody {
-          height: calc(
-            100vh - #{$neeto-ui-main-header-height} - #{$neeto-ui-table-header-height}
-          );
+
+    li.ant-pagination-item.ant-pagination-item-active {
+      border-color: $neeto-ui-gray-800;
+
+      a {
+        color: $neeto-ui-gray-800;
+      }
+    }
+
+    .ant-pagination-prev:not(.ant-pagination-disabled),
+    .ant-pagination-next:not(.ant-pagination-disabled) {
+      &:hover {
+        .ant-pagination-item-link {
+          border-color: $neeto-ui-gray-800;
+
+          .anticon.anticon-left,
+          .anticon.anticon-right {
+            color: $neeto-ui-gray-800;
+          }
         }
       }
     }
   }
 
-  &.neeto-ui-scrollable--viewport {
-    .neeto-ui-table {
-      tbody {
-        height: calc(
-          100vh - #{$neeto-ui-pagination-block-height} - #{$neeto-ui-table-header-height}
-        );
-      }
+  .ant-pagination-jump-next.ant-pagination-jump-next-custom-icon,
+  .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
+
+    .anticon.anticon-double-right.ant-pagination-item-link-icon,
+    .anticon.anticon-double-left.ant-pagination-item-link-icon {
+      color: $neeto-ui-gray-800;
     }
-    &.neeto-ui-scrollable--no-pagination {
-      .neeto-ui-table {
-        tbody {
-          height: calc(100vh - #{$neeto-ui-table-header-height});
+  }
+
+  .ant-pagination-options {
+    div.ant-select.ant-pagination-options-size-changer.ant-select-single.ant-select-show-arrow {
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        .ant-select-selector {
+          border-color: $neeto-ui-gray-800;
+          box-shadow: $neeto-ui-shadow;
+
+          &:focus,
+          &:focus-visible,
+          &:active {
+            border-color: $neeto-ui-gray-800;
+            box-shadow: $neeto-ui-shadow;
+          }
         }
       }
     }
