@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../lib/components/layouts/Sidebar";
 import AppSwitcher from "../lib/components/layouts/AppSwitcher";
-import { NAV_LINKS, COMPONENT_MAPPING } from "../example/src/constants";
+import { NAV_LINKS } from "../example/src/constants";
 
 export default {
   title: "Layouts/AppSwitcher",
@@ -12,7 +12,7 @@ export default {
     layout: "fullscreen",
     docs: {
       description: {
-        component: '`import { Sidebar } from "@bigbinary/neetoui/v2/layouts";`',
+        component: '`import { AppSwitcher } from "@bigbinary/neetoui/v2/layouts";`',
       },
     },
   },
