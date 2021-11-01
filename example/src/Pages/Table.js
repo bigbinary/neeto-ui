@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Table, Tooltip, Tag, Avatar, Button } from "../../../lib/components";
-import { TABLE_DATA } from "./constants";
-import Header from "../Header";
 import { MenuVertical } from "@bigbinary/neeto-icons";
+
+import Header from "../Header";
+import { TABLE_DATA } from "./constants";
+import { Table, Tooltip, Tag, Avatar, Button } from "../../../lib/components";
 
 const Tabs = () => {
   const [pageNumber, setPageNumber] = useState(1);
