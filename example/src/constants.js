@@ -20,6 +20,7 @@ import Modal from "./Pages/Modal";
 import Pane from "./Pages/Pane";
 import Select from "./Pages/Select";
 import Tab from "./Pages/Tab";
+import Table from "./Pages/Table";
 import Tag from "./Pages/Tag";
 import TimePicker from "./Pages/TimePicker";
 import Toastr from "./Pages/Toastr";
@@ -40,6 +41,7 @@ export const COMPONENT_MAPPING = {
   Pane: Pane,
   Select: Select,
   Tab: Tab,
+  Table: Table,
   Tag: Tag,
   TimePicker: TimePicker,
   Toastr: Toastr,
@@ -73,6 +75,10 @@ export const NAV_LINKS = [
       {
         label: "Tag",
         to: "/components/tag",
+      },
+      {
+        label: "Table",
+        to: "/components/table",
       },
       {
         label: "Avatar",

@@ -1,0 +1,36 @@
+If you want to use `Table` component from `neetoUI v2`, then, please follow the below syntax for `columnData` and `rowData`.
+
+```
+const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      width: 75,
+      sorter: () => handleSortFunction();
+    },
+    {
+      title: "GUID",
+      dataIndex: "guid",
+      key: "guid",
+      width: 150,
+      ellipsis: {
+        showTitle: false,
+      },
+    },
+  ];
+```
+
+- Each column in the table needs to have a `title`, which is the title of that particular column.
+- We can define `width` for certain columns. By default, width will be set to `auto`.
+- Defining a `width` can be useful where you wish to truncate large texts.
+- A custom sort function can be supplied to the `sorter` key.
+- `dataIndex` is the `key` over which, the row data is mapped over for the particular column.
+- Each column needs to have a unique `key`.
+- `title` accepts `JSX`. Hence, we can wrap it inside a `tooltip` if we wish to show a tooltip on hover of a header.
+- The `render` method inside `columnData` accepts `JSX` and can be used to define custom row data like cells with `Avatar` or `IconButton`.
+- The `ellipsis` key is used to truncate any large text that overflows the given width for a cell.
+- `defaultPageSize` by default is set to `100`.
+- `onRowClick` handler returns `selectedRowKeys and selectedRow`.
+- `handlePageChange` returns `page and pageSize`.
+- `scrollOffset` is used to define horizontal or vertical scroll (if any).

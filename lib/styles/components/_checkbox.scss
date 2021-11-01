@@ -50,3 +50,47 @@
     }
   }
 }
+
+// ant design checkbox override
+
+.ant-checkbox{
+  [type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    color: $neeto-ui-gray-800;
+    border: 2px solid $neeto-ui-gray-300;
+    border-radius: $neeto-ui-rounded-sm;
+  
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+  
+    &:hover:not(:disabled, :checked) {
+      border-color: $neeto-ui-gray-400;
+    }
+  
+    &:checked {
+      border: none !important;
+    }
+  
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  
+    &:focus,
+    &:focus-visible {
+      outline: transparent;
+    }
+  
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+    }
+  }
+  .ant-checkbox-inner{
+    display: none;
+  }
+}
+
+
+

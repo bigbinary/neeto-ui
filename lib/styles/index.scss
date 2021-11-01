@@ -10,6 +10,14 @@
 @import "./utilities/animations";
 @import "./utilities/helpers";
 
+//Ant Components
+@import "./venders/ant-animations";
+@import "./venders/ant-spin";
+@import "./venders/antd-date-picker";
+@import "./venders/antd-table";
+@import "./venders/antd-pagination";
+@import "./venders/antd-select";
+
 //Components
 @import "./components/accordion";
 @import "./components/avatar";
@@ -43,5 +51,5 @@
 //Tooltip animations
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";
 
-// AntDesign date picker
-@import "antd/dist/antd.css";
+// // AntDesign date picker
+// @import "antd/dist/antd.css";
