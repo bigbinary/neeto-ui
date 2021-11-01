@@ -80,7 +80,7 @@ const Tabs = () => {
     },
     {
       title: () => (
-        <Tooltip content="IP Address can be used to track " placement="top">
+        <Tooltip content="IP Address can be used to track" position="top">
           <div>IP Address</div>
         </Tooltip>
       ),
@@ -159,24 +159,18 @@ const Tabs = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
-      render: () => (
-        <>
-          <Tag label="check" />
-        </>
-      ),
+      render: () => <Tag label="check" />,
     },
     {
       title: "Icon Button",
       dataIndex: "icon_button",
       key: "icon_button",
       render: () => (
-        <>
-          <Button
-            icon={() => <MenuVertical />}
-            onClick={() => alert("Edit Action Clicked.")}
-            style="text"
-          />
-        </>
+        <Button
+          icon={() => <MenuVertical />}
+          onClick={() => alert("Edit Action Clicked.")}
+          style="text"
+        />
       ),
     },
   ];

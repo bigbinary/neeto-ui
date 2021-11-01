@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MenuVertical } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "./constants";
+import TableDocs from "!raw-loader!./TableDocs.mdx";
 import NeetoTable from "../lib/components/Table";
 import { Tooltip, Tag, Avatar, Button } from "../lib/components";
 
@@ -17,6 +18,7 @@ export default {
     },
   },
 };
+
 const columns = [
   {
     title: "ID",
@@ -206,6 +208,23 @@ export const Template = (args) => {
       {...args}
     />
   );
+};
+
+export const ColumnDataAndRowData = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <NeetoTable
+      columnData={columns}
+      rowData={TABLE_DATA}
+      currentPageNumber={pageNumber}
+      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      {...args}
+    />
+  );
+};
+
+ColumnDataAndRowData.parameters = {
+  docs: { description: { story: TableDocs } },
 };
 
 Template.args = {
