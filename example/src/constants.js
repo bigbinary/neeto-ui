@@ -4,6 +4,8 @@ import {
   UserCircle,
   Settings,
   Image,
+  Help,
+  NeetoDesk,
 } from "@bigbinary/neeto-icons";
 
 import Avatar from "./Pages/Avatar";
@@ -146,5 +148,18 @@ export const NAV_LINKS = [
     label: "Layouts",
     to: "/layouts",
     icon: Image,
+  },
+];
+
+export const FOOTER_LINKS = [
+  {
+    label: "Help",
+    to: "/help",
+    icon: Help,
+  },
+  {
+    label: "Agents",
+    to: "/agents",
+    icon: NeetoDesk,
   },
 ];

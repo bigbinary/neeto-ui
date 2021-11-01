@@ -4,7 +4,11 @@ import { Notification } from "@bigbinary/neeto-icons";
 
 import Sidebar from "../lib/components/layouts/Sidebar";
 import AppSwitcher from "../lib/components/layouts/AppSwitcher";
-import { NAV_LINKS, COMPONENT_MAPPING } from "../example/src/constants";
+import {
+  NAV_LINKS,
+  COMPONENT_MAPPING,
+  FOOTER_LINKS,
+} from "../example/src/constants";
 
 export default {
   title: "Layouts/Sidebar",
@@ -219,6 +223,38 @@ UncontrolledSidebar.args = {
     icon: Notification,
     onClick: () => alert("Clicked on what's new"),
   },
+  showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
+export const SidebarWithFooterLinks = ({ onCollapse, ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+SidebarWithFooterLinks.storyName = "Sidebar with Footer links";
+SidebarWithFooterLinks.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS.slice(0, 3),
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    dropdownProps: [
+      {
+        label: "Edit",
+        onClick: () => {},
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+      },
+    ],
+  },
+  footerLinks: FOOTER_LINKS,
+  showChangelog: true,
   showAppSwitcher: true,
   appName: "neetoUI",
 };
