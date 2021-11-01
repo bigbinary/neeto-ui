@@ -40,7 +40,7 @@
     }
 
     .neeto-ui-modal__header {
-      padding: 56px 32px 10px;
+      padding: 56px 32px 8px;
     }
 
     .neeto-ui-modal__body {
@@ -64,10 +64,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-
-    .neeto-ui-icon__body {
-      margin: 1px 4px 0 0;
-      font-weight: 500;
-    }
+    margin-bottom: 32px;
+    padding: 10px 0 0 2px;
   }
 }
