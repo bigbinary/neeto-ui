@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../lib/components/Button";
@@ -8,7 +8,12 @@ import Typography from "../lib/components/Typography";
 export default {
   title: "Overlays/Pane",
   component: Pane,
-  subcomponents: { Button },
+  subcomponents: {
+    "Pane.Header": Pane.Header,
+    "Pane.Body": Pane.Body,
+    "Pane.Footer": Pane.Footer,
+    Button,
+  },
   parameters: {
     layout: "padded",
     docs: {
@@ -19,8 +24,15 @@ export default {
   },
 };
 
-export const Panes = () => {
+export const Panes = ({ isOpen, onClose, ...args }) => {
   const [showPane, setShowPane] = useState(false);
+  useEffect(() => {
+    setShowPane(isOpen);
+  }, [isOpen])
+  const handleClose = () => {
+    setShowPane(false)
+    onClose();
+  }
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -31,7 +43,7 @@ export const Panes = () => {
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane isOpen={showPane} onClose={handleClose} {...args}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
