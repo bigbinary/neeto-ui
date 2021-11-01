@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Notification } from "@bigbinary/neeto-icons";
 import { Sidebar, AppSwitcher } from "../../lib/components/layouts";
 import { NAV_LINKS, COMPONENT_MAPPING } from "./constants";
 import "./index.scss";
@@ -22,7 +23,9 @@ const Playground = () => {
       <div className="flex flex-row items-start justify-start">
         <Sidebar
           isCollapsed={isSidebarCollapsed}
-          onCollapse={() => setIsSidebarCollapsed(isCollapsed => !isCollapsed)}
+          onCollapse={() =>
+            setIsSidebarCollapsed((isCollapsed) => !isCollapsed)
+          }
           organizationInfo={{
             name: "neetoUI",
             subdomain: "neetoui.netlify.app",
@@ -44,10 +47,13 @@ const Playground = () => {
           }}
           toggleAppSwitcher={appSwitcher}
           showAppSwitcher
-          onAppSwitcherToggle={() => toggleAppSwitcher(open => !open)}
+          onAppSwitcherToggle={() => toggleAppSwitcher((open) => !open)}
           appName="neetoUI"
           showChangelog
-          onChangelogToggle={() => alert("onChangelogToggle")}
+          changelogProps={{
+            icon: Notification,
+            onClick: () => alert("onChangelogToggle"),
+          }}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Notification } from "@bigbinary/neeto-icons";
 
 import Sidebar from "../lib/components/layouts/Sidebar";
 import AppSwitcher from "../lib/components/layouts/AppSwitcher";
@@ -214,6 +215,10 @@ UncontrolledSidebar.args = {
     ],
   },
   showChangelog: true,
+  changelogProps: {
+    icon: Notification,
+    onClick: () => alert("Clicked on what's new"),
+  },
   showAppSwitcher: true,
   appName: "neetoUI",
 };
