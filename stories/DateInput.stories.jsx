@@ -1,4 +1,5 @@
 import React from "react";
+import * as dayjs from "dayjs";
 
 import DatePicker from "../lib/components/DatePicker";
 
@@ -24,4 +25,5 @@ DateInput.args = {
   type: "date",
   picker: "date",
   showTime: false,
+  defaultValue: dayjs(),
 };
