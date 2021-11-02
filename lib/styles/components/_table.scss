@@ -21,9 +21,10 @@
       }
 
       th.ant-table-cell.ant-table-column-has-sorters {
-        &:hover{
+        &:hover {
           background-color: $neeto-ui-white;
         }
+
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
             .ant-table-column-sorter-inner {
@@ -45,7 +46,7 @@
     }
   }
 
-  .ant-table-tbody > tr.ant-table-row-selected > td {
+  .ant-table-tbody>tr.ant-table-row-selected>td {
     background-color: $neeto-ui-pastel-blue;
   }
 
@@ -105,16 +106,17 @@
 
   .ant-pagination-jump-next.ant-pagination-jump-next-custom-icon,
   .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
+
     .anticon.anticon-double-right.ant-pagination-item-link-icon,
     .anticon.anticon-double-left.ant-pagination-item-link-icon {
       color: $neeto-ui-gray-800;
     }
   }
 
-  .ant-table-tbody > tr > td,
-  .ant-table-thead > tr > th,
-  .ant-table tfoot > tr > td,
-  .ant-table tfoot > tr > th {
+  .ant-table-tbody>tr>td,
+  .ant-table-thead>tr>th,
+  .ant-table tfoot>tr>td,
+  .ant-table tfoot>tr>th {
     padding: 12px 16px;
   }
 
@@ -134,6 +136,7 @@
           }
         }
       }
+
       &:hover {
         .ant-select-selector {
           border-color: $neeto-ui-gray-800 !important;
@@ -159,5 +162,13 @@
     color: $neeto-ui-white;
     font-weight: inherit;
     background-color: $neeto-ui-gray-800;
+  }
+
+  .ant-spin-nested-loading {
+    .ant-spin.ant-spin-spinning {
+      .ant-spin-dot-item {
+        background-color: $neeto-ui-gray-800;
+      }
+    }
   }
 }

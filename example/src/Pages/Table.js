@@ -13,7 +13,7 @@ const Tabs = () => {
       dataIndex: "id",
       key: "id",
       width: 75,
-      sorter: (a, b) => a.id - b.id,
+      sorter: true,
     },
     {
       title: "GUID",
@@ -162,7 +162,6 @@ const Tabs = () => {
       render: () => <Tag label="check" />,
     },
     {
-      title: "Icon Button",
       dataIndex: "icon_button",
       key: "icon_button",
       render: () => (
@@ -174,10 +173,18 @@ const Tabs = () => {
       ),
     },
   ];
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, filters, sorter);
+  };
+
   return (
     <div className="w-full">
       <Header title="Table" />
-      <div className="w-10/12 mx-auto mt-6 space-y-6">
+      <div
+        className="w-10/12 mx-auto mt-6 space-y-6"
+        style={{ height: "calc(100vh - 80px)" }}
+      >
         <Table
           rowData={TABLE_DATA}
           columnData={columns}
@@ -186,8 +193,11 @@ const Tabs = () => {
           }
           defaultPageSize={20}
           currentPageNumber={pageNumber}
-          scrollOffset={{ x: 3050, y: 550 }}
+          scrollOffset={{ x: "max-content", y: "100%" }}
           handlePageChange={(page, pageSize) => setPageNumber(page)}
+          onChange={(pagination, filters, sorter) =>
+            handleTableChange(pagination, filters, sorter)
+          }
         />
       </div>
     </div>
