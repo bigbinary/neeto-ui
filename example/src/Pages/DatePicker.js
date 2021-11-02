@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header";
 import { DatePicker, Typography } from "../../../lib/components";
+import * as dayjs from "dayjs";
 
 const Date = () => {
   return (
@@ -13,6 +14,7 @@ const Date = () => {
               Date Picker
             </Typography>
             <DatePicker
+              defaultValue={dayjs()}
               type="date"
               showTime
               className="mb-6"
