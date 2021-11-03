@@ -1,4 +1,3 @@
-
 .neeto-ui-btn {
   display: inline-flex;
   align-items: center;
@@ -32,7 +31,7 @@
   }
 
   .neeto-ui-btn__icon:last-child:not(:first-child),
-  .neeto-ui-btn__spinner:last-child:not(:first-child){
+  .neeto-ui-btn__spinner:last-child:not(:first-child) {
     margin-left: 12px;
   }
 }
@@ -40,7 +39,7 @@
 .neeto-ui-btn--icon-left {
   flex-direction: row-reverse;
   .neeto-ui-btn__icon:last-child:not(:first-child),
-  .neeto-ui-btn__spinner:last-child:not(:first-child){
+  .neeto-ui-btn__spinner:last-child:not(:first-child) {
     margin-right: 12px;
     margin-left: 0;
   }
@@ -48,9 +47,9 @@
 
 .neeto-ui-btn__icon,
 .neeto-ui-btn__spinner,
-.neeto-ui-btn__spinner-wrapper{
+.neeto-ui-btn__spinner-wrapper {
   color: inherit;
-  svg{
+  svg {
     color: inherit !important;
   }
 }
@@ -69,45 +68,51 @@
 }
 
 // styles
-.neeto-ui-btn--style{
+.neeto-ui-btn--style {
   &-primary {
     color: $neeto-ui-white;
     background-color: $neeto-ui-gray-800;
-  
+
     &:hover:not(:disabled),
     &:active {
+      color: $neeto-ui-white;
       background-color: $neeto-ui-gray-700;
     }
-  
+
     &:focus-visible {
-      box-shadow: 0 0 0 3px #E5E5E5;
+      color: $neeto-ui-white;
+      box-shadow: 0 0 0 3px #e5e5e5;
     }
   }
 
   &-secondary {
     color: $neeto-ui-gray-800;
     background-color: $neeto-ui-gray-200;
-  
+
     &:hover:not(:disabled),
     &:active {
+      color: $neeto-ui-gray-800;
       background-color: $neeto-ui-gray-400;
     }
-  
+
     &:focus-visible {
-      box-shadow: 0 0 0 3px #E5E5E5;
+      color: $neeto-ui-gray-800;
+      box-shadow: 0 0 0 3px #e5e5e5;
     }
   }
 
   &-text {
     color: $neeto-ui-gray-800;
-  
+
     &:hover:not(:disabled),
     &:active {
+      color: $neeto-ui-gray-800;
       background-color: $neeto-ui-gray-200;
     }
-  
+
     &:focus-visible {
-      box-shadow: 0 0 0 3px #E5E5E5;
+      color: $neeto-ui-gray-800;
+      box-shadow: 0 0 0 3px #e5e5e5;
     }
   }
 
@@ -115,28 +120,31 @@
     color: $neeto-ui-secondary-indigo;
     min-height: initial;
     padding: 0;
-  
+
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
+      color: $neeto-ui-secondary-indigo;
     }
 
     &:focus-visible {
       color: darken($neeto-ui-secondary-indigo, 25%);
     }
   }
-  
+
   &-danger {
     color: $neeto-ui-error;
     background-color: $neeto-ui-pastel-red;
-  
+
     &:hover:not(:disabled),
     &:active {
+      color: $neeto-ui-error;
       background-color: darken($neeto-ui-pastel-red, 2.5%);
     }
-  
+
     &:focus-visible {
+      color: $neeto-ui-error;
       box-shadow: 0 0 0 3px darken($neeto-ui-pastel-red, 2.5%);
     }
   }
