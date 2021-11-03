@@ -51,7 +51,7 @@
     padding: 12px 8px;
     margin: 8px 0;
 
-    &.mb-0{
+    &.mb-0 {
       margin-bottom: 0;
     }
 
@@ -105,10 +105,11 @@
       color: $neeto-ui-gray-800;
       text-decoration: none;
     }
-    &--button {
+    &--app-switcher {
       padding-top: 8px;
       padding-bottom: 8px;
-
+    }
+    &--button {
       &:focus {
         background-color: transparent;
       }

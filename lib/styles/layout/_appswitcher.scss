@@ -28,7 +28,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: $neeto-ui-white;
-  overflow-y: auto;
   width: 342px;
   height: 100vh;
   overflow-y: auto;
@@ -65,7 +64,7 @@
   flex-direction: column;
   width: 100%;
   font-size: $neeto-ui-text-sm;
-  padding-top: 42px;
+  padding-top: 43px;
 }
 
 .neeto-ui-app-switcher-link {
