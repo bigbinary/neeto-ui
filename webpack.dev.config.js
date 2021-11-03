@@ -70,7 +70,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new HtmlWebPackPlugin({
       template: "./example/index.html",
       filename: "./index.html",
