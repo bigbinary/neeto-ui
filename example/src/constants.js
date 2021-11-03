@@ -6,6 +6,7 @@ import {
   Image,
   Help,
   NeetoDesk,
+  Link
 } from "@bigbinary/neeto-icons";
 
 import Avatar from "./Pages/Avatar";
@@ -168,4 +169,9 @@ export const FOOTER_LINKS = [
     to: "/agents",
     icon: NeetoDesk,
   },
+  {
+    label: "External",
+    icon: Link,
+    href: "https://neetoui-v2.netlify.app",
+  }
 ];
