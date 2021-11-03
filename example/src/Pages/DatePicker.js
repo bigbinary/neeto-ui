@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import * as dayjs from "dayjs";
 import { DatePicker, Typography } from "../../../lib/components";
 
 const Date = () => {
@@ -15,6 +16,7 @@ const Date = () => {
             <DatePicker
               type="date"
               showTime
+              defaultValue={dayjs()}
               className="mb-6"
               onChange={(date, dateString) =>
                 alert(`Selected date is: ${dateString}`)
@@ -26,6 +28,7 @@ const Date = () => {
             <DatePicker
               type="range"
               className="mb-6"
+              defaultValue={[dayjs(), dayjs().add(7, "day")]}
               onChange={(date, dateString) =>
                 alert(`Selected date is: ${dateString}`)
               }
