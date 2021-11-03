@@ -1,4 +1,5 @@
 const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
+const AntdDayjsWebpackPlugin = require("antd-dayjs-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-          }
+          },
         ],
       },
       {
@@ -58,5 +59,5 @@ module.exports = {
     library: "neetoui",
     libraryTarget: "umd",
   },
-  plugins: [new PeerDepsExternalsPlugin()],
+  plugins: [new PeerDepsExternalsPlugin(), new AntdDayjsWebpackPlugin()],
 };
