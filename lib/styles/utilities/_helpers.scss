@@ -1,9 +1,15 @@
 body {
   // color utility classes
   @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-text-#{$color},
-    .hover\:neeto-ui-text-#{$color}:hover,
-    .focus\:neeto-ui-text-#{$color}:focus,
+    .neeto-ui-text-#{$color} {
+      color: $value;
+    }
+    .hover\:neeto-ui-text-#{$color}:hover {
+      color: $value;
+    }
+    .focus\:neeto-ui-text-#{$color}:focus {
+      color: $value;
+    }
     .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
       color: $value;
     }
@@ -11,9 +17,15 @@ body {
 
   // background utility classes
   @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-bg-#{$color},
-    .hover\:neeto-ui-bg-#{$color}:hover,
-    .focus\:neeto-ui-bg-#{$color}:focus,
+    .neeto-ui-bg-#{$color} {
+      background-color: $value;
+    }
+    .hover\:neeto-ui-bg-#{$color}:hover {
+      background-color: $value;
+    }
+    .focus\:neeto-ui-bg-#{$color}:focus {
+      background-color: $value;
+    }
     .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
       background-color: $value;
     }
@@ -21,9 +33,15 @@ body {
 
   // border color
   @each $color, $value in $neeto-ui-theme-colors {
-    .neeto-ui-border-#{$color},
-    .hover\:neeto-ui-border-#{$color}:hover,
-    .focus\:neeto-ui-border-#{$color}:focus,
+    .neeto-ui-border-#{$color} {
+      border-color: $value;
+    }
+    .hover\:neeto-ui-border-#{$color}:hover {
+      border-color: $value;
+    }
+    .focus\:neeto-ui-border-#{$color}:focus {
+      border-color: $value;
+    }
     .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
       border-color: $value;
     }
@@ -31,9 +49,15 @@ body {
 
   // box shadows
   @each $shadow, $value in $neeto-ui-shadows {
-    .neeto-ui-shadow-#{$shadow},
-    .hover\:neeto-ui-shadow-#{$shadow}:hover,
-    .focus\:neeto-ui-shadow-#{$shadow}:focus,
+    .neeto-ui-shadow-#{$shadow} {
+      box-shadow: $value;
+    }
+    .hover\:neeto-ui-shadow-#{$shadow}:hover {
+      box-shadow: $value;
+    }
+    .focus\:neeto-ui-shadow-#{$shadow}:focus {
+      box-shadow: $value;
+    }
     .focus-visible\:neeto-ui-shadow-#{$shadow}:focus-visible {
       box-shadow: $value;
     }
