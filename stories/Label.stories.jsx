@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import Label from "../lib/components/Label";
-import Button from "../lib/components/Button";
+import Tooltip from "../lib/components/Tooltip";
 
 export default {
   title: "Components/Label",
@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-  subcomponents: { Button }
+  subcomponents: { Tooltip }
 };
 
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
@@ -42,7 +42,7 @@ WithHelpIcon.args = {
     href: "https://github.com/bigbinary/neeto-ui",
     tooltipProps: {
       content: "Help icon tooltip",
-      position: "bottom"
+      position: "auto"
     }
   },
 };
