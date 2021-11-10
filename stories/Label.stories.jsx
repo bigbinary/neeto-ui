@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { Help } from "@bigbinary/neeto-icons";
 
 import Label from "../lib/components/Label";
-import Button from "../lib/components/Button";
+import Tooltip from "../lib/components/Tooltip";
 
 export default {
   title: "Components/Label",
@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-  subcomponents: { Button }
+  subcomponents: { Tooltip },
 };
 
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
@@ -31,18 +31,16 @@ Required.args = {
   required: true,
 };
 
-export const WithHelpIcon = (args) => (
-  <BrowserRouter>
-    <Label {...args} />
-  </BrowserRouter>
-);
+export const WithHelpIcon = Template.bind({});
 WithHelpIcon.args = {
   children: "This is a label with a help icon",
+  required: true,
   helpIconProps: {
-    href: "https://github.com/bigbinary/neeto-ui",
+    onClick: () => window.open("https://neetoui-v2.netlify.app"),
+    icon: Help,
     tooltipProps: {
       content: "Help icon tooltip",
-      position: "bottom"
-    }
+      position: "auto",
+    },
   },
 };
