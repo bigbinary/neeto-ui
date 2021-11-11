@@ -7,7 +7,7 @@ export const TABLE_DATA = [
     last_name: "Realy",
     buzzword: "artificial intelligence",
     gender: "Male",
-    email: "brealy0@who.int",
+    email: null,
     company_name: "Schuppe-Beier",
     ip_address: "144.32.99.33",
     department: "Training",
