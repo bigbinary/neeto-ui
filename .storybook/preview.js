@@ -1,9 +1,8 @@
-import './style.scss'
-import '../lib/styles/index.scss'
-// import './v1.scss'
+import "./style.scss";
+import "../lib/styles/index.scss";
 
 export const parameters = {
-  layout: 'fullscreen',
+  layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -13,7 +12,14 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Introduction', 'Foundation', ['Colors', 'Typography', 'Iconography', 'Helpers'], 'Components', 'Overlays', 'Layouts'],
+      order: [
+        "Introduction",
+        "Foundation",
+        ["Colors", "Typography", "Iconography", "Helpers"],
+        "Components",
+        "Overlays",
+        "Layouts",
+      ],
     },
   },
-}
+};

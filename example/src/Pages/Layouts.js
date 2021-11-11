@@ -14,14 +14,9 @@ import {
   Dropdown,
   Typography,
 } from "../../../lib/components";
-import {
-  MenuHorizontal,
-  Settings,
-  Plus,
-  Search,
-} from "@bigbinary/neeto-icons";
+import { MenuHorizontal, Settings, Plus, Search } from "@bigbinary/neeto-icons";
 
-const SidebarHandleIcon = ({size, color}) => {
+const SidebarHandleIcon = ({ size, color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +30,7 @@ const SidebarHandleIcon = ({size, color}) => {
       <path stroke={color} strokeWidth="1.5" d="M3 15.25L11 15.25"></path>
     </svg>
   );
-}
+};
 
 const Layouts = () => {
   const [searchString, setSearchString] = useState("");
@@ -68,7 +63,7 @@ const Layouts = () => {
           iconProps={[
             {
               icon: () => <Search size={20} />,
-              onClick: () => setIsSearchCollapsed(!isSearchCollapsed)
+              onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
             },
           ]}
         >
@@ -81,7 +76,10 @@ const Layouts = () => {
             Segments
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Search collapse={isSearchCollapsed} onCollapse={() => setIsSearchCollapsed(true)} />
+        <MenuBar.Search
+          collapse={isSearchCollapsed}
+          onCollapse={() => setIsSearchCollapsed(true)}
+        />
         <MenuBar.Block label="Europe" count={80} />
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
@@ -113,10 +111,19 @@ const Layouts = () => {
         <MenuBar.Block label="Asia" count={60} />
         <MenuBar.AddNew label="Add New Tag" />
 
-        <MenuBar.Item label="General" description="Welcome Message, KB and Labels " />
-        <MenuBar.Item label="Styling" active description="Brand Color, Logo and Widget Position" />
-        <MenuBar.Item label="Widget Icon" description="Position, Icon and Label" />
-
+        <MenuBar.Item
+          label="General"
+          description="Welcome Message, KB and Labels "
+        />
+        <MenuBar.Item
+          label="Styling"
+          active
+          description="Brand Color, Logo and Widget Position"
+        />
+        <MenuBar.Item
+          label="Widget Icon"
+          description="Position, Icon and Label"
+        />
       </MenuBar>
       <Container>
         <Header
@@ -129,9 +136,7 @@ const Layouts = () => {
             <Button
               style="text"
               className="mr-2"
-              icon={() =>
-                <SidebarHandleIcon size={20} color={"#68737D"} />
-              }
+              icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
               onClick={() => setShowMenu(!showMenu)}
             />
           }
@@ -158,9 +163,7 @@ const Layouts = () => {
           {isLoading ? (
             <PageLoader />
           ) : (
-            <table
-              className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
-            >
+            <table className="neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions">
               <thead>
                 <tr>
                   <th>
