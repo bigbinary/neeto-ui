@@ -122,6 +122,10 @@
     align-items: center;
     font-size: 14px;
     color: $neeto-ui-gray-600;
+    svg{
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .neeto-ui-input__prefix {

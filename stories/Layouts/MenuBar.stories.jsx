@@ -38,7 +38,7 @@ export const MenuBarStory = () => {
         <MenuBar.SubTitle
           iconProps={[
             {
-              icon: () => <Search size={20} />,
+              icon: Search,
               onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
             },
           ]}
@@ -63,13 +63,13 @@ export const MenuBarStory = () => {
         <MenuBar.SubTitle
           iconProps={[
             {
-              icon: () => <Settings size={20} />,
+              icon: Settings,
             },
             {
-              icon: () => <Plus size={20} />,
+              icon: Plus,
             },
             {
-              icon: () => <Search size={20} />,
+              icon: Search,
             },
           ]}
         >
