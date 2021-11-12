@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  MenuHorizontal,
-  Settings,
-  Plus,
-  Search,
-} from "@bigbinary/neeto-icons";
+import { MenuHorizontal, Settings, Plus, Search } from "@bigbinary/neeto-icons";
 
 import {
   Header,
@@ -19,7 +14,7 @@ import {
   Pagination,
   Checkbox,
   Dropdown,
-  Typography
+  Typography,
 } from "../lib/components";
 
 export default {
@@ -56,10 +51,7 @@ export const Page = () => {
 
   return (
     <div className="flex">
-      <MenuBar
-        showMenu={showMenu}
-        title="Contacts"
-      >
+      <MenuBar showMenu={showMenu} title="Contacts">
         <MenuBar.Block label="All" count={13} active />
         <MenuBar.Block label="Users" count={2} />
         <MenuBar.Block label="Leads" count={7} />
