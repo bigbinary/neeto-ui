@@ -42,7 +42,7 @@ export const Required = () => <Input label="Required Input" required={true} />;
 export const Disabled = () => <Input label="Disabled Input" disabled={true} />;
 
 export const SearchInputSmall = () => (
-  <Input label="Search" prefix={<Search size={16} />} suffix=".neetohelp.com" />
+  <Input label="Search" prefix={<Search />} suffix=".neetohelp.com" />
 );
 
 export const SearchInputLarge = () => (
@@ -75,7 +75,7 @@ export const AllVariants = () => {
             <Input placeholder="Input Placeholder" />
             <Input
               placeholder="Input Placeholder"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
             />
             <Input placeholder="Input Placeholder" />
             <Input placeholder="Input Placeholder" />
@@ -89,7 +89,7 @@ export const AllVariants = () => {
             <Input
               placeholder="Input Placeholder"
               onChange={(e) => setInput(e.target.value)}
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
               value={input}
             />
             <Input
@@ -107,7 +107,7 @@ export const AllVariants = () => {
             <Input placeholder="Input Placeholder" disabled />
             <Input
               placeholder="Input Placeholder"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
               disabled
             />
             <Input placeholder="Input Placeholder" disabled />
@@ -117,7 +117,7 @@ export const AllVariants = () => {
             <Input placeholder="Input Placeholder" error={true} />
             <Input
               placeholder="Input Placeholder"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
               error={true}
             />
             <Input placeholder="Input Placeholder" error={true} />
@@ -131,7 +131,7 @@ export const AllVariants = () => {
             <Input
               placeholder="Input Placeholder"
               size="large"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
             />
             <Input placeholder="Input Placeholder" size="large" />
             <Input placeholder="Input Placeholder" size="large" />
@@ -148,7 +148,7 @@ export const AllVariants = () => {
               onChange={(e) => setInput(e.target.value)}
               size="large"
               value={input}
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
             />
             <Input
               placeholder="Input Placeholder"
@@ -168,7 +168,7 @@ export const AllVariants = () => {
             <Input
               placeholder="Input Placeholder"
               size="large"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
               disabled
             />
             <Input placeholder="Input Placeholder" size="large" disabled />
@@ -179,7 +179,7 @@ export const AllVariants = () => {
             <Input
               placeholder="Input Placeholder"
               size="large"
-              prefix={<Favorite size={16} />}
+              prefix={<Favorite />}
               error={true}
             />
             <Input placeholder="Input Placeholder" size="large" error={true} />

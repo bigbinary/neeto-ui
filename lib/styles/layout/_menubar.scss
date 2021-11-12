@@ -21,17 +21,6 @@
       align-items: center;
       margin-bottom: 20px;
       gap: 4px;
-
-      .neeto-ui-input__prefix {
-        color: #c2c8cc;
-      }
-
-      .neeto-ui-input--small {
-        input {
-          padding-top: 4px;
-          padding-bottom: 4px;
-        }
-      }
     }
 
     // subtitle
@@ -46,7 +35,7 @@
       &-actions {
         display: flex;
         align-items: center;
-        gap: 2px;
+        gap: 4px;
       }
     }
 

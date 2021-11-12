@@ -60,7 +60,7 @@ export const Page = () => {
         <MenuBar.SubTitle
           iconProps={[
             {
-              icon: () => <Search size={20} />,
+              icon: Search,
               onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
             },
           ]}
@@ -85,13 +85,13 @@ export const Page = () => {
         <MenuBar.SubTitle
           iconProps={[
             {
-              icon: () => <Settings size={20} />,
+              icon: Settings,
             },
             {
-              icon: () => <Plus size={20} />,
+              icon: Plus,
             },
             {
-              icon: () => <Search size={20} />,
+              icon: Search,
             },
           ]}
         >
@@ -157,7 +157,7 @@ export const Page = () => {
             <PageLoader />
           ) : (
             <table
-              className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
+              className={"neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions"}
             >
               <thead>
                 <tr>
