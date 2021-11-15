@@ -197,7 +197,7 @@ const columns = [
   },
 ];
 
-export const Template = (args) => {
+export const Table = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
@@ -210,7 +210,7 @@ export const Template = (args) => {
   );
 };
 
-export const ColumnDataAndRowData = (args) => {
+export const TableProps = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
@@ -223,13 +223,13 @@ export const ColumnDataAndRowData = (args) => {
   );
 };
 
-ColumnDataAndRowData.parameters = {
+TableProps.parameters = {
   docs: { description: { story: TableDocs } },
 };
 
-Template.args = {
+Table.args = {
   defaultPageSize: 10,
 };
-ColumnDataAndRowData.args = {
+TableProps.args = {
   defaultPageSize: 10,
 };

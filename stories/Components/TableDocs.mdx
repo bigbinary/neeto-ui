@@ -39,6 +39,14 @@ const columns = [
 - `onRowSelect` handler returns `selectedRowKeys and selectedRows`.
 - `handlePageChange` returns `page and pageSize`.
 
+## Rendering table rows without checkbox
+
+To render a table where you don't need a checkbox to select row, pass
+
+```jsx
+<Table rowSelection={false} />
+```
+
 ## Sorting
 
 - A custom sort function can be supplied to the `sorter` key.
