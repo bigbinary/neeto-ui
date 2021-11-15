@@ -50,13 +50,3 @@ AlertStory.args = {
   isSubmitting: false,
 };
 AlertStory.storyName = "Alert";
-
-export const AlertWithoutIcon = AlertStory.bind({});
-AlertWithoutIcon.args = {
-  isOpen: false,
-  title: "You have unsaved changes!",
-  message:
-    "Are you sure you want to continue? All of your unsaved changes will be lost.",
-  isSubmitting: false,
-  showIcon: false,
-};
