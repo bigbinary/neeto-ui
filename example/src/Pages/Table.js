@@ -196,7 +196,6 @@ const NeetoTable = () => {
         ref={parentContainerRef}
       >
         <Table
-          allowRowSelection={false}
           rowData={TABLE_DATA}
           columnData={columns}
           onRowSelect={(selectedRowKeys, selectedRows) =>

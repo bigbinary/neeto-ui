@@ -228,8 +228,8 @@ ColumnDataAndRowData.parameters = {
 };
 
 Template.args = {
-  columnData: columns,
-  rowData: TABLE_DATA,
-  defaultPageSize: 20,
-  scrollOffset: { x: 5000, y: 550 },
+  defaultPageSize: 10,
+};
+ColumnDataAndRowData.args = {
+  defaultPageSize: 10,
 };
