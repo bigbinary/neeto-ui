@@ -192,7 +192,7 @@ const NeetoTable = () => {
       <Header title="Table" />
       <div
         className="mx-auto mt-6 space-y-6"
-        style={{ height: "calc(100vh - 80px - 24px - 32px)" }}
+        style={{ height: "calc(100vh - 80px - 24px)" }}
         ref={parentContainerRef}
       >
         <Table
@@ -206,12 +206,9 @@ const NeetoTable = () => {
               )}`
             )
           }
+          rowSelection={false}
           defaultPageSize={20}
           currentPageNumber={pageNumber}
-          // scrollOffset={{
-          //   x: "max-content",
-          //   y: "600px",
-          // }}
           handlePageChange={(page, pageSize) => setPageNumber(page)}
           onChange={(pagination, filters, sorter) =>
             handleTableChange(pagination, filters, sorter)
