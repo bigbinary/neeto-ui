@@ -7,6 +7,7 @@ import { Table, Tooltip, Tag, Avatar, Button } from "../../../lib/components";
 
 const NeetoTable = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const parentContainerRef = React.useRef(null);
   const columns = [
     {
       title: "ID",
@@ -190,8 +191,9 @@ const NeetoTable = () => {
     <div className="w-full">
       <Header title="Table" />
       <div
-        className="mx-auto mt-6 space-y-6 h-10/12"
-        style={{ height: "calc(100vh - 80px - 24px)" }}
+        className="mx-auto mt-6 space-y-6"
+        style={{ height: "calc(100vh - 80px - 24px - 32px)" }}
+        ref={parentContainerRef}
       >
         <Table
           allowRowSelection={false}
@@ -206,10 +208,10 @@ const NeetoTable = () => {
           }
           defaultPageSize={20}
           currentPageNumber={pageNumber}
-          scrollOffset={{
-            x: "max-content",
-            y: "600px",
-          }}
+          // scrollOffset={{
+          //   x: "max-content",
+          //   y: "600px",
+          // }}
           handlePageChange={(page, pageSize) => setPageNumber(page)}
           onChange={(pagination, filters, sorter) =>
             handleTableChange(pagination, filters, sorter)
@@ -221,6 +223,7 @@ const NeetoTable = () => {
               )}}`
             )
           }
+          parentContainerRef={parentContainerRef}
         />
       </div>
     </div>
