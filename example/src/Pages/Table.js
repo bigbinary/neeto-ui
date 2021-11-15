@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Edit, Delete } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import Header from "../Header";
 import { TABLE_DATA } from "./constants";
@@ -163,17 +163,9 @@ const NeetoTable = () => {
       render: () => (
         <div className="flex flex-row space-x-2">
           <Button
-            icon={() => <Edit size={16} />}
+            icon={() => <MenuHorizontal />}
             onClick={(e) => {
               alert("Edit Action Clicked.");
-              e.stopPropagation();
-            }}
-            style="text"
-          />
-          <Button
-            icon={() => <Delete size={16} />}
-            onClick={(e) => {
-              alert("Delete Action Clicked.");
               e.stopPropagation();
             }}
             style="text"
@@ -205,7 +197,6 @@ const NeetoTable = () => {
               )}`
             )
           }
-          rowSelection={false}
           defaultPageSize={20}
           currentPageNumber={pageNumber}
           handlePageChange={(page, pageSize) => setPageNumber(page)}

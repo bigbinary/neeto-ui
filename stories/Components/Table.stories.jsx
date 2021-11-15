@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MenuVertical } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
@@ -188,7 +188,7 @@ const columns = [
     render: () => (
       <>
         <Button
-          icon={() => <MenuVertical />}
+          icon={() => <MenuHorizontal />}
           onClick={() => alert("Edit Action Clicked.")}
           style="text"
         />

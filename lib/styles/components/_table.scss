@@ -72,21 +72,6 @@
     &.neeto-ui-table--row_hover{
       cursor: pointer;
     }
-
-    .ant-table-cell {
-      button {
-        opacity: 0;
-        transition: $neeto-ui-transition;
-      }
-    }
-
-    &:hover {
-      .ant-table-cell {
-        button {
-          opacity: 1;
-        }
-      }
-    }
   }
 
   ul.ant-pagination.ant-table-pagination.ant-table-pagination-right {
