@@ -1,13 +1,13 @@
 If you want to use `Table` component from `neetoUI v2`, then, please follow the below syntax for `columnData` and `rowData`.
 
-```
+```js
 const columns = [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
       width: 75,
-      sorter: () => handleSortFunction();
+      sorter: true;
     },
     {
       title: "GUID",
@@ -19,18 +19,86 @@ const columns = [
       },
     },
   ];
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, filters, sorter);
+  };
+
 ```
 
 - Each column in the table needs to have a `title`, which is the title of that particular column.
 - We can define `width` for certain columns. By default, width will be set to `auto`.
 - Defining a `width` can be useful where you wish to truncate large texts.
-- A custom sort function can be supplied to the `sorter` key.
 - `dataIndex` is the `key` over which, the row data is mapped over for the particular column.
 - Each column needs to have a unique `key`.
 - `title` accepts `JSX`. Hence, we can wrap it inside a `tooltip` if we wish to show a tooltip on hover of a header.
 - The `render` method inside `columnData` accepts `JSX` and can be used to define custom row data like cells with `Avatar` or `IconButton`.
 - The `ellipsis` key is used to truncate any large text that overflows the given width for a cell.
 - `defaultPageSize` by default is set to `100`.
-- `onRowClick` handler returns `selectedRowKeys and selectedRow`.
+- `onRowClick` handler returns `selectedRowKey and selectedRow`.
+- `onRowSelect` handler returns `selectedRowKeys and selectedRows`.
 - `handlePageChange` returns `page and pageSize`.
-- `scrollOffset` is used to define horizontal or vertical scroll (if any).
+
+## Rendering table rows without checkbox
+
+To render a table where you don't need a checkbox to select row, pass
+
+```jsx
+<Table rowSelection={false} />
+```
+
+## Sorting
+
+- A custom sort function can be supplied to the `sorter` key.
+- In order to pass a custom sort function, keep `sorter: true` for that particular column.
+
+```js
+const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      width: 75,
+      sorter: true;
+    },
+    // other columns
+  ];
+
+  // custom sort function
+  const handleTableChange = (pagination, filters, sorter) => {
+    // Logic for sorting
+  };
+
+```
+
+- The `onChange` function returns the current `pagination, filters and sorter` of the table.
+
+```jsx
+<Table
+  rowData={TABLE_DATA}
+  columnData={columns}
+  onChange={(pagination, filters, sorter) =>
+    handleTableChange(pagination, filters, sorter)
+  }
+/>
+```
+
+## Passing parentContainerRef to Table
+
+In order to allow a full page vertical scroll on the table element. We need to pass `parentContainerRef` which is basically a ref to the wrapper element which wraps the table.
+
+```jsx
+<div
+  className="mx-auto mt-6 space-y-6"
+  style={{ height: "calc(100vh - 80px - 24px)" }}
+  ref={parentContainerRef}
+>
+  <Table
+    rowData={TABLE_DATA}
+    columnData={columns}
+    parentContainerRef={parentContainerRef}
+  />
+</div>
+```
+
+In this particular example, the height of the wrapper element is define as `calc(100vh - 80px - 24px)`, where, `80px` is the height of the header and `24px` is a margin top to the wrapper element.

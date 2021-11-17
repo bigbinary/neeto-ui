@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import { MenuVertical } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import Header from "../Header";
 import { TABLE_DATA } from "./constants";
 import { Table, Tooltip, Tag, Avatar, Button } from "../../../lib/components";
 
-const Tabs = () => {
+const NeetoTable = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const parentContainerRef = React.useRef(null);
   const columns = [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
       width: 75,
-      sorter: (a, b) => a.id - b.id,
+      sorter: true,
     },
     {
       title: "GUID",
@@ -25,11 +26,11 @@ const Tabs = () => {
       },
     },
     {
-      title: "First Name",
+      title: "Name",
       dataIndex: "first_name",
       key: "first_name",
-      width: 150,
-      render: (first_name, last_name) => {
+      width: 250,
+      render: (first_name, { last_name }) => {
         return (
           <div className="flex flex-row items-center">
             <Avatar
@@ -37,16 +38,10 @@ const Tabs = () => {
               size="small"
               className="mr-2"
             />
-            {first_name}
+            {first_name} {last_name}
           </div>
         );
       },
-    },
-    {
-      title: "Last Name",
-      dataIndex: "last_name",
-      key: "last_name",
-      width: 150,
     },
     {
       title: "Buzzword",
@@ -68,6 +63,7 @@ const Tabs = () => {
       ellipsis: {
         showTitle: false,
       },
+      render: (email) => email ?? "--",
     },
     {
       title: "Company Name",
@@ -156,42 +152,69 @@ const Tabs = () => {
       width: 150,
     },
     {
-      title: "Action",
+      title: "Tag",
       dataIndex: "action",
       key: "action",
       render: () => <Tag label="check" />,
     },
     {
-      title: "Icon Button",
       dataIndex: "icon_button",
       key: "icon_button",
       render: () => (
-        <Button
-          icon={() => <MenuVertical />}
-          onClick={() => alert("Edit Action Clicked.")}
-          style="text"
-        />
+        <div className="flex flex-row space-x-2">
+          <Button
+            icon={() => <MenuHorizontal />}
+            onClick={(e) => {
+              alert("Edit Action Clicked.");
+              e.stopPropagation();
+            }}
+            style="text"
+          />
+        </div>
       ),
     },
   ];
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, filters, sorter);
+  };
+
   return (
     <div className="w-full">
       <Header title="Table" />
-      <div className="w-10/12 mx-auto mt-6 space-y-6">
+      <div
+        className="mx-auto mt-6 space-y-6"
+        style={{ height: "calc(100vh - 80px - 24px)" }}
+        ref={parentContainerRef}
+      >
         <Table
           rowData={TABLE_DATA}
           columnData={columns}
-          onRowClick={(selectedRowKeys, selectedRows) =>
-            console.log(selectedRowKeys, selectedRows)
+          onRowSelect={(selectedRowKeys, selectedRows) =>
+            alert(
+              `Rows selected ${selectedRowKeys} with details ${JSON.stringify(
+                selectedRows
+              )}`
+            )
           }
           defaultPageSize={20}
           currentPageNumber={pageNumber}
-          scrollOffset={{ x: 3050, y: 550 }}
           handlePageChange={(page, pageSize) => setPageNumber(page)}
+          onChange={(pagination, filters, sorter) =>
+            handleTableChange(pagination, filters, sorter)
+          }
+          onRowClick={(event, record, rowIndex) =>
+            alert(
+              `You have clicked row ${rowIndex} with details ${JSON.stringify(
+                record
+              )}}`
+            )
+          }
+          parentContainerRef={parentContainerRef}
         />
       </div>
     </div>
   );
 };
 
-export default Tabs;
+export default NeetoTable;

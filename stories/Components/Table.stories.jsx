@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MenuVertical } from "@bigbinary/neeto-icons";
+import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
@@ -188,7 +188,7 @@ const columns = [
     render: () => (
       <>
         <Button
-          icon={() => <MenuVertical />}
+          icon={() => <MenuHorizontal />}
           onClick={() => alert("Edit Action Clicked.")}
           style="text"
         />
@@ -197,7 +197,7 @@ const columns = [
   },
 ];
 
-export const Template = (args) => {
+export const Table = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
@@ -210,7 +210,7 @@ export const Template = (args) => {
   );
 };
 
-export const ColumnDataAndRowData = (args) => {
+export const TableProps = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
@@ -223,13 +223,13 @@ export const ColumnDataAndRowData = (args) => {
   );
 };
 
-ColumnDataAndRowData.parameters = {
+TableProps.parameters = {
   docs: { description: { story: TableDocs } },
 };
 
-Template.args = {
-  columnData: columns,
-  rowData: TABLE_DATA,
-  defaultPageSize: 20,
-  scrollOffset: { x: 5000, y: 550 },
+Table.args = {
+  defaultPageSize: 10,
+};
+TableProps.args = {
+  defaultPageSize: 10,
 };
