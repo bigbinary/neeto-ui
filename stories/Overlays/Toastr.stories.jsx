@@ -61,3 +61,64 @@ export const Toastrs = () => {
     </>
   );
 };
+
+export const ErrorToastr = () => {
+  const onStringError = () => {
+    Toastr.error("This is a plain text error toastr!");
+  };
+
+  const onAxiosStringError = () => {
+    try {
+      // Dummy axios error object
+      const axiosError = {
+        isAxiosError: true,
+        config: {
+          url: "https://api.github.com/users/org",
+        },
+        response: {
+          data: {
+            error: "Not Found",
+          },
+          status: 404,
+        },
+      };
+      throw axiosError;
+    } catch (e) {
+      Toastr.error(e);
+    }
+  };
+
+  const onAxiosArrayError = () => {
+    try {
+      // Dummy axios error object
+      const axiosError = {
+        isAxiosError: true,
+        config: {
+          url: "https://api.github.com/users/org",
+        },
+        response: {
+          data: {
+            errors: ["A is required", "B is required"],
+          },
+        },
+      };
+      throw axiosError;
+    } catch (e) {
+      Toastr.error(e);
+    }
+  };
+
+  return (
+    <>
+      <ToastContainer />
+      <div className="space-x-6">
+        <Button label="Plain  Error" onClick={onStringError} />
+        <Button label="Throw an axios error" onClick={onAxiosStringError} />
+        <Button
+          label="Throw an axios error with array of error messages"
+          onClick={onAxiosArrayError}
+        />
+      </div>
+    </>
+  );
+};
