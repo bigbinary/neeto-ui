@@ -10,6 +10,8 @@ body {
     .focus\:neeto-ui-text-#{$color}:focus {
       color: $value;
     }
+  }
+  @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
       color: $value;
     }
@@ -26,6 +28,8 @@ body {
     .focus\:neeto-ui-bg-#{$color}:focus {
       background-color: $value;
     }
+  }
+  @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
       background-color: $value;
     }
@@ -42,6 +46,8 @@ body {
     .focus\:neeto-ui-border-#{$color}:focus {
       border-color: $value;
     }
+  }
+  @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
       border-color: $value;
     }
@@ -58,6 +64,8 @@ body {
     .focus\:neeto-ui-shadow-#{$shadow}:focus {
       box-shadow: $value;
     }
+  }
+  @each $shadow, $value in $neeto-ui-shadows {
     .focus-visible\:neeto-ui-shadow-#{$shadow}:focus-visible {
       box-shadow: $value;
     }
