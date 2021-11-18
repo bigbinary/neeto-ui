@@ -112,7 +112,7 @@ export const ErrorToastr = () => {
     <>
       <ToastContainer />
       <div className="space-x-6">
-        <Button label="Plain  Error" onClick={onStringError} />
+        <Button label="String Error" onClick={onStringError} />
         <Button label="Throw an axios error" onClick={onAxiosStringError} />
         <Button
           label="Throw an axios error with array of error messages"
