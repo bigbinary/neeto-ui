@@ -1,31 +1,57 @@
-name: "Publish"
+
+name: "Publish and create releases"
 on:
-  push:
+  pull_request:
     branches:
-      - master
+      - main
+    types: [closed]
 jobs:
   release:
     name: "Release"
     runs-on: macos-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.2.0
       - name: node
         uses: actions/setup-node@v2
         with:
           node-version: "14"
       - run: yarn install
       - run: yarn build
-      - run: yarn version --patch --no-git-tag-version
+      - run: yarn config set version-tag-prefix "v"
+
+      - name: Bump version and create tag
+        if: contains(github.event.pull_request.labels.*.name, 'Release')
+        run: yarn version --patch
+
+      - name: Bump version
+        if: "!contains(github.event.pull_request.labels.*.name, 'Release')"
+        run: yarn version --patch --no-git-tag-version
+
       - run: git config core.hooksPath /dev/null
       - uses: EndBug/add-and-commit@v7
         with:
-          branch: master
+          branch: main
           message: 'New version release'
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read package.json
+        uses: tyankatsu0105/read-package-version-actions@v1
+        id: package-version
+
+      - name: Release Drafter
+        uses: release-drafter/release-drafter@v5.15.0
+        if: ${{contains(github.event.pull_request.labels.*.name, 'Release')}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: v${{ steps.package-version.outputs.version }}
+          publish: true
       - name: "Publish"
         uses: JS-DevTools/npm-publish@v1
         with:
