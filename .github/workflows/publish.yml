@@ -3,13 +3,13 @@ name: "Publish and create releases"
 on:
   pull_request:
     branches:
-      - main
+      - master
     types: [closed]
 jobs:
   release:
     name: "Release"
     runs-on: macos-latest
-    if: github.event.pull_request.merged == true
+    if: ${{ github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'skip-ci') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2.2.0
@@ -22,11 +22,11 @@ jobs:
       - run: yarn config set version-tag-prefix "v"
 
       - name: Bump version and create tag
-        if: contains(github.event.pull_request.labels.*.name, 'Release')
+        if: contains(github.event.pull_request.labels.*.name, 'release')
         run: yarn version --patch
 
       - name: Bump version
-        if: "!contains(github.event.pull_request.labels.*.name, 'Release')"
+        if: "!contains(github.event.pull_request.labels.*.name, 'release')"
         run: yarn version --patch --no-git-tag-version
 
       - run: git config core.hooksPath /dev/null
@@ -46,7 +46,7 @@ jobs:
 
       - name: Release Drafter
         uses: release-drafter/release-drafter@v5.15.0
-        if: ${{contains(github.event.pull_request.labels.*.name, 'Release')}}
+        if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
