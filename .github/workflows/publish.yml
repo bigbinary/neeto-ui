@@ -20,6 +20,7 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn config set version-tag-prefix "v"
+      - run: git config core.hooksPath /dev/null
 
       - name: Bump version and create tag
         if: contains(github.event.pull_request.labels.*.name, 'release')
@@ -29,10 +30,9 @@ jobs:
         if: "!contains(github.event.pull_request.labels.*.name, 'release')"
         run: yarn version --patch --no-git-tag-version
 
-      - run: git config core.hooksPath /dev/null
       - uses: EndBug/add-and-commit@v7
         with:
-          branch: main
+          branch: master
           message: 'New version release'
 
       - name: Push changes
