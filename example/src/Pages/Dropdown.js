@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Dropdown } from "../../../lib/components";
+import { Keyboard } from "@bigbinary/neeto-icons";
+
 import Header from "../Header";
+import { Dropdown } from "../../../lib/components";
 
 const Dropdowns = () => {
   const [dropdownOne, setDropdownOne] = useState(false);
@@ -51,7 +53,7 @@ const Dropdowns = () => {
           </Dropdown>
           <Dropdown
             label="Dropdown with custom icon"
-            icon="ri-send-plane-line"
+            icon={Keyboard}
             positon="bottom-end"
           >
             {listItems.map((item, idx) => (
