@@ -8,6 +8,12 @@
   .neeto-ui-radio__label {
     margin-bottom: 12px;
   }
+
+  .neeto-ui-radio-input__error {
+    margin-top: 4px;
+    color: $neeto-ui-error;
+    font-size: $neeto-ui-text-xs;
+  }
 }
 
 .neeto-ui-radio__container {
@@ -63,6 +69,12 @@
 
     &:focus-visible {
       box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+    }
+  }
+
+  &.neeto-ui-radio__container--error {
+    .neeto-ui-radio[type="radio"] {
+      border-color: $neeto-ui-error;
     }
   }
 
