@@ -1,4 +1,5 @@
 const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
     layouts: "./lib/components/layouts/index.js",
     formik: "./lib/components/formik/index.js",
   },
+  plugins: [new MiniCssExtractPlugin(), new PeerDepsExternalsPlugin()],
   module: {
     rules: [
       {
@@ -42,9 +44,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
           "sass-loader",
@@ -58,5 +58,4 @@ module.exports = {
     library: "neetoui",
     libraryTarget: "umd",
   },
-  plugins: [new PeerDepsExternalsPlugin()],
 };
