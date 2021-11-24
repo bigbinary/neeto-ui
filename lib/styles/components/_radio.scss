@@ -70,8 +70,10 @@
     &:focus-visible {
       box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
     }
+  }
 
-    &.neeto-ui-radio--error {
+  &.neeto-ui-radio__container--error {
+    .neeto-ui-radio[type="radio"] {
       border-color: $neeto-ui-error;
     }
   }
