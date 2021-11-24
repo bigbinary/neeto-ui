@@ -89,7 +89,7 @@
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
     "@tippyjs/react": "^4.2.5",
-    "antd": "^4.16.13",
+    "antd": "^4.17.1",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
     "prop-types": "^15.7.2",
