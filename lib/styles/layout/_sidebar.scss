@@ -2,6 +2,7 @@
   width: 300px;
   height: 100vh;
   padding: 40px 0;
+  z-index: 99997;
 
   @include scrollbars(0);
   background-color: $neeto-ui-gray-200;
