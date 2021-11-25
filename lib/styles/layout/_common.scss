@@ -34,3 +34,14 @@
     height: 100vh;
   }
 }
+
+.neeto-ui-container--header-fixed{
+  padding: 0;
+
+  & > .neeto-ui-header,
+  & > .neeto-ui-subheader,
+  & > .neeto-ui-scrollable{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
