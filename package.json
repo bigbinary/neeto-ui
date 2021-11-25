@@ -39,7 +39,7 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "peer-deps-externals-webpack-plugin": "^1.0.4",
+    "@bigbinary/peer-deps-externals-webpack-plugin": "1.0.5",
     "postcss": "^7",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^4.0.3",
@@ -69,9 +69,9 @@
     ]
   },
   "scripts": {
-    "start": "TAILWIND_ENV=development NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
-    "build": "TAILWIND_ENV=production NODE_ENV=production webpack --mode production --config webpack.config.js",
-    "build-example": "TAILWIND_ENV=development NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
+    "start": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
+    "build": "NODE_ENV=production webpack --mode production --config webpack.config.js",
+    "build-example": "NODE_ENV=production webpack --mode production --config webpack.dev.config.js",
     "prepare": "husky install",
     "test": "jest",
     "storybook": "start-storybook -p 6006",

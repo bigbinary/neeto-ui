@@ -1165,6 +1165,11 @@
     react "^17.0.2"
     react-dom "^17.0.2"
 
+"@bigbinary/peer-deps-externals-webpack-plugin@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@bigbinary/peer-deps-externals-webpack-plugin/-/peer-deps-externals-webpack-plugin-1.0.5.tgz#5df6c096c034ffadbe6656fd3e4674d28962e455"
+  integrity sha512-QSIRbVQ4z3V765diikT++qSBcDouUTRt4gizUQ5elLYczuTCdpvc3h9lWBfZIcBk1YyjsSAp4JyZHu2Gm/Wn9w==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -10350,11 +10355,6 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
-
-peer-deps-externals-webpack-plugin@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/peer-deps-externals-webpack-plugin/-/peer-deps-externals-webpack-plugin-1.0.4.tgz#191e8f116c70401364dbd8e6c44ab3f8844101dc"
-  integrity sha512-MIZk2xvwUqd74rSIkbM4R/qTn182Hvb1gEOYIHwAqlqeRuSqn6QOGsd8NJLJRzwlMBnyjvMCs8JZH62+mQjb9g==
 
 picocolors@^0.2.1:
   version "0.2.1"
