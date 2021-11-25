@@ -36,6 +36,15 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
         appName="neetoUI"
+        profileInfo={{
+          name: "John Doe",
+          email: "john@doe.com",
+          dropdownProps: [{
+            label: "Logout",
+          }, {
+            label: "Settings"
+          }]
+        }}
       />
       <AppSwitcher
         isOpen={isAppSwitcherOpen}
