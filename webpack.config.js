@@ -1,4 +1,3 @@
-const PeerDepsExternalsPlugin = require("peer-deps-externals-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
@@ -8,7 +7,7 @@ module.exports = {
     layouts: "./lib/components/layouts/index.js",
     formik: "./lib/components/formik/index.js",
   },
-  plugins: [new MiniCssExtractPlugin(), new PeerDepsExternalsPlugin()],
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
