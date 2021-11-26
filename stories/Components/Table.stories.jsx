@@ -264,10 +264,10 @@ TableProps.args = {
   defaultPageSize: 10,
 };
 
-export const TableWithMaxHeight = (args) => {
+export const TableWithFixedHeight = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div className="h-96">
+    <div className="max-h-96">
       <NeetoTable
         columnData={columns}
         rowData={TABLE_DATA}
@@ -279,30 +279,32 @@ export const TableWithMaxHeight = (args) => {
   );
 };
 
-TableWithMaxHeight.args = {
+TableWithFixedHeight.args = {
   defaultPageSize: 10,
+  fixedHeight: true,
 };
 
 export const TableWithDynamicData = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
-  const [slice, setSlice] = useState(3);
+  const [slice, setSlice] = useState(20);
   const data = TABLE_DATA.slice(0, slice);
   return (
-    <>
-      <div className="h-screen">
-        <Button label="Slice the data" onClick={() => setSlice(10)} />
-        <NeetoTable
-          columnData={columns}
-          rowData={data}
-          currentPageNumber={pageNumber}
-          handlePageChange={(page) => setPageNumber(page)}
-          {...args}
-        />
-      </div>
-    </>
+    <div className="flex flex-col items-start space-y-3">
+      <Button
+        label="Slice the data"
+        onClick={() => setSlice(slice === 20 ? 5 : 20)}
+      />
+      <NeetoTable
+        columnData={columns}
+        rowData={data}
+        currentPageNumber={pageNumber}
+        handlePageChange={(page) => setPageNumber(page)}
+        {...args}
+      />
+    </div>
   );
 };
 
 TableWithDynamicData.args = {
-  defaultPageSize: 50,
+  defaultPageSize: 10,
 };
