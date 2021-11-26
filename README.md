@@ -8,6 +8,13 @@
 yarn add @bigbinary/neetoui
 ```
 
+This would install `neetoui` package inside your application.
+Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
+
+```scss
+@import "@bigbinary/neetoui/v2";
+```
+
 If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
 
 ```
