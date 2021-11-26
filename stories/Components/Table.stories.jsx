@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "../constants";
@@ -210,6 +210,39 @@ export const Table = (args) => {
   );
 };
 
+Table.args = {
+  defaultPageSize: 10,
+};
+
+export const TableWithSelectedRowKeys = ({
+  selectedRowKeys: selectedRowKeysProp,
+  ...args
+}) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [selectedRowKeys, setSelectedRowKeys] = useState(selectedRowKeysProp);
+
+  useEffect(() => {
+    setSelectedRowKeys(selectedRowKeysProp);
+  }, [selectedRowKeysProp]);
+
+  return (
+    <NeetoTable
+      columnData={columns}
+      rowData={TABLE_DATA}
+      currentPageNumber={pageNumber}
+      handlePageChange={(page) => setPageNumber(page)}
+      {...args}
+      selectedRowKeys={selectedRowKeys}
+      onRowSelect={(selectedRowKeys) => setSelectedRowKeys(selectedRowKeys)}
+    />
+  );
+};
+
+TableWithSelectedRowKeys.args = {
+  defaultPageSize: 10,
+  selectedRowKeys: [1, 2, 3],
+};
+
 export const TableProps = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
@@ -217,7 +250,7 @@ export const TableProps = (args) => {
       columnData={columns}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      handlePageChange={(page) => setPageNumber(page)}
       {...args}
     />
   );
@@ -227,9 +260,49 @@ TableProps.parameters = {
   docs: { description: { story: TableDocs } },
 };
 
-Table.args = {
-  defaultPageSize: 10,
-};
 TableProps.args = {
   defaultPageSize: 10,
+};
+
+export const TableWithMaxHeight = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <div className="h-96">
+      <NeetoTable
+        columnData={columns}
+        rowData={TABLE_DATA}
+        currentPageNumber={pageNumber}
+        handlePageChange={(page) => setPageNumber(page)}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithMaxHeight.args = {
+  defaultPageSize: 10,
+};
+
+export const TableWithDynamicData = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [slice, setSlice] = useState(3);
+  const data = TABLE_DATA.slice(0, slice);
+  return (
+    <>
+      <div className="h-screen">
+        <Button label="Slice the data" onClick={() => setSlice(10)} />
+        <NeetoTable
+          columnData={columns}
+          rowData={data}
+          currentPageNumber={pageNumber}
+          handlePageChange={(page) => setPageNumber(page)}
+          {...args}
+        />
+      </div>
+    </>
+  );
+};
+
+TableWithDynamicData.args = {
+  defaultPageSize: 50,
 };
