@@ -3,6 +3,7 @@ import React from "react";
 
 import DatePicker from "../../lib/components/DatePicker";
 import TimePicker from "../../lib/components/TimePicker";
+import Button from "../../lib/components/Button";
 
 export default {
   title: "Components/Date and Time",
@@ -28,6 +29,18 @@ DateInput.args = {
   picker: "date",
   showTime: false,
 };
+
+export const DatePickerWithRef = () => {
+  const ref = React.useRef();
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="space-y-3">
+      <Button label="Focus" onClick={() => ref.current.focus()}  />
+      <DatePicker ref={ref} open={open} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} />
+    </div>
+  );
+};
+
 
 export const TimeInput = (args) => {
   return <TimePicker {...args} />;
@@ -78,3 +91,15 @@ export const DateTimePickerInPane = (args) => {
     </Pane>
   );
 };
+
+export const TimePickerWithRef = () => {
+  const ref = React.useRef();
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="space-y-3">
+      <Button label="Focus" onClick={() => ref.current.focus()}  />
+      <TimePicker ref={ref} open={open} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} />
+    </div>
+  );
+};
+
