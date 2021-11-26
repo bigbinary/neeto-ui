@@ -82,23 +82,3 @@ const columns = [
   }
 />
 ```
-
-## Passing parentContainerRef to Table
-
-In order to allow a full page vertical scroll on the table element. We need to pass `parentContainerRef` which is basically a ref to the wrapper element which wraps the table.
-
-```jsx
-<div
-  className="mx-auto mt-6 space-y-6"
-  style={{ height: "calc(100vh - 80px - 24px)" }}
-  ref={parentContainerRef}
->
-  <Table
-    rowData={TABLE_DATA}
-    columnData={columns}
-    parentContainerRef={parentContainerRef}
-  />
-</div>
-```
-
-In this particular example, the height of the wrapper element is define as `calc(100vh - 80px - 24px)`, where, `80px` is the height of the header and `24px` is a margin top to the wrapper element.
