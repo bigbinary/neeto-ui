@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "main": "./neetoui.js",
   "author": "BigBinary",
   "license": "MIT",
