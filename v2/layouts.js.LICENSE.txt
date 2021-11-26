@@ -5,3 +5,9 @@
 */
 
 /*! For license information please see neeto-icons.js.LICENSE.txt */
+
+/**!
+* tippy.js v6.3.7
+* (c) 2017-2021 atomiks
+* MIT License
+*/
