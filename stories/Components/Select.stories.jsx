@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-import Select from "../../lib/components/Select";
+import { Select, Button } from "../../lib/components";
 
 export default {
   title: "Components/Select",
@@ -158,5 +158,29 @@ export const AllVariants = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+export const ExampleWithRef = () => {
+  const selectRef = useRef();
+
+  return (
+    <>
+      <div className="space-x-3 mb-3">
+        <Button
+          onClick={() => {
+            selectRef.current.focus();
+          }}
+          label="Focus"
+        />
+        <Button
+          onClick={() => {
+            selectRef.current.blur();
+          }}
+          label="Blur"
+        />
+      </div>
+      <Select innerRef={selectRef} openMenuOnFocus />
+    </>
   );
 };
