@@ -98,3 +98,67 @@ DropdownStory.args = {
     size: "large",
   },
 };
+
+export const MultiDropdownWithClickTrigger = () => {
+  return (
+    <div className="flex">
+      <Dropdown position="bottom" label="Dropdown">
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+        <Dropdown
+          position="right-start"
+          customTarget={() => <li>Another Dropdown</li>}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {listItems.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+          <Dropdown
+            position="right-start"
+            customTarget={() => <li>Third Dropdown</li>}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {listItems.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </Dropdown>
+        </Dropdown>
+      </Dropdown>
+    </div>
+  );
+};
+
+export const MultiDropdownWithHoverTrigger = () => {
+  return (
+    <div className="flex">
+      <Dropdown position="bottom" label="Dropdown">
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+        <Dropdown
+          position="right-start"
+          trigger="hover"
+          customTarget={() => <li>Another Dropdown</li>}
+        >
+          {listItems.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+          <Dropdown
+            position="right-start"
+            trigger="hover"
+            customTarget={() => <li>Third Dropdown</li>}
+          >
+            {listItems.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </Dropdown>
+        </Dropdown>
+      </Dropdown>
+    </div>
+  );
+};
