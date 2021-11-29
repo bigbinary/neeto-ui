@@ -175,6 +175,7 @@
 
 .ant-picker-dropdown,
 .neeto-ui-date-input-dropdown {
+  z-index: $neeto-ui-modal-z-index + 1;
   .ant-picker-panel {
     .ant-picker-header {
       .ant-picker-header-view {
