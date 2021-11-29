@@ -44,12 +44,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: "",
-            },
-          },
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
           "sass-loader",
@@ -58,6 +53,7 @@ module.exports = {
     ],
   },
   output: {
+    publicPath: "",
     path: __dirname + "/v2",
     filename: "[name].js",
     library: "neetoui",
