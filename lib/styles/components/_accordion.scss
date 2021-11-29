@@ -1,5 +1,4 @@
 .neeto-ui-accordion__wrapper {
-  padding: 8px 0;
   border-bottom: thin solid $neeto-ui-gray-300;
 
   &--last-item {
@@ -11,7 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 16px 8px;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -25,6 +24,8 @@
     }
 
     &:focus-visible, &:hover {
+      background-color: $neeto-ui-gray-100;
+
       .neeto-ui-accordion__item-handle {
         color: $neeto-ui-gray-700;
       }
@@ -38,7 +39,7 @@
   }
 
   .neeto-ui-accordion__drop {
-    padding: 12px 8px 8px;
+    padding: 4px 8px 16px;
     margin-bottom: 0px;
     color: $neeto-ui-gray-600;
   }
