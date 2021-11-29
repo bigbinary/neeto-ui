@@ -1,3 +1,4 @@
+import { Modal, Typography, Pane } from "../../lib/components";
 import React from "react";
 
 import DatePicker from "../../lib/components/DatePicker";
@@ -35,4 +36,45 @@ export const TimeInput = (args) => {
 TimeInput.storyName = "TimePicker";
 TimeInput.args = {
   label: "Time",
+};
+
+export const DateTimePickerInModal = (args) => {
+  return (
+    <Modal isOpen>
+      <Modal.Header>
+        <Typography style="h2">Modal</Typography>
+      </Modal.Header>
+      <Modal.Body className="space-y-6">
+        <div>
+          <Typography>Date</Typography>
+          <DatePicker {...args} />
+        </div>
+        <div>
+          <Typography>Time</Typography>
+          <TimePicker {...args} />
+        </div>
+      </Modal.Body>
+      <Modal.Footer></Modal.Footer>
+    </Modal>
+  );
+};
+
+export const DateTimePickerInPane = (args) => {
+  return (
+    <Pane isOpen>
+      <Pane.Header>
+        <Typography style="h3">Pane</Typography>
+      </Pane.Header>
+      <Pane.Body className="flex flex-col space-y-6">
+        <div className="w-full">
+          <Typography>Date</Typography>
+          <DatePicker {...args} />
+        </div>
+        <div className="w-full">
+          <Typography>Time</Typography>
+          <TimePicker {...args} />
+        </div>
+      </Pane.Body>
+    </Pane>
+  );
 };
