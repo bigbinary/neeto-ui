@@ -317,6 +317,7 @@ export const TableInLayout = (args) => {
   const [showMenu, setShowMenu] = useState(false);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
+  const rowData = TABLE_DATA.slice(0, 101);
 
   useEffect(() => {
     setTimeout(() => {
@@ -434,7 +435,7 @@ export const TableInLayout = (args) => {
           <Table
             isLoading={isLoading}
             columnData={columns}
-            rowData={TABLE_DATA}
+            rowData={rowData}
             defaultPageSize={10}
             currentPageNumber={pageNumber}
             handlePageChange={(page) => setPageNumber(page)}
