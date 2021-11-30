@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { MenuHorizontal } from "@bigbinary/neeto-icons";
+import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
+import LayoutDocs from "!raw-loader!./LayoutTableDocs.mdx";
 import NeetoTable from "../../lib/components/Table";
-import { Tooltip, Tag, Avatar, Button } from "../../lib/components";
+import { Tooltip, Tag, Avatar, Button, Typography } from "../../lib/components";
+import { Container, Scrollable, MenuBar, Header, SubHeader } from "../../lib/components/layouts";
 
 export default {
   title: "Components/Table",
@@ -307,4 +309,144 @@ export const TableWithDynamicData = (args) => {
 
 TableWithDynamicData.args = {
   defaultPageSize: 10,
+};
+
+export const TableInLayout = (args) => {
+  const [searchString, setSearchString] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
+  const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+  return (
+    <div className="flex">
+      <MenuBar
+        showMenu={showMenu}
+        title={
+          <div className="flex justify-between">
+            <Typography style="h2">Contacts</Typography>
+          </div>
+        }
+      >
+        <MenuBar.Block label="All" count={13} active />
+        <MenuBar.Block label="Users" count={2} />
+        <MenuBar.Block label="Leads" count={7} />
+        <MenuBar.Block label="Visitors" count={4} />
+
+        <MenuBar.SubTitle
+          iconProps={[
+            {
+              icon: () => <Search size={20} />,
+              onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
+            },
+          ]}
+        >
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Segments
+          </Typography>
+        </MenuBar.SubTitle>
+        <MenuBar.Search
+          collapse={isSearchCollapsed}
+          onCollapse={() => setIsSearchCollapsed(true)}
+        />
+        <MenuBar.Block label="Europe" count={80} />
+        <MenuBar.Block label="Middle-East" count={60} />
+        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.AddNew label="Add New Segments" />
+        <MenuBar.SubTitle
+          iconProps={[
+            {
+              icon: () => <Settings size={20} />,
+            },
+            {
+              icon: () => <Plus size={20} />,
+            },
+            {
+              icon: () => <Search size={20} />,
+            },
+          ]}
+        >
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Tags
+          </Typography>
+        </MenuBar.SubTitle>
+        <MenuBar.Block label="Europe" count={80} />
+        <MenuBar.Block label="Middle-East" count={60} />
+        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.AddNew label="Add New Tag" />
+
+        <MenuBar.Item
+          label="General"
+          description="Welcome Message, KB and Labels "
+        />
+        <MenuBar.Item
+          label="Styling"
+          active
+          description="Brand Color, Logo and Widget Position"
+        />
+        <MenuBar.Item
+          label="Widget Icon"
+          description="Position, Icon and Label"
+        />
+      </MenuBar>
+      <Container>
+        <Header
+          title={
+            <div className="flex items-center">
+              <h3>Layout</h3>
+            </div>
+          }
+          menuBarToggle={() => setShowMenu(!showMenu)}
+          actionBlock={<Button label="Primary Action" />}
+        />
+        <SubHeader
+          searchProps={{
+            value: searchString,
+            onChange: (e) => setSearchString(e.target.value),
+          }}
+          deleteButtonProps={{
+            count: 0,
+            selectedIDs: [],
+            onClick: () => {},
+          }}
+          disableButtonProps={{
+            count: 0,
+            selectedIDs: [],
+            onClick: () => {},
+          }}
+        />
+        <Scrollable className="w-full">
+          <Table
+            isLoading={isLoading}
+            columnData={columns}
+            rowData={TABLE_DATA}
+            defaultPageSize={10}
+            currentPageNumber={pageNumber}
+            handlePageChange={(page) => setPageNumber(page)}
+            fixedHeight
+          />
+        </Scrollable>
+      </Container>
+    </div>
+  );
+};
+
+TableInLayout.parameters = {
+  layout: "fullscreen",
+  docs: { description: { story: LayoutDocs } },
 };
