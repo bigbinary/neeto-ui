@@ -64,6 +64,10 @@ export const NakedInput = () => (
   <Input label="Naked Input Field" nakedInput={true} />
 );
 
+export const InputWithMaxLength = () => (
+  <Input  label="Input with max length" maxLength={10} />
+);
+
 export const AllVariants = () => {
   const [input, setInput] = useState("Text");
   return (
