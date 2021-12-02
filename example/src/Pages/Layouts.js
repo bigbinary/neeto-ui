@@ -185,13 +185,11 @@ const columns = [
     key: "icon_button",
     width: 150,
     render: () => (
-      <>
-        <Dropdown icon={MenuHorizontal} buttonStyle="text">
-          <li>Option 1</li>
-          <li>Option 2</li>
-          <li>Option 3</li>
-        </Dropdown>
-      </>
+      <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </Dropdown>
     ),
   },
 ];
