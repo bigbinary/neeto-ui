@@ -98,3 +98,7 @@ In order to allow vertical scroll on the table element. We need to wrap the Tabl
   />
 </div>
 ```
+
+## Using Dropdown inside the table
+
+While using `Dropdown` inside the table, it is recommended to pass the `strategy` prop as `fixed` for the `Dropdown` component, in order to avoid the dropdown getting hidden by the Table Container overflow. Especially for tables with very few rows of data.

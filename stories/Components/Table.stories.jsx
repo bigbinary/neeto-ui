@@ -5,8 +5,21 @@ import { TABLE_DATA } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
 import LayoutDocs from "!raw-loader!./LayoutTableDocs.mdx";
 import NeetoTable from "../../lib/components/Table";
-import { Tooltip, Tag, Avatar, Button, Typography } from "../../lib/components";
-import { Container, Scrollable, MenuBar, Header, SubHeader } from "../../lib/components/layouts";
+import {
+  Tooltip,
+  Tag,
+  Avatar,
+  Button,
+  Typography,
+  Dropdown,
+} from "../../lib/components";
+import {
+  Container,
+  Scrollable,
+  MenuBar,
+  Header,
+  SubHeader,
+} from "../../lib/components/layouts";
 
 export default {
   title: "Components/Table",
@@ -188,13 +201,11 @@ const columns = [
     key: "icon_button",
     width: 150,
     render: () => (
-      <>
-        <Button
-          icon={() => <MenuHorizontal />}
-          onClick={() => alert("Edit Action Clicked.")}
-          style="text"
-        />
-      </>
+      <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </Dropdown>
     ),
   },
 ];
