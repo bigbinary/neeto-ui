@@ -52,44 +52,48 @@ TimeInput.args = {
 };
 
 export const DateTimePickerInModal = (args) => {
-  return (
-    <Modal isOpen>
+  const [isOpen, setIsOpen] = React.useState(false);
+  return (<>
+    <Button label="Open Modal" onClick={() => setIsOpen(true)} />
+    <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <Modal.Header>
         <Typography style="h2">Modal</Typography>
       </Modal.Header>
       <Modal.Body className="space-y-6">
         <div>
           <Typography>Date</Typography>
-          <DatePicker {...args} />
+          <DatePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
         </div>
         <div>
           <Typography>Time</Typography>
-          <TimePicker {...args} />
+          <TimePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
         </div>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
-  );
+  </>);
 };
 
 export const DateTimePickerInPane = (args) => {
-  return (
-    <Pane isOpen>
+  const [isOpen, setIsOpen] = React.useState(false);
+  return (<>
+    <Button label="Open Pane" onClick={() => setIsOpen(true)} />
+    <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <Pane.Header>
         <Typography style="h3">Pane</Typography>
       </Pane.Header>
       <Pane.Body className="flex flex-col space-y-6">
         <div className="w-full">
           <Typography>Date</Typography>
-          <DatePicker {...args} />
+          <DatePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
         </div>
         <div className="w-full">
           <Typography>Time</Typography>
-          <TimePicker {...args} />
+          <TimePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
         </div>
       </Pane.Body>
     </Pane>
-  );
+  </>);
 };
 
 export const TimePickerWithRef = () => {
