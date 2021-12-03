@@ -30,18 +30,18 @@ yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-n
 Also make sure to include `<ToastContainer />` in your application.
 
 ```jsx
-  import React from 'react';
+import React from 'react';
 
-  import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
-  const App = () => {
-    return (
-      <>
-        <ToastContainer />
-        // Other children
-      </>
-    );
-  }
+const App = () => {
+  return (
+    <>
+      <ToastContainer />
+      // Other children
+    </>
+  );
+}
 ```
 
 If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
