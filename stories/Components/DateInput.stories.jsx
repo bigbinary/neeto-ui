@@ -14,6 +14,9 @@ export default {
       description: {
         component: '`import { DatePicker } from "@bigbinary/neetoui/v2";`',
       },
+      source: {
+        type: "code",
+      },
     },
   },
 };
@@ -35,12 +38,16 @@ export const DatePickerWithRef = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="space-y-3">
-      <Button label="Focus" onClick={() => ref.current.focus()}  />
-      <DatePicker ref={ref} open={open} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} />
+      <Button label="Focus" onClick={() => ref.current.focus()} />
+      <DatePicker
+        ref={ref}
+        open={open}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+      />
     </div>
   );
 };
-
 
 export const TimeInput = (args) => {
   return <TimePicker {...args} />;
@@ -53,47 +60,63 @@ TimeInput.args = {
 
 export const DateTimePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  return (<>
-    <Button label="Open Modal" onClick={() => setIsOpen(true)} />
-    <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-      <Modal.Header>
-        <Typography style="h2">Modal</Typography>
-      </Modal.Header>
-      <Modal.Body className="space-y-6">
-        <div>
-          <Typography>Date</Typography>
-          <DatePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
-        </div>
-        <div>
-          <Typography>Time</Typography>
-          <TimePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
-        </div>
-      </Modal.Body>
-      <Modal.Footer></Modal.Footer>
-    </Modal>
-  </>);
+  return (
+    <>
+      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Modal.Header>
+          <Typography style="h2">Modal</Typography>
+        </Modal.Header>
+        <Modal.Body className="space-y-6">
+          <div>
+            <Typography>Date</Typography>
+            <DatePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
+          <div>
+            <Typography>Time</Typography>
+            <TimePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
+    </>
+  );
 };
 
 export const DateTimePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  return (<>
-    <Button label="Open Pane" onClick={() => setIsOpen(true)} />
-    <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
-      <Pane.Header>
-        <Typography style="h3">Pane</Typography>
-      </Pane.Header>
-      <Pane.Body className="flex flex-col space-y-6">
-        <div className="w-full">
-          <Typography>Date</Typography>
-          <DatePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
-        </div>
-        <div className="w-full">
-          <Typography>Time</Typography>
-          <TimePicker {...args} getPopupContainer={triggerNode => triggerNode.parentNode} />
-        </div>
-      </Pane.Body>
-    </Pane>
-  </>);
+  return (
+    <>
+      <Button label="Open Pane" onClick={() => setIsOpen(true)} />
+      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Pane.Header>
+          <Typography style="h3">Pane</Typography>
+        </Pane.Header>
+        <Pane.Body className="flex flex-col space-y-6">
+          <div className="w-full">
+            <Typography>Date</Typography>
+            <DatePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
+          <div className="w-full">
+            <Typography>Time</Typography>
+            <TimePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
+        </Pane.Body>
+      </Pane>
+    </>
+  );
 };
 
 export const TimePickerWithRef = () => {
@@ -101,9 +124,13 @@ export const TimePickerWithRef = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="space-y-3">
-      <Button label="Focus" onClick={() => ref.current.focus()}  />
-      <TimePicker ref={ref} open={open} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} />
+      <Button label="Focus" onClick={() => ref.current.focus()} />
+      <TimePicker
+        ref={ref}
+        open={open}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+      />
     </div>
   );
 };
-
