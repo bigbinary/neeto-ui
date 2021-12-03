@@ -88,6 +88,6 @@ export const WithHeaderAndSubHeader = (args) => {
   );
 };
 
-WithHeader.args = {
+WithHeaderAndSubHeader.args = {
   size: "small",
 };
