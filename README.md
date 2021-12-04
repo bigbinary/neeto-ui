@@ -15,7 +15,7 @@ Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get 
 @import "@bigbinary/neetoui/v2";
 ```
 
-**NeetoUI** has few peer dependencies which are required to use NeeetoUI properly. Install those peer dependencies using the below command.:
+**NeetoUI** has few peer dependencies which are required to use NeetoUI properly. Install the peer dependencies using the below command:
 
 ```
 yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-nav-prompt@0.4.1
