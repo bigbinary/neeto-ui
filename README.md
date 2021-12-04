@@ -15,6 +15,35 @@ Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get 
 @import "@bigbinary/neetoui/v2";
 ```
 
+**NeetoUI** has few peer dependencies which are required to use NeetoUI properly. Install the peer dependencies using the below command:
+
+```
+yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-nav-prompt@0.4.1
+```
+
+**NeetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
+
+```scss
+@import "react-toastify/dist/ReactToastify.min.css";
+```
+
+Also make sure to include `<ToastContainer />` in your application.
+
+```jsx
+import React from 'react';
+
+import { ToastContainer } from 'react-toastify';
+
+const App = () => {
+  return (
+    <>
+      <ToastContainer />
+      // Other children
+    </>
+  );
+}
+```
+
 If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
 
 ```
