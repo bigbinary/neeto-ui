@@ -10,38 +10,201 @@ import {
 } from "../lib/components/layouts";
 import {
   Button,
-  PageLoader,
-  Pagination,
-  Checkbox,
-  Dropdown,
   Typography,
+  Table,
+  Dropdown,
+  Tooltip,
+  Avatar,
+  Tag,
 } from "../lib/components";
+import { TABLE_DATA } from "./constants";
 
 export default {
   title: "Layouts/Page",
 };
 
-const SidebarHandleIcon = ({ size, color }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path stroke={color} strokeWidth="1.5" d="M3 7.25L21 7.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 11.25L15 11.25"></path>
-      <path stroke={color} strokeWidth="1.5" d="M3 15.25L11 15.25"></path>
-    </svg>
-  );
-};
+const columns = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: 75,
+    sorter: (a, b) => a.id - b.id,
+  },
+  {
+    title: () => (
+      <div className="text-left">
+        <Tooltip content="A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.">
+          <span>GUID</span>
+        </Tooltip>
+      </div>
+    ),
+    dataIndex: "guid",
+    key: "guid",
+    width: 150,
+    ellipsis: {
+      showTitle: false,
+    },
+  },
+  {
+    title: "First Name",
+    dataIndex: "first_name",
+    key: "first_name",
+    width: 150,
+    render: (first_name, last_name) => {
+      return (
+        <div className="flex flex-row items-center">
+          <Avatar
+            user={{ name: `${first_name} ${last_name}` }}
+            size="small"
+            className="mr-2"
+          />
+          {first_name}
+        </div>
+      );
+    },
+  },
+  {
+    title: "Last Name",
+    dataIndex: "last_name",
+    key: "last_name",
+    width: 150,
+  },
+  {
+    title: "Buzzword",
+    dataIndex: "buzzword",
+    key: "buzzword",
+    width: 250,
+  },
+  {
+    title: "Gender",
+    dataIndex: "gender",
+    key: "gender",
+    width: 150,
+  },
+  {
+    title: "Email",
+    dataIndex: "email",
+    key: "email",
+    width: 200,
+    ellipsis: {
+      showTitle: false,
+    },
+  },
+  {
+    title: "Company Name",
+    dataIndex: "company_name",
+    key: "company_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    width: 75,
+  },
+  {
+    title: "IP Address",
+    dataIndex: "ip_address",
+    key: "ip_address",
+    width: 150,
+  },
+  {
+    title: "Department",
+    dataIndex: "department",
+    key: "department",
+    ellipsis: {
+      showTitle: false,
+    },
+    width: 150,
+  },
+  {
+    title: "Job Title",
+    dataIndex: "job_title",
+    key: "job_title",
+    ellipsis: {
+      showTitle: false,
+    },
+    width: 75,
+  },
+  {
+    title: "Currency",
+    dataIndex: "currency",
+    key: "currency",
+    width: 150,
+  },
+  {
+    title: "Credit Card Number",
+    dataIndex: "credit_card_number",
+    key: "credit_card_number",
+    width: 250,
+    ellipsis: {
+      showTitle: false,
+    },
+  },
+  {
+    title: "Currency Code",
+    dataIndex: "currency_code",
+    key: "currency_code",
+    width: 150,
+  },
+  {
+    title: "Domain Name",
+    dataIndex: "domain_name",
+    key: "domain_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    width: 200,
+  },
+  {
+    title: "App Name",
+    dataIndex: "app_name",
+    key: "app_name",
+    width: 150,
+  },
+  {
+    title: "App Version",
+    dataIndex: "app_version",
+    key: "app_version",
+    width: 150,
+  },
+
+  {
+    title: "Shirt Size",
+    dataIndex: "shirt_size",
+    key: "shirt_size",
+    width: 150,
+  },
+  {
+    title: "Action",
+    dataIndex: "action",
+    key: "action",
+    width: 150,
+    render: () => (
+      <>
+        <Tag label="check" />
+      </>
+    ),
+  },
+  {
+    title: "Icon Button",
+    dataIndex: "icon_button",
+    key: "icon_button",
+    width: 150,
+    render: () => (
+      <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </Dropdown>
+    ),
+  },
+];
 
 export const Page = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     setTimeout(() => {
@@ -127,14 +290,7 @@ export const Page = () => {
         <Header
           title="Layouts"
           actionBlock={<Button label="Primary Action" />}
-          menuBarHandle={
-            <Button
-              style="text"
-              className="mr-2"
-              icon={() => <SidebarHandleIcon size={20} color={"#68737D"} />}
-              onClick={() => setShowMenu(!showMenu)}
-            />
-          }
+          menuBarToggle={() => setShowMenu(!showMenu)}
         />
         <SubHeader
           searchProps={{
@@ -153,85 +309,16 @@ export const Page = () => {
           }}
         />
         <Scrollable className="w-full">
-          {isLoading ? (
-            <PageLoader />
-          ) : (
-            <table
-              className={"neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions"}
-            >
-              <thead>
-                <tr>
-                  <th>
-                    <Checkbox name="header" />
-                  </th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Company</th>
-                  <th>Phone No</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {Array(50)
-                  .fill()
-                  .map((_, index) => (
-                    <React.Fragment key={index}>
-                      <tr>
-                        <td>
-                          <Checkbox name="1" />
-                        </td>
-                        <td>Goutham Subramanyam</td>
-                        <td>goutham.subramanyam@bigbinary.com</td>
-                        <td>BigBinary</td>
-                        <td>+91 9633123456</td>
-                        <td>
-                          <div className="flex flex-row items-center justify-end space-x-3">
-                            <Dropdown
-                              icon={MenuHorizontal}
-                              buttonStyle="icon"
-                              autoWidth
-                            >
-                              <li>Edit</li>
-                              <li>Delete</li>
-                            </Dropdown>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <Checkbox name="2" />
-                        </td>
-                        <td>Edwin Babu</td>
-                        <td>edwin.babu@bigbinary.com</td>
-                        <td>BigBinary</td>
-                        <td>+91 8281331983</td>
-                        <td>
-                          <div className="flex flex-row items-center justify-end space-x-3">
-                            <Dropdown
-                              icon={MenuHorizontal}
-                              buttonStyle="icon"
-                              autoWidth
-                            >
-                              <li>Edit</li>
-                              <li>Delete</li>
-                            </Dropdown>
-                          </div>
-                        </td>
-                      </tr>
-                    </React.Fragment>
-                  ))}
-              </tbody>
-            </table>
-          )}
-        </Scrollable>
-        <div className="flex flex-row items-center justify-end w-full mt-6 mb-8">
-          <Pagination
-            count={300}
-            pageNo={1}
-            pageSize={25}
-            navigate={() => {}}
+          <Table
+            isLoading={isLoading}
+            columnData={columns}
+            rowData={TABLE_DATA}
+            defaultPageSize={10}
+            currentPageNumber={pageNumber}
+            handlePageChange={(page) => setPageNumber(page)}
+            fixedHeight
           />
-        </div>
+        </Scrollable>
       </Container>
     </div>
   );
