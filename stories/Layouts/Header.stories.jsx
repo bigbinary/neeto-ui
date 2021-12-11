@@ -26,7 +26,17 @@ const Template = (args) => (
 export const BasicUsage = Template.bind({});
 BasicUsage.args = {
   title: "Layouts",
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button size="large" label="Primary Action" />,
+};
+
+export const WithSearchInput = Template.bind({});
+WithSearchInput.args = {
+  title: "Layouts",
+  searchProps: {
+    value: "",
+    onChange: () => {},
+  },
+  actionBlock: <Button size="large" label="Primary Action" />,
 };
 
 export const WithMenuBarToggle = Template.bind({});
