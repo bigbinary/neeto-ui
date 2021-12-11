@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import SubHeader from "../../lib/components/layouts/SubHeader";
+import Button from "../../lib/components/Button";
+import Typography from "../../lib/components/Typography";
+
+import { Delete } from "@bigbinary/neeto-icons";
 
 export default {
   title: "Layouts/SubHeader",
@@ -17,23 +21,19 @@ export default {
 };
 
 export const BasicUsage = () => {
-  const [searchString, setSearchString] = useState("");
   return (
     <SubHeader
-      searchProps={{
-        value: searchString,
-        onChange: (e) => setSearchString(e.target.value),
-      }}
-      deleteButtonProps={{
-        count: 0,
-        selectedIDs: [],
-        onClick: () => {},
-      }}
-      disableButtonProps={{
-        count: 0,
-        selectedIDs: [],
-        onClick: () => {},
-      }}
+      leftActionBlock={
+        <Typography style="h4" component="h4">
+          118 Contacts
+        </Typography>
+      }
+      rightActionBlock={
+        <>
+          <Button label="Delete" style="secondary" icon={Delete} />
+          <Button label="Disable" style="secondary" />
+        </>
+      }
     />
   );
 };
