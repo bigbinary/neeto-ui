@@ -4,6 +4,7 @@ import React from "react";
 import DatePicker from "../../lib/components/DatePicker";
 import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
+import dayjs from "dayjs";
 
 export default {
   title: "Components/Date and Time",
@@ -133,4 +134,12 @@ export const TimePickerWithRef = () => {
       />
     </div>
   );
+};
+
+export const DateRangePicker = DateInput.bind({});
+
+DateRangePicker.args = {
+  label: "Date Range",
+  type: "range",
+  defaultValue: [dayjs(), dayjs().add(7, "day")],
 };
