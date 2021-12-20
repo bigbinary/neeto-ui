@@ -37,3 +37,28 @@ export const BasicUsage = () => {
     />
   );
 };
+
+export const WithLeftActionBlock = () => {
+  return (
+    <SubHeader
+      leftActionBlock={
+        <Typography style="h4" component="h4">
+          118 Contacts
+        </Typography>
+      }
+    />
+  );
+};
+
+export const WithRightActionBlock = () => {
+  return (
+    <SubHeader
+      rightActionBlock={
+        <>
+          <Button label="Delete" style="secondary" icon={Delete} />
+          <Button label="Disable" style="secondary" />
+        </>
+      }
+    />
+  );
+};
