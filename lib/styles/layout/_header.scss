@@ -55,18 +55,24 @@
   margin-bottom: $neeto-ui-sub-header-bottom-margin;
   background-color: $neeto-ui-white;
 
-  .neeto-ui-subheader__left {
-    width: 50%;
-    max-width: 280px;
+  .neeto-ui-subheader__left-wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    flex-grow: 1;
 
-    .neeto-ui-input__prefix {
-      color: $neeto-ui-gray-400;
+    .neeto-ui-subheader__left {
+      width: 50%;
+      max-width: 280px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .neeto-ui-input__prefix {
+        color: $neeto-ui-gray-400;
+      }
     }
   }
+
 
   .neeto-ui-subheader__right {
     display: flex;
