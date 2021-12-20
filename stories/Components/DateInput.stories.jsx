@@ -136,10 +136,14 @@ export const TimePickerWithRef = () => {
   );
 };
 
-export const DateRangePicker = DateInput.bind({});
-
-DateRangePicker.args = {
-  label: "Date Range",
-  type: "range",
-  defaultValue: [dayjs(), dayjs().add(7, "day")],
+export const DateRangePicker = () => {
+  return (
+    <div className="space-y-3">
+      <DatePicker
+        label="Date Range"
+        type="range"
+        defaultValue={[dayjs(), dayjs().add(7, "day")]}
+      />
+    </div>
+  );
 };
