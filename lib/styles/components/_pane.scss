@@ -42,7 +42,6 @@
     padding: 0 24px;
     font-size: $neeto-ui-text-sm;
     overflow-y: auto;
-    @include scrollbars(4px);
 
     &.neeto-ui-pane__body--has-footer {
       height: calc(
