@@ -65,6 +65,7 @@ SidebarCollapsed.args = {
     subdomain: "neetoui.netlify.app",
   },
   navLinks: NAV_LINKS,
+  collapsible: false,
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
