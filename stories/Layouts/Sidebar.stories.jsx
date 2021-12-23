@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Notification } from "@bigbinary/neeto-icons";
+import { Notification, Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
 
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
@@ -70,12 +70,21 @@ SidebarCollapsed.args = {
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     dropdownProps: [
       {
-        label: "Edit",
+        label: "Profile",
         onClick: () => {},
+        icon: Settings,
       },
+      {
+        label: "Help",
+        onClick: () => {},
+        icon: Help,
+      },
+    ],
+    bottomListProps: [
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
@@ -244,7 +253,7 @@ SidebarWithFooterLinks.args = {
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     dropdownProps: [
       {
-        label: "Edit",
+        label: "Profile",
         onClick: () => {},
       },
       {

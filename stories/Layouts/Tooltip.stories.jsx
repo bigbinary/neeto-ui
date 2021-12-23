@@ -137,15 +137,6 @@ export const TooltipOnText = () => {
   );
 };
 
-const CustomComponent = forwardRef(({ text }, ref) => (
-  <div
-    ref={ref}
-    className="items-center justify-center p-10 rounded-md cursor-pointer neeto-ui-shadow-lg neeto-ui-bg-black neeto-ui-text-white"
-  >
-    {text}
-  </div>
-));
-
 export const TooltipOnCustomComponent = () => {
   const CustomComponent = forwardRef(({ text }, ref) => (
     <div

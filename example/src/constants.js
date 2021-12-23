@@ -56,6 +56,7 @@ export const COMPONENT_MAPPING = {
 export const NAV_LINKS = [
   {
     label: "Components",
+    description: "Description here",
     to: "/components",
     icon: Copy,
     items: [
@@ -108,6 +109,7 @@ export const NAV_LINKS = [
   },
   {
     label: "Form Elements",
+    description: "Description here",
     to: "/form-elements",
     icon: Design,
     items: [
@@ -127,16 +129,19 @@ export const NAV_LINKS = [
   },
   {
     label: "Misc",
+    description: "Description here",
     to: "/misc",
     icon: UserCircle,
   },
   {
     label: "Formik",
+    description: "Description here",
     to: "/formik",
     icon: Image,
   },
   {
     label: "Overlays",
+    description: "Description here",
     to: "/overlays",
     icon: Settings,
     items: [
