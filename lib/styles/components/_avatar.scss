@@ -15,13 +15,14 @@
     text-transform: capitalize;
     font-size: $neeto-ui-text-xxs;
     color: $neeto-ui-gray-600;
+    line-height: 1;
 
     &.neeto-ui-avatar__text-medium {
       font-size: $neeto-ui-text-xs;
     }
 
     &.neeto-ui-avatar__text-large {
-      font-size: $neeto-ui-text-lg;
+      font-size: $neeto-ui-text-sm;
     }
 
     &.neeto-ui-avatar__text-xlarge {
