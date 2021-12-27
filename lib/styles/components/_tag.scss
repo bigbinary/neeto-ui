@@ -4,11 +4,10 @@
   align-items: center;
   font-size: $neeto-ui-text-xs;
   font-weight: $neeto-ui-font-normal;
-  padding: 2px 8px;
-  line-height: 1.1;
-  min-height: 20px;
+  padding: 3px 8px;
   border-radius: $neeto-ui-rounded;
   color: $neeto-ui-gray-800;
+  line-height: 1;
   border-width: 1px;
   border-style: solid;
 
@@ -16,11 +15,11 @@
     border-radius: $neeto-ui-rounded-full;
     height: 8px;
     width: 8px;
-    margin-right: 8px;
+    margin-right: 4px;
   }
 
   &__icon {
-    margin-right: 8px;
+    margin-right: 4px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -48,31 +47,16 @@
   }
 
   &--size-large {
-    padding: 4px 12px;
+    padding: 5px 12px;
     font-weight: $neeto-ui-font-medium;
     font-size: $neeto-ui-text-sm;
-    min-height: 26px;
 
     .neeto-ui-tag__icon,
     .neeto-ui-tag__close {
       svg {
-        width: 16px;
-        height: 16px;
+        width: 12px;
+        height: 12px;
       }
-    }
-
-    .neeto-ui-tag__icon {
-      margin-right: 12px;
-    }
-
-    .neeto-ui-tag__indicator {
-      width: 10px;
-      height: 10px;
-      margin-right: 12px;
-    }
-
-    .neeto-ui-tag__close {
-      margin-left: 12px;
     }
   }
 
