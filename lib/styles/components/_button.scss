@@ -4,19 +4,18 @@
   font-size: $neeto-ui-text-sm;
   font-weight: $neeto-ui-font-medium;
   border-radius: $neeto-ui-rounded-sm;
-  line-height: 1.2;
+  line-height: 1;
   transition: $neeto-ui-transition;
   position: relative;
   border: none;
   cursor: pointer;
   padding: 0;
   user-select: none;
-  padding: 4px 8px;
-  min-height: 28px;
+  padding: 7px 8px;
   letter-spacing: -0.15px;
   outline: none;
 
-  &--icon-only{
+  &--icon-only {
     padding-left: 6px;
     padding-right: 6px;
   }
@@ -67,11 +66,10 @@
 
 // size
 .neeto-ui-btn--size-large {
-  font-size: $neeto-ui-text-base;
-  padding: 6px 12px;
-  min-height: 32px;
+  font-size: 15px;
+  padding: 8px 12px;
 
-  &.neeto-ui-btn--icon-only{
+  &.neeto-ui-btn--icon-only {
     padding-left: 8px;
     padding-right: 8px;
   }
@@ -128,7 +126,6 @@
 
   &-link {
     color: $neeto-ui-secondary-indigo;
-    min-height: initial;
     padding: 0;
 
     &:hover:not(:disabled),
