@@ -106,43 +106,52 @@ body {
   color: $neeto-ui-gray-800;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.5px;
+}
+
 h1 {
   font-size: $neeto-ui-text-3xl;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: 42px;
 }
 
 h2 {
   font-size: $neeto-ui-text-2xl;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: $neeto-ui-leading-normal;
 }
 
 h3 {
   font-size: $neeto-ui-text-xl;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: 32px;
 }
 
 h4 {
   font-size: $neeto-ui-text-base;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: $neeto-ui-leading-normal;
 }
 
 h5 {
   font-size: $neeto-ui-text-sm;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: 20px;
 }
 
 h6 {
   font-size: $neeto-ui-text-xs;
   font-weight: $neeto-ui-font-semibold;
-  line-height: $neeto-ui-leading-tight;
+  line-height: $neeto-ui-leading-normal;
 }
 
 p {
   font-size: $neeto-ui-text-sm;
-  line-height: $neeto-ui-leading-normal;
+  line-height: 20px;
 }
