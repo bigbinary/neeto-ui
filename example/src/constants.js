@@ -184,6 +184,6 @@ export const FOOTER_LINKS = [
   {
     label: "External",
     icon: Link,
-    href: "https://neetoui-v2.netlify.app",
+    href: "https://neetoui.netlify.app",
   },
 ];

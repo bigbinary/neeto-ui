@@ -13,8 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component:
-          '`import { SubHeader } from "@bigbinary/neetoui/v2/layouts";`',
+        component: '`import { SubHeader } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Notification, Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
+import {
+  Notification,
+  Settings,
+  Help,
+  LeftArrow,
+} from "@bigbinary/neeto-icons";
 
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
@@ -17,7 +22,7 @@ export default {
     layout: "fullscreen",
     docs: {
       description: {
-        component: '`import { Sidebar } from "@bigbinary/neetoui/v2/layouts";`',
+        component: '`import { Sidebar } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },

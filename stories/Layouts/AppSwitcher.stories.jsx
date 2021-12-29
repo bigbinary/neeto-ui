@@ -13,7 +13,7 @@ export default {
     docs: {
       description: {
         component:
-          '`import { AppSwitcher } from "@bigbinary/neetoui/v2/layouts";`',
+          '`import { AppSwitcher } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },
@@ -39,11 +39,14 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          dropdownProps: [{
-            label: "Logout",
-          }, {
-            label: "Settings"
-          }]
+          dropdownProps: [
+            {
+              label: "Logout",
+            },
+            {
+              label: "Settings",
+            },
+          ],
         }}
       />
       <AppSwitcher

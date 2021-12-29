@@ -11,7 +11,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Label } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Label } from "@bigbinary/neetoui";`',
       },
     },
   },
@@ -36,7 +36,7 @@ WithHelpIcon.args = {
   children: "This is a label with a help icon",
   required: true,
   helpIconProps: {
-    onClick: () => window.open("https://neetoui-v2.netlify.app"),
+    onClick: () => window.open("https://neetoui.netlify.app"),
     icon: Help,
     tooltipProps: {
       content: "Help icon tooltip",

@@ -10,7 +10,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Input } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Input } from "@bigbinary/neetoui";`',
       },
     },
   },
@@ -65,7 +65,7 @@ export const NakedInput = () => (
 );
 
 export const InputWithMaxLength = () => (
-  <Input  label="Input with max length" maxLength={10} />
+  <Input label="Input with max length" maxLength={10} />
 );
 
 export const AllVariants = () => {
@@ -77,10 +77,7 @@ export const AllVariants = () => {
           <h2 className="text-xl">Input/Small/Default</h2>
           <div className="flex flex-row items-center justify-center space-x-8">
             <Input placeholder="Input Placeholder" />
-            <Input
-              placeholder="Input Placeholder"
-              prefix={<Favorite />}
-            />
+            <Input placeholder="Input Placeholder" prefix={<Favorite />} />
             <Input placeholder="Input Placeholder" />
             <Input placeholder="Input Placeholder" />
           </div>

@@ -5,7 +5,7 @@ import { Container, Header, Scrollable } from "../../lib/components/layouts";
 const description = `
 The container centers your content horizontally by providing a horizontal padding. It's the most basic layout element.
 
-\`import { Container } from "@bigbinary/neetoui/v2/layouts"\`
+\`import { Container } from "@bigbinary/neetoui/layouts"\`
 `;
 
 export default {

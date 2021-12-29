@@ -54,7 +54,7 @@ module.exports = {
   },
   output: {
     publicPath: "",
-    path: __dirname + "/v2",
+    path: __dirname + "/build",
     filename: "[name].js",
     library: "neetoui",
     libraryTarget: "umd",

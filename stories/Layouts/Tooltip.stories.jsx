@@ -13,7 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
       },
     },
   },
