@@ -73,6 +73,7 @@ SidebarCollapsed.args = {
   collapsible: false,
   profileInfo: {
     name: "Kieran Miller",
+    email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     dropdownProps: [
       {
@@ -140,6 +141,7 @@ SidebarWithChangelogToggle.args = {
   navLinks: NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
+    email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     dropdownProps: [
       {

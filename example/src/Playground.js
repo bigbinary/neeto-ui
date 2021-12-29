@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Notification } from "@bigbinary/neeto-icons";
+import { Notification, Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
+
 import { Sidebar, AppSwitcher } from "../../lib/components/layouts";
 import { NAV_LINKS, COMPONENT_MAPPING, FOOTER_LINKS } from "./constants";
 import "./index.scss";
@@ -33,15 +34,25 @@ const Playground = () => {
           navLinks={NAV_LINKS}
           profileInfo={{
             name: "Kieran Miller",
+            email: "kieran.miller@email.com",
             imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
             dropdownProps: [
               {
-                label: "App Switcher",
-                onClick: () => toggleAppSwitcher(!appSwitcher),
+                label: "Profile",
+                onClick: () => {},
+                icon: Settings,
               },
+              {
+                label: "Help",
+                onClick: () => {},
+                icon: Help,
+              },
+            ],
+            bottomListProps: [
               {
                 label: "Logout",
                 onClick: () => {},
+                icon: LeftArrow,
               },
             ],
           }}
