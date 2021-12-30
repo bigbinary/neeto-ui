@@ -3,4 +3,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 1px;
+
+  > .neeto-ui-btn {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .neeto-ui-dropdown__wrapper {
+    > .neeto-ui-btn {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
 }
