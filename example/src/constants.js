@@ -6,9 +6,10 @@ import {
   Image,
   Help,
   NeetoDesk,
-  Link
+  Link,
 } from "@bigbinary/neeto-icons";
 
+import ActionDropdowns from "./Pages/ActionDropdown";
 import Avatar from "./Pages/Avatar";
 import Button from "./Pages/Button";
 import DatePicker from "./Pages/DatePicker";
@@ -30,6 +31,7 @@ import Tooltip from "./Pages/Tooltip";
 import Typography from "./Pages/Typography";
 
 export const COMPONENT_MAPPING = {
+  ActionDropdown: ActionDropdowns,
   Avatar: Avatar,
   Button: Button,
   DatePicker: DatePicker,
@@ -58,6 +60,14 @@ export const NAV_LINKS = [
     icon: Copy,
     items: [
       {
+        label: "ActionDropdown",
+        to: "/components/action-dropdown",
+      },
+      {
+        label: "Avatar",
+        to: "/components/avatar",
+      },
+      {
         label: "Button",
         to: "/components/button",
       },
@@ -81,10 +91,7 @@ export const NAV_LINKS = [
         label: "Table",
         to: "/components/table",
       },
-      {
-        label: "Avatar",
-        to: "/components/avatar",
-      },
+
       {
         label: "Tooltip",
         to: "/components/tooltip",
@@ -173,5 +180,5 @@ export const FOOTER_LINKS = [
     label: "External",
     icon: Link,
     href: "https://neetoui-v2.netlify.app",
-  }
+  },
 ];
