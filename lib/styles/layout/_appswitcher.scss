@@ -1,7 +1,7 @@
 .neeto-ui-app-switcher__backdrop {
   position: fixed;
   z-index: 99996;
-  left: 72px;
+  left: 64px;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -12,13 +12,8 @@
   justify-content: flex-start;
   align-items: center;
   transition: left 0.3s ease-in-out;
-
-  &__v2 {
-    left: 64px;
-
-    &--expanded {
-      left: 300px;
-    }
+  &--expanded {
+    left: 300px;
   }
 }
 
