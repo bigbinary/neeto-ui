@@ -53,3 +53,7 @@ export const HelpText = () => (
 export const NakedInput = () => (
   <Textarea label="Naked Textarea Field" nakedTextarea={true} />
 );
+
+export const TextareaWithMaxLength = () => (
+  <Textarea label="Textarea with max length" maxLength={10} />
+);
