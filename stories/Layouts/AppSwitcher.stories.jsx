@@ -64,3 +64,49 @@ AppSwitcherStory.args = {
   isOpen: true,
   v2: true,
 };
+
+export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
+  const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
+  useEffect(() => {
+    setIsAppSwitcherOpen(isOpen);
+  }, [isOpen]);
+
+  return (
+    <Router>
+      <Sidebar
+        navLinks={NAV_LINKS.slice(3)}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+        showAppSwitcher
+        appName="neetoUI"
+        profileInfo={{
+          name: "John Doe",
+          email: "john@doe.com",
+          dropdownProps: [
+            {
+              label: "Logout",
+            },
+            {
+              label: "Settings",
+            },
+          ],
+        }}
+      />
+      <AppSwitcher
+        isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!isSidebarCollapsed}
+        onClose={() => setIsAppSwitcherOpen(false)}
+        {...args}
+      />
+    </Router>
+  );
+};
+
+AppSwitcherWithRecentApps.args = {
+  isOpen: true,
+  recentApps: ["Quiz", "Codify"],
+  neetoApps: ["Desk", "KB", "Quiz", "Codify"],
+};
