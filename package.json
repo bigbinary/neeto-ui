@@ -89,8 +89,6 @@
     "@bigbinary/neeto-icons": "^1.8.15",
     "@popperjs/core": "^2.9.2",
     "@reach/auto-id": "^0.15.0",
-    "@tailwindcss/forms": "^0.3.2",
-    "@tailwindcss/typography": "^0.4.0",
     "@tippyjs/react": "^4.2.5",
     "antd": "^4.17.1",
     "dayjs": "^1.10.3",
