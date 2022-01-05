@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
-  Notification,
-  Settings,
-  Help,
-  LeftArrow,
-} from "@bigbinary/neeto-icons";
+  BrowserRouter as Router,
+  Route,
+  Switch as SwitchComponent,
+} from "react-router-dom";
+import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
 
+import Label from "../../lib/components/Label";
+import Switch from "../../lib/components/Switch";
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
 import {
@@ -44,7 +45,7 @@ const Template = (args) => {
       <div className="flex flex-row items-start justify-start">
         <Sidebar {...args} />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
-          <Switch>
+          <SwitchComponent>
             {ROUTER_LINKS &&
               ROUTER_LINKS.map(({ label, to }, index) => {
                 return (
@@ -55,7 +56,7 @@ const Template = (args) => {
                   />
                 );
               })}
-          </Switch>
+          </SwitchComponent>
         </div>
       </div>
     </Router>
@@ -70,7 +71,6 @@ SidebarCollapsed.args = {
     subdomain: "neetoui.netlify.app",
   },
   navLinks: NAV_LINKS,
-  collapsible: false,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -216,44 +216,6 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const UncontrolledSidebar = ({ onCollapse, ...args }) => (
-  <Router>
-    <Sidebar {...args} />
-  </Router>
-);
-
-UncontrolledSidebar.storyName = "Uncontrolled Sidebar";
-UncontrolledSidebar.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  navLinks: NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    topLinks: [
-      {
-        label: "Edit",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-  showChangelog: true,
-  changelogProps: {
-    icon: Notification,
-    onClick: () => alert("Clicked on what's new"),
-  },
-  showAppSwitcher: true,
-  appName: "neetoUI",
-};
-
 export const SidebarWithFooterLinks = ({ onCollapse, ...args }) => (
   <Router>
     <Sidebar {...args} />
@@ -285,5 +247,83 @@ SidebarWithFooterLinks.args = {
   footerLinks: FOOTER_LINKS,
   showChangelog: true,
   showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
+export const CollapsibleSidebar = ({ onCollapse, ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+CollapsibleSidebar.storyName = "Collapsible Sidebar";
+CollapsibleSidebar.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  collapsible: true,
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    bottomLinks: [
+      {
+        label: "Edit",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+  showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
+export const ProfileSectionWithCustomContent = Template.bind({});
+ProfileSectionWithCustomContent.storyName =
+  "Profile Section With Custom Content";
+ProfileSectionWithCustomContent.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieran.miller@email.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    customContent: (
+      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+        <Label>Away</Label>
+        <Switch checked />
+        <Label>Active</Label>
+      </div>
+    ),
+    topLinks: [
+      {
+        label: "Profile",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Help",
+        onClick: () => {},
+        icon: Help,
+      },
+    ],
+    bottomLinks: [
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+  showAppSwitcher: true,
+  isCollapsed: true,
   appName: "neetoUI",
 };
