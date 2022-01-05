@@ -18,7 +18,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Pane } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Pane } from "@bigbinary/neetoui";`',
       },
     },
   },

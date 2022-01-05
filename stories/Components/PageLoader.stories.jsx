@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { PageLoader } from "@bigbinary/neetoui/v2";`',
+        component: '`import { PageLoader } from "@bigbinary/neetoui";`',
       },
     },
   },

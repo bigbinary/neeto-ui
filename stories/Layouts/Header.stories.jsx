@@ -11,7 +11,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Header } from "@bigbinary/neetoui/v2/layouts";`',
+        component: '`import { Header } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },

@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { ActionDropdown } from "@bigbinary/neetoui/v2";`',
+        component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
       },
     },
   },
@@ -25,7 +25,7 @@ const Template = (args) => {
       ))}
     </ActionDropdown>
   );
-};;
+};
 
 export const PrimaryDropdown = Template.bind({});
 PrimaryDropdown.args = {

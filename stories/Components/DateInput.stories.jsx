@@ -13,7 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { DatePicker } from "@bigbinary/neetoui/v2";`',
+        component: '`import { DatePicker } from "@bigbinary/neetoui";`',
       },
       source: {
         type: "code",

@@ -11,7 +11,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Toastr } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Toastr } from "@bigbinary/neetoui";`',
       },
     },
   },

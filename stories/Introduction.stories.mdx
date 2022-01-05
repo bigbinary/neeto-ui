@@ -56,7 +56,7 @@ yarn add @bigbinary/neetoui
 Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
 
 ```scss
-@import "@bigbinary/neetoui/v2";
+@import "@bigbinary/neetoui";
 ```
 
 **NeetoUI** has few peer dependencies which are required to use NeetoUI properly. Install the peer dependencies using the below command:
@@ -74,9 +74,9 @@ yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-n
 Also make sure to include the `<ToastContainer />` in your application.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -85,7 +85,7 @@ const App = () => {
       // Other children
     </>
   );
-}
+};
 ```
 
 For other installation methods, refer our [**official npm page**](https://www.npmjs.com/package/@bigbinary/neetoui)
@@ -106,14 +106,14 @@ For more information, refer our [**GitHub repository**](https://github.com/bigbi
 NeetoUI exports all it’s component as named exports. You can individually import necessary components in the following way:
 
 ```
-import { Button, Tooltip, } from "@bigbinary/neetoui/v2";
+import { Button, Tooltip, } from "@bigbinary/neetoui";
 ```
 
 If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from NeetoUI.
 
 ```
 import React from "react";
-import * as NeetoUI from "@bigbinary/neetoui/v2";
+import * as NeetoUI from "@bigbinary/neetoui";
 
 export default function index() {
   const Button = NeetoUI.Button;

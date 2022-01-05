@@ -12,7 +12,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Accordion } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Accordion } from "@bigbinary/neetoui";`',
       },
     },
   },

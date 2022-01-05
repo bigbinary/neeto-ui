@@ -1,4 +1,4 @@
-If you want to use `Table` component from `neetoUI v2`, then, please follow the below syntax for `columnData` and `rowData`.
+If you want to use `Table` component from `neetoUI`, then, please follow the below syntax for `columnData` and `rowData`.
 
 ```js
 const columns = [
@@ -88,14 +88,8 @@ const columns = [
 In order to allow vertical scroll on the table element. We need to wrap the Table component inside a div with a fixed height and set the `fixedHeight` prop on `Table` component to `true`.
 
 ```jsx
-<div
-  style={{ height: "100vh" }}
->
-  <Table
-    fixedHeight
-    rowData={TABLE_DATA}
-    columnData={columns}
-  />
+<div style={{ height: "100vh" }}>
+  <Table fixedHeight rowData={TABLE_DATA} columnData={columns} />
 </div>
 ```
 

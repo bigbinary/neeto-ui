@@ -13,7 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Modal } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Modal } from "@bigbinary/neetoui";`',
       },
     },
   },

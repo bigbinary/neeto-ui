@@ -12,7 +12,7 @@ This would install `neetoui` package inside your application.
 Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main `scss` entry point.
 
 ```scss
-@import "@bigbinary/neetoui/v2";
+@import "@bigbinary/neetoui";
 ```
 
 **NeetoUI** has few peer dependencies which are required to use NeetoUI properly. Install the peer dependencies using the below command:
@@ -30,9 +30,9 @@ yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-n
 Also make sure to include `<ToastContainer />` in your application.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -41,19 +41,7 @@ const App = () => {
       // Other children
     </>
   );
-}
-```
-
-If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
-
-```
-yarn add remixicon
-```
-
-Then import the Remixicon styles in your `application.scss` file by doing
-
-```
-import 'remixicon/fonts/remixicon.css'
+};
 ```
 
 ## Development
@@ -66,7 +54,7 @@ yarn
 
 You can create new components in the `lib/components` and export them from `lib/index.js`.
 
-Running the `yarn start` command starts a CRA app which resides in `src` folder. Use this application to test out changes. Note that nothing in the `src` folder will be bundled with NeetoUI.
+Running the `yarn storybook` command starts a storybook app. Use this application to test out changes. Note that nothing in the `stories` folder will be bundled with NeetoUI.
 
 ## Building
 
@@ -76,9 +64,7 @@ NeetoUI gets auto-published to npm on new commit to master. You can checkout the
 
 Read the docs here
 
-v1 : https://neetoui.netlify.app
-
-v2 : https://neetoui-v2.netlify.app
+https://neetoui.netlify.app
 
 ## Theming
 

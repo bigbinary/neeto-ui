@@ -13,7 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
       },
     },
   },
@@ -136,15 +136,6 @@ export const TooltipOnText = () => {
     </div>
   );
 };
-
-const CustomComponent = forwardRef(({ text }, ref) => (
-  <div
-    ref={ref}
-    className="items-center justify-center p-10 rounded-md cursor-pointer neeto-ui-shadow-lg neeto-ui-bg-black neeto-ui-text-white"
-  >
-    {text}
-  </div>
-));
 
 export const TooltipOnCustomComponent = () => {
   const CustomComponent = forwardRef(({ text }, ref) => (

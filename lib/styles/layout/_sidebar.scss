@@ -107,10 +107,6 @@
       color: $neeto-ui-gray-800;
       text-decoration: none;
     }
-    &--app-switcher {
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
     &--button {
       &:focus {
         background-color: transparent;
@@ -164,7 +160,6 @@
     .neeto-ui-sidebar__profile {
       width: 100%;
       padding: 8px;
-      margin-bottom: 24px;
 
       background-color: $neeto-ui-white;
       border-radius: $neeto-ui-rounded-sm;
@@ -201,9 +196,31 @@
   }
 
   &.neeto-ui-sidebar--collapsed {
+    padding: 20px 0;
     .neeto-ui-sidebar__profile {
       background-color: transparent;
       box-shadow: none;
+      padding: 4px;
+    }
+    .neeto-ui-sidebar__links{
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .neeto-ui-sidebar__header{
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .neeto-ui-sidebar__link-icon{
+      width: 32px;
+    }
+    .neeto-ui-sidebar__footer{
+      padding-left: 8px;
+      padding-right: 8px;
     }
   }
+}
+
+.sidebar-featured-tooltip__content{
+  border-radius: 8px !important;
+  box-shadow: $neeto-ui-shadow-s !important;
 }

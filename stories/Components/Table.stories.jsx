@@ -28,7 +28,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Table } from "@bigbinary/neetoui/v2";`',
+        component: '`import { Table } from "@bigbinary/neetoui";`',
       },
     },
   },

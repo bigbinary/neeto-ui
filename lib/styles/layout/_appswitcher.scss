@@ -1,7 +1,7 @@
 .neeto-ui-app-switcher__backdrop {
   position: fixed;
   z-index: 99996;
-  left: 72px;
+  left: 64px;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -12,13 +12,8 @@
   justify-content: flex-start;
   align-items: center;
   transition: left 0.3s ease-in-out;
-
-  &__v2 {
-    left: 80px;
-
-    &--expanded {
-      left: 300px;
-    }
+  &--expanded {
+    left: 300px;
   }
 }
 
@@ -57,6 +52,16 @@
 
 .neeto-ui-app-switcher__header {
   width: 100%;
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: 4px;
+  }
+}
+
+.neeto-ui-app-switcher__search-wrapper {
+  width: 100%;
+  margin: 16px 0 8px;
 }
 
 .neeto-ui-app-switcher__body {
@@ -64,7 +69,7 @@
   flex-direction: column;
   width: 100%;
   font-size: $neeto-ui-text-sm;
-  padding-top: 43px;
+  padding: 16px 0;
 }
 
 .neeto-ui-app-switcher-link {

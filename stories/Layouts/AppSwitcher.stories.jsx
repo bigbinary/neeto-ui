@@ -13,13 +13,58 @@ export default {
     docs: {
       description: {
         component:
-          '`import { AppSwitcher } from "@bigbinary/neetoui/v2/layouts";`',
+          '`import { AppSwitcher } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },
 };
 
 export const AppSwitcherStory = ({ isOpen, ...args }) => {
+  const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
+  useEffect(() => {
+    setIsAppSwitcherOpen(isOpen);
+  }, [isOpen]);
+
+  return (
+    <Router>
+      <Sidebar
+        navLinks={NAV_LINKS.slice(3)}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen((open) => !open)}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+        showAppSwitcher
+        appName="neetoUI"
+        profileInfo={{
+          name: "John Doe",
+          email: "john@doe.com",
+          topLinks: [
+            {
+              label: "Logout",
+            },
+            {
+              label: "Settings",
+            },
+          ],
+        }}
+      />
+      <AppSwitcher
+        {...args}
+        isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!isSidebarCollapsed}
+        onClose={() => setIsAppSwitcherOpen(false)}
+      />
+    </Router>
+  );
+};
+
+AppSwitcherStory.storyName = "AppSwitcher";
+AppSwitcherStory.args = {
+  isOpen: true,
+};
+
+export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
@@ -39,25 +84,28 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          dropdownProps: [{
-            label: "Logout",
-          }, {
-            label: "Settings"
-          }]
+          topLinks: [
+            {
+              label: "Logout",
+            },
+            {
+              label: "Settings",
+            },
+          ],
         }}
       />
       <AppSwitcher
+        {...args}
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
-        {...args}
       />
     </Router>
   );
 };
 
-AppSwitcherStory.storyName = "AppSwitcher";
-AppSwitcherStory.args = {
+AppSwitcherWithRecentApps.args = {
   isOpen: true,
-  v2: true,
+  recentApps: ["Quiz", "Codify"],
+  neetoApps: ["Desk", "KB", "Quiz", "Codify"],
 };

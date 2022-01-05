@@ -10,7 +10,7 @@ import {
 const description = `
 Scrollable is used when contents are overflowing the viewport and requires scrolling. It is primarily used along with Container.
 
-\`import { Scrollable } from "@bigbinary/neetoui/v2/layouts"\`
+\`import { Scrollable } from "@bigbinary/neetoui/layouts"\`
 `;
 
 export default {

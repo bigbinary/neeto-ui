@@ -17,7 +17,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: '`import { MenuBar } from "@bigbinary/neetoui/v2/layouts";`',
+        component: '`import { MenuBar } from "@bigbinary/neetoui/layouts";`',
       },
     },
   },
