@@ -190,7 +190,6 @@ export const SidebarWithAppSwitcher = (args) => {
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
-        v2
       />
     </Router>
   );
