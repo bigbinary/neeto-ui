@@ -75,6 +75,13 @@ SidebarCollapsed.args = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    customContent: (
+      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+        <Label>Away</Label>
+        <Switch checked />
+        <Label>Active</Label>
+      </div>
+    ),
     topLinks: [
       {
         label: "Profile",
