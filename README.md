@@ -44,18 +44,6 @@ const App = () => {
 };
 ```
 
-If the project uses **NeetoUI v1**, install [Remixicons](https://remixicon.com/) as **NeetoUI v1** relies on it. It can be installed by executing following command.
-
-```
-yarn add remixicon
-```
-
-Then import the Remixicon styles in your `application.scss` file by doing
-
-```
-import 'remixicon/fonts/remixicon.css'
-```
-
 ## Development
 
 Install all the dependencies by executing following command.
@@ -66,7 +54,7 @@ yarn
 
 You can create new components in the `lib/components` and export them from `lib/index.js`.
 
-Running the `yarn start` command starts a CRA app which resides in `src` folder. Use this application to test out changes. Note that nothing in the `src` folder will be bundled with NeetoUI.
+Running the `yarn storybook` command starts a storybook app. Use this application to test out changes. Note that nothing in the `stories` folder will be bundled with NeetoUI.
 
 ## Building
 
