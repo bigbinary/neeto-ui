@@ -36,7 +36,7 @@ const Playground = () => {
             name: "Kieran Miller",
             email: "kieran.miller@email.com",
             imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-            dropdownProps: [
+            topLinks: [
               {
                 label: "Profile",
                 onClick: () => {},
@@ -48,7 +48,7 @@ const Playground = () => {
                 icon: Help,
               },
             ],
-            bottomListProps: [
+            bottomLinks: [
               {
                 label: "Logout",
                 onClick: () => {},

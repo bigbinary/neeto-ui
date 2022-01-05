@@ -75,7 +75,7 @@ SidebarCollapsed.args = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    topLinks: [
       {
         label: "Profile",
         onClick: () => {},
@@ -87,7 +87,7 @@ SidebarCollapsed.args = {
         icon: Help,
       },
     ],
-    bottomListProps: [
+    bottomLinks: [
       {
         label: "Logout",
         onClick: () => {},
@@ -111,7 +111,7 @@ SidebarExpanded.args = {
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    topLinks: [
       {
         label: "Edit",
         onClick: () => {},
@@ -143,11 +143,13 @@ SidebarWithChangelogToggle.args = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    topLinks: [
       {
-        label: "Edit",
+        label: "Profile",
         onClick: () => {},
       },
+    ],
+    bottomLinks: [
       {
         label: "Logout",
         onClick: () => {},
@@ -193,7 +195,7 @@ SidebarWithAppSwitcher.args = {
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    bottomLinks: [
       {
         label: "Edit",
         onClick: () => {},
@@ -224,7 +226,7 @@ UncontrolledSidebar.args = {
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    topLinks: [
       {
         label: "Edit",
         onClick: () => {},
@@ -259,7 +261,7 @@ SidebarWithFooterLinks.args = {
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    dropdownProps: [
+    topLinks: [
       {
         label: "Profile",
         onClick: () => {},
