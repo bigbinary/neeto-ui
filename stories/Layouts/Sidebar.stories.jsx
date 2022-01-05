@@ -115,10 +115,12 @@ SidebarExpanded.args = {
       {
         label: "Edit",
         onClick: () => {},
+        icon: Settings,
       },
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
@@ -147,12 +149,14 @@ SidebarWithChangelogToggle.args = {
       {
         label: "Profile",
         onClick: () => {},
+        icon: Settings,
       },
     ],
     bottomLinks: [
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
@@ -199,10 +203,12 @@ SidebarWithAppSwitcher.args = {
       {
         label: "Edit",
         onClick: () => {},
+        icon: Settings,
       },
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
@@ -230,10 +236,12 @@ UncontrolledSidebar.args = {
       {
         label: "Edit",
         onClick: () => {},
+        icon: Settings,
       },
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
@@ -265,10 +273,12 @@ SidebarWithFooterLinks.args = {
       {
         label: "Profile",
         onClick: () => {},
+        icon: Settings,
       },
       {
         label: "Logout",
         onClick: () => {},
+        icon: LeftArrow,
       },
     ],
   },
