@@ -31,7 +31,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
     <Router>
       <Sidebar
         navLinks={NAV_LINKS.slice(3)}
-        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen((open) => !open)}
         isCollapsed={isSidebarCollapsed}
         onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
@@ -39,7 +39,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          dropdownProps: [
+          topLinks: [
             {
               label: "Logout",
             },
@@ -50,10 +50,10 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         }}
       />
       <AppSwitcher
+        {...args}
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
-        {...args}
       />
     </Router>
   );
@@ -62,7 +62,6 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
 AppSwitcherStory.storyName = "AppSwitcher";
 AppSwitcherStory.args = {
   isOpen: true,
-  v2: true,
 };
 
 export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
@@ -85,7 +84,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          dropdownProps: [
+          topLinks: [
             {
               label: "Logout",
             },
@@ -96,10 +95,10 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
         }}
       />
       <AppSwitcher
+        {...args}
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
-        {...args}
       />
     </Router>
   );
