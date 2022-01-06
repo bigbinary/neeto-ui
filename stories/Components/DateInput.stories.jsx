@@ -136,6 +136,45 @@ export const TimePickerWithRef = () => {
   );
 };
 
+export const DatePickerWithDefaultValue = (args) => {
+  return (
+    <div className="space-y-3">
+      <DatePicker
+        defaultValue={dayjs()}
+        {...args}
+      />
+    </div>
+  );
+};
+
+DatePickerWithDefaultValue.parameters = {
+  docs: {
+    description: {
+      story: "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+    },
+  },
+};
+
+
+export const TimePickerWithDefaultValue = (args) => {
+  return (
+    <div className="space-y-3">
+      <TimePicker
+        defaultValue={dayjs()}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TimePickerWithDefaultValue.parameters = {
+  docs: {
+    description: {
+      story: "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+    },
+  },
+};
+
 export const DateRangePicker = () => {
   return (
     <div className="space-y-3">
