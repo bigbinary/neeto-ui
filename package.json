@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "main": "./index.js",
   "author": "BigBinary",
   "license": "MIT",
@@ -14,13 +14,11 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
       "eslint --fix"
     ]
   },
-
   "dependencies": {
     "@bigbinary/neeto-icons": "^1.8.17",
     "@popperjs/core": "^2.9.2",
@@ -105,8 +103,6 @@
     "react-router-nav-prompt": "^0.4.1",
     "react-toastify": "^8.0.2"
   },
-
-
   "directories": {
     "lib": "lib"
   },
