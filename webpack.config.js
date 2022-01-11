@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new PeerDepsExternalsPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
