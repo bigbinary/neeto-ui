@@ -1,5 +1,7 @@
 const PeerDepsExternalsPlugin = require("@bigbinary/peer-deps-externals-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 
 module.exports = {
@@ -8,7 +10,11 @@ module.exports = {
     layouts: "./lib/components/layouts/index.js",
     formik: "./lib/components/formik/index.js",
   },
-  plugins: [new MiniCssExtractPlugin(), new PeerDepsExternalsPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new PeerDepsExternalsPlugin(),
+    // new BundleAnalyzerPlugin(),
+  ],
   module: {
     rules: [
       {
