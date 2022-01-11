@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/lib
 
 # testing
 /coverage
@@ -12,6 +13,15 @@
 /build
 /dist
 /storybook-static
+
+
+/formik.js
+/formik.js.LICENSE.txt
+/index.css
+/index.js
+/layouts.js
+/index.js.LICENSE.txt
+/layouts.js.LICENSE.txt
 
 # misc
 .DS_Store
@@ -23,3 +33,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
