@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { Select, Button } from "../../lib/components";
+import { Select, Button, Modal, Pane, Typography } from "../../lib/components";
 
 export default {
   title: "Components/Select",
@@ -181,6 +181,72 @@ export const ExampleWithRef = () => {
         />
       </div>
       <Select innerRef={selectRef} openMenuOnFocus />
+    </>
+  );
+};
+
+export const SelectInModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Modal.Header>
+          <Typography style="h1">Modal</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Select
+            placeholder="Select Placeholder"
+            size="small"
+            label="Select"
+            menuPortalTarget={document.body}
+            styles={{ menuPortal: (base) => ({ ...base, zIndex: 999999 }) }}
+            options={[
+              { value: "value1", label: "Value One" },
+              { value: "value2", label: "Value Two" },
+              { value: "value3", label: "Value Three" },
+            ]}
+          />
+        </Modal.Body>
+        <Modal.Footer />
+      </Modal>
+    </>
+  );
+};
+
+SelectInModal.parameters = {
+  docs: {
+    description: {
+      story: "To properly render Select inside a Modal or Pane, you need to pass `styles` prop with a `z-index` greater than the Modal or Pane for `menuPortal`. And the `menuPortalTarget` prop should be passed with the reference to the DOM node to render the menu in.",
+    },
+  },
+};
+
+export const SelectInPane = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button label="Open Pane" onClick={() => setIsOpen(true)} />
+      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Pane.Header>
+          <Typography style="h1">Modal</Typography>
+        </Pane.Header>
+        <Pane.Body className="w-full">
+          <Select
+            placeholder="Select Placeholder"
+            className="w-full"
+            size="small"
+            label="Select"
+            menuPortalTarget={document.body}
+            styles={{ menuPortal: (base) => ({ ...base, zIndex: 999999 }) }}
+            options={[
+              { value: "value1", label: "Value One" },
+              { value: "value2", label: "Value Two" },
+              { value: "value3", label: "Value Three" },
+            ]}
+          />
+        </Pane.Body>
+      </Pane>
     </>
   );
 };
