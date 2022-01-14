@@ -181,3 +181,9 @@
     color: $neeto-ui-gray-800;
   }
 }
+
+.neeto-ui-react-select__menu-portal {
+  .neeto-ui-react-select__menu {
+    margin: 0;
+  }
+}

@@ -199,8 +199,7 @@ export const SelectInModal = () => {
             placeholder="Select Placeholder"
             size="small"
             label="Select"
-            menuPortalTarget={document.body}
-            styles={{ menuPortal: (base) => ({ ...base, zIndex: 999999 }) }}
+            strategy="fixed"
             options={[
               { value: "value1", label: "Value One" },
               { value: "value2", label: "Value Two" },
@@ -217,7 +216,7 @@ export const SelectInModal = () => {
 SelectInModal.parameters = {
   docs: {
     description: {
-      story: "To properly render Select inside a Modal or Pane, you need to pass `styles` prop with a `z-index` greater than the Modal or Pane for `menuPortal`. And the `menuPortalTarget` prop should be passed with the reference to the DOM node to render the menu in.",
+      story: "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
@@ -237,8 +236,7 @@ export const SelectInPane = () => {
             className="w-full"
             size="small"
             label="Select"
-            menuPortalTarget={document.body}
-            styles={{ menuPortal: (base) => ({ ...base, zIndex: 999999 }) }}
+            strategy="fixed"
             options={[
               { value: "value1", label: "Value One" },
               { value: "value2", label: "Value Two" },
