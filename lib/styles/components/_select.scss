@@ -8,7 +8,7 @@
   }
 }
 
-.neeto-ui-react-select__container {
+.neeto-ui-react-select__container, .neeto-ui-react-select__menu-portal {
   width: 100%;
   font-size: $neeto-ui-text-sm;
 
@@ -179,5 +179,11 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     color: $neeto-ui-gray-800;
+  }
+}
+
+.neeto-ui-react-select__menu-portal {
+  .neeto-ui-react-select__menu {
+    margin: 0;
   }
 }
