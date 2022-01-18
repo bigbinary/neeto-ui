@@ -1,6 +1,8 @@
+import { FieldArray, Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
 
 import { Select, Button, Modal, Pane, Typography } from "../../lib/components";
+import { Select as FormikSelect } from "../../lib/components/formik";
 
 export default {
   title: "Components/Select",
@@ -216,7 +218,8 @@ export const SelectInModal = () => {
 SelectInModal.parameters = {
   docs: {
     description: {
-      story: "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+      story:
+        "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
@@ -247,4 +250,57 @@ export const SelectInPane = () => {
       </Pane>
     </>
   );
+};
+
+export const FormikSelectStory = () => {
+  return (
+    <Formik
+      initialValues={{ selects: [{ formikSelect: { value: "v1", label: "v1" } }, { formikSelect: { value: "v1", label: "v1" } }] }}
+      onSubmit={(values) => console.log(values)}
+    >
+      {({ values }) => (
+        <Form>
+          <div className="flex flex-col space-y-6">
+            <FieldArray name="selects">
+              {({ push, remove }) => (
+                <div className="flex flex-col space-y-3">
+                  {values.selects.map((_, index) => (
+                    <div key={index} className="flex items-end space-x-6">
+                      <FormikSelect
+                        name={`selects.${index}.formikSelect`}
+                        label="Select"
+                        options={[
+                          { value: "v1", label: "v1" },
+                          { value: "v2", label: "v2" },
+                          { value: "v3", label: "v3" },
+                        ]}
+                      />
+                      <Button label="Remove" className="mb-2" onClick={() => remove(index)} />
+                    </div>
+                  ))}
+                  <Button
+                    className="self-start"
+                    label="Add"
+                    onClick={() =>
+                      push({ formikSelect: null })
+                    }
+                  />
+                </div>
+              )}
+            </FieldArray>
+            <Button className="self-start" label="Submit" type="submit" />
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+FormikSelectStory.storyName = "Formik Select";
+FormikSelectStory.parameters = {
+  docs: {
+    description: {
+      story: "`import { Select as FormikSelect } from '@bigbinary/neetoui/formik';`"
+    }
+  }
 };
