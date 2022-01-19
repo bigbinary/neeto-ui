@@ -149,15 +149,36 @@ export const AsyncCreatable = () => {
       size="small"
       label="Select"
       isCreateable
-      isSearchable
       cacheOptions
       value={value}
       onChange={(newValue) => setValue(newValue)}
       defaultOptions={options}
       onCreateOption={(inputValue) =>
-        setOptions(prevOptions => [...prevOptions, { label: inputValue, value: inputValue }])
+        setOptions((prevOptions) => [
+          ...prevOptions,
+          { label: inputValue, value: inputValue },
+        ])
       }
       loadOptions={loadOptions}
+    />
+  );
+};
+
+export const Searchable = () => {
+  return (
+    <Select
+      placeholder="Select Placeholder"
+      className="w-full"
+      size="small"
+      label="Select"
+      isSearchable
+      options={[
+        { value: "value1", label: "Value One" },
+        { value: "value2", label: "Value Two" },
+        { value: "value3", label: "Value Three" },
+        { value: "value4", label: "Value Four" },
+        { value: "value5", label: "Value Five" },
+      ]}
     />
   );
 };
