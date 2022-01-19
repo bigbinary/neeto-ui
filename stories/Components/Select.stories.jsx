@@ -106,6 +106,7 @@ export const Creatable = () => {
       <Select
         label="Grouped Select"
         isCreateable
+        isSearchable
         defaultValue={[{ value: "value3", label: "Value Three" }]}
         placeholder="Select an Option"
         onCreateOption={(inputValue) =>
@@ -115,6 +116,49 @@ export const Creatable = () => {
         defaultOptions={options}
       />
     </div>
+  );
+};
+
+export const AsyncCreatable = () => {
+  const [value, setValue] = useState(null);
+  const [options, setOptions] = useState([
+    { value: "value1", label: "Value One" },
+    { value: "value2", label: "Value Two" },
+    { value: "value3", label: "Value Three" },
+    { value: "value4", label: "Value Four" },
+    { value: "value5", label: "Value Five" },
+  ]);
+
+  const filterOptions = (inputValue) => {
+    return options.filter((option) =>
+      option.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
+
+  const loadOptions = (inputValue) =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(filterOptions(inputValue));
+      }, 1000);
+    });
+
+  return (
+    <Select
+      placeholder="Select Placeholder"
+      className="w-full"
+      size="small"
+      label="Select"
+      isCreateable
+      isSearchable
+      cacheOptions
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+      defaultOptions={options}
+      onCreateOption={(inputValue) =>
+        setOptions(prevOptions => [...prevOptions, { label: inputValue, value: inputValue }])
+      }
+      loadOptions={loadOptions}
+    />
   );
 };
 
@@ -216,7 +260,8 @@ export const SelectInModal = () => {
 SelectInModal.parameters = {
   docs: {
     description: {
-      story: "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+      story:
+        "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
