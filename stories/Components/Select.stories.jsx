@@ -253,10 +253,11 @@ export const SelectInPane = () => {
 };
 
 export const FormikSelectStory = () => {
-  return (
+  const [values, setValues] = useState([]);
+  return (<>
     <Formik
       initialValues={{ selects: [{ formikSelect: { value: "v1", label: "v1" } }, { formikSelect: { value: "v1", label: "v1" } }] }}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => setValues(values)}
     >
       {({ values }) => (
         <Form>
@@ -293,7 +294,15 @@ export const FormikSelectStory = () => {
         </Form>
       )}
     </Formik>
-  );
+    <div className="py-6">
+      <Typography weight="bold">Selected Values:</Typography>
+      {
+        values.selects?.map(({ formikSelect }, index) => (
+          <Typography key={index}>{formikSelect?.label}</Typography>
+        ))
+      }
+    </div>
+  </>);
 };
 
 FormikSelectStory.storyName = "Formik Select";
