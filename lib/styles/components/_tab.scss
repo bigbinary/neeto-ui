@@ -39,6 +39,11 @@
     outline: none;
   }
 
+  &:focus,
+  &:focus-visible{
+    color: $neeto-ui-gray-800;
+  }
+
   &__icon {
     margin-right: 12px;
   }

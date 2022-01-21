@@ -28,7 +28,6 @@
   overflow-y: auto;
   max-width: 100%;
   padding: 32px;
-  @include scrollbars(4px);
 }
 
 .neeto-ui-app-switcher__wrapper-size--lg {
