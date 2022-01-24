@@ -6,6 +6,7 @@ import Pane from "../../lib/components/Pane";
 import Modal from "../../lib/components/Modal";
 import Alert from "../../lib/components/Alert";
 import Typography from "../../lib/components/Typography";
+import Input from "../../lib/components/Input";
 
 export default {
   title: "Overlays/Pane",
@@ -84,6 +85,8 @@ export const PaneWithModalAndAlert = ({ isOpen, onClose, ...args }) => {
   const [showPane, setShowPane] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     setShowPane(isOpen);
   }, [isOpen]);
@@ -141,12 +144,19 @@ export const PaneWithModalAndAlert = ({ isOpen, onClose, ...args }) => {
           <h2>Add Label</h2>
         </Modal.Header>
         <Modal.Body>
-          Somewhere out in space live The Herculoids! Zok, the laser-ray dragon!
-          Igoo, the giant rock ape! Tundro, the tremendous! Gloop and Gleep, the
-          formless, fearless wonders! With Zandor, their leader, and his wife,
-          Tara, and son, Dorno, they team up to protect their planet from
-          sinister invaders! All-strong! All-brave! All-heroes! They're The
-          Herculoids!
+          <Typography style="body2">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
+          <Input
+            label="Input"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+          />
         </Modal.Body>
         <Modal.Footer className="space-x-4">
           <Button
