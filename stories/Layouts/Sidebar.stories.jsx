@@ -114,6 +114,7 @@ SidebarExpanded.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
+  isCollapsed: false,
   navLinks: NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
@@ -135,7 +136,110 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithChangelogToggle = ({ onCollapse, ...args }) => (
+export const SidebarWithSubItems = Template.bind({});
+SidebarWithSubItems.storyName = "Sidebar with Sub Nav items";
+SidebarWithSubItems.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS.slice(0, 3),
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieran.miller@email.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    customContent: (
+      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+        <Label>Away</Label>
+        <Switch checked />
+        <Label>Active</Label>
+      </div>
+    ),
+    topLinks: [
+      {
+        label: "Profile",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Help",
+        onClick: () => {},
+        icon: Help,
+      },
+    ],
+    bottomLinks: [
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+};
+SidebarWithSubItems.parameters = {
+  docs: {
+    description: {
+      story:
+        "Sidebar with sub nav items will be always expanded unless `isCollapsed` is set to true",
+    },
+  },
+};
+
+export const SidebarWithoutSubItems = Template.bind({});
+SidebarWithoutSubItems.storyName = "Sidebar without Sub Nav items";
+SidebarWithoutSubItems.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS.map(({ to, label, description, icon }) => ({
+    to,
+    label,
+    description,
+    icon,
+  })).slice(0, 3),
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieran.miller@email.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    customContent: (
+      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+        <Label>Away</Label>
+        <Switch checked />
+        <Label>Active</Label>
+      </div>
+    ),
+    topLinks: [
+      {
+        label: "Profile",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Help",
+        onClick: () => {},
+        icon: Help,
+      },
+    ],
+    bottomLinks: [
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+};
+SidebarWithoutSubItems.parameters = {
+  docs: {
+    description: {
+      story:
+        "Sidebar without sub nav items will be always collapsed unless `isCollapsed` is set to false",
+    },
+  },
+};
+
+export const SidebarWithChangelogToggle = (args) => (
   <Router>
     <Sidebar {...args} />
   </Router>
@@ -252,39 +356,6 @@ SidebarWithFooterLinks.args = {
   },
   footerLinks: FOOTER_LINKS,
   showChangelog: true,
-  showAppSwitcher: true,
-  appName: "neetoUI",
-};
-
-export const CollapsibleSidebar = ({ onCollapse, ...args }) => (
-  <Router>
-    <Sidebar {...args} />
-  </Router>
-);
-CollapsibleSidebar.storyName = "Collapsible Sidebar";
-CollapsibleSidebar.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  collapsible: true,
-  navLinks: NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    bottomLinks: [
-      {
-        label: "Edit",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
   showAppSwitcher: true,
   appName: "neetoUI",
 };
