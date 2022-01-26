@@ -4,7 +4,12 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
+import {
+  Settings,
+  Notification,
+  Help,
+  LeftArrow,
+} from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
@@ -127,43 +132,7 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
-
-export const SidebarWithChangelogToggle = (args) => (
-  <Router>
-    <Sidebar {...args} />
-  </Router>
-);
-
-SidebarWithChangelogToggle.storyName = "Sidebar with Changelog toggle";
-SidebarWithChangelogToggle.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  navLinks: NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    email: "kieran.miller@email.com",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    topLinks: [
-      {
-        label: "Profile",
-        onClick: () => {},
-        icon: Settings,
-      },
-    ],
-    bottomLinks: [
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-  showChangelog: true,
-};
-
-export const SidebarWithAppSwitcher = ({ isCollapsed, ...args }) => {
+export const SidebarWithAppSwitcher = (args) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
 
   return (
@@ -210,13 +179,14 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithFooterLinks = ({ onCollapse, ...args }) => (
+export const SidebarWithFooterLinks = ({ ...args }) => (
   <Router>
     <Sidebar {...args} />
   </Router>
 );
 SidebarWithFooterLinks.storyName = "Sidebar with Footer links";
 SidebarWithFooterLinks.args = {
+  isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
@@ -239,9 +209,53 @@ SidebarWithFooterLinks.args = {
     ],
   },
   footerLinks: FOOTER_LINKS,
-  showChangelog: true,
   showAppSwitcher: true,
   appName: "neetoUI",
+};
+
+export const ProfileSectionWithChangelogAndHelp = ({ ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+
+ProfileSectionWithChangelogAndHelp.storyName =
+  "Profile Section with Changelog and Help";
+ProfileSectionWithChangelogAndHelp.args = {
+  isCollapsed: true,
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.netlify.app",
+  },
+  navLinks: NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieran.miller@email.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    changelogProps: {
+      icon: Notification,
+      id: "neetochangelog-trigger",
+      label: "What's New",
+      onClick: () => alert("Clicked on What's new"),
+    },
+    helpProps: {
+      onClick: () => alert("Clicked on Help"),
+    },
+    topLinks: [
+      {
+        label: "Profile",
+        onClick: () => {},
+        icon: Settings,
+      },
+    ],
+    bottomLinks: [
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
 };
 
 export const ProfileSectionWithCustomContent = Template.bind({});
