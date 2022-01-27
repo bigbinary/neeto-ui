@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1026fc08-b879-4046-a480-cb6a29055fe0/deploy-status)](https://app.netlify.com/sites/adoring-mayer-6eabd9/deploys)
 
+[![NPM](https://img.shields.io/npm/v/@bigbinary/neeto-ui.svg)](https://www.npmjs.com/package/@bigbinary/neetoui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 **NeetoUI** is the library that drives the experience in all Neeto products built at [BigBinary](https://www.bigbinary.com).
 
 ## Installation
