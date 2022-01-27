@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -30,24 +30,14 @@ export default {
 };
 
 const Template = (args) => {
-  let ROUTER_LINKS = [];
-  NAV_LINKS.map((navLink) => {
-    if (navLink.items) {
-      navLink.items.map((item) => {
-        ROUTER_LINKS.push(item);
-      });
-    } else {
-      ROUTER_LINKS.push(navLink);
-    }
-  });
   return (
     <Router>
       <div className="flex flex-row items-start justify-start">
         <Sidebar {...args} />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <SwitchComponent>
-            {ROUTER_LINKS &&
-              ROUTER_LINKS.map(({ label, to }, index) => {
+            {NAV_LINKS &&
+              NAV_LINKS.map(({ label, to }, index) => {
                 return (
                   <Route
                     key={index}
@@ -118,6 +108,7 @@ SidebarExpanded.args = {
   navLinks: NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
+    email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     topLinks: [
       {
@@ -136,108 +127,6 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithSubItems = Template.bind({});
-SidebarWithSubItems.storyName = "Sidebar with Sub Nav items";
-SidebarWithSubItems.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  navLinks: NAV_LINKS.slice(0, 3),
-  profileInfo: {
-    name: "Kieran Miller",
-    email: "kieran.miller@email.com",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    customContent: (
-      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
-        <Label>Away</Label>
-        <Switch checked />
-        <Label>Active</Label>
-      </div>
-    ),
-    topLinks: [
-      {
-        label: "Profile",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
-    ],
-    bottomLinks: [
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-};
-SidebarWithSubItems.parameters = {
-  docs: {
-    description: {
-      story:
-        "Sidebar with sub nav items will be always expanded unless `isCollapsed` is set to true",
-    },
-  },
-};
-
-export const SidebarWithoutSubItems = Template.bind({});
-SidebarWithoutSubItems.storyName = "Sidebar without Sub Nav items";
-SidebarWithoutSubItems.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  navLinks: NAV_LINKS.map(({ to, label, description, icon }) => ({
-    to,
-    label,
-    description,
-    icon,
-  })).slice(0, 3),
-  profileInfo: {
-    name: "Kieran Miller",
-    email: "kieran.miller@email.com",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    customContent: (
-      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
-        <Label>Away</Label>
-        <Switch checked />
-        <Label>Active</Label>
-      </div>
-    ),
-    topLinks: [
-      {
-        label: "Profile",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
-    ],
-    bottomLinks: [
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-};
-SidebarWithoutSubItems.parameters = {
-  docs: {
-    description: {
-      story:
-        "Sidebar without sub nav items will be always collapsed unless `isCollapsed` is set to false",
-    },
-  },
-};
 
 export const SidebarWithChangelogToggle = (args) => (
   <Router>
@@ -274,33 +163,28 @@ SidebarWithChangelogToggle.args = {
   showChangelog: true,
 };
 
-export const SidebarWithAppSwitcher = (args) => {
+export const SidebarWithAppSwitcher = ({ isCollapsed, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
-  useEffect(() => {
-    setIsSidebarCollapsed(args.isCollapsed);
-  }, [args.isCollapsed]);
 
   return (
     <Router>
       <Sidebar
         {...args}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
-        isCollapsed={isSidebarCollapsed}
-        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+        isCollapsed={isCollapsed}
       />
       <AppSwitcher
         isOpen={isAppSwitcherOpen}
-        isSidebarOpen={!isSidebarCollapsed}
+        isSidebarOpen={!isCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
       />
     </Router>
   );
 };
 
-SidebarWithAppSwitcher.storyName = "Controlled Sidebar with AppSwitcher";
+SidebarWithAppSwitcher.storyName = "Sidebar with AppSwitcher";
 SidebarWithAppSwitcher.args = {
+  isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
