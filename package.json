@@ -72,7 +72,7 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "postcss": "^7",
+    "postcss": "^8",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^4.0.3",
     "postcss-preset-env": "^6.7.0",
