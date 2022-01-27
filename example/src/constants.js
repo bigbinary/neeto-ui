@@ -59,73 +59,12 @@ export const NAV_LINKS = [
     description: "Description here",
     to: "/components",
     icon: Copy,
-    items: [
-      {
-        label: "ActionDropdown",
-        to: "/components/action-dropdown",
-      },
-      {
-        label: "Avatar",
-        to: "/components/avatar",
-      },
-      {
-        label: "Button",
-        to: "/components/button",
-      },
-      {
-        label: "DatePicker",
-        to: "/components/date-picker",
-      },
-      {
-        label: "Dropdown",
-        to: "/components/dropdown",
-      },
-      {
-        label: "Tab",
-        to: "/components/tab",
-      },
-      {
-        label: "Tag",
-        to: "/components/tag",
-      },
-      {
-        label: "Table",
-        to: "/components/table",
-      },
-
-      {
-        label: "Tooltip",
-        to: "/components/tooltip",
-      },
-      {
-        label: "TimePicker",
-        to: "/components/time-picker",
-      },
-      {
-        label: "Typography",
-        to: "/components/typography",
-      },
-    ],
   },
   {
     label: "Form Elements",
     description: "Description here",
     to: "/form-elements",
     icon: Design,
-    items: [
-      {
-        label: "Input",
-        to: "/form-elements/input",
-      },
-      {
-        label: "Select",
-        to: "/form-elements/select",
-      },
-      {
-        label: "Toggles",
-        to: "/form-elements/Toggles",
-      },
-    ],
   },
   {
     label: "Misc",
@@ -144,24 +83,6 @@ export const NAV_LINKS = [
     description: "Description here",
     to: "/overlays",
     icon: Settings,
-    items: [
-      {
-        label: "Modal",
-        to: "/overlays/modal",
-      },
-      {
-        label: "Toastr",
-        to: "/overlays/toastr",
-      },
-      {
-        label: "Pane",
-        to: "/overlays/pane",
-      },
-      {
-        label: "Tooltip",
-        to: "/overlays/tooltip",
-      },
-    ],
   },
   {
     label: "Layouts",

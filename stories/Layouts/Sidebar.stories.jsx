@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -30,24 +30,14 @@ export default {
 };
 
 const Template = (args) => {
-  let ROUTER_LINKS = [];
-  NAV_LINKS.map((navLink) => {
-    if (navLink.items) {
-      navLink.items.map((item) => {
-        ROUTER_LINKS.push(item);
-      });
-    } else {
-      ROUTER_LINKS.push(navLink);
-    }
-  });
   return (
     <Router>
       <div className="flex flex-row items-start justify-start">
         <Sidebar {...args} />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <SwitchComponent>
-            {ROUTER_LINKS &&
-              ROUTER_LINKS.map(({ label, to }, index) => {
+            {NAV_LINKS &&
+              NAV_LINKS.map(({ label, to }, index) => {
                 return (
                   <Route
                     key={index}
@@ -114,9 +104,11 @@ SidebarExpanded.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
+  isCollapsed: false,
   navLinks: NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
+    email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     topLinks: [
       {
@@ -135,7 +127,8 @@ SidebarExpanded.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithChangelogToggle = ({ onCollapse, ...args }) => (
+
+export const SidebarWithChangelogToggle = (args) => (
   <Router>
     <Sidebar {...args} />
   </Router>
@@ -170,33 +163,28 @@ SidebarWithChangelogToggle.args = {
   showChangelog: true,
 };
 
-export const SidebarWithAppSwitcher = (args) => {
+export const SidebarWithAppSwitcher = ({ isCollapsed, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
-  useEffect(() => {
-    setIsSidebarCollapsed(args.isCollapsed);
-  }, [args.isCollapsed]);
 
   return (
     <Router>
       <Sidebar
         {...args}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
-        isCollapsed={isSidebarCollapsed}
-        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+        isCollapsed={isCollapsed}
       />
       <AppSwitcher
         isOpen={isAppSwitcherOpen}
-        isSidebarOpen={!isSidebarCollapsed}
+        isSidebarOpen={!isCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
       />
     </Router>
   );
 };
 
-SidebarWithAppSwitcher.storyName = "Controlled Sidebar with AppSwitcher";
+SidebarWithAppSwitcher.storyName = "Sidebar with AppSwitcher";
 SidebarWithAppSwitcher.args = {
+  isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
@@ -252,39 +240,6 @@ SidebarWithFooterLinks.args = {
   },
   footerLinks: FOOTER_LINKS,
   showChangelog: true,
-  showAppSwitcher: true,
-  appName: "neetoUI",
-};
-
-export const CollapsibleSidebar = ({ onCollapse, ...args }) => (
-  <Router>
-    <Sidebar {...args} />
-  </Router>
-);
-CollapsibleSidebar.storyName = "Collapsible Sidebar";
-CollapsibleSidebar.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
-  },
-  collapsible: true,
-  navLinks: NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    bottomLinks: [
-      {
-        label: "Edit",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
   showAppSwitcher: true,
   appName: "neetoUI",
 };
