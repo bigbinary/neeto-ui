@@ -5,14 +5,15 @@
   align-items: center;
   list-style: none;
 
-  .neeto-ui-pagination__item:not(.neeto-ui-pagination__item--dots, .neeto-ui-pagination__item--navigate) {
+  .neeto-ui-pagination__item:not(.neeto-ui-pagination__item--dots) {
     margin: 0 4px;
-    background-color: $neeto-ui-gray-200;
+    background-color: $neeto-ui-white;
+    border: 1px solid $neeto-ui-gray-300;
     border-radius: $neeto-ui-rounded-sm;
     overflow: hidden;
 
     &:hover:not(.disabled, .active) {
-      background-color: $neeto-ui-gray-300;
+      border-color: $neeto-ui-gray-800;
     }
   }
 
@@ -20,10 +21,10 @@
     width: 32px;
     min-width: 32px;
     height: 32px;
-    line-height: 32px;
+    line-height: 30px;
     font-size: $neeto-ui-text-sm;
-    font-weight: $neeto-ui-font-semibold;
-    color: $neeto-ui-gray-700;
+    font-weight: $neeto-ui-font-medium;
+    color: $neeto-ui-gray-800;
     transition: $neeto-ui-transition;
     user-select: none;
 
@@ -40,8 +41,7 @@
     }
 
     &.active {
-      background-color: $neeto-ui-gray-800;
-      color: $neeto-ui-white;
+      border-color: $neeto-ui-gray-800;
     }
 
     &.neeto-ui-pagination__item--dots {
@@ -51,7 +51,7 @@
 
     &.neeto-ui-pagination__item--navigate {
       text-align: center;
-      color: $neeto-ui-gray-500;
+      color: $neeto-ui-gray-800;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -59,7 +59,7 @@
 
       &:hover:not(.disabled),
       &:active {
-        color: $neeto-ui-gray-600;
+        color: $neeto-ui-gray-800;
       }
 
       &.disabled {
