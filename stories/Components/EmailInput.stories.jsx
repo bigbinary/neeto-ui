@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import EmailInput from "../../lib/components/EmailInput";
 
 export default {
-  title: "Components/Multiple Email Input",
+  title: "Components/Email Input",
   component: EmailInput,
   parameters: {
     layout: "padded",
@@ -15,7 +15,7 @@ export default {
   },
 };
 
-const Template = (args) => <EmailInput {...args} />;
+const Template = args => <EmailInput {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -31,7 +31,11 @@ export const Controlled = () => {
     <EmailInput
       label="Emails"
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
+
+export const Error = () => <EmailInput error="Please make sure all emails are valid." />;
+
+export const Disabled = () => <EmailInput disabled />;
