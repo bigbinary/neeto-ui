@@ -102,7 +102,7 @@ DropdownStory.args = {
 export const MultiDropdownWithClickTrigger = () => {
   return (
     <div className="flex">
-      <Dropdown position="bottom" label="Dropdown">
+      <Dropdown position="bottom" label="Dropdown" isMultiLevel>
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}
@@ -136,7 +136,7 @@ export const MultiDropdownWithClickTrigger = () => {
 export const MultiDropdownWithHoverTrigger = () => {
   return (
     <div className="flex">
-      <Dropdown position="bottom" label="Dropdown">
+      <Dropdown position="bottom" label="Dropdown" isMultiLevel>
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}

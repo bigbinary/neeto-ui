@@ -4,6 +4,11 @@
       min-width: auto;
     }
   }
+  &--multilevel{
+    .neeto-ui-dropdown__popup{
+      overflow-y: visible;
+    }
+  }
 }
 
 .neeto-ui-dropdown__popup {
