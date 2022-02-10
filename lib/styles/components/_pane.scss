@@ -13,8 +13,6 @@
     width: 480px;
     max-width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
 
     background-color: $neeto-ui-white;
 
@@ -40,10 +38,16 @@
 
   &__body {
     width: 100%;
+    height: calc(100vh - #{$neeto-ui-pane-header-height});
     padding: 0 24px;
     font-size: $neeto-ui-text-sm;
     overflow-y: auto;
-    flex-grow: 1;
+
+    &.neeto-ui-pane__body--has-footer {
+      height: calc(
+        100vh - #{$neeto-ui-pane-header-height} - #{$neeto-ui-pane-footer-height}
+      );
+    }
   }
 
   &__footer {
