@@ -1,8 +1,6 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState  } from "react";
 
-import Button from "../../lib/components/Button";
-import Tooltip from "../../lib/components/Tooltip";
-import Typography from "../../lib/components/Typography";
+import { Button, Tooltip, Typography, Input } from "../../lib/components";
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
 export default {
@@ -150,6 +148,29 @@ export const TooltipOnCustomComponent = () => {
     <div className="flex items-center justify-center p-10 space-x-6 ">
       <Tooltip position="top" content="Tooltip">
         <CustomComponent text="Custom Component" />
+      </Tooltip>
+    </div>
+  );
+};
+
+export const AutoHidingTooltip = () => {
+  const DEFAULT_EMAIL = "oliver@example.";
+  const [email, setEmail] = useState(DEFAULT_EMAIL);
+
+  const handleKeyPress = ({ key }) => {
+    if (key === "Escape") setEmail(DEFAULT_EMAIL);
+  }
+
+  return (
+    <div className="flex items-center justify-center p-10 space-x-6">
+      <Tooltip position="top" content="Press esc to reset input after typing" hideAfter={3000}>
+        <Input
+          label="Enter email"
+          className="max-w-max"
+          value={email}
+          onChange={({ target: { value } }) => setEmail(value)}
+          onKeyDown={handleKeyPress}
+        />
       </Tooltip>
     </div>
   );
