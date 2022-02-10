@@ -23,6 +23,7 @@
 .github
 .editorconfig
 .eslintrc.js
+jsconfig.json
 
 npm-debug.log*
 yarn-debug.log*
@@ -34,3 +35,6 @@ yarn-error.log*
 #stories
 /stories
 /.storybook
+
+#configs
+/*.config.js
