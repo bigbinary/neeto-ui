@@ -1,13 +1,4 @@
-import {
-  Copy,
-  Design,
-  UserCircle,
-  Settings,
-  Image,
-  Help,
-  NeetoDesk,
-  Link,
-} from "@bigbinary/neeto-icons";
+import React from "react";
 
 import ActionDropdowns from "./Pages/ActionDropdown";
 import Avatar from "./Pages/Avatar";
@@ -55,56 +46,83 @@ export const COMPONENT_MAPPING = {
 
 export const NAV_LINKS = [
   {
-    label: "Components",
-    description: "Description here",
-    to: "/components",
-    icon: Copy,
+    label: "Avatar",
+    to: "/avatar",
+    icon: () => <>A</>,
   },
   {
-    label: "Form Elements",
-    description: "Description here",
-    to: "/form-elements",
-    icon: Design,
+    label: "Button",
+    to: "/button",
+    icon: () => <>B</>,
   },
   {
-    label: "Misc",
-    description: "Description here",
-    to: "/misc",
-    icon: UserCircle,
+    label: "DatePicker",
+    to: "/datepicker",
+    icon: () => <>DP</>,
+  },
+  {
+    label: "Dropdown",
+    to: "/dropdown",
+    icon: () => <>DD</>,
   },
   {
     label: "Formik",
-    description: "Description here",
     to: "/formik",
-    icon: Image,
+    icon: () => <>F</>,
   },
   {
-    label: "Overlays",
-    description: "Description here",
-    to: "/overlays",
-    icon: Settings,
+    label: "Input",
+    to: "/input",
+    icon: () => <>I</>,
   },
   {
     label: "Layouts",
     to: "/layouts",
-    icon: Image,
-  },
-];
-
-export const FOOTER_LINKS = [
-  {
-    label: "Help",
-    to: "/help",
-    icon: Help,
+    icon: () => <>L</>,
   },
   {
-    label: "Agents",
-    to: "/agents",
-    icon: NeetoDesk,
+    label: "Misc",
+    to: "/misc",
+    icon: () => <>MI</>,
   },
   {
-    label: "External",
-    icon: Link,
-    href: "https://neetoui.netlify.app",
+    label: "Modal",
+    to: "/modal",
+    icon: () => <>MO</>,
+  },
+  {
+    label: "Pane",
+    to: "/pane",
+    icon: () => <>P</>,
+  },
+  {
+    label: "Select",
+    to: "/select",
+    icon: () => <>S</>,
+  },
+  {
+    label: "Tab",
+    to: "/tab",
+    icon: () => <>TB</>,
+  },
+  {
+    label: "Table",
+    to: "/table",
+    icon: () => <>TL</>,
+  },
+  {
+    label: "Tag",
+    to: "/tag",
+    icon: () => <>TG</>,
+  },
+  {
+    label: "Toggles",
+    to: "/toggles",
+    icon: () => <>TS</>,
+  },
+  {
+    label: "Tooltip",
+    to: "/tooltip",
+    icon: () => <>TP</>,
   },
 ];
