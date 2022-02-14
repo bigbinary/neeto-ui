@@ -92,7 +92,8 @@
     "webpack": "^5.64.3",
     "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.5.0"
+    "webpack-dev-server": "^4.5.0",
+    "yup": "^0.32.11"
   },
   "peerDependencies": {
     "formik": "^2.2.0",
