@@ -47,7 +47,11 @@
     }
 
     .neeto-ui-modal__footer {
-      padding: 24px 32px 32px 32px;
+      padding: 24px 32px 32px;
+
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .neeto-ui-alert__footer {
