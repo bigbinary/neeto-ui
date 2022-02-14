@@ -21,25 +21,22 @@ export default {
   },
 };
 
-const Template = args => <EmailInput {...args} />;
-
-export const Normal = Template.bind({});
-Normal.args = {
-  label: "Emails",
-  placeholder: "",
-  error: "",
-};
-
-export const Controlled = () => {
+export const Controlled = (args) => {
   const [emails, setEmails] = useState([]);
 
   return (
     <EmailInput
-      label="Email(s)"
+      {...args}
       value={emails}
       onChange={emails => setEmails(emails)}
     />
   );
+};
+
+Controlled.args = {
+  label: "Email(s)",
+  placeholder: "",
+  error: "",
 };
 
 export const Error = () => (
