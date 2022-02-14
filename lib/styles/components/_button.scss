@@ -9,7 +9,6 @@
   position: relative;
   border: none;
   cursor: pointer;
-  padding: 0;
   user-select: none;
   padding: 7px 8px;
   letter-spacing: -0.15px;
@@ -111,15 +110,15 @@
 
   &-text {
     color: $neeto-ui-gray-800;
+    padding: 0;
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-gray-800;
-      background-color: $neeto-ui-gray-200;
+      color: $neeto-ui-gray-600;
     }
 
     &:focus-visible {
-      color: $neeto-ui-gray-800;
+      color: $neeto-ui-gray-600;
       box-shadow: 0 0 0 3px #e5e5e5;
     }
   }
