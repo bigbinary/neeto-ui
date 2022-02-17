@@ -45,37 +45,12 @@ OptionsStacked.args = {
 export const ControlledRadio = (args) => {
   const [value, setValue] = React.useState("");
   return (
-    <Radio {...args} onChange={(e) => setValue(e.target.value)}>
-      <Radio.Item
-        checked={value === "option1"}
-        name="controlledOptions"
-        label="option1"
-        value="option1"
-      />
-      <Radio.Item
-        checked={value === "option2"}
-        name="controlledOptions"
-        label="option2"
-        value="option2"
-      />
-      <Radio.Item
-        checked={value === "option3"}
-        name="controlledOptions"
-        label="option3"
-        value="option3"
-      />
-      <Radio.Item
-        checked={value === "option4"}
-        name="controlledOptions"
-        label="option4"
-        value="option4"
-      />
-      <Radio.Item
-        checked={value === "option5"}
-        name="controlledOptions"
-        label="option5"
-        value="option5"
-      />
+    <Radio {...args} onChange={(e) => setValue(e.target.value)} value={value}>
+      <Radio.Item name="controlledOptions" label="option1" value="option1" />
+      <Radio.Item name="controlledOptions" label="option2" value="option2" />
+      <Radio.Item name="controlledOptions" label="option3" value="option3" />
+      <Radio.Item name="controlledOptions" label="option4" value="option4" />
+      <Radio.Item name="controlledOptions" label="option5" value="option5" />
     </Radio>
   );
 };
