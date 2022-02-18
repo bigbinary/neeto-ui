@@ -57,13 +57,11 @@ export const FormikEmail = () => {
     emails: yup
       .array()
       .min(1, "Please enter atleast one email.")
-      .of(
-        yup.object().shape({
-          label: yup.string().email(),
-          value: yup.string().email(),
-        })
+      .test(
+        "are-all-emails-valid",
+        "Please make sure all emails are valid.",
+        emails => emails.every(({ valid }) => valid)
       )
-      .required("Please enter an email address.")
       .nullable(),
   });
 
