@@ -77,7 +77,7 @@ export const FormikEmail = () => {
       <Form className="space-y-2">
         <FormikEmailInput
           label="Email(s)*"
-          filterInvalidEmails="Remove all invalid emails"
+          filterInvalidEmails="Remove invalid emails"
           name="emails"
         />
         <Button
