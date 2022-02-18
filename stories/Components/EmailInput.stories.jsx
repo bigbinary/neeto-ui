@@ -75,7 +75,11 @@ export const FormikEmail = () => {
       validationSchema={VALIDATION_SCHEMA}
     >
       <Form className="space-y-2">
-        <FormikEmailInput label="Email(s)*" name="emails" />
+        <FormikEmailInput
+          label="Email(s)*"
+          filterInvalidEmails="Remove all invalid emails"
+          name="emails"
+        />
         <Button
           type="submit"
           label="Save Changes"
