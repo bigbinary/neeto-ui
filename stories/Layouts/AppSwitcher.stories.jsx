@@ -54,6 +54,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
+        environment={process.env.NODE_ENV}
       />
     </Router>
   );
@@ -99,6 +100,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
+        environment={process.env.NODE_ENV}
       />
     </Router>
   );

@@ -108,7 +108,7 @@ export const MultiDropdownWithClickTrigger = () => {
         ))}
         <Dropdown
           position="right-start"
-          customTarget={() => <li>Another Dropdown</li>}
+          customTarget={<li>Another Dropdown</li>}
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -118,7 +118,7 @@ export const MultiDropdownWithClickTrigger = () => {
           ))}
           <Dropdown
             position="right-start"
-            customTarget={() => <li>Third Dropdown</li>}
+            customTarget={<li>Third Dropdown</li>}
             onClick={(e) => {
               e.stopPropagation();
             }}
@@ -143,7 +143,7 @@ export const MultiDropdownWithHoverTrigger = () => {
         <Dropdown
           position="right-start"
           trigger="hover"
-          customTarget={() => <li>Another Dropdown</li>}
+          customTarget={<li>Another Dropdown</li>}
         >
           {listItems.map((item, idx) => (
             <li key={idx}>{item}</li>
@@ -151,7 +151,7 @@ export const MultiDropdownWithHoverTrigger = () => {
           <Dropdown
             position="right-start"
             trigger="hover"
-            customTarget={() => <li>Third Dropdown</li>}
+            customTarget={<li>Third Dropdown</li>}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>

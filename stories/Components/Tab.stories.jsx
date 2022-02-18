@@ -17,7 +17,7 @@ export default {
 
 const Template = (args) => (
   <Tab {...args}>
-    <Tab.Item active="true">Label</Tab.Item>
+    <Tab.Item active={true}>Label</Tab.Item>
     <Tab.Item>Label</Tab.Item>
   </Tab>
 );

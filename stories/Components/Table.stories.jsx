@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
 import { TABLE_DATA } from "../constants";
@@ -329,11 +329,13 @@ export const TableInLayout = (args) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const rowData = TABLE_DATA.slice(0, 101);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    return () => clearTimeout(timeoutRef.current);
   }, []);
   return (
     <div className="flex">

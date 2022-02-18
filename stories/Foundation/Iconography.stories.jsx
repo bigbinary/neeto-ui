@@ -76,7 +76,7 @@ export const Iconography = () => {
 export const ApplicationIcons = () => {
   return (
     <div className="p-4">
-      <div className="table border-collapse">
+      <table className="table border-collapse">
         <thead>
           <tr>
             <th className="p-4 text-left border border-gray-200"></th>
@@ -120,7 +120,7 @@ export const ApplicationIcons = () => {
             );
           })}
         </tbody>
-      </div>
+      </table>
     </div>
   );
 };

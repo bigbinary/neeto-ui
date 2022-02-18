@@ -115,14 +115,14 @@ export const AllVariants = () => {
             <Input placeholder="Input Placeholder" disabled />
           </div>
           <div className="flex flex-row items-center justify-center space-x-8">
-            <Input placeholder="Input Placeholder" error={true} />
+            <Input placeholder="Input Placeholder" error={" "} />
             <Input
               placeholder="Input Placeholder"
               prefix={<Favorite />}
-              error={true}
+              error={" "}
             />
-            <Input placeholder="Input Placeholder" error={true} />
-            <Input placeholder="Input Placeholder" error={true} />
+            <Input placeholder="Input Placeholder" error={" "} />
+            <Input placeholder="Input Placeholder" error={" "} />
           </div>
         </div>
         <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
@@ -176,15 +176,15 @@ export const AllVariants = () => {
             <Input placeholder="Input Placeholder" size="large" disabled />
           </div>
           <div className="flex flex-row items-center justify-center space-x-8">
-            <Input placeholder="Input Placeholder" size="large" error={true} />
+            <Input placeholder="Input Placeholder" size="large" error={" "} />
             <Input
               placeholder="Input Placeholder"
               size="large"
               prefix={<Favorite />}
-              error={true}
+              error={" "}
             />
-            <Input placeholder="Input Placeholder" size="large" error={true} />
-            <Input placeholder="Input Placeholder" size="large" error={true} />
+            <Input placeholder="Input Placeholder" size="large" error={" "} />
+            <Input placeholder="Input Placeholder" size="large" error={" "} />
           </div>
         </div>
       </div>
