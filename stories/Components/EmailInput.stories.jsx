@@ -40,10 +40,14 @@ Controlled.args = {
 };
 
 export const Error = () => (
-  <EmailInput label="Email(s)" error="Please make sure all emails are valid." />
+  <EmailInput error="Please make sure all emails are valid." />
 );
 
-export const Disabled = () => <EmailInput label="Email(s)" disabled />;
+export const Disabled = () => <EmailInput disabled />;
+
+export const HelpText = () => (
+  <EmailInput helpText="This is the help text for this component." />
+);
 
 export const FormikEmail = () => {
   const [emails, setEmails] = useState([]);
@@ -53,13 +57,11 @@ export const FormikEmail = () => {
     emails: yup
       .array()
       .min(1, "Please enter atleast one email.")
-      .of(
-        yup.object().shape({
-          label: yup.string().email(),
-          value: yup.string().email(),
-        })
+      .test(
+        "are-all-emails-valid",
+        "Please make sure all emails are valid.",
+        emails => emails.every(({ valid }) => valid)
       )
-      .required("Please enter an email address.")
       .nullable(),
   });
 
@@ -80,9 +82,7 @@ export const FormikEmail = () => {
           style="primary"
           data-cy="add-member-submit-button"
         />
-        <Typography style="body1">
-            Emails: {JSON.stringify(emails)}
-        </Typography>
+        <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
       </Form>
     </Formik>
   );
