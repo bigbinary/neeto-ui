@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Header,
   SubHeader,
@@ -200,11 +200,13 @@ const Layouts = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    return () => clearTimeout(timeoutRef.current);
   }, []);
 
   return (
