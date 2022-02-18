@@ -22,6 +22,7 @@ Checked.args = {
   id: "checkbox_name",
   label: "This is a Checkbox",
   checked: true,
+  onChange: () => {},
 };
 
 export const Disabled = Template.bind({});

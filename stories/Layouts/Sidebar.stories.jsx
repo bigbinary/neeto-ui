@@ -146,6 +146,7 @@ export const SidebarWithAppSwitcher = (args) => {
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!true}
         onClose={() => setIsAppSwitcherOpen(false)}
+        environment={process.env.NODE_ENV}
       />
     </Router>
   );

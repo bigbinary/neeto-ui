@@ -23,28 +23,28 @@ const Template = (args) => <Avatar {...args} />;
 
 export const Small = Template.bind({});
 Small.args = {
-  onClick: { onClick },
+  onClick,
   user: { name: "neeto UI" },
   size: "small",
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-  onClick: { onClick },
+  onClick,
   user: { name: "neeto UI" },
   size: "medium",
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  onClick: { onClick },
+  onClick,
   user: { name: "neeto UI" },
   size: "large",
 };
 
 export const Xlarge = Template.bind({});
 Xlarge.args = {
-  onClick: { onClick },
+  onClick,
   user: { name: "neeto UI" },
   size: "xlarge",
 };
@@ -52,7 +52,7 @@ Xlarge.args = {
 export const WithCustomClassName = Template.bind({});
 WithCustomClassName.storyName = "With Custom className";
 WithCustomClassName.args = {
-  onClick: { onClick },
+  onClick,
   user: { name: "neeto UI" },
   size: "xlarge",
   className: "cursor-pointer",
@@ -60,10 +60,6 @@ WithCustomClassName.args = {
 
 export const AllVariants = () => {
   const imageUrl = "https://i.pravatar.cc/300";
-  const onClick = () => {
-    alert("onClick event!");
-  };
-
   return (
     <div className="p-6">
       <div className="flex p-4 space-x-4 border border-indigo-500 border-dashed">
