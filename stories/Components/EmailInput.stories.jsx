@@ -21,8 +21,8 @@ export default {
   },
 };
 
-export const Controlled = (args) => {
-  const [emails, setEmails] = useState([]);
+export const Controlled = args => {
+  const [emails, setEmails] = useState(args.value);
 
   return (
     <EmailInput
@@ -34,14 +34,27 @@ export const Controlled = (args) => {
 };
 
 Controlled.args = {
-  label: "Email(s)",
-  placeholder: "",
-  error: "",
+  value: [
+    {
+      "label": "test@example.com",
+      "value": "test@example.com",
+      "valid": true
+    }
+  ]
 };
 
-export const Error = () => (
-  <EmailInput error="Please make sure all emails are valid." />
-);
+export const Error = args => <EmailInput {...args} />;
+
+Error.args = {
+  error: "Please make sure all emails are valid.",
+  value: [
+    {
+      "label": "test",
+      "value": "test",
+      "valid": false
+    }
+  ]
+};
 
 export const Disabled = () => <EmailInput disabled />;
 
@@ -75,7 +88,11 @@ export const FormikEmail = () => {
       validationSchema={VALIDATION_SCHEMA}
     >
       <Form className="space-y-2">
-        <FormikEmailInput label="Email(s)*" name="emails" />
+        <FormikEmailInput
+          label="Email(s)*"
+          filterInvalidEmails
+          name="emails"
+        />
         <Button
           type="submit"
           label="Save Changes"
