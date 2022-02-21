@@ -90,6 +90,7 @@ export const FormikEmail = () => {
       <Form className="space-y-2">
         <FormikEmailInput
           label="Email(s)*"
+          counter
           filterInvalidEmails
           name="emails"
         />
