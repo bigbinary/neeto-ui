@@ -24,7 +24,7 @@
     "@popperjs/core": "^2.9.2",
     "@reach/auto-id": "^0.15.0",
     "@tippyjs/react": "^4.2.5",
-    "antd": "^4.17.1",
+    "antd": "4.18.7",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
     "prop-types": "^15.7.2",
