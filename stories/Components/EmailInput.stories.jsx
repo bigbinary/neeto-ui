@@ -62,6 +62,18 @@ export const HelpText = () => (
   <EmailInput helpText="This is the help text for this component." />
 );
 
+export const Counter = () => {
+  const [emails, setEmails] = useState([]);
+
+  return (
+    <EmailInput
+      counter
+      value={emails}
+      onChange={emails => setEmails(emails)}
+    />
+  );
+};
+
 export const FormikEmail = () => {
   const [emails, setEmails] = useState([]);
 
