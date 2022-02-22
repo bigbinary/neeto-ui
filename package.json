@@ -4,7 +4,7 @@
   "main": "./index.js",
   "author": "BigBinary",
   "license": "MIT",
-  "description": "NeetoUI is the library that drives the experience in all Neeto products built at BigBinary",
+  "description": "neetoUI is the library that drives the experience in all neeto products built at BigBinary",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "build": "NODE_ENV=production webpack --mode production --config webpack.config.js",
