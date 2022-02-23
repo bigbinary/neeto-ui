@@ -27,15 +27,8 @@ export default {
   },
 };
 
-export const Panes = ({ isOpen, onClose, ...args }) => {
+export const Panes = () => {
   const [showPane, setShowPane] = useState(false);
-  useEffect(() => {
-    setShowPane(isOpen);
-  }, [isOpen]);
-  const handleClose = () => {
-    setShowPane(false);
-    onClose();
-  };
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -46,7 +39,7 @@ export const Panes = ({ isOpen, onClose, ...args }) => {
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={handleClose} {...args}>
+      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
@@ -81,19 +74,12 @@ export const Panes = ({ isOpen, onClose, ...args }) => {
   );
 };
 
-export const PaneWithModalAndAlert = ({ isOpen, onClose, ...args }) => {
+export const PaneWithModalAndAlert = () => {
   const [showPane, setShowPane] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
-    setShowPane(isOpen);
-  }, [isOpen]);
-  const handleClose = () => {
-    setShowPane(false);
-    onClose();
-  };
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -104,7 +90,7 @@ export const PaneWithModalAndAlert = ({ isOpen, onClose, ...args }) => {
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={handleClose} {...args}>
+      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
