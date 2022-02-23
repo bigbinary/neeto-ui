@@ -259,7 +259,7 @@ export const SelectInModal = () => {
       <Button label="Open Modal" onClick={() => setIsOpen(true)} />
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Modal.Header>
-          <Typography style="h1">Modal</Typography>
+          <Typography style="h2">Modal</Typography>
         </Modal.Header>
         <Modal.Body>
           <Select
@@ -296,7 +296,7 @@ export const SelectInPane = () => {
       <Button label="Open Pane" onClick={() => setIsOpen(true)} />
       <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Pane.Header>
-          <Typography style="h1">Modal</Typography>
+          <Typography style="h2">Modal</Typography>
         </Pane.Header>
         <Pane.Body className="w-full">
           <Select
