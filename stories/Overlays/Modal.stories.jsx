@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../../lib/components/Button";
 import Modal from "../../lib/components/Modal";
@@ -55,7 +54,6 @@ export const Default = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             label="Continue"
             onClick={() => setShowModal(false)}
             size="large"
@@ -112,7 +110,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalExtraSmall(false)}
@@ -142,7 +139,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalSmall(false)}
@@ -176,7 +172,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalMedium(false)}
