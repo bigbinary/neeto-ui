@@ -41,7 +41,7 @@ export const Default = () => {
           </Typography>
         </Modal.Header>
         <Modal.Body>
-          <Typography style="body2" lineHeight="normal" id="dialog1Desc">
+          <Typography style="body2" lineHeight="normal">
             Somewhere out in space live The Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
