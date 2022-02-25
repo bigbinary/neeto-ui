@@ -7,16 +7,13 @@
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: row;
+  display: grid;
   justify-content: center;
   align-items: center;
 
   .neeto-ui-modal__wrapper {
     width: 50%;
     max-width: 100%;
-    max-height: 100vh;
-    overflow-y: visible;
     position: relative;
     background-color: $neeto-ui-white;
     border-radius: $neeto-ui-rounded-sm;

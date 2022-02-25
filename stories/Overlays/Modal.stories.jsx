@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../../lib/components/Button";
 import Modal from "../../lib/components/Modal";
@@ -32,9 +31,14 @@ export const Default = () => {
         </div>
       </div>
 
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h2" id="dialog1Title">
+            They're creepy & they're kooky
+          </Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
@@ -48,7 +52,6 @@ export const Default = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             label="Continue"
             onClick={() => setShowModal(false)}
             size="large"
@@ -91,7 +94,9 @@ export const ModalSizing = () => {
         size="xs"
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h2">
+            They're creepy & they're kooky
+          </Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
@@ -101,7 +106,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalExtraSmall(false)}
@@ -131,7 +135,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalSmall(false)}
@@ -165,7 +168,6 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            icon={Check}
             size="large"
             label="Continue"
             onClick={() => setShowModalMedium(false)}
