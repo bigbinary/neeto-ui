@@ -32,8 +32,6 @@ export const Default = () => {
       </div>
 
       <Modal
-        aria-labelledby="dialog1Title"
-        aria-describedby="dialog1Desc"
         isOpen={showModal}
         onClose={() => setShowModal(false)}
       >
@@ -91,19 +89,17 @@ export const ModalSizing = () => {
       </div>
 
       <Modal
-        aria-labelledby="dialog2Title"
-        aria-describedby="dialog2Desc"
         isOpen={showModalExtraSmall}
         onClose={() => setShowModalExtraSmall(false)}
         size="xs"
       >
         <Modal.Header>
-          <Typography style="h2" id="dialog2Title">
+          <Typography style="h2">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
         <Modal.Body>
-          <Typography style="body2" lineHeight="normal" id="dialog2Desc">
+          <Typography style="body2" lineHeight="normal">
             Somewhere out in space live The Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
