@@ -22,5 +22,7 @@ BasicUsage.args = {
   count: 500,
   pageNo: 3,
   pageSize: 100,
-  navigate: (pageNumber) => {},
+  navigate: (pageNumber) => {
+    alert(pageNumber);
+  },
 };
