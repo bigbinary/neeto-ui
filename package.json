@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "3.2.59",
+  "version": "3.2.60",
   "main": "./index.js",
   "author": "BigBinary",
   "license": "MIT",
@@ -104,12 +104,12 @@
     "react-toastify": "^8.0.2"
   },
   "resolutions": {
-    "@storybook/addon-essentials/**/glob-parent":"5.1.2",
-    "@storybook/builder-webpack5/**/glob-parent":"5.1.2",
-    "@storybook/react/**/glob-parent":"5.1.2",
-    "**/trim":"0.0.3",
-    "tailwindcss/**/postcss":"7.0.36",
-    "cssnano/**/nth-check":"2.0.1"
+    "@storybook/addon-essentials/**/glob-parent": "5.1.2",
+    "@storybook/builder-webpack5/**/glob-parent": "5.1.2",
+    "@storybook/react/**/glob-parent": "5.1.2",
+    "**/trim": "0.0.3",
+    "tailwindcss/**/postcss": "7.0.36",
+    "cssnano/**/nth-check": "2.0.1"
   },
   "directories": {
     "lib": "lib"
