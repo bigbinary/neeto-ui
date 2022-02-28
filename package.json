@@ -52,13 +52,13 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.9",
-    "autoprefixer": "^9",
+    "autoprefixer": "^9.0.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
     "css-loader": "^4.3.0",
-    "cssnano": "^5.0.17",
+    "cssnano": "^4.1.11",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-json": "^3.1.0",
@@ -108,7 +108,8 @@
     "@storybook/builder-webpack5/**/glob-parent":"5.1.2",
     "@storybook/react/**/glob-parent":"5.1.2",
     "**/trim":"0.0.3",
-    "tailwindcss/**/postcss":"7.0.36"
+    "tailwindcss/**/postcss":"7.0.36",
+    "cssnano/**/nth-check":"2.0.1"
   },
   "directories": {
     "lib": "lib"
