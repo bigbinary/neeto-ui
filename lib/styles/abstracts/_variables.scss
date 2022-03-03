@@ -23,10 +23,27 @@ $neeto-ui-pastel-green: #ebf5ec;
 $neeto-ui-pastel-yellow: #fff2d7;
 $neeto-ui-pastel-red: #ffefed;
 $neeto-ui-pastel-teal: #98f3f4;
+
+// accent
+$neeto-ui-accent1-700: #5b5ac4;
+$neeto-ui-accent2-700: #00956d;
+$neeto-ui-accent3-700: #50a8cc;
+$neeto-ui-accent4-700: #c45546;
+
+$neeto-ui-accent1-500: #5e5ce6;
+$neeto-ui-accent2-500: #00ba88;
+$neeto-ui-accent3-500: #64d2ff;
+$neeto-ui-accent4-500: #f56a58;
+
+$neeto-ui-accent1-300: #7e7deb;
+$neeto-ui-accent2-300: #33c8a0;
+$neeto-ui-accent3-300: #83dbff;
+$neeto-ui-accent4-300: #f78879;
+
 // secondary
-$neeto-ui-secondary-indigo: #5e5ce6;
-$neeto-ui-secondary-green: #00ba88;
-$neeto-ui-secondary-teal: #64d2ff;
+$neeto-ui-secondary-indigo: $neeto-ui-accent1-500;
+$neeto-ui-secondary-green: $neeto-ui-accent2-500;
+$neeto-ui-secondary-teal: $neeto-ui-accent3-500;
 
 // neeto-ui-theme-colors-map
 $neeto-ui-theme-colors: (
@@ -56,7 +73,19 @@ $neeto-ui-theme-colors: (
   // secondary
   "secondary-indigo": $neeto-ui-secondary-indigo,
   "secondary-green": $neeto-ui-secondary-green,
-  "secondary-teal": $neeto-ui-secondary-teal
+  "secondary-teal": $neeto-ui-secondary-teal,
+  // accent - 700
+  "accent1-700": $neeto-ui-accent1-700,
+  "accent2-700": $neeto-ui-accent2-700,
+  "accent3-700": $neeto-ui-accent3-700,
+  // accent - 500
+  "accent1-500": $neeto-ui-accent1-500,
+  "accent2-500": $neeto-ui-accent2-500,
+  "accent3-500": $neeto-ui-accent3-500,
+  // accent - 300
+  "accent1-300": $neeto-ui-accent1-300,
+  "accent2-300": $neeto-ui-accent2-300,
+  "accent3-300": $neeto-ui-accent3-300,
 );
 
 // Font Weights

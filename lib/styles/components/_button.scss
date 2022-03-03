@@ -1,24 +1,53 @@
 .neeto-ui-btn {
-  display: inline-flex;
-  align-items: center;
-  font-size: $neeto-ui-text-sm;
-  font-weight: $neeto-ui-font-medium;
-  border-radius: $neeto-ui-rounded-sm;
-  line-height: 1.2;
-  transition: $neeto-ui-transition;
   position: relative;
   border: none;
   cursor: pointer;
-  padding: 0;
-  user-select: none;
-  padding: 4px 8px;
-  min-height: 28px;
-  letter-spacing: -0.15px;
   outline: none;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  font-size: $neeto-ui-text-sm;
+  line-height: 16px;
+  font-weight: $neeto-ui-font-medium;
+  border-radius: $neeto-ui-rounded-sm;
+  transition: $neeto-ui-transition;
+  user-select: none;
+  padding: 6px 8px;
+  min-width: none;
 
-  &--icon-only {
-    padding-left: 6px;
-    padding-right: 6px;
+  &.neeto-ui-btn--icon-only {
+    padding: 4px;
+  }
+
+  // size - large - 32px
+  &--size-large {
+    font-size: $neeto-ui-text-base;
+    padding: 8px 16px;
+    gap: 8px;
+
+    &.neeto-ui-btn--icon-only {
+      padding: 4px;
+      .neeto-ui-btn__icon,
+      .neeto-ui-btn__spinner svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
+  }
+  // size - xlarge - 40px
+  &--size-xlarge {
+    font-size: $neeto-ui-text-base;
+    padding: 12px 16px;
+    gap: 8px;
+
+    &.neeto-ui-btn--icon-only {
+      padding: 8px;
+      .neeto-ui-btn__icon,
+      .neeto-ui-btn__spinner svg {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
   }
 
   &:focus,
@@ -32,22 +61,12 @@
 
   &.disabled {
     cursor: not-allowed;
-    opacity: 0.4;
-  }
-
-  .neeto-ui-btn__icon:last-child:not(:first-child),
-  .neeto-ui-btn__spinner:last-child:not(:first-child) {
-    margin-left: 8px;
+    opacity: 0.5;
   }
 }
 
 .neeto-ui-btn--icon-left {
   flex-direction: row-reverse;
-  .neeto-ui-btn__icon:last-child:not(:first-child),
-  .neeto-ui-btn__spinner:last-child:not(:first-child) {
-    margin-right: 8px;
-    margin-left: 0;
-  }
 }
 
 .neeto-ui-btn__icon,
@@ -65,18 +84,6 @@
   justify-content: center;
 }
 
-// size
-.neeto-ui-btn--size-large {
-  font-size: $neeto-ui-text-base;
-  padding: 6px 12px;
-  min-height: 32px;
-
-  &.neeto-ui-btn--icon-only {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-}
-
 // styles
 .neeto-ui-btn--style {
   &-primary {
@@ -91,7 +98,7 @@
 
     &:focus-visible {
       color: $neeto-ui-white;
-      box-shadow: 0 0 0 3px #e5e5e5;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
@@ -102,12 +109,12 @@
     &:hover:not(:disabled),
     &:active {
       color: $neeto-ui-gray-800;
-      background-color: $neeto-ui-gray-400;
+      background-color: $neeto-ui-gray-300;
     }
 
     &:focus-visible {
       color: $neeto-ui-gray-800;
-      box-shadow: 0 0 0 3px #e5e5e5;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
@@ -117,18 +124,17 @@
     &:hover:not(:disabled),
     &:active {
       color: $neeto-ui-gray-800;
-      background-color: $neeto-ui-gray-200;
+      background-color: $neeto-ui-gray-300;
     }
 
     &:focus-visible {
       color: $neeto-ui-gray-800;
-      box-shadow: 0 0 0 3px #e5e5e5;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
   &-link {
     color: $neeto-ui-secondary-indigo;
-    min-height: initial;
     padding: 0;
 
     &:hover:not(:disabled),
@@ -144,18 +150,48 @@
   }
 
   &-danger {
-    color: $neeto-ui-error;
-    background-color: $neeto-ui-pastel-red;
+    color: $neeto-ui-white;
+    background-color: $neeto-ui-accent4-700;
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-error;
-      background-color: darken($neeto-ui-pastel-red, 2.5%);
+      color: $neeto-ui-white;
+      background-color: $neeto-ui-accent4-500;
     }
 
     &:focus-visible {
-      color: $neeto-ui-error;
-      box-shadow: 0 0 0 3px darken($neeto-ui-pastel-red, 2.5%);
+      color: $neeto-ui-white;
+      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+    }
+  }
+
+  &-danger-secondary {
+    color: $neeto-ui-accent4-700;
+    background-color: $neeto-ui-gray-200;
+
+    &:hover:not(:disabled),
+    &:active {
+      color: $neeto-ui-accent4-700;
+      background-color: $neeto-ui-gray-300;
+    }
+
+    &:focus-visible {
+      color: $neeto-ui-accent4-700;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+    }
+  }
+
+  &-danger-text {
+    color: $neeto-ui-accent4-700;
+
+    &:hover:not(:disabled),
+    &:active {
+      color: $neeto-ui-accent4-500;
+    }
+
+    &:focus-visible {
+      color: $neeto-ui-accent4-700;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 }
