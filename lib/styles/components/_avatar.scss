@@ -15,6 +15,7 @@
     text-transform: capitalize;
     font-size: $neeto-ui-text-xxs;
     color: $neeto-ui-gray-600;
+    line-height: 1;
 
     &.neeto-ui-avatar__text-medium {
       font-size: $neeto-ui-text-xs;
@@ -78,6 +79,7 @@
     border-radius: $neeto-ui-rounded-sm;
     height: 1.5rem;
     width: 1.5rem;
+    object-fit: cover;
 
     &.hidden {
       display: none;
