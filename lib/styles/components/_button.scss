@@ -19,6 +19,12 @@
 
   &.neeto-ui-btn--icon-only {
     padding: 6px;
+
+    .neeto-ui-btn__icon,
+    .neeto-ui-btn__spinner svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
   }
 
   // size - large - 32px
