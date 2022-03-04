@@ -1,32 +1,33 @@
 .neeto-ui-btn {
   position: relative;
-  border: none;
-  cursor: pointer;
-  outline: none;
   display: inline-flex !important;
   align-items: center;
-  gap: 4px;
-  font-size: $neeto-ui-text-sm;
-  line-height: 16px;
-  font-weight: $neeto-ui-font-medium;
-  border-radius: $neeto-ui-rounded-sm;
-  transition: $neeto-ui-transition;
-  user-select: none;
   padding: 6px 8px;
+  gap: 4px;
+
+  font-size: $neeto-ui-text-xs;
+  font-weight: $neeto-ui-font-medium;
+  line-height: 16px;
+  transition: $neeto-ui-transition;
+  border-radius: $neeto-ui-rounded-sm;
+  border: none;
+
+  outline: none;
+  user-select: none;
   min-width: none;
+  cursor: pointer;
 
   &.neeto-ui-btn--icon-only {
-    padding: 4px;
+    padding: 6px;
   }
 
   // size - large - 32px
   &--size-large {
-    font-size: $neeto-ui-text-base;
-    padding: 8px 16px;
+    font-size: $neeto-ui-text-sm;
+    padding: 8px 12px;
     gap: 8px;
 
     &.neeto-ui-btn--icon-only {
-      padding: 4px;
       .neeto-ui-btn__icon,
       .neeto-ui-btn__spinner svg {
         width: 20px !important;
@@ -36,7 +37,7 @@
   }
   // size - xlarge - 40px
   &--size-xlarge {
-    font-size: $neeto-ui-text-base;
+    font-size: $neeto-ui-text-sm;
     padding: 12px 16px;
     gap: 8px;
 
