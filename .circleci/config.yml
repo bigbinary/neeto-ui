@@ -1,11 +1,10 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 jobs:
-  # 👇 Adds Chromatic as a job
-  snapshot-test: 
+  Snapshot-test:
     docker:
+      # replace with your preferred image
       - image: circleci/node:12
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -13,12 +12,10 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run: yarn install
-        # 👇 Runs the Chromatic CLI
-      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
-
+      - chromatic/test-fail-on-changes:
+          CHROMATIC_PROJECT_TOKEN: '998dfad0d91f'
 
 workflows:
-  # 👇 Adds Chromatic to the workflow
   chromatic-snapshot-test:
     jobs:
-      - snapshot-test # 👈 Runs the Chromatic job implemented above
+      - Snapshot-test
