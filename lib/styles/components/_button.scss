@@ -4,7 +4,7 @@
   font-size: $neeto-ui-text-sm;
   font-weight: $neeto-ui-font-medium;
   border-radius: $neeto-ui-rounded-sm;
-  line-height: 1.2;
+  line-height: 1.6;
   transition: $neeto-ui-transition;
   position: relative;
   border: none;
@@ -16,7 +16,7 @@
   letter-spacing: -0.15px;
   outline: none;
 
-  &--icon-only{
+  &--icon-only {
     padding-left: 6px;
     padding-right: 6px;
   }
@@ -71,7 +71,7 @@
   padding: 6px 12px;
   min-height: 32px;
 
-  &.neeto-ui-btn--icon-only{
+  &.neeto-ui-btn--icon-only {
     padding-left: 8px;
     padding-right: 8px;
   }
