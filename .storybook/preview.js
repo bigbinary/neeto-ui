@@ -23,5 +23,4 @@ export const parameters = {
       ],
     },
   },
-  chromatic: { pauseAnimationAtEnd: true },
 };

@@ -160,7 +160,12 @@ DatePickerWithDefaultValue.parameters = {
 export const TimePickerWithDefaultValue = (args) => {
   return (
     <div className="space-y-3">
-      <TimePicker defaultValue={dayjs()} {...args} />
+      <TimePicker
+        defaultValue={
+          isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
+        }
+        {...args}
+      />
     </div>
   );
 };
