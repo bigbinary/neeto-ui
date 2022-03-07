@@ -14,6 +14,9 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+          echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
       - chromatic/test-fail-on-changes:
           CHROMATIC_PROJECT_TOKEN: '998dfad0d91f'
 
