@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../lib/components";
 import { render, fireEvent } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Button", () => {
   it("should render without error", () => {
@@ -47,7 +48,25 @@ describe("Button", () => {
   });
 
   it("should show icon when icon component is provided", () => {
-    const { getByTestId } = render(<Button icon={() => <svg data-testid="svg-icon" />} />);
+    const { getByTestId } = render(
+      <Button icon={() => <svg data-testid="svg-icon" />} />
+    );
     expect(getByTestId("svg-icon")).toBeInTheDocument();
+  });
+
+  it("should render a link when `href` prop is given", () => {
+    const { getByRole } = render(
+      <Button label="Link" href="https://example.com" />
+    );
+    expect(getByRole("link")).toHaveAttribute("href", "https://example.com");
+  });
+
+  it("should render a router link when `to` prop is given", () => {
+    const { getByRole } = render(
+      <BrowserRouter>
+        <Button label="Router Link" to="/some-path" />
+      </BrowserRouter>
+    );
+    expect(getByRole("link")).toHaveAttribute("href", "/some-path");
   });
 });
