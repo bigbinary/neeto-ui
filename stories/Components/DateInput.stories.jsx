@@ -1,11 +1,11 @@
 import { Modal, Typography, Pane } from "../../lib/components";
 import React from "react";
 
+import isChromatic from "chromatic/isChromatic";
 import DatePicker from "../../lib/components/DatePicker";
 import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
 import dayjs from "dayjs";
-import isChromatic from "chromatic/isChromatic";
 
 export default {
   title: "Components/Date and Time",
