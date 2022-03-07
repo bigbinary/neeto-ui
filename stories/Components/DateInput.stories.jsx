@@ -1,6 +1,7 @@
 import { Modal, Typography, Pane } from "../../lib/components";
 import React from "react";
 
+import isChromatic from "chromatic/isChromatic";
 import DatePicker from "../../lib/components/DatePicker";
 import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
@@ -140,7 +141,7 @@ export const DatePickerWithDefaultValue = (args) => {
   return (
     <div className="space-y-3">
       <DatePicker
-        defaultValue={dayjs()}
+        defaultValue={isChromatic() ? dayjs(new Date(1999, 7, 16)) : dayjs()}
         {...args}
       />
     </div>
@@ -150,17 +151,19 @@ export const DatePickerWithDefaultValue = (args) => {
 DatePickerWithDefaultValue.parameters = {
   docs: {
     description: {
-      story: "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+      story:
+        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
     },
   },
 };
-
 
 export const TimePickerWithDefaultValue = (args) => {
   return (
     <div className="space-y-3">
       <TimePicker
-        defaultValue={dayjs()}
+        defaultValue={
+          isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
+        }
         {...args}
       />
     </div>
@@ -170,7 +173,8 @@ export const TimePickerWithDefaultValue = (args) => {
 TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {
-      story: "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+      story:
+        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
     },
   },
 };

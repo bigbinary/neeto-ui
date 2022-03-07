@@ -25,9 +25,8 @@
 .eslintrc.js
 jsconfig.json
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+#logs
+/*.log
 
 #example
 /example
