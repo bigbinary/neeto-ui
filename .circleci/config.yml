@@ -24,7 +24,7 @@ jobs:
           command: |
             echo $MY_ENV_VAR # this env var must be set within the project
       - chromatic/test-exit-cleanly-on-changes:
-          CHROMATIC_PROJECT_TOKEN: {$CHROMATIC_PROJECT_TOKEN}
+          CHROMATIC_PROJECT_TOKEN: $CHROMATIC_PROJECT_TOKEN
 
 
 workflows:
