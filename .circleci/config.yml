@@ -15,6 +15,14 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: yarn install
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $CHROMATIC_PROJECT_TOKEN # this env var must be set within the project
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_ENV_VAR # this env var must be set within the project
       - chromatic/test-exit-cleanly-on-changes:
           CHROMATIC_PROJECT_TOKEN: {$CHROMATIC_PROJECT_TOKEN}
 
