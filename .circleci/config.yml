@@ -1,9 +1,6 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-orbs:
-  chromatic: wave/chromatic@1.3.0
-
 jobs:
   Snapshot-test:
     docker:
@@ -15,17 +12,12 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: yarn install
+      - run: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
+
       - run:
           name: "echo an env var that is part of our project"
           command: |
             echo $CHROMATIC_PROJECT_TOKEN # this env var must be set within the project
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $MY_ENV_VAR # this env var must be set within the project
-      - chromatic/test-exit-cleanly-on-changes:
-          CHROMATIC_PROJECT_TOKEN: $CHROMATIC_PROJECT_TOKEN
-
 
 workflows:
   chromatic-snapshot-test:
