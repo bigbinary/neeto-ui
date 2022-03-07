@@ -16,8 +16,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run: yarn install
-      - chromatic/test-fail-on-changes:
-          CHROMATIC_PROJECT_TOKEN: '998dfad0d91f'
+      - chromatic/test-exit-cleanly-on-changes:
+          CHROMATIC_PROJECT_TOKEN: $CHROMATIC_PROJECT_TOKEN
 
 workflows:
   chromatic-snapshot-test:
