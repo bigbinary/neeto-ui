@@ -8,16 +8,8 @@ jobs:
       - image: circleci/node:12
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
       - run: yarn install
       - run: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
-
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $CHROMATIC_PROJECT_TOKEN # this env var must be set within the project
 
 workflows:
   chromatic-snapshot-test:
