@@ -16,7 +16,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: yarn install
       - chromatic/test-exit-cleanly-on-changes:
-          CHROMATIC_PROJECT_TOKEN: $CHROMATIC_PROJECT_TOKEN
+          CHROMATIC_PROJECT_TOKEN: {$CHROMATIC_PROJECT_TOKEN}
+
 
 workflows:
   chromatic-snapshot-test:
