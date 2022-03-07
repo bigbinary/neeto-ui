@@ -13,7 +13,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=998dfad0d91f"
+    "chromatic": "npx chromatic"
   },
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
