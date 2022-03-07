@@ -12,8 +12,7 @@
     "prepare": "husky install",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=998dfad0d91f"
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
@@ -57,7 +56,6 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.1.0",
-    "chromatic": "^6.5.1",
     "classnames": "^2.2.6",
     "css-loader": "^4.3.0",
     "cssnano": "^4.1.11",
