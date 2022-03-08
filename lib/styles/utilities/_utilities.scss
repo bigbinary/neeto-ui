@@ -1,5 +1,3 @@
-// flex
-
 .neeto-ui-flex {
   display: flex;
 }
@@ -188,4 +186,32 @@
 }
 .neeto-ui-break-all {
   word-break: break-all;
+}
+.neeto-ui-cursor-auto {
+  cursor: auto;
+}
+.neeto-ui-cursor-default {
+  cursor: default;
+}
+.neeto-ui-cursor-pointer {
+  cursor: pointer;
+}
+.neeto-ui-cursor-wait {
+  cursor: wait;
+}
+.neeto-ui-cursor-text {
+  cursor: text;
+}
+.neeto-ui-cursor-move {
+  cursor: move;
+}
+.neeto-ui-cursor-help {
+  cursor: help;
+}
+.neeto-ui-cursor-not-allowed {
+  cursor: not-allowed;
+}
+.neeto-ui-select-none {
+  -webkit-user-select: none;
+  user-select: none;
 }
