@@ -5,7 +5,7 @@
   padding: 6px 8px;
   gap: 4px;
 
-  font-size: $neeto-ui-text-xs;
+  font-size: $neeto-ui-text-sm;
   font-weight: $neeto-ui-font-medium;
   line-height: 16px;
   transition: $neeto-ui-transition;
@@ -14,7 +14,7 @@
 
   outline: none;
   user-select: none;
-  min-width: none;
+  min-width: 0;
   cursor: pointer;
 
   &.neeto-ui-btn--icon-only {
@@ -45,7 +45,7 @@
   &--size-xlarge {
     font-size: $neeto-ui-text-sm;
     padding: 12px 20px;
-    gap: 8px;
+    gap: 10px;
 
     &.neeto-ui-btn--icon-only {
       padding: 8px;
