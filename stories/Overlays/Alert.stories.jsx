@@ -38,6 +38,28 @@ export const Default = () => {
   );
 };
 
+export const AlertLoading = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="p-4">
+      <Button
+        label="Show Alert"
+        style="primary"
+        onClick={() => setOpen(true)}
+      />
+      <Alert
+        isOpen={open}
+        title="You have unsaved changes!"
+        message="Are you sure you want to continue? All of your unsaved changes will be lost."
+        onClose={() => setOpen(false)}
+        onSubmit={() => setOpen(false)}
+        loading
+      />
+    </div>
+  );
+};
+
 export const AlertSizing = () => {
   const [showAlertExtraSmall, setShowAlertExtraSmall] = useState(false);
   const [showAlertSmall, setShowAlertSmall] = useState(false);
