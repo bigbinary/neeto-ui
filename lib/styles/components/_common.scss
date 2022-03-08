@@ -4,4 +4,7 @@
   color: $neeto-ui-gray-600;
   font-weight: $neeto-ui-font-normal;
   letter-spacing: -0.15px;
+  &__help-icon-wrap {
+    margin-left: 4px;
+  }
 }
