@@ -159,9 +159,6 @@
 .neeto-ui-overflow-ellipsis {
   text-overflow: ellipsis;
 }
-.neeto-ui-overflow-clip {
-  text-overflow: clip;
-}
 .neeto-ui-whitespace-normal {
   white-space: normal;
 }
@@ -170,9 +167,6 @@
 }
 .neeto-ui-whitespace-pre {
   white-space: pre;
-}
-.neeto-ui-whitespace-pre-line {
-  white-space: pre-line;
 }
 .neeto-ui-whitespace-pre-wrap {
   white-space: pre-wrap;
@@ -187,26 +181,8 @@
 .neeto-ui-break-all {
   word-break: break-all;
 }
-.neeto-ui-cursor-auto {
-  cursor: auto;
-}
-.neeto-ui-cursor-default {
-  cursor: default;
-}
 .neeto-ui-cursor-pointer {
   cursor: pointer;
-}
-.neeto-ui-cursor-wait {
-  cursor: wait;
-}
-.neeto-ui-cursor-text {
-  cursor: text;
-}
-.neeto-ui-cursor-move {
-  cursor: move;
-}
-.neeto-ui-cursor-help {
-  cursor: help;
 }
 .neeto-ui-cursor-not-allowed {
   cursor: not-allowed;
