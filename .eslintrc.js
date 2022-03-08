@@ -9,6 +9,11 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:json/recommended",
+    // uncomment the following lines to enable eslint-rules
+    // "./.eslint-rules/imports/order",
+    // "./.eslint-rules/overrides",
+    // "./.eslint-rules/imports/enforced",
+    // "./.eslint-rules/react",
     "prettier",
   ],
   settings: {
