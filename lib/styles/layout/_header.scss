@@ -8,6 +8,10 @@
   justify-content: space-between;
   align-items: center;
 
+  .neeto-ui-header__toggle-menubar-btn{
+    margin-right: 8px;
+  }
+
   .neeto-ui-header__left {
     display: flex;
     flex-direction: row;
