@@ -1,6 +1,14 @@
+.neeto-ui-colorpicker__dropdown{
+  width: 100%;
+}
+
 .neeto-ui-colorpicker__popover {
   width: 200px;
   padding: 4px 8px;
+
+  .neeto-ui-colorpicker__palette-wrapper {
+    margin-top: 12px;
+  }
 
   .neeto-ui-colorpicker__saturation {
     width: 100%;
