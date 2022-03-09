@@ -30,6 +30,8 @@ jobs:
             <<: *test_environment
             steps:
               - checkout
+              - restore_cache:
+                 key: yarn-cache-v1-{{ checksum "yarn.lock" }}
               - run:
                   name: Run Snapshot Tests
                   command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
@@ -37,6 +39,8 @@ jobs:
           <<: *test_environment
           steps:
             - checkout
+            - restore_cache:
+                key: yarn-cache-v1-{{ checksum "yarn.lock" }}
             - run:
                 name: Run Unit Tests
                 command: yarn test
