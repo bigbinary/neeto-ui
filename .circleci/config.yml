@@ -27,6 +27,7 @@ jobs:
 workflows:
   neetoui-tests:
     jobs:
+      - Build
       - "Snapshot Test":
           requires:
             - Build
