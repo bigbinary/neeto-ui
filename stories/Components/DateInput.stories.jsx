@@ -185,7 +185,14 @@ export const DateRangePicker = () => {
       <DatePicker
         label="Date Range"
         type="range"
-        defaultValue={[dayjs(), dayjs().add(7, "day")]}
+        defaultValue={
+          isChromatic()
+            ? [
+                dayjs(new Date(1999, 7, 16)),
+                dayjs(new Date(1999, 7, 16)).add(7, "day"),
+              ]
+            : [dayjs(), dayjs().add(7, "day")]
+        }
       />
     </div>
   );

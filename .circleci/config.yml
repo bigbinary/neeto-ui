@@ -1,17 +1,31 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
-
+aliases:
+        - &test_environment
+            docker:
+              # replace with your preferred image
+              - image: circleci/node:14
 jobs:
-  Snapshot-test:
-    docker:
-      # replace with your preferred image
-      - image: circleci/node:12
-    steps:
-      - checkout
-      - run: yarn install
-      - run: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
+  "Snapshot Test":
+            <<: *test_environment
+            steps:
+             - checkout
+             - run: yarn install
+             - run:
+                  name: Run Snapshot Tests
+                  command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
+  "Unit Test":
+          <<: *test_environment
+          steps:
+           - checkout
+           - run: yarn install
+           - run:
+                name: Run Unit Tests
+                command: yarn test
 
 workflows:
-  chromatic-snapshot-test:
+  neetoui-tests:
     jobs:
-      - Snapshot-test
+      - "Snapshot Test"
+      - "Unit Test"
+
+
