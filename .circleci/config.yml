@@ -12,14 +12,14 @@ aliases:
            - save_cache:
                key: yarn-cache-v1-{{ checksum "yarn-lock.json" }}
                paths:
-                 - /home/circleci/.yarn
+                 - ./circleci/.yarn
         - &deps
           - "Dependencies"
 
         - &test_environment
             docker:
               # replace with your preferred image
-              - image: circleci/node:12
+              - image: circleci/node:14
 jobs:
   Dependencies:
             <<: *test_environment # All following jobs will use this environment, however its been excluded for length
