@@ -6,11 +6,11 @@ aliases:
         - &dependencies
            - checkout
            - restore_cache:
-              key: yarn-cache-v1-{{ checksum "package-lock.json" }}
+              key: yarn-cache-v1-{{ checksum "yarn-lock.json" }}
            - run: yarn install
 
            - save_cache:
-               key: npm-cache-v1-{{ checksum "package-lock.json" }}
+               key: yarn-cache-v1-{{ checksum "yarn-lock.json" }}
                paths:
                  - /home/circleci/.yarn
         - &deps
@@ -25,13 +25,13 @@ jobs:
             <<: *test_environment # All following jobs will use this environment, however its been excluded for length
             steps: *dependencies
 
-  "Snapshot test":
+  Snapshot-test:
             <<: *test_environment
             steps:
               - run:
                   name: Run Snapshot Tests
                   command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
-  "Unit test":
+  Unit-test:
           <<: *test_environment
           steps:
             - run:
@@ -42,7 +42,7 @@ workflows:
   chromatic-snapshot-test:
     jobs:
       - Dependencies
-      - "Snapshot test":
+      - Snapshot-test:
           requires: *deps
-      - "Unit test":
+      - Unit-test:
           requires: *deps
