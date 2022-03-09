@@ -1,46 +1,26 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
-
 aliases:
 
         - &dependencies
            - checkout
-           - restore_cache:
-              key: yarn-cache-v1-{{ checksum "yarn.lock" }}
-
            - run: yarn install
-
-           - save_cache:
-               key: yarn-cache-v1-{{ checksum "yarn.lock" }}
-               paths:
-                 - /home/circleci/.yarn
-        - &deps
-          - "Dependencies"
 
         - &test_environment
             docker:
               # replace with your preferred image
               - image: circleci/node:14
 jobs:
-  Dependencies:
-            <<: *test_environment # All following jobs will use this environment, however its been excluded for length
-            steps: *dependencies
-
   Snapshot-test:
             <<: *test_environment
             steps:
-              - checkout
-              - restore_cache:
-                 key: yarn-cache-v1-{{ checksum "yarn.lock" }}
+              - run : *dependencies
               - run:
                   name: Run Snapshot Tests
                   command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
   Unit-test:
           <<: *test_environment
           steps:
-            - checkout
-            - restore_cache:
-                key: yarn-cache-v1-{{ checksum "yarn.lock" }}
+            - run : *dependencies
             - run:
                 name: Run Unit Tests
                 command: yarn test
@@ -48,8 +28,6 @@ jobs:
 workflows:
   chromatic-snapshot-test:
     jobs:
-      - Dependencies
-      - Snapshot-test:
-          requires: *deps
-      - Unit-test:
-          requires: *deps
+      - Snapshot-test
+      - Unit-test
+
