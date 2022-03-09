@@ -20,7 +20,7 @@ aliases:
         - &test_environment
             docker:
               # replace with your preferred image
-              - image: circleci/node:14
+              - image: circleci/node:12
 jobs:
   Dependencies:
             <<: *test_environment # All following jobs will use this environment, however its been excluded for length
