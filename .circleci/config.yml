@@ -1,10 +1,5 @@
 version: 2.1
 aliases:
-
-        - &dependencies
-           - checkout
-           - run: yarn install
-
         - &test_environment
             docker:
               # replace with your preferred image
@@ -13,14 +8,16 @@ jobs:
   Snapshot-test:
             <<: *test_environment
             steps:
-              - run : *dependencies
+              - checkout
+              - run: yarn install
               - run:
                   name: Run Snapshot Tests
                   command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
   Unit-test:
           <<: *test_environment
           steps:
-            - run : *dependencies
+            - checkout
+            - run: yarn install
             - run:
                 name: Run Unit Tests
                 command: yarn test
