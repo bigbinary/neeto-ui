@@ -5,19 +5,21 @@ aliases:
               # replace with your preferred image
               - image: circleci/node:14
 jobs:
+  Build:
+       <<: *test_environment
+       steps:
+          - checkout
+          - run: yarn install
+
   "Snapshot Test":
             <<: *test_environment
             steps:
-              - checkout
-              - run: yarn install
               - run:
                   name: Run Snapshot Tests
                   command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
   "Unit Test":
           <<: *test_environment
           steps:
-            - checkout
-            - run: yarn install
             - run:
                 name: Run Unit Tests
                 command: yarn test
@@ -25,6 +27,11 @@ jobs:
 workflows:
   neetoui-tests:
     jobs:
-      - "Snapshot Test"
-      - "Unit Test"
+      - "Snapshot Test":
+          requires:
+            - Build
+
+      - "Unit Test":
+            requires:
+            - Build
 
