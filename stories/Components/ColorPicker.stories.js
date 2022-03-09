@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ColorPicker from "../../lib/components/ColorPicker";
+import ColorPicker, {
+  ColorPickerComponent,
+} from "../../lib/components/ColorPicker";
 import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Components/ColorPicker",
-  component: ColorPicker,
+  component: ColorPickerComponent,
   parameters: {
     layout: "padded",
     docs: {
