@@ -41,7 +41,7 @@ export const ColorPickerStory = (args) => {
 
 ColorPickerStory.storyName = "ColorPicker";
 ColorPickerStory.args = {
-  color: "#fffff",
+  color: "#ffffff",
 };
 
 export const ColorPickerWithColorPalette = (args) => {
@@ -90,5 +90,5 @@ export const ColorPickerWithColorPalette = (args) => {
 
 ColorPickerWithColorPalette.storyName = "ColorPicker with Color Palette";
 ColorPickerWithColorPalette.args = {
-  color: "#fffff",
+  color: "#ffffff",
 };
