@@ -63,13 +63,6 @@ describe("Alert", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should display loader when loading is true", () => {
-    const { getByTestId } = render(
-      <Alert title="Alert title" message="Alert message" isOpen loading />
-    );
-    expect(getByTestId("loader")).toBeInTheDocument();
-  });
-
   it("should close the alert when Esc key is pressed", () => {
     const onClose = jest.fn();
     const { container } = render(
