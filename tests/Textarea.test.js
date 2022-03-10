@@ -1,6 +1,7 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Textarea } from "../lib/components";
+import userEvent from "@testing-library/user-event";
 
 describe("Textarea", () => {
   it("should render without error", () => {
@@ -11,17 +12,17 @@ describe("Textarea", () => {
   it("should update value on input when uncontrolled", () => {
     const { getByLabelText } = render(<Textarea id="text" label="Textarea" />);
     const textarea = getByLabelText("Textarea");
-    fireEvent.change(textarea, { target: { value: "Test" } });
+    userEvent.type(textarea, "Test");
     expect(textarea).toHaveValue("Test");
   });
 
   it("should call onChange when textarea value changes", () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <Textarea id="text" label="Textarea" onChange={(e) => onChange(e.target.value)} />
+      <Textarea id="text" label="Textarea" onChange={onChange} />
     );
-    fireEvent.change(getByLabelText("Textarea"), { target: { value: "Test" } });
-    expect(onChange).toHaveBeenCalledWith("Test");
+    userEvent.type(getByLabelText("Textarea"), "Test");
+    expect(onChange).toHaveBeenCalledTimes(4);
   });
 
   it("should display helpText", () => {
