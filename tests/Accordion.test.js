@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion } from "../lib/components";
-import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, waitForElementToBeRemoved } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 
 
@@ -29,7 +30,7 @@ describe("Accordion", () => {
         <p>Content 1</p>
       </Accordion.Item>
     </Accordion>);
-    fireEvent.click(getByText("Item 1"));
+    userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
@@ -39,12 +40,12 @@ describe("Accordion", () => {
         <p>Content 1</p>
       </Accordion.Item>
     </Accordion>);
-    fireEvent.click(getByText("Item 1"));
+    userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    fireEvent.keyDown(getByText("Item 1"), { key: " ", bubbles: true });
+    userEvent.keyboard("{space}");
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
-    fireEvent.keyDown(getByText("Item 1"), { key: "Enter", bubbles: true });
+    userEvent.keyboard("{enter}");
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
@@ -54,9 +55,9 @@ describe("Accordion", () => {
         <p>Content 1</p>
       </Accordion.Item>
     </Accordion>);
-    fireEvent.click(getByText("Item 1"));
+    userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    fireEvent.keyDown(getByText("Item 1"), { key: "a", bubbles: true });
+    userEvent.type(getByText("Item 1"), "a");
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
@@ -67,7 +68,7 @@ describe("Accordion", () => {
         <p>Content 1</p>
       </Accordion.Item>
     </Accordion>);
-    fireEvent.click(getByText("Item 1"));
+    userEvent.click(getByText("Item 1"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -80,9 +81,9 @@ describe("Accordion", () => {
         <p>Content 2</p>
       </Accordion.Item>
     </Accordion>);
-    fireEvent.click(getByText("Item 1"));
+    userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    fireEvent.click(getByText("Item 2"));
+    userEvent.click(getByText("Item 2"));
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
     expect(getByText("Content 2")).toBeInTheDocument();

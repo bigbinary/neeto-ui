@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert } from "../lib/components";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Alert", () => {
   it("should render without error", () => {
@@ -29,7 +30,7 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    fireEvent.click(getByTestId("close-button"));
+    userEvent.click(getByTestId("close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -44,7 +45,7 @@ describe("Alert", () => {
         submitButtonLabel="Submit"
       />
     );
-    fireEvent.click(getByText("Submit"));
+    userEvent.click(getByText("Submit"));
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
@@ -59,7 +60,7 @@ describe("Alert", () => {
         cancelButtonLabel="Cancel"
       />
     );
-    fireEvent.click(getByText("Cancel"));
+    userEvent.click(getByText("Cancel"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -74,13 +75,7 @@ describe("Alert", () => {
         closeOnEsc
       />
     );
-    fireEvent.keyDown(container, {
-      key: "Escape",
-      code: "Escape",
-      keyCode: 27,
-      charCode: 27,
-      bubbles: true,
-    });
+    userEvent.type(container, "{esc}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -95,13 +90,7 @@ describe("Alert", () => {
         closeOnEsc={false}
       />
     );
-    fireEvent.keyDown(container, {
-      key: "Escape",
-      code: "Escape",
-      keyCode: 27,
-      charCode: 27,
-      bubbles: true,
-    });
+    userEvent.type(container, "{esc}");
     expect(onClose).not.toHaveBeenCalled();
   });
 
@@ -116,7 +105,7 @@ describe("Alert", () => {
         closeOnOutsideClick
       />
     );
-    fireEvent.mouseDown(getByTestId("backdrop"));
+    userEvent.click(getByTestId("backdrop"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -131,7 +120,7 @@ describe("Alert", () => {
         closeOnOutsideClick={false}
       />
     );
-    fireEvent.mouseDown(getByTestId("backdrop"));
+    userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
 });

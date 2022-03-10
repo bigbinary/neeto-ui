@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "../lib/components";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 describe("Button", () => {
   it("should render without error", () => {
@@ -12,7 +13,7 @@ describe("Button", () => {
   it("should call onClick on button click", () => {
     const onClick = jest.fn();
     const { getByText } = render(<Button label="Button" onClick={onClick} />);
-    fireEvent.click(getByText("Button"));
+    userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -21,7 +22,7 @@ describe("Button", () => {
     const { getByText } = render(
       <Button label="Button" onClick={onClick} disabled />
     );
-    fireEvent.click(getByText("Button"));
+    userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
@@ -30,7 +31,7 @@ describe("Button", () => {
     const { getByText } = render(
       <Button label="Button" onClick={onClick} loading />
     );
-    fireEvent.click(getByText("Button"));
+    userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
@@ -38,7 +39,7 @@ describe("Button", () => {
     const { getByText } = render(
       <Button label="Button" tooltipProps={{ content: "Tooltip" }} />
     );
-    fireEvent.mouseEnter(getByText("Button"), { bubbles: true });
+    userEvent.hover(getByText("Button"));
     expect(getByText("Tooltip")).toBeInTheDocument();
   });
 
