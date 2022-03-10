@@ -76,7 +76,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   return (
     <Router>
       <Sidebar
-        navLinks={NAV_LINKS.slice(3)}
+        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
         isCollapsed={isSidebarCollapsed}
         onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}

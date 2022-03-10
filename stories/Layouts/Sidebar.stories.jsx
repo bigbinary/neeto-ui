@@ -110,7 +110,7 @@ SidebarExpanded.args = {
     subdomain: "neetoui.netlify.app",
   },
   isCollapsed: false,
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -159,7 +159,7 @@ SidebarWithAppSwitcher.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
@@ -192,7 +192,7 @@ SidebarWithFooterLinks.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS.slice(0, 3),
+  navLinks: STORYBOOK_NAV_LINKS.slice(0, 3),
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
@@ -228,7 +228,7 @@ ProfileSectionWithChangelogAndHelp.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -267,7 +267,7 @@ ProfileSectionWithCustomContent.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
