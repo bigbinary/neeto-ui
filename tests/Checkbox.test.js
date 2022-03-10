@@ -5,16 +5,16 @@ import userEvent from "@testing-library/user-event";
 
 describe("Checkbox", () => {
   it("should render without error", () => {
-    const { getByText } = render(<Checkbox label="Checkbox" />);
-    expect(getByText("Checkbox")).toBeInTheDocument();
+    const { getByRole } = render(<Checkbox label="Checkbox" />);
+    expect(getByRole("checkbox")).toBeInTheDocument();
   });
 
   it("should call onChange when checkbox value is changed", () => {
     const onChange = jest.fn();
-    const { getByText } = render(
+    const { getByRole } = render(
       <Checkbox label="Checkbox" onChange={onChange} />
     );
-    userEvent.click(getByText("Checkbox"));
+    userEvent.click(getByRole("checkbox"));
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
