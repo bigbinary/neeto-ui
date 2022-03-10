@@ -34,5 +34,3 @@
 #logs
 /*.log
 
-#test snaps
-tests/__snapshots__
