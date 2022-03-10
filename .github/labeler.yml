@@ -1,2 +1,3 @@
 skip-ci:
+  - any: ["."]
   - all: ["!lib/**/*", "!package.json"]
