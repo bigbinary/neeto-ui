@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Collapse from "../lib/components/Collapse";
+import Collapse from "../lib/components/Accordion/Collapse";
 
 describe("Collapse", () => {
   it("should render without error", () => {
