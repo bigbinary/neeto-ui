@@ -132,6 +132,7 @@ export const TimePickerWithRef = () => {
         open={open}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
+        onOk={() => setOpen(false)}
       />
     </div>
   );

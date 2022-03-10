@@ -27,11 +27,11 @@ export const InfoCallout = () => {
 export const WarningCallout = () => {
   return (
     <Callout style="warning" icon={Warning}>
-      This is an info callout!
+      This is a warning callout!
     </Callout>
   );
 };
 
 export const DangerCallout = () => {
-  return <Callout style="danger">This is an info callout!</Callout>;
+  return <Callout style="danger">This is a danger callout!</Callout>;
 };
