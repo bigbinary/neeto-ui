@@ -1,6 +1,7 @@
 import React from "react";
 import { Tag } from "../lib/components";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Tag", () => {
   it("should render without error", () => {
@@ -26,14 +27,14 @@ describe("Tag", () => {
   it("should call onClose on button click", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(<Tag onClose={onClose} />);
-    fireEvent.click(getByTestId("tag-close-button"));
+    userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it("should not call onClose function if tag is disabled", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(<Tag onClose={onClose} disabled />);
-    fireEvent.click(getByTestId("tag-close-button"));
+    userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(0);
   });
 });
