@@ -1,4 +1,4 @@
-import React, { forwardRef, useState  } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "../../lib/components";
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
@@ -24,6 +24,7 @@ export const FollowCursor = (args) => {
         position="top"
         followCursor={"horizontal"}
         content={"Content is string"}
+        {...args}
       >
         <Button style="secondary" label="Follow Cursor" />
       </Tooltip>
@@ -42,6 +43,7 @@ export const JSXContentInside = (args) => {
             Content is a <b>JSX</b> <u>Element</u>
           </span>
         }
+        {...args}
       >
         <Button style="secondary" label="On Click" />
       </Tooltip>
@@ -159,11 +161,15 @@ export const AutoHidingTooltip = () => {
 
   const handleKeyPress = ({ key }) => {
     if (key === "Escape") setEmail(DEFAULT_EMAIL);
-  }
+  };
 
   return (
     <div className="flex items-center justify-center p-10 space-x-6">
-      <Tooltip position="top" content="Press esc to reset input after typing" hideAfter={3000}>
+      <Tooltip
+        position="top"
+        content="Press esc to reset input after typing"
+        hideAfter={3000}
+      >
         <Input
           label="Enter email"
           className="max-w-max"
