@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "../lib/components";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const options = ["option 1", "option 2"].map(option => <li key={option}>{option}</li>)
