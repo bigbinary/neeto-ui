@@ -28,17 +28,17 @@ describe("Dropdown", () => {
       </Dropdown>
     )
     userEvent.click(getByText("Dropdown"))
-    const listItems = await screen.findAllByRole("listitem")
+    const listItems = await screen.findAllByText(/option/i)
     expect(listItems.length).toBe(2);
   });
 
   it("should render all the options if isOpen is true", async () => {
-    const { findAllByRole } = render(
+    const { findAllByText } = render(
       <Dropdown label="Dropdown" isOpen>
        {options}
       </Dropdown>
     )
-    const listItems = await findAllByRole("listitem")
+    const listItems = await findAllByText(/option/i)
     expect(listItems.length).toBe(2);
   });
 
