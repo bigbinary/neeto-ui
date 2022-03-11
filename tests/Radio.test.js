@@ -3,8 +3,9 @@ import { Radio } from "../lib/components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-const ControlledComponent = () => {
+const ControlledRadio = () => {
   const [value, setValue] = useState("");
+  
   return (
     <Radio
       label="Radio"
@@ -57,7 +58,7 @@ describe("Radio", () => {
   });
 
   it("should show controlled behaviour", () => {
-    const { getAllByRole } = render(<ControlledComponent />);
+    const { getAllByRole } = render(<ControlledRadio />);
     const radio = getAllByRole("radio");
     userEvent.click(radio[0]);
     expect(radio[0]).toBeChecked();
