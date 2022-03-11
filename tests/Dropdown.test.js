@@ -111,7 +111,6 @@ describe("Dropdown", () => {
         </Dropdown>
       </Dropdown>
     )
-
     userEvent.hover(getByText("Another Dropdown"))
     const listItems =  await screen.findAllByRole("listitem")
     expect(listItems).toHaveLength(5);
@@ -128,5 +127,4 @@ describe("Dropdown", () => {
     userEvent.click(document.body);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
-
 });
