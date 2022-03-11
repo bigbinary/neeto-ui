@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 
 describe("PageLoader", () => {
   it("should render without error", () => {
-    const { getByTestId } = render(<PageLoader/>);
+    const { getByTestId } = render(<PageLoader data-testid="pageloader"/>);
     expect(getByTestId("pageloader")).toBeInTheDocument();
   });
 
