@@ -49,7 +49,7 @@ describe("Dropdown", () => {
     expect(getByRole("button")).toBeDisabled();
   });
 
-  it("should close on select if closeOnSelect is true", () => {
+  it("should close the dropdown on select if closeOnSelect is true", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown" closeOnSelect >
         {options}
@@ -61,7 +61,20 @@ describe("Dropdown", () => {
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
-  it("should close on escape if closeOnEsc is true", () => {
+  it("should not close the dropdown on select if closeOnSelect is false", async () => {
+    const { getByText } = render(
+      <Dropdown label="Dropdown" closeOnSelect={false} >
+        {options}
+      </Dropdown>
+    )
+    userEvent.click(getByText("Dropdown"))
+    const listItem = getByText("option 1")
+    userEvent.click(listItem)
+    const listItems = await screen.findAllByRole("listitem")
+    expect(listItems).toHaveLength(2);
+  });
+
+  it("should close the dropdown when Esc key is pressed if closeOnEsc is true", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown" closeOnEsc >
         {options}
@@ -72,7 +85,19 @@ describe("Dropdown", () => {
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
-  it("should close on outside click if closeOnOutsideClick is true", () => {
+  it("should not close the dropdown when Esc key is pressed if closeOnEsc is false", async () => {
+    const { getByText } = render(
+      <Dropdown label="Dropdown" closeOnEsc={false} >
+        {options}
+      </Dropdown>
+    )
+    userEvent.click(getByText("Dropdown"))
+    userEvent.keyboard("{esc}");
+    const listItems = await screen.findAllByRole("listitem")
+    expect(listItems).toHaveLength(2);
+  });
+
+  it("should close dropdown on clicking outside if closeOnOutsideClick is true", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown" closeOnOutsideClick >
         {options}
@@ -81,6 +106,18 @@ describe("Dropdown", () => {
     userEvent.click(getByText("Dropdown"))
     userEvent.click(document.body);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
+  });
+
+  it("should not close on clicking outside if closeOnOutsideClick is false", async () => {
+    const { getByText } = render(
+      <Dropdown label="Dropdown" closeOnOutsideClick={false} >
+        {options}
+      </Dropdown>
+    )
+    userEvent.click(getByText("Dropdown"))
+    userEvent.click(document.body);
+    const listItems = await screen.findAllByRole("listitem")
+    expect(listItems).toHaveLength(2);
   });
 
   it("should open another dropdown on click trigger when it is multilevel ", async () => {
