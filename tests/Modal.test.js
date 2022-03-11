@@ -89,7 +89,7 @@ describe("Modal", () => {
       </Modal>
     );
     userEvent.type(container, "{esc}");
-    expect(onClose).not.toHaveBeenCalled;
+    expect(onClose).not.toHaveBeenCalled();
   });
 
   it("should close modal when clicking outside", () => {
