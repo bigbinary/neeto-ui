@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "../lib/components";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const options = ["option 1", "option 2"].map(option => <li key={option}>{option}</li>)
@@ -151,6 +151,24 @@ describe("Dropdown", () => {
     userEvent.hover(getByText("Another Dropdown"))
     const listItems =  await screen.findAllByRole("listitem")
     expect(listItems).toHaveLength(5);
+  });
+
+  it("should close the multilevel dropdown when mouse leaves", async () => {
+    const { getByText } = render(
+      <Dropdown label="Dropdown" isMultiLevel isOpen>
+        {options}
+        <Dropdown
+          customTarget={<li>Another Dropdown</li>}
+          trigger="hover"
+          isOpen
+        >
+          {options}
+        </Dropdown>
+      </Dropdown>
+    )
+    userEvent.unhover(getByText("Another Dropdown"))
+    const listItems =  await screen.findAllByRole("listitem")
+    expect(listItems).toHaveLength(3);
   });
 
   it("should call onClose when Dropdown is closed", () => {
