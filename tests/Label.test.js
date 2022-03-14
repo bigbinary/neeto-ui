@@ -15,7 +15,8 @@ describe("Label", () => {
         <p>Content</p>
       </Label>
     );
-    expect(getByText(/Content*/i)).toBeInTheDocument();
+    expect(getByText("Content")).toBeInTheDocument();
+    expect(getByText("*")).toBeInTheDocument();
   });
 
   it("should show info icon by default when helpIconProps is provided", () => {
