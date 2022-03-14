@@ -5,11 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 describe("Label", () => {
   it("should render without error", () => {
-    const { getByText } = render(
-      <Label>
-        <p>Content</p>
-      </Label>
-    );
+    const { getByText } = render(<Label>Content</Label>);
     expect(getByText("Content")).toBeInTheDocument();
   });
 
