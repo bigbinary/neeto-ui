@@ -21,7 +21,7 @@ describe("Label", () => {
 
   it("should show info icon by default when helpIconProps is provided", () => {
     const { getByTestId } = render(
-      <Label helpIconProps={{}}>
+      <Label helpIconProps={{ "data-testid": "icon" }}>
         <p>Content</p>
       </Label>
     );
@@ -33,6 +33,7 @@ describe("Label", () => {
       <Label
         helpIconProps={{
           tooltipProps: { content: "Tooltip" },
+          "data-testid": "icon"
         }}
       >
         <p>Content</p>
@@ -48,6 +49,7 @@ describe("Label", () => {
       <Label
         helpIconProps={{
           onClick,
+          "data-testid": "icon"
         }}
       >
         <p>Content</p>
