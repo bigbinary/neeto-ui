@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Favorite } from "@bigbinary/neeto-icons";
 
 import Button from "../../lib/components/Button";
-import Typography from "../../lib/components/Typography";
 
 export default {
   title: "Components/Button",
@@ -34,6 +33,18 @@ Secondary.args = {
 export const Danger = Template.bind({});
 Danger.args = {
   style: "danger",
+  label: "Button",
+};
+
+export const DangerText = Template.bind({});
+DangerText.args = {
+  style: "danger-text",
+  label: "Button",
+};
+
+export const DangerSecondary = Template.bind({});
+DangerSecondary.args = {
+  style: "danger-secondary",
   label: "Button",
 };
 
