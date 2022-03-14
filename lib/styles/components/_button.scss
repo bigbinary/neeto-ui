@@ -193,11 +193,13 @@
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-accent4-500;
+      color: $neeto-ui-accent4-700;
+      background-color: $neeto-ui-pastel-red;
     }
 
     &:focus-visible {
       color: $neeto-ui-accent4-700;
+      background-color: $neeto-ui-pastel-red;
       box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
