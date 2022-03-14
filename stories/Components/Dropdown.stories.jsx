@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Settings } from "@bigbinary/neeto-icons";
 
 import Dropdown from "../../lib/components/Dropdown";
+import { Button } from "../../lib/components";
 
 export default {
   title: "Components/Dropdown",
@@ -158,6 +159,23 @@ export const MultiDropdownWithHoverTrigger = () => {
             ))}
           </Dropdown>
         </Dropdown>
+      </Dropdown>
+    </div>
+  );
+};
+
+export const ControlledDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="flex flex-col items-start space-y-6">
+      <Button
+        label={`${isOpen ? "Close" : "Open"} Dropdown`}
+        onClick={() => setIsOpen((open) => !open)}
+      />
+      <Dropdown isOpen={isOpen} label="Controlled Dropdown">
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
       </Dropdown>
     </div>
   );

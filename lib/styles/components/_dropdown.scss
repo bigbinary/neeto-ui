@@ -11,6 +11,19 @@
   }
 }
 
+.tippy-box[data-theme~="light"] .neeto-ui-dropdown__popup {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+}
+
+.neeto-ui-dropdown {
+  .tippy-content {
+    position: relative;
+    padding: 0;
+    z-index: 1;
+  }
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%) !important;
+}
+
 .neeto-ui-dropdown__popup {
   width: auto;
   min-width: 168px;
