@@ -29,7 +29,6 @@ export const Controlled = args => {
       {...args}
       value={emails}
       onChange={emails => setEmails(emails)}
-      filterInvalidEmails={{ label: "Filter" }}
     />
   );
 };
