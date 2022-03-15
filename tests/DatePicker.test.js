@@ -5,10 +5,25 @@ import dayjs from "dayjs";
 import DatePicker from "../lib/components/DatePicker";
 
 const today = dayjs();
-const tomarrow = dayjs().add(1, "day");
+const tomorrow = dayjs().add(1, "day");
 
 describe("DatePicker", () => {
-  it("should render time if showTime={{ showHour: true, showMinute: true }}", async () => {
+  it("should render without error", () => {
+    render(<DatePicker defaultValue={today} />);
+    expect(screen.getByRole("textbox")).toHaveValue(today.format("DD/MM/YYYY"));
+  });
+
+  it("should show label if label is provided", () => {
+    render(<DatePicker label="DatePicker Label" />);
+    expect(screen.getByText("DatePicker Label")).toBeInTheDocument();
+  });
+
+  it("should show error if error is provided", () => {
+    render(<DatePicker error="DatePicker Error" />);
+    expect(screen.getByText("DatePicker Error")).toBeInTheDocument();
+  });
+
+  it("should render time if showTime is true", async () => {
     render(<DatePicker defaultValue={today} showTime open />);
     expect(await screen.findAllByText("00")).toHaveLength(3);
   });
@@ -52,7 +67,7 @@ describe("DatePicker", () => {
   it("should trigger onChange on selecting a date", () => {
     const onChange = jest.fn();
     render(<DatePicker defaultValue={today} onChange={onChange} open />);
-    fireEvent.click(screen.getByText(tomarrow.get("D")));
+    fireEvent.click(screen.getByText(tomorrow.get("D")));
     expect(onChange).toHaveBeenCalled();
   });
 
