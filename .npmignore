@@ -12,6 +12,7 @@
 /dist
 /lib
 /build
+/tests
 
 # misc
 .DS_Store
@@ -24,6 +25,9 @@
 .editorconfig
 .eslintrc.js
 jsconfig.json
+.eslint-rules
+.circleci
+jest-setup.js
 
 #logs
 /*.log
