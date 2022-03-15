@@ -9,17 +9,31 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  }
 
-    .neeto-ui-pageloader__text {
-      margin-bottom: 4rem;
-      text-align: center;
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-      color: $neeto-ui-gray-800;
-    }
+  .neeto-ui-pageloader__content{
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .neeto-ui-pageloader__rotating-canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+  }
+
+  .neeto-ui-pageloader__text {
+    margin-bottom: 4rem;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: $neeto-ui-gray-800;
   }
 }

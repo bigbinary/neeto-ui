@@ -1,13 +1,16 @@
 .neeto-ui-header {
   width: 100%;
-  // min-height: $neeto-ui-main-header-height;
+  min-height: $neeto-ui-main-header-height;
   background: $neeto-ui-white;
   padding: 24px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-height: 80px;
+
+  .neeto-ui-header__toggle-menubar-btn{
+    margin-right: 8px;
+  }
 
   .neeto-ui-header__left {
     display: flex;
@@ -72,7 +75,6 @@
       }
     }
   }
-
 
   .neeto-ui-subheader__right {
     display: flex;
