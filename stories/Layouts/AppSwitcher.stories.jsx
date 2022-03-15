@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
-import { NAV_LINKS } from "../../example/src/constants";
+import { STORYBOOK_NAV_LINKS } from "../../example/src/constants";
 
 export default {
   title: "Layouts/AppSwitcher",
@@ -30,7 +30,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
   return (
     <Router>
       <Sidebar
-        navLinks={NAV_LINKS.slice(3)}
+        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((open) => !open)}
         isCollapsed={isSidebarCollapsed}
         onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
@@ -76,7 +76,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   return (
     <Router>
       <Sidebar
-        navLinks={NAV_LINKS.slice(3)}
+        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
         isCollapsed={isSidebarCollapsed}
         onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}

@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Copy,
   Design,
@@ -55,6 +57,89 @@ export const COMPONENT_MAPPING = {
 
 export const NAV_LINKS = [
   {
+    label: "Avatar",
+    to: "/avatar",
+    icon: () => <>A</>,
+  },
+  {
+    label: "Button",
+    to: "/button",
+    icon: () => <>B</>,
+  },
+  {
+    label: "DatePicker",
+    to: "/datepicker",
+    icon: () => <>DP</>,
+  },
+  {
+    label: "Dropdown",
+    to: "/dropdown",
+    icon: () => <>DD</>,
+  },
+  {
+    label: "Formik",
+    to: "/formik",
+    icon: () => <>F</>,
+  },
+  {
+    label: "Input",
+    to: "/input",
+    icon: () => <>I</>,
+  },
+  {
+    label: "Layouts",
+    to: "/layouts",
+    icon: () => <>L</>,
+  },
+  {
+    label: "Misc",
+    to: "/misc",
+    icon: () => <>MI</>,
+  },
+  {
+    label: "Modal",
+    to: "/modal",
+    icon: () => <>MO</>,
+  },
+  {
+    label: "Pane",
+    to: "/pane",
+    icon: () => <>P</>,
+  },
+  {
+    label: "Select",
+    to: "/select",
+    icon: () => <>S</>,
+  },
+  {
+    label: "Tab",
+    to: "/tab",
+    icon: () => <>TB</>,
+  },
+  {
+    label: "Table",
+    to: "/table",
+    icon: () => <>TL</>,
+  },
+  {
+    label: "Tag",
+    to: "/tag",
+    icon: () => <>TG</>,
+  },
+  {
+    label: "Toggles",
+    to: "/toggles",
+    icon: () => <>TS</>,
+  },
+  {
+    label: "Tooltip",
+    to: "/tooltip",
+    icon: () => <>TP</>,
+  },
+];
+
+export const STORYBOOK_NAV_LINKS = [
+  {
     label: "Components",
     description: "Description here",
     to: "/components",
@@ -91,7 +176,7 @@ export const NAV_LINKS = [
   },
 ];
 
-export const FOOTER_LINKS = [
+export const STORYBOOK_FOOTER_LINKS = [
   {
     label: "Help",
     to: "/help",
