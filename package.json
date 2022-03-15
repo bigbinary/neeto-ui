@@ -89,6 +89,7 @@
     "react-toastify": "^8.0.2",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
+    "storybook-addon-whats-new": "^1.0.3",
     "style-loader": "^1.2.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "webpack": "^5.64.3",

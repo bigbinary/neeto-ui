@@ -12,5 +12,6 @@ module.exports = {
     "@storybook/preset-scss",
     "@storybook/addon-postcss",
     "@storybook/addon-docs",
+    "storybook-addon-whats-new",
   ],
 };

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Accordion from "../../lib/components/Accordion";
+import WhatsNew from "../WHATS_NEW/accordian.whats_new.md";
 
 export default {
   title: "Components/Accordion",
@@ -15,6 +16,7 @@ export default {
         component: '`import { Accordion } from "@bigbinary/neetoui";`',
       },
     },
+    whatsNewSource: WhatsNew,
   },
 };
 
