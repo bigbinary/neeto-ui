@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 const ControlledRadio = () => {
   const [value, setValue] = useState("");
-  
+
   return (
     <Radio
       label="Radio"
@@ -29,7 +29,9 @@ describe("Radio", () => {
   });
 
   it("should call onChange when radio value is changed", () => {
-    const onChange = jest.fn();
+    const onChange = jest.fn((event) => {
+      expect(event.target.value).toBe("option1");
+    });
     const { getByText } = render(
       <Radio label="Radio" onChange={onChange}>
         <Radio.Item label="option1" name="options" value="option1" />
@@ -66,5 +68,16 @@ describe("Radio", () => {
     userEvent.click(radio[1]);
     expect(radio[0]).not.toBeChecked();
     expect(radio[1]).toBeChecked();
+  });
+
+  it("should be checked on clicking the radio item", () => {
+    const { getByRole } = render(
+      <Radio label="Radio">
+        <Radio.Item label="option1" name="options" value="option1" />
+      </Radio>
+    );
+    const radio = getByRole("radio");
+    userEvent.click(radio);
+    expect(radio).toBeChecked();
   });
 });
