@@ -50,15 +50,4 @@ describe("EmailInput", () => {
     userEvent.type(emailInput, "test")
     expect(onInputChange).toHaveBeenCalledTimes(4);
   });
-
-  it("should create new element when Esc key is pressed", () => {
-    const { getByRole, getByTestId } = render(
-      <EmailInput/>
-    );
-    const emailInput = getByRole("combobox")
-    userEvent.type(emailInput, "test")
-    userEvent.type(emailInput, "{esc}");
-    const selectBox = getByTestId("email-input");
-    expect(selectBox).toHaveTextContent(/test/i);
-  });
 });
