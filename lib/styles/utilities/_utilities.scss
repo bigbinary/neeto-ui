@@ -1,0 +1,238 @@
+.neeto-ui-flex {
+  display: flex;
+}
+.neeto-ui-inline-flex {
+  display: inline-flex;
+}
+.neeto-ui-flex-shrink-0 {
+  flex-shrink: 0;
+}
+.neeto-ui-flex-shrink {
+  flex-shrink: 1;
+}
+.neeto-ui-flex-grow-0 {
+  flex-grow: 0;
+}
+.neeto-ui-flex-grow {
+  flex-grow: 1;
+}
+.neeto-ui-flex-row {
+  flex-direction: row;
+}
+.neeto-ui-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.neeto-ui-flex-col {
+  flex-direction: column;
+}
+.neeto-ui-flex-col-reverse {
+  flex-direction: column-reverse;
+}
+.neeto-ui-flex-wrap {
+  flex-wrap: wrap;
+}
+.neeto-ui-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.neeto-ui-flex-nowrap {
+  flex-wrap: nowrap;
+}
+.neeto-ui-items-start {
+  align-items: flex-start;
+}
+.neeto-ui-items-end {
+  align-items: flex-end;
+}
+.neeto-ui-items-center {
+  align-items: center;
+}
+.neeto-ui-items-baseline {
+  align-items: baseline;
+}
+.neeto-ui-items-stretch {
+  align-items: stretch;
+}
+.neeto-ui-justify-start {
+  justify-content: flex-start;
+}
+.neeto-ui-justify-end {
+  justify-content: flex-end;
+}
+.neeto-ui-justify-center {
+  justify-content: center;
+}
+.neeto-ui-justify-between {
+  justify-content: space-between;
+}
+.neeto-ui-justify-around {
+  justify-content: space-around;
+}
+.neeto-ui-justify-evenly {
+  justify-content: space-evenly;
+}
+.neeto-ui-justify-items-start {
+  justify-items: start;
+}
+.neeto-ui-justify-items-end {
+  justify-items: end;
+}
+.neeto-ui-justify-items-center {
+  justify-items: center;
+}
+.neeto-ui-justify-items-stretch {
+  justify-items: stretch;
+}
+.neeto-ui-self-auto {
+  align-self: auto;
+}
+.neeto-ui-self-start {
+  align-self: flex-start;
+}
+.neeto-ui-self-end {
+  align-self: flex-end;
+}
+.neeto-ui-self-center {
+  align-self: center;
+}
+.neeto-ui-self-stretch {
+  align-self: stretch;
+}
+.neeto-ui-self-baseline {
+  align-self: baseline;
+}
+.neeto-ui-justify-self-auto {
+  justify-self: auto;
+}
+.neeto-ui-justify-self-start {
+  justify-self: start;
+}
+.neeto-ui-justify-self-end {
+  justify-self: end;
+}
+.neeto-ui-justify-self-center {
+  justify-self: center;
+}
+.neeto-ui-justify-self-stretch {
+  justify-self: stretch;
+}
+.neeto-ui-overflow-auto {
+  overflow: auto;
+}
+.neeto-ui-overflow-hidden {
+  overflow: hidden;
+}
+.neeto-ui-overflow-visible {
+  overflow: visible;
+}
+.neeto-ui-overflow-scroll {
+  overflow: scroll;
+}
+.neeto-ui-overflow-x-auto {
+  overflow-x: auto;
+}
+.neeto-ui-overflow-y-auto {
+  overflow-y: auto;
+}
+.neeto-ui-overflow-x-hidden {
+  overflow-x: hidden;
+}
+.neeto-ui-overflow-y-hidden {
+  overflow-y: hidden;
+}
+.neeto-ui-overflow-x-visible {
+  overflow-x: visible;
+}
+.neeto-ui-overflow-y-visible {
+  overflow-y: visible;
+}
+.neeto-ui-overflow-x-scroll {
+  overflow-x: scroll;
+}
+.neeto-ui-overflow-y-scroll {
+  overflow-y: scroll;
+}
+.neeto-ui-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.neeto-ui-overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+.neeto-ui-whitespace-normal {
+  white-space: normal;
+}
+.neeto-ui-whitespace-nowrap {
+  white-space: nowrap;
+}
+.neeto-ui-whitespace-pre {
+  white-space: pre;
+}
+.neeto-ui-whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+.neeto-ui-break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.neeto-ui-break-words {
+  overflow-wrap: break-word;
+}
+.neeto-ui-break-all {
+  word-break: break-all;
+}
+.neeto-ui-cursor-pointer {
+  cursor: pointer;
+}
+.neeto-ui-cursor-not-allowed {
+  cursor: not-allowed;
+}
+.neeto-ui-select-none {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.neeto-ui-gap-0 {
+  gap: 0;
+}
+.neeto-ui-gap-1 {
+  gap: 0.25rem;
+}
+.neeto-ui-gap-2 {
+  gap: 0.5rem;
+}
+.neeto-ui-gap-3 {
+  gap: 0.75rem;
+}
+.neeto-ui-gap-4 {
+  gap: 1rem;
+}
+.neeto-ui-gap-5 {
+  gap: 1.25rem;
+}
+.neeto-ui-gap-6 {
+  gap: 1.5rem;
+}
+.neeto-ui-text-left {
+  text-align: left;
+}
+.neeto-ui-text-center {
+  text-align: center;
+}
+.neeto-ui-text-right {
+  text-align: right;
+}
+.neeto-ui-text-justify {
+  text-align: justify;
+}
+.neeto-w-full {
+  width: 100%;
+}
+.neeto-w-screen {
+  width: 100vw;
+}
+.neeto-h-full {
+  height: 100%;
+}
+.neeto-h-screen {
+  height: 100vh;
+}
