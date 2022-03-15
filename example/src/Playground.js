@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
-  Notification,
   Settings,
   Help,
   LeftArrow,
@@ -28,10 +27,6 @@ const Playground = () => {
     <Router>
       <div className="flex flex-row items-start justify-start">
         <Sidebar
-          isCollapsed={isSidebarCollapsed}
-          onCollapse={() =>
-            setIsSidebarCollapsed((isCollapsed) => !isCollapsed)
-          }
           organizationInfo={{
             name: "neetoUI",
             subdomain: "neetoui.netlify.app",
@@ -65,7 +60,6 @@ const Playground = () => {
           showAppSwitcher
           onAppSwitcherToggle={() => toggleAppSwitcher((open) => !open)}
           appName="neetoUI"
-          footerLinks={FOOTER_LINKS}
         />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <Switch>

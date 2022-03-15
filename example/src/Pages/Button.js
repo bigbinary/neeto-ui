@@ -255,6 +255,71 @@ const Buttons = () => {
             <Button
               loading={loading}
               onClick={toggle}
+              size="xlarge"
+              label="Large"
+              style="primary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              style="primary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              label="Large"
+              style="secondary"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              style="secondary"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              label="Large"
+              style="danger"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              style="danger"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              label="Large"
+              style="text"
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              style="text"
+              icon={Keyboard}
+            />
+            <Button
+              loading={loading}
+              onClick={toggle}
+              size="xlarge"
+              label="Large"
+              style="link"
+            />
+          </div>
+          <div className="flex flex-row flex-wrap items-center justify-start gap-4">
+            <Button
+              loading={loading}
+              onClick={toggle}
               size="large"
               label="Large"
               style="primary"

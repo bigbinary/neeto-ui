@@ -31,7 +31,7 @@ const Modals = () => {
           sinister invaders! All-strong! All-brave! All-heroes! They're The
           Herculoids!
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer>
           <Button
             icon={Check}
             label="Continue"
