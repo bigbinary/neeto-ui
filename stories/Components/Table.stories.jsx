@@ -446,7 +446,7 @@ export const TableInLayout = (args) => {
         />
         <Scrollable className="w-full">
           <Table
-            isLoading={isLoading}
+            loading={isLoading}
             columnData={columns}
             rowData={rowData}
             defaultPageSize={10}
