@@ -1,4 +1,4 @@
-#### This is a test changelog for accordian.
+#### This is a test changelog set as global
 
 - required changelogs can be added down.
 - change 1
