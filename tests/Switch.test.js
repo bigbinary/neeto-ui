@@ -37,12 +37,14 @@ describe("Switch", () => {
 
   it("should display error message", () => {
     const { getByText } = render(<Switch error="Error message" />);
-    expect(getByText("Error message")).toBeInTheDocument();
+    const errorMessage = getByText("Error message")
+    expect(errorMessage).toBeInTheDocument();
   });
 
   it("should be disabled if disabled is true", () => {
     const { getByRole } = render(<Switch disabled />);
-    expect(getByRole("checkbox")).toBeDisabled();
+    const switchButton = getByRole("checkbox")
+    expect(switchButton).toBeDisabled();
   });
 });
 
