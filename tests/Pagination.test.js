@@ -31,6 +31,7 @@ describe("Pagination", () => {
     );
     userEvent.click(getByTestId("left-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
+    expect(navigate).toHaveBeenCalledWith(currentPage - 1);
   });
 
   it("should invoke navigate callback when the right navigate button is clicked.", () => {
@@ -45,6 +46,7 @@ describe("Pagination", () => {
     );
     userEvent.click(getByTestId("right-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
+    expect(navigate).toHaveBeenCalledWith(currentPage + 1);
   });
 
   it("should invoke navigate callback when any page number is clicked.", () => {
@@ -59,6 +61,7 @@ describe("Pagination", () => {
     );
     userEvent.click(getByText("4"));
     expect(navigate).toHaveBeenCalledTimes(1);
+    expect(navigate).toHaveBeenCalledWith(4);
   });
 
   it("should not render anything when currentPage is 0", () => {
