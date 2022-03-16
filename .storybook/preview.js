@@ -1,5 +1,11 @@
 import "./style.scss";
 import "../lib/styles/index.scss";
+import { addParameters } from "@storybook/react";
+import WhatsNew from "../WHATS_NEW.md";
+
+addParameters({
+  whatsNewSource: WhatsNew,
+});
 
 export const parameters = {
   layout: "fullscreen",
