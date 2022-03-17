@@ -157,7 +157,7 @@ describe("EmailInput", () => {
           { label: "test@example.com", value: "test@example.com", valid: true },
           { label: "invalidEmail", value: "invalidEmail" },
         ]}
-        filterInvalidEmails
+        filterInvalidEmails={{}}
         error="Invalid email"
       />
     );
