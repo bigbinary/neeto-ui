@@ -74,7 +74,7 @@ export const ColorPickerWithColorPalette = (args) => {
   useEffect(() => {
     setColor(args.color || "#000000");
   }, [args.color]);
-
+  console.log('colorList', colorList)
   return (
     <ColorPicker
       color={color}
@@ -82,6 +82,7 @@ export const ColorPickerWithColorPalette = (args) => {
       colorPaletteProps={{
         color: selectedColor,
         colorList,
+
         onChange: handleColorChange,
       }}
     />
