@@ -11,6 +11,7 @@ export default {
     "Accordion.Item": Accordion.Item,
   },
   parameters: {
+    badges: [BADGE.BETA, BADGE.OBSOLETE],
     layout: "padded",
     docs: {
       description: {
@@ -29,9 +30,6 @@ export const AccordionStory = (args) => {
       </Accordion.Item>
     </Accordion>
   );
-};
-AccordionStory.parameters = {
-  badges: [BADGE.OBSOLETE],
 };
 
 AccordionStory.storyName = "Single Accordion";
@@ -57,9 +55,6 @@ const Template = (args) => {
 
 export const MultipleAccordionStory = Template.bind({});
 MultipleAccordionStory.storyName = "Multiple Accordions";
-MultipleAccordionStory.parameters = {
-  badges: [BADGE.BETA, BADGE.OBSOLETE],
-};
 
 export const DefaultActiveKeyStory = Template.bind({});
 DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";
