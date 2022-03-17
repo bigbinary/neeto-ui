@@ -37,14 +37,25 @@ describe("Switch", () => {
 
   it("should display error message", () => {
     const { getByText } = render(<Switch error="Error message" />);
-    const errorMessage = getByText("Error message")
+    const errorMessage = getByText("Error message");
     expect(errorMessage).toBeInTheDocument();
   });
 
   it("should be disabled if disabled is true", () => {
     const { getByRole } = render(<Switch disabled />);
-    const switchButton = getByRole("checkbox")
+    const switchButton = getByRole("checkbox");
     expect(switchButton).toBeDisabled();
   });
-});
 
+  it("should render check icon icon when checked is true", () => {
+    const { getByTestId } = render(<Switch checked />);
+    const checkIcon = getByTestId("check-icon");
+    expect(checkIcon).toBeInTheDocument();
+  });
+
+  it("should render close icon icon when checked is false", () => {
+    const { getByTestId } = render(<Switch checked={false} />);
+    const closeIcon = getByTestId("close-icon");
+    expect(closeIcon).toBeInTheDocument();
+  });
+});
