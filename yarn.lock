@@ -1390,6 +1390,15 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@geometricpanda/storybook-addon-badges@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@geometricpanda/storybook-addon-badges/-/storybook-addon-badges-0.2.1.tgz#b52ead21230d9c09b61982610ffb96b676dc0a1d"
+  integrity sha512-91N6Zx16MQa6QjjVaNgAwXDTGgN6VEViIcEQMhqIMvGLkcofccj7VwxCS6kRBJXobNGYE6UWJEbR/WZx16Po4w==
+  dependencies:
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-is "^17.0.2"
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"

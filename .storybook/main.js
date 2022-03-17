@@ -12,5 +12,6 @@ module.exports = {
     "@storybook/preset-scss",
     "@storybook/addon-postcss",
     "@storybook/addon-docs",
+    "@geometricpanda/storybook-addon-badges",
   ],
 };

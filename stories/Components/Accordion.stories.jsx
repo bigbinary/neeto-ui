@@ -2,6 +2,8 @@ import React from "react";
 
 import Accordion from "../../lib/components/Accordion";
 
+import { BADGE } from "@geometricpanda/storybook-addon-badges";
+
 export default {
   title: "Components/Accordion",
   component: Accordion,
@@ -28,6 +30,9 @@ export const AccordionStory = (args) => {
     </Accordion>
   );
 };
+AccordionStory.parameters = {
+  badges: [BADGE.OBSOLETE],
+};
 
 AccordionStory.storyName = "Single Accordion";
 
@@ -52,6 +57,9 @@ const Template = (args) => {
 
 export const MultipleAccordionStory = Template.bind({});
 MultipleAccordionStory.storyName = "Multiple Accordions";
+MultipleAccordionStory.parameters = {
+  badges: [BADGE.BETA, BADGE.OBSOLETE],
+};
 
 export const DefaultActiveKeyStory = Template.bind({});
 DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";
