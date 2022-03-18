@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ColorPicker } from "../lib/components";
 import userEvent from "@testing-library/user-event";
 
@@ -46,7 +46,10 @@ describe("ColorPicker", () => {
       <ColorPicker
         color={selectedColor}
         colorPaletteProps={{
-          color: selectedColor,
+          color: {
+            from: "red-500",
+            to: "red-500",
+          },
           colorList: Object.keys(DEFAULT_COLORS).map((key) => ({
             from: key,
             to: key,
@@ -60,5 +63,55 @@ describe("ColorPicker", () => {
     userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith("red-500", "red-500");
+  });
+
+  it("should call onChange when user touches Heu slider", () => {
+    const touchStart = [{ pageX: 0, pageY: 0 }];
+
+    const hex = "#000000";
+    const hsl = { a: 1, h: 0, l: 0, s: 0 };
+    const hsv = { a: 1, h: 0, v: 0, s: 0 };
+    const rgb = { a: 1, b: 0, g: 0, r: 0 };
+    const onChange = jest.fn((color) => {
+      expect(color.hex).toEqual(hex);
+      expect(color.hsl).toEqual(hsl);
+      expect(color.hsv).toEqual(hsv);
+      expect(color.rgb).toEqual(rgb);
+    });
+
+    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    userEvent.click(screen.getByText("#ffffff"));
+
+    fireEvent.touchStart(
+      screen.getByTestId("color-picker-hue").querySelector(".hue-horizontal"),
+      { touches: touchStart }
+    );
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should call onChange when user touches Saturation selector", () => {
+    const touchStart = [{ pageX: 0, pageY: 0 }];
+
+    const hex = "#000000";
+    const hsl = { a: 1, h: 0, l: 0, s: 0 };
+    const hsv = { a: 1, h: 0, v: 0, s: 0 };
+    const rgb = { a: 1, b: 0, g: 0, r: 0 };
+    const onChange = jest.fn((color) => {
+      expect(color.hex).toEqual(hex);
+      expect(color.hsl).toEqual(hsl);
+      expect(color.hsv).toEqual(hsv);
+      expect(color.rgb).toEqual(rgb);
+    });
+
+    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    userEvent.click(screen.getByText("#ffffff"));
+
+    fireEvent.touchStart(
+      screen.getByTestId("color-picker-saturation").querySelector(".saturation-black"),
+      { touches: touchStart }
+    );
+
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
