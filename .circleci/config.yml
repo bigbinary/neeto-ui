@@ -3,7 +3,7 @@ aliases:
         - &test_environment
             docker:
               # replace with your preferred image
-              - image: circleci/node:14
+              - image: cimg/node:16.13.2
 jobs:
   "Snapshot Test":
             <<: *test_environment
@@ -17,10 +17,16 @@ jobs:
           <<: *test_environment
           steps:
            - checkout
+           - restore_cache:
+              key: dependency-cache-{{ checksum "yarn.lock" }}
            - run: yarn install
+           - save_cache:
+              key: dependency-cache-{{ checksum "yarn.lock" }}
+              paths:
+                - ./node_modules
            - run:
                 name: Run Unit Tests
-                command: yarn test
+                command: yarn test --runInBand
 
 workflows:
   neetoui-tests:
