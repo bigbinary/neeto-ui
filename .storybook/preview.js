@@ -2,6 +2,7 @@ import "./style.scss";
 import "../lib/styles/index.scss";
 
 import { addParameters } from "@storybook/react";
+import { BADGE } from "@geometricpanda/storybook-addon-badges";
 
 addParameters({
   badgesConfig: {
@@ -44,6 +45,7 @@ addParameters({
 });
 
 export const parameters = {
+  badges: [BADGE.BETA, BADGE.OBSOLETE],
   layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

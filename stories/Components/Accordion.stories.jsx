@@ -2,8 +2,6 @@ import React from "react";
 
 import Accordion from "../../lib/components/Accordion";
 
-import { BADGE } from "@geometricpanda/storybook-addon-badges";
-
 export default {
   title: "Components/Accordion",
   component: Accordion,
@@ -11,7 +9,6 @@ export default {
     "Accordion.Item": Accordion.Item,
   },
   parameters: {
-    badges: [BADGE.BETA, BADGE.OBSOLETE],
     layout: "padded",
     docs: {
       description: {
