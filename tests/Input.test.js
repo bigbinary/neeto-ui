@@ -5,24 +5,23 @@ import userEvent from "@testing-library/user-event";
 
 describe("Input", () => {
   it("should render without error", () => {
-    const { getByLabelText, getByTestId } = render(
-      <Input label="Input Label" />
-    );
+    const { getByLabelText } = render(<Input id="input" label="Input Label" />);
     expect(getByLabelText("Input Label")).toBeInTheDocument();
-    expect(getByTestId("input-field")).toBeInTheDocument();
   });
 
   it("should be able to type when uncontrolled", () => {
-    const { getByTestId } = render(<Input label="input" />);
-    const inputField = getByTestId("input-field");
+    const { getByLabelText } = render(<Input id="input" label="Input Label" />);
+    const inputField = getByLabelText("Input Label");
     userEvent.type(inputField, "sample content");
     expect(inputField).toHaveValue("sample content");
   });
 
   it("should call onChange when textarea value changes", () => {
     const onChange = jest.fn();
-    const { getByTestId } = render(<Input label="input" onChange={onChange} />);
-    userEvent.type(getByTestId("input-field"), "Test");
+    const { getByLabelText } = render(
+      <Input id="input" label="Input Label" onChange={onChange} />
+    );
+    userEvent.type(getByLabelText("Input Label"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
@@ -39,8 +38,10 @@ describe("Input", () => {
   });
 
   it("should be disabled if disabled is true", () => {
-    const { getByTestId } = render(<Input label="input" disabled />);
-    expect(getByTestId("input-field")).toBeDisabled();
+    const { getByLabelText } = render(
+      <Input disabled id="input" label="Input Label" />
+    );
+    expect(getByLabelText("Input Label")).toBeDisabled();
   });
 
   it("should show suffix", () => {
