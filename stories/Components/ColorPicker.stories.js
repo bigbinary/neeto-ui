@@ -82,7 +82,6 @@ export const ColorPickerWithColorPalette = (args) => {
       colorPaletteProps={{
         color: selectedColor,
         colorList,
-
         onChange: handleColorChange,
       }}
     />
