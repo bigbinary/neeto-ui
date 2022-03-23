@@ -172,22 +172,6 @@
     }
   }
 
-  &-danger-secondary {
-    color: $neeto-ui-accent4-700;
-    background-color: $neeto-ui-gray-200;
-
-    &:hover:not(:disabled),
-    &:active {
-      color: $neeto-ui-accent4-700;
-      background-color: $neeto-ui-gray-300;
-    }
-
-    &:focus-visible {
-      color: $neeto-ui-accent4-700;
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
-    }
-  }
-
   &-danger-text {
     color: $neeto-ui-accent4-700;
 

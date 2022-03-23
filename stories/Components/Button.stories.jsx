@@ -42,12 +42,6 @@ DangerText.args = {
   label: "Button",
 };
 
-export const DangerSecondary = Template.bind({});
-DangerSecondary.args = {
-  style: "danger-secondary",
-  label: "Button",
-};
-
 export const Text = Template.bind({});
 Text.args = {
   style: "text",
@@ -89,7 +83,6 @@ export const AllVariants = () => {
             </div>
             <div className="flex gap-4 items-start flex-wrap">
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Danger" size="large" />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} label="Danger Secondary" size="large" />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Danger Text" size="large" />
             </div>
           </div>
@@ -101,7 +94,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
             </div>
@@ -110,7 +102,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
             </div>
@@ -119,7 +110,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label"  />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label"  />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label"  />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
             </div>
@@ -132,7 +122,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
             </div>
@@ -141,7 +130,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} size="large" />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} size="large" />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} size="large" />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} size="large" />
             </div>
@@ -150,7 +138,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} />
               <Button style="text" onClick={toggle} icon={Favorite} loading={loading} />
               <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} />
-              <Button style="danger-secondary" onClick={toggle} icon={Favorite} loading={loading} />
               <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} />
               <Button style="link" onClick={toggle} icon={Favorite} loading={loading} />
             </div>
@@ -163,7 +150,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" loading={loading} size="xlarge" />
               <Button style="text" onClick={toggle} label="Label" loading={loading} size="xlarge" />
               <Button style="danger" onClick={toggle} label="Label" loading={loading} size="xlarge" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" loading={loading} size="xlarge" />
               <Button style="danger-text" onClick={toggle} label="Label" loading={loading} size="xlarge" />
               <Button style="link" onClick={toggle} label="Label" loading={loading} size="xlarge" />
             </div>
@@ -172,7 +158,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} label="Label" loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" loading={loading} size="large" />
             </div>
@@ -181,7 +166,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" loading={loading} />
               <Button style="text" onClick={toggle} label="Label" loading={loading} />
               <Button style="danger" onClick={toggle} label="Label" loading={loading} />
-              <Button style="danger-secondary" onClick={toggle} label="Label" loading={loading} />
               <Button style="danger-text" onClick={toggle} label="Label" loading={loading} />
               <Button style="link" onClick={toggle} label="Label" loading={loading} />
             </div>
@@ -194,7 +178,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
             </div>
@@ -203,7 +186,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
             </div>
@@ -212,7 +194,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
               <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
               <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
             </div>
@@ -225,7 +206,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
               <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
             </div>
@@ -234,7 +214,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
             </div>
@@ -243,7 +222,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
               <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
               <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
-              <Button style="danger-secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
               <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
               <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
             </div>
@@ -256,7 +234,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
             </div>
@@ -265,7 +242,7 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              
               <Button style="danger-text" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
             </div>
@@ -274,7 +251,6 @@ export const AllVariants = () => {
               <Button style="secondary" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
               <Button style="text" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
               <Button style="danger" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
-              <Button style="danger-secondary" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
               <Button style="danger-text" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
               <Button style="link" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
             </div>
