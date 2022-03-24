@@ -45,3 +45,20 @@
     padding-right: 24px;
   }
 }
+
+// improve Button contrast on Table Action
+
+.ant-table-cell{
+  .neeto-ui-btn--icon-only.neeto-ui-btn--style-text{
+    color: $neeto-ui-black !important;
+  }
+  .neeto-ui-btn--icon-only{
+    padding: 0 !important;
+    justify-content: center !important;
+    .neeto-ui-btn__icon,
+    svg{
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
+}
