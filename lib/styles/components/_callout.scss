@@ -2,17 +2,18 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   border-radius: $neeto-ui-rounded-sm;
   padding: 16px 12px;
   font-size: $neeto-ui-text-sm;
-  line-height: 20px;
-  color: $neeto-ui-gray-700;
+  font-weight: $neeto-ui-font-medium;
+  line-height: 1.2;
+  color: $neeto-ui-gray-800;
+  gap: 12px;
 
   .neeto-ui-callout__icon {
     flex-shrink: 0;
-    margin-right: 12px;
-    color: $neeto-ui-gray-600;
+    color: $neeto-ui-gray-800;
   }
 
   &.neeto-ui-callout--info {
