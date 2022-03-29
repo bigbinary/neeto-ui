@@ -84,8 +84,8 @@
 
     &.neeto-ui-tag--color-yellow {
       background-color: $neeto-ui-pastel-yellow;
-      border-color: darken($neeto-ui-warning, 20%);
-      color: darken($neeto-ui-warning, 20%);
+      border-color: $neeto-ui-warning;
+      color: $neeto-ui-warning;
     }
 
     &.neeto-ui-tag--color-gray {
