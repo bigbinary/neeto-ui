@@ -61,13 +61,13 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-warning",
-    value: "#f3cd82",
-    compiledValue: "#f3cd82",
+    value: "#f57c00",
+    compiledValue: "#f57c00",
   },
   {
     name: "$neeto-ui-error",
-    value: "#f56a58",
-    compiledValue: "#f56a58",
+    value: "#ea4335",
+    compiledValue: "#ea4335",
   },
   {
     name: "$neeto-ui-pastel-blue",
@@ -141,13 +141,13 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-accent4-700",
-    value: "#c45546",
-    compiledValue: "#c45546",
+    value: "#d62516",
+    compiledValue: "#d62516",
   },
   {
     name: "$neeto-ui-accent4-500",
-    value: "#f56a58",
-    compiledValue: "#f56a58",
+    value: "#ea4335",
+    compiledValue: "#ea4335",
   },
   {
     name: "$neeto-ui-accent4-300",
