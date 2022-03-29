@@ -1,5 +1,3 @@
-// neetoUI variables have been commented out to provide a hotfix for https://github.com/bigbinary/neeto-ui/issues/514
-
 body {
   .Toastify__toast-container {
     z-index: 100000;
@@ -17,8 +15,10 @@ body {
 
       box-shadow: none;
 
-      // border-radius: $neeto-ui-rounded-sm;
-      border-radius: 2px;
+      border-radius: $neeto-ui-rounded-sm;
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
 
       &::after {
         visibility: hidden;
@@ -31,44 +31,26 @@ body {
       .Toastify__toast-body {
         margin: 0;
         padding: 0;
-
-        // color: $neeto-ui-gray-800;
-        color: #2f3941;
+        gap: 8px;
+        color: $neeto-ui-gray-800;
 
         div {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
+          gap: 8px;
 
           p {
-            // font-size: $neeto-ui-text-sm;
-            font-size: 14px;
-            margin: 0 0.75rem;
-          }
-
-          button {
-            padding: 0;
-            margin: 0 0.25rem 0;
-            cursor: pointer;
-
-            // color: $neeto-ui-gray-800;
-            color: #2f3941;
-            opacity: 0.5;
-
-            // transition: $neeto-ui-transition;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-              opacity: 1;
-            }
+            font-size: $neeto-ui-text-sm;
+            font-weight: $neeto-ui-font-medium;
           }
         }
       }
 
       .neeto-ui-toastr__close-button {
-        opacity: 0.5;
-        margin: auto 0;
+        opacity: 0.8;
+        margin: auto 0 auto 8px;
 
         // transition: $neeto-ui-transition;
         transition: all 0.3s ease-in-out;
@@ -81,38 +63,28 @@ body {
       }
 
       &.Toastify__toast--success {
-        // background: $neeto-ui-pastel-green;
-        background: #ebf5ec;
-        // border: 1px solid $neeto-ui-success;
-        border: 1px solid #00ba88;
+        background: $neeto-ui-pastel-green;
+        border: 1px solid $neeto-ui-success;
       }
 
       &.Toastify__toast--error {
-        // background: $neeto-ui-pastel-red;
-        background: #ffefed;
-        // border: 1px solid $neeto-ui-error;
-        border: 1px solid #f56a58;
+        background: $neeto-ui-pastel-red;
+        border: 1px solid $neeto-ui-error;
       }
 
       &.Toastify__toast--info {
-        // background: $neeto-ui-pastel-blue;
-        background: #eaf3fc;
-        // border: 1px solid $neeto-ui-info;
-        border: 1px solid #276ef1;
+        background: $neeto-ui-pastel-blue;
+        border: 1px solid $neeto-ui-info;
       }
 
       &.Toastify__toast--warning {
-        // background: $neeto-ui-pastel-yellow;
-        background: #fff2d7;
-        // border: 1px solid $neeto-ui-warning;
-        border: 1px solid #f3cd82;
+        background: $neeto-ui-pastel-yellow;
+        border: 1px solid $neeto-ui-warning;
       }
 
       &.Toastify__toast--default {
-        // background: $neeto-ui-pastel-blue;
-        background: #eaf3fc;
-        // border: 1px solid $neeto-ui-info;
-        border: 1px solid #276ef1;
+        background: $neeto-ui-pastel-blue;
+        border: 1px solid $neeto-ui-info;
       }
     }
   }
