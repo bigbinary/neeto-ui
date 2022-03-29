@@ -4,16 +4,14 @@
   align-items: center;
   justify-content: center;
   gap: 1px;
-
-  > .neeto-ui-btn {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-
-  .neeto-ui-dropdown__wrapper {
-    > .neeto-ui-btn {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
+  > .neeto-ui-btn{
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
+  }
+  > .neeto-ui-btn.neeto-ui-btn--icon-only{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
