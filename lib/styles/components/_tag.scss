@@ -3,23 +3,23 @@
   justify-content: center;
   align-items: center;
   font-size: $neeto-ui-text-xs;
+  line-height: 12px;
   font-weight: $neeto-ui-font-medium;
+  gap: 4px;
   padding: 3px 8px;
-  border-radius: $neeto-ui-rounded;
+  border-radius: 100px;
   color: $neeto-ui-gray-800;
-  line-height: 1;
   border-width: 1px;
   border-style: solid;
+  user-select: none;
 
   &__indicator {
     border-radius: $neeto-ui-rounded-full;
     height: 8px;
     width: 8px;
-    margin-right: 4px;
   }
 
   &__icon {
-    margin-right: 4px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -31,13 +31,11 @@
   }
 
   &__close {
-    margin-left: 8px;
-    opacity: 0.8;
     transition: $neeto-ui-transition;
     cursor: pointer;
 
     &:hover {
-      opacity: 1;
+      opacity: 0.8;
     }
 
     svg {
@@ -47,15 +45,16 @@
   }
 
   &--size-large {
-    padding: 5px 12px;
-    font-weight: $neeto-ui-font-medium;
+    padding: 3px 12px;
+    gap: 6px;
     font-size: $neeto-ui-text-sm;
+    line-height: 16px;
 
     .neeto-ui-tag__icon,
     .neeto-ui-tag__close {
       svg {
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
       }
     }
   }
