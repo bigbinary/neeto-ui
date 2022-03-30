@@ -26,6 +26,10 @@ body {
 
       .Toastify__toast-icon {
         margin: 0;
+        svg{
+          width: 20px;
+          height: 20px;
+        }
       }
 
       .Toastify__toast-body {
