@@ -25,22 +25,12 @@
 
     &:focus-visible, &:hover {
       background-color: $neeto-ui-gray-100;
-
-      .neeto-ui-accordion__item-handle {
-        color: $neeto-ui-gray-700;
-      }
-    }
-
-    &.neeto-ui-accordion__item--open {
-      .neeto-ui-label {
-        color: $neeto-ui-gray-800;
-      }
     }
   }
 
   .neeto-ui-accordion__drop {
     padding: 4px 8px 16px;
     margin-bottom: 0px;
-    color: $neeto-ui-gray-600;
+    color: $neeto-ui-gray-700;
   }
 }
