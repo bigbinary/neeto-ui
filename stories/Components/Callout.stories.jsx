@@ -1,5 +1,10 @@
 import React from "react";
-import { Info, Warning } from "@bigbinary/neeto-icons";
+import {
+  Warning,
+  CloseCircle,
+  CheckCircle,
+  Info,
+} from "@bigbinary/neeto-icons";
 
 import Callout from "../../lib/components/Callout";
 
@@ -14,6 +19,10 @@ export default {
       },
     },
   },
+};
+
+export const SuccessCallout = () => {
+  return <Callout style="success" icon={CheckCircle}>This is a success callout!</Callout>;
 };
 
 export const InfoCallout = () => {
@@ -33,5 +42,5 @@ export const WarningCallout = () => {
 };
 
 export const DangerCallout = () => {
-  return <Callout style="danger">This is a danger callout!</Callout>;
+  return <Callout style="danger" icon={CloseCircle}>This is a danger callout!</Callout>;
 };
