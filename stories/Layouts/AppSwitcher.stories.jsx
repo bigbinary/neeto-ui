@@ -63,7 +63,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
 AppSwitcherStory.storyName = "AppSwitcher";
 AppSwitcherStory.args = {
   isOpen: true,
-  neetoApps: ["KB", "Desk", "planner"],
+  neetoApps: ["KB", "Desk", "Planner"],
   activeApp: "Chat",
 };
 
