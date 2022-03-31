@@ -143,6 +143,8 @@ export const SidebarWithAppSwitcher = (args) => {
         isCollapsed={true}
       />
       <AppSwitcher
+        neetoApps={[]}
+        activeApp="Chat"
         isOpen={isAppSwitcherOpen}
         isSidebarOpen={!true}
         onClose={() => setIsAppSwitcherOpen(false)}

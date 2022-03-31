@@ -5,12 +5,13 @@ import dayjs from "dayjs";
 import DatePicker from "../lib/components/DatePicker";
 
 const today = dayjs();
-const tomorrow = dayjs().add(1, "day");
+const theDate = dayjs(new Date(1999, 7, 16));
+const anotherDate = theDate.add(1, "day");
 
 describe("DatePicker", () => {
   it("should render without error", () => {
-    render(<DatePicker defaultValue={today} />);
-    expect(screen.getByRole("textbox")).toHaveValue(today.format("DD/MM/YYYY"));
+    render(<DatePicker defaultValue={theDate} />);
+    expect(screen.getByRole("textbox")).toHaveValue(theDate.format("DD/MM/YYYY"));
   });
 
   it("should show label if label is provided", () => {
@@ -24,7 +25,7 @@ describe("DatePicker", () => {
   });
 
   it("should render time if showTime is true", async () => {
-    render(<DatePicker defaultValue={today} showTime open />);
+    render(<DatePicker defaultValue={theDate} showTime open />);
     expect(await screen.findAllByText("00")).toHaveLength(3);
   });
 
@@ -33,9 +34,9 @@ describe("DatePicker", () => {
     expect(await screen.findAllByText("00")).toHaveLength(1);
   });
 
-  it("should show only hours and minutes if format is MM", async () => {
+  it("should show only hours and minutes if format is HH:mm", async () => {
     render(
-      <DatePicker defaultValue={today} timeFormat="HH:mm" showTime open />
+      <DatePicker defaultValue={theDate} timeFormat="HH:mm" showTime open />
     );
     expect(await screen.findAllByText("00")).toHaveLength(2);
   });
@@ -66,14 +67,14 @@ describe("DatePicker", () => {
 
   it("should trigger onChange on selecting a date", () => {
     const onChange = jest.fn();
-    render(<DatePicker defaultValue={today} onChange={onChange} open />);
-    fireEvent.click(screen.getByText(tomorrow.get("D")));
+    render(<DatePicker defaultValue={theDate} onChange={onChange} open />);
+    fireEvent.click(screen.getByText(anotherDate.get("D")));
     expect(onChange).toHaveBeenCalled();
   });
 
   it("should trigger onOk method on clicking on ok button", () => {
     const onOk = jest.fn();
-    render(<DatePicker open showTime defaultValue={today} onOk={onOk} />);
+    render(<DatePicker open showTime defaultValue={theDate} onOk={onOk} />);
     fireEvent.click(screen.getByText("Ok"));
     expect(onOk).toHaveBeenCalled();
   });

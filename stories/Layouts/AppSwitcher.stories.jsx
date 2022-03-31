@@ -63,6 +63,8 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
 AppSwitcherStory.storyName = "AppSwitcher";
 AppSwitcherStory.args = {
   isOpen: true,
+  neetoApps: ["KB", "Desk", "Planner"],
+  activeApp: "Chat",
 };
 
 export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
@@ -108,6 +110,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
 
 AppSwitcherWithRecentApps.args = {
   isOpen: true,
-  recentApps: ["Quiz", "Codify"],
-  neetoApps: ["Desk", "KB", "Quiz", "Codify"],
+  recentApps: ["Quiz", "Runner"],
+  activeApp: "Chat",
+  neetoApps: ["Chat", "Desk", "KB", "Quiz", "Runner"],
 };

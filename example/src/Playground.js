@@ -86,6 +86,8 @@ const Playground = () => {
         isOpen={appSwitcher}
         isSidebarOpen={!isSidebarCollapsed}
         onClose={() => toggleAppSwitcher(false)}
+        activeApp="Chat"
+        neetoApps={[]}
       />
     </Router>
   );
