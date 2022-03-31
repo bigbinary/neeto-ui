@@ -28,7 +28,7 @@
     "antd": "4.18.7",
     "dayjs": "^1.10.3",
     "framer-motion": "^4.1.17",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
     "react-color": "^2.19.3",
     "react-hotkeys-hook": "^3.3.2",
