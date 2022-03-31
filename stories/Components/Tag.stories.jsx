@@ -16,7 +16,7 @@ export default {
   },
 };
 
-const Template = (args) => <Tag {...args} />;
+const Template = ({onClose, ...args}) => <Tag {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
