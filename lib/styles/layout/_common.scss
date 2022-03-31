@@ -45,17 +45,3 @@
     padding-right: 24px;
   }
 }
-
-// improve Button contrast on Table Action
-
-.ant-table-cell{
-  .neeto-ui-btn--icon-only{
-    padding: 2px !important;
-    justify-content: center !important;
-    .neeto-ui-btn__icon,
-    svg{
-      width: 24px !important;
-      height: 24px !important;
-    }
-  }
-}
