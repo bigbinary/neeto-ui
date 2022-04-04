@@ -27,6 +27,7 @@
 jsconfig.json
 .eslint-rules
 .circleci
+.node-version
 jest-setup.js
 
 #logs
