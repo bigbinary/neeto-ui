@@ -201,7 +201,7 @@ const columns = [
     key: "icon_button",
     width: 150,
     render: () => (
-      <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+      <Dropdown icon={MenuHorizontal} buttonStyle="text" buttonProps={{size: "large"}} strategy="fixed">
         <li>Option 1</li>
         <li>Option 2</li>
         <li>Option 3</li>
@@ -446,7 +446,7 @@ export const TableInLayout = (args) => {
         />
         <Scrollable className="w-full">
           <Table
-            isLoading={isLoading}
+            loading={isLoading}
             columnData={columns}
             rowData={rowData}
             defaultPageSize={10}

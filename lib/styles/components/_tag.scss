@@ -3,24 +3,23 @@
   justify-content: center;
   align-items: center;
   font-size: $neeto-ui-text-xs;
-  font-weight: $neeto-ui-font-normal;
-  padding: 2px 8px;
-  line-height: 1.1;
-  min-height: 20px;
-  border-radius: $neeto-ui-rounded;
+  line-height: 12px;
+  font-weight: $neeto-ui-font-medium;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 100px;
   color: $neeto-ui-gray-800;
   border-width: 1px;
   border-style: solid;
+  user-select: none;
 
   &__indicator {
     border-radius: $neeto-ui-rounded-full;
     height: 8px;
     width: 8px;
-    margin-right: 8px;
   }
 
   &__icon {
-    margin-right: 8px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -32,13 +31,11 @@
   }
 
   &__close {
-    margin-left: 8px;
-    opacity: 0.8;
     transition: $neeto-ui-transition;
     cursor: pointer;
 
     &:hover {
-      opacity: 1;
+      opacity: 0.8;
     }
 
     svg {
@@ -48,10 +45,10 @@
   }
 
   &--size-large {
-    padding: 4px 12px;
-    font-weight: $neeto-ui-font-medium;
+    padding: 3px 12px;
+    gap: 6px;
     font-size: $neeto-ui-text-sm;
-    min-height: 26px;
+    line-height: 16px;
 
     .neeto-ui-tag__icon,
     .neeto-ui-tag__close {
@@ -59,20 +56,6 @@
         width: 16px;
         height: 16px;
       }
-    }
-
-    .neeto-ui-tag__icon {
-      margin-right: 12px;
-    }
-
-    .neeto-ui-tag__indicator {
-      width: 10px;
-      height: 10px;
-      margin-right: 12px;
-    }
-
-    .neeto-ui-tag__close {
-      margin-left: 12px;
     }
   }
 

@@ -2,26 +2,45 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   border-radius: $neeto-ui-rounded-sm;
-  padding: 16px 12px;
+  padding: 9px 12px;
   font-size: $neeto-ui-text-sm;
-  line-height: 20px;
-  color: $neeto-ui-gray-700;
+  line-height: 16px;
+  font-weight: $neeto-ui-font-medium;
+  color: $neeto-ui-gray-800;
+  gap: 12px;
 
   .neeto-ui-callout__icon {
     flex-shrink: 0;
-    margin-right: 12px;
-    color: $neeto-ui-gray-600;
   }
 
   &.neeto-ui-callout--info {
     background-color: $neeto-ui-pastel-blue;
+    border: 1px solid $neeto-ui-info;
+    .neeto-ui-callout__icon{
+      color: $neeto-ui-info;
+    }
   }
   &.neeto-ui-callout--warning {
     background-color: $neeto-ui-pastel-yellow;
+    border: 1px solid $neeto-ui-warning;
+    .neeto-ui-callout__icon{
+      color: $neeto-ui-warning;
+    } 
   }
   &.neeto-ui-callout--danger {
     background-color: $neeto-ui-pastel-red;
+    border: 1px solid $neeto-ui-error;
+    .neeto-ui-callout__icon{
+      color: $neeto-ui-error;
+    }
+  }
+  &.neeto-ui-callout--success {
+    background-color: $neeto-ui-pastel-green;
+    border: 1px solid $neeto-ui-success;
+    .neeto-ui-callout__icon{
+      color: $neeto-ui-success;
+    } 
   }
 }

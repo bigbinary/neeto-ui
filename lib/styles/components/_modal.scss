@@ -20,8 +20,8 @@
 
     .neeto-ui-modal__close {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 32px;
+      right: 32px;
     }
 
     &.neeto-ui-modal__wrapper--xs {
@@ -37,7 +37,7 @@
     }
 
     .neeto-ui-modal__header {
-      padding: 56px 32px 8px;
+      padding: 32px 64px 16px 32px;
     }
 
     .neeto-ui-modal__body {
@@ -47,7 +47,7 @@
     }
 
     .neeto-ui-modal__footer {
-      padding: 24px 32px 32px 32px;
+      padding: 24px 32px 32px;
     }
 
     .neeto-ui-alert__footer {

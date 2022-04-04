@@ -1,3 +1,7 @@
+.neeto-ui-accordions-outer-wrapper{
+  padding: 24px;
+}
+
 .neeto-ui-accordion__wrapper {
   border-bottom: thin solid $neeto-ui-gray-300;
 
@@ -6,10 +10,6 @@
   }
 
   .neeto-ui-accordion__item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     padding: 16px 8px;
     cursor: pointer;
     transition: all 0.3s;
@@ -25,22 +25,12 @@
 
     &:focus-visible, &:hover {
       background-color: $neeto-ui-gray-100;
-
-      .neeto-ui-accordion__item-handle {
-        color: $neeto-ui-gray-700;
-      }
-    }
-
-    &.neeto-ui-accordion__item--open {
-      .neeto-ui-label {
-        color: $neeto-ui-gray-800;
-      }
     }
   }
 
   .neeto-ui-accordion__drop {
     padding: 4px 8px 16px;
     margin-bottom: 0px;
-    color: $neeto-ui-gray-600;
+    color: $neeto-ui-gray-700;
   }
 }

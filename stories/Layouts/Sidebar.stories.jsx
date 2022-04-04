@@ -16,9 +16,9 @@ import Switch from "../../lib/components/Switch";
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
 import {
-  NAV_LINKS,
+  STORYBOOK_NAV_LINKS,
   COMPONENT_MAPPING,
-  FOOTER_LINKS,
+  STORYBOOK_FOOTER_LINKS,
 } from "../../example/src/constants";
 
 export default {
@@ -41,8 +41,8 @@ const Template = (args) => {
         <Sidebar {...args} />
         <div className="relative flex flex-col flex-grow h-screen overflow-auto">
           <SwitchComponent>
-            {NAV_LINKS &&
-              NAV_LINKS.map(({ label, to }, index) => {
+            {STORYBOOK_NAV_LINKS &&
+              STORYBOOK_NAV_LINKS.map(({ label, to }, index) => {
                 return (
                   <Route
                     key={index}
@@ -65,7 +65,7 @@ SidebarCollapsed.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -110,7 +110,7 @@ SidebarExpanded.args = {
     subdomain: "neetoui.netlify.app",
   },
   isCollapsed: false,
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -161,7 +161,7 @@ SidebarWithAppSwitcher.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
@@ -194,7 +194,7 @@ SidebarWithFooterLinks.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS.slice(0, 3),
+  navLinks: STORYBOOK_NAV_LINKS.slice(0, 3),
   profileInfo: {
     name: "Kieran Miller",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
@@ -211,7 +211,7 @@ SidebarWithFooterLinks.args = {
       },
     ],
   },
-  footerLinks: FOOTER_LINKS,
+  footerLinks: STORYBOOK_FOOTER_LINKS,
   showAppSwitcher: true,
   appName: "neetoUI",
 };
@@ -230,7 +230,7 @@ ProfileSectionWithChangelogAndHelp.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
@@ -269,7 +269,7 @@ ProfileSectionWithCustomContent.args = {
     name: "neetoUI",
     subdomain: "neetoui.netlify.app",
   },
-  navLinks: NAV_LINKS,
+  navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",

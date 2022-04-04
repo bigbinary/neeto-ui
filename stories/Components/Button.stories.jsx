@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Keyboard } from "@bigbinary/neeto-icons";
+import { Favorite } from "@bigbinary/neeto-icons";
 
 import Button from "../../lib/components/Button";
 
@@ -36,6 +36,12 @@ Danger.args = {
   label: "Button",
 };
 
+export const DangerText = Template.bind({});
+DangerText.args = {
+  style: "danger-text",
+  label: "Button",
+};
+
 export const Text = Template.bind({});
 Text.args = {
   style: "text",
@@ -64,385 +70,190 @@ export const AllVariants = () => {
   };
   return (
     <div className="w-full">
-      <div className="p-6 space-y-6">
-        <Button onClick={toggle} label="Toggle Loading State" />
-        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-          <h2 className="text-xl">Styles</h2>
-          <div className="flex gap-10">
-            <div className="flex flex-col items-start gap-6">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Primary"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Primary"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Primary"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Primary"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Primary"
-                icon={Keyboard}
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Primary"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button loading onClick={toggle} size="large" icon={Keyboard} />
+      <div className="space-y-6">
+        <div className="flex flex-col gap-3">
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Styles</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} label="Primary" size="large" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Secondary" size="large" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Text" size="large" />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Link" size="large" />
             </div>
-            <div className="flex flex-col items-start gap-6">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-                icon={Keyboard}
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Secondary"
-                style="secondary"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                style="secondary"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-            </div>
-            <div className="flex flex-col items-start gap-6">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-                icon={Keyboard}
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Danger"
-                style="danger"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                style="danger"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-            </div>
-            <div className="flex flex-col items-start gap-6">
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-                disabled
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-                icon={Keyboard}
-              />
-              <Button
-                loading={loading}
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-                icon={Keyboard}
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                label="Text"
-                style="text"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                onClick={toggle}
-                size="large"
-                style="text"
-                icon={Keyboard}
-              />
-            </div>
-            <div className="flex flex-col items-start gap-6">
-              <Button size="large" label="Link" style="link" />
-              <Button size="large" label="Link" style="link" disabled />
-              <Button size="large" label="Link" style="link" icon={Keyboard} />
-              <Button
-                size="large"
-                label="Link"
-                style="link"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                size="large"
-                label="Link"
-                style="link"
-                icon={Keyboard}
-                iconPosition="left"
-              />
-              <Button
-                loading
-                size="large"
-                label="Link"
-                style="link"
-                icon={Keyboard}
-              />
-              <Button loading size="large" style="link" icon={Keyboard} />
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Danger" size="large" />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Danger Text" size="large" />
             </div>
           </div>
-        </div>
-        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
-          <h2 className="text-xl">Sizes</h2>
-          <div className="flex flex-row flex-wrap items-center justify-start gap-4">
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              label="Large"
-              style="primary"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              style="primary"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              label="Large"
-              style="secondary"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              style="secondary"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              label="Large"
-              style="danger"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              style="danger"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              label="Large"
-              style="text"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              style="text"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              size="large"
-              label="Large"
-              style="link"
-            />
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Sizes</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="xlarge" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} label="Label"  />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} label="Label"  />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} label="Label" />
+            </div>
           </div>
-          <div className="flex flex-row flex-wrap items-center justify-start gap-4">
-            <Button
-              loading={loading}
-              onClick={toggle}
-              label="Default"
-              style="primary"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              style="primary"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              label="Default"
-              style="secondary"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              style="secondary"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              label="Large"
-              style="danger"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              style="danger"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              label="Default"
-              style="text"
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              style="text"
-              icon={Keyboard}
-            />
-            <Button
-              loading={loading}
-              onClick={toggle}
-              label="Default"
-              style="link"
-            />
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Icon Only</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} size="xlarge" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} icon={Favorite} loading={loading} />
+              <Button style="secondary" onClick={toggle} icon={Favorite} loading={loading} />
+              <Button style="text" onClick={toggle} icon={Favorite} loading={loading} />
+              <Button style="danger" onClick={toggle} icon={Favorite} loading={loading} />
+              <Button style="danger-text" onClick={toggle} icon={Favorite} loading={loading} />
+              <Button style="link" onClick={toggle} icon={Favorite} loading={loading} />
+            </div>
+          </div>
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Label Only</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+              <Button style="secondary" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+              <Button style="text" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+              <Button style="danger" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+              <Button style="danger-text" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+              <Button style="link" onClick={toggle} label="Label" loading={loading} size="xlarge" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} label="Label" loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" loading={loading} />
+              <Button style="secondary" onClick={toggle} label="Label" loading={loading} />
+              <Button style="text" onClick={toggle} label="Label" loading={loading} />
+              <Button style="danger" onClick={toggle} label="Label" loading={loading} />
+              <Button style="danger-text" onClick={toggle} label="Label" loading={loading} />
+              <Button style="link" onClick={toggle} label="Label" loading={loading} />
+            </div>
+          </div>
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">With left Icon</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="xlarge" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="left" icon={Favorite} loading={loading} />
+            </div>
+          </div>
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">With right Icon</h2>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="xlarge" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap">
+              <Button style="primary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+              <Button style="secondary" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+              <Button style="text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+              <Button style="danger" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+              <Button style="danger-text" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+              <Button style="link" onClick={toggle} label="Label" iconPosition="right" icon={Favorite} loading={loading} />
+            </div>
+          </div>
+          <Button onClick={toggle} label="Toggle Loading State" className="self-end" />
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Full width</h2>
+            <div className="flex gap-4 items-start flex-wrap w-80">
+              <Button style="primary" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" fullWidth iconPosition="right" icon={Favorite} loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap w-80">
+              <Button style="primary" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              
+              <Button style="danger-text" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" fullWidth iconPosition="left" icon={Favorite} loading={loading} size="large" />
+            </div>
+            <div className="flex gap-4 items-start flex-wrap w-80">
+              <Button style="primary" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+              <Button style="secondary" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+              <Button style="text" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+              <Button style="danger" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+              <Button style="danger-text" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+              <Button style="link" onClick={toggle} label="Label" fullWidth loading={loading} size="large" />
+            </div>
           </div>
         </div>
       </div>
