@@ -30,7 +30,6 @@ Prefix the change with one of these keywords:
 - Changed: Implemented _Dropdown_ component with Tippy.js and removed `react-popper`
 - Deprecated: **BREAKING** `loading` prop of _Pane_, _Modal_ and _Alert_ components.
 - Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
-- Removed: Tailwind dependency
 
 #### UI
 
