@@ -4830,3 +4830,324 @@ export const TABLE_DATA = [
     shirt_size: "XS",
   },
 ];
+
+const columnData = [
+  {
+    dataIndex: "id",
+    key: "id",
+    sorter: () => {},
+    title: "ID",
+    width: 75,
+  },
+  {
+    dataIndex: "guid",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "guid",
+    title: function noRefCheck() {},
+    width: 150,
+  },
+  {
+    dataIndex: "first_name",
+    key: "first_name",
+    render: function noRefCheck() {},
+    title: "First Name",
+    width: 150,
+  },
+  {
+    dataIndex: "last_name",
+    key: "last_name",
+    title: "Last Name",
+    width: 150,
+  },
+  {
+    dataIndex: "buzzword",
+    key: "buzzword",
+    title: "Buzzword",
+    width: 250,
+  },
+  {
+    dataIndex: "gender",
+    key: "gender",
+    title: "Gender",
+    width: 150,
+  },
+  {
+    dataIndex: "email",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "email",
+    title: "Email",
+    width: 200,
+  },
+  {
+    dataIndex: "company_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "company_name",
+    title: "Company Name",
+    width: 75,
+  },
+  {
+    dataIndex: "ip_address",
+    key: "ip_address",
+    title: "IP Address",
+    width: 150,
+  },
+  {
+    dataIndex: "department",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "department",
+    title: "Department",
+    width: 150,
+  },
+  {
+    dataIndex: "job_title",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "job_title",
+    title: "Job Title",
+    width: 75,
+  },
+  {
+    dataIndex: "currency",
+    key: "currency",
+    title: "Currency",
+    width: 150,
+  },
+  {
+    dataIndex: "credit_card_number",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "credit_card_number",
+    title: "Credit Card Number",
+    width: 250,
+  },
+  {
+    dataIndex: "currency_code",
+    key: "currency_code",
+    title: "Currency Code",
+    width: 150,
+  },
+  {
+    dataIndex: "domain_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "domain_name",
+    title: "Domain Name",
+    width: 200,
+  },
+  {
+    dataIndex: "app_name",
+    key: "app_name",
+    title: "App Name",
+    width: 150,
+  },
+  {
+    dataIndex: "app_version",
+    key: "app_version",
+    title: "App Version",
+    width: 150,
+  },
+  {
+    dataIndex: "shirt_size",
+    key: "shirt_size",
+    title: "Shirt Size",
+    width: 150,
+  },
+  {
+    dataIndex: "action",
+    key: "action",
+    render: function noRefCheck() {},
+    title: "Action",
+    width: 150,
+  },
+  {
+    dataIndex: "icon_button",
+    key: "icon_button",
+    render: function noRefCheck() {},
+    title: "Icon Button",
+    width: 150,
+  },
+];
+
+const columnDataToString = () =>
+  JSON.stringify(columnData, null, 4).replace(/(\{|\}|\])/gi, "\t$1");
+
+export const getTableSource = (extraProps = "") => {
+  return `<Table
+  \tcolumnData={${columnDataToString()}}
+    currentPageNumber={1}
+    defaultPageSize={10}
+    handlePageChange={function noRefCheck() {}}
+    onRowClick={function noRefCheck() {}}
+    onRowSelect={function noRefCheck() {}}
+    rowData={[
+      // rowData is limited to just 1 item to favour readability
+      {
+        app_name: 'Sub-Ex',
+        app_version: '7.0.9',
+        buzzword: 'artificial intelligence',
+        company_name: 'Schuppe-Beier',
+        credit_card_number: 3551746792304987,
+        currency: 'Ruble',
+        currency_code: 'RUB',
+        department: 'Training',
+        domain_name: 'freewebs.com',
+        email: 'brealy0@who.int',
+        first_name: 'Brennen',
+        gender: 'Male',
+        guid: 'cd75b6a6-54fa-4a0f-8fe9-5b62a461a2d0',
+        id: 1,
+        ip_address: '144.32.99.33',
+        job_title: 'Internal Auditor',
+        key: 1,
+        last_name: 'Realy',
+        shirt_size: '3XL'
+      }
+    ]}
+    ${extraProps.trim()}
+  />
+ `;
+};
+
+export const TABLE_IN_LAYOUT = `
+<div className="flex">
+  <MenuBar
+    title={<div className="flex justify-between"><Typography style="h2">Contacts</Typography></div>}
+  >
+    <Block
+      active
+      count={13}
+      label="All"
+    />
+    <Block
+      count={2}
+      label="Users"
+    />
+    <Block
+      count={7}
+      label="Leads"
+    />
+    <Block
+      count={4}
+      label="Visitors"
+    />
+    <SubTitle
+      iconProps={[
+        {
+          icon: () => {},
+          onClick: function noRefCheck() {}
+        }
+      ]}
+    >
+      <Typography
+        component="h4"
+        style="h5"
+        textTransform="uppercase"
+        weight="bold"
+      >
+        Segments
+      </Typography>
+    </SubTitle>
+    <Search
+      collapse
+      onCollapse={function noRefCheck() {}}
+    />
+    <Block
+      count={80}
+      label="Europe"
+    />
+    <Block
+      count={60}
+      label="Middle-East"
+    />
+    <Block
+      count={60}
+      label="Asia"
+    />
+    <AddNew label="Add New Segments" />
+    <SubTitle
+      iconProps={[
+        {
+          icon: function noRefCheck() {}
+        },
+        {
+          icon: function noRefCheck() {}
+        },
+        {
+          icon: function noRefCheck() {}
+        }
+      ]}
+    >
+      <Typography
+        component="h4"
+        style="h5"
+        textTransform="uppercase"
+        weight="bold"
+      >
+        Tags
+      </Typography>
+    </SubTitle>
+    <Block
+      count={80}
+      label="Europe"
+    />
+    <Block
+      count={60}
+      label="Middle-East"
+    />
+    <Block
+      count={60}
+      label="Asia"
+    />
+    <AddNew label="Add New Tag" />
+    <Item
+      description="Welcome Message, KB and Labels "
+      label="General"
+    />
+    <Item
+      active
+      description="Brand Color, Logo and Widget Position"
+      label="Styling"
+    />
+    <Item
+      description="Position, Icon and Label"
+      label="Widget Icon"
+    />
+  </MenuBar>
+  <Container>
+    <Header
+      actionBlock={<Button label="Primary Action" />}
+      menuBarToggle={function noRefCheck() {}}
+      title={<div className="flex items-center"><h3>Layout</h3></div>}
+    />
+    <SubHeader
+      deleteButtonProps={{
+        count: 0,
+        onClick: function noRefCheck() {},
+        selectedIDs: []
+      }}
+      disableButtonProps={{
+        count: 0,
+        onClick: function noRefCheck() {},
+        selectedIDs: []
+      }}
+      searchProps={{
+        onChange: function noRefCheck() {},
+        value: ''
+      }}
+    />
+    <Scrollable className="w-full">
+      ${getTableSource()}</Scrollable>
+ </Container>
+</div>
+`;

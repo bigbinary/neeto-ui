@@ -32,7 +32,39 @@ const columns = [
 - `dataIndex` is the `key` over which, the row data is mapped over for the particular column.
 - Each column needs to have a unique `key`.
 - `title` accepts `JSX`. Hence, we can wrap it inside a `tooltip` if we wish to show a tooltip on hover of a header.
-- The `render` method inside `columnData` accepts `JSX` and can be used to define custom row data like cells with `Avatar` or `IconButton`.
+- The `render` method inside `columnData` accepts `JSX` and can be used to define custom row data like cells with `Avatar` or `IconButton`. This method is called with the `key` properties of columnData objects. Example,
+
+```jsx
+const columnData = [
+  {
+    title: "First Name",
+    dataIndex: "first_name",
+    key: "first_name",
+    width: 150,
+    // the 'key' property from all the columns is available as the argument to the render method
+    render: (first_name, last_name) => {
+      return (
+        <div className="flex flex-row items-center">
+          <Avatar
+            user={{ name: `${first_name} ${last_name}` }}
+            size="small"
+            className="mr-2"
+          />
+          {first_name}
+        </div>
+      );
+    },
+  },
+  {
+    title: "Last Name",
+    dataIndex: "last_name",
+    key: "last_name",
+    width: 150,
+  },
+  // other columns
+];
+```
+
 - The `ellipsis` key is used to truncate any large text that overflows the given width for a cell.
 - `defaultPageSize` by default is set to `100`.
 - `onRowClick` handler returns `selectedRowKey and selectedRow`.
