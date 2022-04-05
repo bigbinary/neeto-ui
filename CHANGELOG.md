@@ -3,9 +3,9 @@
 ------- FOLLOW THESE WHILE ADDING AN ENTRY ------
 
 ** Add BREAKING keyword in bold for changes which could potentially break the component, eg: **BREAKING**
-** Represent a component name in italics, eg: _isLoading_
+** Represent a component name in italics, eg: _Modal_
 ** Enclose a prop name in double backticks, eg: `isLoading`
-** Represent a version as second level heading and write with version number inside a square bracket, eg: ##  [3.3.2]
+** Represent a version as second level heading and write the version number inside a square bracket, eg: ##  [3.3.2]
 
 --->
 
@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - _Removed_: for now removed features.
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
+
+## [3.3.1]
+
+- Fixed: Typography of Header in _Alert_ component.
+- Fixed: Max width issue in _Dropdown_ component.
 
 ## [3.3.0]
 
