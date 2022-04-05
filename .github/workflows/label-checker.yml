@@ -1,0 +1,11 @@
+name: Label Checker
+on: [pull_request]
+
+jobs:
+  check:
+    runs-on: macos-latest
+    steps:
+      - uses: yogevbd/enforce-label-action@2.1.0
+        with:
+          REQUIRED_LABELS_ANY: "major,minor,patch"
+          REQUIRED_LABELS_ANY_DESCRIPTION: "Select at least one label ['major','minor','patch']"
