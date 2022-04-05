@@ -9,3 +9,51 @@ jobs:
         with:
           REQUIRED_LABELS_ANY: "major,minor,patch"
           REQUIRED_LABELS_ANY_DESCRIPTION: "Select at least one label ['major','minor','patch']"
+
+      - name: Major Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'minor')
+          && !contains(github.event.pull_request.labels.*.name, 'patch')
+          && contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --major
+
+      - name: Major Non-Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'minor')
+          && !contains(github.event.pull_request.labels.*.name, 'patch')
+          && !contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --major --no-git-tag-version
+
+      - name: Minor Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'minor')
+          && !contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'patch')
+          && contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --minor
+
+      - name: Minor Non-Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'minor')
+          && !contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'patch')
+          && !contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --minor --no-git-tag-version
+
+      - name: Patch Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'patch')
+          && !contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'minor')
+          && contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --patch
+
+      - name: Patch Non-Release
+      - if: |
+          contains(github.event.pull_request.labels.*.name, 'patch')
+          && !contains(github.event.pull_request.labels.*.name, 'major')
+          && !contains(github.event.pull_request.labels.*.name, 'minor')
+          && !contains(github.event.pull_request.labels.*.name, 'release')
+        run: yarn version --patch --no-git-tag-version
