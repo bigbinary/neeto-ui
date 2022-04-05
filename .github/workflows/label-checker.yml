@@ -3,7 +3,7 @@ on: [pull_request]
 
 jobs:
   check:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: yogevbd/enforce-label-action@2.1.0
         with:
@@ -11,7 +11,7 @@ jobs:
           REQUIRED_LABELS_ANY_DESCRIPTION: "Select at least one label ['major','minor','patch']"
 
       - name: Major Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'minor')
           && !contains(github.event.pull_request.labels.*.name, 'patch')
@@ -19,7 +19,7 @@ jobs:
         run: yarn version --major
 
       - name: Major Non-Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'minor')
           && !contains(github.event.pull_request.labels.*.name, 'patch')
@@ -27,7 +27,7 @@ jobs:
         run: yarn version --major --no-git-tag-version
 
       - name: Minor Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'minor')
           && !contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'patch')
@@ -35,7 +35,7 @@ jobs:
         run: yarn version --minor
 
       - name: Minor Non-Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'minor')
           && !contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'patch')
@@ -43,7 +43,7 @@ jobs:
         run: yarn version --minor --no-git-tag-version
 
       - name: Patch Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'patch')
           && !contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'minor')
@@ -51,7 +51,7 @@ jobs:
         run: yarn version --patch
 
       - name: Patch Non-Release
-      - if: |
+        if: |
           contains(github.event.pull_request.labels.*.name, 'patch')
           && !contains(github.event.pull_request.labels.*.name, 'major')
           && !contains(github.event.pull_request.labels.*.name, 'minor')
