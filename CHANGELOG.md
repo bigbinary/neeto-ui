@@ -24,6 +24,9 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.3.2]
+- Fixed: Added override for `onClick` prop in _Dropdown_ component
+
 ## [3.3.1]
 
 - Fixed: Typography of Header in _Alert_ component.

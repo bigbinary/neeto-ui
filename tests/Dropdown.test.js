@@ -119,7 +119,7 @@ describe("Dropdown", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown" isOpen>
         {options}
-        <Dropdown customTarget={<li>Another Dropdown</li>}>{options}</Dropdown>
+        <Dropdown customTarget={<li>Another Dropdown</li>} onClick={e => e.stopPropagation()}>{options}</Dropdown>
       </Dropdown>
     );
     userEvent.click(getByText("Another Dropdown"));
