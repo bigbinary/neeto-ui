@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
-import { TABLE_DATA } from "../constants";
+import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
 import LayoutDocs from "!raw-loader!./LayoutTableDocs.mdx";
 import NeetoTable from "../../lib/components/Table";
@@ -201,7 +201,12 @@ const columns = [
     key: "icon_button",
     width: 150,
     render: () => (
-      <Dropdown icon={MenuHorizontal} buttonStyle="text" buttonProps={{size: "large"}} strategy="fixed">
+      <Dropdown
+        icon={MenuHorizontal}
+        buttonStyle="text"
+        buttonProps={{ size: "large" }}
+        strategy="fixed"
+      >
         <li>Option 1</li>
         <li>Option 2</li>
         <li>Option 3</li>
@@ -225,6 +230,14 @@ export const Table = (args) => {
 
 Table.args = {
   defaultPageSize: 10,
+};
+
+Table.parameters = {
+  docs: {
+    source: {
+      code: getTableSource(),
+    },
+  },
 };
 
 export const TableWithSelectedRowKeys = ({
@@ -256,6 +269,14 @@ TableWithSelectedRowKeys.args = {
   selectedRowKeys: [1, 2, 3],
 };
 
+TableWithSelectedRowKeys.parameters = {
+  docs: {
+    source: {
+      code: getTableSource("selectedRowKeys={[1, 2, 3]}"),
+    },
+  },
+};
+
 export const TableProps = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
@@ -270,7 +291,12 @@ export const TableProps = (args) => {
 };
 
 TableProps.parameters = {
-  docs: { description: { story: TableDocs } },
+  docs: {
+    description: { story: TableDocs },
+    source: {
+      code: getTableSource(),
+    },
+  },
 };
 
 TableProps.args = {
@@ -295,6 +321,14 @@ export const TableWithFixedHeight = (args) => {
 TableWithFixedHeight.args = {
   defaultPageSize: 10,
   fixedHeight: true,
+};
+
+TableWithFixedHeight.parameters = {
+  docs: {
+    source: {
+      code: getTableSource("fixedHeight"),
+    },
+  },
 };
 
 export const TableWithDynamicData = (args) => {
@@ -462,5 +496,8 @@ export const TableInLayout = (args) => {
 
 TableInLayout.parameters = {
   layout: "fullscreen",
-  docs: { description: { story: LayoutDocs } },
+  docs: {
+    description: { story: LayoutDocs },
+    source: { code: TABLE_IN_LAYOUT },
+  },
 };
