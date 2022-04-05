@@ -110,9 +110,7 @@ export const MultiDropdownWithClickTrigger = () => {
         <Dropdown
           position="right-start"
           customTarget={<li>Another Dropdown</li>}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
+          onClick={(e) => e.stopPropagation()}
         >
           {listItems.map((item, idx) => (
             <li key={idx}>{item}</li>
