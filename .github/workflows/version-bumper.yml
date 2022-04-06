@@ -20,3 +20,16 @@ jobs:
             fi
           done
         shell: bash
+
+      - name: Git Tagging
+        id: TAGGING
+        run: |
+          IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
+          if [[ "${label_array[*]}" =~ "release" ]]; then
+            echo "::set-output name=TAG_OPTION::"
+          else
+            echo "::set-output name=TAG_OPTION::--no-git-tag-version"
+          fi
+
+      - name: Bump Version
+        run: yarn version --${{steps.CURRENT.outputs.VERSION}} ${{steps.TAGGING.outputs.TAG_OPTION}}
