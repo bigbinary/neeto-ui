@@ -1,6 +1,8 @@
 name: Enforce Label
 on:
   pull_request:
+    branches:
+      - master
     types: [opened, labeled, unlabeled]
 
 jobs:
