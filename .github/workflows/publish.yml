@@ -21,20 +21,20 @@ jobs:
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
 
-      - name: Read current version
-        id: CURRENT
+      - name: Find version bump type
+        id: BUMP_TYPE
         run: |
           IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
           for item in ${label_array[*]}
           do
             if [[ "$item" == "major" || "$item" == "minor" || "$item" == "patch" ]]; then
-              echo "::set-output name=VERSION::$(echo $item)"
+              echo "::set-output name=TYPE::$(echo $item)"
             fi
           done
         shell: bash
 
-      - name: Git Tagging
-        id: TAGGING
+      - name: Git tagging check
+        id: TAG_CHECK
         run: |
           IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
           if [[ "${label_array[*]}" =~ "release" ]]; then
@@ -44,7 +44,7 @@ jobs:
           fi
 
       - name: Bump Version
-        run: yarn version --${{steps.CURRENT.outputs.VERSION}} ${{steps.TAGGING.outputs.TAG_OPTION}}
+        run: yarn version --${{steps.BUMP_TYPE.outputs.TYPE}} ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
 
       - uses: EndBug/add-and-commit@v7
         with:
