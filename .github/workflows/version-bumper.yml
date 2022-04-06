@@ -1,0 +1,22 @@
+name: Version Bumper
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read current version
+        id: CURRENT
+        run: |
+          IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
+          for item in ${label_array[*]}
+          do
+            if [[ "$item" == "major" || "$item" == "minor" || "$item" == "patch" ]]; then
+              echo "::set-output name=VERSION::$(echo $item)"
+            fi
+          done
+        shell: bash
