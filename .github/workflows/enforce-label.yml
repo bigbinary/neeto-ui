@@ -1,4 +1,4 @@
-name: Label Checker
+name: Enforce Label
 on:
   pull_request:
     types: [opened, labeled, unlabeled]
