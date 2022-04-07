@@ -185,3 +185,21 @@ export const AutoHidingTooltip = () => {
 TooltipOnCustomComponent.parameters = {
   docs: { description: { story: TooltipDocs } },
 };
+
+export const HidingTooltipOnTargetExit = () => {
+
+  return (
+    <div className="max-h-56 overflow-auto p-10 space-y-2 bg-gray-300">
+      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
+      <Tooltip
+        position="top"
+        content="Press esc to reset input after typing"
+        hideOnTargetExit
+      >
+        <Typography className="text-center mx-auto h-6 w-full bg-white">Hover Me and Scroll</Typography>
+      </Tooltip>
+      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
+    </div>
+  );
+};
+
