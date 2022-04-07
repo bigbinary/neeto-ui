@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Settings } from "@bigbinary/neeto-icons";
 
 import Dropdown from "../../lib/components/Dropdown";
-import { Button } from "../../lib/components";
+import { Button, Tooltip } from "../../lib/components";
 
 export default {
   title: "Components/Dropdown",
@@ -17,10 +17,11 @@ export default {
   },
 };
 
-const listItems = ["Option 1", "Option 2", "Option 3"];
+const listItems = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
 
 export const PrimaryDropdown = (args) => {
   const [dropdownOne, setDropdownOne] = useState(false);
+  const containerRef = useRef(null);
 
   return (
     <Dropdown
@@ -39,9 +40,35 @@ export const PrimaryDropdown = (args) => {
       closeOnSelect={false}
       closeOnOutsideClick={false}
     >
+      {/* <div className="h-56 w-96" ref={containerRef}> */}
       {listItems.map((item, idx) => (
         <li key={idx}>{item}</li>
       ))}
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+      <Tooltip
+        // trigger={"click"}
+        hideOnScroll={true}
+        content="I'm hovering"
+        position="top"
+        // appendTo="parent"
+      >
+        <span key={100}>Random Option</span>
+      </Tooltip>
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+      {listItems.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+      {/* </div> */}
     </Dropdown>
   );
 };
