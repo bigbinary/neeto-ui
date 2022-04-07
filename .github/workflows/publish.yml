@@ -50,11 +50,13 @@ jobs:
         with:
           branch: master
           message: 'New version release'
+          push: false
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
 
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
