@@ -16,7 +16,7 @@ describe("Input", () => {
     expect(inputField).toHaveValue("sample content");
   });
 
-  it("should call onChange when textarea value changes", () => {
+  it("should call onChange when input value changes", () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Input id="input" label="Input Label" onChange={onChange} />
