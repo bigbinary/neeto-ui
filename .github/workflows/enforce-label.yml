@@ -1,0 +1,27 @@
+name: Enforce Label
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, labeled, unlabeled]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-ci') }}
+    steps:
+      - name: Enforce PR Label
+        id: enforce_pr_labels
+        uses: amaldinesh7/enforce-pr-labels@main
+        with:
+          mode: exactly
+          count: 1
+          labels: "major, minor, patch"
+
+      - name: Comment PR
+        if: |
+          always() && steps.enforce_pr_labels.outputs.message != ''
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: '${{steps.enforce_pr_labels.outputs.message}}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,3 @@
-
 name: "Publish and create releases"
 on:
   pull_request:
@@ -22,13 +21,30 @@ jobs:
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
 
-      - name: Bump version and create tag
-        if: contains(github.event.pull_request.labels.*.name, 'release')
-        run: yarn version --patch
+      - name: Find version bump type
+        id: BUMP_TYPE
+        run: |
+          IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
+          for item in ${label_array[*]}
+          do
+            if [[ "$item" == "major" || "$item" == "minor" || "$item" == "patch" ]]; then
+              echo "::set-output name=TYPE::$(echo $item)"
+            fi
+          done
+        shell: bash
 
-      - name: Bump version
-        if: "!contains(github.event.pull_request.labels.*.name, 'release')"
-        run: yarn version --patch --no-git-tag-version
+      - name: Git tagging check
+        id: TAG_CHECK
+        run: |
+          IFS=',' read -r -a label_array <<< "${{ join(github.event.pull_request.labels.*.name, ',') }}"
+          if [[ "${label_array[*]}" =~ "release" ]]; then
+            echo "::set-output name=TAG_OPTION::"
+          else
+            echo "::set-output name=TAG_OPTION::--no-git-tag-version"
+          fi
+
+      - name: Bump Version
+        run: yarn version --${{steps.BUMP_TYPE.outputs.TYPE}} ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
 
       - uses: EndBug/add-and-commit@v7
         with:
@@ -52,6 +68,7 @@ jobs:
         with:
           tag: v${{ steps.package-version.outputs.version }}
           publish: true
+
       - name: "Publish"
         uses: JS-DevTools/npm-publish@v1
         with:
