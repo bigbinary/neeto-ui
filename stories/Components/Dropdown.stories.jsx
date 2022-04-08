@@ -17,7 +17,7 @@ export default {
   },
 };
 
-const listItems = ["Option 1", "Option 2", "Option 3"];
+const listItems = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
 
 export const PrimaryDropdown = (args) => {
   const [dropdownOne, setDropdownOne] = useState(false);

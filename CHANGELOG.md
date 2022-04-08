@@ -24,9 +24,13 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.3.4]
+
+- Added: `hideOnTargetExit` prop to _Tooltip_ component
+
 ## [3.3.3]
 
-- Added: data-cy for in Alert component elements
+- Added: data-cy for in _Alert_ component elements
 
 ## [3.3.2]
 
