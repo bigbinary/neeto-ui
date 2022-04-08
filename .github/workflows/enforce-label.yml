@@ -1,9 +1,16 @@
 name: Enforce Label
 on:
+  workflow_run:
+    workflows: ["Labeler"]
+    types:
+      - completed
+    branches:
+      - master
+
   pull_request:
     branches:
       - master
-    types: [opened, labeled, unlabeled]
+    types: [labeled, unlabeled]
 
 jobs:
   enforce_label:
