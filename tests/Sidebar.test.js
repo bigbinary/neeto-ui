@@ -145,7 +145,7 @@ describe("Sidebar", () => {
     }
   });
 
-  it("should display foooter links correctly", async () => {
+  it("should display footer links correctly", async () => {
     const { container, getByText } = render(
       <Router>
         <Sidebar
