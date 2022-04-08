@@ -2,7 +2,8 @@ name: Enforce Label
 on:
   workflow_run:
     workflows: ["Labeler"]
-    types: [completed]
+    types:
+      - completed
     branches:
       - master
 
