@@ -12,7 +12,7 @@ describe("Container", () => {
     expect(getByText("Test")).toBeInTheDocument();
   });
 
-  it("should be render fixed header when the prop value is true", () => {
+  it("should render fixed header when the prop value is true", () => {
     const neetoClassPrefix = "neeto-ui-container--";
 
     const { container } = render(
