@@ -150,7 +150,7 @@ describe("Sidebar", () => {
       <Router>
         <Sidebar
           {...sidebarProps}
-          isCollapsed
+          isCollapsed={false}
           footerLinks={STORYBOOK_FOOTER_LINKS}
         />
       </Router>
@@ -159,7 +159,6 @@ describe("Sidebar", () => {
     for (const { to, label, href } of STORYBOOK_FOOTER_LINKS) {
       const footerLink = container.querySelector(`a[href="${to || href}"]`);
       expect(footerLink).toBeInTheDocument();
-
       if (!href) {
         userEvent.hover(footerLink);
         expect(await findByText(label)).toBeInTheDocument();
