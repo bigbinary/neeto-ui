@@ -306,7 +306,7 @@ TableProps.args = {
 export const TableWithFixedHeight = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div className="max-h-96">
+    <div className="h-96">
       <NeetoTable
         columnData={columns}
         rowData={TABLE_DATA}
