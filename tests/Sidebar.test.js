@@ -150,7 +150,7 @@ describe("Sidebar", () => {
       <Router>
         <Sidebar
           {...sidebarProps}
-          isCollapsed
+          isCollapsed={false}
           footerLinks={STORYBOOK_FOOTER_LINKS}
         />
       </Router>
