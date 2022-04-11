@@ -24,6 +24,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.3.5]
+
+- Added: active state to `NavLink` in _Sidebar_ component.
+
 ## [3.3.4]
 
 - Added: `hideOnTargetExit` prop to _Tooltip_ component
