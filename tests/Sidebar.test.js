@@ -93,7 +93,7 @@ describe("Sidebar", () => {
   });
 
   it("should display profile information correctly", async () => {
-    const { getByText, container, queryByText } = render(
+    const { getByText, container, queryByText, findByText } = render(
       <Router>
         <Sidebar {...sidebarProps} isCollapsed />
       </Router>
@@ -105,13 +105,13 @@ describe("Sidebar", () => {
     expect(queryByText(email)).not.toBeInTheDocument();
 
     userEvent.hover(profileImage);
-    await waitFor(() => getByText(email));
+    await findByText(email);
     expect(getByText(userName)).toBeInTheDocument();
     expect(getByText(bottomLinks[0].label)).toBeInTheDocument();
   });
 
   it("should apply featured toolTipStyle correctly", async () => {
-    const { getByText, container } = render(
+    const { container, findByText } = render(
       <Router>
         <Sidebar {...sidebarProps} isCollapsed tooltipStyle="featured" />
       </Router>
@@ -121,12 +121,12 @@ describe("Sidebar", () => {
     expect(navLink).toBeInTheDocument();
 
     userEvent.hover(navLink);
-    expect(await waitFor(() => getByText(label))).toBeInTheDocument();
-    expect(await waitFor(() => getByText(description))).toBeInTheDocument();
+    expect(await findByText(label)).toBeInTheDocument();
+    expect(await findByText(description)).toBeInTheDocument();
   });
 
   it("should apply default toolTipStyle correctly", async () => {
-    const { queryByText, getByText, container } = render(
+    const { queryByText, findByText, container } = render(
       <Router>
         <Sidebar {...sidebarProps} isCollapsed tooltipStyle="default" />
       </Router>
@@ -138,7 +138,7 @@ describe("Sidebar", () => {
       expect(navLink).toBeInTheDocument();
 
       userEvent.hover(navLink);
-      expect(await waitFor(() => getByText(label))).toBeInTheDocument();
+      expect(await findByText(label)).toBeInTheDocument();
       expect(
         await waitFor(() => queryByText(description))
       ).not.toBeInTheDocument();
@@ -146,7 +146,7 @@ describe("Sidebar", () => {
   });
 
   it("should display footer links correctly", async () => {
-    const { container, getByText } = render(
+    const { container, findByText } = render(
       <Router>
         <Sidebar
           {...sidebarProps}
@@ -162,7 +162,7 @@ describe("Sidebar", () => {
 
       if (!href) {
         userEvent.hover(footerLink);
-        expect(await waitFor(() => getByText(label))).toBeInTheDocument();
+        expect(await findByText(label)).toBeInTheDocument();
       }
     }
   });
