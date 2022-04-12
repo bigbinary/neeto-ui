@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { getByText, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { AppSwitcher, Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
@@ -85,33 +85,15 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
     const neetoUIClassPrefix = "neeto-ui-app-switcher-link--";
-    const activeLink = document.querySelector(`.${neetoUIClassPrefix}active`);
-    expect(activeLink).toBeInTheDocument();
-    expect(getByText(activeLink, "Planner")).toBeInTheDocument();
-  });
-
-  it("should render different sizes correctly", () => {
-    const size = "lg";
-    render(
-      <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          neetoApps={neetoApps}
-          activeApp="Planner"
-          size={size}
-          environment={process.env.NODE_ENV}
-        />
-      </AppSwitcherTest>
+    const activeLink = screen.getByText(/Planner/i);
+    expect(activeLink.parentElement.parentElement).toHaveClass(
+      `${neetoUIClassPrefix}active`
     );
-
-    const neetoUIClassPrefix = "neeto-ui-app-switcher__wrapper-size--";
-    expect(
-      document.querySelector(`.${neetoUIClassPrefix}${size}`)
-    ).toBeInTheDocument();
   });
 
   it("should render className correctly", () => {
     const size = "lg";
+
     render(
       <AppSwitcherTest>
         <AppSwitcher
@@ -119,13 +101,14 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           activeApp="Planner"
           className="test-class"
+          data-testid="neeto-app-switcher"
           size={size}
           environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
 
-    expect(document.querySelector(".test-class")).toBeInTheDocument();
+    expect(screen.getByTestId("neeto-app-switcher")).toHaveClass("test-class");
   });
 
   it("should close when the back button is pressed", () => {
@@ -142,9 +125,7 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
 
-    const backButton = document.querySelector(
-      "button[data-cy='app-switcher-back-button']"
-    );
+    const backButton = screen.getByRole("button", { name: /Back/i });
     userEvent.click(backButton);
     expect(onClose).toHaveBeenCalled();
   });
@@ -183,16 +164,14 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
 
-    const appSwitcherBackdrop = document.querySelector(
-      ".neeto-ui-app-switcher__backdrop"
-    );
+    const appSwitcherBackdrop = screen.getByTestId("neeto-backdrop");
     userEvent.click(appSwitcherBackdrop);
     expect(onClose).toHaveBeenCalled();
   });
 
   it("should link subdomains based on environment and subdomain props", () => {
     const environment = "production";
-    const appName = "neetodesk";
+    const appName = "Desk";
     const subdomain = "example";
     render(
       <AppSwitcherTest>
@@ -206,16 +185,13 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
 
-    const productionLink = `https://${subdomain}.${appName}.com`;
-    expect(
-      document.querySelector(`a[href='${productionLink}']`)
-    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: appName })).toBeInTheDocument();
   });
 
   it("should display recent apps correctly", () => {
     const recentApps = ["Quiz", "Runner"];
 
-    const { getByText } = render(
+    render(
       <AppSwitcherTest>
         <AppSwitcher
           isOpen
@@ -228,7 +204,7 @@ describe("AppSwitcher", () => {
     );
 
     for (const app of recentApps) {
-      expect(getByText(app)).toBeInTheDocument();
+      expect(screen.getByText(app)).toBeInTheDocument();
     }
   });
 });
