@@ -37,7 +37,6 @@ export const PrimaryDropdown = (args) => {
         },
       }}
       closeOnSelect={false}
-      closeOnOutsideClick={false}
     >
       {listItems.map((item, idx) => (
         <li key={idx}>{item}</li>
