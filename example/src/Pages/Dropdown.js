@@ -27,7 +27,6 @@ const Dropdowns = () => {
               },
             }}
             closeOnSelect={false}
-            closeOnOutsideClick={false}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -37,6 +36,7 @@ const Dropdowns = () => {
             label="Secondary Dropdown"
             buttonStyle="secondary"
             position="bottom"
+            closeOnOutsideClick={false}
           >
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
