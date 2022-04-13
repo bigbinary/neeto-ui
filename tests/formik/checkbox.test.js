@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 import { Checkbox } from "../../lib/components/formik";
 import * as yup from "yup";
 
-const TestRadioForm = ({ onSubmit }) => {
+const TestCheckboxForm = ({ onSubmit }) => {
   const handleSubmit = (values) => {
     onSubmit(values);
   };
@@ -43,7 +43,7 @@ describe("formik/Checkbox", () => {
 
   it("should return checked when used inside a formik form", async () => {
     const onSubmit = jest.fn();
-    const { getByRole } = render(<TestRadioForm onSubmit={onSubmit} />);
+    const { getByRole } = render(<TestCheckboxForm onSubmit={onSubmit} />);
     const checkbox = getByRole("checkbox");
     userEvent.click(checkbox);
     userEvent.click(screen.getByText("Submit"));
@@ -54,7 +54,7 @@ describe("formik/Checkbox", () => {
 
   it("should display error when checkbox is not checked", async () => {
     const onSubmit = jest.fn();
-    render(<TestRadioForm onSubmit={onSubmit} />);
+    render(<TestCheckboxForm onSubmit={onSubmit} />);
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(
