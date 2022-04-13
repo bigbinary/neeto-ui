@@ -3,6 +3,7 @@ import { Settings } from "@bigbinary/neeto-icons";
 
 import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
+import { icons } from "../constants";
 
 export default {
   title: "Components/Dropdown",
@@ -13,6 +14,12 @@ export default {
       description: {
         component: '`import { Dropdown } from "@bigbinary/neetoui";`',
       },
+    },
+  },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+      mapping: icons,
     },
   },
 };

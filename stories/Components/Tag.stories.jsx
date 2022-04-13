@@ -2,6 +2,7 @@ import React from "react";
 import { Favorite } from "@bigbinary/neeto-icons";
 
 import Tag from "../../lib/components/Tag";
+import { icons } from "../constants";
 
 export default {
   title: "Components/Tag",
@@ -14,6 +15,12 @@ export default {
       },
     },
   },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+      mapping: icons,
+    },
+  }
 };
 
 const Template = ({onClose, ...args}) => <Tag {...args} />;
