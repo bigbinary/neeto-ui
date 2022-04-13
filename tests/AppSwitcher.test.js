@@ -56,6 +56,55 @@ describe("AppSwitcher", () => {
     }
   });
 
+  it("should display appropriate message when no apps are found", () => {
+    render(
+      <AppSwitcherTest>
+        <AppSwitcher
+          isOpen
+          neetoApps={[]}
+          activeApp="KB"
+          environment={process.env.NODE_ENV}
+        />
+      </AppSwitcherTest>
+    );
+    expect(screen.getByText(/No apps found/i)).toBeInTheDocument();
+  });
+
+  it("should throw error if neetoApps isn't an array", () => {
+    const WithoutNeetoApps = () => (
+      <AppSwitcherTest>
+        <AppSwitcher
+          isOpen
+          neetoApps={null}
+          activeApp="KB"
+          environment="development"
+        />
+      </AppSwitcherTest>
+    );
+    expect(() => render(<WithoutNeetoApps />)).toThrow();
+  });
+
+  it("should throw error if activeApp is invalid", () => {
+    const WithoutActiveApp = () => (
+      <AppSwitcherTest>
+        <AppSwitcher isOpen neetoApps={neetoApps} environment="development" />
+      </AppSwitcherTest>
+    );
+    expect(() => render(<WithoutActiveApp />)).toThrow();
+
+    const WithInvalidActiveApp = () => (
+      <AppSwitcherTest>
+        <AppSwitcher
+          isOpen
+          activeApp="Invalid app name with whitespace"
+          neetoApps={neetoApps}
+          environment="development"
+        />
+      </AppSwitcherTest>
+    );
+    expect(() => render(<WithInvalidActiveApp />)).toThrow();
+  });
+
   it("should not render when isOpen is false", () => {
     const { queryByText } = render(
       <AppSwitcherTest>
@@ -206,5 +255,31 @@ describe("AppSwitcher", () => {
     for (const app of recentApps) {
       expect(screen.getByText(app)).toBeInTheDocument();
     }
+  });
+
+  it("should have a functioning search input", () => {
+    const recentApps = ["Quiz", "Runner"];
+
+    render(
+      <AppSwitcherTest>
+        <AppSwitcher
+          isOpen
+          neetoApps={neetoApps}
+          recentApps={recentApps}
+          activeApp="Planner"
+          environment={process.env.NODE_ENV}
+        />
+      </AppSwitcherTest>
+    );
+
+    const searchInput = screen.getByRole("searchbox");
+    expect(searchInput).toBeInTheDocument();
+    expect(screen.getByText("All")).toBeInTheDocument();
+
+    userEvent.type(searchInput, neetoApps[0]);
+    expect(screen.getByText("Apps")).toBeInTheDocument();
+    expect(screen.getByText(neetoApps[0])).toBeInTheDocument();
+    expect(screen.queryByText(neetoApps[1])).not.toBeInTheDocument();
+    expect(screen.queryByText(neetoApps[2])).not.toBeInTheDocument();
   });
 });
