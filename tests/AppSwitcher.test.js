@@ -70,6 +70,31 @@ describe("AppSwitcher", () => {
     expect(screen.getByText(/No apps found/i)).toBeInTheDocument();
   });
 
+  it("should throw an error when the app name is invalid", () => {
+    const WithInvalidAppName = () => (
+      <AppSwitcherTest>
+        <AppSwitcher
+          isOpen
+          neetoApps={["Neeto Planner", "KB", "Desk"]}
+          activeApp="KB"
+          environment={process.env.NODE_ENV}
+        />
+      </AppSwitcherTest>
+    );
+
+    const consoleError = global.console.error;
+    const customConsoleError = (...args) => {
+      const errorMessage = /Failed prop type/i;
+      if (errorMessage.test(args[0])) {
+        throw new Error(args[0]);
+      }
+      consoleError(...args);
+      global.console.error = consoleError;
+    };
+    global.console.error = customConsoleError;
+    expect(() => render(<WithInvalidAppName />)).toThrow();
+  });
+
   it("should throw error if neetoApps isn't an array", () => {
     const WithoutNeetoApps = () => (
       <AppSwitcherTest>
@@ -81,6 +106,7 @@ describe("AppSwitcher", () => {
         />
       </AppSwitcherTest>
     );
+
     expect(() => render(<WithoutNeetoApps />)).toThrow();
   });
 
