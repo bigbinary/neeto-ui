@@ -2,8 +2,9 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Formik, Form } from "formik";
-import { Textarea } from "../../lib/components/formik";
 import * as yup from "yup";
+
+import { Textarea } from "../../lib/components/formik";
 
 const TestTextarea = ({ onSubmit }) => {
   const handleSubmit = (values) => {
@@ -49,8 +50,7 @@ describe("formik/Textarea", () => {
   });
 
   it("should display validation error when invalid input is provided", async () => {
-    const onSubmit = jest.fn();
-    render(<TestTextarea onSubmit={onSubmit} />);
+    render(<TestTextarea onSubmit={() => {}} />);
     userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText("This field is required")
