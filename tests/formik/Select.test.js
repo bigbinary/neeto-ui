@@ -1,8 +1,9 @@
 import React from "react";
 import { screen, render, waitFor } from "@testing-library/react";
-import { Formik, Form } from "formik";
-import { Select as FormikSelect } from "../../lib/components/formik";
 import userEvent from "@testing-library/user-event";
+import { Formik, Form } from "formik";
+
+import { Select as FormikSelect } from "../../lib/components/formik";
 
 const SELECT_OPTIONS = [
   {
@@ -14,11 +15,24 @@ const SELECT_OPTIONS = [
     value: "fselect-opt2",
   },
 ];
+
+const validate = (values) => {
+  let errors = {};
+  const isOptionValid = SELECT_OPTIONS.some(({ label }) =>
+    values.formikSelect.label === label ? true : false
+  );
+  if (!isOptionValid) {
+    errors.formikSelect = "Invalid option selected";
+  }
+  return errors;
+};
+
 const SelectTest = ({ onSubmit }) => {
   return (
     <Formik
-      initialValues={{ formikSelect: "" }}
+      initialValues={{ formikSelect: {} }}
       onSubmit={(values) => onSubmit(values)}
+      validate={validate}
     >
       <Form>
         <FormikSelect
@@ -102,5 +116,14 @@ describe("formik/Select", () => {
         formikSelect: SELECT_OPTIONS[0],
       })
     );
+  });
+
+  it("should display validation error when invalid input is provided", async () => {
+    render(<SelectTest onSubmit={() => {}} />);
+    userEvent.click(screen.getByText("Submit"));
+    screen.debug();
+    expect(
+      await screen.findByText(/Invalid option selected/i)
+    ).toBeInTheDocument();
   });
 });
