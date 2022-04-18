@@ -62,10 +62,8 @@ describe("formik/Radio", () => {
     const onSubmit = jest.fn();
     render(<TestRadioForm onSubmit={onSubmit} />);
     userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(
-        screen.getByText("selecting one option is required")
-      ).toBeInTheDocument()
-    );
+    expect(
+      await screen.findByText("selecting one option is required")
+    ).toBeInTheDocument();
   });
 });
