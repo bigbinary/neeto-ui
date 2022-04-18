@@ -1,3 +1,16 @@
+import { Favorite, Delete, Rating, Up, Down, Left, Right, Download } from "@bigbinary/neeto-icons"
+
+export const icons = {
+  Favorite,
+  Delete,
+  Up,
+  Rating,
+  Down,
+  Left,
+  Right,
+  Download
+};
+
 export const TABLE_DATA = [
   {
     key: 1,
