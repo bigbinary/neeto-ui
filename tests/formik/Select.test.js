@@ -121,7 +121,6 @@ describe("formik/Select", () => {
   it("should display validation error when invalid input is provided", async () => {
     render(<SelectTest onSubmit={() => {}} />);
     userEvent.click(screen.getByText("Submit"));
-    screen.debug();
     expect(
       await screen.findByText(/Invalid option selected/i)
     ).toBeInTheDocument();
