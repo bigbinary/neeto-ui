@@ -84,12 +84,14 @@ describe("AppSwitcher", () => {
 
     const consoleError = global.console.error;
     const customConsoleError = (...args) => {
-      const errorMessage = /Failed prop type/i;
-      if (errorMessage.test(args[0])) {
-        throw new Error(args[0]);
-      }
       consoleError(...args);
       global.console.error = consoleError;
+
+      const errorMessage = /Validation failed/i;
+      const errors = args.some((arg) => errorMessage.test(arg));
+      if (errors) {
+        throw new Error(args[0]);
+      }
     };
     global.console.error = customConsoleError;
     expect(() => render(<WithInvalidAppName />)).toThrow();
