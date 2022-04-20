@@ -41,13 +41,19 @@ describe("EmailInput", () => {
       />
     );
     expect(screen.getByText("1 email")).toBeInTheDocument();
-    rerender(<EmailInput
-      value={[
-        { label: "test@example.com", value: "test@example.com", valid: true },
-        { label: "test2@example.com", value: "test2@example.com", valid: true },
-      ]}
-      counter={{}}
-    />);
+    rerender(
+      <EmailInput
+        value={[
+          { label: "test@example.com", value: "test@example.com", valid: true },
+          {
+            label: "test2@example.com",
+            value: "test2@example.com",
+            valid: true,
+          },
+        ]}
+        counter={{}}
+      />
+    );
     expect(screen.getByText("2 emails")).toBeInTheDocument();
   });
 
@@ -161,6 +167,20 @@ describe("EmailInput", () => {
         error="Invalid email"
       />
     );
-    expect(screen.getByText("Click here to remove invalid emails.")).toBeInTheDocument();
+    expect(
+      screen.getByText("Click here to remove invalid emails.")
+    ).toBeInTheDocument();
+  });
+
+  it("should accept a generic string containing an email and should pluck out that email", () => {
+    const onChange = jest.fn();
+    render(<EmailInput onChange={onChange} />);
+    const emailInput = screen.getByRole("combobox");
+    userEvent.paste(emailInput, "John Doe <john@example.com>");
+    userEvent.tab();
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith([
+      { label: "john@example.com", valid: true, value: "john@example.com" },
+    ]);
   });
 });

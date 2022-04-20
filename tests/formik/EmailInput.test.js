@@ -87,7 +87,7 @@ describe("formik/Input", () => {
     const onSubmit = jest.fn();
     render(<TestEmailInputForm onSubmit={onSubmit} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.paste(emailInput, "john.doe@email.com  sam.doeemail.com");
+    userEvent.paste(emailInput, "sam.doeemail.com");
     userEvent.click(document.body);
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
