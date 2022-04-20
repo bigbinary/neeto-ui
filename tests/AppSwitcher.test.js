@@ -84,8 +84,8 @@ describe("AppSwitcher", () => {
 
     const consoleError = global.console.error;
     const customConsoleError = (...args) => {
-      consoleError(...args);
       global.console.error = consoleError;
+      consoleError(...args);
 
       const errorMessage = /Validation failed/i;
       const errors = args.some((arg) => errorMessage.test(arg));
