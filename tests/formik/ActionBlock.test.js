@@ -10,7 +10,7 @@ const TestActionBlock = ({
   submitButtonProps = {},
   cancelButtonProps = {},
 }) => {
-  const handleSub = (value) => {
+  const handleSubmit = (value) => {
     onSubmit(value);
   };
   return (
@@ -18,7 +18,7 @@ const TestActionBlock = ({
       initialValues={{
         input: "",
       }}
-      onSubmit={handleSub}
+      onSubmit={handleSubmit}
     >
       <Form>
         <Input label="Input label" name="input" />
