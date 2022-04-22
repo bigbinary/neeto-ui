@@ -68,10 +68,6 @@ describe("formik/ActionBlock", () => {
 
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     expect(submitButton).toBeDisabled();
-
-    const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
-    expect(submitButton).not.toBeDisabled();
   });
 
   it("should render the submit button enabled if the form is not empty", () => {
