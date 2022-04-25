@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {
-  Settings,
-  Help,
-  LeftArrow,
-} from "@bigbinary/neeto-icons";
+import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
 
 import { Sidebar, AppSwitcher } from "../../lib/components/layouts";
 import { NAV_LINKS, COMPONENT_MAPPING, FOOTER_LINKS } from "./constants";
@@ -29,7 +25,7 @@ const Playground = () => {
         <Sidebar
           organizationInfo={{
             name: "neetoUI",
-            subdomain: "neetoui.netlify.app",
+            subdomain: "neetoui.onrender.com",
           }}
           navLinks={NAV_LINKS}
           profileInfo={{

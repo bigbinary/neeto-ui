@@ -63,7 +63,7 @@ SidebarCollapsed.storyName = "Collapsed Sidebar";
 SidebarCollapsed.args = {
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
@@ -107,7 +107,7 @@ SidebarExpanded.storyName = "Expanded Sidebar";
 SidebarExpanded.args = {
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   isCollapsed: false,
   navLinks: STORYBOOK_NAV_LINKS,
@@ -159,7 +159,7 @@ SidebarWithAppSwitcher.args = {
   isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
@@ -192,7 +192,7 @@ SidebarWithFooterLinks.args = {
   isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS.slice(0, 3),
   profileInfo: {
@@ -228,7 +228,7 @@ ProfileSectionWithChangelogAndHelp.args = {
   isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
@@ -267,7 +267,7 @@ ProfileSectionWithCustomContent.storyName =
 ProfileSectionWithCustomContent.args = {
   organizationInfo: {
     name: "neetoUI",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS,
   profileInfo: {
