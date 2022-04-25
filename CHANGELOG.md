@@ -24,6 +24,9 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.3.11]
+
+- Fixed: Removed unnecessary scrollbar in _Table_ component.
 
 ## [3.3.10]
 
