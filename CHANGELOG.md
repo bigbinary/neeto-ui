@@ -24,6 +24,11 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+
+## [3.3.10]
+
+- Added: `maxHeight` prop to the _EmailInput_ component.
+
 ## [3.3.9]
 
 - Fixed: _ActionDropdown_ issues with common props for button and dropdown
