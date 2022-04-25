@@ -13,7 +13,7 @@ import userEvent from "@testing-library/user-event";
 const sidebarProps = {
   organizationInfo: {
     name: "BigBinary",
-    subdomain: "neetoui.netlify.app",
+    subdomain: "neetoui.onrender.com",
   },
   navLinks: STORYBOOK_NAV_LINKS.slice(0, 3),
   profileInfo: {
