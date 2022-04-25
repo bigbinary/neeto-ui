@@ -46,7 +46,11 @@
     }
   }
 
-  .ant-table-tbody>tr.ant-table-row-selected>td {
+  .ant-table-body {
+    overflow: auto !important;
+  }
+
+  .ant-table-tbody > tr.ant-table-row-selected > td {
     background-color: $neeto-ui-pastel-blue;
   }
 
@@ -69,7 +73,7 @@
       }
     }
 
-    &.neeto-ui-table--row_hover{
+    &.neeto-ui-table--row_hover {
       cursor: pointer;
     }
   }
@@ -110,17 +114,16 @@
 
   .ant-pagination-jump-next.ant-pagination-jump-next-custom-icon,
   .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
-
     .anticon.anticon-double-right.ant-pagination-item-link-icon,
     .anticon.anticon-double-left.ant-pagination-item-link-icon {
       color: $neeto-ui-gray-800;
     }
   }
 
-  .ant-table-tbody>tr>td,
-  .ant-table-thead>tr>th,
-  .ant-table tfoot>tr>td,
-  .ant-table tfoot>tr>th {
+  .ant-table-tbody > tr > td,
+  .ant-table-thead > tr > th,
+  .ant-table tfoot > tr > td,
+  .ant-table tfoot > tr > th {
     padding: 12px 16px;
   }
 

@@ -24,9 +24,9 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
-
 ## [3.3.10]
 
+- Fixed: Removed unnecessary scrollbar in _Table_ component.
 - Added: `maxHeight` prop to the _EmailInput_ component.
 
 ## [3.3.9]
