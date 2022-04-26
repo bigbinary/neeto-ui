@@ -36,7 +36,7 @@ WithHelpIcon.args = {
   children: "This is a label with a help icon",
   required: true,
   helpIconProps: {
-    onClick: () => window.open("https://neetoui.netlify.app"),
+    onClick: () => window.open("https://neetoui.onrender.com"),
     icon: Help,
     tooltipProps: {
       content: "Help icon tooltip",

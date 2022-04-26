@@ -190,6 +190,6 @@ export const STORYBOOK_FOOTER_LINKS = [
   {
     label: "External",
     icon: Link,
-    href: "https://neetoui.netlify.app",
+    href: "https://neetoui.onrender.com",
   },
 ];
