@@ -38,7 +38,13 @@ module.exports = {
   parser: "babel-eslint",
   plugins: ["react"],
   rules: {
-    indent: ["error", 2],
+    indent: [
+      "error",
+      2,
+      {
+        ignoredNodes: ["TemplateLiteral"],
+      },
+    ],
     semi: ["error", "always"],
     "no-console": "error",
     "import/prefer-default-export": "off",
