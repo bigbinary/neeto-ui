@@ -8,6 +8,7 @@ module.exports = () => {
       "/node_modules/(?!(@babel|react-router-nav-prompt|@bigbinary/neeto-icons|rc-picker|rc-util))",
     ],
     testEnvironment: "jsdom",
-    setupFilesAfterEnv: ["./jest-setup.js"]
+    setupFilesAfterEnv: ["./jest-setup.js"],
+    collectCoverageFrom: ["lib/**/*.js"],
   };
 };
