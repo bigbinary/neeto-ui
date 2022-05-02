@@ -36,6 +36,9 @@ const Template = (args) => {
     onTagCreate={onTagCreate}
     onTagSelect={onTagSelect}
     onTagDelete={onTagDelete}
+    tagsProps={args.tagProps}
+    buttonProps={args.buttonProps}
+    selectProps={args.selectProps}
   />
 }
 
@@ -55,4 +58,29 @@ Default.args = {
     label: 'Tag1',
     value: 'tag1'
   }]
+}
+
+export const TagWithColor = Template.bind();
+TagWithColor.args = {
+  allTags: [{
+    label: 'Tag1',
+    value: 'tag1'
+  },{
+    label: 'Tag2',
+    value: 'tag2'
+  },{
+    label: 'Tag3',
+    value: 'tag3'
+  }],
+  selectedTags: [{
+    label: 'Tag1',
+    value: 'tag1'
+  }],
+  tagProps: {
+    color: "gray",
+    style: "outline"
+  },
+  buttonProps: {
+    style: "secondary"
+  }
 }
