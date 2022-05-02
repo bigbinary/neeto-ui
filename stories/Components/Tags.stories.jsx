@@ -36,7 +36,7 @@ const Template = (args) => {
     onTagCreate={onTagCreate}
     onTagSelect={onTagSelect}
     onTagDelete={onTagDelete}
-    tagsProps={args.tagProps}
+    tagProps={args.tagProps}
     buttonProps={args.buttonProps}
     selectProps={args.selectProps}
   />
