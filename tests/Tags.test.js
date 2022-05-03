@@ -10,7 +10,7 @@ const allTags = [{
   label: 'Tag2',
   value: 'tag2'
 },{
-  label: 'Tag32',
+  label: 'Tag3',
   value: 'tag3'
 }];
 
