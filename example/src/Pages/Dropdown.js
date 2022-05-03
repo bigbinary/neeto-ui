@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Keyboard } from "@bigbinary/neeto-icons";
 
 import Header from "../Header";
-import { Dropdown } from "../../../lib/components";
+import { Dropdown, Input } from "../../../lib/components";
 
 const Dropdowns = () => {
   const [dropdownOne, setDropdownOne] = useState(false);
+
   const listItems = ["Option 1", "Option 2", "Option 3"];
 
   return (
@@ -59,6 +60,11 @@ const Dropdowns = () => {
             {listItems.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
+          </Dropdown>
+          <Dropdown label="Input in Dropdown with autofocus">
+            {listItems.map((option, idx) =>
+              idx === 0 ? <Input autoFocus /> : <li>{option}</li>
+            )}
           </Dropdown>
         </div>
       </div>
