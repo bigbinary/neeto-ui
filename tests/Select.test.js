@@ -1,6 +1,6 @@
 import React from "react";
 import { Select } from "../lib/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const options = [
@@ -81,5 +81,21 @@ describe("Select", () => {
     userEvent.type(select, "hello");
     userEvent.type(select, "{enter}");
     expect(selectBox).toHaveTextContent("hello", { exact: false });
+  });
+
+  test("should be searchable with isCreatable", () => {
+    const { getByRole } = render(
+      <Select
+        label="Select"
+        defaultOptions={options}
+        isCreateable
+        isSearchable
+      />
+    );
+    const select = getByRole("combobox");
+    userEvent.click(select);
+    userEvent.type(select, "option 2");
+    expect(screen.getByText("Option 2")).toBeInTheDocument();
+    expect(screen.queryByText("Option 1")).not.toBeInTheDocument();
   });
 });
