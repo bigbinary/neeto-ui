@@ -174,6 +174,11 @@ export const STORYBOOK_NAV_LINKS = [
     to: "/layouts",
     icon: Image,
   },
+  {
+    label: "Molecules",
+    to: "/molecules",
+    icon: Image
+  }
 ];
 
 export const STORYBOOK_FOOTER_LINKS = [

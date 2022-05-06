@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Tags from '../../lib/Molecules/Tags';
 
 export default {
-  title: "Components/Tags",
+  title: "Molecules/Tags",
   component: Tags,
   parameters: {
     layout: "padded",
