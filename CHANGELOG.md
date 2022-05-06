@@ -24,6 +24,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.3.13]
+
+ - Added: Tags in the molecule section.
+
 ## [3.3.12]
 
 - Fixed: loading state in _ActionBlock_ component.

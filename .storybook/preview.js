@@ -20,6 +20,7 @@ export const parameters = {
         "Components",
         "Overlays",
         "Layouts",
+        "Molecules"
       ],
     },
   },
