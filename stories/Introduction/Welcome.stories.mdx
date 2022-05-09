@@ -4,10 +4,10 @@ import { Meta } from "@storybook/addon-docs";
 
 <style>{`
   .subheading {
-    --mediumdark: '#999999';
+    --mediumdark: '#49545c';
     font-weight: 900;
     font-size: 13px;
-    color: #999;
+    color: #49545c;
     letter-spacing: 2px;
     line-height: 24px;
     text-transform: uppercase;
@@ -23,7 +23,7 @@ import { Meta } from "@storybook/addon-docs";
     font-weight: 700;
     background: #2f3941;
     color: #fff;
-    padding: 4px 12px;
+    padding: 6px 12px;
     margin-right: 10px;
     vertical-align: top;
   }
@@ -55,7 +55,7 @@ yarn add @bigbinary/neetoui
 
 Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
 
-```scss
+```css
 @import "@bigbinary/neetoui";
 ```
 
@@ -67,7 +67,7 @@ yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-n
 
 **neetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
 
-```scss
+```css
 @import "react-toastify/dist/ReactToastify.min.css";
 ```
 
@@ -105,13 +105,13 @@ For more information, refer our [**GitHub repository**](https://github.com/bigbi
 
 neetoUI exports all it’s component as named exports. You can individually import necessary components in the following way:
 
-```
+```jsx
 import { Button, Tooltip, } from "@bigbinary/neetoui";
 ```
 
 If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from neetoUI.
 
-```
+```jsx
 import React from "react";
 import * as NeetoUI from "@bigbinary/neetoui";
 
