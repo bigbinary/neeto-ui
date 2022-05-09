@@ -236,6 +236,9 @@
 .neeto-ui-h-screen {
   height: 100vh;
 }
+.neeto-ui-min-w-0 {
+  min-width: 0;
+}
 .neeto-ui-no-underline {
   text-decoration: none;
 }
@@ -534,4 +537,105 @@
 }
 .neeto-ui-border-b {
   border-bottom-width: 1px;
+}
+
+// offset
+
+// left
+.neeto-ui-left-0 {
+  left: 0;
+}
+.neeto-ui-left-1 {
+  left: 0.25rem;
+}
+.neeto-ui-left-2 {
+  left: 0.5rem;
+}
+.neeto-ui-left-3 {
+  left: 0.75rem;
+}
+.neeto-ui-left-4 {
+  left: 1rem;
+}
+.neeto-ui-left-5 {
+  left: 1.25rem;
+}
+.neeto-ui-left-6 {
+  left: 1.5rem;
+}
+// top
+.neeto-ui-top-0 {
+  top: 0;
+}
+.neeto-ui-top-1 {
+  top: 0.25rem;
+}
+.neeto-ui-top-2 {
+  top: 0.5rem;
+}
+.neeto-ui-top-3 {
+  top: 0.75rem;
+}
+.neeto-ui-top-4 {
+  top: 1rem;
+}
+.neeto-ui-top-5 {
+  top: 1.25rem;
+}
+.neeto-ui-top-6 {
+  top: 1.5rem;
+}
+// right
+.neeto-ui-right-0 {
+  right: 0;
+}
+.neeto-ui-right-1 {
+  right: 0.25rem;
+}
+.neeto-ui-right-2 {
+  right: 0.5rem;
+}
+.neeto-ui-right-3 {
+  right: 0.75rem;
+}
+.neeto-ui-right-4 {
+  right: 1rem;
+}
+.neeto-ui-right-5 {
+  right: 1.25rem;
+}
+.neeto-ui-right-6 {
+  right: 1.5rem;
+}
+// bottom
+.neeto-ui-bottom-0 {
+  bottom: 0;
+}
+.neeto-ui-bottom-1 {
+  bottom: 0.25rem;
+}
+.neeto-ui-bottom-2 {
+  bottom: 0.5rem;
+}
+.neeto-ui-bottom-3 {
+  bottom: 0.75rem;
+}
+.neeto-ui-bottom-4 {
+  bottom: 1rem;
+}
+.neeto-ui-bottom-5 {
+  bottom: 1.25rem;
+}
+.neeto-ui-bottom-6 {
+  bottom: 1.5rem;
+}
+// position
+.neeto-ui-absolute {
+  position: absolute;
+}
+.neeto-ui-relative {
+  position: relative;
+}
+.neeto-ui-sticky {
+  position: sticky;
 }
