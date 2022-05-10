@@ -31,6 +31,7 @@ const Template = (args) => {
 
   return (
     <Tags
+      {...args}
       allTags={allTags}
       selectedTags={selectedTags}
       onTagCreate={onTagCreate}
@@ -45,6 +46,31 @@ const Template = (args) => {
 
 export const Default = Template.bind();
 Default.args = {
+  allTags: [
+    {
+      label: "Tag1",
+      value: "tag1",
+    },
+    {
+      label: "Tag2",
+      value: "tag2",
+    },
+    {
+      label: "Tag3",
+      value: "tag3",
+    },
+  ],
+  selectedTags: [
+    {
+      label: "Tag1",
+      value: "tag1",
+    },
+  ],
+};
+
+export const WithHeading = Template.bind();
+WithHeading.args = {
+  label: "TAGS",
   allTags: [
     {
       label: "Tag1",
@@ -90,7 +116,7 @@ TagWithColor.args = {
     },
   ],
   tagProps: {
-    color: "gray",
+    color: "green",
     style: "outline",
   },
 };
