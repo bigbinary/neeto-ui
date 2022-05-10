@@ -115,7 +115,7 @@ export const Creatable = () => {
           setOptions([...options, { label: inputValue, value: inputValue }])
         }
         name="ValueList"
-        defaultOptions={options}
+        options={options}
       />
     </div>
   );

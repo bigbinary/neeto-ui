@@ -85,12 +85,7 @@ describe("Select", () => {
 
   test("should be searchable with isCreatable", () => {
     const { getByRole } = render(
-      <Select
-        label="Select"
-        defaultOptions={options}
-        isCreateable
-        isSearchable
-      />
+      <Select label="Select" options={options} isCreateable isSearchable />
     );
     const select = getByRole("combobox");
     userEvent.click(select);
