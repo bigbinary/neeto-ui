@@ -58,7 +58,7 @@ WithCustomClassName.args = {
   className: "cursor-pointer",
 };
 
-export const AllVariants = () => {
+export const Variants = () => {
   const imageUrl = "https://i.pravatar.cc/300";
   return (
     <div className="p-6">

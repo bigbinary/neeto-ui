@@ -45,7 +45,7 @@ TagColorStory.args = {
   onClose: null,
 };
 
-export const AllVariants = () => {
+export const Variants = () => {
   const onClose = () => alert("onClose Triggered!");
 
   return (
