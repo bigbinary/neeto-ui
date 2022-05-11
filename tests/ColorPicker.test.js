@@ -9,7 +9,7 @@ describe("ColorPicker", () => {
     expect(screen.getByText("#ffffff")).toBeInTheDocument();
   });
 
-  it("should trigger onChange when color is changed", () => {
+  it("should trigger onChange when color is changed", async () => {
     const hex = "#000000";
     const hsl = { a: 1, h: 0, l: 0, s: 0 };
     const hsv = { a: 1, h: 0, v: 0, s: 0 };
@@ -23,17 +23,17 @@ describe("ColorPicker", () => {
 
     render(<ColorPicker color="#ffffff" onChange={onChange} />);
     userEvent.click(screen.getByText("#ffffff"));
-    userEvent.paste(screen.getByRole("textbox"), "000000");
+    userEvent.paste(await screen.findByRole("textbox"), "000000");
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should display color palette when colorPaletteProps is provided", () => {
+  it("should display color palette when colorPaletteProps is provided", async () => {
     render(<ColorPicker color="#ffffff" colorPaletteProps={{}} />);
     userEvent.click(screen.getByText("#ffffff"));
-    expect(screen.getByTestId("color-palette")).toBeInTheDocument();
+    expect(await screen.findByTestId("color-palette")).toBeInTheDocument();
   });
 
-  it("should trigger onChange when a color is selected from palette", () => {
+  it("should trigger onChange when a color is selected from palette", async () => {
     const selectedColor = "#ffffff";
     const DEFAULT_COLORS = {
       "red-500": "#ea4335",
@@ -59,13 +59,13 @@ describe("ColorPicker", () => {
       />
     );
     userEvent.click(screen.getByText("#ffffff"));
-    const paletteItems = screen.getAllByTestId("color-palette-item");
+    const paletteItems = await screen.findAllByTestId("color-palette-item");
     userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith("red-500", "red-500");
   });
 
-  it("should call onChange when user touches Heu slider", () => {
+  it("should call onChange when user touches Heu slider", async () => {
     const touchStart = [{ pageX: 0, pageY: 0 }];
 
     const hex = "#000000";
@@ -83,14 +83,14 @@ describe("ColorPicker", () => {
     userEvent.click(screen.getByText("#ffffff"));
 
     fireEvent.touchStart(
-      screen.getByTestId("color-picker-hue").querySelector(".hue-horizontal"),
+      (await screen.findByTestId("color-picker-hue")).querySelector(".hue-horizontal"),
       { touches: touchStart }
     );
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should call onChange when user touches Saturation selector", () => {
+  it("should call onChange when user touches Saturation selector", async () => {
     const touchStart = [{ pageX: 0, pageY: 0 }];
 
     const hex = "#000000";
@@ -108,7 +108,7 @@ describe("ColorPicker", () => {
     userEvent.click(screen.getByText("#ffffff"));
 
     fireEvent.touchStart(
-      screen.getByTestId("color-picker-saturation").querySelector(".saturation-black"),
+      (await screen.findByTestId("color-picker-saturation")).querySelector(".saturation-black"),
       { touches: touchStart }
     );
 
