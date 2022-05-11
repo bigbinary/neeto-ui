@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
 import * as yup from "yup";
+import { Search } from "@bigbinary/neeto-icons";
 
 import EmailInput from "../../lib/components/EmailInput";
 import { EmailInput as FormikEmailInput } from "../../lib/components/formik";
@@ -72,6 +73,33 @@ export const Counter = () => {
       onChange={emails => setEmails(emails)}
     />
   );
+};
+
+export const WithPrefixAndSuffix = (args) => {
+  const [emails, setEmails] = useState(args.value);
+  return (
+    <EmailInput
+      {...args}
+      prefix={
+        <div className="pl-2">
+          <Search />
+        </div>
+      }
+      suffix={<div className="p-1 neeto-ui-text-gray-700">.bigbinary.com</div>}
+      value={emails}
+      onChange={(emails) => setEmails(emails)}
+    />
+  );
+};
+
+WithPrefixAndSuffix.args = {
+  value: [
+    {
+      label: "test@example.com",
+      value: "test@example.com",
+      valid: true,
+    },
+  ],
 };
 
 export const FormikEmail = () => {
