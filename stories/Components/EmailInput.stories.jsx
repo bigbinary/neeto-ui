@@ -77,6 +77,7 @@ export const Counter = () => {
 
 export const WithPrefixAndSuffix = (args) => {
   const [emails, setEmails] = useState(args.value);
+  
   return (
     <EmailInput
       {...args}
