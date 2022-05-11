@@ -45,7 +45,7 @@ export const DangerCallout = () => {
   return <Callout style="danger" icon={CloseCircle}>This is a danger callout!</Callout>;
 };
 
-export const AllVariants = () => {
+export const Variants = () => {
   return <div className="flex flex-col gap-4">
     <Callout style="success" icon={CheckCircle}>This is a success callout!</Callout>
     <Callout style="info" icon={Info}>

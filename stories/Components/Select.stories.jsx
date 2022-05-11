@@ -185,7 +185,7 @@ export const Searchable = () => {
   );
 };
 
-export const AllVariants = () => {
+export const Variants = () => {
   return (
     <div className="w-full">
       <div className="p-6 space-y-6">

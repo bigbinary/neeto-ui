@@ -70,7 +70,7 @@ Tooltip.args = {
   },
 };
 
-export const AllVariants = () => {
+export const Variants = () => {
   const [loading, setLoading] = useState(false);
   const toggle = () => {
     setLoading(!loading);

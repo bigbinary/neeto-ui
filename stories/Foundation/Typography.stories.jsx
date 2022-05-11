@@ -52,7 +52,7 @@ Body3.args = {
   style: "body3",
 };
 
-export const AllVariants = (args) => {
+export const Variants = () => {
   return (
     <>
       <Typography className="mb-4" style="h1">

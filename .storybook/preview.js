@@ -18,6 +18,7 @@ export const parameters = {
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers"],
         "Components",
+        "Molecules",
         "Overlays",
         "Layouts",
       ],
