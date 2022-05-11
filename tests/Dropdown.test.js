@@ -7,6 +7,10 @@ const options = ["option 1", "option 2"].map((option) => (
   <li key={option}>{option}</li>
 ));
 
+const secondOptions = ["option 3", "option 4"].map((option) => (
+  <li key={option}>{option}</li>
+));
+
 describe("Dropdown", () => {
   it("should render without error", () => {
     const { getByText } = render(<Dropdown label="Dropdown" />);
@@ -44,26 +48,26 @@ describe("Dropdown", () => {
     expect(getByRole("button")).toBeDisabled();
   });
 
-  it("should close the dropdown on select if closeOnSelect is true", () => {
-    const { getByText } = render(
+  it("should close the dropdown on select if closeOnSelect is true", async () => {
+    const { getByText, findByText } = render(
       <Dropdown label="Dropdown" closeOnSelect>
         {options}
       </Dropdown>
     );
     userEvent.click(getByText("Dropdown"));
-    const listItem = getByText("option 1");
+    const listItem = await findByText("option 1");
     userEvent.click(listItem);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
   it("should not close the dropdown on select if closeOnSelect is false", async () => {
-    const { getByText } = render(
+    const { getByText, findByText } = render(
       <Dropdown label="Dropdown" closeOnSelect={false}>
         {options}
       </Dropdown>
     );
     userEvent.click(getByText("Dropdown"));
-    const listItem = getByText("option 1");
+    const listItem = await findByText("option 1");
     userEvent.click(listItem);
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
@@ -116,27 +120,29 @@ describe("Dropdown", () => {
   });
 
   it("should open another dropdown on click trigger when it is multilevel ", async () => {
-    const { getByText } = render(
+    const { findByText } = render(
       <Dropdown label="Dropdown" isOpen>
         {options}
-        <Dropdown customTarget={<li>Another Dropdown</li>} onClick={e => e.stopPropagation()}>{options}</Dropdown>
+        <Dropdown customTarget={<li>Another Dropdown</li>} onClick={e => e.stopPropagation()}>{secondOptions}</Dropdown>
       </Dropdown>
     );
-    userEvent.click(getByText("Another Dropdown"));
+    userEvent.click(await findByText("Another Dropdown"));
+    expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
   });
 
   it("should open another dropdown on hover trigger when it is multilevel", async () => {
-    const { getByText } = render(
+    const { findByText } = render(
       <Dropdown label="Dropdown" isOpen>
         {options}
         <Dropdown customTarget={<li>Another Dropdown</li>} trigger="hover">
-          {options}
+          {secondOptions}
         </Dropdown>
       </Dropdown>
     );
-    userEvent.hover(getByText("Another Dropdown"));
+    userEvent.hover(await findByText("Another Dropdown"));
+    expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
   });
