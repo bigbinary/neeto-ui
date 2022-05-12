@@ -22,17 +22,15 @@ export const icons = {
   Download,
 };
 
-const makePrefix = (Icon) => <div className="pl-2">{<Icon />}</div>;
-
 export const prefixes = {
-  Favorite: makePrefix(Favorite),
-  Search: makePrefix(Search),
-  Up: makePrefix(Up),
-  Rating: makePrefix(Rating),
-  Down: makePrefix(Down),
-  Left: makePrefix(Left),
-  Right: makePrefix(Right),
-  Download: makePrefix(Download),
+  Favorite: <Favorite />,
+  Search: <Search />,
+  Up: <Up />,
+  Rating: <Rating />,
+  Down: <Down />,
+  Left: <Left />,
+  Right: <Right />,
+  Download: <Download />,
 };
 
 export const suffixes = {
