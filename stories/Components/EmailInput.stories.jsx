@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { Search } from "@bigbinary/neeto-icons";
 
 import EmailInput from "../../lib/components/EmailInput";
+import { suffixes, prefixes } from "stories/constants";
 import { EmailInput as FormikEmailInput } from "../../lib/components/formik";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
@@ -18,6 +19,16 @@ export default {
       description: {
         component: '`import { EmailInput } from "@bigbinary/neetoui";`',
       },
+    },
+  },
+  argTypes: {
+    prefix: {
+      options: Object.keys(prefixes),
+      mapping: prefixes,
+    },
+    suffix: {
+      options: Object.keys(suffixes),
+      mapping: suffixes,
     },
   },
 };

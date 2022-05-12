@@ -1,4 +1,15 @@
-import { Favorite, Delete, Rating, Up, Down, Left, Right, Download } from "@bigbinary/neeto-icons"
+import React from "react";
+import {
+  Favorite,
+  Delete,
+  Rating,
+  Up,
+  Down,
+  Left,
+  Right,
+  Download,
+  Search,
+} from "@bigbinary/neeto-icons";
 
 export const icons = {
   Favorite,
@@ -8,7 +19,26 @@ export const icons = {
   Down,
   Left,
   Right,
-  Download
+  Download,
+};
+
+const makePrefix = (Icon) => <div className="pl-2">{<Icon />}</div>;
+
+export const prefixes = {
+  Favorite: makePrefix(Favorite),
+  Search: makePrefix(Search),
+  Up: makePrefix(Up),
+  Rating: makePrefix(Rating),
+  Down: makePrefix(Down),
+  Left: makePrefix(Left),
+  Right: makePrefix(Right),
+  Download: makePrefix(Download),
+};
+
+export const suffixes = {
+  "Example.com": ".example.com",
+  "Bigbinary.com": ".bigbinary.com",
+  "Neeto.com": ".neeto.com",
 };
 
 export const TABLE_DATA = [
