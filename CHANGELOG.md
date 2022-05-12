@@ -24,6 +24,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.4.1]
+
+- Fixed: issue with `autoFocus` not working on _Input_ when inside _Dropdown_.
+
 ## [3.4.0]
 
 - Removed: all instances of TailwindCSS.
