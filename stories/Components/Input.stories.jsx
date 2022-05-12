@@ -28,6 +28,7 @@ export const Controlled = () => {
   const [value, setValue] = useState("BigBinary");
   return (
     <Input
+      prefix={<Search />}
       label="Controlled Input"
       value={value}
       onChange={(e) => setValue(e.target.value)}
