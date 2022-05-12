@@ -92,12 +92,8 @@ export const WithPrefixAndSuffix = (args) => {
   return (
     <EmailInput
       {...args}
-      prefix={
-        <div className="pl-2">
-          <Search />
-        </div>
-      }
-      suffix={<div className="p-1 neeto-ui-text-gray-700">.bigbinary.com</div>}
+      prefix={<Search />}
+      suffix={<div className="neeto-ui-text-gray-700">.bigbinary.com</div>}
       value={emails}
       onChange={(emails) => setEmails(emails)}
     />
