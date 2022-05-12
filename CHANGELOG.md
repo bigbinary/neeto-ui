@@ -24,6 +24,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [3.4.2]
+
+- Fixed: issue with search not working with `isCreatable` _Select_.
+
 ## [3.4.1]
 
 - Fixed: issue with `autoFocus` not working on _Input_ when inside _Dropdown_.
