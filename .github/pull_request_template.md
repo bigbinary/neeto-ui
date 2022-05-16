@@ -16,7 +16,7 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
-** Add BREAKING keyword in bold for changes which could potentially break the component, eg: **BREAKING**
+** Add BREAKING keyword in bold for changes that could potentially break the component, eg: **BREAKING**
 ** Represent a component name in italics, eg: _Modal_
 ** Enclose a prop name in double backticks, eg: `isLoading`
 
@@ -35,4 +35,6 @@ Example:
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] I have added the necessary label (patch/minor/major - If package publish is required)
 
-**PLEASE REMOVE ALL THE COMMENTS BEFORE SUBMITTING**
+### Reviewers
+
+<!--- PLEASE REMOVE ALL THE COMMENTS BEFORE SUBMITTING -->
