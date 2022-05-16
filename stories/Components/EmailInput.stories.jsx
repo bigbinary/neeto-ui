@@ -2,8 +2,10 @@ import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
 import * as yup from "yup";
+import { Search } from "@bigbinary/neeto-icons";
 
 import EmailInput from "../../lib/components/EmailInput";
+import { suffixes, prefixes } from "../constants";
 import { EmailInput as FormikEmailInput } from "../../lib/components/formik";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
@@ -17,6 +19,16 @@ export default {
       description: {
         component: '`import { EmailInput } from "@bigbinary/neetoui";`',
       },
+    },
+  },
+  argTypes: {
+    prefix: {
+      options: Object.keys(prefixes),
+      mapping: prefixes,
+    },
+    suffix: {
+      options: Object.keys(suffixes),
+      mapping: suffixes,
     },
   },
 };
@@ -72,6 +84,30 @@ export const Counter = () => {
       onChange={emails => setEmails(emails)}
     />
   );
+};
+
+export const WithPrefixAndSuffix = (args) => {
+  const [emails, setEmails] = useState(args.value);
+  
+  return (
+    <EmailInput
+      {...args}
+      prefix={<Search />}
+      suffix={<div className="neeto-ui-text-gray-700">.bigbinary.com</div>}
+      value={emails}
+      onChange={(emails) => setEmails(emails)}
+    />
+  );
+};
+
+WithPrefixAndSuffix.args = {
+  value: [
+    {
+      label: "test@example.com",
+      value: "test@example.com",
+      valid: true,
+    },
+  ],
 };
 
 export const FormikEmail = () => {
