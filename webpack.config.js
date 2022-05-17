@@ -9,6 +9,7 @@ module.exports = {
     index: "./lib/components/index.js",
     layouts: "./lib/components/layouts/index.js",
     formik: "./lib/components/formik/index.js",
+    molecules: "./lib/Molecules/index.js"
   },
   plugins: [
     new MiniCssExtractPlugin(),
