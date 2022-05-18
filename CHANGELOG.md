@@ -1,6 +1,6 @@
 <!---
 
-------- FOLLOW THESE WHILE ADDING AN ENTRY ------
+------ FOLLOW THESE WHILE ADDING AN ENTRY -----
 
 ** Add BREAKING keyword in bold for changes which could potentially break the component, eg: **BREAKING**
 ** Represent a component name in italics, eg: _Modal_
