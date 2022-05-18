@@ -65,7 +65,7 @@ jobs:
         id: CHANGELOG
         run: |
            content=$(echo "${{ steps.PR.outputs.pr_body }}" | python3 -c 'import json; import sys; print(sys.stdin.read().partition("### Description")[2].partition("### Checklist")[0].strip())')
-           echo "CHANGELOG=${sql}" >> $GITHUB_ENV
+           echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
       - name: Update Changelog
