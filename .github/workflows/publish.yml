@@ -16,8 +16,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - run: yarn install
-      - run: yarn build
+      # - run: yarn install
+      # - run: yarn build
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
 
@@ -54,7 +54,6 @@ jobs:
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
-
 
       - uses: 8BitJonny/gh-get-current-pr@2.0.0
         id: PR
