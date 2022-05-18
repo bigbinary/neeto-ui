@@ -9,7 +9,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tags } from "@bigbinary/neetoui";`',
+        component: '`import { Tags } from "@bigbinary/neetoui/molecules";`',
       },
     },
   },
