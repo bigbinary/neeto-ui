@@ -50,17 +50,40 @@ jobs:
         with:
           branch: master
           message: 'New version release'
-          push: false
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.RELEASE_TOKEN_AMAL_DINESH }}
-          force: true
 
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
+
+
+      - uses: 8BitJonny/gh-get-current-pr@2.0.0
+        id: PR
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ github.event.pull_request.head.sha }}
+
+      - name: Extract changelog
+        id: CHANGELOG
+        run: |
+           content=$(echo "${{ steps.PR.outputs.pr_body }}" | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("### Description")[2].partition("### Checklist")[0].strip()))')
+           echo "CHANGELOG=${content}" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Run Python
+        id: PYTHON
+
+
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          latest-version: ${{ steps.package-version.outputs.version }}
+          release-notes: ${{ env.CHANGELOG }}
+
+      - name: Commit and Push changes
+      - uses: EndBug/add-and-commit@v7
+        with:
+          branch: master
+          message: 'Update CHANGELOG'
 
       - name: Release Drafter
         uses: release-drafter/release-drafter@v5.15.0
