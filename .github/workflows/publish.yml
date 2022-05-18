@@ -69,10 +69,6 @@ jobs:
            echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
-      - name: Run Python
-        id: PYTHON
-
-
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
@@ -85,17 +81,17 @@ jobs:
           branch: changelog-test
           message: 'Update CHANGELOG'
 
-      - name: Release Drafter
-        uses: release-drafter/release-drafter@v5.15.0
-        if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag: v${{ steps.package-version.outputs.version }}
-          publish: true
+      # - name: Release Drafter
+      #   uses: release-drafter/release-drafter@v5.15.0
+      #   if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag: v${{ steps.package-version.outputs.version }}
+      #     publish: true
 
-      - name: "Publish"
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          access: "public"
-          token: ${{ secrets.NPM_TOKEN }}
+      # - name: "Publish"
+      #   uses: JS-DevTools/npm-publish@v1
+      #   with:
+      #     access: "public"
+      #     token: ${{ secrets.NPM_TOKEN }}
