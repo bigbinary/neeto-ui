@@ -65,14 +65,6 @@ jobs:
         id: CHANGELOG
         run: |
            content=$(echo "${{ steps.PR.outputs.pr_body }}" | python3 -c 'import json; import sys; print(sys.stdin.read().partition("### Description")[2].partition("### Checklist")[0].strip())')
-           content="${content//'%'/'%25'}"
-           content="${content//$'\n'/'%0A'}"
-           content="${content//$'\r'/'%0D'}"
-           sql="
-           SELECT c1, c2
-           from Table1, Table2
-           where ...
-           "
            echo "CHANGELOG=${sql}" >> $GITHUB_ENV
         shell: bash
 
