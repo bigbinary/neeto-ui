@@ -66,7 +66,7 @@ jobs:
         run: |
            delimiterOne='### **Description**'
            delimiterTwo='### **Checklist**'
-           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition(delimiterOne)[2].partition(delimiterTwo)[0].strip()))')
+           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition($delimiterOne)[2].partition($delimiterTwo)[0].strip()))')
            echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
