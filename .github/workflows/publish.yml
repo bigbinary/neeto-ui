@@ -68,7 +68,11 @@ jobs:
            content="${content//'%'/'%25'}"
            content="${content//$'\n'/'%0A'}"
            content="${content//$'\r'/'%0D'}"
-           echo "CHANGELOG=${content}" >> $GITHUB_ENV
+           read -d '' sql << EOF
+           select c1, c2 from foo
+           where c1='something'
+           EOF
+           echo "CHANGELOG=${sql}" >> $GITHUB_ENV
         shell: bash
 
       - name: Update Changelog
