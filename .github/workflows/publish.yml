@@ -85,7 +85,7 @@ jobs:
       - name: Commit and Push changes
         uses: EndBug/add-and-commit@v7
         with:
-          branch: changelog-test
+          branch: test-publich-action
           message: 'Update CHANGELOG'
 
       # - name: Create Github Release
