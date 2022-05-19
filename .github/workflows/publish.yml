@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: "14"
 
-      - run: yarn install
-      - run: yarn build
+      # - run: yarn install
+      # - run: yarn build
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
 
@@ -72,7 +72,7 @@ jobs:
       - name: Extract changelog
         id: CHANGELOG
         run: |
-           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("### **Description**")[2].partition("### **Checklist**"")[0].strip()))')
+           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("### **Description**")[2].partition("### **Checklist**")[0].strip()))')
            echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
