@@ -46,7 +46,10 @@ jobs:
       - name: Bump Version
         id: BUMP_VERSION
         run: |
-          yarn version --${{steps.BUMP_TYPE.outputs.TYPE}} ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
+          BUMP_TYPE=${{steps.BUMP_TYPE.outputs.TYPE}}
+          VERSION_BUMP_TYPE=$([ -z BUMP_TYPE ] && echo "patch" || echo $BUMP_TYPE)
+          yarn version --$VERSION_BUMP_TYPE ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
+
           PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
           echo "::set-output name=PACKAGE_VERSION::$(echo $PACKAGE_VERSION)"
 
