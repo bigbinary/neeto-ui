@@ -1,6 +1,6 @@
 <!---
 
-------- FOLLOW THESE WHILE ADDING AN ENTRY ------
+------ FOLLOW THESE WHILE ADDING AN ENTRY ------
 
 ** Add BREAKING keyword in bold for changes which could potentially break the component, eg: **BREAKING**
 ** Represent a component name in italics, eg: _Modal_
@@ -24,78 +24,80 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
-## [3.4.4]
- - Fixed: import for molecule components.
-## [3.4.3]
+## 3.4.4
+
+- Fixed: import for molecule components.
+
+## 3.4.3
 
 - Added: `prefix` and `suffix` to _EmailInput_.
 
-## [3.4.2]
+## 3.4.2
 
 - Fixed: issue with search not working with `isCreatable` _Select_.
 
-## [3.4.1]
+## 3.4.1
 
 - Fixed: issue with `autoFocus` not working on _Input_ when inside _Dropdown_.
 
-## [3.4.0]
+## 3.4.0
 
 - Removed: all instances of TailwindCSS.
 - Added: `label` prop in _Tags_ molecule.
 - Changed: Added `neetoCal` into _AppSwitcher_ app list .
 - Removed: `count` limiting (to 99) logic from _MenuBar.Block_.
 
-## [3.3.13]
+## 3.3.13
 
 - Added: Tags in the molecule section.
 
-## [3.3.12]
+## 3.3.12
 
 - Fixed: loading state in _ActionBlock_ component.
 
-## [3.3.11]
+## 3.3.11
 
 - Added: New input format for the _EmailInput_ component.
 
-## [3.3.10]
+## 3.3.10
 
 - Fixed: Removed unnecessary scrollbar in _Table_ component.
 - Added: `maxHeight` prop to the _EmailInput_ component.
 
-## [3.3.9]
+## 3.3.9
 
 - Fixed: _ActionDropdown_ issues with common props for button and dropdown
 
-## [3.3.7]
+## 3.3.7
 
 - Changed: Updated React version to 17.0.2.
 
-## [3.3.6]
+## 3.3.6
 
 - Fixed: Reset Formik data on continue action in _BlockNavigation_ component.
 
-## [3.3.5]
+## 3.3.5
 
 - Added: active state to `NavLink` in _Sidebar_ component.
 
-## [3.3.4]
+## 3.3.4
 
 - Added: `hideOnTargetExit` prop to _Tooltip_ component
 
-## [3.3.3]
+## 3.3.3
 
 - Added: data-cy for in _Alert_ component elements
 
-## [3.3.2]
+## 3.3.2
 
 - Fixed: Added override for `onClick` prop in _Dropdown_ component
 
-## [3.3.1]
+## 3.3.1
 
 - Fixed: Typography of Header in _Alert_ component.
 - Fixed: Max width issue in _Dropdown_ component.
 
-## [3.3.0]
+## 3.3.0
 
 - Changed: **BREAKING** `isLoading` prop of _Table_ to `loading`.
 - Changed: Implemented _Dropdown_ component with Tippy.js and removed `react-popper`

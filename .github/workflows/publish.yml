@@ -3,16 +3,16 @@ on:
   pull_request:
     branches:
       - master
-    types: [closed]
 jobs:
   release:
     name: "Release"
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'skip-ci') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2.2.0
-      - name: node
+
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: "14"
@@ -44,34 +44,51 @@ jobs:
           fi
 
       - name: Bump Version
-        run: yarn version --${{steps.BUMP_TYPE.outputs.TYPE}} ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
+        id: BUMP_VERSION
+        run: |
+          BUMP_TYPE=${{steps.BUMP_TYPE.outputs.TYPE}}
+          VERSION_BUMP_TYPE=$([ -z BUMP_TYPE ] && echo "patch" || echo $BUMP_TYPE)
+          yarn version --$VERSION_BUMP_TYPE ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
 
-      - uses: EndBug/add-and-commit@v7
+          PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
+          echo "::set-output name=PACKAGE_VERSION::$(echo $PACKAGE_VERSION)"
+
+      - name: Read pull request body
+        uses: 8BitJonny/gh-get-current-pr@2.0.0
+        id: PR
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ github.event.pull_request.head.sha }}
+
+      - name: Extract changelog
+        id: CHANGELOG
+        run: |
+           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("### **Description**")[2].partition("### **Checklist**")[0].strip()))')
+           echo "CHANGELOG=${content}" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          latest-version: ${{ steps.BUMP_VERSION.outputs.PACKAGE_VERSION }}
+          release-notes: ${{ fromJson(env.CHANGELOG) }}
+
+      - name: Commit and Push changes
+        uses: EndBug/add-and-commit@v7
         with:
           branch: master
           message: 'New version release'
-          push: false
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.RELEASE_TOKEN_AMAL_DINESH }}
-          force: true
-
-      - name: Read package.json
-        uses: tyankatsu0105/read-package-version-actions@v1
-        id: package-version
-
-      - name: Release Drafter
+      - name: Create Github Release
         uses: release-drafter/release-drafter@v5.15.0
         if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag: v${{ steps.package-version.outputs.version }}
+          tag: v${{ steps.BUMP_VERSION.outputs.VERSION }}
           publish: true
 
-      - name: "Publish"
+      - name: "Publish to NPM"
         uses: JS-DevTools/npm-publish@v1
         with:
           access: "public"
