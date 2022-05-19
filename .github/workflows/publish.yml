@@ -1,13 +1,13 @@
 name: "Publish and create releases"
 on:
   pull_request:
-    branches: [master,changelog-test]
-    # types: [closed]
+    branches:
+      - master
 jobs:
   release:
     name: "Release"
     runs-on: ubuntu-latest
-    # if: ${{ github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'skip-ci') }}
+    if: ${{ github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'skip-ci') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2.2.0
@@ -16,9 +16,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-
-      # - run: yarn install
-      # - run: yarn build
+      - run: yarn install
+      - run: yarn build
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
 
@@ -51,17 +50,6 @@ jobs:
           PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
           echo "::set-output name=PACKAGE_VERSION::$(echo $PACKAGE_VERSION)"
 
-
-      # - name: Commit and Push new version
-      #   uses: EndBug/add-and-commit@v7
-      #   with:
-      #     branch: changelog-test
-      #     message: 'New version release'
-
-      # - name: Read package.json
-      #   uses: tyankatsu0105/read-package-version-actions@v1
-      #   id: package-version
-
       - name: Read pull request body
         uses: 8BitJonny/gh-get-current-pr@2.0.0
         id: PR
@@ -85,20 +73,20 @@ jobs:
       - name: Commit and Push changes
         uses: EndBug/add-and-commit@v7
         with:
-          branch: test-publich-action
-          message: 'Update CHANGELOG'
+          branch: master
+          message: 'New version release'
 
-      # - name: Create Github Release
-      #   uses: release-drafter/release-drafter@v5.15.0
-      #   if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag: v${{ steps.BUMP_VERSION.outputs.VERSION }}
-      #     publish: true
+      - name: Create Github Release
+        uses: release-drafter/release-drafter@v5.15.0
+        if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: v${{ steps.BUMP_VERSION.outputs.VERSION }}
+          publish: true
 
-      # - name: "Publish to NPM"
-      #   uses: JS-DevTools/npm-publish@v1
-      #   with:
-      #     access: "public"
-      #     token: ${{ secrets.NPM_TOKEN }}
+      - name: "Publish to NPM"
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          access: "public"
+          token: ${{ secrets.NPM_TOKEN }}
