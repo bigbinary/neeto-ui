@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.4.6 - 2022-05-19
+
+- *Updated*: `react-toastify` to `9.0.1`
+
 ## 3.4.5 - 2022-05-19
 
 - Fixed: `TypeError` issue in *Toastr* component.
