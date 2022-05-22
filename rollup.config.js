@@ -6,17 +6,7 @@ import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import {terser} from "rollup-plugin-terser";
-
-const external = [
-  "react",
-  "react-dom",
-  "react-router-dom",
-  "react-router-nav-prompt",
-  "react-toastify",
-  "formik",
-  id => id.includes("@babel/runtime")
-];
+import { terser } from "rollup-plugin-terser";
 
 const plugins = [
   peerDepsExternal(),
@@ -53,7 +43,6 @@ export default [{
     sourcemap: false,
     assetFileNames: "[name][extname]",
   },
-  external,
   plugins: [
     ...plugins,
     styles({
@@ -68,7 +57,6 @@ export default [{
     format: "esm",
     sourcemap: false,
   },
-  external,
   plugins,
 }, {
   input: "./lib/components/formik/index.js",
@@ -77,7 +65,6 @@ export default [{
     format: "esm",
     sourcemap: false,
   },
-  external,
   plugins
 }, {
   input: "./lib/Molecules/index.js",
@@ -86,6 +73,5 @@ export default [{
     format: "esm",
     sourcemap: false,
   },
-  external,
   plugins
 }];
