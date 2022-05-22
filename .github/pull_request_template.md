@@ -1,8 +1,8 @@
 <!-- You can erase any parts of this template not applicable to your Pull Request. -->
 
-### **Fixes** #(issue)
+Fixes #issue-number
 
-### **Description**
+**Description**
 
 <!--- Describe your changes in detail -->
 <!--- Follow these while adding an entry -->
@@ -28,13 +28,13 @@ Example:
 - Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
 --->
 
-### **Checklist**
+**Checklist**
 
 - [ ] I have performed a self-review of my code
 - [ ] I have made corresponding changes to the documentation
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] I have added the necessary label (patch/minor/major - If package publish is required)
 
-### Reviewers
+**Reviewers**
 
 <!--- PLEASE REMOVE ALL THE COMMENTS BEFORE SUBMITTING -->
