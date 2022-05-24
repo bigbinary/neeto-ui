@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Tags from "../../lib/Molecules/Tags";
+import Tags from "../../lib/molecules/Tags";
 
 export default {
   title: "Molecules/Tags",

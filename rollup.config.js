@@ -67,7 +67,7 @@ export default [{
   },
   plugins
 }, {
-  input: "./lib/Molecules/index.js",
+  input: "./lib/molecules/index.js",
   output:  {
     file: "molecules.js",
     format: "esm",
