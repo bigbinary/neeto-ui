@@ -10,6 +10,6 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
-  "exclude": ["build/index.js", "build/layouts.js","build/formik.js", "node_modules"],
+  "exclude": ["build", "node_modules", "storybook-static"],
   "include": ["./**/*.js", "./**/*.jsx"]
 }

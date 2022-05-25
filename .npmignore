@@ -39,6 +39,7 @@ jest-setup.js
 #stories
 /stories
 /.storybook
+/storybook-static
 
 #configs
 /*.config.js
