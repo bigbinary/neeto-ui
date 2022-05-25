@@ -23,6 +23,12 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.0 - 2022-05-25
+
+Changed: Replaces webpack with rollup for bundling the package.
+
+### 
+
 ## 3.4.6 - 2022-05-19
 
 - *Updated*: `react-toastify` to `9.0.1`
