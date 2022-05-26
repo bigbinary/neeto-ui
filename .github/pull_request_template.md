@@ -25,7 +25,7 @@ Prefix the change with one of these keywords:
 
 Points to note:
 - The description shall be represented in bullet points
-- Add BREAKING keyword in bold for changes that could potentially break the component, eg: **BREAKING**
+- Add the keyword BREAKING in bold style for changes that could potentially break the component, eg: **BREAKING**
 - Represent a component name in italics, eg: _Modal_
 - Enclose a prop name in double backticks, eg: `isLoading`
 
