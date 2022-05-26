@@ -119,20 +119,11 @@ Prefix the change with one of these keywords:
 #### UI
 
 - Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in _Color Palette_
--
 - Changed: the text color in _Table_ to `$neeto-ui-black`
--
 - Changed: UI of _Tag_ of component
--
 - Changed: look and feel of _Danger Button_
--
 - Changed: Contrast of _Avatar_, _Accordian_, _Toastr_ and _Callout_
--
 - Changed: Made _Modal_ Header text and Close icon aligned in a line
--
 - Added: new variant for _Danger Button_ -`danger-text`
--
 - Added: new accent colors
--
 - ![accent-colors](https://user-images.githubusercontent.com/48869249/160755429-d2830f42-3086-4cbe-b9f5-4f0bca4f1a32.png)
--
