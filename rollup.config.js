@@ -32,7 +32,7 @@ const plugins = [
     include: /\**node_modules\**/
   }),
   json(),
-  terser()
+  terser({ compress: { evaluate: false } })
 ];
 
 export default [{
