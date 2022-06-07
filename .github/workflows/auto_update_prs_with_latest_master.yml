@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: bigbinary/pr-auto-update@v2.1.6
         with:
-          github_token: ${{ secrets.AUTOREBASE_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
