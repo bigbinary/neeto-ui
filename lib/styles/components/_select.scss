@@ -1,5 +1,5 @@
 .neeto-ui-react-select__container.neeto-ui-react-select__container--error {
-  .neeto-ui-react-select__control{
+  .neeto-ui-react-select__control {
     border: thin solid $neeto-ui-error;
   }
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
@@ -8,7 +8,8 @@
   }
 }
 
-.neeto-ui-react-select__container, .neeto-ui-react-select__menu-portal {
+.neeto-ui-react-select__container,
+.neeto-ui-react-select__menu-portal {
   width: 100%;
   font-size: $neeto-ui-text-sm;
 
@@ -81,6 +82,9 @@
   .neeto-ui-react-select__placeholder {
     color: $neeto-ui-gray-400;
     font-size: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .neeto-ui-react-select__input {
