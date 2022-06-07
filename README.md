@@ -66,10 +66,6 @@ Read the docs here
 
 https://neetoui.onrender.com
 
-## Theming
-
-Theme override gist: [Override Gist](https://gist.github.com/goutham-subramanyam/d0619f8d089b10e7474a32478110ea0f)
-
 ## Other Libraries
 
 - [neetoIcons](https://github.com/bigbinary/neeto-icons): **NeetoIcons** is the official icons library from BigBinary.
