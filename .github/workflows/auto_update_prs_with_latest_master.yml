@@ -1,0 +1,15 @@
+name: PR-autoupdate-from-master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Auto:
+    name: Auto-update
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: bigbinary/pr-auto-update@v2.1.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
