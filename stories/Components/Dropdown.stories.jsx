@@ -156,7 +156,11 @@ export const ControlledDropdown = () => {
         label={`${isOpen ? "Close" : "Open"} Dropdown`}
         onClick={() => setIsOpen((open) => !open)}
       />
-      <Dropdown isOpen={isOpen} label="Controlled Dropdown">
+      <Dropdown
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        label="Controlled Dropdown"
+      >
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}
