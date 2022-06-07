@@ -152,11 +152,15 @@ export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex flex-col items-start space-y-6">
-      <Button
-        label={`${isOpen ? "Close" : "Open"} Dropdown`}
-        onClick={() => setIsOpen((open) => !open)}
-      />
-      <Dropdown isOpen={isOpen} label="Controlled Dropdown">
+      <div className="flex items-center space-x-4">
+        <Button label="Open Dropdown" onClick={() => setIsOpen(true)} />
+        <Button label="Close Dropdown" onClick={() => setIsOpen(false)} />
+      </div>
+      <Dropdown
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        label="Controlled Dropdown"
+      >
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}
