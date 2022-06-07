@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.3 - 2022-06-07
+
+- Fixed: issue with `closeOnEsc` prop when the *Dropdown* is controlled.
+
 ## 3.5.2 - 2022-06-07
 
 - Fixed : placeholder content extending into multiple lines in *Select* component.
