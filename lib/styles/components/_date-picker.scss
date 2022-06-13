@@ -168,6 +168,10 @@
   background: $neeto-ui-gray-800;
 }
 
+.ant-picker-range .ant-picker-clear {
+  right: 8px;
+}
+
 .ant-picker-focused {
   border-color: $neeto-ui-gray-800 !important;
   box-shadow: $neeto-ui-shadow !important;
