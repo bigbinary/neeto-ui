@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.6 - 2022-06-13
+
+- Fixed: Calendar icon overflowing under the clear icon in Date Range picker
+
 ## 3.5.5 - 2022-06-09
 
 - Fixed: issue with `onClose` function reference when closing the *Modal* using `Esc`.
