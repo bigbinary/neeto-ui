@@ -27,6 +27,10 @@ export default {
           '`import { Clock } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<Clock color="#1e1e20" size={24} />`',
       },
     },
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
   },
 };
 

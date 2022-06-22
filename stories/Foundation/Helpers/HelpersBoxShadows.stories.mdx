@@ -36,7 +36,15 @@ export const boxShadows = [
   },
 ];
 
-<Meta title="Foundation/Helpers/Box Shadows" />
+<Meta
+  title="Foundation/Helpers/Box Shadows"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <style>{`
   .story-demo-table tr{
@@ -70,10 +78,7 @@ export const boxShadows = [
           </td>
           <td>
             <div className="flex justify-between">
-              <code>{`${shadow.name.replace(
-                "$neeto-ui",
-                "neeto-ui"
-              )}`}</code>
+              <code>{`${shadow.name.replace("$neeto-ui", "neeto-ui")}`}</code>
             </div>
           </td>
         </tr>

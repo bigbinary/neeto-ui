@@ -1,5 +1,6 @@
 import "./style.scss";
 import "../lib/styles/index.scss";
+import { themes } from '@storybook/theming';
 
 export const parameters = {
   layout: "fullscreen",

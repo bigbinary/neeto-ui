@@ -1,6 +1,16 @@
 import { Meta } from "@storybook/addon-docs";
 
-<Meta title="Introduction/Welcome" />
+import DesignSystem from "../assets/images/design-system.webp";
+
+<Meta
+  title="Introduction/Welcome"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <style>{`
   .subheading {
@@ -42,6 +52,8 @@ import { Meta } from "@storybook/addon-docs";
 `}</style>
 
 # What is neetoUI?
+
+<img src={DesignSystem} width="50%" />
 
 neetoUI is the library that drives the experience in all [neeto products](https://neeto.com/) built at BigBinary
 
@@ -106,7 +118,7 @@ For more information, refer our [**GitHub repository**](https://github.com/bigbi
 neetoUI exports all it’s component as named exports. You can individually import necessary components in the following way:
 
 ```jsx
-import { Button, Tooltip, } from "@bigbinary/neetoui";
+import { Button, Tooltip } from "@bigbinary/neetoui";
 ```
 
 If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from neetoUI.
