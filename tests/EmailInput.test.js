@@ -43,14 +43,18 @@ describe("EmailInput", () => {
     expect(screen.getByText("Error message")).toBeInTheDocument();
   });
 
-  it("should not render email counter when the email count <= 3", () => {
-    render(<EmailInput counter value={SAMPLE_EMAILS.slice(2)} />);
-    expect(screen.queryByText("3 emails")).not.toBeInTheDocument();
+  it("should not render email counter when the email count start from 3 and count is 2", () => {
+    render(
+      <EmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(3)} />
+    );
+    expect(screen.queryByText("2 emails")).not.toBeInTheDocument();
   });
 
-  it("should not render email counter when the email count > 3", () => {
-    render(<EmailInput counter value={SAMPLE_EMAILS.slice(1)} />);
-    expect(screen.getByText("4 emails")).toBeInTheDocument();
+  it("should render email counter when the email count start from 3 and count is 3", () => {
+    render(
+      <EmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(2)} />
+    );
+    expect(screen.getByText("3 emails")).toBeInTheDocument();
   });
 
   it("should render default counter text when no label is provided", () => {
