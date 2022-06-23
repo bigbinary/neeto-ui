@@ -15,7 +15,7 @@ export const parameters = {
     storySort: {
       order: [
         "Introduction",
-        ["Welcome", "Formik", "Changelog"],
+        ["Welcome","Get Started","Formik", "Changelog"],
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers"],
         "Components",

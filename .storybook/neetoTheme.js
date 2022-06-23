@@ -9,9 +9,9 @@ export default create({
   colorSecondary: '#4f45e4',
 
   // UI
-  appBg: '#090b14',
+  appBg: '#000000',
   appContentBg: '#1e202e',
-  appBorderColor: '#090b14',
+  appBorderColor: '#000000',
   appBorderRadius: 12,
 
   // Typography

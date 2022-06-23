@@ -65,7 +65,7 @@ export const Iconography = () => {
           return (
             <div
               key={icon}
-              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-pastel-blue"
             >
               <Component />
               <div className="mt-2 text-xs">{icon}</div>

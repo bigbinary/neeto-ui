@@ -58,7 +58,7 @@ export const boxShadows = [
 <table className="story-demo-table">
   <thead>
     <tr>
-      <td></td>
+      <td>Preview</td>
       <td>Class</td>
     </tr>
   </thead>
@@ -66,7 +66,7 @@ export const boxShadows = [
     {boxShadows.map((shadow) => {
       return (
         <tr key={shadow.name}>
-          <td>
+          <td className="neeto-ui-bg-pastel-blue">
             <div className="p-16">
               <div
                 className={`w-32 h-32 neeto-ui-bg-white ${shadow.name.replace(
