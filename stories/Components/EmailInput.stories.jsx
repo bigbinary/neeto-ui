@@ -9,6 +9,7 @@ import { suffixes, prefixes } from "../constants";
 import { EmailInput as FormikEmailInput } from "../../lib/components/formik";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
+import EmailInputDocs from "!raw-loader!./EmailInputDocs.mdx";
 
 export default {
   title: "Components/Email Input",
@@ -75,20 +76,40 @@ export const HelpText = () => (
 );
 
 export const Counter = () => {
-  const [emails, setEmails] = useState([]);
+  const [emails, setEmails] = useState([{
+    "label": "test@example.com",
+    "value": "test@example.com",
+    "valid": true
+  },
+  {
+    "label": "test2@example.com",
+    "value": "test2@example.com",
+    "valid": true
+  },
+  {
+    "label": "test3@example.com",
+    "value": "test3@example.com",
+    "valid": true
+  }]);
 
   return (
     <EmailInput
-      counter
+      counter={{ startsFrom: 3 }}
       value={emails}
       onChange={emails => setEmails(emails)}
     />
   );
 };
 
+Counter.parameters = {
+  docs: {
+    description: { story: EmailInputDocs },
+  }
+};
+
 export const WithPrefixAndSuffix = (args) => {
   const [emails, setEmails] = useState(args.value);
-  
+
   return (
     <EmailInput
       {...args}
