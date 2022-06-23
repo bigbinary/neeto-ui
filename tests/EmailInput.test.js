@@ -3,6 +3,30 @@ import { EmailInput } from "../lib/components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+const SAMPLE_EMAILS = [
+  { label: "test@example.com", value: "test@example.com", valid: true },
+  {
+    label: "test2@example.com",
+    value: "test2@example.com",
+    valid: true,
+  },
+  {
+    label: "test3@example.com",
+    value: "test3@example.com",
+    valid: true,
+  },
+  {
+    label: "test4@example.com",
+    value: "test4@example.com",
+    valid: true,
+  },
+  {
+    label: "test5@example.com",
+    value: "test5@example.com",
+    valid: true,
+  },
+];
+
 describe("EmailInput", () => {
   it("should render without error", () => {
     render(<EmailInput />);
@@ -19,42 +43,23 @@ describe("EmailInput", () => {
     expect(screen.getByText("Error message")).toBeInTheDocument();
   });
 
-  it("should render correct number of emails", () => {
-    render(
-      <EmailInput
-        value={[
-          { label: "test@example.com", value: "test@example.com", valid: true },
-        ]}
-        counter={{ label: "email" }}
-      />
-    );
-    expect(screen.getByText("1 email")).toBeInTheDocument();
+  it("should not render email counter when the email count <= 3", () => {
+    render(<EmailInput counter value={SAMPLE_EMAILS.slice(2)} />);
+    expect(screen.queryByText("3 emails")).not.toBeInTheDocument();
+  });
+
+  it("should not render email counter when the email count > 3", () => {
+    render(<EmailInput counter value={SAMPLE_EMAILS.slice(1)} />);
+    expect(screen.getByText("4 emails")).toBeInTheDocument();
   });
 
   it("should render default counter text when no label is provided", () => {
     const { rerender } = render(
-      <EmailInput
-        value={[
-          { label: "test@example.com", value: "test@example.com", valid: true },
-        ]}
-        counter={{}}
-      />
+      <EmailInput counter value={SAMPLE_EMAILS.slice(1)} />
     );
-    expect(screen.getByText("1 email")).toBeInTheDocument();
-    rerender(
-      <EmailInput
-        value={[
-          { label: "test@example.com", value: "test@example.com", valid: true },
-          {
-            label: "test2@example.com",
-            value: "test2@example.com",
-            valid: true,
-          },
-        ]}
-        counter={{}}
-      />
-    );
-    expect(screen.getByText("2 emails")).toBeInTheDocument();
+    expect(screen.getByText("4 emails")).toBeInTheDocument();
+    rerender(<EmailInput counter value={SAMPLE_EMAILS} />);
+    expect(screen.getByText("5 emails")).toBeInTheDocument();
   });
 
   it("should call onBlur when focus from the input field changes", () => {
