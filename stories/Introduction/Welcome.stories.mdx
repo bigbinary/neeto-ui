@@ -3,7 +3,7 @@ import { Meta } from "@storybook/addon-docs";
 import Team from "../assets/images/team.jpg";
 
 <Meta
-  title="Introduction/Welcome"
+  title="Welcome"
   parameters={{
     viewMode: "docs",
     previewTabs: {
@@ -20,22 +20,30 @@ import Team from "../assets/images/team.jpg";
     gap: 20px;
     margin-bottom: 50px;
   }
-  .sbdocs .sbdocs-neetoui-title{
+
+  .sbdocs .sbdocs-hero-banner__title{
     display:flex;
     align-items:baseline;
     gap:10px;
   }
-  .sbdocs .sbdocs-neetoui-title strong {
+
+  .sbdocs .sbdocs-hero-banner__title strong {
     font-size: 200%;
     font-weight: bold;
     user-select:none;
     color:#0048fd;
   }
+
+  .sbdocs .sbdocs-hero-banner__desc{
+
+  }
+
   .sbdocs-featured{
     display:flex;
     flex-wrap: wrap;
     gap: 20px;
   }
+
   .sbdocs-featured__item{
     width: calc(33.33% - 20px);
     border-radius: 12px;
@@ -51,6 +59,7 @@ import Team from "../assets/images/team.jpg";
   .sbdocs-featured__item:hover{
     transform:scale(1.05);
   }
+
   .sbdocs-featured__item-abs-link{
     position:absolute;
     left:0;
@@ -75,14 +84,13 @@ import Team from "../assets/images/team.jpg";
 
 <div className="sbdocs-hero-banner">
   <div>
-    <h1 className="sbdocs-neetoui-title">
+    <h1 className="sbdocs-hero-banner__title">
       <strong>neetoUI</strong> design system
     </h1>
-    <p>
-    neetoUI is the library that drives the experience<br/> in all neeto
-    products built at BigBinary
+    <p className="sbdocs-hero-banner__desc">
+    neetoUI is the library that drives the experience<br/> in all <a href="https://www.neeto.com/" target="_blank">neeto
+    products</a> built at <a href="https://www.bigbinary.com/" target="_blank">BigBinary</a>
     </p>
-    
   </div>
   <div>
     <img src={Team} width="450px" />
@@ -90,8 +98,8 @@ import Team from "../assets/images/team.jpg";
 </div>
 <div className="sbdocs-featured">
   <div className="sbdocs-featured__item">
-    <a href="/docs/introduction-welcome--page" className="sbdocs-featured__item-abs-link"></a>
-    <h4>Get started</h4>
+    <a href="/docs/getting-started--page" className="sbdocs-featured__item-abs-link"></a>
+    <h4>Getting started</h4>
     <p>Everything you need to get up and running.</p>
     <span className="sbdocs-featured__item-link">Read instructions</span>
   </div>
