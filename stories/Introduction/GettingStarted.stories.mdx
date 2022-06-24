@@ -30,14 +30,7 @@ yarn add @bigbinary/neetoui
 
 </div>
 
-Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
-
-
-```css
-@import "@bigbinary/neetoui";
-```
-
-**neetoUI** has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
+neetoUI has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
 
 <div className="sbdocs-install-code">
 
@@ -46,7 +39,14 @@ yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-n
 ```
 </div>
 
-**neetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
+Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
+
+
+```css
+@import "@bigbinary/neetoui";
+```
+
+neetoUI depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
 
 ```css
 @import "react-toastify/dist/ReactToastify.min.css";
