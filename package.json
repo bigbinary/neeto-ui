@@ -1,8 +1,8 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "3.5.7",
+  "version": "3.6.0-beta.0",
   "main": "./index.js",
-  "module": "./index.js",
+  "module": "./index.esm.js",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI is the library that drives the experience in all neeto products built at BigBinary",

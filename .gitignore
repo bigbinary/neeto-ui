@@ -23,6 +23,8 @@
 /index.js.LICENSE.txt
 /layouts.js.LICENSE.txt
 /*.png
+/*.esm.js
+/index.esm.js
 
 # misc
 .DS_Store
