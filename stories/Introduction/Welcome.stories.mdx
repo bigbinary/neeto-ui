@@ -23,8 +23,9 @@ import Team from "../assets/images/team.svg";
 
   .sbdocs .sbdocs-hero-banner__title{
     display:flex;
+    flex-wrap: wrap;
     align-items:baseline;
-    gap:10px;
+    line-height:1.1;
   }
 
   .sbdocs .sbdocs-hero-banner__title strong {
@@ -32,10 +33,7 @@ import Team from "../assets/images/team.svg";
     font-weight: bold;
     user-select:none;
     color:#0048fd;
-  }
-
-  .sbdocs .sbdocs-hero-banner__desc{
-
+    margin-right:10px;
   }
 
   .sbdocs-featured{
@@ -45,7 +43,7 @@ import Team from "../assets/images/team.svg";
   }
 
   .sbdocs-featured__item{
-    width: calc(33.33% - 20px);
+    width: 100%;
     border-radius: 12px;
     padding: 30px;
     background:rgb(248, 248, 248);
@@ -54,6 +52,20 @@ import Team from "../assets/images/team.svg";
     position: relative;
     user-select:none;
     transition:all 0.3s;
+  }
+
+  .sbdocs-hero-banner__img-wrapper{
+    display:none;
+  }
+
+  @media (min-width: 640px){
+    .sbdocs-featured__item{
+      width: calc(33.33% - 20px);
+      min-width: 210px;
+    }
+    .sbdocs-hero-banner__img-wrapper{
+      display: inline-block;
+    }
   }
 
   .sbdocs-featured__item:hover{
@@ -81,10 +93,17 @@ import Team from "../assets/images/team.svg";
   }
 
   .sbdocs-cover-design-credit-block{
-    text-align: right;
-    display:block;
-    width:100%;
-    padding-right:20px;
+    display: none;
+  }
+
+  @media (min-width: 640px){
+    .sbdocs-cover-design-credit-block{
+      text-align: right;
+      display:block;
+      width:100%;
+      padding-right:20px;
+      padding-top:40px;
+    }
   }
 
   .sbdocs-cover-design-credit-link{
@@ -101,11 +120,11 @@ import Team from "../assets/images/team.svg";
       <strong>neetoUI</strong> design system
     </h1>
     <p className="sbdocs-hero-banner__desc">
-    neetoUI is the library that drives the experience<br/> in all <a href="https://www.neeto.com/" target="_blank">neeto
+    neetoUI is the library that drives the experience in all <a href="https://www.neeto.com/" target="_blank">neeto
     products</a> built at <a href="https://www.bigbinary.com/" target="_blank">BigBinary</a>
     </p>
   </div>
-  <div>
+  <div className="sbdocs-hero-banner__img-wrapper">
     <img src={Team} width="450px" />
   </div>
 </div>
@@ -129,7 +148,7 @@ import Team from "../assets/images/team.svg";
     <span className="sbdocs-featured__item-link">Browse components</span>
   </div>
 
-  <div className="pt-20 sbdocs-cover-design-credit-block">
+  <div className="sbdocs-cover-design-credit-block">
     <a href="https://www.freepik.com/vectors/work-with-us" className="sbdocs-cover-design-credit-link" target="_blank">Cover design credits: Freepik</a>
   </div>
 </div>
