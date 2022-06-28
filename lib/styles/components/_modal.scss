@@ -34,6 +34,23 @@
     position: relative;
     background-color: $neeto-ui-white;
     border-radius: $neeto-ui-rounded-sm;
+    opacity: 0;
+    transform: scale(1.1);
+    backdrop-filter: blur(2px);
+    animation: showModalWrapper 0.3s forwards;
+
+    @keyframes showModalWrapper {
+      0% {
+        opacity: 0;
+        transform: scale(1.1);
+        backdrop-filter: blur(2px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        backdrop-filter: blur(0px);
+      }
+    }
 
     .neeto-ui-modal__close {
       position: absolute;
