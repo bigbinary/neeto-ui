@@ -8,6 +8,8 @@
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: rgba(27, 31, 35, 0.867);
+    backdrop-filter: blur(2px);
   }
   &__wrapper {
     overflow: hidden;
