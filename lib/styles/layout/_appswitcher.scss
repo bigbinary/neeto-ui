@@ -15,6 +15,24 @@
   &--expanded {
     left: 300px;
   }
+
+  opacity: 0;
+  background-color: #1b1f2300;
+  backdrop-filter: blur(2px);
+  animation: showAppSwitcherBackdrop 0.3s forwards;
+
+  @keyframes showAppSwitcherBackdrop {
+    0% {
+      opacity: 0;
+      background-color: #1b1f2300;
+      backdrop-filter: blur(0px);
+    }
+    100% {
+      opacity: 1;
+      background-color: #1b1f23dd;
+      backdrop-filter: blur(2px);
+    }
+  }
 }
 
 .neeto-ui-app-switcher__wrapper {
