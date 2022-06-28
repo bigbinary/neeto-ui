@@ -89,6 +89,7 @@
   .neeto-ui-pane__wrapper{
     transform: translateX(0);
     backdrop-filter: blur(0px);
+    transition: all .3s;
   }
 }
 .neeto-ui-pane-exit {
@@ -99,8 +100,9 @@
     transition: all .3s;
   }
   .neeto-ui-pane__wrapper{
-    transform: translateX(0);
-    backdrop-filter: blur(0px);
+    transform: translateX(100%);
+    backdrop-filter: blur(2px);
+    transition: all .3s;
   }
 }
 .neeto-ui-pane-exit-active {
