@@ -1,14 +1,22 @@
 .neeto-ui-sidebar {
   width: 300px;
+  max-width: 300px;
   height: 100vh;
   padding: 40px 0;
   z-index: 99997;
+  transition: all 0.3s;
 
   @include scrollbars(0);
   background-color: $neeto-ui-gray-200;
 
   @include min(1440px) {
     width: 320px;
+    max-width: 320px;
+  }
+
+  &.neeto-ui-sidebar--collapsed{
+    width: 64px;
+    max-width: 64px;
   }
 
   // header
