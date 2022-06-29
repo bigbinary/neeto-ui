@@ -6,6 +6,7 @@ import DatePicker from "../../lib/components/DatePicker";
 import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
 import dayjs from "dayjs";
+import { Clock, Calendar } from "@bigbinary/neeto-icons";
 
 export default {
   title: "Components/Date and Time",
@@ -180,6 +181,35 @@ TimePickerWithDefaultValue.parameters = {
   },
 };
 
+export const DatePickerWithCustomTarget = (args) => {
+  return (
+    <div className="space-y-3">
+      <DatePicker customTarget={<Button icon={Calendar} />} {...args} />
+
+      <TimePicker
+        customTarget={
+          <Button
+            label="Select Time"
+            style="secondary"
+            icon={Clock}
+            iconPosition="left"
+          />
+        }
+        {...args}
+      />
+    </div>
+  );
+};
+DatePickerWithCustomTarget.storyName = "Date/Time Picker with Custom Target";
+DatePickerWithCustomTarget.parameters = {
+  docs: {
+    description: {
+      story:
+        "`customTarget` prop is used to replace the default input field with any custom element",
+    },
+  },
+};
+
 export const DateRangePicker = () => {
   return (
     <div className="space-y-3">
@@ -189,9 +219,9 @@ export const DateRangePicker = () => {
         defaultValue={
           isChromatic()
             ? [
-                dayjs(new Date(1999, 7, 16)),
-                dayjs(new Date(1999, 7, 16)).add(7, "day"),
-              ]
+              dayjs(new Date(1999, 7, 16)),
+              dayjs(new Date(1999, 7, 16)).add(7, "day"),
+            ]
             : [dayjs(), dayjs().add(7, "day")]
         }
       />

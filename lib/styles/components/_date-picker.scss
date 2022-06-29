@@ -151,6 +151,15 @@
       box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
     }
   }
+
+  &.neeto-ui-date-input--hidden,
+  &.neeto-ui-time-input--hidden{
+    z-index: -999;
+    opacity: 0;
+    height: 0px;
+    padding: 0;
+    border: none;
+  }
 }
 
 .ant-picker-time-panel {
