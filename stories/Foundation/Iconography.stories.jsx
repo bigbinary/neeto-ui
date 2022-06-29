@@ -27,6 +27,10 @@ export default {
           '`import { Clock } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<Clock color="#1e1e20" size={24} />`',
       },
     },
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
   },
 };
 
@@ -61,7 +65,7 @@ export const Iconography = () => {
           return (
             <div
               key={icon}
-              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-pastel-blue"
             >
               <Component />
               <div className="mt-2 text-xs">{icon}</div>

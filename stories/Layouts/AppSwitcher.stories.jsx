@@ -15,6 +15,9 @@ export default {
         component:
           '`import { AppSwitcher } from "@bigbinary/neetoui/layouts";`',
       },
+      // Opt-out of inline rendering
+      inlineStories: false,
+      iframeHeight: "100vh",
     },
   },
 };

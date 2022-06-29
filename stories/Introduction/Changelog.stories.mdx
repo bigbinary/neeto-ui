@@ -1,6 +1,14 @@
 import { Meta, Description } from "@storybook/addon-docs";
 import CHANGELOG from "../../CHANGELOG.md";
 
-<Meta title="Introduction/Changelog" />
+<Meta
+  title="Changelog"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <Description>{CHANGELOG}</Description>

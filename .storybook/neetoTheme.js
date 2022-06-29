@@ -3,29 +3,34 @@ import neetoLogo from './neetoLogo.svg';
 
 
 export default create({
-  base: 'light',
+  base: 'dark',
 
-  colorPrimary: '#1b1f23',
-  colorSecondary: '#1b1f23',
+  colorPrimary: '#0048fd',
+  colorSecondary: '#0048fd',
 
   // UI
-  appContentBg: 'white',
-  appBorderColor: 'grey',
+  appBg: '#121212',
+  appContentBg: '#1e202e',
+  appBorderColor: '#121212',
   appBorderRadius: 12,
 
+  // Typography
+  fontBase: '"Open Sans", sans-serif',
+  fontCode: 'monospace',
+
   // Text colors
-  textColor: 'black',
-  textInverseColor: 'rgba(255,255,255,0.9)',
+  // textColor: 'white',
+  // textInverseColor: 'black',
 
   // Toolbar default and active colors
-  barTextColor: '#49545c',
-  barSelectedColor: '#1b1f23',
-  barBg: 'white',
+  barTextColor: 'white',
+  barSelectedColor: 'white',
+  barBg: '#333647',
 
   // Form colors
-  inputBg: 'white',
+  inputBg: 'transparent',
   inputBorder: 'silver',
-  inputTextColor: 'black',
+  inputTextColor: 'white',
   inputBorderRadius: 4,
 
   brandTitle: 'neeto',
