@@ -11,27 +11,13 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  transition: left 0.3s ease-in-out;
+
+  transition: all .3s;
+  background-color: #1b1f23dd;
+  backdrop-filter: blur(2px);
+
   &--expanded {
     left: 300px;
-  }
-
-  opacity: 0;
-  background-color: #1b1f2300;
-  backdrop-filter: blur(2px);
-  animation: showAppSwitcherBackdrop 0.3s forwards;
-
-  @keyframes showAppSwitcherBackdrop {
-    0% {
-      opacity: 0;
-      background-color: #1b1f2300;
-      backdrop-filter: blur(0px);
-    }
-    100% {
-      opacity: 1;
-      background-color: #1b1f23dd;
-      backdrop-filter: blur(2px);
-    }
   }
 }
 
@@ -250,4 +236,50 @@
 }
 .gradient--cal {
   background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
+}
+
+// CSS transition group
+
+.neeto-ui-app-switcher-enter {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 0;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(-100%);
+    backdrop-filter: blur(2px);
+  }
+}
+.neeto-ui-app-switcher-enter-active,
+.neeto-ui-app-switcher-enter-done {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(0);
+    backdrop-filter: blur(0px);
+  }
+}
+.neeto-ui-app-switcher-exit {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 1;
+    backdrop-filter: blur(2px);
+    transition: all .3s;
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(0);
+    backdrop-filter: blur(0px);
+    transition: all .3s;
+  }
+}
+.neeto-ui-app-switcher-exit-active {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 0;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(-100%);
+    backdrop-filter: blur(2px);
+  }
 }

@@ -84,7 +84,7 @@ export const PaneWithModalAndAlert = () => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+          <div className="flex flex-row items-center justify-start space-x-2">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -105,7 +105,7 @@ export const PaneWithModalAndAlert = () => {
             planet from sinister invaders! All-strong! All-brave! All-heroes!
             They're The Herculoids!
           </Typography>
-          <div className="flex space-x-6">
+          <div className="flex space-x-2">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button label="Show Alert" onClick={() => setShowAlert(true)} />
           </div>
@@ -144,7 +144,7 @@ export const PaneWithModalAndAlert = () => {
             onChange={(event) => setInputValue(event.target.value)}
           />
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             label="Continue"

@@ -3,6 +3,8 @@
   flex-shrink: 0;
   overflow: hidden;
 
+  transition: all 0.3s;
+
   .neeto-ui-menubar__container {
     width: 324px;
     padding: 24px;
@@ -129,5 +131,29 @@
         }
       }
     }
+  }
+}
+
+// CSS transition group
+
+.neeto-ui-menubar-enter {
+  &.neeto-ui-menubar__wrapper{
+    width: 0;
+  }
+}
+.neeto-ui-menubar-enter-active,
+.neeto-ui-menubar-enter-done {
+  &.neeto-ui-menubar__wrapper{
+    width: 324px;
+  }
+}
+.neeto-ui-menubar-exit {
+  &.neeto-ui-menubar__wrapper{
+    width: 324px;
+  }
+}
+.neeto-ui-menubar-exit-active {
+  &.neeto-ui-menubar__wrapper{
+    width: 0;
   }
 }
