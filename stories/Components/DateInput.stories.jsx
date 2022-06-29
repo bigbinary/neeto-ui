@@ -185,6 +185,14 @@ export const DatePickerWithCustomTarget = (args) => {
   return (
     <div className="space-y-3">
       <DatePicker customTarget={<Button icon={Calendar} />} {...args} />
+      <DatePicker customTarget={<Button label="Select date Range" />} defaultValue={
+        isChromatic()
+          ? [
+            dayjs(new Date(1999, 7, 16)),
+            dayjs(new Date(1999, 7, 16)).add(7, "day"),
+          ]
+          : [dayjs(), dayjs().add(7, "day")]
+      } type="range" {...args} />
 
       <TimePicker
         customTarget={
