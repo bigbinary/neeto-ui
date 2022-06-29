@@ -1,136 +1,166 @@
 import { Meta } from "@storybook/addon-docs";
 
-<Meta title="Introduction/Welcome" />
+import Team from "../assets/images/team.svg";
+
+<Meta
+  title="Welcome"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <style>{`
-  .subheading {
-    --mediumdark: '#49545c';
-    font-weight: 900;
-    font-size: 13px;
-    color: #49545c;
-    letter-spacing: 2px;
-    line-height: 24px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    margin-top: 40px;
+
+  .sbdocs .sbdocs-hero-banner{
+    display:flex;
+    align-items:center;
+    gap: 20px;
+    margin-bottom: 50px;
   }
 
-  .tip {
+  .sbdocs .sbdocs-hero-banner__title{
+    display:flex;
+    flex-wrap: wrap;
+    align-items:baseline;
+    line-height:1.1;
+  }
+
+  .sbdocs .sbdocs-hero-banner__title strong {
+    font-size: 150%;
+    font-weight: bold;
+    user-select:none;
+    color:#0048fd;
+    margin-right:10px;
+  }
+
+  @media (min-width: 640px){
+    .sbdocs .sbdocs-hero-banner__title strong{
+      font-size: 200%;
+    }
+  }
+
+  @media (max-width: 539px){
+    .sbdocs-hero-banner__desc br{
+      display:none;
+    }
+  }
+
+  .sbdocs-featured{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .sbdocs-featured__item{
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px;
+    background:rgb(248, 248, 248);
+    display:flex;
+    flex-direction:column;
+    position: relative;
+    user-select:none;
+    transition:all 0.3s;
+  }
+
+  .sbdocs-hero-banner__img-wrapper{
+    display:none;
+  }
+
+  @media (min-width: 640px){
+    .sbdocs-featured__item{
+      width: calc(33.33% - 20px);
+      min-width: 210px;
+    }
+    .sbdocs-hero-banner__img-wrapper{
+      display: inline-block;
+    }
+  }
+
+  .sbdocs-featured__item:hover{
+    transform:scale(1.05);
+  }
+
+  .sbdocs-featured__item-abs-link{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+  }
+
+  .sbdocs-featured__item h4{
+    font-size: 22px !important;
+    position: relative;
+  }
+
+  .sbdocs-featured__item-link{
+    margin-top:auto;
+    display: inline-flex;
+    color:#0048fd;
+  }
+
+  .sbdocs-cover-design-credit-block{
+    display: none;
+  }
+
+  @media (min-width: 640px){
+    .sbdocs-cover-design-credit-block{
+      text-align: right;
+      display:block;
+      width:100%;
+      padding-right:20px;
+      padding-top:40px;
+    }
+  }
+
+  .sbdocs-cover-design-credit-link{
+    font-size: 11px !important;
     display: inline-block;
-    border-radius: 1em;
-    font-size: 11px;
-    line-height: 12px;
-    font-weight: 700;
-    background: #2f3941;
-    color: #fff;
-    padding: 6px 12px;
-    margin-right: 10px;
-    vertical-align: top;
+    opacity:0.5;
   }
 
-  .tip-wrapper {
-    font-size: 13px;
-    line-height: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .tip-wrapper code {
-    font-size: 12px;
-    display: inline-block;
-  }
 `}</style>
 
-# What is neetoUI?
-
-neetoUI is the library that drives the experience in all [neeto products](https://neeto.com/) built at BigBinary
-
-<div className="subheading">Installation</div>
-
-To install neetoUI via yarn, use this command.
-
-```
-yarn add @bigbinary/neetoui
-```
-
-Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main scss entry point.
-
-```css
-@import "@bigbinary/neetoui";
-```
-
-**neetoUI** has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
-
-```
-yarn add react-toastify@8.0.2 formik@2.2.0 react-router-dom@5.2.0 react-router-nav-prompt@0.4.1
-```
-
-**neetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
-
-```css
-@import "react-toastify/dist/ReactToastify.min.css";
-```
-
-Also make sure to include the `<ToastContainer />` in your application.
-
-```jsx
-import React from "react";
-
-import { ToastContainer } from "react-toastify";
-
-const App = () => {
-  return (
-    <>
-      <ToastContainer />
-      // Other children
-    </>
-  );
-};
-```
-
-For other installation methods, refer our [**official npm page**](https://www.npmjs.com/package/@bigbinary/neetoui).
-
-For more information, refer our [**GitHub repository**](https://github.com/bigbinary/neeto-ui).
-
-<div className="tip-wrapper">
-  <span className="tip">
-    To use neetoUI, you need a recent version of React.js installed (version
-    16.13.1+ recommended)
-  </span>
+<div className="sbdocs-hero-banner">
+  <div>
+    <h1 className="sbdocs-hero-banner__title">
+      <strong>neetoUI</strong> design system
+    </h1>
+    <p className="sbdocs-hero-banner__desc">
+    neetoUI is the library that drives the experience <br /> in all <a href="https://www.neeto.com/" target="_blank">neeto
+    products</a> built at <a href="https://www.bigbinary.com/" target="_blank">BigBinary</a>
+    </p>
+  </div>
+  <div className="sbdocs-hero-banner__img-wrapper">
+    <img src={Team} width="450px" />
+  </div>
 </div>
+<div className="sbdocs-featured">
+  <div className="sbdocs-featured__item">
+    <a href="/docs/getting-started--page" className="sbdocs-featured__item-abs-link"></a>
+    <h4>Getting started</h4>
+    <p>Everything you need to get up and running.</p>
+    <span className="sbdocs-featured__item-link">Read instructions</span>
+  </div>
+  <div className="sbdocs-featured__item">
+    <a href="/docs/foundation-colors--page" className="sbdocs-featured__item-abs-link"></a>
+    <h4>Foundation</h4>
+    <p>All information about colors, typography, and icons</p>
+    <span className="sbdocs-featured__item-link">Read guidelines</span>
+  </div>
+  <div className="sbdocs-featured__item">
+    <a href="/docs/components-accordion--accordion-story" className="sbdocs-featured__item-abs-link"></a>
+    <h4>Components</h4>
+    <p>All the information and guidelines you’ll ever need on each component</p>
+    <span className="sbdocs-featured__item-link">Browse components</span>
+  </div>
 
-<div className="subheading">Basic Usage</div>
-
-##### Importing
-
-neetoUI exports all it’s component as named exports. You can individually import necessary components in the following way:
-
-```jsx
-import { Button, Tooltip, } from "@bigbinary/neetoui";
-```
-
-If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from neetoUI.
-
-```jsx
-import React from "react";
-import * as NeetoUI from "@bigbinary/neetoui";
-
-export default function index() {
-  const Button = NeetoUI.Button;
-
-  // get a random component
-  const componentName = Math.random() > 0.5 ? "Badge" : "Avatar";
-  const MyDynamicComponent = NeetoUI[componentName];
-
-  return (
-    <div>
-      <Button />
-      <MyDynamicComponent />
-    </div>
-  );
-}
-```
-
-#### Acceptable props for Components
-
-Refer documentation of each component for a detailed list of available props and their usage.
+  <div className="sbdocs-cover-design-credit-block">
+    <a href="https://www.freepik.com/vectors/work-with-us" className="sbdocs-cover-design-credit-link" target="_blank">Cover design credits: Freepik</a>
+  </div>
+</div>

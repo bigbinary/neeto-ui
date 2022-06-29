@@ -1,5 +1,6 @@
 import "./style.scss";
 import "../lib/styles/index.scss";
+import { themes } from "@storybook/theming";
 
 export const parameters = {
   layout: "fullscreen",
@@ -13,8 +14,10 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Introduction",
-        ["Welcome", "Formik", "Changelog"],
+        "Welcome",
+        "Getting started",
+        "Formik",
+        "Changelog",
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers"],
         "Components",

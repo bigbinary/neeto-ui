@@ -36,7 +36,15 @@ export const boxShadows = [
   },
 ];
 
-<Meta title="Foundation/Helpers/Box Shadows" />
+<Meta
+  title="Foundation/Helpers/Box Shadows"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <style>{`
   .story-demo-table tr{
@@ -50,7 +58,7 @@ export const boxShadows = [
 <table className="story-demo-table">
   <thead>
     <tr>
-      <td></td>
+      <td>Preview</td>
       <td>Class</td>
     </tr>
   </thead>
@@ -58,7 +66,7 @@ export const boxShadows = [
     {boxShadows.map((shadow) => {
       return (
         <tr key={shadow.name}>
-          <td>
+          <td className="neeto-ui-bg-pastel-blue">
             <div className="p-16">
               <div
                 className={`w-32 h-32 neeto-ui-bg-white ${shadow.name.replace(
@@ -70,10 +78,7 @@ export const boxShadows = [
           </td>
           <td>
             <div className="flex justify-between">
-              <code>{`${shadow.name.replace(
-                "$neeto-ui",
-                "neeto-ui"
-              )}`}</code>
+              <code>{`${shadow.name.replace("$neeto-ui", "neeto-ui")}`}</code>
             </div>
           </td>
         </tr>

@@ -1,8 +1,16 @@
 import { Meta } from "@storybook/addon-docs";
 
-import colorPalette from './ColorPalette.js'
+import colorPalette from "./ColorPalette.js";
 
-<Meta title="Foundation/Colors" />
+<Meta
+  title="Foundation/Colors"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
 
 <style>{`
   .story-demo-table tr{
@@ -43,8 +51,16 @@ import colorPalette from './ColorPalette.js'
           </td>
           <td>
             <div className="flex justify-between">
-              <code>{`${color.name.replace("$neeto-ui", "neeto-ui-text")}`}</code>
-              <b className={`ml-2 ${color.name.replace("$neeto-ui", "neeto-ui-text")}`}>
+              <code>{`${color.name.replace(
+                "$neeto-ui",
+                "neeto-ui-text"
+              )}`}</code>
+              <b
+                className={`ml-2 ${color.name.replace(
+                  "$neeto-ui",
+                  "neeto-ui-text"
+                )}`}
+              >
                 Aa
               </b>
             </div>
