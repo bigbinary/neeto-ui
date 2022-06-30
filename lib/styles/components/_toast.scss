@@ -7,15 +7,19 @@ body {
     max-width: 640px;
     min-width: 320px;
 
+    .Toastify__toast{
+      background-color: var(--neeto-ui-gray-800);
+    }
+
     .Toastify__toast,
     .neeto-ui-toastr {
-      min-height: 40px;
-      padding: 0.5rem;
+      min-height: 52px;
+      padding: 0.75rem 1rem;
       margin: 0 0 1rem;
 
       box-shadow: none;
 
-      border-radius: var(--neeto-ui-rounded-sm);
+      border-radius: var(--neeto-ui-rounded-md);
 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
@@ -27,27 +31,38 @@ body {
       .Toastify__toast-icon {
         margin: 0;
         svg{
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
         }
       }
 
       .Toastify__toast-body {
         margin: 0;
         padding: 0;
-        gap: 8px;
-        color: var(--neeto-ui-gray-800);
+        gap: 12px;
+        color: var(--neeto-ui-white);
 
         div {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: 8px;
+          gap: 12px;
 
           p {
             font-size: var(--neeto-ui-text-sm);
-            font-weight: var(--neeto-ui-font-medium);
+            font-weight: var(--neeto-ui-font-normal);
+          }
+        }
+
+        .toastr-message-container__btn-wrapper{
+          border-left: 1px solid var(--neeto-ui-gray-500);
+          display: flex;
+          align-items: center;
+          padding-left: 12px;
+
+          .neeto-ui-btn--style-primary{
+            color: var(--neeto-ui-gray-300) !important;
           }
         }
       }
@@ -64,31 +79,6 @@ body {
         &:active {
           opacity: 1;
         }
-      }
-
-      &.Toastify__toast--success {
-        background: var(--neeto-ui-pastel-green);
-        border: 1px solid var(--neeto-ui-success);
-      }
-
-      &.Toastify__toast--error {
-        background: var(--neeto-ui-pastel-red);
-        border: 1px solid var(--neeto-ui-error);
-      }
-
-      &.Toastify__toast--info {
-        background: var(--neeto-ui-pastel-blue);
-        border: 1px solid var(--neeto-ui-info);
-      }
-
-      &.Toastify__toast--warning {
-        background: var(--neeto-ui-pastel-yellow);
-        border: 1px solid var(--neeto-ui-warning);
-      }
-
-      &.Toastify__toast--default {
-        background: var(--neeto-ui-pastel-blue);
-        border: 1px solid var(--neeto-ui-info);
       }
     }
   }

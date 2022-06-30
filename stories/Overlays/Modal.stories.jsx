@@ -19,7 +19,7 @@ export default {
 };
 
 export const Default = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="w-full">

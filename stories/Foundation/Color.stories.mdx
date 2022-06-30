@@ -26,7 +26,7 @@ import colorPalette from "./ColorPalette.js";
     <tr>
       <td></td>
       <td>Hex code</td>
-      <td>Variable name</td>
+      <td>CSS Variable name</td>
       <td>Text color class</td>
       <td>Background color class</td>
     </tr>
@@ -47,7 +47,7 @@ import colorPalette from "./ColorPalette.js";
             <code>{color.value}</code>
           </td>
           <td>
-            <code>{color.name}</code>
+            <code>{`${color.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
           </td>
           <td>
             <div className="flex justify-between">
