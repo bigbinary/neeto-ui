@@ -1,6 +1,6 @@
 .neeto-ui-modal__backdrop {
   position: fixed;
-  z-index: $neeto-ui-modal-z-index;
+  z-index: var(--neeto-ui-modal-z-index);
   left: 0;
   top: 0;
   width: 100vw;
@@ -19,8 +19,8 @@
     width: 50%;
     max-width: 100%;
     position: relative;
-    background-color: $neeto-ui-white;
-    border-radius: $neeto-ui-rounded-sm;
+    background-color: var(--neeto-ui-white);
+    border-radius: var(--neeto-ui-rounded-sm);
     opacity: 0;
     transform: scale(1.1);
     backdrop-filter: blur(2px);
@@ -63,7 +63,7 @@
 
     .neeto-ui-modal__body {
       padding: 0 32px;
-      font-size: $neeto-ui-text-sm;
+      font-size: var(--neeto-ui-text-sm);
       line-height: 1.5;
     }
 

@@ -5,11 +5,11 @@
   padding: 6px 8px;
   gap: 4px;
 
-  font-size: $neeto-ui-text-sm;
-  font-weight: $neeto-ui-font-medium;
+  font-size: var(--neeto-ui-text-sm);
+  font-weight: var(--neeto-ui-font-medium);
   line-height: 16px;
-  transition: $neeto-ui-transition;
-  border-radius: $neeto-ui-rounded-sm;
+  transition: var(--neeto-ui-transition);
+  border-radius: var(--neeto-ui-rounded-sm);
   border: none;
 
   outline: none;
@@ -29,7 +29,7 @@
 
   // size - large - 32px
   &--size-large {
-    font-size: $neeto-ui-text-sm;
+    font-size: var(--neeto-ui-text-sm);
     padding: 8px 16px;
     gap: 8px;
 
@@ -43,7 +43,7 @@
   }
   // size - xlarge - 40px
   &--size-xlarge {
-    font-size: $neeto-ui-text-base;
+    font-size: var(--neeto-ui-text-base);
     padding: 12px 20px;
     gap: 10px;
 
@@ -94,97 +94,98 @@
 // styles
 .neeto-ui-btn--style {
   &-primary {
-    color: $neeto-ui-white;
-    background-color: $neeto-ui-gray-800;
+    color: var(--neeto-ui-white);
+    background-color: var(--neeto-ui-gray-800);
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-white;
-      background-color: $neeto-ui-gray-700;
+      color: var(--neeto-ui-white);
+      background-color: var(--neeto-ui-gray-700);
     }
 
     &:focus-visible {
-      color: $neeto-ui-white;
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+      color: var(--neeto-ui-white);
+      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
     }
   }
 
   &-secondary {
-    color: $neeto-ui-gray-800;
-    background-color: $neeto-ui-gray-200;
+    color: var(--neeto-ui-gray-800);
+    background-color: var(--neeto-ui-gray-200);
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-gray-800;
-      background-color: $neeto-ui-gray-300;
+      color: var(--neeto-ui-gray-800);
+      background-color: var(--neeto-ui-gray-300);
     }
 
     &:focus-visible {
-      color: $neeto-ui-gray-800;
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+      color: var(--neeto-ui-gray-800);
+      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
     }
   }
 
   &-text {
-    color: $neeto-ui-gray-800;
+    color: var(--neeto-ui-gray-800);
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-gray-800;
-      background-color: $neeto-ui-gray-300;
+      color: var(--neeto-ui-gray-800);
+      background-color: var(--neeto-ui-gray-300);
     }
 
     &:focus-visible {
-      color: $neeto-ui-gray-800;
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+      color: var(--neeto-ui-gray-800);
+      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
     }
   }
 
   &-link {
-    color: $neeto-ui-secondary-indigo;
+    color: var(--neeto-ui-secondary-indigo);
     padding: 0;
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
-      color: $neeto-ui-secondary-indigo;
+      color: var(--neeto-ui-secondary-indigo);
     }
 
     &:focus-visible {
-      color: darken($neeto-ui-secondary-indigo, 25%);
+      opacity: 0.8;
+      color: var(--neeto-ui-secondary-indigo);
     }
   }
 
   &-danger {
-    color: $neeto-ui-white;
-    background-color: $neeto-ui-accent4-700;
+    color: var(--neeto-ui-white);
+    background-color: var(--neeto-ui-accent4-700);
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-white;
-      background-color: $neeto-ui-accent4-500;
+      color: var(--neeto-ui-white);
+      background-color: var(--neeto-ui-accent4-500);
     }
 
     &:focus-visible {
-      color: $neeto-ui-white;
-      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+      color: var(--neeto-ui-white);
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 
   &-danger-text {
-    color: $neeto-ui-accent4-700;
+    color: var(--neeto-ui-accent4-700);
 
     &:hover:not(:disabled),
     &:active {
-      color: $neeto-ui-accent4-700;
-      background-color: $neeto-ui-pastel-red;
+      color: var(--neeto-ui-accent4-700);
+      background-color: var(--neeto-ui-pastel-red);
     }
 
     &:focus-visible {
-      color: $neeto-ui-accent4-700;
-      background-color: $neeto-ui-pastel-red;
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+      color: var(--neeto-ui-accent4-700);
+      background-color: var(--neeto-ui-pastel-red);
+      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
     }
   }
 }

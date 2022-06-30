@@ -18,16 +18,16 @@
     .neeto-ui-checkbox[type="checkbox"] {
       width: 16px;
       height: 16px;
-      color: $neeto-ui-gray-800;
-      border: 2px solid $neeto-ui-gray-300;
-      border-radius: $neeto-ui-rounded-sm;
+      color: var(--neeto-ui-gray-800);
+      border: 2px solid var(--neeto-ui-gray-300);
+      border-radius: var(--neeto-ui-rounded-sm);
 
       &:not(:disabled) {
         cursor: pointer;
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: $neeto-ui-gray-400;
+        border-color: var(--neeto-ui-gray-400);
       }
 
       &:checked {
@@ -45,7 +45,7 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+        box-shadow: 0 0 0 2px var(--neeto-ui-white), 0 0 0 4px var(--neeto-ui-gray-300);
       }
     }
   }
@@ -57,16 +57,16 @@
   [type="checkbox"] {
     width: 16px;
     height: 16px;
-    color: $neeto-ui-gray-800;
-    border: 2px solid $neeto-ui-gray-300;
-    border-radius: $neeto-ui-rounded-sm;
+    color: var(--neeto-ui-gray-800);
+    border: 2px solid var(--neeto-ui-gray-300);
+    border-radius: var(--neeto-ui-rounded-sm);
   
     &:not(:disabled) {
       cursor: pointer;
     }
   
     &:hover:not(:disabled, :checked) {
-      border-color: $neeto-ui-gray-400;
+      border-color: var(--neeto-ui-gray-400);
     }
   
     &:checked {
@@ -84,7 +84,7 @@
     }
   
     &:focus-visible {
-      box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+      box-shadow: 0 0 0 2px var(--neeto-ui-white), 0 0 0 4px var(--neeto-ui-gray-300);
     }
   }
   .ant-checkbox-inner{

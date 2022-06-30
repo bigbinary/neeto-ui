@@ -29,10 +29,10 @@
   min-width: 168px;
   max-height: 360px;
   overflow-y: auto;
-  background-color: $neeto-ui-white;
-  border-radius: $neeto-ui-rounded-sm;
-  border: thin solid $neeto-ui-gray-100;
-  box-shadow: $neeto-ui-shadow-md;
+  background-color: var(--neeto-ui-white);
+  border-radius: var(--neeto-ui-rounded-sm);
+  border: thin solid var(--neeto-ui-gray-100);
+  box-shadow: var(--neeto-ui-shadow-md);
   padding: 4px 0;
   z-index: 99999;
 
@@ -42,22 +42,22 @@
     cursor: pointer;
     position: relative;
     white-space: nowrap;
-    transition: $neeto-ui-transition;
-    font-size: $neeto-ui-text-sm;
-    font-weight: $neeto-ui-font-normal;
-    color: $neeto-ui-gray-800;
+    transition: var(--neeto-ui-transition);
+    font-size: var(--neeto-ui-text-sm);
+    font-weight: var(--neeto-ui-font-normal);
+    color: var(--neeto-ui-gray-800);
     padding: 8px 40px 8px 16px;
     text-decoration: none;
     outline-color: transparent;
 
     &.disabled {
       cursor: not-allowed;
-      color: $neeto-ui-gray-500;
+      color: var(--neeto-ui-gray-500);
     }
 
     &:hover,
     &:focus {
-      background-color: $neeto-ui-gray-200;
+      background-color: var(--neeto-ui-gray-200);
     }
 
     &.loading:not(.active) {
@@ -72,16 +72,16 @@
         height: 16px;
         display: block;
         border-radius: 50%;
-        border: solid 2px $neeto-ui-gray-200;
-        border-top-color: $neeto-ui-black;
-        border-left-color: $neeto-ui-black;
+        border: solid 2px var(--neeto-ui-gray-200);
+        border-top-color: var(--neeto-ui-black);
+        border-left-color: var(--neeto-ui-black);
         animation: theme("animation.spin");
       }
     }
 
     &.active {
-      background-color: $neeto-ui-gray-800;
-      color: $neeto-ui-white;
+      background-color: var(--neeto-ui-gray-800);
+      color: var(--neeto-ui-white);
     }
   }
 }

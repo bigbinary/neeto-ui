@@ -1,5 +1,5 @@
 .neeto-ui-menubar__wrapper {
-  background-color: $neeto-ui-gray-100;
+  background-color: var(--neeto-ui-gray-100);
   flex-shrink: 0;
   overflow: hidden;
 
@@ -57,28 +57,28 @@
       margin-bottom: 8px;
       transition: all 0.3s;
       cursor: pointer;
-      color: $neeto-ui-gray-600;
-      border-radius: $neeto-ui-rounded-sm;
+      color: var(--neeto-ui-gray-600);
+      border-radius: var(--neeto-ui-rounded-sm);
 
       &:hover,
       &:focus,
       &:focus-visible,
       &:active {
-        background-color: $neeto-ui-gray-200;
+        background-color: var(--neeto-ui-gray-200);
         text-decoration: none;
         outline: none;
       }
 
       &--active {
-        background-color: $neeto-ui-white;
-        color: $neeto-ui-gray-800;
+        background-color: var(--neeto-ui-white);
+        color: var(--neeto-ui-gray-800);
         box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
 
         &:hover,
         &:focus,
         &:focus-visible,
         &:active {
-          background-color: $neeto-ui-white;
+          background-color: var(--neeto-ui-white);
         }
       }
 
@@ -100,34 +100,34 @@
       transition: all 0.3s;
       text-align: left;
       cursor: pointer;
-      border-radius: $neeto-ui-rounded-sm;
+      border-radius: var(--neeto-ui-rounded-sm);
 
       &-header{
-        color: $neeto-ui-gray-700;
+        color: var(--neeto-ui-gray-700);
       }
 
       &-item-desc{
-        color: $neeto-ui-gray-500;
+        color: var(--neeto-ui-gray-500);
       }
 
       &:hover,
       &:focus,
       &:focus-visible,
       &:active {
-        background-color: $neeto-ui-gray-200;
+        background-color: var(--neeto-ui-gray-200);
         outline: none;
       }
 
       &--active {
-        background-color: $neeto-ui-white;
-        color: $neeto-ui-gray-800;
+        background-color: var(--neeto-ui-white);
+        color: var(--neeto-ui-gray-800);
         box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
 
         &:hover,
         &:focus,
         &:focus-visible,
         &:active {
-          background-color: $neeto-ui-white;
+          background-color: var(--neeto-ui-white);
         }
       }
     }
