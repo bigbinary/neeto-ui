@@ -4,8 +4,10 @@ import userEvent from "@testing-library/user-event";
 import { Formik, Form } from "formik";
 
 import { ActionBlock, Input } from "../../lib/components/formik";
+import { repeat } from "ramda";
 
 const TestActionBlock = ({
+  input = "",
   onSubmit = () => {},
   submitButtonProps = {},
   cancelButtonProps = {},
@@ -14,12 +16,7 @@ const TestActionBlock = ({
     onSubmit(value);
   };
   return (
-    <Formik
-      initialValues={{
-        input: "",
-      }}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={{ input }} onSubmit={handleSubmit}>
       <Form>
         <Input label="Input label" name="input" />
         <ActionBlock
@@ -70,13 +67,13 @@ describe("formik/ActionBlock", () => {
     expect(submitButton).toBeDisabled();
   });
 
-  it("should render the submit button enabled if the form is not empty", () => {
+  it("should render the submit button enabled if the form is not empty", async () => {
     render(<TestActionBlock />);
 
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     const input = screen.getByRole("textbox");
     userEvent.type(input, "test");
-    expect(submitButton).not.toBeDisabled();
+    await waitFor(() => expect(submitButton).not.toBeDisabled());
   });
 
   it("should submit with correct values", async () => {
@@ -94,13 +91,43 @@ describe("formik/ActionBlock", () => {
     );
   });
 
-  it("should reset the form fields when cancel button is clicked", () => {
+  it("should reset the form fields when cancel button is clicked", async () => {
     render(<TestActionBlock />);
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
     const input = screen.getByRole("textbox");
     userEvent.type(input, "test");
     userEvent.click(cancelButton);
-    expect(input).toHaveValue("");
+    await waitFor(() => expect(input).toHaveValue(""));
+  });
+
+  it("Cancel button should be disabled if form value is same", async () => {
+    const onSubmit = jest.fn();
+    render(<TestActionBlock input="Oliver" onSubmit={onSubmit} />);
+
+    const cancelButton = screen.getByRole("button", { name: /Cancel/i });
+    expect(cancelButton).toBeDisabled();
+    const input = screen.getByRole("textbox");
+    userEvent.type(input, "test");
+    await waitFor(() => expect(cancelButton).not.toBeDisabled());
+    userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await waitFor(() => expect(cancelButton).toBeDisabled());
+    userEvent.click(cancelButton);
+    await waitFor(() => expect(onSubmit).not.toBeCalled());
+  });
+
+  it("Cancel button should be disabled when submitting", async () => {
+    const onSubmit = jest.fn();
+    render(<TestActionBlock input="Oliver" onSubmit={new Promise(() => {})} />);
+
+    const cancelButton = screen.getByRole("button", { name: /Cancel/i });
+    expect(cancelButton).toBeDisabled();
+    const input = screen.getByRole("textbox");
+    userEvent.type(input, "test");
+    await waitFor(() => expect(cancelButton).not.toBeDisabled());
+    userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await waitFor(() => expect(cancelButton).toBeDisabled());
+    userEvent.click(cancelButton);
+    await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 });

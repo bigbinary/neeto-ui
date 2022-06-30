@@ -73,4 +73,14 @@ describe("formik/Button", () => {
     userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
+
+  it("Should be disabled during submission", async () => {
+    render(<TestButtonForm onSubmit={new Promise(() => {})} />); // will be submitting forever
+    const input = screen.getByRole("textbox");
+    const button = screen.getByRole("button");
+    userEvent.type(input, " Smith");
+    await waitFor(() => expect(button).not.toBeDisabled());
+    userEvent.click(button);
+    await waitFor(() => expect(button).toBeDisabled());
+  });
 });
