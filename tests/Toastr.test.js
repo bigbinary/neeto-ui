@@ -164,6 +164,37 @@ describe("Toastr", () => {
     expect(axiosError).toBeInTheDocument();
   });
 
+  it("should render Axios Error Toastr when response is undefined", async () => {
+    const onAxiosArrayError = () => {
+      try {
+        // Dummy axios error object
+        const axiosError = {
+          isAxiosError: true,
+          config: {
+            url: "https://api.github.com/users/org",
+          },
+          message: "Network Error"
+        };
+        throw axiosError;
+      } catch (e) {
+        Toastr.error(e);
+      }
+    };
+    render(
+      <>
+        <ToastContainer/>
+        <Button
+          label="Throw an axios error with undefined response"
+          onClick={onAxiosArrayError}
+        />
+      </>
+    );
+    const button = screen.getByText("Throw an axios error with undefined response");
+    userEvent.click(button);
+    const axiosError = await screen.findByText("Network Error");
+    expect(axiosError).toBeInTheDocument();
+  });
+
   it("should render Axios Error Toastr with array of error messages", async () => {
     const onAxiosArrayError = () => {
       try {
