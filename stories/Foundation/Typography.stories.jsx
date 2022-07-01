@@ -7,6 +7,10 @@ export default {
   component: Typography,
   parameters: {
     layout: "padded",
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
   },
 };
 
