@@ -9,7 +9,7 @@
   font-weight: var(--neeto-ui-font-medium);
   line-height: 16px;
   transition: var(--neeto-ui-transition);
-  border-radius: var(--neeto-ui-rounded-sm);
+  border-radius: var(--neeto-ui-rounded);
   border: none;
 
   outline: none;
@@ -95,33 +95,33 @@
 .neeto-ui-btn--style {
   &-primary {
     color: var(--neeto-ui-white);
-    background-color: var(--neeto-ui-gray-800);
+    background-color: var(--neeto-ui-accent1-500);
 
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-white);
-      background-color: var(--neeto-ui-gray-700);
+      background-color: var(--neeto-ui-accent1-500);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-white);
-      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
+      box-shadow: 0 0 0 3px var(--neeto-ui-accent1-300);
     }
   }
 
   &-secondary {
     color: var(--neeto-ui-gray-800);
-    background-color: var(--neeto-ui-gray-200);
+    background-color: var(--neeto-ui-accent-light-300);
 
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-gray-300);
+      background-color: var(--neeto-ui-accent-light-500);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
+      box-shadow: 0 0 0 3px var(--neeto-ui-accent-light-500);
     }
   }
 
@@ -131,12 +131,12 @@
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-gray-300);
+      background-color: var(--neeto-ui-accent-light-300);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
+      box-shadow: 0 0 0 3px var(--neeto-ui-accent-light-300);
     }
   }
 
@@ -184,8 +184,7 @@
 
     &:focus-visible {
       color: var(--neeto-ui-accent4-700);
-      background-color: var(--neeto-ui-pastel-red);
-      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 }
