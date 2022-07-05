@@ -157,6 +157,7 @@
     z-index: -999;
     opacity: 0;
     height: 0px;
+    width: 0px;
     padding: 0;
     border: none;
   }
@@ -275,5 +276,14 @@
         border-color: $neeto-ui-gray-800;
       }
     }
+  }
+}
+
+.neeto-ui-custom-target-date-input{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  &--hidden{
+    z-index: -999;
   }
 }
