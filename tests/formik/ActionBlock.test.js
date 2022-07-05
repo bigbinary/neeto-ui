@@ -121,11 +121,12 @@ describe("formik/ActionBlock", () => {
     render(<TestActionBlock input="Oliver" onSubmit={new Promise(() => {})} />);
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
+    const submitButton = screen.getByRole("button", { name: /Save changes/i });
     expect(cancelButton).toBeDisabled();
     const input = screen.getByRole("textbox");
     userEvent.type(input, "test");
     await waitFor(() => expect(cancelButton).not.toBeDisabled());
-    userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    userEvent.click(submitButton);
     await waitFor(() => expect(cancelButton).toBeDisabled());
     userEvent.click(cancelButton);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
