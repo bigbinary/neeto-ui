@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.8 - 2022-07-01
+
+- Fixed: Error when handling `axios` error objects with `undefined` response in `Toastr.error`
+
 ## 3.5.7 - 2022-06-24
 
 - Added: `startsFrom` to `counter` prop of *EmailInput* component.
