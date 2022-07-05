@@ -1,3 +1,16 @@
+@function derive-rgb-values-from-hex($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+:root {
+  // Button focus rings
+  --neeto-ui-btn-primary-focus-ring-color: rgba(#{derive-rgb-values-from-hex($neeto-ui-primary)}, 30%);
+  --neeto-ui-btn-danger-focus-ring-color: rgba(#{derive-rgb-values-from-hex($neeto-ui-accent4-500)}, 30%);
+  --neeto-ui-btn-secondary-focus-ring-color: rgba(#{derive-rgb-values-from-hex($neeto-ui-gray-800)}, 15%);
+  --neeto-ui-btn-text-focus-ring-color: rgba(#{derive-rgb-values-from-hex($neeto-ui-gray-800)}, 15%);
+  --neeto-ui-btn-danger-text-focus-ring-color: rgba(#{derive-rgb-values-from-hex($neeto-ui-accent4-700)}, 15%);
+}
+
 :root {
   // Color
   @each $color, $value in $neeto-ui-theme-colors {
