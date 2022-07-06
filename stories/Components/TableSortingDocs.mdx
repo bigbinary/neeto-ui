@@ -1,0 +1,34 @@
+
+- A custom sort function can be supplied to the `sorter` key.
+- In order to pass a custom sort function, keep `sorter: true` for that particular column.
+
+```js
+const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      width: 75,
+      sorter: true;
+    },
+    // other columns
+  ];
+
+  // custom sort function
+  const handleTableChange = (pagination, filters, sorter) => {
+    // Logic for sorting
+  };
+
+```
+
+- The `onChange` function returns the current `pagination, filters and sorter` of the table.
+
+```jsx
+<Table
+  rowData={TABLE_DATA}
+  columnData={columns}
+  onChange={(pagination, filters, sorter) =>
+    handleTableChange(pagination, filters, sorter)
+  }
+/>
+```

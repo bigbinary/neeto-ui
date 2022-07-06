@@ -3,8 +3,13 @@ import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
 import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT } from "../constants";
 import TableDocs from "!raw-loader!./TableDocs.mdx";
+import TableSortingDocs from "!raw-loader!./TableSortingDocs.mdx";
 import LayoutDocs from "!raw-loader!./LayoutTableDocs.mdx";
+import TableFixedHeightDocs from "!raw-loader!./TableFixedHeightDocs.mdx";
+import TableWithoutCheckboxDocs from "!raw-loader!./TableWithoutCheckboxDocs.mdx";
+
 import NeetoTable from "../../lib/components/Table";
+
 import {
   Tooltip,
   Tag,
@@ -28,7 +33,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Table } from "@bigbinary/neetoui";`',
+        component: TableDocs
       },
     },
   },
@@ -277,29 +282,26 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
-export const TableProps = (args) => {
-  const [pageNumber, setPageNumber] = useState(1);
-  return (
-    <NeetoTable
-      columnData={columns}
-      rowData={TABLE_DATA}
-      currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
-      {...args}
-    />
-  );
+
+export const TableWithSorting = (args) => {
+
+  return <NeetoTable
+    columnData={columns}
+    rowData={TABLE_DATA}
+    currentPageNumber={1}
+    {...args}
+  />;
 };
 
-TableProps.parameters = {
+TableWithSorting.parameters = {
   docs: {
-    description: { story: TableDocs },
+    description: { story: TableSortingDocs },
     source: {
-      code: getTableSource(),
+      code: null,
     },
   },
 };
-
-TableProps.args = {
+TableWithSorting.args = {
   defaultPageSize: 10,
 };
 
@@ -325,8 +327,37 @@ TableWithFixedHeight.args = {
 
 TableWithFixedHeight.parameters = {
   docs: {
+    description: { story: TableFixedHeightDocs },
     source: {
       code: getTableSource("fixedHeight"),
+    },
+  },
+};
+
+export const TableWithoutCheckbox = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <div className="h-96">
+      <NeetoTable
+        columnData={columns}
+        rowData={TABLE_DATA}
+        currentPageNumber={pageNumber}
+        handlePageChange={(page) => setPageNumber(page)}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithoutCheckbox.args = {
+  rowSelection: false
+};
+
+TableWithoutCheckbox.parameters = {
+  docs: {
+    description: { story: TableWithoutCheckboxDocs },
+    source: {
+      code: getTableSource("rowSelection={false}"),
     },
   },
 };
@@ -470,12 +501,12 @@ export const TableInLayout = (args) => {
           deleteButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => {},
+            onClick: () => { },
           }}
           disableButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => {},
+            onClick: () => { },
           }}
         />
         <Scrollable className="w-full">
@@ -493,7 +524,7 @@ export const TableInLayout = (args) => {
     </div>
   );
 };
-
+TableInLayout.storyName = "Table inside layout";
 TableInLayout.parameters = {
   layout: "fullscreen",
   docs: {
