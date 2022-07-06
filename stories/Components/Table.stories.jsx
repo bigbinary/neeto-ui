@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
 import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT } from "../constants";
-import TableDocs from "!raw-loader!./TableDocs.mdx";
-import TableSortingDocs from "!raw-loader!./TableSortingDocs.mdx";
-import LayoutDocs from "!raw-loader!./LayoutTableDocs.mdx";
-import TableFixedHeightDocs from "!raw-loader!./TableFixedHeightDocs.mdx";
-import TableWithoutCheckboxDocs from "!raw-loader!./TableWithoutCheckboxDocs.mdx";
+import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
+import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
+import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
+import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
+import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
 import NeetoTable from "../../lib/components/Table";
 
