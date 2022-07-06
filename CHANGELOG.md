@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.11 - 2022-07-06
+
+- Added: a *Button* component in neetoui/formik that automatically disables itself if the form is not in a submittable state. Example: the form contains any invalid data, the form content has not been changed, or the form is already being submitted. To make this work, you need to import *Button* from "neetoui/formik" as your submit button.
+- Changed: *ActionBlock* will now use the above-mentioned logic internally. So its submit/cancel buttons will also be automatically enabled or disabled.
+
 ## 3.5.10 - 2022-07-05
 
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
