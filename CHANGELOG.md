@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.10 - 2022-07-05
+
+- Fixed: issue with closeOnEsc prop when the Pane is controlled.
+
 ## 3.5.9 - 2022-07-05
 
 - Fixed: Checkbox in *Table* component cut off in lower screen resolutions.
