@@ -61,14 +61,14 @@
     vertical-align: middle;
 
     a:not(.neeto-ui-btn) {
-      color: var(--neeto-ui-secondary-indigo);
+      color: var(--neeto-ui-accent1-500);
 
       transition: var(--neeto-ui-transition);
       font-weight: var(--neeto-ui-font-medium);
 
       &:hover {
         opacity: 0.8;
-        color: var(--neeto-ui-secondary-indigo);
+        color: var(--neeto-ui-accent1-500);
         text-decoration: underline;
       }
     }

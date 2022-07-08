@@ -95,12 +95,12 @@
 .neeto-ui-btn--style {
   &-primary {
     color: var(--neeto-ui-white);
-    background-color: var(--neeto-ui-primary);
+    background-color: var(--neeto-ui-accent1-500);
 
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-white);
-      background-color: var(--neeto-ui-primary-dark);
+      background-color: var(--neeto-ui-accent1-700);
     }
 
     &:focus {
@@ -156,24 +156,24 @@
   }
 
   &-link {
-    color: var(--neeto-ui-secondary-indigo);
+    color: var(--neeto-ui-accent1-500);
     padding: 0;
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
-      color: var(--neeto-ui-secondary-indigo);
+      color: var(--neeto-ui-accent1-500);
     }
 
     &:focus {
       opacity: 0.8;
-      color: var(--neeto-ui-secondary-indigo);
+      color: var(--neeto-ui-accent1-500);
     }
 
     &:focus-visible {
       opacity: 0.8;
-      color: var(--neeto-ui-secondary-indigo);
+      color: var(--neeto-ui-accent1-500);
     }
   }
 

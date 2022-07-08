@@ -71,14 +71,14 @@
 
     &.neeto-ui-tag--color-blue {
       background-color: var(--neeto-ui-pastel-blue);
-      border-color: var(--neeto-ui-secondary-indigo);
-      color: var(--neeto-ui-secondary-indigo);
+      border-color: var(--neeto-ui-accent1-500);
+      color: var(--neeto-ui-accent1-500);
     }
 
     &.neeto-ui-tag--color-green {
       background-color: var(--neeto-ui-pastel-green);
-      border-color: var(--neeto-ui-secondary-green);
-      color: var(--neeto-ui-secondary-green);
+      border-color: var(--neeto-ui-accent2-500);
+      color: var(--neeto-ui-accent2-500);
     }
 
     &.neeto-ui-tag--color-yellow {
