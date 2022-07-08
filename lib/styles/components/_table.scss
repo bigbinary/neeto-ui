@@ -7,12 +7,12 @@
   thead.ant-table-thead {
     tr {
       th {
-        color: $neeto-ui-gray-500;
-        background-color: $neeto-ui-white;
+        color: var(--neeto-ui-gray-500);
+        background-color: var(--neeto-ui-white);
 
-        font-size: $neeto-ui-text-xs;
+        font-size: var(--neeto-ui-text-xs);
         vertical-align: middle;
-        font-weight: $neeto-ui-font-semibold;
+        font-weight: var(--neeto-ui-font-semibold);
         text-transform: uppercase;
 
         &::before {
@@ -22,22 +22,22 @@
 
       th.ant-table-cell.ant-table-column-has-sorters {
         &:hover {
-          background-color: $neeto-ui-white;
+          background-color: var(--neeto-ui-white);
         }
 
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
             .ant-table-column-sorter-inner {
               .ant-table-column-sorter-up {
-                color: $neeto-ui-gray-300;
+                color: var(--neeto-ui-gray-300);
               }
 
               .ant-table-column-sorter-down {
-                color: $neeto-ui-gray-300;
+                color: var(--neeto-ui-gray-300);
               }
 
               .active {
-                color: $neeto-ui-gray-800;
+                color: var(--neeto-ui-gray-800);
               }
             }
           }
@@ -51,24 +51,24 @@
   }
 
   .ant-table-tbody > tr.ant-table-row-selected > td {
-    background-color: $neeto-ui-pastel-blue;
+    background-color: var(--neeto-ui-pastel-blue);
   }
 
   .neeto-ui-table--row {
-    color: $neeto-ui-gray-800;
-    font-size: $neeto-ui-text-sm;
-    font-weight: $neeto-ui-font-normal;
+    color: var(--neeto-ui-gray-800);
+    font-size: var(--neeto-ui-text-sm);
+    font-weight: var(--neeto-ui-font-normal);
     vertical-align: middle;
 
     a:not(.neeto-ui-btn) {
-      color: $neeto-ui-secondary-indigo;
+      color: var(--neeto-ui-accent1-500);
 
-      transition: $neeto-ui-transition;
-      font-weight: $neeto-ui-font-medium;
+      transition: var(--neeto-ui-transition);
+      font-weight: var(--neeto-ui-font-medium);
 
       &:hover {
-        color: darken($neeto-ui-secondary-indigo, 5%);
-
+        opacity: 0.8;
+        color: var(--neeto-ui-accent1-500);
         text-decoration: underline;
       }
     }
@@ -81,19 +81,19 @@
   ul.ant-pagination.ant-table-pagination.ant-table-pagination-right {
     li.ant-pagination-item {
       &:hover {
-        border-color: $neeto-ui-gray-700;
+        border-color: var(--neeto-ui-gray-700);
 
         a {
-          color: $neeto-ui-gray-700;
+          color: var(--neeto-ui-gray-700);
         }
       }
     }
 
     li.ant-pagination-item.ant-pagination-item-active {
-      border-color: $neeto-ui-gray-800;
+      border-color: var(--neeto-ui-gray-800);
 
       a {
-        color: $neeto-ui-gray-800;
+        color: var(--neeto-ui-gray-800);
       }
     }
 
@@ -101,11 +101,11 @@
     .ant-pagination-next:not(.ant-pagination-disabled) {
       &:hover {
         .ant-pagination-item-link {
-          border-color: $neeto-ui-gray-800;
+          border-color: var(--neeto-ui-gray-800);
 
           .anticon.anticon-left,
           .anticon.anticon-right {
-            color: $neeto-ui-gray-800;
+            color: var(--neeto-ui-gray-800);
           }
         }
       }
@@ -116,7 +116,7 @@
   .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
     .anticon.anticon-double-right.ant-pagination-item-link-icon,
     .anticon.anticon-double-left.ant-pagination-item-link-icon {
-      color: $neeto-ui-gray-800;
+      color: var(--neeto-ui-gray-800);
     }
   }
 
@@ -131,30 +131,30 @@
     div.ant-select {
       &.ant-select-focused {
         .ant-select-selector {
-          border-color: $neeto-ui-gray-800 !important;
-          box-shadow: $neeto-ui-shadow;
+          border-color: var(--neeto-ui-gray-800) !important;
+          box-shadow: var(--neeto-ui-shadow);
           outline: none;
 
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: $neeto-ui-gray-800;
-            box-shadow: $neeto-ui-shadow;
+            border-color: var(--neeto-ui-gray-800);
+            box-shadow: var(--neeto-ui-shadow);
           }
         }
       }
 
       &:hover {
         .ant-select-selector {
-          border-color: $neeto-ui-gray-800 !important;
-          box-shadow: $neeto-ui-shadow;
+          border-color: var(--neeto-ui-gray-800) !important;
+          box-shadow: var(--neeto-ui-shadow);
           outline: none;
 
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: $neeto-ui-gray-800;
-            box-shadow: $neeto-ui-shadow;
+            border-color: var(--neeto-ui-gray-800);
+            box-shadow: var(--neeto-ui-shadow);
           }
         }
       }
@@ -162,19 +162,19 @@
   }
 
   .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
-    background-color: $neeto-ui-gray-200;
+    background-color: var(--neeto-ui-gray-200);
   }
 
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-    color: $neeto-ui-white;
+    color: var(--neeto-ui-white);
     font-weight: inherit;
-    background-color: $neeto-ui-gray-800;
+    background-color: var(--neeto-ui-gray-800);
   }
 
   .ant-spin-nested-loading {
     .ant-spin.ant-spin-spinning {
       .ant-spin-dot-item {
-        background-color: $neeto-ui-gray-800;
+        background-color: var(--neeto-ui-gray-800);
       }
     }
   }

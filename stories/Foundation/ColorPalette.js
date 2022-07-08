@@ -10,6 +10,16 @@ const colorPalette = [
     compiledValue: "#1b1f23",
   },
   {
+    name: "$neeto-ui-transparent",
+    value: "transparent",
+    compiledValue: "transparent",
+  },
+  {
+    name: "$neeto-ui-environment",
+    value: "#f0f8ff",
+    compiledValue: "#f0f8ff",
+  },
+  {
     name: "$neeto-ui-gray-800",
     value: "#2f3941",
     compiledValue: "#2f3941",
@@ -96,18 +106,18 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-accent1-700",
-    value: "#5b5ac4",
-    compiledValue: "#5b5ac4",
+    value: "#342df4",
+    compiledValue: "#342df4",
   },
   {
     name: "$neeto-ui-accent1-500",
-    value: "#5e5ce6",
-    compiledValue: "#5e5ce6",
+    value: "#4557f8",
+    compiledValue: "#4557f8",
   },
   {
     name: "$neeto-ui-accent1-300",
-    value: "#7e7deb",
-    compiledValue: "#7e7deb",
+    value: "#7280fa",
+    compiledValue: "#7280fa",
   },
   {
     name: "$neeto-ui-accent2-700",
@@ -141,33 +151,28 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-accent4-700",
-    value: "#d62516",
-    compiledValue: "#d62516",
+    value: "#f22d2d",
+    compiledValue: "#f22d2d",
   },
   {
     name: "$neeto-ui-accent4-500",
-    value: "#ea4335",
-    compiledValue: "#ea4335",
+    value: "#f64545",
+    compiledValue: "#f64545",
   },
   {
     name: "$neeto-ui-accent4-300",
-    value: "#f78879",
-    compiledValue: "#f78879",
+    value: "#f75555",
+    compiledValue: "#f75555",
   },
   {
-    name: "$neeto-ui-secondary-indigo",
-    value: "#5e5ce6",
-    compiledValue: "#5e5ce6",
+    name: "$neeto-ui-accent-light-300",
+    value: "#dbf0ff",
+    compiledValue: "#dbf0ff",
   },
   {
-    name: "$neeto-ui-secondary-green",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
-  },
-  {
-    name: "$neeto-ui-secondary-teal",
-    value: "#64d2ff",
-    compiledValue: "#64d2ff",
+    name: "$neeto-ui-accent-light-500",
+    value: "#bfe3ff",
+    compiledValue: "#bfe3ff",
   },
 ];
 

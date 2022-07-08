@@ -19,8 +19,8 @@
       height: 24px;
       border: 2px solid transparent;
       border-radius: 20px;
-      transition: $neeto-ui-transition;
-      background-color: $neeto-ui-gray-300;
+      transition: var(--neeto-ui-transition);
+      background-color: var(--neeto-ui-gray-300);
       cursor: pointer;
       display: inline-flex;
       flex-direction: row;
@@ -41,7 +41,7 @@
       }
 
       &.neeto-ui-switch__item--checked {
-        background-color: $neeto-ui-accent2-500;
+        background-color: var(--neeto-ui-accent2-500);
       }
 
       .neeto-ui-switch {
@@ -53,19 +53,19 @@
         height: 20px;
         transition: all 0.3s ease-in-out;
         transform: translateX(0);
-        color: $neeto-ui-gray-400;
-        background-color: $neeto-ui-white;
+        color: var(--neeto-ui-gray-400);
+        background-color: var(--neeto-ui-white);
         border-radius: 16px;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
       }
 
       input:checked + .neeto-ui-switch {
         transform: translateX(20px);
-        color: $neeto-ui-accent2-500;
+        color: var(--neeto-ui-accent2-500);
       }
 
       &:focus-within {
-        box-shadow: 0 0 0 3px $neeto-ui-gray-200;
+        box-shadow: 0 0 0 3px var(--neeto-ui-gray-200);
       }
     }
   }

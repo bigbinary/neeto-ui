@@ -7,22 +7,22 @@
   justify-content: flex-start;
   align-items: center;
 
-  font-size: $neeto-ui-text-sm;
+  font-size: var(--neeto-ui-text-sm);
   padding: 8px;
   line-height: 1.6;
 
-  transition: $neeto-ui-transition;
+  transition: var(--neeto-ui-transition);
 
-  color: $neeto-ui-gray-800;
-  background-color: $neeto-ui-white;
-  border: thin solid $neeto-ui-gray-400;
-  border-radius: $neeto-ui-rounded-sm;
+  color: var(--neeto-ui-gray-800);
+  background-color: var(--neeto-ui-white);
+  border: thin solid var(--neeto-ui-gray-400);
+  border-radius: var(--neeto-ui-rounded);
 
   overflow: hidden;
 
   &:hover {
     &:not(.neeto-ui-date-input--disabled, .neeto-ui-time-input--disabled) {
-      border-color: $neeto-ui-gray-800 !important;
+      border-color: var(--neeto-ui-gray-800) !important;
     }
   }
 
@@ -32,24 +32,24 @@
   }
 
   &:focus-within:not(.neeto-ui-date-input--naked, .neeto-ui-date-input--error) {
-    border-color: $neeto-ui-gray-800;
-    box-shadow: $neeto-ui-shadow;
+    border-color: var(--neeto-ui-gray-800);
+    box-shadow: var(--neeto-ui-shadow);
   }
 
   &:hover:not(.neeto-ui-date-input--naked, .neeto-ui-date-input--error, .neeto-ui-date-input--disabled, .neeto-ui-time-input--disabled) {
-    border-color: $neeto-ui-gray-700;
+    border-color: var(--neeto-ui-gray-700);
   }
 
   &.neeto-ui-date-input--error {
-    border-color: $neeto-ui-error;
+    border-color: var(--neeto-ui-error);
 
     &:focus-within:not(.neeto-ui-date-input--naked) {
-      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 
   &.neeto-ui-date-input--disabled {
-    background-color: $neeto-ui-gray-100;
+    background-color: var(--neeto-ui-gray-100);
     cursor: not-allowed;
 
     input {
@@ -78,10 +78,10 @@
   }
 
   &.neeto-ui-date-input--error {
-    border-color: $neeto-ui-error;
+    border-color: var(--neeto-ui-error);
 
     &:focus-within:not(.neeto-ui-date-input--naked) {
-      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 }
@@ -94,29 +94,29 @@
 
   &:hover {
     &:not(.neeto-ui-time-input--disabled, .neeto-ui-date-input--disabled) {
-      border-color: $neeto-ui-gray-800 !important;
+      border-color: var(--neeto-ui-gray-800) !important;
     }
   }
 
   &:focus-within:not(.neeto-ui-time-input--naked, .neeto-ui-time-input--error) {
-    border-color: $neeto-ui-gray-800;
-    box-shadow: $neeto-ui-shadow;
+    border-color: var(--neeto-ui-gray-800);
+    box-shadow: var(--neeto-ui-shadow);
   }
 
   &:hover:not(.neeto-ui-time-input--naked, .neeto-ui-time-input--error, .neeto-ui-time-input--disabled) {
-    border-color: $neeto-ui-gray-700;
+    border-color: var(--neeto-ui-gray-700);
   }
 
   &.neeto-ui-time-input--error {
-    border-color: $neeto-ui-error;
+    border-color: var(--neeto-ui-error);
 
     &:focus-within:not(.neeto-ui-time-input--naked) {
-      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 
   &.neeto-ui-time-input--disabled {
-    background-color: $neeto-ui-gray-100;
+    background-color: var(--neeto-ui-gray-100);
     cursor: not-allowed;
 
     input {
@@ -145,10 +145,10 @@
   }
 
   &.neeto-ui-time-input--error {
-    border-color: $neeto-ui-error;
+    border-color: var(--neeto-ui-error);
 
     &:focus-within:not(.neeto-ui-time-input--naked) {
-      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+      box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
     }
   }
 }
@@ -157,15 +157,15 @@
   .ant-picker-time-panel-column {
     & > li.ant-picker-time-panel-cell-selected {
       .ant-picker-time-panel-cell-inner {
-        background: $neeto-ui-gray-800;
-        color: $neeto-ui-white;
+        background: var(--neeto-ui-gray-800);
+        color: var(--neeto-ui-white);
       }
     }
   }
 }
 
 .ant-picker-range.ant-picker-focused .ant-picker-active-bar {
-  background: $neeto-ui-gray-800;
+  background: var(--neeto-ui-gray-800);
 }
 
 .ant-picker-range .ant-picker-clear {
@@ -173,21 +173,21 @@
 }
 
 .ant-picker-focused {
-  border-color: $neeto-ui-gray-800 !important;
-  box-shadow: $neeto-ui-shadow !important;
+  border-color: var(--neeto-ui-gray-800) !important;
+  box-shadow: var(--neeto-ui-shadow) !important;
 }
 
 .ant-picker-dropdown,
 .neeto-ui-date-input-dropdown {
-  z-index: $neeto-ui-modal-z-index + 1;
+  z-index: calc(var(--neeto-ui-modal-z-index) + 1);
   .ant-picker-panel {
     .ant-picker-header {
       .ant-picker-header-view {
-        color: $neeto-ui-gray-600;
+        color: var(--neeto-ui-gray-600);
 
         button {
           &:hover {
-            color: $neeto-ui-gray-800;
+            color: var(--neeto-ui-gray-800);
           }
         }
       }
@@ -198,37 +198,37 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
           .ant-picker-cell-inner {
             &::before {
-              border: 1px solid $neeto-ui-gray-800;
+              border: 1px solid var(--neeto-ui-gray-800);
             }
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view {
           &::after {
-            border-color: $neeto-ui-gray-400;
+            border-color: var(--neeto-ui-gray-400);
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-selected {
           .ant-picker-cell-inner {
-            background: $neeto-ui-gray-800;
+            background: var(--neeto-ui-gray-800);
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
           &::before {
-            background: $neeto-ui-gray-200;
+            background: var(--neeto-ui-gray-200);
           }
 
           .ant-picker-cell-inner {
-            background: $neeto-ui-gray-800;
+            background: var(--neeto-ui-gray-800);
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
           &::before {
-            background: $neeto-ui-gray-200;
+            background: var(--neeto-ui-gray-200);
           }
         }
 
@@ -236,12 +236,12 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start,
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end {
           &::before {
-            background: $neeto-ui-gray-400;
+            background: var(--neeto-ui-gray-400);
           }
 
           .ant-picker-cell-inner {
             &::after {
-              background: $neeto-ui-gray-400;
+              background: var(--neeto-ui-gray-400);
             }
           }
         }
@@ -252,18 +252,18 @@
   .ant-picker-footer {
     .ant-picker-today-btn,
     .ant-picker-now-btn {
-      color: $neeto-ui-gray-600;
+      color: var(--neeto-ui-gray-600);
 
       &:hover {
-        color: $neeto-ui-gray-800;
+        color: var(--neeto-ui-gray-800);
       }
     }
 
     .ant-picker-ok {
       button {
-        color: $neeto-ui-white;
-        background: $neeto-ui-gray-800;
-        border-color: $neeto-ui-gray-800;
+        color: var(--neeto-ui-white);
+        background: var(--neeto-ui-gray-800);
+        border-color: var(--neeto-ui-gray-800);
       }
     }
   }

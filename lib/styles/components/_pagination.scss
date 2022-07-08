@@ -7,13 +7,13 @@
 
   .neeto-ui-pagination__item:not(.neeto-ui-pagination__item--dots) {
     margin: 0 4px;
-    background-color: $neeto-ui-white;
-    border: 1px solid $neeto-ui-gray-300;
-    border-radius: $neeto-ui-rounded-sm;
+    background-color: var(--neeto-ui-white);
+    border: 1px solid var(--neeto-ui-gray-300);
+    border-radius: var(--neeto-ui-rounded-sm);
     overflow: hidden;
 
     &:hover:not(.disabled, .active) {
-      border-color: $neeto-ui-gray-800;
+      border-color: var(--neeto-ui-gray-800);
     }
   }
 
@@ -22,10 +22,10 @@
     min-width: 32px;
     height: 32px;
     line-height: 30px;
-    font-size: $neeto-ui-text-sm;
-    font-weight: $neeto-ui-font-medium;
-    color: $neeto-ui-gray-800;
-    transition: $neeto-ui-transition;
+    font-size: var(--neeto-ui-text-sm);
+    font-weight: var(--neeto-ui-font-medium);
+    color: var(--neeto-ui-gray-800);
+    transition: var(--neeto-ui-transition);
     user-select: none;
 
     a {
@@ -37,11 +37,11 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
+      box-shadow: 0 0 0 3px var(--neeto-ui-gray-300);
     }
 
     &.active {
-      border-color: $neeto-ui-gray-800;
+      border-color: var(--neeto-ui-gray-800);
     }
 
     &.neeto-ui-pagination__item--dots {
@@ -51,7 +51,7 @@
 
     &.neeto-ui-pagination__item--navigate {
       text-align: center;
-      color: $neeto-ui-gray-800;
+      color: var(--neeto-ui-gray-800);
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -59,11 +59,11 @@
 
       &:hover:not(.disabled),
       &:active {
-        color: $neeto-ui-gray-800;
+        color: var(--neeto-ui-gray-800);
       }
 
       &.disabled {
-        color: $neeto-ui-gray-300;
+        color: var(--neeto-ui-gray-300);
 
         a {
           cursor: not-allowed;
