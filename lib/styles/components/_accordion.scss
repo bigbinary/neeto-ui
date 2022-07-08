@@ -3,7 +3,7 @@
 }
 
 .neeto-ui-accordion__wrapper {
-  border-bottom: thin solid $neeto-ui-gray-300;
+  border-bottom: thin solid var(--neeto-ui-gray-300);
 
   &--last-item {
     border-bottom: none;
@@ -24,13 +24,13 @@
     }
 
     &:focus-visible, &:hover {
-      background-color: $neeto-ui-gray-100;
+      background-color: var(--neeto-ui-gray-100);
     }
   }
 
   .neeto-ui-accordion__drop {
     padding: 4px 8px 16px;
     margin-bottom: 0px;
-    color: $neeto-ui-gray-700;
+    color: var(--neeto-ui-gray-700);
   }
 }

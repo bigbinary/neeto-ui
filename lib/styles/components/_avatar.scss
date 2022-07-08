@@ -2,31 +2,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $neeto-ui-rounded-sm;
+  border-radius: var(--neeto-ui-rounded-sm);
   position: relative;
 
   &.neeto-ui-avatar--container-round {
-    border-radius: $neeto-ui-rounded-full;
+    border-radius: var(--neeto-ui-rounded-full);
   }
 
   .neeto-ui-avatar__text {
-    font-weight: $neeto-ui-font-semibold;
+    font-weight: var(--neeto-ui-font-semibold);
     text-align: center;
     text-transform: capitalize;
-    font-size: $neeto-ui-text-xxs;
-    color: $neeto-ui-gray-700;
+    font-size: var(--neeto-ui-text-xxs);
+    color: var(--neeto-ui-gray-700);
     line-height: 1;
 
     &.neeto-ui-avatar__text-medium {
-      font-size: $neeto-ui-text-xs;
+      font-size: var(--neeto-ui-text-xs);
     }
 
     &.neeto-ui-avatar__text-large {
-      font-size: $neeto-ui-text-sm;
+      font-size: var(--neeto-ui-text-sm);
     }
 
     &.neeto-ui-avatar__text-xlarge {
-      font-size: $neeto-ui-text-2xl;
+      font-size: var(--neeto-ui-text-2xl);
     }
   }
 
@@ -38,7 +38,7 @@
     height: 0.4rem;
     background-color: white;
     border: 0.5px solid white;
-    border-radius: $neeto-ui-rounded-full;
+    border-radius: var(--neeto-ui-rounded-full);
     transform: translateX(-40%);
 
     &.neeto-ui-avatar__status-medium {
@@ -62,21 +62,21 @@
     }
 
     &.online {
-      background-color: $neeto-ui-success;
+      background-color: var(--neeto-ui-success);
     }
 
     &.idle {
-      background-color: $neeto-ui-warning;
+      background-color: var(--neeto-ui-warning);
     }
 
     &.offline {
-      background-color: $neeto-ui-gray-300;
+      background-color: var(--neeto-ui-gray-300);
     }
   }
 
   .neeto-ui-avatar {
     display: inline-block;
-    border-radius: $neeto-ui-rounded-sm;
+    border-radius: var(--neeto-ui-rounded-sm);
     height: 1.5rem;
     width: 1.5rem;
     object-fit: cover;
@@ -101,7 +101,7 @@
     }
 
     &.neeto-ui-avatar--round {
-      border-radius: $neeto-ui-rounded-full;
+      border-radius: var(--neeto-ui-rounded-full);
     }
   }
 }

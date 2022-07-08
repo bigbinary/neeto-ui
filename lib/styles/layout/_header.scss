@@ -1,7 +1,7 @@
 .neeto-ui-header {
   width: 100%;
-  min-height: $neeto-ui-main-header-height;
-  background: $neeto-ui-white;
+  min-height: var(--neeto-ui-main-header-height);
+  background: var(--neeto-ui-white);
   padding: 24px 0;
   display: flex;
   flex-direction: row;
@@ -28,9 +28,9 @@
       transition: all ease-in-out 300ms;
       text-decoration: none;
       h2 {
-        color: $neeto-ui-gray-500;
+        color: var(--neeto-ui-gray-500);
         &:hover {
-          color: $neeto-ui-gray-800;
+          color: var(--neeto-ui-gray-800);
         }
       }
     }
@@ -54,9 +54,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-height: $neeto-ui-sub-header-height;
-  margin-bottom: $neeto-ui-sub-header-bottom-margin;
-  background-color: $neeto-ui-white;
+  min-height: var(--neeto-ui-sub-header-height);
+  margin-bottom: var(--neeto-ui-sub-header-bottom-margin);
+  background-color: var(--neeto-ui-white);
 
   .neeto-ui-subheader__left-wrapper {
     display: flex;
@@ -71,7 +71,7 @@
       align-items: center;
 
       .neeto-ui-input__prefix {
-        color: $neeto-ui-gray-400;
+        color: var(--neeto-ui-gray-400);
       }
     }
   }
