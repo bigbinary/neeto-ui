@@ -16,7 +16,7 @@
   color: var(--neeto-ui-gray-800);
   background-color: var(--neeto-ui-white);
   border: thin solid var(--neeto-ui-gray-400);
-  border-radius: var(--neeto-ui-rounded-sm);
+  border-radius: var(--neeto-ui-rounded);
 
   overflow: hidden;
 
@@ -179,7 +179,7 @@
 
 .ant-picker-dropdown,
 .neeto-ui-date-input-dropdown {
-  z-index: var(--neeto-ui-modal-z-index) + 1;
+  z-index: calc(var(--neeto-ui-modal-z-index) + 1);
   .ant-picker-panel {
     .ant-picker-header {
       .ant-picker-header-view {

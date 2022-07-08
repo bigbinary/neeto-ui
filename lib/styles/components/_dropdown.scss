@@ -11,17 +11,14 @@
   }
 }
 
-.tippy-box[data-theme~="light"] .neeto-ui-dropdown__popup {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-}
-
 .neeto-ui-dropdown {
   .tippy-content {
     position: relative;
     padding: 0;
     z-index: 1;
   }
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%) !important;
+  box-shadow: rgb(0 0 0 / 8%) 0px 2px 4px !important;
+  border-radius: var(--neeto-ui-rounded-lg) !important;
 }
 
 .neeto-ui-dropdown__popup {
@@ -30,11 +27,11 @@
   max-height: 360px;
   overflow-y: auto;
   background-color: var(--neeto-ui-white);
-  border-radius: var(--neeto-ui-rounded-sm);
-  border: thin solid var(--neeto-ui-gray-100);
-  box-shadow: var(--neeto-ui-shadow-md);
-  padding: 4px 0;
+  border-radius: var(--neeto-ui-rounded-lg);
+  padding: 8px 0;
   z-index: 99999;
+
+  box-shadow: var(--neeto-ui-shadow-xs);
 
   li,
   .neeto-ui-dropdown--item {
@@ -46,7 +43,7 @@
     font-size: var(--neeto-ui-text-sm);
     font-weight: var(--neeto-ui-font-normal);
     color: var(--neeto-ui-gray-800);
-    padding: 8px 40px 8px 16px;
+    padding: 6px 40px 6px 16px;
     text-decoration: none;
     outline-color: transparent;
 
@@ -83,5 +80,60 @@
       background-color: var(--neeto-ui-gray-800);
       color: var(--neeto-ui-white);
     }
+  }
+  .neeto-ui-dropdown__popup-menu-wrapper {
+    all: unset;
+  }
+  .neeto-ui-dropdown__popup-menu {
+    all: unset;
+  }
+  .neeto-ui-dropdown__popup-menu-item {
+    all: unset;
+  }
+  .neeto-ui-dropdown__popup-menu-item-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    line-height: 1.143;
+    transition: var(--neeto-ui-transition);
+    font-size: var(--neeto-ui-text-sm);
+    font-weight: var(--neeto-ui-font-normal);
+    color: var(--neeto-ui-gray-800);
+    padding: 8px 40px 8px 16px;
+    text-decoration: none;
+    outline-color: transparent;
+    border-radius: 0;
+
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--neeto-ui-gray-500);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--neeto-ui-gray-200);
+    }
+
+    &.active {
+      background-color: var(--neeto-ui-gray-800);
+      color: var(--neeto-ui-white);
+    }
+
+    &--style-danger {
+      color: var(--neeto-ui-accent4-700);
+    }
+  }
+  .neeto-ui-dropdown__popup-divider {
+    all: unset;
+    width: 100%;
+    display: flex;
+    height: 1px;
+    background-color: var(--neeto-ui-gray-200);
+    margin: 8px 0;
+    pointer-events: none;
   }
 }

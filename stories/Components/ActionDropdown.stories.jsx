@@ -19,11 +19,13 @@ const listItems = ["Option 1", "Option 2", "Option 3"];
 
 const Template = (args) => {
   return (
-    <ActionDropdown {...args}>
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </ActionDropdown>
+    <div className="h-40">
+      <ActionDropdown {...args}>
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ActionDropdown>
+    </div>
   );
 };
 

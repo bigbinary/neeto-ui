@@ -14,6 +14,10 @@ export default {
         component: '`import { Button } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
+    },
   },
   argTypes: {
     icon: {

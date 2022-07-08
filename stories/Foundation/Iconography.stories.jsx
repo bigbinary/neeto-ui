@@ -1,21 +1,21 @@
 import React from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 
-const applications = [
-  "NeetoAnalytics",
-  "NeetoCal",
-  "NeetoChangelog",
-  "NeetoChat",
-  "NeetoDesk",
-  "NeetoForm",
-  "NeetoInsights",
-  "NeetoInterview",
-  "NeetoInvisible",
-  "NeetoKb",
-  "NeetoQuiz",
-  "NeetoReplay",
-  "NeetoWireframe",
-];
+// const applications = [
+//   "NeetoAnalytics",
+//   "NeetoCal",
+//   "NeetoChangelog",
+//   "NeetoChat",
+//   "NeetoDesk",
+//   "NeetoForm",
+//   "NeetoInsights",
+//   "NeetoInterview",
+//   "NeetoInvisible",
+//   "NeetoKb",
+//   "NeetoQuiz",
+//   "NeetoReplay",
+//   "NeetoWireframe",
+// ];
 
 export default {
   title: "Foundation/Iconography",
@@ -77,54 +77,54 @@ export const Iconography = () => {
   );
 };
 
-export const ApplicationIcons = () => {
-  return (
-    <div className="p-4">
-      <table className="table border-collapse">
-        <thead>
-          <tr>
-            <th className="p-4 text-left border border-gray-200"></th>
-            <th className="p-4 text-left border border-gray-200">
-              Application
-            </th>
-            <th className="p-4 text-left border border-gray-200">
-              Gradient class
-            </th>
-            <th className="p-4 text-left border border-gray-200">Icon</th>
-          </tr>
-        </thead>
-        <tbody>
-          {applications.map((application, idx) => {
-            const Component = iconset[application];
-            return (
-              <tr key={idx}>
-                <td className="p-4 text-center border border-gray-200">
-                  <div
-                    className={`w-8 h-8 rounded-md mb-3 flex flex-row items-center justify-center ${application
-                      .toLocaleLowerCase()
-                      .replace("neeto", "gradient--")}`}
-                  >
-                    <Component color="#fff" />
-                  </div>
-                </td>
-                <td className="p-4 text-left border border-gray-200">
-                  <b className="p-1 px-2 text-xs">{application}</b>
-                </td>
-                <td className="p-4 text-left border border-gray-200">
-                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`${application
-                    .toLocaleLowerCase()
-                    .replace("neeto", "gradient--")}`}</code>
-                </td>
-                <td className="p-4 text-left border border-gray-200">
-                  <code className="p-1 px-2 text-xs bg-gray-100 rounded">
-                    {application}
-                  </code>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+// export const ApplicationIcons = () => {
+//   return (
+//     <div className="p-4">
+//       <table className="table border-collapse">
+//         <thead>
+//           <tr>
+//             <th className="p-4 text-left border border-gray-200"></th>
+//             <th className="p-4 text-left border border-gray-200">
+//               Application
+//             </th>
+//             <th className="p-4 text-left border border-gray-200">
+//               Gradient class
+//             </th>
+//             <th className="p-4 text-left border border-gray-200">Icon</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {applications.map((application, idx) => {
+//             const Component = iconset[application];
+//             return (
+//               <tr key={idx}>
+//                 <td className="p-4 text-center border border-gray-200">
+//                   <div
+//                     className={`w-8 h-8 rounded-md mb-3 flex flex-row items-center justify-center ${application
+//                       .toLocaleLowerCase()
+//                       .replace("neeto", "gradient--")}`}
+//                   >
+//                     <Component color="#fff" />
+//                   </div>
+//                 </td>
+//                 <td className="p-4 text-left border border-gray-200">
+//                   <b className="p-1 px-2 text-xs">{application}</b>
+//                 </td>
+//                 <td className="p-4 text-left border border-gray-200">
+//                   <code className="p-1 px-2 text-xs bg-gray-100 rounded">{`${application
+//                     .toLocaleLowerCase()
+//                     .replace("neeto", "gradient--")}`}</code>
+//                 </td>
+//                 <td className="p-4 text-left border border-gray-200">
+//                   <code className="p-1 px-2 text-xs bg-gray-100 rounded">
+//                     {application}
+//                   </code>
+//                 </td>
+//               </tr>
+//             );
+//           })}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };

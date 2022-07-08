@@ -63,6 +63,11 @@ body {
 
           .neeto-ui-btn--style-primary{
             color: var(--neeto-ui-gray-300) !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            &:hover{
+              background-color: var(--neeto-ui-gray-700) !important;
+            }
           }
         }
       }

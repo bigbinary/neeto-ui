@@ -55,7 +55,7 @@
 
   .neeto-ui-react-select__control {
     border: thin solid var(--neeto-ui-gray-400);
-    border-radius: var(--neeto-ui-rounded-sm);
+    border-radius: var(--neeto-ui-rounded);
     background-color: var(--neeto-ui-white);
     min-height: 0;
     transition: border 0.3s;
@@ -169,7 +169,7 @@
     align-items: stretch;
     background-color: var(--neeto-ui-gray-100);
     border: thin solid var(--neeto-ui-gray-800);
-    border-radius: 3px;
+    border-radius: 4px;
     margin: 3px 6px 3px 0;
     .neeto-ui-react-select__multi-value__label {
       line-height: 24px;
