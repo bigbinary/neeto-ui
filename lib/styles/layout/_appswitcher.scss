@@ -11,7 +11,11 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  transition: left 0.3s ease-in-out;
+
+  transition: all .3s;
+  background-color: #1b1f23dd;
+  backdrop-filter: blur(2px);
+
   &--expanded {
     left: 300px;
   }
@@ -22,12 +26,17 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: $neeto-ui-white;
+  background-color: var(--neeto-ui-white);
   width: 342px;
   height: 100vh;
   overflow-y: auto;
   max-width: 100%;
   padding: 32px;
+
+  transform: translateX(-100%);
+  backdrop-filter: blur(2px);
+
+  transition: all .3s;
 }
 
 .neeto-ui-app-switcher__wrapper-size--lg {
@@ -67,14 +76,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: $neeto-ui-text-sm;
+  font-size: var(--neeto-ui-text-sm);
   padding: 16px 0;
 }
 
 .neeto-ui-app-switcher-link {
   width: 100%;
   max-width: 100%;
-  border-radius: $neeto-ui-rounded-sm;
+  border-radius: var(--neeto-ui-rounded-sm);
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 
@@ -84,19 +93,19 @@
   }
 
   &:focus-visible {
-    background-color: $neeto-ui-gray-100;
+    background-color: var(--neeto-ui-gray-100);
   }
 
   &:not(.neeto-ui-app-switcher-link--active):hover {
-    background-color: $neeto-ui-gray-100;
+    background-color: var(--neeto-ui-gray-100);
   }
 }
 
 .neeto-ui-app-switcher-link--active {
-  background: $neeto-ui-pastel-blue;
+  background: var(--neeto-ui-pastel-blue);
 
   .neeto-ui-app-switcher-link__title {
-    color: $neeto-ui-gray-800;
+    color: var(--neeto-ui-gray-800);
   }
 }
 
@@ -121,7 +130,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 12px;
-  border-radius: $neeto-ui-rounded-xl;
+  border-radius: var(--neeto-ui-rounded-xl);
   flex-shrink: 0;
 }
 
@@ -232,4 +241,50 @@
 }
 .gradient--cal {
   background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
+}
+
+// CSS transition group
+
+.neeto-ui-app-switcher-enter {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 0;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(-100%);
+    backdrop-filter: blur(2px);
+  }
+}
+.neeto-ui-app-switcher-enter-active,
+.neeto-ui-app-switcher-enter-done {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(0);
+    backdrop-filter: blur(0px);
+  }
+}
+.neeto-ui-app-switcher-exit {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 1;
+    backdrop-filter: blur(2px);
+    transition: all .3s;
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(0);
+    backdrop-filter: blur(0px);
+    transition: all .3s;
+  }
+}
+.neeto-ui-app-switcher-exit-active {
+  &.neeto-ui-app-switcher__backdrop{
+    opacity: 0;
+    backdrop-filter: blur(2px);
+  }
+  .neeto-ui-app-switcher__wrapper{
+    transform: translateX(-100%);
+    backdrop-filter: blur(2px);
+  }
 }

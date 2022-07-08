@@ -2,104 +2,100 @@ body {
   // color utility classes
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-text-#{$color} {
-      color: $value;
+      color: var(--neeto-ui-#{$color});
     }
     .hover\:neeto-ui-text-#{$color}:hover {
-      color: $value;
+      color: var(--neeto-ui-#{$color});
     }
     .focus\:neeto-ui-text-#{$color}:focus {
-      color: $value;
+      color: var(--neeto-ui-#{$color});
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
-      color: $value;
+      color: var(--neeto-ui-#{$color});
     }
   }
 
   // background utility classes
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-bg-#{$color} {
-      background-color: $value;
+      background-color: var(--neeto-ui-#{$color});
     }
     .hover\:neeto-ui-bg-#{$color}:hover {
-      background-color: $value;
+      background-color: var(--neeto-ui-#{$color});
     }
     .focus\:neeto-ui-bg-#{$color}:focus {
-      background-color: $value;
+      background-color: var(--neeto-ui-#{$color});
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
-      background-color: $value;
+      background-color: var(--neeto-ui-#{$color});
     }
   }
 
   // border color
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-border-#{$color} {
-      border-color: $value;
+      border-color: var(--neeto-ui-#{$color});
     }
     .hover\:neeto-ui-border-#{$color}:hover {
-      border-color: $value;
+      border-color: var(--neeto-ui-#{$color});
     }
     .focus\:neeto-ui-border-#{$color}:focus {
-      border-color: $value;
+      border-color: var(--neeto-ui-#{$color});
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
-      border-color: $value;
+      border-color: var(--neeto-ui-#{$color});
     }
   }
 
   // box shadows
   @each $shadow, $value in $neeto-ui-shadows {
     .neeto-ui-shadow-#{$shadow} {
-      box-shadow: $value;
+      box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
     .hover\:neeto-ui-shadow-#{$shadow}:hover {
-      box-shadow: $value;
+      box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
     .focus\:neeto-ui-shadow-#{$shadow}:focus {
-      box-shadow: $value;
+      box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
   }
   @each $shadow, $value in $neeto-ui-shadows {
     .focus-visible\:neeto-ui-shadow-#{$shadow}:focus-visible {
-      box-shadow: $value;
+      box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
   }
 
   // font sizes
   @each $size, $value in $neeto-ui-font-sizes {
     .neeto-ui-text-#{$size} {
-      font-size: $value;
+      font-size: var(--neeto-ui-text-#{$size});
     }
   }
 
   // font weights
   @each $weight, $value in $neeto-ui-font-weights {
     .neeto-ui-font-#{$weight} {
-      font-weight: $value;
+      font-weight: var(--neeto-ui-font-#{$weight});
     }
   }
 
   // line height
   @each $lh, $value in $neeto-ui-line-heights {
     .neeto-ui-leading-#{$lh} {
-      line-height: $value;
+      line-height: var(--neeto-ui-leading-#{$lh});
     }
   }
 
   // text transform
   @each $tt, $value in $neeto-ui-text-transform {
     .neeto-ui-text-transform-#{$tt} {
-      text-transform: $value;
+      text-transform: var(--neeto-ui-text-transform-#{$tt});
     }
   }
-}
-
-.neeto-ui-no-outline{
-  outline: none !important;
 }

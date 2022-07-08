@@ -11,8 +11,8 @@
 
   .neeto-ui-radio-input__error {
     margin-top: 4px;
-    color: $neeto-ui-error;
-    font-size: $neeto-ui-text-xs;
+    color: var(--neeto-ui-error);
+    font-size: var(--neeto-ui-text-xs);
   }
 }
 
@@ -40,8 +40,8 @@
   .neeto-ui-radio[type="radio"] {
     width: 16px;
     height: 16px;
-    color: $neeto-ui-gray-800;
-    border: 2px solid $neeto-ui-gray-300;
+    color: var(--neeto-ui-primary);
+    border: 2px solid var(--neeto-ui-gray-300);
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -50,7 +50,7 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: $neeto-ui-gray-400;
+      border-color: var(--neeto-ui-gray-400);
     }
 
     &:disabled {
@@ -68,13 +68,13 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px $neeto-ui-white, 0 0 0 4px $neeto-ui-gray-300;
+      box-shadow: 0 0 0 2px var(--neeto-ui-white), 0 0 0 4px var(--neeto-ui-gray-300);
     }
   }
 
   &.neeto-ui-radio__container--error {
     .neeto-ui-radio[type="radio"] {
-      border-color: $neeto-ui-error;
+      border-color: var(--neeto-ui-error);
     }
   }
 
