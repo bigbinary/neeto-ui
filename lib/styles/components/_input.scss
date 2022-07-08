@@ -11,7 +11,7 @@
     width: 100%;
 
     .neeto-ui-input__max-length {
-      color: $neeto-ui-gray-600
+      color: var(--neeto-ui-gray-600)
     }
   }
 
@@ -25,12 +25,12 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: $neeto-ui-text-sm;
-    transition: $neeto-ui-transition;
-    border-radius: $neeto-ui-rounded-sm;
-    border: thin solid $neeto-ui-gray-400;
-    background-color: $neeto-ui-white;
-    color: $neeto-ui-gray-800;
+    font-size: var(--neeto-ui-text-sm);
+    transition: var(--neeto-ui-transition);
+    border-radius: var(--neeto-ui-rounded);
+    border: thin solid var(--neeto-ui-gray-400);
+    background-color: var(--neeto-ui-white);
+    color: var(--neeto-ui-gray-800);
     overflow: hidden;
 
     &.neeto-ui-input--textarea {
@@ -48,7 +48,7 @@
       outline: none;
 
       &::placeholder {
-        color: $neeto-ui-gray-400;
+        color: var(--neeto-ui-gray-400);
       }
 
       &:focus {
@@ -70,19 +70,19 @@
     }
 
     &:focus-within:not(.neeto-ui-input--naked, .neeto-ui-input--error) {
-      border-color: $neeto-ui-gray-800;
-      box-shadow: $neeto-ui-shadow;
+      border-color: var(--neeto-ui-gray-800);
+      box-shadow: var(--neeto-ui-shadow);
     }
 
     &:hover:not(.neeto-ui-input--naked, .neeto-ui-input--error, .neeto-ui-input--disabled) {
-      border-color: $neeto-ui-gray-700;
+      border-color: var(--neeto-ui-gray-700);
     }
 
     &.neeto-ui-input--error {
-      border-color: $neeto-ui-error;
+      border-color: var(--neeto-ui-error);
 
       &:focus-within:not(.neeto-ui-input--naked) {
-        box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
+        box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
       }
 
       textarea {
@@ -91,7 +91,7 @@
     }
 
     &.neeto-ui-input--disabled {
-      background-color: $neeto-ui-gray-100;
+      background-color: var(--neeto-ui-gray-100);
       cursor: not-allowed;
 
       input {
@@ -131,7 +131,7 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 14px;
-    color: $neeto-ui-gray-600;
+    color: var(--neeto-ui-gray-600);
     svg{
       width: 16px;
       height: 16px;
@@ -150,26 +150,26 @@
     .neeto-ui-input__suffix {
       margin: 0;
       padding: 8px 10px;
-      background-color: $neeto-ui-gray-100;
+      background-color: var(--neeto-ui-gray-100);
     }
     .neeto-ui-input__prefix {
-      border-right: thin solid $neeto-ui-gray-300;
+      border-right: thin solid var(--neeto-ui-gray-300);
     }
     .neeto-ui-input__suffix {
-      border-left: thin solid $neeto-ui-gray-300;
+      border-left: thin solid var(--neeto-ui-gray-300);
     }
   }
 }
 
 .neeto-ui-input__help-text {
   margin-top: 8px;
-  font-size: $neeto-ui-text-xs;
-  color: $neeto-ui-gray-600;
+  font-size: var(--neeto-ui-text-xs);
+  color: var(--neeto-ui-gray-600);
   line-height: 1.6;
 }
 
 .neeto-ui-input__error {
   margin-top: 4px;
-  font-size: $neeto-ui-text-xs;
-  color: $neeto-ui-error;
+  font-size: var(--neeto-ui-text-xs);
+  color: var(--neeto-ui-error);
 }

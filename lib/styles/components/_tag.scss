@@ -2,19 +2,19 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: $neeto-ui-text-xs;
+  font-size: var(--neeto-ui-text-xs);
   line-height: 12px;
-  font-weight: $neeto-ui-font-medium;
+  font-weight: var(--neeto-ui-font-medium);
   gap: 4px;
   padding: 3px 8px;
   border-radius: 100px;
-  color: $neeto-ui-gray-800;
+  color: var(--neeto-ui-gray-800);
   border-width: 1px;
   border-style: solid;
   user-select: none;
 
   &__indicator {
-    border-radius: $neeto-ui-rounded-full;
+    border-radius: var(--neeto-ui-rounded-full);
     height: 8px;
     width: 8px;
   }
@@ -31,7 +31,7 @@
   }
 
   &__close {
-    transition: $neeto-ui-transition;
+    transition: var(--neeto-ui-transition);
     cursor: pointer;
 
     &:hover {
@@ -47,7 +47,7 @@
   &--size-large {
     padding: 3px 12px;
     gap: 6px;
-    font-size: $neeto-ui-text-sm;
+    font-size: var(--neeto-ui-text-sm);
     line-height: 16px;
 
     .neeto-ui-tag__icon,
@@ -60,65 +60,65 @@
   }
 
   &--style-outline {
-    border-color: $neeto-ui-gray-400;
-    background-color: $neeto-ui-white;
+    border-color: var(--neeto-ui-gray-400);
+    background-color: var(--neeto-ui-white);
 
     &.neeto-ui-tag--color-red {
-      background-color: $neeto-ui-pastel-red;
-      border-color: $neeto-ui-error;
-      color: $neeto-ui-error;
+      background-color: var(--neeto-ui-pastel-red);
+      border-color: var(--neeto-ui-error);
+      color: var(--neeto-ui-error);
     }
 
     &.neeto-ui-tag--color-blue {
-      background-color: $neeto-ui-pastel-blue;
-      border-color: $neeto-ui-secondary-indigo;
-      color: $neeto-ui-secondary-indigo;
+      background-color: var(--neeto-ui-pastel-blue);
+      border-color: var(--neeto-ui-accent1-500);
+      color: var(--neeto-ui-accent1-500);
     }
 
     &.neeto-ui-tag--color-green {
-      background-color: $neeto-ui-pastel-green;
-      border-color: $neeto-ui-secondary-green;
-      color: $neeto-ui-secondary-green;
+      background-color: var(--neeto-ui-pastel-green);
+      border-color: var(--neeto-ui-accent2-500);
+      color: var(--neeto-ui-accent2-500);
     }
 
     &.neeto-ui-tag--color-yellow {
-      background-color: $neeto-ui-pastel-yellow;
-      border-color: $neeto-ui-warning;
-      color: $neeto-ui-warning;
+      background-color: var(--neeto-ui-pastel-yellow);
+      border-color: var(--neeto-ui-warning);
+      color: var(--neeto-ui-warning);
     }
 
     &.neeto-ui-tag--color-gray {
-      background-color: $neeto-ui-gray-200;
+      background-color: var(--neeto-ui-gray-200);
     }
   }
 
   &--style-solid {
-    border-color: $neeto-ui-pastel-blue;
-    background-color: $neeto-ui-pastel-blue;
+    border-color: var(--neeto-ui-pastel-blue);
+    background-color: var(--neeto-ui-pastel-blue);
 
     &.neeto-ui-tag--color-red {
-      background-color: $neeto-ui-pastel-red;
-      border-color: $neeto-ui-pastel-red;
+      background-color: var(--neeto-ui-pastel-red);
+      border-color: var(--neeto-ui-pastel-red);
     }
 
     &.neeto-ui-tag--color-blue {
-      background-color: $neeto-ui-pastel-blue;
-      border-color: $neeto-ui-pastel-blue;
+      background-color: var(--neeto-ui-pastel-blue);
+      border-color: var(--neeto-ui-pastel-blue);
     }
 
     &.neeto-ui-tag--color-green {
-      background-color: $neeto-ui-pastel-green;
-      border-color: $neeto-ui-pastel-green;
+      background-color: var(--neeto-ui-pastel-green);
+      border-color: var(--neeto-ui-pastel-green);
     }
 
     &.neeto-ui-tag--color-yellow {
-      background-color: $neeto-ui-pastel-yellow;
-      border-color: $neeto-ui-pastel-yellow;
+      background-color: var(--neeto-ui-pastel-yellow);
+      border-color: var(--neeto-ui-pastel-yellow);
     }
 
     &.neeto-ui-tag--color-gray {
-      background-color: $neeto-ui-gray-200;
-      border-color: $neeto-ui-gray-200;
+      background-color: var(--neeto-ui-gray-200);
+      border-color: var(--neeto-ui-gray-200);
     }
   }
 }

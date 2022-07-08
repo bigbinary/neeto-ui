@@ -1,8 +1,11 @@
 // Color palette
 
-// primary
+// base
 $neeto-ui-white: #ffffff;
 $neeto-ui-black: #1b1f23;
+$neeto-ui-transparent: transparent;
+$neeto-ui-environment: #f0f8ff;
+
 // content
 $neeto-ui-gray-800: #2f3941;
 $neeto-ui-gray-700: #49545c;
@@ -12,11 +15,13 @@ $neeto-ui-gray-400: #c2c8cc;
 $neeto-ui-gray-300: #d8dcde;
 $neeto-ui-gray-200: #e9ebed;
 $neeto-ui-gray-100: #f8f9f9;
+
 // states
 $neeto-ui-success: #00ba88;
 $neeto-ui-info: #276ef1;
 $neeto-ui-warning: #f57c00;
 $neeto-ui-error: #ea4335;
+
 // pastel
 $neeto-ui-pastel-blue: #eaf3fc;
 $neeto-ui-pastel-green: #ebf5ec;
@@ -25,9 +30,9 @@ $neeto-ui-pastel-red: #ffefed;
 $neeto-ui-pastel-teal: #98f3f4;
 
 // accent
-$neeto-ui-accent1-700: #5b5ac4;
-$neeto-ui-accent1-500: #5e5ce6;
-$neeto-ui-accent1-300: #7e7deb;
+$neeto-ui-accent1-700: #342df4;
+$neeto-ui-accent1-500: #4557f8;
+$neeto-ui-accent1-300: #7280fa;
 
 $neeto-ui-accent2-700: #00956d;
 $neeto-ui-accent2-500: #00ba88;
@@ -37,20 +42,20 @@ $neeto-ui-accent3-700: #50a8cc;
 $neeto-ui-accent3-500: #64d2ff;
 $neeto-ui-accent3-300: #83dbff;
 
-$neeto-ui-accent4-700: #d62516;
-$neeto-ui-accent4-500: #ea4335;
-$neeto-ui-accent4-300: #f78879;
+$neeto-ui-accent4-700: #f22d2d;
+$neeto-ui-accent4-500: #f64545;
+$neeto-ui-accent4-300: #f75555;
 
-// secondary
-$neeto-ui-secondary-indigo: $neeto-ui-accent1-500;
-$neeto-ui-secondary-green: $neeto-ui-accent2-500;
-$neeto-ui-secondary-teal: $neeto-ui-accent3-500;
+$neeto-ui-accent-light-300: #dbf0ff;
+$neeto-ui-accent-light-500: #bfe3ff;
 
 // neeto-ui-theme-colors-map
 $neeto-ui-theme-colors: (
-  // primary
+  // base
   "black": $neeto-ui-black,
   "white": $neeto-ui-white,
+  "transparent": $neeto-ui-transparent,
+  "environment": $neeto-ui-environment,
   // content
   "gray-800": $neeto-ui-gray-800,
   "gray-700": $neeto-ui-gray-700,
@@ -86,10 +91,9 @@ $neeto-ui-theme-colors: (
   "accent2-300": $neeto-ui-accent2-300,
   "accent3-300": $neeto-ui-accent3-300,
   "accent4-300": $neeto-ui-accent4-300,
-  // secondary
-  "secondary-indigo": $neeto-ui-secondary-indigo,
-  "secondary-green": $neeto-ui-secondary-green,
-  "secondary-teal": $neeto-ui-secondary-teal,
+  // accent light
+  "accent-light-300": $neeto-ui-accent-light-300,
+  "accent-light-500": $neeto-ui-accent-light-500
 );
 
 // Font Weights
@@ -138,6 +142,15 @@ $neeto-ui-font-sizes: (
   "body1": $neeto-ui-text-base,
   "body2": $neeto-ui-text-sm,
   "body3": $neeto-ui-text-xs,
+  "xxs": $neeto-ui-text-xxs,
+  "xs": $neeto-ui-text-xs,
+  "sm": $neeto-ui-text-sm,
+  "base": $neeto-ui-text-base,
+  "lg": $neeto-ui-text-lg,
+  "xl": $neeto-ui-text-xl,
+  "2xl": $neeto-ui-text-2xl,
+  "3xl": $neeto-ui-text-3xl,
+  "4xl": $neeto-ui-text-4xl,
 );
 
 // Line Heights
@@ -185,14 +198,14 @@ $neeto-ui-text-transform: (
 // Border Radius
 $neeto-ui-rounded-none: 0;
 $neeto-ui-rounded-sm: 2px;
-$neeto-ui-rounded: 4px;
+$neeto-ui-rounded: 5px;
 $neeto-ui-rounded-md: 6px;
 $neeto-ui-rounded-lg: 8px;
 $neeto-ui-rounded-xl: 10px;
 $neeto-ui-rounded-full: 999px;
 
 // Transition
-$neeto-ui-transition: all 0.3s ease-in-out;
+$neeto-ui-transition: all 0.3s linear;
 
 // Shadows
 $neeto-ui-shadow: 0px 0px 0px 3px $neeto-ui-gray-200;

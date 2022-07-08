@@ -2,7 +2,7 @@
 
 @mixin scrollbars(
   $size,
-  $foreground-color: $neeto-ui-gray-300,
+  $foreground-color: var(--neeto-ui-gray-300),
   $background-color: "transparent"
 ) {
   // For Google Chrome
