@@ -1,13 +1,4 @@
 :root {
-  // Button focus rings
-  --neeto-ui-btn-primary-focus-ring-color: rgba(#{$neeto-ui-accent1-500}, 30%);
-  --neeto-ui-btn-danger-focus-ring-color: rgba(#{$neeto-ui-accent4-500}, 30%);
-  --neeto-ui-btn-secondary-focus-ring-color: rgba(#{$neeto-ui-accent1-500}, 15%);
-  --neeto-ui-btn-text-focus-ring-color: rgba(#{$neeto-ui-accent1-500}, 15%);
-  --neeto-ui-btn-danger-text-focus-ring-color: rgba(#{$neeto-ui-accent4-700}, 10%);
-}
-
-:root {
   // Color
   @each $color, $value in $neeto-ui-theme-colors {
     --neeto-ui-#{$color}: #{$value};
@@ -63,4 +54,11 @@
 
   // Z Indexes
   --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
+
+  // Button focus rings
+  --neeto-ui-btn-primary-focus-ring-color: rgba(69, 87, 248, 15%);
+  --neeto-ui-btn-secondary-focus-ring-color: rgba(47, 57, 65, 25%);
+  --neeto-ui-btn-text-focus-ring-color: rgba(47, 57, 65, 15%);
+  --neeto-ui-btn-danger-focus-ring-color: rgba(246, 69, 69, 15%);
+  --neeto-ui-btn-danger-text-focus-ring-color: rgba(246, 69, 69, 15%);
 }
