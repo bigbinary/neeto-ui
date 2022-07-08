@@ -24,79 +24,93 @@ export default {
   },
 };
 
-const listItems = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
+const listItems = ["Action", "Another action", "Something else here"];
 
 export const PrimaryDropdown = (args) => {
   const [dropdownOne, setDropdownOne] = useState(false);
 
   return (
-    <Dropdown
-      label="Primary Dropdown"
-      buttonStyle="primary"
-      position="bottom-end"
-      isOpen={dropdownOne}
-      onClose={() => {
-        setDropdownOne(false);
-      }}
-      buttonProps={{
-        onClick: () => {
-          setDropdownOne(!dropdownOne);
-        },
-      }}
-      closeOnSelect={false}
-    >
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </Dropdown>
+    <div className="h-40">
+      <Dropdown
+        label="Primary Dropdown"
+        buttonStyle="primary"
+        position="bottom-end"
+        isOpen={dropdownOne}
+        onClose={() => {
+          setDropdownOne(false);
+        }}
+        buttonProps={{
+          onClick: () => {
+            setDropdownOne(!dropdownOne);
+          },
+        }}
+        closeOnSelect={false}
+      >
+        <Dropdown.Menu>
+          {listItems.map((item, idx) => (
+            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+          ))}
+          <Dropdown.Divider />
+          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 };
 
 export const SecondaryDropdown = (args) => {
   return (
-    <Dropdown
-      label="Secondary Dropdown"
-      buttonStyle="secondary"
-      position="bottom-end"
-    >
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </Dropdown>
+    <div className="h-40">
+      <Dropdown
+        label="Secondary Dropdown"
+        buttonStyle="secondary"
+        position="bottom-end"
+      >
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </Dropdown>
+    </div>
   );
 };
 
 export const TextDropdown = (args) => {
   return (
-    <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </Dropdown>
+    <div className="h-40">
+      <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </Dropdown>
+    </div>
   );
 };
 
 export const CustomIcon = (args) => {
   return (
-    <Dropdown
-      label="Dropdown with custom icon"
-      icon={Settings}
-      position="bottom-end"
-    >
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </Dropdown>
+    <div className="h-40">
+      <Dropdown
+        label="Dropdown with custom icon"
+        icon={Settings}
+        position="bottom-end"
+      >
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </Dropdown>
+    </div>
   );
 };
 
 export const DropdownStory = (args) => {
   return (
-    <Dropdown label="Dropdown" position="bottom-end" {...args}>
-      {listItems.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </Dropdown>
+    <div className="h-40">
+      <Dropdown label="Dropdown" position="bottom-end" {...args}>
+        {listItems.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </Dropdown>
+    </div>
   );
 };
 DropdownStory.storyName = "DropDown";
@@ -108,7 +122,7 @@ DropdownStory.args = {
 
 export const MultiDropdownWithClickTrigger = () => {
   return (
-    <div className="flex">
+    <div className="flex h-80 items-start">
       <Dropdown position="bottom" label="Dropdown" isMultiLevel>
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
@@ -129,7 +143,7 @@ export const MultiDropdownWithClickTrigger = () => {
 
 export const MultiDropdownWithHoverTrigger = () => {
   return (
-    <div className="flex">
+    <div className="flex h-80 items-start">
       <Dropdown position="bottom" label="Dropdown" isMultiLevel>
         {listItems.map((item, idx) => (
           <li key={idx}>{item}</li>
@@ -151,10 +165,10 @@ export const MultiDropdownWithHoverTrigger = () => {
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex flex-col items-start space-y-6">
+    <div className="flex flex-col items-start space-y-6 h-40">
       <div className="flex items-center space-x-4">
-        <Button label="Open Dropdown" onClick={() => setIsOpen(true)} />
-        <Button label="Close Dropdown" onClick={() => setIsOpen(false)} />
+        <Button label="Open Dropdown" style="secondary" onClick={() => setIsOpen(true)} />
+        <Button label="Close Dropdown" style="secondary" onClick={() => setIsOpen(false)} />
       </div>
       <Dropdown
         isOpen={isOpen}
