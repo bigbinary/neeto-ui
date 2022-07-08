@@ -116,12 +116,12 @@
 
   &-secondary {
     color: var(--neeto-ui-gray-800);
-    background-color: var(--neeto-ui-accent-light-300);
+    background-color: var(--neeto-ui-gray-200);
 
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-accent-light-500);
+      background-color: var(--neeto-ui-gray-300);
     }
 
     &:focus {
@@ -141,7 +141,7 @@
     &:hover:not(:disabled),
     &:active {
       color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-accent-light-300);
+      background-color: var(--neeto-ui-gray-200);
     }
 
     &:focus {
