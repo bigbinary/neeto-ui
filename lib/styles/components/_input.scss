@@ -113,6 +113,8 @@
     &.neeto-ui-input--naked {
       border: none;
       box-shadow: none;
+      padding-left: 0;
+      padding-right: 0;
 
       .neeto-ui-input__prefix {
         margin-left: 0;
