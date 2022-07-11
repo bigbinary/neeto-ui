@@ -59,6 +59,7 @@ export const boxShadows = [
   <thead>
     <tr>
       <td>Preview</td>
+      <td>CSS Variable</td>
       <td>Class</td>
     </tr>
   </thead>
@@ -66,15 +67,18 @@ export const boxShadows = [
     {boxShadows.map((shadow) => {
       return (
         <tr key={shadow.name}>
-          <td className="neeto-ui-bg-pastel-blue">
-            <div className="p-16">
+          <td className="neeto-ui-bg-gray-100">
+            <div className="p-6">
               <div
-                className={`w-32 h-32 neeto-ui-bg-white ${shadow.name.replace(
+                className={`w-20 h-20 neeto-ui-bg-white ${shadow.name.replace(
                   "$neeto-ui",
                   "neeto-ui"
                 )}`}
               ></div>
             </div>
+          </td>
+          <td>
+            <code>{`${shadow.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
           </td>
           <td>
             <div className="flex justify-between">
