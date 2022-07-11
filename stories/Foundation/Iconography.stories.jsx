@@ -1,22 +1,6 @@
 import React from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 
-// const applications = [
-//   "NeetoAnalytics",
-//   "NeetoCal",
-//   "NeetoChangelog",
-//   "NeetoChat",
-//   "NeetoDesk",
-//   "NeetoForm",
-//   "NeetoInsights",
-//   "NeetoInterview",
-//   "NeetoInvisible",
-//   "NeetoKb",
-//   "NeetoQuiz",
-//   "NeetoReplay",
-//   "NeetoWireframe",
-// ];
-
 export default {
   title: "Foundation/Iconography",
   parameters: {
@@ -65,7 +49,7 @@ export const Iconography = () => {
           return (
             <div
               key={icon}
-              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-pastel-blue"
+              className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-gray-100"
             >
               <Component />
               <div className="mt-2 text-xs">{icon}</div>
