@@ -73,6 +73,10 @@ export const InputWithMaxLength = () => (
   <Input label="Input with max length" maxLength={10} />
 );
 
+export const InputWithMaxLengthWithoutLabel = () => (
+  <Input maxLength={10} />
+);
+
 export const Variants = () => {
   const [input, setInput] = useState("Text");
   return (

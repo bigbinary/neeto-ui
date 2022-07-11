@@ -7,11 +7,20 @@
 
   .neeto-ui-input__label-wrapper {
     display: flex;
+    gap: 8px;
     justify-content: space-between;
     width: 100%;
 
+    .neeto-ui-label {
+      flex-grow: 1;
+      overflow-wrap: break-word;
+    }
+
     .neeto-ui-input__max-length {
-      color: var(--neeto-ui-gray-600)
+      color: var(--neeto-ui-gray-600);
+      line-height: 1;
+      margin-bottom: 8px;
+      margin-left: auto;
     }
   }
 
@@ -167,11 +176,12 @@
   margin-top: 8px;
   font-size: var(--neeto-ui-text-xs);
   color: var(--neeto-ui-gray-600);
-  line-height: 1.6;
+  line-height: 1.1;
 }
 
 .neeto-ui-input__error {
-  margin-top: 4px;
+  margin-top: 8px;
+  line-height: 1.1;
   font-size: var(--neeto-ui-text-xs);
   color: var(--neeto-ui-error);
 }

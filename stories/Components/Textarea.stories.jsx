@@ -39,25 +39,29 @@ export const Controlled = () => {
 };
 
 export const Required = () => (
-  <Textarea label="Required Textarea" required={true} />
+  <Textarea label="Required Textarea" placeholder="Enter text" required={true} />
 );
 
 export const Disabled = () => (
-  <Textarea label="Disabled Textarea" disabled={true} />
+  <Textarea label="Disabled Textarea" placeholder="Enter text" disabled={true} />
 );
 
 export const Error = () => (
-  <Textarea label="Error" error="Provide valid email" />
+  <Textarea label="Error" placeholder="Enter text" error="Provide valid email" />
 );
 
 export const HelpText = () => (
-  <Textarea label="Name" helpText="This is help text props to the component." />
+  <Textarea label="Name" placeholder="Enter text" helpText="This is help text props to the component." />
 );
 
 export const NakedInput = () => (
-  <Textarea label="Naked Textarea Field" nakedTextarea={true} />
+  <Textarea label="Naked Textarea Field" placeholder="Enter text" nakedTextarea={true} />
 );
 
 export const TextareaWithMaxLength = () => (
-  <Textarea label="Textarea with max length" maxLength={10} />
+  <Textarea label="Textarea with max length" placeholder="Enter text" maxLength={10} />
+);
+
+export const TextareaWithMaxLengthWithoutLabel = () => (
+  <Textarea placeholder="Enter text" maxLength={10} />
 );
