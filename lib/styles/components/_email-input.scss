@@ -1,10 +1,36 @@
 .neeto-ui-email-input {
-  gap: 4px;
-  .neeto-ui-input__help-text{
-    margin-top: 0;
+  .neeto-ui-label{
+    margin-bottom: 8px;
+  }
+  .neeto-ui-email-input__title-row{
+    gap: 8px;
+    justify-content: space-between;
+    width: 100%;
+    .neeto-ui-label {
+      flex-grow: 1;
+      overflow-wrap: break-word;
+    }
+
+    .neeto-ui-email-input__counter {
+      color: var(--neeto-ui-gray-600);
+      line-height: 1;
+      margin-bottom: 8px;
+      margin-left: auto;
+    }
   }
 
   .neeto-ui-email-input__prefix {
-    padding-left: 0.5rem;
+    margin-left: 10px;
+    svg{
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .neeto-ui-email-input__suffix{
+    margin-right: 10px;
+    svg{
+      width: 16px;
+      height: 16px;
+    }
   }
 }
