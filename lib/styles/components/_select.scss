@@ -47,10 +47,10 @@
   }
 
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
-    border: thin solid var(--neeto-ui-gray-800);
     transition: var(--neeto-ui-transition);
     outline-color: transparent;
-    box-shadow: var(--neeto-ui-shadow);
+    border-color: var(--neeto-ui-accent1-500);
+    box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
   }
 
   .neeto-ui-react-select__control {
@@ -68,7 +68,7 @@
     &.neeto-ui-react-select__value-container--is-multi {
       padding: 0 4px;
       &.neeto-ui-react-select__value-container--has-value {
-        padding: 6px 12px;
+        padding: 2px 8px;
       }
     }
   }
@@ -162,17 +162,16 @@
   }
 
   .neeto-ui-react-select__multi-value {
-    height: 30px;
+    height: 24px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: var(--neeto-ui-gray-100);
-    border: thin solid var(--neeto-ui-gray-800);
-    border-radius: 4px;
+    background-color: transparent;
+    border: thin solid var(--neeto-ui-gray-400);
+    border-radius: 100px;
     margin: 3px 6px 3px 0;
     .neeto-ui-react-select__multi-value__label {
-      line-height: 24px;
       margin: 0 4px 0 0;
       color: var(--neeto-ui-gray-800);
     }
@@ -184,6 +183,12 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     color: var(--neeto-ui-gray-800);
+    background-color: transparent;
+
+    &:hover{
+      background-color: transparent;
+      color: var(--neeto-ui-accent4-700);
+    }
   }
 }
 
