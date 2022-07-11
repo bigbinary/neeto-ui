@@ -11,6 +11,10 @@ export default {
     previewTabs: {
       canvas: { hidden: true },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A3",
+    },
   },
 };
 
