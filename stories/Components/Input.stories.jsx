@@ -13,6 +13,10 @@ export default {
         component: '`import { Input } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
+    },
   },
 };
 
