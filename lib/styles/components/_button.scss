@@ -105,12 +105,12 @@
 
     &:focus {
       color: var(--neeto-ui-white);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-primary-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-white);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-primary-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
     }
   }
 
@@ -126,12 +126,12 @@
 
     &:focus {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-secondary-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-secondary-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
     }
   }
 
@@ -146,12 +146,12 @@
 
     &:focus {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-text-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-gray-800);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-text-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
     }
   }
 
@@ -189,12 +189,12 @@
 
     &:focus {
       color: var(--neeto-ui-white);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-danger-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-white);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-danger-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
     }
   }
 
@@ -209,12 +209,12 @@
 
     &:focus {
       color: var(--neeto-ui-accent4-700);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-danger-text-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
 
     &:focus-visible {
       color: var(--neeto-ui-accent4-700);
-      box-shadow: 0 0 0 3px var(--neeto-ui-btn-danger-text-focus-ring-color);
+      box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
   }
 }
