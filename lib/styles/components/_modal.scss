@@ -1,3 +1,7 @@
+:root {
+  --neeto-ui-modal-spacing: 24px;
+}
+
 .neeto-ui-modal__backdrop {
   position: fixed;
   z-index: var(--neeto-ui-modal-z-index);
@@ -20,7 +24,7 @@
     max-width: 100%;
     position: relative;
     background-color: var(--neeto-ui-white);
-    border-radius: var(--neeto-ui-rounded-lg);
+    border-radius: var(--neeto-ui-rounded-xl);
     opacity: 0;
     transform: scale(1.1);
     backdrop-filter: blur(2px);
@@ -41,8 +45,8 @@
 
     .neeto-ui-modal__close {
       position: absolute;
-      top: 32px;
-      right: 32px;
+      top: var(--neeto-ui-modal-spacing);
+      right: var(--neeto-ui-modal-spacing);
     }
 
     &.neeto-ui-modal__wrapper--xs {
@@ -58,21 +62,27 @@
     }
 
     .neeto-ui-modal__header {
-      padding: 32px 64px 16px 32px;
+      padding: var(--neeto-ui-modal-spacing) 64px 16px
+        var(--neeto-ui-modal-spacing);
+    }
+
+    .neeto-ui-modal__header-desc {
+      margin-top: 8px;
     }
 
     .neeto-ui-modal__body {
-      padding: 0 32px;
+      padding: 0 var(--neeto-ui-modal-spacing);
       font-size: var(--neeto-ui-text-sm);
       line-height: 1.5;
     }
 
     .neeto-ui-modal__footer {
-      padding: 24px 32px 32px;
+      padding: 24px var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing);
     }
 
     .neeto-ui-alert__footer {
-      padding: 24px 32px 32px 32px;
+      padding: 24px var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing)
+        var(--neeto-ui-modal-spacing);
       display: flex;
     }
   }
@@ -82,7 +92,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: var(--neeto-ui-modal-spacing);
     padding: 10px 0 0 2px;
   }
 }
@@ -90,26 +100,26 @@
 // CSS transition group
 
 .neeto-ui-modal-enter {
-  &.neeto-ui-modal__backdrop{
+  &.neeto-ui-modal__backdrop {
     opacity: 0;
     backdrop-filter: blur(2px);
   }
 }
 .neeto-ui-modal-enter-active,
 .neeto-ui-modal-enter-done {
-  &.neeto-ui-modal__backdrop{
+  &.neeto-ui-modal__backdrop {
     opacity: 1;
     backdrop-filter: blur(2px);
   }
 }
 .neeto-ui-modal-exit {
-  &.neeto-ui-modal__backdrop{
+  &.neeto-ui-modal__backdrop {
     opacity: 1;
     backdrop-filter: blur(2px);
   }
 }
 .neeto-ui-modal-exit-active {
-  &.neeto-ui-modal__backdrop{
+  &.neeto-ui-modal__backdrop {
     opacity: 0;
     backdrop-filter: blur(2px);
   }
