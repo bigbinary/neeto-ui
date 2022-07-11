@@ -142,6 +142,7 @@ $neeto-ui-font-sizes: (
   "body1": $neeto-ui-text-base,
   "body2": $neeto-ui-text-sm,
   "body3": $neeto-ui-text-xs,
+  "nano": $neeto-ui-text-xxs,
   "xxs": $neeto-ui-text-xxs,
   "xs": $neeto-ui-text-xs,
   "sm": $neeto-ui-text-sm,
@@ -197,20 +198,15 @@ $neeto-ui-text-transform: (
 
 // Border Radius
 $neeto-ui-rounded-none: 0;
-$neeto-ui-rounded-sm: 2px;
+$neeto-ui-rounded-sm: 3px;
 $neeto-ui-rounded: 5px;
 $neeto-ui-rounded-md: 6px;
 $neeto-ui-rounded-lg: 8px;
-$neeto-ui-rounded-xl: 10px;
+$neeto-ui-rounded-xl: 12px;
 $neeto-ui-rounded-full: 999px;
 
 // Transition
 $neeto-ui-transition: all 0.3s linear;
-
-// Shadows
-$neeto-ui-shadow: 0px 0px 0px 3px $neeto-ui-gray-200;
-$neeto-ui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-  0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Box Shadows
 $neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);

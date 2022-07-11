@@ -56,6 +56,11 @@ Body3.args = {
   style: "body3",
 };
 
+export const Nano = Template.bind({});
+Nano.args = {
+  style: "nano",
+};
+
 export const Variants = () => {
   return (
     <>
@@ -88,6 +93,10 @@ export const Variants = () => {
       <Typography className="mb-4" style="body3">
         body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
         blanditiis tenetur - 12px
+      </Typography>
+      <Typography className="mb-4" style="nano" component="p">
+        nano. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur - 10px
       </Typography>
       <div className="mb-4">
         <Typography style="body3" component="del">
