@@ -35,7 +35,7 @@ export const Default = () => {
         isOpen={showModal}
         onClose={() => setShowModal(false)}
       >
-        <Modal.Header description="Somewhere out in space live The Herculoids!">
+        <Modal.Header description="Short description">
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
           </Typography>
