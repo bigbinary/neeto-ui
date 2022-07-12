@@ -251,7 +251,7 @@
       position: relative;
       display: inline-flex !important;
       align-items: center;
-      padding: 6px 8px;
+      padding: 5px 8px;
       gap: 4px;
       color: var(--neeto-ui-gray-800);
       font-size: var(--neeto-ui-text-xs);
@@ -272,7 +272,7 @@
         position: relative;
         display: inline-flex !important;
         align-items: center;
-        padding: 6px 8px;
+        padding: 5px 8px;
         gap: 4px;
         color: var(--neeto-ui-white);
         background: var(--neeto-ui-accent1-500);
@@ -283,7 +283,7 @@
         transition: var(--neeto-ui-transition);
         border-radius: var(--neeto-ui-rounded);
         height: auto;
-        
+
         &:not([disabled]):hover {
           color: var(--neeto-ui-white);
           background-color: var(--neeto-ui-accent1-700);
@@ -432,8 +432,68 @@
   }
 }
 
-.ant-picker-panel .ant-picker-footer{
+.ant-picker-panel .ant-picker-footer {
   border-top: 0 !important;
   border-bottom: 0 !important;
-  background: #F8F9F9;
+  background: #f8f9f9;
+}
+
+.neeto-ui-date-input-custom-panel {
+  .ant-picker-time-panel-column {
+    width: 62px;
+    flex-grow: 0;
+    border: 0;
+  }
+
+  .ant-picker-time-panel-cell-inner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+  }
+
+  .neeto-ui-date-input-custom-panel__header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .neeto-ui-date-input-custom-panel__header-now-btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    font-size: 12px !important;
+  }
+
+  .neeto-ui-date-input-custom-panel__header-cols {
+    display: flex;
+    gap: 12px;
+  }
+
+  .neeto-ui-date-input-custom-panel__header-col {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #87929d;
+    width: 62px;
+    text-align: center;
+  }
+
+  .neeto-ui-date-input-custom-panel__body {
+    .ant-picker-panel {
+      width: 100%;
+    }
+    .ant-picker-content {
+      gap: 12px;
+    }
+    .ant-picker-time-panel {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .ant-picker-time-panel-cell-inner{
+      border-radius: 3px !important;
+    }
+  }
 }
