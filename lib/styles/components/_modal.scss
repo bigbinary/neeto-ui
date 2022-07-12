@@ -64,6 +64,7 @@
     .neeto-ui-modal__header {
       padding: var(--neeto-ui-modal-spacing) 64px 16px
         var(--neeto-ui-modal-spacing);
+      overflow-wrap: break-word;
     }
 
     .neeto-ui-modal__header-desc {
