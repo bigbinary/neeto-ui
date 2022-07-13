@@ -14,12 +14,16 @@ export default {
         component: '`import { Select } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
+    },
   },
 };
 
 const Template = (args) => (
   <div className="p-4 mb-2">
-    <Select {...args} />
+    <Select {...args} defaultMenuIsOpen />
   </div>
 );
 
