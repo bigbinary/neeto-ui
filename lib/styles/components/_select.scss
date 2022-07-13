@@ -1,9 +1,8 @@
 .neeto-ui-react-select__container.neeto-ui-react-select__container--error {
   .neeto-ui-react-select__control {
-    border: thin solid var(--neeto-ui-error);
+    border: thin solid var(--neeto-ui-error) !important;
   }
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
-    border: thin solid var(--neeto-ui-error);
     box-shadow: 0 0 0 3px var(--neeto-ui-pastel-red);
   }
 }
@@ -42,7 +41,8 @@
   }
 
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-disabled {
-    background-color: var(--neeto-ui-gray-100);
+    background-color: var(--neeto-ui-gray-100) !important;
+    border: thin solid var(--neeto-ui-gray-400) !important;
     cursor: not-allowed;
   }
 
@@ -59,6 +59,10 @@
     background-color: var(--neeto-ui-white);
     min-height: 0;
     transition: border 0.3s;
+
+    &:hover:not(.neeto-ui-react-select__control--is-focused) {
+      border-color: var(--neeto-ui-gray-700);
+    }
   }
 
   .neeto-ui-react-select__value-container {
@@ -96,13 +100,23 @@
     display: none;
   }
 
+  .neeto-ui-react-select__indicators{
+    padding-right: 12px;
+    gap: 8px;
+  }
+
   .neeto-ui-react-select__indicator {
-    padding: 0 4px 0 0;
+    padding: 0;
     cursor: pointer;
+    color: var(--neeto-ui-gray-800);
+
+    &:hover{
+      color: var(--neeto-ui-gray-700);
+    }
   }
 
   .neeto-ui-react-select__menu {
-    border-radius: 0px;
+    border-radius: var(--neeto-ui-rounded);
     margin: 0 0 16px;
     z-index: 20;
 
@@ -117,10 +131,13 @@
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-word;
+      padding: 8px 12px;
+      line-height: 1.1;
+      min-height: 32px;
     }
 
     .neeto-ui-react-select__option--is-focused {
-      background-color: var(--neeto-ui-gray-100);
+      background-color: var(--neeto-ui-gray-200);
     }
 
     .neeto-ui-react-select__option--is-disabled {
@@ -171,9 +188,12 @@
     border: thin solid var(--neeto-ui-gray-400);
     border-radius: 100px;
     margin: 3px 6px 3px 0;
+    padding: 0 8px;
     .neeto-ui-react-select__multi-value__label {
-      margin: 0 4px 0 0;
+      margin: 0 6px 0 0;
       color: var(--neeto-ui-gray-800);
+      font-size: var(--neeto-ui-text-sm);
+      padding: 2px 0;
     }
   }
 
@@ -183,11 +203,11 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     color: var(--neeto-ui-gray-800);
-    background-color: transparent;
+    padding: 0;
 
-    &:hover{
+    &:hover {
       background-color: transparent;
-      color: var(--neeto-ui-accent4-700);
+      color: var(--neeto-ui-gray-700);
     }
   }
 }
