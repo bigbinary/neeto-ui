@@ -33,8 +33,12 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: TableDocs
+        component: TableDocs,
       },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
 };
@@ -282,15 +286,15 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
-
 export const TableWithSorting = (args) => {
-
-  return <NeetoTable
-    columnData={columns}
-    rowData={TABLE_DATA}
-    currentPageNumber={1}
-    {...args}
-  />;
+  return (
+    <NeetoTable
+      columnData={columns}
+      rowData={TABLE_DATA}
+      currentPageNumber={1}
+      {...args}
+    />
+  );
 };
 
 TableWithSorting.parameters = {
@@ -350,7 +354,7 @@ export const TableWithoutCheckbox = (args) => {
 };
 
 TableWithoutCheckbox.args = {
-  rowSelection: false
+  rowSelection: false,
 };
 
 TableWithoutCheckbox.parameters = {
@@ -501,12 +505,12 @@ export const TableInLayout = (args) => {
           deleteButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => { },
+            onClick: () => {},
           }}
           disableButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => { },
+            onClick: () => {},
           }}
         />
         <Scrollable className="w-full">

@@ -119,6 +119,8 @@
     border-radius: var(--neeto-ui-rounded);
     margin: 0 0 16px;
     z-index: 20;
+    border: thin solid var(--neeto-ui-gray-400) !important;
+    box-shadow: var(--neeto-ui-shadow-s);
 
     .neeto-ui-react-select__menu-list {
       position: relative;
