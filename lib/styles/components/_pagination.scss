@@ -14,6 +14,7 @@
 
     &:hover:not(.disabled, .active) {
       background-color: var(--neeto-ui-gray-200);
+      color: var(--neeto-ui-gray-800);
     }
   }
 
@@ -22,9 +23,9 @@
     min-width: 32px;
     height: 32px;
     line-height: 30px;
-    font-size: var(--neeto-ui-text-sm);
+    font-size: var(--neeto-ui-text-base);
     font-weight: var(--neeto-ui-font-medium);
-    color: var(--neeto-ui-gray-800);
+    color: var(--neeto-ui-gray-700);
     transition: var(--neeto-ui-transition);
     user-select: none;
 
