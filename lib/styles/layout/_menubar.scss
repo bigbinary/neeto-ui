@@ -58,7 +58,7 @@
       transition: all 0.3s;
       cursor: pointer;
       color: var(--neeto-ui-gray-600);
-      border-radius: var(--neeto-ui-rounded-sm);
+      border-radius: var(--neeto-ui-rounded);
 
       &:hover,
       &:focus,
@@ -72,7 +72,7 @@
       &--active {
         background-color: var(--neeto-ui-white);
         color: var(--neeto-ui-gray-800);
-        box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
+        box-shadow: var(--neeto-ui-shadow-xs);
 
         &:hover,
         &:focus,
@@ -100,7 +100,7 @@
       transition: all 0.3s;
       text-align: left;
       cursor: pointer;
-      border-radius: var(--neeto-ui-rounded-sm);
+      border-radius: var(--neeto-ui-rounded);
 
       &-header{
         color: var(--neeto-ui-gray-700);
