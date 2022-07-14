@@ -13,7 +13,7 @@ body {
 
     .Toastify__toast,
     .neeto-ui-toastr {
-      min-height: 52px;
+      min-height: 48px;
       padding: 0.75rem 1rem;
       margin: 0 0 1rem;
 
@@ -60,15 +60,6 @@ body {
           display: flex;
           align-items: center;
           padding-left: 12px;
-
-          .neeto-ui-btn--style-primary{
-            color: var(--neeto-ui-gray-300) !important;
-            background-color: transparent !important;
-            box-shadow: none !important;
-            &:hover{
-              background-color: var(--neeto-ui-gray-700) !important;
-            }
-          }
         }
       }
 
