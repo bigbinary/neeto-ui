@@ -27,11 +27,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--neeto-ui-white);
-  width: 342px;
+  width: 320px;
   height: 100vh;
   overflow-y: auto;
   max-width: 100%;
-  padding: 32px;
+  padding: 24px;
 
   transform: translateX(-100%);
   backdrop-filter: blur(2px);
@@ -62,9 +62,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-  p {
-    margin-left: 4px;
-  }
+  position: relative;
+}
+
+.neeto-ui-app-switcher__close-btn{
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .neeto-ui-app-switcher__search-wrapper {
@@ -83,7 +87,7 @@
 .neeto-ui-app-switcher-link {
   width: 100%;
   max-width: 100%;
-  border-radius: var(--neeto-ui-rounded-sm);
+  border-radius: var(--neeto-ui-rounded);
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 
@@ -102,10 +106,10 @@
 }
 
 .neeto-ui-app-switcher-link--active {
-  background: var(--neeto-ui-pastel-blue);
+  background: var(--neeto-ui-gray-800);
 
   .neeto-ui-app-switcher-link__title {
-    color: var(--neeto-ui-gray-800);
+    color: var(--neeto-ui-white);
   }
 }
 
