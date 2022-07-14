@@ -363,6 +363,68 @@
   padding-bottom: 1.5rem;
 }
 
+// padding x
+
+.neeto-ui-px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.neeto-ui-px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.neeto-ui-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.neeto-ui-px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.neeto-ui-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.neeto-ui-px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.neeto-ui-px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+// padding y
+
+.neeto-ui-py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.neeto-ui-py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.neeto-ui-py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.neeto-ui-py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.neeto-ui-py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.neeto-ui-py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.neeto-ui-py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 // margin
 
 .neeto-ui-m-0 {
@@ -480,6 +542,68 @@
   margin-bottom: 1.25rem;
 }
 .neeto-ui-mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+// margin x
+
+.neeto-ui-mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.neeto-ui-mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.neeto-ui-mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.neeto-ui-mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+.neeto-ui-mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.neeto-ui-mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+.neeto-ui-mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+// padding y
+
+.neeto-ui-my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.neeto-ui-my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.neeto-ui-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.neeto-ui-my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.neeto-ui-my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.neeto-ui-my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.neeto-ui-my-6 {
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -640,6 +764,6 @@
   position: sticky;
 }
 
-.neeto-ui-no-outline{
+.neeto-ui-no-outline {
   outline: none !important;
 }
