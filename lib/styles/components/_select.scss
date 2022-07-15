@@ -66,20 +66,17 @@
   }
 
   .neeto-ui-react-select__value-container {
-    padding: 0 8px;
+    padding: 0 12px;
     min-height: 38px;
-
-    &.neeto-ui-react-select__value-container--is-multi {
-      padding: 0 4px;
-      &.neeto-ui-react-select__value-container--has-value {
-        padding: 2px 8px;
-      }
-    }
   }
 
   &.neeto-ui-react-select__container--small {
     .neeto-ui-react-select__value-container {
       min-height: 30px;
+      padding: 0 8px;
+    }
+    .neeto-ui-react-select__indicators{
+      padding-right: 8px;
     }
   }
 
@@ -192,11 +189,18 @@
     border-radius: 100px;
     margin: 3px 6px 3px 0;
     padding: 0 8px;
+    color: var(--neeto-ui-gray-800);
     .neeto-ui-react-select__multi-value__label {
       margin: 0 6px 0 0;
-      color: var(--neeto-ui-gray-800);
+      color: inherit !important;
       font-size: var(--neeto-ui-text-sm);
       padding: 2px 0;
+    }
+    .neeto-ui-react-select__multi-value__remove{
+      color: inherit !important;
+      &:hover{
+        opacity: 0.7;
+      }
     }
   }
 
