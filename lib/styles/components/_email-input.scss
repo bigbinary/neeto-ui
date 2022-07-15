@@ -1,8 +1,8 @@
 .neeto-ui-email-input {
-  .neeto-ui-label{
+  .neeto-ui-label {
     margin-bottom: 8px;
   }
-  .neeto-ui-email-input__title-row{
+  .neeto-ui-email-input__title-row {
     gap: 8px;
     justify-content: space-between;
     width: 100%;
@@ -20,15 +20,14 @@
   }
 
   .neeto-ui-email-input__prefix {
-    margin-left: 10px;
-    svg{
+    margin-left: 12px;
+    svg {
       width: 16px;
       height: 16px;
     }
   }
-  .neeto-ui-email-input__suffix{
-    margin-right: 10px;
-    svg{
+  .neeto-ui-email-input__suffix {
+    svg {
       width: 16px;
       height: 16px;
     }
