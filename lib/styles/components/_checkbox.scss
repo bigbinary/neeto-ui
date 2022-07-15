@@ -19,7 +19,7 @@
       width: 16px;
       height: 16px;
       color: var(--neeto-ui-accent1-500);
-      border: 2px solid var(--neeto-ui-gray-300);
+      border: 2px solid var(--neeto-ui-gray-400);
       border-radius: var(--neeto-ui-rounded-sm);
 
       &:not(:disabled) {
@@ -27,7 +27,7 @@
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: var(--neeto-ui-gray-400);
+        border-color: var(--neeto-ui-gray-500);
       }
 
       &:checked {
@@ -45,7 +45,8 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 2px var(--neeto-ui-white), 0 0 0 4px var(--neeto-ui-gray-300);
+        box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+        border-color: var(--neeto-ui-accent1-500);
       }
     }
   }
