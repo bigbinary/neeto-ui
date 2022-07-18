@@ -17,6 +17,7 @@
 
     .neeto-ui-accordion__item-handle {
       font-size: 16px;
+      font-weight: 500;
       line-height: 16px;
     }
 
@@ -26,6 +27,9 @@
 
     &:focus-visible, &:hover {
       background-color: var(--neeto-ui-gray-100);
+      .neeto-ui-accordion__item-handle{
+        color: var(--neeto-ui-gray-800);
+      }
     }
   }
 
