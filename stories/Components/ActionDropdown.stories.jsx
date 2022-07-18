@@ -12,6 +12,10 @@ export default {
         component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+    },
   },
 };
 
@@ -21,9 +25,15 @@ const Template = (args) => {
   return (
     <div className="h-40">
       <ActionDropdown {...args}>
-        {listItems.map((item, idx) => (
-          <li key={idx}>{item}</li>
-        ))}
+        <ActionDropdown.Menu>
+          {listItems.map((item, idx) => (
+            <ActionDropdown.MenuItem key={idx}>{item}</ActionDropdown.MenuItem>
+          ))}
+          <ActionDropdown.Divider />
+          <ActionDropdown.MenuItem style="danger">
+            Delete
+          </ActionDropdown.MenuItem>
+        </ActionDropdown.Menu>
       </ActionDropdown>
     </div>
   );
