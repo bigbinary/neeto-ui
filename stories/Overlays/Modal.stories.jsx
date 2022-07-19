@@ -7,7 +7,11 @@ import Typography from "../../lib/components/Typography";
 export default {
   title: "Overlays/Modal",
   component: Modal,
-  subcomponents: { Button },
+  subcomponents: {
+    "Modal.Header": Modal.Header,
+    "Modal.Body": Modal.Body,
+    "Modal.Footer": Modal.Footer,
+  },
   parameters: {
     layout: "padded",
     docs: {
