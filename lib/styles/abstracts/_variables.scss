@@ -16,12 +16,6 @@ $neeto-ui-gray-300: #d8dcde;
 $neeto-ui-gray-200: #e9ebed;
 $neeto-ui-gray-100: #f8f9f9;
 
-// states
-$neeto-ui-success: #00ba88;
-$neeto-ui-info: #276ef1;
-$neeto-ui-warning: #f57c00;
-$neeto-ui-error: #ea4335;
-
 // pastel
 $neeto-ui-pastel-blue: #eaf3fc;
 $neeto-ui-pastel-green: #ebf5ec;
@@ -48,6 +42,12 @@ $neeto-ui-accent4-300: #f75555;
 
 $neeto-ui-accent-light-300: #dbf0ff;
 $neeto-ui-accent-light-500: #bfe3ff;
+
+// states
+$neeto-ui-success: #00ba88;
+$neeto-ui-info: #276ef1;
+$neeto-ui-warning: #f57c00;
+$neeto-ui-error: $neeto-ui-accent4-700;
 
 // neeto-ui-theme-colors-map
 $neeto-ui-theme-colors: (
