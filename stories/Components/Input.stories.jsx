@@ -91,18 +91,18 @@ export const SearchInput = () => (
   </div>
 );
 
-export const Error = () => <Input label="Error" error="Provide valid email" />;
+export const Error = () => <Input label="Error" error="Provide valid email" placeholder="Input Placeholder" prefix={<Favorite />} />;
 
 export const HelpText = () => (
-  <Input label="Name" helpText="This is help text." />
+  <Input label="Name" helpText="This is help text." placeholder="Input Placeholder" />
 );
 
 export const NakedInput = () => (
-  <Input label="Naked Input Field" nakedInput={true} />
+  <Input label="Naked Input Field" nakedInput={true} placeholder="Input Placeholder" />
 );
 
 export const InputWithMaxLength = () => (
-  <Input label="Input with max length" maxLength={10} />
+  <Input label="Input with max length" maxLength={10} placeholder="Input Placeholder" />
 );
 
-export const InputWithMaxLengthWithoutLabel = () => <Input maxLength={10} />;
+export const InputWithMaxLengthWithoutLabel = () => <Input maxLength={10} placeholder="Input Placeholder" />;
