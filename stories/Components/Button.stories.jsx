@@ -42,18 +42,6 @@ Secondary.args = {
   label: "Button",
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  style: "danger",
-  label: "Button",
-};
-
-export const DangerText = Template.bind({});
-DangerText.args = {
-  style: "danger-text",
-  label: "Button",
-};
-
 export const Text = Template.bind({});
 Text.args = {
   style: "text",
@@ -66,13 +54,16 @@ Link.args = {
   label: "Button",
 };
 
-export const Tooltip = Template.bind({});
-Tooltip.args = {
-  label: "Tooltip button",
-  tooltipProps: {
-    content: "Top",
-    position: "top",
-  },
+export const Danger = Template.bind({});
+Danger.args = {
+  style: "danger",
+  label: "Button",
+};
+
+export const DangerText = Template.bind({});
+DangerText.args = {
+  style: "danger-text",
+  label: "Button",
 };
 
 export const Styles = () => {
@@ -1181,4 +1172,13 @@ export const FullWidth = () => {
       </div>
     </div>
   );
+};
+
+export const Tooltip = Template.bind({});
+Tooltip.args = {
+  label: "Tooltip button",
+  tooltipProps: {
+    content: "Top",
+    position: "top",
+  },
 };
