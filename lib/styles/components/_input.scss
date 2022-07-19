@@ -85,6 +85,11 @@
     &:focus-within:not(.neeto-ui-input--naked, .neeto-ui-input--error) {
       border-color: var(--neeto-ui-accent1-500);
       box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+
+      .neeto-ui-input__prefix,
+      .neeto-ui-input__suffix {
+        color: var(--neeto-ui-gray-800);
+      }
     }
 
     &.neeto-ui-input--error {

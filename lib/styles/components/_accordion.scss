@@ -26,7 +26,6 @@
     }
 
     &:focus-visible, &:hover {
-      background-color: var(--neeto-ui-gray-100);
       .neeto-ui-accordion__item-handle{
         color: var(--neeto-ui-gray-800);
       }

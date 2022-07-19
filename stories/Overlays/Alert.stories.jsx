@@ -30,6 +30,7 @@ export const Default = () => {
       <Alert
         isOpen={open}
         title="You have unsaved changes!"
+        description="Short description"
         message="Are you sure you want to continue? All of your unsaved changes will be lost."
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
