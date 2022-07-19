@@ -78,12 +78,11 @@
     }
 
     .neeto-ui-modal__footer {
-      padding: 24px var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing);
+      padding: var(--neeto-ui-modal-spacing);
     }
 
     .neeto-ui-alert__footer {
-      padding: 24px var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing)
-        var(--neeto-ui-modal-spacing);
+      padding: var(--neeto-ui-modal-spacing);
       display: flex;
     }
   }
