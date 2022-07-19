@@ -18,7 +18,7 @@ export default {
 };
 
 const DEFAULT_COLORS = {
-  "red-500": "#ea4335",
+  "red-500": "#f22d2d",
   "yellow-500": "#f57c00",
   "green-500": "#00ba88",
   "blue-500": "#276ef1",
