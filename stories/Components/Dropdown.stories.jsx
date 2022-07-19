@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { Settings } from "@bigbinary/neeto-icons";
 
-import Dropdown from "../../lib/components/Dropdown";
+import Dropdown from "../../lib/components/Dropdown/";
 import { Button } from "../../lib/components";
 import { icons } from "../constants";
 
 export default {
   title: "Components/Dropdown",
   component: Dropdown,
+  subcomponents: {
+    "Dropdown.Menu": Dropdown.Menu,
+    "Dropdown.MenuItem": Dropdown.MenuItem,
+    "Dropdown.Divider": Dropdown.Divider,
+  },
   parameters: {
     layout: "padded",
     docs: {
@@ -17,7 +22,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
   argTypes: {
@@ -30,7 +36,29 @@ export default {
 
 const listItems = ["Action", "Another action", "Something else here"];
 
-export const PrimaryDropdown = (args) => {
+export const DropdownStory = (args) => {
+  return (
+    <div className="h-40">
+      <Dropdown label="Dropdown" position="bottom-end" {...args}>
+        <Dropdown.Menu>
+          {listItems.map((item, idx) => (
+            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+          ))}
+          <Dropdown.Divider />
+          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  );
+};
+DropdownStory.storyName = "DropDown";
+DropdownStory.args = {
+  buttonProps: {
+    size: "large",
+  },
+};
+
+export const PrimaryDropdown = () => {
   const [dropdownOne, setDropdownOne] = useState(false);
 
   return (
@@ -118,28 +146,6 @@ export const CustomIcon = () => {
   );
 };
 
-export const DropdownStory = (args) => {
-  return (
-    <div className="h-40">
-      <Dropdown label="Dropdown" position="bottom-end" {...args}>
-        <Dropdown.Menu>
-          {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
-          ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
-      </Dropdown>
-    </div>
-  );
-};
-DropdownStory.storyName = "DropDown";
-DropdownStory.args = {
-  buttonProps: {
-    size: "large",
-  },
-};
-
 export const MultiDropdownWithClickTrigger = () => {
   return (
     <div className="flex h-80 items-start">
@@ -201,8 +207,16 @@ export const ControlledDropdown = () => {
   return (
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
-        <Button label="Open Dropdown" style="secondary" onClick={() => setIsOpen(true)} />
-        <Button label="Close Dropdown" style="secondary" onClick={() => setIsOpen(false)} />
+        <Button
+          label="Open Dropdown"
+          style="secondary"
+          onClick={() => setIsOpen(true)}
+        />
+        <Button
+          label="Close Dropdown"
+          style="secondary"
+          onClick={() => setIsOpen(false)}
+        />
       </div>
       <Dropdown
         isOpen={isOpen}
