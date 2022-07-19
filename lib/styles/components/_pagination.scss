@@ -9,7 +9,7 @@
     margin: 0 4px;
     background-color: var(--neeto-ui-white);
     border: 1px solid transparent;
-    border-radius: var(--neeto-ui-rounded-sm);
+    border-radius: var(--neeto-ui-rounded);
     overflow: hidden;
 
     &:hover:not(.disabled, .active) {
@@ -23,10 +23,11 @@
     min-width: 32px;
     height: 32px;
     line-height: 30px;
-    font-size: var(--neeto-ui-text-base);
+    font-size: var(--neeto-ui-text-sm);
     font-weight: var(--neeto-ui-font-medium);
-    color: var(--neeto-ui-gray-700);
     transition: var(--neeto-ui-transition);
+    border-radius: var(--neeto-ui-rounded);
+    color: var(--neeto-ui-gray-700);
     user-select: none;
 
     a {
