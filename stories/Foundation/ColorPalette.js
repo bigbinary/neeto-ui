@@ -76,8 +76,8 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-error",
-    value: "#ea4335",
-    compiledValue: "#ea4335",
+    value: "#f22d2d",
+    compiledValue: "#f22d2d",
   },
   {
     name: "$neeto-ui-pastel-blue",
