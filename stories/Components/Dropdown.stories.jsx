@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Settings } from "@bigbinary/neeto-icons";
 
-import Dropdown from "../../lib/components/Dropdown/";
+import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
 import { icons } from "../constants";
 
@@ -18,6 +18,9 @@ export default {
     docs: {
       description: {
         component: '`import { Dropdown } from "@bigbinary/neetoui";`',
+      },
+      source: {
+        type: "code",
       },
     },
     design: {

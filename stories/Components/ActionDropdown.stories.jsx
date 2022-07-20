@@ -5,12 +5,20 @@ import ActionDropdown from "../../lib/components/ActionDropdown";
 export default {
   title: "Components/ActionDropdown",
   component: ActionDropdown,
+  subcomponents: {
+    "ActionDropdown.Menu": ActionDropdown.Menu,
+    "ActionDropdown.MenuItem": ActionDropdown.MenuItem,
+    "ActionDropdown.Divider": ActionDropdown.Divider,
+  },
   parameters: {
     layout: "padded",
     docs: {
       description: {
         component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
       },
+      source: {
+        type: "code",
+      }
     },
     design: {
       type: "figma",
