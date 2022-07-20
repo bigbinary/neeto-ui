@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Switch from "../../lib/components/Switch";
 
@@ -35,6 +35,16 @@ UncheckedState.args = {
   checked: false,
 };
 
+export const WithChangeListener = () => {
+  const [isChecked , setIsChecked] = useState(false);
+  const onChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+  return (
+    <Switch onChange={onChange} checked={isChecked} />
+  );
+};
+
 export const DisabledState = Template.bind({});
 DisabledState.args = {
   disabled: true,
@@ -43,14 +53,11 @@ DisabledState.args = {
 export const WithLabel = Template.bind({});
 WithLabel.args = {
   label: "Switch Label Example",
+  checked: false,
 };
 
 export const WithCustomLabel = Template.bind({});
 WithCustomLabel.args = {
   label: <span className="neeto-ui-text-info">Custom Label Example</span>,
-};
-
-export const WithChangeListner = Template.bind({});
-WithChangeListner.args = {
-  onChange: (e) => alert("Callback invoked"),
+  checked: false,
 };
