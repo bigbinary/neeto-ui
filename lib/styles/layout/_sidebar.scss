@@ -234,11 +234,15 @@
 .sidebar-featured-tooltip__content{
   border-radius: 8px !important;
   box-shadow: var(--neeto-ui-shadow-s) !important;
+
+  .tippy-content{
+    padding: 0;
+  }
 }
 
 .sidebar-featured-tooltip{
   padding: 12px;
-  width: 144px;
+  width: 150px;
 }
 
 .sidebar-featured-tooltip__icon-wrap{
