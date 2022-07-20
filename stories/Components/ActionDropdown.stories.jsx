@@ -11,6 +11,9 @@ export default {
       description: {
         component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
       },
+      source: {
+        type: "code",
+      }
     },
     design: {
       type: "figma",
