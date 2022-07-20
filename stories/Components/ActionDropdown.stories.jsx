@@ -5,6 +5,11 @@ import ActionDropdown from "../../lib/components/ActionDropdown";
 export default {
   title: "Components/ActionDropdown",
   component: ActionDropdown,
+  subcomponents: {
+    "ActionDropdown.Menu": ActionDropdown.Menu,
+    "ActionDropdown.MenuItem": ActionDropdown.MenuItem,
+    "ActionDropdown.Divider": ActionDropdown.Divider,
+  },
   parameters: {
     layout: "padded",
     docs: {
