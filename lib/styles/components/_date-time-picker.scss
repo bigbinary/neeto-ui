@@ -7,7 +7,7 @@
   align-items: center;
 
   font-size: var(--neeto-ui-text-sm);
-  padding: 8px;
+  padding: 8px 12px;
   line-height: 1.6;
 
   transition: var(--neeto-ui-transition);
@@ -50,10 +50,17 @@
     }
   }
 
+  .ant-picker-suffix {
+    color: var(--neeto-ui-gray-700);
+  }
+
   &.ant-picker-focused {
     &.neeto-ui-date-input--naked {
       border: none;
       box-shadow: none !important;
+    }
+    .ant-picker-suffix {
+      color: var(--neeto-ui-gray-800);
     }
   }
 
@@ -84,7 +91,7 @@
 // Time Input
 
 .neeto-ui-time-input {
-  padding: 8px;
+  padding: 8px 12px;
   color: var(--neeto-ui-gray-800);
   background-color: var(--neeto-ui-white);
   border: thin solid var(--neeto-ui-gray-400);
@@ -120,10 +127,17 @@
     }
   }
 
+  .ant-picker-suffix {
+    color: var(--neeto-ui-gray-700);
+  }
+
   &.ant-picker-focused {
     &.neeto-ui-date-input--naked {
       border: none;
       box-shadow: none !important;
+    }
+    .ant-picker-suffix {
+      color: var(--neeto-ui-gray-800);
     }
   }
 
