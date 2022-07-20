@@ -325,6 +325,8 @@
     padding: 12px 24px 0px 24px;
     white-space: nowrap;
     align-items: center;
+  }
+  .ant-picker-date-panel .ant-picker-header{
     border-bottom: 0;
   }
 
@@ -450,9 +452,7 @@
   .neeto-ui-date-input-custom-panel__header {
     display: flex;
     flex-direction: column;
-    padding-top: 24px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 16px 16px 8px 16px;
   }
 
   .neeto-ui-date-input-custom-panel__header-now-btn {
@@ -468,13 +468,12 @@
   }
 
   .neeto-ui-date-input-custom-panel__header-col {
-    font-weight: 700;
+    width: 62px;
+    text-align: center;
+    color: var(--neeto-ui-gray-500);
     font-size: 12px;
     line-height: 16px;
     text-transform: uppercase;
-    color: #87929d;
-    width: 62px;
-    text-align: center;
   }
 
   .neeto-ui-date-input-custom-panel__body {
