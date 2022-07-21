@@ -97,11 +97,11 @@
   }
 
   &:focus-visible {
-    background-color: var(--neeto-ui-gray-100);
+    background-color: var(--neeto-ui-gray-200);
   }
 
   &:not(.neeto-ui-app-switcher-link--active):hover {
-    background-color: var(--neeto-ui-gray-100);
+    background-color: var(--neeto-ui-gray-200);
   }
 }
 
