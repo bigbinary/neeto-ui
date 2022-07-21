@@ -15,7 +15,7 @@
     max-width: 320px;
   }
 
-  &.neeto-ui-sidebar--collapsed{
+  &.neeto-ui-sidebar--collapsed {
     width: 72px;
     max-width: 72px;
   }
@@ -96,19 +96,19 @@
     &:hover {
       color: var(--neeto-ui-gray-800);
       text-decoration: none;
-      background-color: var(--neeto-ui-gray-100);
+      background-color: var(--neeto-ui-gray-200);
     }
 
     &:focus,
     &:focus-visible {
       color: var(--neeto-ui-gray-800);
       outline: none;
-      background-color: var(--neeto-ui-gray-100);
+      background-color: var(--neeto-ui-gray-200);
       text-decoration: none;
     }
 
     &.active {
-      background-color: var(--neeto-ui-gray-100);
+      background-color: var(--neeto-ui-e);
       color: var(--neeto-ui-accent1-700);
       text-decoration: none;
     }
@@ -123,7 +123,7 @@
     }
   }
 
-  &__link--change-log{
+  &__link--change-log {
     outline: none !important;
   }
 
@@ -213,39 +213,39 @@
       box-shadow: none;
       padding: 0;
     }
-    .neeto-ui-sidebar__links{
+    .neeto-ui-sidebar__links {
       padding-left: 16px;
       padding-right: 16px;
     }
-    .neeto-ui-sidebar__header{
+    .neeto-ui-sidebar__header {
       padding-left: 16px;
       padding-right: 16px;
     }
-    .neeto-ui-sidebar__link-icon{
+    .neeto-ui-sidebar__link-icon {
       width: 24px;
     }
-    .neeto-ui-sidebar__footer{
+    .neeto-ui-sidebar__footer {
       padding-left: 16px;
       padding-right: 16px;
     }
   }
 }
 
-.sidebar-featured-tooltip__content{
+.sidebar-featured-tooltip__content {
   border-radius: 8px !important;
   box-shadow: var(--neeto-ui-shadow-s) !important;
 
-  .tippy-content{
+  .tippy-content {
     padding: 0;
   }
 }
 
-.sidebar-featured-tooltip{
+.sidebar-featured-tooltip {
   padding: 12px;
   width: 150px;
 }
 
-.sidebar-featured-tooltip__icon-wrap{
+.sidebar-featured-tooltip__icon-wrap {
   width: 40px;
   height: 40px;
   margin-left: auto;
@@ -255,6 +255,85 @@
   background-color: var(--neeto-ui-gray-100);
 }
 
-.sidebar-featured-tooltip__title{
+.sidebar-featured-tooltip__title {
   margin-bottom: 4px;
+}
+
+.neeto-ui-profile-popup-wrapper {
+  box-shadow: var(--neeto-ui-shadow-xs) !important;
+  border-radius: var(--neeto-ui-rounded) !important;
+  border: 1px solid var(--neeto-ui-gray-300);
+  .tippy-content{
+    padding: 0;
+  }
+  .tippy-svg-arrow{
+    display: none !important;
+  }
+}
+
+.neeto-ui-profile-sublist{
+  border-top: 1px solid var(--neeto-ui-gray-300);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.neeto-ui-profile-sublist__item{
+  width: 100%;
+}
+
+.neeto-ui-profile-sublist__item-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  line-height: 1.143;
+  transition: var(--neeto-ui-transition);
+  font-size: var(--neeto-ui-text-sm);
+  font-weight: var(--neeto-ui-font-normal);
+  color: var(--neeto-ui-gray-800);
+  padding: 6px 40px 6px 12px;
+  min-height: 32px;
+  text-decoration: none;
+  outline-color: transparent;
+  border-radius: 0;
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--neeto-ui-gray-500);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--neeto-ui-gray-200);
+  }
+
+  &.active {
+    background-color: var(--neeto-ui-gray-800);
+    color: var(--neeto-ui-white);
+  }
+
+  &--style-danger {
+    color: var(--neeto-ui-accent4-700);
+  }
+
+  &-icon{
+    color: var(--neeto-ui-gray-600);
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.neeto-ui-profile-sublist__item-btn-icon{
+
+}
+
+.neeto-ui-profile-sublist__item-btn-label{
+
 }
