@@ -27,13 +27,6 @@ export const boxShadows = [
     compiledValue:
       "0px 12px 48px -6px rgba(28, 50, 79, 0.12), 0px 3px 18px -2px rgba(28, 55, 90, 0.08)",
   },
-  {
-    name: "$neeto-ui-shadow-xl",
-    value:
-      "0px 18px 64px -8px rgba(28, 50, 79, 0.12), 0px 4px 24px -3px rgba(28, 55, 90, 0.08)",
-    compiledValue:
-      "0px 18px 64px -8px rgba(28, 50, 79, 0.12), 0px 4px 24px -3px rgba(28, 55, 90, 0.08)",
-  },
 ];
 
 <Meta
@@ -67,7 +60,7 @@ export const boxShadows = [
     {boxShadows.map((shadow) => {
       return (
         <tr key={shadow.name}>
-          <td className="neeto-ui-bg-gray-100">
+          <td>
             <div className="p-6">
               <div
                 className={`w-20 h-20 neeto-ui-bg-white ${shadow.name.replace(
