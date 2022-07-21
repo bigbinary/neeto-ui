@@ -14,6 +14,11 @@ export default {
         component: '`import { Tooltip } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
+    },
   },
 };
 
@@ -107,10 +112,10 @@ export const Themes = () => {
     <div className="p-10 space-y-8">
       <h2 className="text-xl">Theme</h2>
       <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Tooltip position="top" content="Tooltip" theme="dark">
+        <Tooltip position="top" content="Tooltip" theme="dark" trigger={"click"}>
           <Button style="secondary" label="dark" />
         </Tooltip>
-        <Tooltip position="top" content="Tooltip" theme="light">
+        <Tooltip position="top" content="Tooltip" theme="light" trigger={"click"}>
           <Button style="secondary" label="light" />
         </Tooltip>
       </div>

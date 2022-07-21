@@ -24,6 +24,11 @@ export default {
         component: '`import { Pane } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
+    },
   },
 };
 

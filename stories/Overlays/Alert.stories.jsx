@@ -14,6 +14,11 @@ export default {
         component: '`import { Alert } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
+    },
   },
 };
 
