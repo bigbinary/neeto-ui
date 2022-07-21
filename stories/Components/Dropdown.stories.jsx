@@ -160,7 +160,7 @@ export const MultiDropdownWithClickTrigger = () => {
           <Dropdown.Divider />
           <Dropdown
             position="right-start"
-            customTarget={<li>Another Dropdown</li>}
+            customTarget={<Dropdown.MenuItem>Another Dropdown</Dropdown.MenuItem>}
             onClick={(e) => e.stopPropagation()}
           >
             <Dropdown.Menu>
@@ -189,7 +189,7 @@ export const MultiDropdownWithHoverTrigger = () => {
           <Dropdown
             position="right-start"
             trigger="hover"
-            customTarget={<li>Another Dropdown</li>}
+            customTarget={<Dropdown.MenuItem>Another Dropdown</Dropdown.MenuItem>}
           >
             <Dropdown.Menu>
               {listItems.map((item, idx) => (
