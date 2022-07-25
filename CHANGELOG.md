@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.12 - 2022-07-25
+
+- Security: Bump moment from 2.29.3 to 2.29.4
+
 ## 3.5.11 - 2022-07-06
 
 - Added: a *Button* component in neetoui/formik that automatically disables itself if the form is not in a submittable state. Example: the form contains any invalid data, the form content has not been changed, or the form is already being submitted. To make this work, you need to import *Button* from "neetoui/formik" as your submit button.
