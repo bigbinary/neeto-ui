@@ -8,7 +8,11 @@
   justify-content: space-between;
   align-items: center;
 
-  .neeto-ui-header__toggle-menubar-btn{
+  &--has-breadcrumbs {
+    min-height: var(--neeto-ui-main-header-with-breadcrumbs-height);
+  }
+
+  .neeto-ui-header__toggle-menubar-btn {
     margin-right: 8px;
   }
 
@@ -20,7 +24,7 @@
     align-items: center;
   }
 
-  .neeto-ui-header__left-data-wrap{
+  .neeto-ui-header__left-data-wrap {
     display: flex;
     flex-direction: column;
   }
@@ -30,15 +34,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    line-height: 1;
+
     a {
       transition: all ease-in-out 300ms;
       text-decoration: none;
-      h2 {
-        color: var(--neeto-ui-gray-500);
-        &:hover {
-          color: var(--neeto-ui-gray-800);
-        }
-      }
     }
   }
 
