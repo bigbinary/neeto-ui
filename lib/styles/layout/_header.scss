@@ -14,9 +14,15 @@
 
   .neeto-ui-header__left {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+  }
+
+  .neeto-ui-header__left-data-wrap{
+    display: flex;
+    flex-direction: column;
   }
 
   .neeto-ui-header__breadcrumb {
