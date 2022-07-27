@@ -36,11 +36,31 @@ export const ColorPickerStory = (args) => {
     setColor(args.color || "#000000");
   }, [args.color]);
 
-  return <ColorPicker color={color} onChange={onChange} />;
+  return <div className="w-40 h-60"><ColorPicker color={color} onChange={onChange} /></div>;
 };
 
 ColorPickerStory.storyName = "ColorPicker";
 ColorPickerStory.args = {
+  color: "#ffffff",
+};
+
+export const Sizes = (args) => {
+  const [color, setColor] = useState("#000000");
+
+  const onChange = (value) => {
+    action("onChange")(value);
+    setColor(value.hex);
+  };
+
+  useEffect(() => {
+    setColor(args.color || "#000000");
+  }, [args.color]);
+
+  return <div className="w-40 h-60 flex flex-col gap-4"><ColorPicker color={color} size="small" onChange={onChange} /><ColorPicker color={color} size="default" onChange={onChange} /></div>;
+};
+
+Sizes.storyName = "Sizes";
+Sizes.args = {
   color: "#ffffff",
 };
 
@@ -76,15 +96,17 @@ export const ColorPickerWithColorPalette = (args) => {
   }, [args.color]);
 
   return (
-    <ColorPicker
-      color={color}
-      onChange={onChange}
-      colorPaletteProps={{
-        color: selectedColor,
-        colorList,
-        onChange: handleColorChange,
-      }}
-    />
+    <div className="w-40 h-60">
+      <ColorPicker
+        color={color}
+        onChange={onChange}
+        colorPaletteProps={{
+          color: selectedColor,
+          colorList,
+          onChange: handleColorChange,
+        }}
+      />
+    </div>
   );
 };
 
