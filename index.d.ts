@@ -8,7 +8,7 @@ export interface AccordionProps {
 }
 
 export interface AccordionItemProps {
-  id: string;
+  id?: string;
   title?: string;
   isOpen?: boolean;
   onClick?: () => void;
@@ -66,7 +66,7 @@ export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
 >;
 
 export type TabProps = {
-  size: "large" | "default";
+  size?: "large" | "default";
   noUnderline?: boolean;
   className?: string;
 } & React.DetailedHTMLProps<
@@ -75,7 +75,7 @@ export type TabProps = {
 >;
 
 export type TabItemProps<S> = {
-  active: boolean;
+  active?: boolean;
   className?: string;
   icon?: string | React.ReactNode;
   onClick?: () => void;
@@ -125,10 +125,10 @@ export type AvatarProps = {
 
 export interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  icon?: string | JSX.Element;
+  icon?: string | React.ReactNode;
   iconPosition?: "left" | "right";
   iconSize?: number;
-  label: string;
+  label?: string;
   loading?: boolean;
   to?: string;
   type?: "button" | "reset" | "submit";
@@ -163,8 +163,8 @@ export type CheckboxProps = {
 >;
 
 export type DatePickerProps = {
-  defaultValue: any;
   value: any;
+  defaultValue?: any;
   className?: string;
   label?: string;
   size?: "small" | "large";
@@ -301,7 +301,7 @@ export type SelectProps = {
 };
 
 export type SpinnerProps = {
-  theme: "dark" | "light";
+  theme?: "dark" | "light";
   className?: string;
 };
 
