@@ -151,7 +151,7 @@ export type CalloutProps = {
   HTMLDivElement
 >;
 
-export type CheckBoxProps = {
+export type CheckboxProps = {
   label?: string;
   error?: string;
   className?: string;
@@ -515,7 +515,7 @@ export const Alert: React.FC<AlertProps>;
 export const Avatar: React.FC<AvatarProps>;
 export const Button: React.FC<ButtonProps>;
 export const Callout: React.FC<CalloutProps>;
-export const CheckBox: React.FC<CheckBoxProps>;
+export const Checkbox: React.FC<CheckboxProps>;
 export const DatePicker: React.FC<DatePickerProps>;
 export const Dropdown: React.FC<DropdownProps>;
 export const EmailInput: React.FC<EmailInputProps>;
