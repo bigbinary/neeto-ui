@@ -217,7 +217,7 @@ export interface DropdownProps {
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
   dropdownModifiers?: any[];
-  trigger?: "click" | "mouseenter focus";
+  trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
   [key: string]: any;
@@ -421,7 +421,7 @@ export interface TooltipProps {
 }
 
 export type TypographyProps = {
-  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
+  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1" | "body2" | "body3";
   weight?:
     | "thin"
     | "extralight"
