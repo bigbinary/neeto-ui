@@ -4,132 +4,132 @@
   overflow: hidden;
 
   transition: all 0.3s;
+}
 
-  .neeto-ui-menubar__container {
-    width: 324px;
-    padding: 24px;
-    height: 100vh;
-    overflow-y: auto;
+.neeto-ui-menubar__container {
+  width: 324px;
+  padding: 24px;
+  height: 100vh;
+  overflow-y: auto;
+}
 
-    .neeto-ui-menubar__title {
-      margin-bottom: 16px;
+.neeto-ui-menubar__title {
+  margin-bottom: 16px;
+}
+
+// search
+
+.neeto-ui-menubar__search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+// subtitle
+
+.neeto-ui-menubar__subtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+// block
+
+.neeto-ui-menubar__add-new-wrap {
+  padding: 7px 8px;
+  margin-bottom: 8px;
+}
+
+.neeto-ui-menubar__block {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 8px;
+  margin-bottom: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: var(--neeto-ui-gray-700);
+  border-radius: var(--neeto-ui-rounded);
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    background-color: var(--neeto-ui-gray-200);
+    text-decoration: none;
+    outline: none;
+  }
+
+  &--active {
+    background-color: var(--neeto-ui-white);
+    color: var(--neeto-ui-gray-800);
+    box-shadow: var(--neeto-ui-shadow-xs);
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:active {
+      background-color: var(--neeto-ui-white);
     }
+  }
 
-    // search
+  .neeto-ui-menubar__block-label {
+    display: flex;
+    align-items: center;
+  }
+  .neeto-ui-menubar__block-icon {
+    margin-right: 4px;
+  }
+}
 
-    .neeto-ui-menubar__search {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      gap: 4px;
-    }
+// item
 
-    // subtitle
+.neeto-ui-menubar__item {
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 8px;
+  transition: all 0.3s;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--neeto-ui-rounded);
 
-    .neeto-ui-menubar__subtitle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      margin-top: 20px;
+  &-header {
+    color: var(--neeto-ui-gray-700);
+  }
 
-      &-actions {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-    }
+  &-item-desc {
+    color: var(--neeto-ui-gray-500);
+  }
 
-    // block
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    background-color: var(--neeto-ui-gray-200);
+    outline: none;
+  }
 
-    .neeto-ui-menubar__add-new-wrap {
-      padding: 7px 8px;
-      margin-bottom: 8px;
-    }
+  &--active {
+    background-color: var(--neeto-ui-white);
+    color: var(--neeto-ui-gray-800);
+    box-shadow: var(--neeto-ui-shadow-xs);
 
-    .neeto-ui-menubar__block {
-      width: 100%;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 8px;
-      margin-bottom: 8px;
-      transition: all 0.3s;
-      cursor: pointer;
-      color: var(--neeto-ui-gray-700);
-      border-radius: var(--neeto-ui-rounded);
-
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:active {
-        background-color: var(--neeto-ui-gray-200);
-        text-decoration: none;
-        outline: none;
-      }
-
-      &--active {
-        background-color: var(--neeto-ui-white);
-        color: var(--neeto-ui-gray-800);
-        box-shadow: var(--neeto-ui-shadow-xs);
-
-        &:hover,
-        &:focus,
-        &:focus-visible,
-        &:active {
-          background-color: var(--neeto-ui-white);
-        }
-      }
-
-      .neeto-ui-menubar__block-label {
-        display: flex;
-        align-items: center;
-      }
-      .neeto-ui-menubar__block-icon {
-        margin-right: 4px;
-      }
-    }
-
-    // item
-
-    .neeto-ui-menubar__item {
-      padding: 12px;
-      width: 100%;
-      margin-bottom: 8px;
-      transition: all 0.3s;
-      text-align: left;
-      cursor: pointer;
-      border-radius: var(--neeto-ui-rounded);
-
-      &-header{
-        color: var(--neeto-ui-gray-700);
-      }
-
-      &-item-desc{
-        color: var(--neeto-ui-gray-500);
-      }
-
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:active {
-        background-color: var(--neeto-ui-gray-200);
-        outline: none;
-      }
-
-      &--active {
-        background-color: var(--neeto-ui-white);
-        color: var(--neeto-ui-gray-800);
-        box-shadow: var(--neeto-ui-shadow-xs);
-
-        &:hover,
-        &:focus,
-        &:focus-visible,
-        &:active {
-          background-color: var(--neeto-ui-white);
-        }
-      }
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:active {
+      background-color: var(--neeto-ui-white);
     }
   }
 }
@@ -137,23 +137,23 @@
 // CSS transition group
 
 .neeto-ui-menubar-enter {
-  &.neeto-ui-menubar__wrapper{
+  &.neeto-ui-menubar__wrapper {
     width: 0;
   }
 }
 .neeto-ui-menubar-enter-active,
 .neeto-ui-menubar-enter-done {
-  &.neeto-ui-menubar__wrapper{
+  &.neeto-ui-menubar__wrapper {
     width: 324px;
   }
 }
 .neeto-ui-menubar-exit {
-  &.neeto-ui-menubar__wrapper{
+  &.neeto-ui-menubar__wrapper {
     width: 324px;
   }
 }
 .neeto-ui-menubar-exit-active {
-  &.neeto-ui-menubar__wrapper{
+  &.neeto-ui-menubar__wrapper {
     width: 0;
   }
 }
