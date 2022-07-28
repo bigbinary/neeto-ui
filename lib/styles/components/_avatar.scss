@@ -14,7 +14,7 @@
     text-align: center;
     text-transform: capitalize;
     font-size: var(--neeto-ui-text-xxs);
-    color: var(--neeto-ui-gray-700);
+    color: rgb(var(--neeto-ui-gray-700));
     line-height: 1;
 
     &.neeto-ui-avatar__text-medium {
@@ -62,15 +62,15 @@
     }
 
     &.online {
-      background-color: var(--neeto-ui-success);
+      background-color: rgb(var(--neeto-ui-success));
     }
 
     &.idle {
-      background-color: var(--neeto-ui-warning);
+      background-color: rgb(var(--neeto-ui-warning));
     }
 
     &.offline {
-      background-color: var(--neeto-ui-gray-300);
+      background-color: rgb(var(--neeto-ui-gray-300));
     }
   }
 
