@@ -2,54 +2,54 @@ body {
   // color utility classes
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-text-#{$color} {
-      color: var(--neeto-ui-#{$color});
+      color: rgb(var(--neeto-ui-#{$color}));
     }
     .hover\:neeto-ui-text-#{$color}:hover {
-      color: var(--neeto-ui-#{$color});
+      color: rgb(var(--neeto-ui-#{$color}));
     }
     .focus\:neeto-ui-text-#{$color}:focus {
-      color: var(--neeto-ui-#{$color});
+      color: rgb(var(--neeto-ui-#{$color}));
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
-      color: var(--neeto-ui-#{$color});
+      color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 
   // background utility classes
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-bg-#{$color} {
-      background-color: var(--neeto-ui-#{$color});
+      background-color: rgb(var(--neeto-ui-#{$color}));
     }
     .hover\:neeto-ui-bg-#{$color}:hover {
-      background-color: var(--neeto-ui-#{$color});
+      background-color: rgb(var(--neeto-ui-#{$color}));
     }
     .focus\:neeto-ui-bg-#{$color}:focus {
-      background-color: var(--neeto-ui-#{$color});
+      background-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
-      background-color: var(--neeto-ui-#{$color});
+      background-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 
   // border color
   @each $color, $value in $neeto-ui-theme-colors {
     .neeto-ui-border-#{$color} {
-      border-color: var(--neeto-ui-#{$color});
+      border-color: rgb(var(--neeto-ui-#{$color}));
     }
     .hover\:neeto-ui-border-#{$color}:hover {
-      border-color: var(--neeto-ui-#{$color});
+      border-color: rgb(var(--neeto-ui-#{$color}));
     }
     .focus\:neeto-ui-border-#{$color}:focus {
-      border-color: var(--neeto-ui-#{$color});
+      border-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
   @each $color, $value in $neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
-      border-color: var(--neeto-ui-#{$color});
+      border-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 

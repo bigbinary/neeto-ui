@@ -94,126 +94,126 @@
 // styles
 .neeto-ui-btn--style {
   &-primary {
-    color: var(--neeto-ui-white);
-    background-color: var(--neeto-ui-accent1-500);
+    color: rgb(var(--neeto-ui-white));
+    background-color: rgb(var(--neeto-ui-accent1-500));
 
     &:hover:not(:disabled),
     &:active {
-      color: var(--neeto-ui-white);
-      background-color: var(--neeto-ui-accent1-700);
+      color: rgb(var(--neeto-ui-white));
+      background-color: rgb(var(--neeto-ui-accent1-700));
     }
 
     &:focus {
-      color: var(--neeto-ui-white);
+      color: rgb(var(--neeto-ui-white));
       box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
     }
 
     &:focus-visible {
-      color: var(--neeto-ui-white);
+      color: rgb(var(--neeto-ui-white));
       box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
     }
   }
 
   &-secondary {
-    color: var(--neeto-ui-gray-800);
-    background-color: var(--neeto-ui-gray-200);
+    color: rgb(var(--neeto-ui-gray-800));
+    background-color: rgb(var(--neeto-ui-gray-200));
 
     &:hover:not(:disabled),
     &:active {
-      color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-gray-300);
+      color: rgb(var(--neeto-ui-gray-800));
+      background-color: rgb(var(--neeto-ui-gray-300));
     }
 
     &:focus {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
     }
 
     &:focus-visible {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
     }
   }
 
   &-text {
-    color: var(--neeto-ui-gray-800);
+    color: rgb(var(--neeto-ui-gray-800));
 
     &:hover:not(:disabled),
     &:active {
-      color: var(--neeto-ui-gray-800);
-      background-color: var(--neeto-ui-gray-200);
+      color: rgb(var(--neeto-ui-gray-800));
+      background-color: rgb(var(--neeto-ui-gray-200));
     }
 
     &:focus {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
     }
 
     &:focus-visible {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
     }
   }
 
   &-link {
-    color: var(--neeto-ui-accent1-500);
+    color: rgb(var(--neeto-ui-accent1-500));
     padding: 0;
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
-      color: var(--neeto-ui-accent1-500);
+      color: rgb(var(--neeto-ui-accent1-500));
     }
 
     &:focus {
       opacity: 0.8;
-      color: var(--neeto-ui-accent1-500);
+      color: rgb(var(--neeto-ui-accent1-500));
     }
 
     &:focus-visible {
       opacity: 0.8;
-      color: var(--neeto-ui-accent1-500);
+      color: rgb(var(--neeto-ui-accent1-500));
     }
   }
 
   &-danger {
-    color: var(--neeto-ui-white);
-    background-color: var(--neeto-ui-accent4-500);
+    color: rgb(var(--neeto-ui-white));
+    background-color: rgb(var(--neeto-ui-accent4-500));
 
     &:hover:not(:disabled),
     &:active {
-      color: var(--neeto-ui-white);
-      background-color: var(--neeto-ui-accent4-700);
+      color: rgb(var(--neeto-ui-white));
+      background-color: rgb(var(--neeto-ui-accent4-700));
     }
 
     &:focus {
-      color: var(--neeto-ui-white);
+      color: rgb(var(--neeto-ui-white));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
     }
 
     &:focus-visible {
-      color: var(--neeto-ui-white);
+      color: rgb(var(--neeto-ui-white));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
     }
   }
 
   &-danger-text {
-    color: var(--neeto-ui-accent4-700);
+    color: rgb(var(--neeto-ui-accent4-700));
 
     &:hover:not(:disabled),
     &:active {
-      color: var(--neeto-ui-accent4-700);
-      background-color: var(--neeto-ui-pastel-red);
+      color: rgb(var(--neeto-ui-accent4-700));
+      background-color: rgb(var(--neeto-ui-pastel-red));
     }
 
     &:focus {
-      color: var(--neeto-ui-accent4-700);
+      color: rgb(var(--neeto-ui-accent4-700));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
 
     &:focus-visible {
-      color: var(--neeto-ui-accent4-700);
+      color: rgb(var(--neeto-ui-accent4-700));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
   }

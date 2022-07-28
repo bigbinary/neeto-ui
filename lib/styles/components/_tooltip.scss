@@ -7,8 +7,8 @@
 }
 .tippy-box {
   position: relative;
-  background-color: var(--neeto-ui-gray-800);
-  color: var(--neeto-ui-white);
+  background-color: rgb(var(--neeto-ui-gray-800));
+  color: rgb(var(--neeto-ui-white));
   border-radius: var(--neeto-ui-rounded);
   font-size: var(--neeto-ui-text-xs);
   line-height: 1.4;
@@ -59,7 +59,7 @@
 .tippy-arrow {
   width: 16px;
   height: 16px;
-  color: var(--neeto-ui-gray-800);
+  color: rgb(var(--neeto-ui-gray-800));
 }
 .tippy-arrow:before {
   content: "";
@@ -109,7 +109,7 @@
 .tippy-svg-arrow {
   width: 17px;
   height: 17px;
-  fill: var(--neeto-ui-gray-800);
+  fill: rgb(var(--neeto-ui-gray-800));
   text-align: initial;
 }
 .tippy-svg-arrow,
@@ -118,34 +118,34 @@
 }
 
 .tippy-svg-arrow > svg > path{
-  fill: var(--neeto-ui-gray-800);
+  fill: rgb(var(--neeto-ui-gray-800));
 }
 
 // light theme
 .tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path{
-  fill: var(--neeto-ui-white);
+  fill: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"] {
-  color: var(--neeto-ui-gray-800);
+  color: rgb(var(--neeto-ui-gray-800));
   box-shadow: var(--neeto-ui-shadow-s);
-  background-color: var(--neeto-ui-white);
+  background-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
-  border-top-color: var(--neeto-ui-white);
+  border-top-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"][data-placement^="bottom"]
   > .tippy-arrow:before {
-  border-bottom-color: var(--neeto-ui-white);
+  border-bottom-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
-  border-left-color: var(--neeto-ui-white);
+  border-left-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
-  border-right-color: var(--neeto-ui-white);
+  border-right-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"] > .tippy-backdrop {
-  background-color: var(--neeto-ui-white);
+  background-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow {
-  fill: var(--neeto-ui-white);
+  fill: rgb(var(--neeto-ui-white));
 }

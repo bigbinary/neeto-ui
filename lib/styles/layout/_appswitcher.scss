@@ -26,7 +26,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: var(--neeto-ui-white);
+  background-color: rgb(var(--neeto-ui-white));
   width: 320px;
   height: 100vh;
   overflow-y: auto;
@@ -97,19 +97,19 @@
   }
 
   &:focus-visible {
-    background-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
   }
 
   &:not(.neeto-ui-app-switcher-link--active):hover {
-    background-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
   }
 }
 
 .neeto-ui-app-switcher-link--active {
-  background: var(--neeto-ui-gray-800);
+  background: rgb(var(--neeto-ui-gray-800));
 
   .neeto-ui-app-switcher-link__title {
-    color: var(--neeto-ui-white);
+    color: rgb(var(--neeto-ui-white));
   }
 }
 

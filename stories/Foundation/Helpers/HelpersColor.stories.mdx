@@ -13,10 +13,12 @@ import colorPalette from "../ColorPalette.js";
 />
 
 <style>{`
-  .story-demo-table tr{
-      background: transparent !important;
+  .story-demo-table{
+    table-layout: fixed; 
   }
-  
+  .story-demo-table tr{
+    background: transparent !important;
+  }
 `}</style>
 
 # Colors
@@ -24,8 +26,8 @@ import colorPalette from "../ColorPalette.js";
 <table className="story-demo-table">
   <thead>
     <tr>
-      <td></td>
-      <td>Hex code</td>
+      <td style={{width: "75px"}}></td>
+      <td>RGB code</td>
       <td>CSS Variable name</td>
       <td>Text color class</td>
       <td>Background color class</td>

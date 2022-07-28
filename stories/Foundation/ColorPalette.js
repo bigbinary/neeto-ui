@@ -1,179 +1,179 @@
 const colorPalette = [
   {
-    name: "$neeto-ui-white",
-    value: "#ffffff",
-    compiledValue: "#ffffff",
+    "name": "$neeto-ui-white",
+    "value": "255, 255, 255",
+    "compiledValue": "255, 255, 255"
   },
   {
-    name: "$neeto-ui-black",
-    value: "#1b1f23",
-    compiledValue: "#1b1f23",
+    "name": "$neeto-ui-black",
+    "value": "27, 31, 35",
+    "compiledValue": "27, 31, 35"
   },
   {
-    name: "$neeto-ui-transparent",
-    value: "transparent",
-    compiledValue: "transparent",
+    "name": "$neeto-ui-transparent",
+    "value": "transparent",
+    "compiledValue": "transparent"
   },
   {
-    name: "$neeto-ui-environment",
-    value: "#f0f8ff",
-    compiledValue: "#f0f8ff",
+    "name": "$neeto-ui-environment",
+    "value": "240, 248, 255",
+    "compiledValue": "240, 248, 255"
   },
   {
-    name: "$neeto-ui-gray-800",
-    value: "#2f3941",
-    compiledValue: "#2f3941",
+    "name": "$neeto-ui-gray-800",
+    "value": "47, 57, 65",
+    "compiledValue": "47, 57, 65"
   },
   {
-    name: "$neeto-ui-gray-700",
-    value: "#49545c",
-    compiledValue: "#49545c",
+    "name": "$neeto-ui-gray-700",
+    "value": "73, 84, 92",
+    "compiledValue": "73, 84, 92"
   },
   {
-    name: "$neeto-ui-gray-600",
-    value: "#68737d",
-    compiledValue: "#68737d",
+    "name": "$neeto-ui-gray-600",
+    "value": "104, 115, 125",
+    "compiledValue": "104, 115, 125"
   },
   {
-    name: "$neeto-ui-gray-500",
-    value: "#87929d",
-    compiledValue: "#87929d",
+    "name": "$neeto-ui-gray-500",
+    "value": "135, 146, 157",
+    "compiledValue": "135, 146, 157"
   },
   {
-    name: "$neeto-ui-gray-400",
-    value: "#c2c8cc",
-    compiledValue: "#c2c8cc",
+    "name": "$neeto-ui-gray-400",
+    "value": "194, 200, 204",
+    "compiledValue": "194, 200, 204"
   },
   {
-    name: "$neeto-ui-gray-300",
-    value: "#d8dcde",
-    compiledValue: "#d8dcde",
+    "name": "$neeto-ui-gray-300",
+    "value": "216, 220, 222",
+    "compiledValue": "216, 220, 222"
   },
   {
-    name: "$neeto-ui-gray-200",
-    value: "#e9ebed",
-    compiledValue: "#e9ebed",
+    "name": "$neeto-ui-gray-200",
+    "value": "233, 235, 237",
+    "compiledValue": "233, 235, 237"
   },
   {
-    name: "$neeto-ui-gray-100",
-    value: "#f8f9f9",
-    compiledValue: "#f8f9f9",
+    "name": "$neeto-ui-gray-100",
+    "value": "248, 249, 249",
+    "compiledValue": "248, 249, 249"
   },
   {
-    name: "$neeto-ui-success",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
+    "name": "$neeto-ui-pastel-blue",
+    "value": "234, 243, 252",
+    "compiledValue": "234, 243, 252"
   },
   {
-    name: "$neeto-ui-info",
-    value: "#276ef1",
-    compiledValue: "#276ef1",
+    "name": "$neeto-ui-pastel-green",
+    "value": "235, 245, 236",
+    "compiledValue": "235, 245, 236"
   },
   {
-    name: "$neeto-ui-warning",
-    value: "#f57c00",
-    compiledValue: "#f57c00",
+    "name": "$neeto-ui-pastel-yellow",
+    "value": "255, 242, 215",
+    "compiledValue": "255, 242, 215"
   },
   {
-    name: "$neeto-ui-error",
-    value: "#f22d2d",
-    compiledValue: "#f22d2d",
+    "name": "$neeto-ui-pastel-red",
+    "value": "255, 239, 237",
+    "compiledValue": "255, 239, 237"
   },
   {
-    name: "$neeto-ui-pastel-blue",
-    value: "#eaf3fc",
-    compiledValue: "#eaf3fc",
+    "name": "$neeto-ui-pastel-teal",
+    "value": "152, 243, 244",
+    "compiledValue": "152, 243, 244"
   },
   {
-    name: "$neeto-ui-pastel-green",
-    value: "#ebf5ec",
-    compiledValue: "#ebf5ec",
+    "name": "$neeto-ui-accent1-700",
+    "value": "52, 45, 244",
+    "compiledValue": "52, 45, 244"
   },
   {
-    name: "$neeto-ui-pastel-yellow",
-    value: "#fff2d7",
-    compiledValue: "#fff2d7",
+    "name": "$neeto-ui-accent1-500",
+    "value": "69, 87, 248",
+    "compiledValue": "69, 87, 248"
   },
   {
-    name: "$neeto-ui-pastel-red",
-    value: "#ffefed",
-    compiledValue: "#ffefed",
+    "name": "$neeto-ui-accent1-300",
+    "value": "114, 128, 250",
+    "compiledValue": "114, 128, 250"
   },
   {
-    name: "$neeto-ui-pastel-teal",
-    value: "#98f3f4",
-    compiledValue: "#98f3f4",
+    "name": "$neeto-ui-accent2-700",
+    "value": "0, 149, 109",
+    "compiledValue": "0, 149, 109"
   },
   {
-    name: "$neeto-ui-accent1-700",
-    value: "#342df4",
-    compiledValue: "#342df4",
+    "name": "$neeto-ui-accent2-500",
+    "value": "0, 186, 136",
+    "compiledValue": "0, 186, 136"
   },
   {
-    name: "$neeto-ui-accent1-500",
-    value: "#4557f8",
-    compiledValue: "#4557f8",
+    "name": "$neeto-ui-accent2-300",
+    "value": "51, 200, 160",
+    "compiledValue": "51, 200, 160"
   },
   {
-    name: "$neeto-ui-accent1-300",
-    value: "#7280fa",
-    compiledValue: "#7280fa",
+    "name": "$neeto-ui-accent3-700",
+    "value": "80, 168, 204",
+    "compiledValue": "80, 168, 204"
   },
   {
-    name: "$neeto-ui-accent2-700",
-    value: "#00956d",
-    compiledValue: "#00956d",
+    "name": "$neeto-ui-accent3-500",
+    "value": "100, 210, 255",
+    "compiledValue": "100, 210, 255"
   },
   {
-    name: "$neeto-ui-accent2-500",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
+    "name": "$neeto-ui-accent3-300",
+    "value": "131, 219, 255",
+    "compiledValue": "131, 219, 255"
   },
   {
-    name: "$neeto-ui-accent2-300",
-    value: "#33c8a0",
-    compiledValue: "#33c8a0",
+    "name": "$neeto-ui-accent4-700",
+    "value": "242, 45, 45",
+    "compiledValue": "242, 45, 45"
   },
   {
-    name: "$neeto-ui-accent3-700",
-    value: "#50a8cc",
-    compiledValue: "#50a8cc",
+    "name": "$neeto-ui-accent4-500",
+    "value": "246, 69, 69",
+    "compiledValue": "246, 69, 69"
   },
   {
-    name: "$neeto-ui-accent3-500",
-    value: "#64d2ff",
-    compiledValue: "#64d2ff",
+    "name": "$neeto-ui-accent4-300",
+    "value": "247, 85, 85",
+    "compiledValue": "247, 85, 85"
   },
   {
-    name: "$neeto-ui-accent3-300",
-    value: "#83dbff",
-    compiledValue: "#83dbff",
+    "name": "$neeto-ui-accent-light-300",
+    "value": "219, 240, 255",
+    "compiledValue": "219, 240, 255"
   },
   {
-    name: "$neeto-ui-accent4-700",
-    value: "#f22d2d",
-    compiledValue: "#f22d2d",
+    "name": "$neeto-ui-accent-light-500",
+    "value": "191, 227, 255",
+    "compiledValue": "191, 227, 255"
   },
   {
-    name: "$neeto-ui-accent4-500",
-    value: "#f64545",
-    compiledValue: "#f64545",
+    "name": "$neeto-ui-success",
+    "value": "0, 186, 136",
+    "compiledValue": "0, 186, 136"
   },
   {
-    name: "$neeto-ui-accent4-300",
-    value: "#f75555",
-    compiledValue: "#f75555",
+    "name": "$neeto-ui-info",
+    "value": "39, 110, 241",
+    "compiledValue": "39, 110, 241"
   },
   {
-    name: "$neeto-ui-accent-light-300",
-    value: "#dbf0ff",
-    compiledValue: "#dbf0ff",
+    "name": "$neeto-ui-warning",
+    "value": "245, 124, 0",
+    "compiledValue": "245, 124, 0"
   },
   {
-    name: "$neeto-ui-accent-light-500",
-    value: "#bfe3ff",
-    compiledValue: "#bfe3ff",
-  },
+    "name": "$neeto-ui-error",
+    "value": "242, 45, 45",
+    "compiledValue": "242, 45, 45"
+  }
 ];
 
 export default colorPalette;

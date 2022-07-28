@@ -21,43 +21,43 @@ All our custom properties are prefixed with `neeto-ui` to avoid conflicts with t
 
 Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our _root.scss file and included in our compiled CSS file.
 
-```
+```CSS
 :root {
-  --neeto-ui-black: #1b1f23;
-  --neeto-ui-white: #ffffff;
+  --neeto-ui-black: 27, 31, 35;
+  --neeto-ui-white: 255, 255, 255;
   --neeto-ui-transparent: transparent;
-  --neeto-ui-environment: #f0f8ff;
-  --neeto-ui-gray-800: #2f3941;
-  --neeto-ui-gray-700: #49545c;
-  --neeto-ui-gray-600: #68737d;
-  --neeto-ui-gray-500: #87929d;
-  --neeto-ui-gray-400: #c2c8cc;
-  --neeto-ui-gray-300: #d8dcde;
-  --neeto-ui-gray-200: #e9ebed;
-  --neeto-ui-gray-100: #f8f9f9;
-  --neeto-ui-success: #00ba88;
-  --neeto-ui-info: #276ef1;
-  --neeto-ui-warning: #f57c00;
-  --neeto-ui-error: #f22d2d;
-  --neeto-ui-pastel-blue: #eaf3fc;
-  --neeto-ui-pastel-green: #ebf5ec;
-  --neeto-ui-pastel-yellow: #fff2d7;
-  --neeto-ui-pastel-red: #ffefed;
-  --neeto-ui-pastel-teal: #98f3f4;
-  --neeto-ui-accent1-700: #342df4;
-  --neeto-ui-accent2-700: #00956d;
-  --neeto-ui-accent3-700: #50a8cc;
-  --neeto-ui-accent4-700: #f22d2d;
-  --neeto-ui-accent1-500: #4557f8;
-  --neeto-ui-accent2-500: #00ba88;
-  --neeto-ui-accent3-500: #64d2ff;
-  --neeto-ui-accent4-500: #f64545;
-  --neeto-ui-accent1-300: #7280fa;
-  --neeto-ui-accent2-300: #33c8a0;
-  --neeto-ui-accent3-300: #83dbff;
-  --neeto-ui-accent4-300: #f75555;
-  --neeto-ui-accent-light-300: #dbf0ff;
-  --neeto-ui-accent-light-500: #bfe3ff;
+  --neeto-ui-environment: 240, 248, 255;
+  --neeto-ui-gray-800: 47, 57, 65;
+  --neeto-ui-gray-700: 73, 84, 92;
+  --neeto-ui-gray-600: 104, 115, 125;
+  --neeto-ui-gray-500: 135, 146, 157;
+  --neeto-ui-gray-400: 194, 200, 204;
+  --neeto-ui-gray-300: 216, 220, 222;
+  --neeto-ui-gray-200: 233, 235, 237;
+  --neeto-ui-gray-100: 248, 249, 249;
+  --neeto-ui-success: 0, 186, 136;
+  --neeto-ui-info: 39, 110, 241;
+  --neeto-ui-warning: 245, 124, 0;
+  --neeto-ui-error: 242, 45, 45;
+  --neeto-ui-pastel-blue: 234, 243, 252;
+  --neeto-ui-pastel-green: 235, 245, 236;
+  --neeto-ui-pastel-yellow: 255, 242, 215;
+  --neeto-ui-pastel-red: 255, 239, 237;
+  --neeto-ui-pastel-teal: 152, 243, 244;
+  --neeto-ui-accent1-700: 52, 45, 244;
+  --neeto-ui-accent2-700: 0, 149, 109;
+  --neeto-ui-accent3-700: 80, 168, 204;
+  --neeto-ui-accent4-700: 242, 45, 45;
+  --neeto-ui-accent1-500: 69, 87, 248;
+  --neeto-ui-accent2-500: 0, 186, 136;
+  --neeto-ui-accent3-500: 100, 210, 255;
+  --neeto-ui-accent4-500: 246, 69, 69;
+  --neeto-ui-accent1-300: 114, 128, 250;
+  --neeto-ui-accent2-300: 51, 200, 160;
+  --neeto-ui-accent3-300: 131, 219, 255;
+  --neeto-ui-accent4-300: 247, 85, 85;
+  --neeto-ui-accent-light-300: 219, 240, 255;
+  --neeto-ui-accent-light-500: 191, 227, 255;
   --neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
   --neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12), 0px 2px 4px -1px rgba(28, 55, 90, 0.08);
   --neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12), 0px 2px 6px -1px rgba(28, 55, 90, 0.08);
@@ -113,19 +113,20 @@ Here are the variables we include that are accessible from any location where ne
   --neeto-ui-rounded-xl: 12px;
   --neeto-ui-rounded-full: 999px;
   --neeto-ui-transition: all 0.3s linear;
+  --neeto-ui-modal-z-index: 99999;
+  --neeto-ui-primary-focus-ring-color: rgba(var(--neeto-ui-accent1-500), 15%);
+  --neeto-ui-secondary-focus-ring-color: rgba(var(--neeto-ui-gray-800), 25%);
+  --neeto-ui-text-focus-ring-color: rgba(var(--neeto-ui-gray-800), 15%);
+  --neeto-ui-danger-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
+  --neeto-ui-danger-text-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
   --neeto-ui-pane-header-height: 78px;
   --neeto-ui-pane-footer-height: 80px;
   --neeto-ui-main-header-height: 80px;
+  --neeto-ui-main-header-with-breadcrumbs-height: 94px;
   --neeto-ui-sub-header-height: 37px;
   --neeto-ui-sub-header-bottom-margin: 20px;
   --neeto-ui-pagination-block-height: 88px;
   --neeto-ui-table-header-height: 40px;
-  --neeto-ui-modal-z-index: 99999;
-  --neeto-ui-primary-focus-ring-color: rgba(69, 87, 248, 15%);
-  --neeto-ui-secondary-focus-ring-color: rgba(47, 57, 65, 25%);
-  --neeto-ui-text-focus-ring-color: rgba(47, 57, 65, 15%);
-  --neeto-ui-danger-focus-ring-color: rgba(246, 69, 69, 15%);
-  --neeto-ui-danger-text-focus-ring-color: rgba(246, 69, 69, 15%);
 }
 ```
 
@@ -135,6 +136,6 @@ CSS variables offer similar flexibility to Sass’s variables, but without the n
 
 ```
 a {
-  color: var(--neeto-ui-accent1-700);
+  color: rgb(var(--neeto-ui-accent1-700));
 }
 ```
