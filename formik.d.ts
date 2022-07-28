@@ -13,11 +13,11 @@ import {
 
 export interface ActionBlockProps {
   className?: string;
-  submitButtonProps: ButtonProps;
-  cancelButtonProps: ButtonProps;
+  submitButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
 }
 export interface BlockNavigationProps {
-  isDirty: boolean;
+  isDirty?: boolean;
 }
 
 export const ActionBlock: React.FC<ActionBlockProps>;
