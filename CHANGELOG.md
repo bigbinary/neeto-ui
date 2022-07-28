@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.13 - 2022-07-28
+
+- Added: type support for all exported components. IDE will now auto-predict the component props.
+- Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
+
 ## 3.5.12 - 2022-07-25
 
 - Security: Bump moment from 2.29.3 to 2.29.4
