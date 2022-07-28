@@ -27,6 +27,7 @@ module.exports = {
     logger: true,
     module: true,
     process: true,
+    JSX: true,
   },
   parserOptions: {
     ecmaFeatures: {
@@ -35,7 +36,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  parser: "babel-eslint",
+  // babel-eslint is deprecated now. This is the latest package.
+  parser: "@babel/eslint-parser",
   plugins: ["react"],
   rules: {
     indent: [
