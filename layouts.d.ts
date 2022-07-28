@@ -49,14 +49,14 @@ export type ScrollableProps = {
 type NavLinkItemType = {
   to: string;
   label?: React.ReactNode;
-  icon?: React.ReactNode;
+  icon?: any;
   description?: React.ReactNode;
 } & React.PropsWithoutRef<NavLinkProps<any>> &
   React.RefAttributes<HTMLAnchorElement>;
 
 type FooterLinkType = {
   label?: React.ReactNode;
-  icon?: React.ReactNode;
+  icon?: any;
   href?: string;
   to?: string;
 } & React.DetailedHTMLProps<
@@ -67,9 +67,9 @@ type FooterLinkType = {
   React.RefAttributes<HTMLAnchorElement>;
 
 type LinkType = {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   label: React.ReactNode;
-  icon: React.ReactNode;
+  icon?: any;
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -112,4 +112,4 @@ export const Header: React.FC<HeaderProps>;
 export const MenuBar: React.FC<MenuBarProps>;
 export const Scrollable: React.FC<ScrollableProps>;
 export const Sidebar: React.FC<SidebarProps>;
-export const SubHeader: any;
+export const SubHeader: React.FC<SubHeaderProps>;

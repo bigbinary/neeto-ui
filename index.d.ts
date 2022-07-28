@@ -77,7 +77,7 @@ export type TabProps = {
 export type TabItemProps<S> = {
   active?: boolean;
   className?: string;
-  icon?: string | React.ReactNode;
+  icon?: string | any;
   onClick?: () => void;
   activeClassName?: string;
   [key: string]: any;
@@ -125,7 +125,7 @@ export type AvatarProps = {
 
 export interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  icon?: string | React.ReactNode;
+  icon?: string | any;
   iconPosition?: "left" | "right";
   iconSize?: number;
   label?: string;
@@ -184,7 +184,7 @@ export type DatePickerProps = {
 };
 
 export interface DropdownProps {
-  icon?: string | React.ReactNode;
+  icon?: string | any;
   label?: React.ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
@@ -262,7 +262,7 @@ export type LabelProps = {
   required?: boolean;
   helpIconProps?: {
     onClick?: () => void;
-    icon?: React.ReactNode;
+    icon?: any;
     tooltipProps?: TooltipProps;
     className?: string;
   } & React.SVGProps<SVGSVGElement>;
@@ -347,7 +347,7 @@ export interface TableProps {
 }
 
 export interface TagProps {
-  icon?: string | React.ReactNode;
+  icon?: string | any;
   size?: "small" | "large";
   label?: string;
   style?: "outline" | "solid";
