@@ -44,13 +44,13 @@ export const DropdownStory = (args) => {
   return (
     <div className="h-40">
       <Dropdown label="Dropdown" {...args}>
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem key={idx}>{item}</MenuItem>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem style="danger">Delete</MenuItem>
+        </Menu>
       </Dropdown>
     </div>
   );
