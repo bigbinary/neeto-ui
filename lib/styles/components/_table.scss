@@ -12,8 +12,8 @@
   thead.ant-table-thead {
     tr {
       th {
-        color: var(--neeto-ui-gray-600);
-        background-color: var(--neeto-ui-white);
+        color: rgb(var(--neeto-ui-gray-600));
+        background-color: rgb(var(--neeto-ui-white));
 
         font-size: var(--neeto-ui-text-xs);
         vertical-align: middle;
@@ -27,22 +27,22 @@
 
       th.ant-table-cell.ant-table-column-has-sorters {
         &:hover {
-          background-color: var(--neeto-ui-white);
+          background-color: rgb(var(--neeto-ui-white));
         }
 
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
             .ant-table-column-sorter-inner {
               .ant-table-column-sorter-up {
-                color: var(--neeto-ui-gray-300);
+                color: rgb(var(--neeto-ui-gray-300));
               }
 
               .ant-table-column-sorter-down {
-                color: var(--neeto-ui-gray-300);
+                color: rgb(var(--neeto-ui-gray-300));
               }
 
               .active {
-                color: var(--neeto-ui-gray-800);
+                color: rgb(var(--neeto-ui-gray-800));
               }
             }
           }
@@ -56,32 +56,32 @@
   }
 
   .ant-table-tbody tr:nth-child(2n+1) td {
-    background-color: var(--neeto-ui-gray-100);
+    background-color: rgb(var(--neeto-ui-gray-100));
   }
 
   .ant-table-tbody > tr.ant-table-row:hover > td{
-    background-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
   }
 
   .ant-table-tbody > tr.ant-table-row-selected > td {
-    background-color: var(--neeto-ui-pastel-blue);
+    background-color: rgb(var(--neeto-ui-pastel-blue));
   }
 
   .neeto-ui-table--row {
-    color: var(--neeto-ui-gray-800);
+    color: rgb(var(--neeto-ui-gray-800));
     font-size: var(--neeto-ui-text-sm);
     font-weight: var(--neeto-ui-font-normal);
     vertical-align: middle;
 
     a:not(.neeto-ui-btn) {
-      color: var(--neeto-ui-accent1-500);
+      color: rgb(var(--neeto-ui-accent1-500));
 
       transition: var(--neeto-ui-transition);
       font-weight: var(--neeto-ui-font-medium);
 
       &:hover {
         opacity: 0.8;
-        color: var(--neeto-ui-accent1-500);
+        color: rgb(var(--neeto-ui-accent1-500));
         text-decoration: underline;
       }
     }
@@ -109,25 +109,25 @@
       // transition: var(--neeto-ui-transition);
 
       a {
-        color: var(--neeto-ui-gray-700);
+        color: rgb(var(--neeto-ui-gray-700));
       }
 
       &:hover {
-        background-color: var(--neeto-ui-gray-200);
-        color: var(--neeto-ui-gray-800);
+        background-color: rgb(var(--neeto-ui-gray-200));
+        color: rgb(var(--neeto-ui-gray-800));
 
         a {
-          color: var(--neeto-ui-gray-800);
+          color: rgb(var(--neeto-ui-gray-800));
         }
       }
     }
 
     li.ant-pagination-item.ant-pagination-item-active {
-      border-color: var(--neeto-ui-accent1-500);
-      background-color: var(--neeto-ui-accent1-500);
+      border-color: rgb(var(--neeto-ui-accent1-500));
+      background-color: rgb(var(--neeto-ui-accent1-500));
 
       a {
-        color: var(--neeto-ui-white);
+        color: rgb(var(--neeto-ui-white));
       }
     }
 
@@ -139,7 +139,7 @@
 
           .anticon.anticon-left,
           .anticon.anticon-right {
-            color: var(--neeto-ui-gray-700);
+            color: rgb(var(--neeto-ui-gray-700));
           }
         }
       }
@@ -150,7 +150,7 @@
   .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
     .anticon.anticon-double-right.ant-pagination-item-link-icon,
     .anticon.anticon-double-left.ant-pagination-item-link-icon {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
     }
   }
 
@@ -165,7 +165,7 @@
     .ant-select-dropdown{
       border-radius: var(--neeto-ui-rounded);
       padding: 4px 0;
-      border: thin solid var(--neeto-ui-gray-400) !important;
+      border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
       box-shadow: var(--neeto-ui-shadow-s);
     }
 
@@ -184,19 +184,19 @@
       }
 
       .ant-select-selector {
-        border: thin solid var(--neeto-ui-gray-400);
+        border: thin solid rgb(var(--neeto-ui-gray-400));
         border-radius: var(--neeto-ui-rounded);
       }
 
       &:hover:not(.ant-select-focused) {
         .ant-select-selector {
-          border-color: var(--neeto-ui-gray-800) !important;
+          border-color: rgb(var(--neeto-ui-gray-800)) !important;
           outline: none;
 
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: var(--neeto-ui-accent1-500);
+            border-color: rgb(var(--neeto-ui-accent1-500));
             box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
           }
         }
@@ -204,16 +204,16 @@
 
       &.ant-select-focused {
         .ant-select-selector {
-          border-color: var(--neeto-ui-accent1-500);
+          border-color: rgb(var(--neeto-ui-accent1-500));
           box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
-          background-color: var(--neeto-ui-white);
+          background-color: rgb(var(--neeto-ui-white));
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           outline: none;
 
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: var(--neeto-ui-accent1-500);
+            border-color: rgb(var(--neeto-ui-accent1-500));
           }
         }
       }
@@ -221,19 +221,19 @@
   }
 
   .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
-    background-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
   }
 
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-    color: var(--neeto-ui-white);
+    color: rgb(var(--neeto-ui-white));
     font-weight: inherit;
-    background-color: var(--neeto-ui-gray-800);
+    background-color: rgb(var(--neeto-ui-gray-800));
   }
 
   .ant-spin-nested-loading {
     .ant-spin.ant-spin-spinning {
       .ant-spin-dot-item {
-        background-color: var(--neeto-ui-gray-800);
+        background-color: rgb(var(--neeto-ui-gray-800));
       }
     }
   }
@@ -242,8 +242,8 @@
     .ant-pagination-item-link,
   .ant-pagination-next:not(.ant-pagination-disabled):hover
     .ant-pagination-item-link {
-    background-color: var(--neeto-ui-gray-200);
-    border-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
+    border-color: rgb(var(--neeto-ui-gray-200));
     .anticon-left,
     .anticon-right {
       opacity: 1;
@@ -258,7 +258,7 @@
   .ant-pagination-disabled .ant-pagination-item-link,
   .ant-pagination-disabled:hover .ant-pagination-item-link,
   .ant-pagination-disabled:focus-visible .ant-pagination-item-link {
-    color: var(--neeto-ui-gray-500);
+    color: rgb(var(--neeto-ui-gray-500));
     opacity: 0.3;
   }
 

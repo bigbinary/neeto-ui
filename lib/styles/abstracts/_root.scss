@@ -45,11 +45,11 @@
   --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
 
   // Focus rings
-  --neeto-ui-primary-focus-ring-color: rgba(69, 87, 248, 15%);
-  --neeto-ui-secondary-focus-ring-color: rgba(47, 57, 65, 25%);
-  --neeto-ui-text-focus-ring-color: rgba(47, 57, 65, 15%);
-  --neeto-ui-danger-focus-ring-color: rgba(246, 69, 69, 15%);
-  --neeto-ui-danger-text-focus-ring-color: rgba(246, 69, 69, 15%);
+  --neeto-ui-primary-focus-ring-color: rgba(var(--neeto-ui-accent1-500), 15%);
+  --neeto-ui-secondary-focus-ring-color: rgba(var(--neeto-ui-gray-800), 25%);
+  --neeto-ui-text-focus-ring-color: rgba(var(--neeto-ui-gray-800), 15%);
+  --neeto-ui-danger-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
+  --neeto-ui-danger-text-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
 
   // Layout constants
   --neeto-ui-pane-header-height: #{$neeto-ui-pane-header-height};

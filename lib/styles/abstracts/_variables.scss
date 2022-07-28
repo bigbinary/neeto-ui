@@ -1,52 +1,52 @@
 // Color palette
 
 // base
-$neeto-ui-white: #ffffff;
-$neeto-ui-black: #1b1f23;
+$neeto-ui-white: 255, 255, 255;
+$neeto-ui-black: 27, 31, 35;
 $neeto-ui-transparent: transparent;
-$neeto-ui-environment: #f0f8ff;
+$neeto-ui-environment: 240, 248, 255;
 
 // content
-$neeto-ui-gray-800: #2f3941;
-$neeto-ui-gray-700: #49545c;
-$neeto-ui-gray-600: #68737d;
-$neeto-ui-gray-500: #87929d;
-$neeto-ui-gray-400: #c2c8cc;
-$neeto-ui-gray-300: #d8dcde;
-$neeto-ui-gray-200: #e9ebed;
-$neeto-ui-gray-100: #f8f9f9;
+$neeto-ui-gray-800: 47, 57, 65;
+$neeto-ui-gray-700: 73, 84, 92;
+$neeto-ui-gray-600: 104, 115, 125;
+$neeto-ui-gray-500: 135, 146, 157;
+$neeto-ui-gray-400: 194, 200, 204;
+$neeto-ui-gray-300: 216, 220, 222;
+$neeto-ui-gray-200: 233, 235, 237;
+$neeto-ui-gray-100: 248, 249, 249;
 
 // pastel
-$neeto-ui-pastel-blue: #eaf3fc;
-$neeto-ui-pastel-green: #ebf5ec;
-$neeto-ui-pastel-yellow: #fff2d7;
-$neeto-ui-pastel-red: #ffefed;
-$neeto-ui-pastel-teal: #98f3f4;
+$neeto-ui-pastel-blue: 234, 243, 252;
+$neeto-ui-pastel-green: 235, 245, 236;
+$neeto-ui-pastel-yellow: 255, 242, 215;
+$neeto-ui-pastel-red: 255, 239, 237;
+$neeto-ui-pastel-teal: 152, 243, 244;
 
 // accent
-$neeto-ui-accent1-700: #342df4;
-$neeto-ui-accent1-500: #4557f8;
-$neeto-ui-accent1-300: #7280fa;
+$neeto-ui-accent1-700: 52, 45, 244;
+$neeto-ui-accent1-500: 69, 87, 248;
+$neeto-ui-accent1-300: 114, 128, 250;
 
-$neeto-ui-accent2-700: #00956d;
-$neeto-ui-accent2-500: #00ba88;
-$neeto-ui-accent2-300: #33c8a0;
+$neeto-ui-accent2-700: 0, 149, 109;
+$neeto-ui-accent2-500: 0, 186, 136;
+$neeto-ui-accent2-300: 51, 200, 160;
 
-$neeto-ui-accent3-700: #50a8cc;
-$neeto-ui-accent3-500: #64d2ff;
-$neeto-ui-accent3-300: #83dbff;
+$neeto-ui-accent3-700: 80, 168, 204;
+$neeto-ui-accent3-500: 100, 210, 255;
+$neeto-ui-accent3-300: 131, 219, 255;
 
-$neeto-ui-accent4-700: #f22d2d;
-$neeto-ui-accent4-500: #f64545;
-$neeto-ui-accent4-300: #f75555;
+$neeto-ui-accent4-700: 242, 45, 45;
+$neeto-ui-accent4-500: 246, 69, 69;
+$neeto-ui-accent4-300: 247, 85, 85;
 
-$neeto-ui-accent-light-300: #dbf0ff;
-$neeto-ui-accent-light-500: #bfe3ff;
+$neeto-ui-accent-light-300: 219, 240, 255;
+$neeto-ui-accent-light-500: 191, 227, 255;
 
 // states
-$neeto-ui-success: #00ba88;
-$neeto-ui-info: #276ef1;
-$neeto-ui-warning: #f57c00;
+$neeto-ui-success: 0, 186, 136;
+$neeto-ui-info: 39, 110, 241;
+$neeto-ui-warning: 245, 124, 0;
 $neeto-ui-error: $neeto-ui-accent4-700;
 
 // neeto-ui-theme-colors-map

@@ -18,7 +18,7 @@
     width: 480px;
     max-width: 100%;
     height: 100vh;
-    background-color: var(--neeto-ui-white);
+    background-color: rgb(var(--neeto-ui-white));
 
     transition: all .3s;
 
@@ -59,7 +59,7 @@
   &__footer {
     width: 100%;
     padding: 24px;
-    background-color: var(--neeto-ui-white);
+    background-color: rgb(var(--neeto-ui-white));
     min-height: var(--neeto-ui-pane-footer-height);
 
     &.neeto-ui-pane__footer__absolute {

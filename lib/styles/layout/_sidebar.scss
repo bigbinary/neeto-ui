@@ -7,8 +7,8 @@
   transition: all 0.3s;
 
   @include scrollbars(0);
-  background-color: var(--neeto-ui-white);
-  border-right: 1px solid var(--neeto-ui-gray-200);
+  background-color: rgb(var(--neeto-ui-white));
+  border-right: 1px solid rgb(var(--neeto-ui-gray-200));
 
   @include min(1440px) {
     width: 320px;
@@ -33,7 +33,7 @@
     height: 40px;
 
     border-radius: var(--neeto-ui-rounded);
-    background-color: var(--neeto-ui-gray-800);
+    background-color: rgb(var(--neeto-ui-gray-800));
   }
 
   &__info {
@@ -66,7 +66,7 @@
       margin-bottom: 0;
     }
 
-    color: var(--neeto-ui-gray-600);
+    color: rgb(var(--neeto-ui-gray-600));
     transition: all 0.3s;
     cursor: pointer;
     text-decoration: none;
@@ -94,22 +94,22 @@
     }
 
     &:hover {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       text-decoration: none;
-      background-color: var(--neeto-ui-gray-200);
+      background-color: rgb(var(--neeto-ui-gray-200));
     }
 
     &:focus,
     &:focus-visible {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       outline: none;
-      background-color: var(--neeto-ui-gray-200);
+      background-color: rgb(var(--neeto-ui-gray-200));
       text-decoration: none;
     }
 
     &.active {
-      background-color: var(--neeto-ui-environment);
-      color: var(--neeto-ui-accent1-700);
+      background-color: rgb(var(--neeto-ui-environment));
+      color: rgb(var(--neeto-ui-accent1-700));
       text-decoration: none;
     }
     &--button {
@@ -117,8 +117,8 @@
         background-color: transparent;
       }
       &:focus-visible {
-        color: var(--neeto-ui-gray-800);
-        background-color: var(--neeto-ui-gray-200);
+        color: rgb(var(--neeto-ui-gray-800));
+        background-color: rgb(var(--neeto-ui-gray-200));
       }
     }
   }
@@ -131,7 +131,7 @@
     padding: 8px 8px 8px 58px;
     margin: 4px 0;
 
-    color: var(--neeto-ui-gray-600);
+    color: rgb(var(--neeto-ui-gray-600));
     transition: all 0.3s;
     cursor: pointer;
     text-decoration: none;
@@ -139,21 +139,21 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--neeto-ui-gray-700);
+      color: rgb(var(--neeto-ui-gray-700));
       text-decoration: none;
     }
 
     &:focus,
     &:focus-visible {
-      color: var(--neeto-ui-gray-700);
+      color: rgb(var(--neeto-ui-gray-700));
       outline: none;
-      background-color: var(--neeto-ui-gray-300);
+      background-color: rgb(var(--neeto-ui-gray-300));
       text-decoration: none;
     }
 
     &:active,
     &.active {
-      color: var(--neeto-ui-gray-800);
+      color: rgb(var(--neeto-ui-gray-800));
       text-decoration: none;
     }
   }
@@ -171,7 +171,7 @@
       width: 100%;
       padding: 8px;
 
-      background-color: var(--neeto-ui-white);
+      background-color: rgb(var(--neeto-ui-white));
       border-radius: var(--neeto-ui-rounded);
       transition: var(--neeto-ui-transition);
       cursor: pointer;
@@ -201,7 +201,7 @@
         top: 50%;
         right: 8px;
         transform: translateY(-50%);
-        color: var(--neeto-ui-gray-500);
+        color: rgb(var(--neeto-ui-gray-500));
       }
     }
   }
@@ -252,7 +252,7 @@
   margin-right: auto;
   margin-bottom: 8px;
   border-radius: 8px;
-  background-color: var(--neeto-ui-gray-100);
+  background-color: rgb(var(--neeto-ui-gray-100));
 }
 
 .sidebar-featured-tooltip__title {
@@ -262,7 +262,7 @@
 .neeto-ui-profile-popup-wrapper {
   box-shadow: var(--neeto-ui-shadow-xs) !important;
   border-radius: var(--neeto-ui-rounded) !important;
-  border: 1px solid var(--neeto-ui-gray-300);
+  border: 1px solid rgb(var(--neeto-ui-gray-300));
   .tippy-content{
     padding: 0;
   }
@@ -272,7 +272,7 @@
 }
 
 .neeto-ui-profile-sublist{
-  border-top: 1px solid var(--neeto-ui-gray-300);
+  border-top: 1px solid rgb(var(--neeto-ui-gray-300));
   list-style: none;
   margin: 0;
   padding: 4px 0;
@@ -295,7 +295,7 @@
   transition: var(--neeto-ui-transition);
   font-size: var(--neeto-ui-text-sm);
   font-weight: var(--neeto-ui-font-normal);
-  color: var(--neeto-ui-gray-800);
+  color: rgb(var(--neeto-ui-gray-800));
   padding: 6px 40px 6px 12px;
   min-height: 32px;
   text-decoration: none;
@@ -304,25 +304,25 @@
 
   &.disabled {
     cursor: not-allowed;
-    color: var(--neeto-ui-gray-500);
+    color: rgb(var(--neeto-ui-gray-500));
   }
 
   &:hover,
   &:focus {
-    background-color: var(--neeto-ui-gray-200);
+    background-color: rgb(var(--neeto-ui-gray-200));
   }
 
   &.active {
-    background-color: var(--neeto-ui-gray-800);
-    color: var(--neeto-ui-white);
+    background-color: rgb(var(--neeto-ui-gray-800));
+    color: rgb(var(--neeto-ui-white));
   }
 
   &--style-danger {
-    color: var(--neeto-ui-accent4-700);
+    color: rgb(var(--neeto-ui-accent4-700));
   }
 
   &-icon{
-    color: var(--neeto-ui-gray-600);
+    color: rgb(var(--neeto-ui-gray-600));
     svg{
       width: 20px;
       height: 20px;
