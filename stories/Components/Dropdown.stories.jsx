@@ -40,6 +40,7 @@ export default {
 const listItems = ["Action", "Another action", "Something else here"];
 
 export const DropdownStory = (args) => {
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
       <Dropdown label="Dropdown" {...args}>
@@ -151,7 +152,7 @@ export const CustomIcon = () => {
 
 export const MultiDropdownWithClickTrigger = () => {
   return (
-    <div className="flex h-80 items-start">
+    <div className="flex items-start h-80">
       <Dropdown label="Dropdown" isMultiLevel>
         <Dropdown.Menu>
           {listItems.map((item, idx) => (
@@ -179,7 +180,7 @@ export const MultiDropdownWithClickTrigger = () => {
 
 export const MultiDropdownWithHoverTrigger = () => {
   return (
-    <div className="flex h-80 items-start">
+    <div className="flex items-start h-80">
       <Dropdown position="bottom" label="Dropdown" isMultiLevel>
         <Dropdown.Menu>
           {listItems.map((item, idx) => (
