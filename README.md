@@ -69,4 +69,4 @@ https://neetoui.onrender.com
 ## Other Libraries
 
 - [neetoIcons](https://github.com/bigbinary/neeto-icons): **NeetoIcons** is the official icons library from BigBinary.
-- [neetoUtils](https://github.com/bigbinary/neeto-utils): **NeetoUtils** is a collection of react hooks and utility functions used at BigBinary.
+- [neetoEditor](https://github.com/bigbinary/neeto-editor-tiptap): **NeetoEditor** is a prose-mirror based rich-text editor used at BigBinary.
