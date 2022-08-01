@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.14 - 2022-08-01
+
+- Added: neetoTestify and neetoSite to AppSwitcher
+
 ## 3.5.13 - 2022-07-28
 
 - Added: type support for all exported components. IDE will now auto-predict the component props.
