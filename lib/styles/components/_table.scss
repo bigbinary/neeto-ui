@@ -5,8 +5,12 @@
   border-collapse: collapse;
 
   .ant-table-tbody > tr > td,
-  .ant-table-thead > tr > th{
+  .ant-table-thead > tr > th {
     border-bottom: 0;
+  }
+
+  .ant-table {
+    background-color: rgb(var(--neeto-ui-white));
   }
 
   thead.ant-table-thead {
@@ -55,11 +59,11 @@
     overflow: auto !important;
   }
 
-  .ant-table-tbody tr:nth-child(2n+1) td {
+  .ant-table-tbody tr:nth-child(2n + 1) td {
     background-color: rgb(var(--neeto-ui-gray-100));
   }
 
-  .ant-table-tbody > tr.ant-table-row:hover > td{
+  .ant-table-tbody > tr.ant-table-row:hover > td {
     background-color: rgb(var(--neeto-ui-gray-200));
   }
 
@@ -99,6 +103,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: var(--neeto-ui-white);
     }
 
     li.ant-pagination-item {
@@ -106,6 +111,7 @@
       border-radius: var(--neeto-ui-rounded);
       font-size: var(--neeto-ui-text-sm);
       font-weight: var(--neeto-ui-font-medium);
+      background-color: rgb(var(--neeto-ui-white));
       // transition: var(--neeto-ui-transition);
 
       a {
@@ -136,6 +142,7 @@
       &:hover {
         .ant-pagination-item-link {
           border-color: transparent;
+          background-color: rgb(var(--neeto-ui-gray-200));
 
           .anticon.anticon-left,
           .anticon.anticon-right {
@@ -162,7 +169,7 @@
   }
 
   .ant-pagination-options {
-    .ant-select-dropdown{
+    .ant-select-dropdown {
       border-radius: var(--neeto-ui-rounded);
       padding: 4px 0;
       border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
@@ -171,21 +178,31 @@
 
     div.ant-select {
       .ant-select-arrow {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='16' width='16'%3E%3Cpath d='M6 9L12 15L18 9' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
-        width: 16px;
-        height: 16px;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-top: -8px;
-        vertical-align: top;
-        svg {
-          display: none;
-        }
+        // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='16' width='16'%3E%3Cpath d='M6 9L12 15L18 9' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+        // width: 16px;
+        // height: 16px;
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // margin-top: -8px;
+        // vertical-align: top;
+        // svg {
+        //   display: none;
+        // }
+        color: rgb(var(--neeto-ui-gray-800));
+        font-size: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .ant-select-selector {
         border: thin solid rgb(var(--neeto-ui-gray-400));
         border-radius: var(--neeto-ui-rounded);
+        background-color: rgb(var(--neeto-ui-white));
+      }
+
+      .ant-select-selection-item {
+        color: rgb(var(--neeto-ui-gray-800));
       }
 
       &:hover:not(.ant-select-focused) {
@@ -222,11 +239,12 @@
 
   .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
     background-color: rgb(var(--neeto-ui-gray-200));
+    color: rgb(var(--neeto-ui-gray-800));
   }
 
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-    color: rgb(var(--neeto-ui-white));
     font-weight: inherit;
+    color: rgb(var(--neeto-ui-white));
     background-color: rgb(var(--neeto-ui-gray-800));
   }
 
@@ -262,14 +280,15 @@
     opacity: 0.3;
   }
 
-  .ant-pagination-item-ellipsis {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20' aria-hidden='true' class='neeto-ui-btn__icon'%3E%3Cpath d='M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M18 13C18.5523 13 19 12.5523 19 12C19 11.4477 18.5523 11 18 11C17.4477 11 17 11.4477 17 12C17 12.5523 17.4477 13 18 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M6 13C6.55228 13 7 12.5523 7 12C7 11.4477 6.55228 11 6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
-    font-size: 0;
-  }
+  // .ant-pagination-item-ellipsis {
+  //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20' aria-hidden='true' class='neeto-ui-btn__icon'%3E%3Cpath d='M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M18 13C18.5523 13 19 12.5523 19 12C19 11.4477 18.5523 11 18 11C17.4477 11 17 11.4477 17 12C17 12.5523 17.4477 13 18 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M6 13C6.55228 13 7 12.5523 7 12C7 11.4477 6.55228 11 6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13Z' fill='currentColor' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   width: 32px;
+  //   height: 32px;
+  //   font-size: 0;
+  // }
+
   .ant-pagination-item-link .anticon-left,
   .ant-pagination-item-link .anticon-right {
     width: 24px;
@@ -281,12 +300,12 @@
       display: none;
     }
   }
-  .ant-pagination-item-link .anticon-left {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20'%3E%3Cpath d='M15 6L9 12L15 18' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
-  }
-  .ant-pagination-item-link .anticon-right {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20'%3E%3Cpath d='M9 18L15 12L9 6' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
-  }
+  // .ant-pagination-item-link .anticon-left {
+  //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20'%3E%3Cpath d='M15 6L9 12L15 18' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+  // }
+  // .ant-pagination-item-link .anticon-right {
+  //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' height='20' width='20'%3E%3Cpath d='M9 18L15 12L9 6' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+  // }
   .ant-pagination-jump-next .ant-pagination-item-link,
   .ant-pagination-jump-prev .ant-pagination-item-link {
     width: 32px;
@@ -306,4 +325,9 @@
       justify-content: center;
     }
   }
+}
+
+.ant-pagination-prev button,
+.ant-pagination-next button {
+  color: rgb(var(--neeto-ui-gray-800));
 }

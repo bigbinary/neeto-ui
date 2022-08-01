@@ -26,7 +26,16 @@
 
   .neeto-ui-header__left-data-wrap {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .neeto-ui-header__page-title{
+    width: 100%;
+    display: block;
+  }
+
+  .neeto-ui-header__breadcrumbs-wrap{
+    display: flex;
   }
 
   .neeto-ui-header__breadcrumb {
