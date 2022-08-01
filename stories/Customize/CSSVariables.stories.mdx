@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta, Story } from "@storybook/addon-docs";
 
 <Meta
   title="Customize/CSS Variables"
@@ -15,13 +15,14 @@ import { Meta } from "@storybook/addon-docs";
 neetoUI incorporates many CSS custom properties (variables) in its compiled CSS for real-time customization without the need to recompile Sass. These offer easy access to commonly used values like our theme colors, font sizes, box shadows etc.
 
 All our custom properties are prefixed with `neeto-ui` to avoid conflicts with third party CSS.
-<br/>
+
+<br />
 
 ### Root variables
 
-Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our _root.scss file and included in our compiled CSS file.
+Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our \_root.scss file and included in our compiled CSS file.
 
-```CSS
+```css
 :root {
   --neeto-ui-black: 27, 31, 35;
   --neeto-ui-white: 255, 255, 255;
@@ -59,9 +60,12 @@ Here are the variables we include that are accessible from any location where ne
   --neeto-ui-accent-light-300: 219, 240, 255;
   --neeto-ui-accent-light-500: 191, 227, 255;
   --neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
-  --neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12), 0px 2px 4px -1px rgba(28, 55, 90, 0.08);
-  --neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12), 0px 2px 6px -1px rgba(28, 55, 90, 0.08);
-  --neeto-ui-shadow-l: 0px 12px 48px -6px rgba(28, 50, 79, 0.12), 0px 3px 18px -2px rgba(28, 55, 90, 0.08);
+  --neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12), 0px 2px
+      4px -1px rgba(28, 55, 90, 0.08);
+  --neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12), 0px 2px
+      6px -1px rgba(28, 55, 90, 0.08);
+  --neeto-ui-shadow-l: 0px 12px 48px -6px rgba(28, 50, 79, 0.12), 0px 3px
+      18px -2px rgba(28, 55, 90, 0.08);
   --neeto-ui-text-h1: 32px;
   --neeto-ui-text-h2: 24px;
   --neeto-ui-text-h3: 20px;
@@ -118,7 +122,10 @@ Here are the variables we include that are accessible from any location where ne
   --neeto-ui-secondary-focus-ring-color: rgba(var(--neeto-ui-gray-800), 25%);
   --neeto-ui-text-focus-ring-color: rgba(var(--neeto-ui-gray-800), 15%);
   --neeto-ui-danger-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
-  --neeto-ui-danger-text-focus-ring-color: rgba(var(--neeto-ui-accent4-500), 15%);
+  --neeto-ui-danger-text-focus-ring-color: rgba(
+    var(--neeto-ui-accent4-500),
+    15%
+  );
   --neeto-ui-pane-header-height: 78px;
   --neeto-ui-pane-footer-height: 80px;
   --neeto-ui-main-header-height: 80px;
@@ -139,3 +146,25 @@ a {
   color: rgb(var(--neeto-ui-accent1-700));
 }
 ```
+
+### Theming
+
+<br />
+
+<Story name="Theming">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/jolly-moser-54hfvm?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="jolly-moser-54hfvm"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
