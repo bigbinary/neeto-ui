@@ -209,6 +209,7 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-selected {
           .ant-picker-cell-inner {
             background: rgb(var(--neeto-ui-gray-800));
+            color: rgb(var(--neeto-ui-white));
           }
         }
 
@@ -220,6 +221,7 @@
 
           .ant-picker-cell-inner {
             background: rgb(var(--neeto-ui-gray-800));
+            color: rgb(var(--neeto-ui-white));
           }
         }
 
@@ -303,6 +305,7 @@
   /* Elevation/S */
   box-shadow: var(--neeto-ui-shadow-xs);
   border-radius: var(--neeto-ui-rounded-xl);
+  background-color: rgb(var(--neeto-ui-white));
 }
 
 .ant-picker-focused {
@@ -325,7 +328,7 @@
     white-space: nowrap;
     align-items: center;
   }
-  .ant-picker-date-panel .ant-picker-header{
+  .ant-picker-date-panel .ant-picker-header {
     border-bottom: 0;
   }
 
@@ -406,8 +409,12 @@
 
 .ant-picker-time-panel-column
   > li.ant-picker-time-panel-cell:not(.ant-picker-time-panel-cell-selected)
-  .ant-picker-time-panel-cell-inner:hover {
-  background-color: rgb(var(--neeto-ui-gray-200));
+  .ant-picker-time-panel-cell-inner {
+  color: rgb(var(--neeto-ui-gray-800));
+
+  &:hover {
+    background-color: rgb(var(--neeto-ui-gray-200));
+  }
 }
 
 .ant-picker-range-arrow {
@@ -429,10 +436,10 @@
   }
 }
 
-.ant-picker-panel .ant-picker-footer {
+.ant-picker-footer {
   border-top: 0 !important;
   border-bottom: 0 !important;
-  background: #f8f9f9;
+  background: rgb(var(--neeto-ui-gray-100));
 }
 
 .neeto-ui-date-input-custom-panel {
@@ -446,6 +453,7 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
     text-align: center;
+    color: rgb(var(--neeto-ui-gray-800));
   }
 
   .neeto-ui-date-input-custom-panel__header {
@@ -486,15 +494,28 @@
       padding-left: 16px;
       padding-right: 16px;
     }
-    .ant-picker-time-panel-cell-inner{
+    .ant-picker-time-panel-cell-inner {
       border-radius: 3px !important;
     }
   }
 }
 
 .ant-picker-clear {
-  svg{
+  svg {
     width: 16px;
     height: 16px;
   }
+}
+
+.ant-picker-datetime-panel .ant-picker-time-panel,
+.ant-picker-time-panel-column:not(:first-child){
+  border-left-color: rgb(var(--neeto-ui-gray-200));
+}
+
+.neeto-ui-date-input-dropdown .ant-picker-header{
+  border-bottom-color: rgb(var(--neeto-ui-gray-200));
+}
+
+.ant-picker-cell{
+  color: rgba(var(--neeto-ui-gray-800), 0.25);
 }

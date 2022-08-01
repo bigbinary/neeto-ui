@@ -88,6 +88,14 @@
     text-overflow: ellipsis;
   }
 
+  .neeto-ui-react-select__input-container{
+    color: rgb(var(--neeto-ui-gray-800));
+  }
+
+  .neeto-ui-react-select__single-value{
+    color: rgb(var(--neeto-ui-gray-800));
+  }
+
   .neeto-ui-react-select__input {
     color: rgb(var(--neeto-ui-gray-800));
     font-size: inherit;
@@ -119,6 +127,7 @@
     z-index: 20;
     border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
     box-shadow: var(--neeto-ui-shadow-xs);
+    background-color: rgb(var(--neeto-ui-white));
 
     .neeto-ui-react-select__menu-list {
       position: relative;
