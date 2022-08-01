@@ -51,5 +51,5 @@ WithBreadcrumbs.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
   actionBlock: <Button label="Primary Action" />,
-  breadcrumbs: [{ text: "Home", link: "/" }],
+  breadcrumbs: [{ text: "Home", link: "/" }, { text: "Settings", link: "/" }],
 };
