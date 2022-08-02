@@ -1,5 +1,6 @@
 import React from "react";
 import * as iconset from "@bigbinary/neeto-icons";
+import Toastr from "../../lib/components/Toastr";
 
 export default {
   title: "Foundation/Iconography",
@@ -19,6 +20,10 @@ export default {
 };
 
 export const Iconography = () => {
+  const copyIconName = (iconName) => {
+    navigator.clipboard.writeText(iconName);
+    Toastr.success("Icon name copied to clipboard");
+  };
   return (
     <div className="p-4">
       <p className="mb-4">
@@ -49,6 +54,7 @@ export const Iconography = () => {
           return (
             <div
               key={icon}
+              onClick={() => copyIconName(icon)}
               className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-gray-100"
             >
               <Component />
