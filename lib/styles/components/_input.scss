@@ -96,7 +96,7 @@
       border-color: rgb(var(--neeto-ui-error-500));
 
       &:focus-within:not(.neeto-ui-input--naked) {
-        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
+        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
       }
 
       textarea {

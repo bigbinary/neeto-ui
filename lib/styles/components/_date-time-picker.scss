@@ -32,7 +32,7 @@
     border-color: rgb(var(--neeto-ui-error-500));
 
     &:focus-within:not(.neeto-ui-date-input--naked) {
-      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
+      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
     }
   }
 
@@ -78,7 +78,7 @@
     border-color: rgb(var(--neeto-ui-error-500));
 
     &:focus-within:not(.neeto-ui-date-input--naked) {
-      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
+      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
     }
   }
 }
@@ -104,7 +104,7 @@
     border-color: rgb(var(--neeto-ui-error-500));
 
     &:focus-within:not(.neeto-ui-time-input--naked) {
-      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
+      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
     }
   }
 
@@ -148,7 +148,7 @@
     border-color: rgb(var(--neeto-ui-error-500));
 
     &:focus-within:not(.neeto-ui-time-input--naked) {
-      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
+      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
     }
   }
 }
@@ -317,7 +317,7 @@
   border-color: rgb(var(--neeto-ui-error-500)) !important;
   &.ant-picker-focused {
     border-color: rgb(var(--neeto-ui-error-500)) !important;
-    box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100)) !important;
+    box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100)) !important;
   }
 }
 
