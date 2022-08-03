@@ -64,27 +64,27 @@
     background-color: rgb(var(--neeto-ui-white));
 
     &.neeto-ui-tag--color-red {
-      background-color: rgb(var(--neeto-ui-pastel-red));
-      border-color: rgb(var(--neeto-ui-error));
-      color: rgb(var(--neeto-ui-error));
+      background-color: rgb(var(--neeto-ui-red-100));
+      border-color: rgb(var(--neeto-ui-error-500));
+      color: rgb(var(--neeto-ui-error-500));
     }
 
     &.neeto-ui-tag--color-blue {
-      background-color: rgb(var(--neeto-ui-pastel-blue));
-      border-color: rgb(var(--neeto-ui-accent1-500));
-      color: rgb(var(--neeto-ui-accent1-500));
+      background-color: rgb(var(--neeto-ui-info-100));
+      border-color: rgb(var(--neeto-ui-primary-500));
+      color: rgb(var(--neeto-ui-primary-500));
     }
 
     &.neeto-ui-tag--color-green {
-      background-color: rgb(var(--neeto-ui-pastel-green));
-      border-color: rgb(var(--neeto-ui-accent2-500));
-      color: rgb(var(--neeto-ui-accent2-500));
+      background-color: rgb(var(--neeto-ui-success-100));
+      border-color: rgb(var(--neeto-ui-success-500));
+      color: rgb(var(--neeto-ui-success-500));
     }
 
     &.neeto-ui-tag--color-yellow {
-      background-color: rgb(var(--neeto-ui-pastel-yellow));
-      border-color: rgb(var(--neeto-ui-warning));
-      color: rgb(var(--neeto-ui-warning));
+      background-color: rgb(var(--neeto-ui-warning-100));
+      border-color: rgb(var(--neeto-ui-warning-500));
+      color: rgb(var(--neeto-ui-warning-500));
     }
 
     &.neeto-ui-tag--color-gray {
@@ -93,27 +93,27 @@
   }
 
   &--style-solid {
-    border-color: rgb(var(--neeto-ui-pastel-blue));
-    background-color: rgb(var(--neeto-ui-pastel-blue));
+    border-color: rgb(var(--neeto-ui-info-100));
+    background-color: rgb(var(--neeto-ui-info-100));
 
     &.neeto-ui-tag--color-red {
-      background-color: rgb(var(--neeto-ui-pastel-red));
-      border-color: rgb(var(--neeto-ui-pastel-red));
+      background-color: rgb(var(--neeto-ui-red-100));
+      border-color: rgb(var(--neeto-ui-red-100));
     }
 
     &.neeto-ui-tag--color-blue {
-      background-color: rgb(var(--neeto-ui-pastel-blue));
-      border-color: rgb(var(--neeto-ui-pastel-blue));
+      background-color: rgb(var(--neeto-ui-info-100));
+      border-color: rgb(var(--neeto-ui-info-100));
     }
 
     &.neeto-ui-tag--color-green {
-      background-color: rgb(var(--neeto-ui-pastel-green));
-      border-color: rgb(var(--neeto-ui-pastel-green));
+      background-color: rgb(var(--neeto-ui-success-100));
+      border-color: rgb(var(--neeto-ui-success-100));
     }
 
     &.neeto-ui-tag--color-yellow {
-      background-color: rgb(var(--neeto-ui-pastel-yellow));
-      border-color: rgb(var(--neeto-ui-pastel-yellow));
+      background-color: rgb(var(--neeto-ui-warning-100));
+      border-color: rgb(var(--neeto-ui-warning-100));
     }
 
     &.neeto-ui-tag--color-gray {

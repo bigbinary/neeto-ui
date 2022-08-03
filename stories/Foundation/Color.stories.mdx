@@ -13,67 +13,161 @@ import colorPalette from "./ColorPalette.js";
 />
 
 <style>{`
-  .story-demo-table tr{
-      background: transparent !important;
+  .demo-color-swatch{
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 12px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .demo-color-swatch code{
+    background:transparent;
+    padding:0;
+    outline:0;
+    border:0;
+    color: inherit;
+    font-size: inherit;
+  }
+  .demo-color-swatch code:nth-child(2){
+    font-weight:bold;
   }
   
 `}</style>
 
 # Colors
 
-<table className="story-demo-table">
-  <thead>
-    <tr>
-      <td></td>
-      <td style={{width:'150px'}}>RGB code</td>
-      <td>CSS Variable name</td>
-      <td>Text color class</td>
-      <td>Background color class</td>
-    </tr>
-  </thead>
-  <tbody>
-    {colorPalette.map((color) => {
-      return (
-        <tr key={color.name}>
-          <td>
-            <div
-              className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
-                "$neeto-ui",
-                "neeto-ui-bg"
-              )}`}
-            ></div>
-          </td>
-          <td>
-            <code>{color.value}</code>
-          </td>
-          <td>
-            <code>{`${color.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
-          </td>
-          <td>
-            <div className="flex justify-between">
-              <code>{`${color.name.replace(
-                "$neeto-ui",
-                "neeto-ui-text"
-              )}`}</code>
-              <b
-                className={`ml-2 ${color.name.replace(
-                  "$neeto-ui",
-                  "neeto-ui-text"
-                )}`}
-              >
-                Aa
-              </b>
-            </div>
-          </td>
-          <td className={`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}>
-            <code>{`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
-          </td>
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
-
-# Design
-
-<Figma url="https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A2" />
+<div className="demo-color-swatch-wrapper p-10 rounded border neeto-ui-border-gray-300">
+  <h5>GRAY</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-800 neeto-ui-text-white">
+      <code>--neeto-ui-gray-800</code>
+      <code>47, 57, 65</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-700 neeto-ui-text-white">
+      <code>--neeto-ui-gray-700</code>
+      <code>73, 84, 92</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-600 neeto-ui-text-white">
+      <code>--neeto-ui-gray-600</code>
+      <code>104, 115, 125</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-500 neeto-ui-text-white">
+      <code>--neeto-ui-gray-500</code>
+      <code>135, 146, 157</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-400">
+      <code>--neeto-ui-gray-400</code>
+      <code>194, 200, 204</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-200">
+      <code>--neeto-ui-gray-300</code>
+      <code>216, 220, 222</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-200">
+      <code>--neeto-ui-gray-200</code>
+      <code>233, 235, 237</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-gray-100">
+      <code>--neeto-ui-gray-100</code>
+      <code>248, 249, 249</code>
+    </div>
+  </div>
+  <h5>PRIMARY</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-800 neeto-ui-text-white">
+      <code>--neeto-ui-primary-800</code>
+      <code>47, 57, 65</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-700 neeto-ui-text-white">
+      <code>--neeto-ui-primary-700</code>
+      <code>73, 84, 92</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-600 neeto-ui-text-white">
+      <code>--neeto-ui-primary-600</code>
+      <code>104, 115, 125</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-500 neeto-ui-text-white">
+      <code>--neeto-ui-primary-500</code>
+      <code>135, 146, 157</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-400 neeto-ui-text-white">
+      <code>--neeto-ui-primary-400</code>
+      <code>194, 200, 204</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-200">
+      <code>--neeto-ui-primary-300</code>
+      <code>216, 220, 222</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-200">
+      <code>--neeto-ui-primary-200</code>
+      <code>233, 235, 237</code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-primary-100">
+      <code>--neeto-ui-primary-100</code>
+      <code>248, 249, 249</code>
+    </div>
+  </div>
+  <h5>SUCCESS</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-success-800 neeto-ui-text-white">
+      <code>--neeto-ui-success-800</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-success-500 neeto-ui-text-white">
+      <code>--neeto-ui-success-500</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-success-100">
+      <code>--neeto-ui-success-100</code>
+      <code></code>
+    </div>
+  </div>
+  <h5>ERROR</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-error-800 neeto-ui-text-white">
+      <code>--neeto-ui-error-800</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-error-500 neeto-ui-text-white">
+      <code>--neeto-ui-error-500</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-error-100">
+      <code>--neeto-ui-error-100</code>
+      <code></code>
+    </div>
+  </div>
+  <h5>WARNING</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-warning-800 neeto-ui-text-white">
+      <code>--neeto-ui-warning-800</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-warning-500 neeto-ui-text-white">
+      <code>--neeto-ui-warning-500</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-warning-100">
+      <code>--neeto-ui-warning-100</code>
+      <code></code>
+    </div>
+  </div>
+  <h5>INFO</h5>
+  <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-info-800 neeto-ui-text-white">
+      <code>--neeto-ui-info-800</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-info-500 neeto-ui-text-white">
+      <code>--neeto-ui-info-500</code>
+      <code></code>
+    </div>
+    <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-info-100">
+      <code>--neeto-ui-info-100</code>
+      <code></code>
+    </div>
+  </div>
+</div>

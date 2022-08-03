@@ -1,9 +1,9 @@
 .neeto-ui-react-select__container.neeto-ui-react-select__container--error {
   .neeto-ui-react-select__control {
-    border: thin solid rgb(var(--neeto-ui-error)) !important;
+    border: thin solid rgb(var(--neeto-ui-error-500)) !important;
   }
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
-    box-shadow: 0 0 0 3px rgb(var(--neeto-ui-pastel-red));
+    box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
   }
 }
 
@@ -49,7 +49,7 @@
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
     transition: var(--neeto-ui-transition);
     outline-color: transparent;
-    border-color: rgb(var(--neeto-ui-accent1-500));
+    border-color: rgb(var(--neeto-ui-primary-500));
     box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
   }
 

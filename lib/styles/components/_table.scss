@@ -68,7 +68,7 @@
   }
 
   .ant-table-tbody > tr.ant-table-row-selected > td {
-    background-color: rgb(var(--neeto-ui-pastel-blue));
+    background-color: rgb(var(--neeto-ui-info-100));
   }
 
   .neeto-ui-table--row {
@@ -78,14 +78,14 @@
     vertical-align: middle;
 
     a:not(.neeto-ui-btn) {
-      color: rgb(var(--neeto-ui-accent1-500));
+      color: rgb(var(--neeto-ui-primary-500));
 
       transition: var(--neeto-ui-transition);
       font-weight: var(--neeto-ui-font-medium);
 
       &:hover {
         opacity: 0.8;
-        color: rgb(var(--neeto-ui-accent1-500));
+        color: rgb(var(--neeto-ui-primary-500));
         text-decoration: underline;
       }
     }
@@ -129,8 +129,8 @@
     }
 
     li.ant-pagination-item.ant-pagination-item-active {
-      border-color: rgb(var(--neeto-ui-accent1-500));
-      background-color: rgb(var(--neeto-ui-accent1-500));
+      border-color: rgb(var(--neeto-ui-primary-500));
+      background-color: rgb(var(--neeto-ui-primary-500));
 
       a {
         color: rgb(var(--neeto-ui-white));
@@ -213,7 +213,7 @@
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: rgb(var(--neeto-ui-accent1-500));
+            border-color: rgb(var(--neeto-ui-primary-500));
             box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
           }
         }
@@ -221,7 +221,7 @@
 
       &.ant-select-focused {
         .ant-select-selector {
-          border-color: rgb(var(--neeto-ui-accent1-500));
+          border-color: rgb(var(--neeto-ui-primary-500));
           box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
           background-color: rgb(var(--neeto-ui-white));
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -230,7 +230,7 @@
           &:focus,
           &:focus-visible,
           &:active {
-            border-color: rgb(var(--neeto-ui-accent1-500));
+            border-color: rgb(var(--neeto-ui-primary-500));
           }
         }
       }
