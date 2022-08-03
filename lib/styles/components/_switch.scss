@@ -41,7 +41,7 @@
       }
 
       &.neeto-ui-switch__item--checked {
-        background-color: rgb(var(--neeto-ui-accent2-500));
+        background-color: rgb(var(--neeto-ui-success-500));
       }
 
       .neeto-ui-switch {
@@ -61,7 +61,7 @@
 
       input:checked + .neeto-ui-switch {
         transform: translateX(20px);
-        color: rgb(var(--neeto-ui-accent2-500));
+        color: rgb(var(--neeto-ui-success-500));
       }
 
       &:focus-within {
