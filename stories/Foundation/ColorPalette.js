@@ -15,11 +15,6 @@ const colorPalette = [
     compiledValue: "transparent",
   },
   {
-    name: "$neeto-ui-environment",
-    value: "240, 248, 255",
-    compiledValue: "240, 248, 255",
-  },
-  {
     name: "$neeto-ui-gray-800",
     value: "47, 57, 65",
     compiledValue: "47, 57, 65",
@@ -98,6 +93,11 @@ const colorPalette = [
     name: "$neeto-ui-primary-100",
     value: "204, 206, 254",
     compiledValue: "204, 206, 254",
+  },
+  {
+    name: "$neeto-ui-primary-50",
+    value: "235, 236, 255",
+    compiledValue: "235, 236, 255",
   },
   {
     name: "$neeto-ui-success-800",
