@@ -62,11 +62,11 @@
     }
 
     &.online {
-      background-color: rgb(var(--neeto-ui-success));
+      background-color: rgb(var(--neeto-ui-success-500));
     }
 
     &.idle {
-      background-color: rgb(var(--neeto-ui-warning));
+      background-color: rgb(var(--neeto-ui-warning-500));
     }
 
     &.offline {

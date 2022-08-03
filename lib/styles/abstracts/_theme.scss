@@ -1,13 +1,3 @@
-// primary
-$neeto-ui-primary-800: 45, 54, 212;
-$neeto-ui-primary-700: 54, 66, 223;
-$neeto-ui-primary-600: 64, 78, 236;
-$neeto-ui-primary-500: 69, 87, 248;
-$neeto-ui-primary-400: 99, 115, 252;
-$neeto-ui-primary-300: 130, 143, 253;
-$neeto-ui-primary-200: 168, 175, 254;
-$neeto-ui-primary-100: 204, 206, 254;
-
 .neeto-ui-theme--dark {
   background-color: #121212;
   color: #ffff;
@@ -26,33 +16,6 @@ $neeto-ui-primary-100: 204, 206, 254;
   --neeto-ui-gray-600: 208, 208, 208;
   --neeto-ui-gray-700: 226, 226, 226;
   --neeto-ui-gray-800: 238, 238, 238;
-
-  --neeto-ui-success: 0, 186, 136;
-  --neeto-ui-info: 39, 110, 241;
-  --neeto-ui-warning: 245, 124, 0;
-  --neeto-ui-error: 242, 45, 45;
-
-  --neeto-ui-pastel-blue: 234, 243, 252;
-  --neeto-ui-pastel-green: 235, 245, 236;
-  --neeto-ui-pastel-yellow: 255, 242, 215;
-  --neeto-ui-pastel-red: 255, 239, 237;
-  --neeto-ui-pastel-teal: 152, 243, 244;
-
-  --neeto-ui-accent1-300: 168, 175, 254;
-  --neeto-ui-accent1-500: 130, 143, 253;
-  --neeto-ui-accent1-700: 168, 175, 254;
-
-  --neeto-ui-accent2-300: 0, 149, 109;
-  --neeto-ui-accent2-500: 0, 186, 136;
-  --neeto-ui-accent2-700: 51, 200, 160;
-
-  --neeto-ui-accent3-300: 80, 168, 204;
-  --neeto-ui-accent3-500: 100, 210, 255;
-  --neeto-ui-accent3-700: 131, 219, 255;
-
-  --neeto-ui-accent4-300: 242, 45, 45;
-  --neeto-ui-accent4-500: 246, 69, 69;
-  --neeto-ui-accent4-700: 247, 85, 85;
 
   --neeto-ui-accent-light-300: 219, 240, 255;
   --neeto-ui-accent-light-500: 191, 227, 255;

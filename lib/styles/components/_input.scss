@@ -83,7 +83,7 @@
     }
 
     &:focus-within:not(.neeto-ui-input--naked, .neeto-ui-input--error) {
-      border-color: rgb(var(--neeto-ui-accent1-500));
+      border-color: rgb(var(--neeto-ui-primary-500));
       box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
 
       .neeto-ui-input__prefix,
@@ -93,10 +93,10 @@
     }
 
     &.neeto-ui-input--error {
-      border-color: rgb(var(--neeto-ui-error));
+      border-color: rgb(var(--neeto-ui-error-500));
 
       &:focus-within:not(.neeto-ui-input--naked) {
-        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-pastel-red));
+        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-red-100));
       }
 
       textarea {
@@ -201,5 +201,5 @@
   margin-top: 8px;
   line-height: 1.1;
   font-size: var(--neeto-ui-text-xs);
-  color: rgb(var(--neeto-ui-error));
+  color: rgb(var(--neeto-ui-error-500));
 }
