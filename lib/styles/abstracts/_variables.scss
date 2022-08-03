@@ -4,7 +4,6 @@
 $neeto-ui-white: 255, 255, 255;
 $neeto-ui-black: 27, 31, 35;
 $neeto-ui-transparent: transparent;
-$neeto-ui-environment: 240, 248, 255;
 
 // gray
 $neeto-ui-gray-800: 47, 57, 65;
@@ -25,6 +24,7 @@ $neeto-ui-primary-400: 99, 115, 252;
 $neeto-ui-primary-300: 130, 143, 253;
 $neeto-ui-primary-200: 168, 175, 254;
 $neeto-ui-primary-100: 204, 206, 254;
+$neeto-ui-primary-50: 235, 236, 255;
 
 // success
 $neeto-ui-success-800: 18, 128, 92;
@@ -52,7 +52,6 @@ $neeto-ui-theme-colors: (
   "black": $neeto-ui-black,
   "white": $neeto-ui-white,
   "transparent": $neeto-ui-transparent,
-  "environment": $neeto-ui-environment,
   // content
   "gray-800": $neeto-ui-gray-800,
   "gray-700": $neeto-ui-gray-700,
@@ -71,6 +70,7 @@ $neeto-ui-theme-colors: (
   "primary-300": $neeto-ui-primary-300,
   "primary-200": $neeto-ui-primary-200,
   "primary-100": $neeto-ui-primary-100,
+  "primary-50": $neeto-ui-primary-50,
   // states - error
   "error-800": $neeto-ui-error-800,
   "error-500": $neeto-ui-error-500,
