@@ -184,7 +184,7 @@
     &:hover:not(:disabled),
     &:active {
       color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-error-700));
+      background-color: rgb(var(--neeto-ui-error-800));
     }
 
     &:focus {
@@ -199,21 +199,21 @@
   }
 
   &-danger-text {
-    color: rgb(var(--neeto-ui-error-700));
+    color: rgb(var(--neeto-ui-error-800));
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-error-700));
+      color: rgb(var(--neeto-ui-error-800));
       background-color: rgb(var(--neeto-ui-red-100));
     }
 
     &:focus {
-      color: rgb(var(--neeto-ui-error-700));
+      color: rgb(var(--neeto-ui-error-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-error-700));
+      color: rgb(var(--neeto-ui-error-800));
       box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
     }
   }
