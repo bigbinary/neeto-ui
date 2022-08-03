@@ -16,31 +16,31 @@
   }
 
   &.neeto-ui-callout--info {
-    background-color: rgb(var(--neeto-ui-pastel-blue));
-    border: 1px solid rgb(var(--neeto-ui-info));
+    background-color: rgb(var(--neeto-ui-info-100));
+    border: 1px solid rgb(var(--neeto-ui-info-500));
     .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-info));
+      color: rgb(var(--neeto-ui-info-500));
     }
   }
   &.neeto-ui-callout--warning {
-    background-color: rgb(var(--neeto-ui-pastel-yellow));
-    border: 1px solid rgb(var(--neeto-ui-warning));
+    background-color: rgb(var(--neeto-ui-warning-100));
+    border: 1px solid rgb(var(--neeto-ui-warning-500));
     .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-warning));
+      color: rgb(var(--neeto-ui-warning-500));
     } 
   }
   &.neeto-ui-callout--danger {
-    background-color: rgb(var(--neeto-ui-pastel-red));
-    border: 1px solid rgb(var(--neeto-ui-error));
+    background-color: rgb(var(--neeto-ui-red-100));
+    border: 1px solid rgb(var(--neeto-ui-error-500));
     .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-error));
+      color: rgb(var(--neeto-ui-error-500));
     }
   }
   &.neeto-ui-callout--success {
-    background-color: rgb(var(--neeto-ui-pastel-green));
-    border: 1px solid rgb(var(--neeto-ui-success));
+    background-color: rgb(var(--neeto-ui-success-100));
+    border: 1px solid rgb(var(--neeto-ui-success-500));
     .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-success));
+      color: rgb(var(--neeto-ui-success-500));
     } 
   }
 }

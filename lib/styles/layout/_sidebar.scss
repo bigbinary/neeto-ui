@@ -108,7 +108,7 @@
 
     &.active {
       background-color: rgb(var(--neeto-ui-environment));
-      color: rgb(var(--neeto-ui-accent1-700));
+      color: rgb(var(--neeto-ui-primary-700));
       text-decoration: none;
     }
     &--button {
@@ -317,7 +317,7 @@
   }
 
   &--style-danger {
-    color: rgb(var(--neeto-ui-accent4-700));
+    color: rgb(var(--neeto-ui-error-700));
   }
 
   &-icon{
