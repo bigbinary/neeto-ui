@@ -204,7 +204,7 @@
     &:hover:not(:disabled),
     &:active {
       color: rgb(var(--neeto-ui-error-800));
-      background-color: rgb(var(--neeto-ui-red-100));
+      background-color: rgb(var(--neeto-ui-error-100));
     }
 
     &:focus {
