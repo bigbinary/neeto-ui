@@ -64,7 +64,7 @@
     background-color: rgb(var(--neeto-ui-white));
 
     &.neeto-ui-tag--color-red {
-      background-color: rgb(var(--neeto-ui-red-100));
+      background-color: rgb(var(--neeto-ui-error-100));
       border-color: rgb(var(--neeto-ui-error-500));
       color: rgb(var(--neeto-ui-error-500));
     }
@@ -97,8 +97,8 @@
     background-color: rgb(var(--neeto-ui-info-100));
 
     &.neeto-ui-tag--color-red {
-      background-color: rgb(var(--neeto-ui-red-100));
-      border-color: rgb(var(--neeto-ui-red-100));
+      background-color: rgb(var(--neeto-ui-error-100));
+      border-color: rgb(var(--neeto-ui-error-100));
     }
 
     &.neeto-ui-tag--color-blue {
