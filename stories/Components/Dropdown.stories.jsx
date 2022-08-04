@@ -4,6 +4,7 @@ import { Settings } from "@bigbinary/neeto-icons";
 import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
 import { icons } from "../constants";
+import MenuItem from "lib/components/Dropdown/MenuItem";
 
 export default {
   title: "Components/Dropdown",
@@ -46,10 +47,10 @@ export const DropdownStory = (args) => {
       <Dropdown label="Dropdown" {...args}>
         <Menu>
           {listItems.map((item, idx) => (
-            <MenuItem key={idx}>{item}</MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem style="danger">Delete</MenuItem>
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
         </Menu>
       </Dropdown>
     </div>
@@ -64,7 +65,7 @@ DropdownStory.args = {
 
 export const PrimaryDropdown = () => {
   const [dropdownOne, setDropdownOne] = useState(false);
-
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
       <Dropdown
@@ -82,19 +83,20 @@ export const PrimaryDropdown = () => {
         }}
         closeOnSelect={false}
       >
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
 
 export const SecondaryDropdown = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
       <Dropdown
@@ -102,35 +104,37 @@ export const SecondaryDropdown = () => {
         buttonStyle="secondary"
         position="bottom-end"
       >
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
 
 export const TextDropdown = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
       <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
 
 export const CustomIcon = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
       <Dropdown
@@ -138,13 +142,13 @@ export const CustomIcon = () => {
         icon={Settings}
         position="bottom-end"
       >
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
@@ -182,25 +186,25 @@ export const MultiDropdownWithHoverTrigger = () => {
   return (
     <div className="flex items-start h-80">
       <Dropdown position="bottom" label="Dropdown" isMultiLevel>
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
+          <Divider />
           <Dropdown
             position="right-start"
             trigger="hover"
             customTarget={<li>Another Dropdown</li>}
           >
-            <Dropdown.Menu>
+            <Menu>
               {listItems.map((item, idx) => (
-                <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+                <MenuItem.Button key={idx}>{item}</MenuItem.Button>
               ))}
-              <Dropdown.Divider />
-              <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-            </Dropdown.Menu>
+              <Divider />
+              <MenuItem.Button style="danger">Delete</MenuItem.Button>
+            </Menu>
           </Dropdown>
-        </Dropdown.Menu>
+        </Menu>
       </Dropdown>
     </div>
   );
@@ -227,13 +231,13 @@ export const ControlledDropdown = () => {
         onClose={() => setIsOpen(false)}
         label="Controlled Dropdown"
       >
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
-          <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-        </Dropdown.Menu>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
