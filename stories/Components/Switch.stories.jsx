@@ -58,6 +58,6 @@ WithLabel.args = {
 
 export const WithCustomLabel = Template.bind({});
 WithCustomLabel.args = {
-  label: <span className="neeto-ui-text-info">Custom Label Example</span>,
+  label: <span className="neeto-ui-text-info-500">Custom Label Example</span>,
   checked: false,
 };
