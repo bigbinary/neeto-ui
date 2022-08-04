@@ -34,8 +34,8 @@ export const Default = () => {
       />
       <Alert
         isOpen={open}
-        title="You have unsaved changes!"
-        message="Are you sure you want to continue? All of your unsaved changes will be lost."
+        title="Leave page with unsaved changes?"
+        message="Leaving this page will delete all unsaved changes."
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
       />
@@ -63,24 +63,24 @@ export const AlertSizing = () => {
           <Alert
             size="xs"
             isOpen={showAlertExtraSmall}
-            title="You have unsaved changes!"
-            message="Are you sure you want to continue? All of your unsaved changes will be lost."
+            title="Leave page with unsaved changes?"
+            message="Leaving this page will delete all unsaved changes."
             onClose={() => setShowAlertExtraSmall(false)}
             onSubmit={() => setShowAlertExtraSmall(false)}
           />
           <Alert
             size="sm"
             isOpen={showAlertSmall}
-            title="You have unsaved changes!"
-            message="Are you sure you want to continue? All of your unsaved changes will be lost."
+            title="Leave page with unsaved changes?"
+            message="Leaving this page will delete all unsaved changes."
             onClose={() => setShowAlertSmall(false)}
             onSubmit={() => setShowAlertSmall(false)}
           />
           <Alert
             size="md"
             isOpen={showAlertMedium}
-            title="You have unsaved changes!"
-            message="Are you sure you want to continue? All of your unsaved changes will be lost."
+            title="Leave page with unsaved changes?"
+            message="Leaving this page will delete all unsaved changes."
             onClose={() => setShowAlertMedium(false)}
             onSubmit={() => setShowAlertMedium(false)}
           />
