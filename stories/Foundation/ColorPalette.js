@@ -60,47 +60,27 @@ const colorPalette = [
     compiledValue: "45, 54, 212",
   },
   {
-    name: "$neeto-ui-primary-700",
+    name: "$neeto-ui-primary-600",
     value: "54, 66, 223",
     compiledValue: "54, 66, 223",
   },
   {
-    name: "$neeto-ui-primary-600",
-    value: "64, 78, 236",
-    compiledValue: "64, 78, 236",
-  },
-  {
     name: "$neeto-ui-primary-500",
-    value: "69, 87, 248",
-    compiledValue: "69, 87, 248",
-  },
-  {
-    name: "$neeto-ui-primary-400",
-    value: "99, 115, 252",
-    compiledValue: "99, 115, 252",
-  },
-  {
-    name: "$neeto-ui-primary-300",
-    value: "130, 143, 253",
-    compiledValue: "130, 143, 253",
-  },
-  {
-    name: "$neeto-ui-primary-200",
-    value: "168, 175, 254",
-    compiledValue: "168, 175, 254",
+    value: "69, 88, 249",
+    compiledValue: "69, 88, 249",
   },
   {
     name: "$neeto-ui-primary-100",
-    value: "204, 206, 254",
-    compiledValue: "204, 206, 254",
-  },
-  {
-    name: "$neeto-ui-primary-50",
-    value: "235, 236, 255",
-    compiledValue: "235, 236, 255",
+    value: "235, 236, 254",
+    compiledValue: "235, 236, 254",
   },
   {
     name: "$neeto-ui-success-800",
+    value: "16, 113, 84",
+    compiledValue: "16, 113, 84",
+  },
+  {
+    name: "$neeto-ui-success-600",
     value: "18, 128, 92",
     compiledValue: "18, 128, 92",
   },
@@ -116,6 +96,11 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-error-800",
+    value: "187, 18, 26",
+    compiledValue: "187, 18, 26",
+  },
+  {
+    name: "$neeto-ui-error-600",
     value: "201, 37, 45",
     compiledValue: "201, 37, 45",
   },
@@ -131,6 +116,11 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-info-800",
+    value: "9, 90, 186",
+    compiledValue: "9, 90, 186",
+  },
+  {
+    name: "$neeto-ui-info-600",
     value: "13, 102, 208",
     compiledValue: "13, 102, 208",
   },
@@ -146,6 +136,11 @@ const colorPalette = [
   },
   {
     name: "$neeto-ui-warning-800",
+    value: "189, 100, 13",
+    compiledValue: "189, 100, 13",
+  },
+  {
+    name: "$neeto-ui-warning-600",
     value: "203, 111, 16",
     compiledValue: "203, 111, 16",
   },
