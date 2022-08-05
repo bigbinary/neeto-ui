@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.15 - 2022-08-05
+
+- Fixed: Fixed false positive ts errors which were thrown since some of the fields were not marked optional.
+
 ## 3.5.14 - 2022-08-01
 
 - Added: neetoTestify and neetoSite to AppSwitcher
