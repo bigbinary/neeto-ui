@@ -17,32 +17,31 @@ $neeto-ui-gray-100: 248, 249, 249;
 
 // primary
 $neeto-ui-primary-800: 45, 54, 212;
-$neeto-ui-primary-700: 54, 66, 223;
-$neeto-ui-primary-600: 64, 78, 236;
-$neeto-ui-primary-500: 69, 87, 248;
-$neeto-ui-primary-400: 99, 115, 252;
-$neeto-ui-primary-300: 130, 143, 253;
-$neeto-ui-primary-200: 168, 175, 254;
-$neeto-ui-primary-100: 204, 206, 254;
-$neeto-ui-primary-50: 235, 236, 255;
+$neeto-ui-primary-600: 54, 66, 223;
+$neeto-ui-primary-500: 69, 88, 249;
+$neeto-ui-primary-100: 235, 236, 254;
 
 // success
-$neeto-ui-success-800: 18, 128, 92;
+$neeto-ui-success-800: 16, 113, 84;
+$neeto-ui-success-600: 18, 128, 92;
 $neeto-ui-success-500: 38, 142, 108;
 $neeto-ui-success-100: 225, 243, 238;
 
 // error
-$neeto-ui-error-800: 201, 37, 45;
+$neeto-ui-error-800: 187, 18, 26;
+$neeto-ui-error-600: 201, 37, 45;
 $neeto-ui-error-500: 215, 55, 63;
 $neeto-ui-error-100: 254, 236, 240;
 
 // info
-$neeto-ui-info-800: 13, 102, 208;
+$neeto-ui-info-800: 9, 90, 186;
+$neeto-ui-info-600: 13, 102, 208;
 $neeto-ui-info-500: 20, 115, 230;
 $neeto-ui-info-100: 226, 242, 255;
 
 // warning
-$neeto-ui-warning-800: 203, 111, 16;
+$neeto-ui-warning-800: 189, 100, 13;
+$neeto-ui-warning-600: 203, 111, 16;
 $neeto-ui-warning-500: 218, 123, 17;
 $neeto-ui-warning-100: 251, 242, 225;
 
@@ -63,30 +62,29 @@ $neeto-ui-theme-colors: (
   "gray-100": $neeto-ui-gray-100,
   // primary
   "primary-800": $neeto-ui-primary-800,
-  "primary-700": $neeto-ui-primary-700,
   "primary-600": $neeto-ui-primary-600,
   "primary-500": $neeto-ui-primary-500,
-  "primary-400": $neeto-ui-primary-400,
-  "primary-300": $neeto-ui-primary-300,
-  "primary-200": $neeto-ui-primary-200,
   "primary-100": $neeto-ui-primary-100,
-  "primary-50": $neeto-ui-primary-50,
-  // states - error
+  // error
   "error-800": $neeto-ui-error-800,
+  "error-600": $neeto-ui-error-600,
   "error-500": $neeto-ui-error-500,
   "error-100": $neeto-ui-error-100,
-  // states - success
+  // success
   "success-800": $neeto-ui-success-800,
+  "success-600": $neeto-ui-success-600,
   "success-500": $neeto-ui-success-500,
   "success-100": $neeto-ui-success-100,
-  // states - warning
+  // warning
   "warning-800": $neeto-ui-warning-800,
+  "warning-600": $neeto-ui-warning-600,
   "warning-500": $neeto-ui-warning-500,
   "warning-100": $neeto-ui-warning-100,
-  // states - info
+  // info
   "info-800": $neeto-ui-info-800,
+  "info-600": $neeto-ui-info-600,
   "info-500": $neeto-ui-info-500,
-  "info-100": $neeto-ui-info-100,
+  "info-100": $neeto-ui-info-100
 );
 
 // Font Weights

@@ -214,7 +214,7 @@
           &:focus-visible,
           &:active {
             border-color: rgb(var(--neeto-ui-primary-500));
-            box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+            box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
           }
         }
       }
@@ -222,7 +222,7 @@
       &.ant-select-focused {
         .ant-select-selector {
           border-color: rgb(var(--neeto-ui-primary-500));
-          box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+          box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
           background-color: rgb(var(--neeto-ui-white));
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           outline: none;

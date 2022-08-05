@@ -100,17 +100,17 @@
     &:hover:not(:disabled),
     &:active {
       color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-primary-700));
+      background-color: rgb(var(--neeto-ui-primary-600));
     }
 
     &:focus {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
     }
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
     }
   }
 
@@ -126,12 +126,12 @@
 
     &:focus {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
     }
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-secondary-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
     }
   }
 
@@ -146,12 +146,12 @@
 
     &:focus {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
     }
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-text-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
     }
   }
 
@@ -184,17 +184,17 @@
     &:hover:not(:disabled),
     &:active {
       color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-error-800));
+      background-color: rgb(var(--neeto-ui-error-600));
     }
 
     &:focus {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
     }
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px var(--neeto-ui-danger-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
     }
   }
 
@@ -209,12 +209,12 @@
 
     &:focus {
       color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
     }
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px var(--neeto-ui-danger-text-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
     }
   }
 }
