@@ -279,7 +279,7 @@ export type PageLoaderProps = { text?: string } & React.DetailedHTMLProps<
 export interface PaginationProps {
   pageSize: number;
   count: number;
-  navigate: (toPage: number) => void;
+  navigate?: (toPage: number) => void;
   pageNo?: number;
   siblingCount?: number;
   className?: string;
@@ -492,8 +492,8 @@ export const Tab: React.FC<TabProps> & {
 
 type ToastrFunction = (
   message: React.ReactNode,
-  buttonLabel: React.ReactNode,
-  onClick: () => void
+  buttonLabel?: React.ReactNode,
+  onClick?: () => void
 ) => void;
 
 export const Toastr: {
