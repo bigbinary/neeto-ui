@@ -289,7 +289,7 @@
 
         &:not([disabled]):hover {
           color: rgb(var(--neeto-ui-white));
-          background-color: rgb(var(--neeto-ui-primary-700));
+          background-color: rgb(var(--neeto-ui-primary-600));
         }
         &[disabled] {
           cursor: not-allowed;
@@ -310,7 +310,7 @@
 
 .ant-picker-focused {
   border-color: rgb(var(--neeto-ui-primary-500)) !important;
-  box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color) !important;
+  box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%) !important;
 }
 
 .neeto-ui-date-input--error {

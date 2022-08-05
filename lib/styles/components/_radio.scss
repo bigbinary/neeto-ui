@@ -68,7 +68,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 3px var(--neeto-ui-primary-focus-ring-color);
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
       border-color: rgb(var(--neeto-ui-primary-500));
     }
   }
