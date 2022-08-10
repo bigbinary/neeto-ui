@@ -5,21 +5,23 @@ import userEvent from "@testing-library/user-event";
 import { ToastContainer } from "react-toastify";
 import { act } from "react-dom/test-utils";
 
+const renderToastrButton = (
+  type,
+  onClick = () => Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
+) => {
+  render(
+    <>
+      <ToastContainer />
+      <Button label={`${type} Toastr`} onClick={onClick} />
+    </>
+  );
+  return screen.getByText(`${type} Toastr`);
+};
+
 describe("Toastr", () => {
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
     it(`should render ${type} Toastr without error`, async () => {
-      render(
-        <>
-          <ToastContainer />
-          <Button
-            label={`${type} Toastr`}
-            onClick={() =>
-              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
-            }
-          />
-        </>
-      );
-      const button = screen.getByText(`${type} Toastr`);
+      const button = renderToastrButton(type);
       userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
@@ -28,18 +30,7 @@ describe("Toastr", () => {
 
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
     it(`should render ${type} Toastr without error`, async () => {
-      render(
-        <>
-          <ToastContainer />
-          <Button
-            label={`${type} Toastr`}
-            onClick={() =>
-              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
-            }
-          />
-        </>
-      );
-      const button = screen.getByText(`${type} Toastr`);
+      const button = renderToastrButton(type);
       userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
@@ -48,20 +39,12 @@ describe("Toastr", () => {
 
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
     it(`should show new ${type} Toastr if button text varies`, async () => {
-      render(
-        <>
-          <ToastContainer />
-          <Button
-            label={`${type} Toastr`}
-            onClick={() =>
-              Toastr[type.toLowerCase()](
-                `This is a ${type} toastr.`,
-                Date.now(),
-                () => {}
-              )
-            }
-          />
-        </>
+      renderToastrButton(type, () =>
+        Toastr[type.toLowerCase()](
+          `This is a ${type} toastr.`,
+          Date.now(),
+          () => {}
+        )
       );
       const button = screen.getByText(`${type} Toastr`);
 
@@ -79,18 +62,7 @@ describe("Toastr", () => {
 
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
     it(`should not render duplicate ${type} Toastrs`, async () => {
-      render(
-        <>
-          <ToastContainer />
-          <Button
-            label={`${type} Toastr`}
-            onClick={() =>
-              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
-            }
-          />
-        </>
-      );
-      const button = screen.getByText(`${type} Toastr`);
+      const button = renderToastrButton(type);
 
       userEvent.click(button);
       let toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
