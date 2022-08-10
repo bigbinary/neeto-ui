@@ -4,7 +4,6 @@ import { Settings } from "@bigbinary/neeto-icons";
 import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
 import { icons } from "../constants";
-import MenuItem from "lib/components/Dropdown/MenuItem";
 
 export default {
   title: "Components/Dropdown",
@@ -155,34 +154,42 @@ export const CustomIcon = () => {
 };
 
 export const MultiDropdownWithClickTrigger = () => {
+  const {
+    Menu, MenuItem, Divider
+  } = Dropdown;
+
   return (
     <div className="flex items-start h-80">
       <Dropdown label="Dropdown" isMultiLevel>
-        <Dropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <Dropdown.Divider />
+          <Divider />
           <Dropdown
             position="right-start"
             customTarget={<li>Another Dropdown</li>}
             onClick={(e) => e.stopPropagation()}
           >
-            <Dropdown.Menu>
+            <Menu>
               {listItems.map((item, idx) => (
-                <Dropdown.MenuItem key={idx}>{item}</Dropdown.MenuItem>
+                <MenuItem.Button key={idx}>{item}</MenuItem.Button>
               ))}
-              <Dropdown.Divider />
-              <Dropdown.MenuItem style="danger">Delete</Dropdown.MenuItem>
-            </Dropdown.Menu>
+              <Divider />
+              <MenuItem.Button style="danger">Delete</MenuItem.Button>
+            </Menu>
           </Dropdown>
-        </Dropdown.Menu>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
 
 export const MultiDropdownWithHoverTrigger = () => {
+  const {
+    Menu, MenuItem, Divider
+  } = Dropdown;
+
   return (
     <div className="flex items-start h-80">
       <Dropdown position="bottom" label="Dropdown" isMultiLevel>
@@ -212,6 +219,9 @@ export const MultiDropdownWithHoverTrigger = () => {
 
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {
+    Menu, MenuItem, Divider
+  } = Dropdown;
   return (
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
