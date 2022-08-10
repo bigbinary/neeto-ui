@@ -10,11 +10,6 @@ const colorPalette = [
     compiledValue: "27, 31, 35",
   },
   {
-    name: "$neeto-ui-transparent",
-    value: "transparent",
-    compiledValue: "transparent",
-  },
-  {
     name: "$neeto-ui-gray-800",
     value: "47, 57, 65",
     compiledValue: "47, 57, 65",
