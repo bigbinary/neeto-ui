@@ -26,25 +26,23 @@ describe("Toastr", () => {
     });
   });
 
-  describe("Toastr", () => {
-    ["Success", "Info", "Warning", "Error"].forEach((type) => {
-      it(`should render ${type} Toastr without error`, async () => {
-        render(
-          <>
-            <ToastContainer />
-            <Button
-              label={`${type} Toastr`}
-              onClick={() =>
-                Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
-              }
-            />
-          </>
-        );
-        const button = screen.getByText(`${type} Toastr`);
-        userEvent.click(button);
-        const toastr = await screen.findByText(`This is a ${type} toastr.`);
-        expect(toastr).toBeInTheDocument();
-      });
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr without error`, async () => {
+      render(
+        <>
+          <ToastContainer />
+          <Button
+            label={`${type} Toastr`}
+            onClick={() =>
+              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
+            }
+          />
+        </>
+      );
+      const button = screen.getByText(`${type} Toastr`);
+      userEvent.click(button);
+      const toastr = await screen.findByText(`This is a ${type} toastr.`);
+      expect(toastr).toBeInTheDocument();
     });
   });
 
