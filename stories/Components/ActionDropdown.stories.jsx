@@ -30,18 +30,23 @@ export default {
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
 const Template = (args) => {
+
+  const {
+    Menu, MenuItem, Divider
+  } = ActionDropdown;
+
   return (
     <div className="h-40">
       <ActionDropdown {...args}>
-        <ActionDropdown.Menu>
+        <Menu>
           {listItems.map((item, idx) => (
-            <ActionDropdown.MenuItem key={idx}>{item}</ActionDropdown.MenuItem>
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
-          <ActionDropdown.Divider />
-          <ActionDropdown.MenuItem style="danger">
+          <Divider />
+          <MenuItem.Button style="danger">
             Delete
-          </ActionDropdown.MenuItem>
-        </ActionDropdown.Menu>
+          </MenuItem.Button>
+        </Menu>
       </ActionDropdown>
     </div>
   );
