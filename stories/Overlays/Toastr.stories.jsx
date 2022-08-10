@@ -1,4 +1,5 @@
 import React from "react";
+import { useCallback } from "react";
 import { ToastContainer } from "react-toastify";
 
 import Button from "../../lib/components/Button";
@@ -19,6 +20,7 @@ export default {
 };
 
 export const Toastrs = () => {
+  const showAlert = useCallback(() => alert("Customer blocked successfully!"));
   return (
     <>
       <ToastContainer />
@@ -42,7 +44,7 @@ export const Toastrs = () => {
               Toastr.error(
                 Error("Ticket marked as spam."),
                 "Block Customer",
-                () => alert("Customer blocked successfully!")
+                showAlert
               )
             }
           />
