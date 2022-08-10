@@ -64,6 +64,7 @@ body {
       .neeto-ui-toastr__close-button {
         opacity: 0.8;
         margin: auto 0 auto 8px;
+        flex-shrink: 0;
 
         // transition: var(--neeto-ui-transition);
         transition: all 0.3s ease-in-out;
