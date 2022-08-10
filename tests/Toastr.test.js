@@ -3,60 +3,113 @@ import { Toastr, Button } from "../lib/components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ToastContainer } from "react-toastify";
+import { act } from "react-dom/test-utils";
 
 describe("Toastr", () => {
-  it("should render Info Toastr without error", async () => {
-    render(
-      <>
-        <ToastContainer/>
-        <Button
-          label="Info Toastr"
-          onClick={() => Toastr.info("This is an info toastr.")}
-        />
-      </>
-    );
-    const button = screen.getByText("Info Toastr");
-    userEvent.click(button);
-    const infoToastr = await screen.findByText("This is an info toastr.");
-    expect(infoToastr).toBeInTheDocument();
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr without error`, async () => {
+      render(
+        <>
+          <ToastContainer />
+          <Button
+            label={`${type} Toastr`}
+            onClick={() =>
+              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
+            }
+          />
+        </>
+      );
+      const button = screen.getByText(`${type} Toastr`);
+      userEvent.click(button);
+      const toastr = await screen.findByText(`This is a ${type} toastr.`);
+      expect(toastr).toBeInTheDocument();
+    });
   });
 
-  it("should render Warning Toastr without error", async () => {
-    render(
-      <>
-        <ToastContainer/>
-        <Button
-          label="Warning Toastr"
-          onClick={() => Toastr.warning("This is a warning toastr.")}
-        />
-      </>
-    );
-    const button = screen.getByText("Warning Toastr");
-    userEvent.click(button);
-    const warningToastr = await screen.findByText("This is a warning toastr.");
-    expect(warningToastr).toBeInTheDocument();
+  describe("Toastr", () => {
+    ["Success", "Info", "Warning", "Error"].forEach((type) => {
+      it(`should render ${type} Toastr without error`, async () => {
+        render(
+          <>
+            <ToastContainer />
+            <Button
+              label={`${type} Toastr`}
+              onClick={() =>
+                Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
+              }
+            />
+          </>
+        );
+        const button = screen.getByText(`${type} Toastr`);
+        userEvent.click(button);
+        const toastr = await screen.findByText(`This is a ${type} toastr.`);
+        expect(toastr).toBeInTheDocument();
+      });
+    });
   });
 
-  it("should render Success Toastr without error", async () => {
-    render(
-      <>
-        <ToastContainer/>
-        <Button
-          label="Success Toastr"
-          onClick={() => Toastr.success("This is a success toastr.")}
-        />
-      </>
-    );
-    const button = screen.getByText("Success Toastr");
-    userEvent.click(button);
-    const successToastr = await screen.findByText("This is a success toastr.");
-    expect(successToastr).toBeInTheDocument();
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should show new ${type} Toastr if button text varies`, async () => {
+      render(
+        <>
+          <ToastContainer />
+          <Button
+            label={`${type} Toastr`}
+            onClick={() =>
+              Toastr[type.toLowerCase()](
+                `This is a ${type} toastr.`,
+                Date.now(),
+                () => {}
+              )
+            }
+          />
+        </>
+      );
+      const button = screen.getByText(`${type} Toastr`);
+
+      userEvent.click(button);
+      let toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
+      expect(toastrs.length).toBe(1);
+
+      userEvent.click(button);
+      // wait for some time for new toastr to show up
+      await act(() => new Promise((resolve) => setTimeout(resolve, 100)));
+      toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
+      expect(toastrs.length).toBe(2);
+    });
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should not render duplicate ${type} Toastrs`, async () => {
+      render(
+        <>
+          <ToastContainer />
+          <Button
+            label={`${type} Toastr`}
+            onClick={() =>
+              Toastr[type.toLowerCase()](`This is a ${type} toastr.`)
+            }
+          />
+        </>
+      );
+      const button = screen.getByText(`${type} Toastr`);
+
+      userEvent.click(button);
+      let toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
+      expect(toastrs.length).toBe(1);
+
+      userEvent.click(button);
+      // wait for some time for new toastr to show up (but won't be shown)
+      await act(() => new Promise((resolve) => setTimeout(resolve, 100)));
+      toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
+      expect(toastrs.length).toBe(1);
+    });
   });
 
   it("should render Toastr with CTA without error", async () => {
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button
           label="Toastr with CTA"
           onClick={() =>
@@ -73,34 +126,16 @@ describe("Toastr", () => {
     userEvent.click(button);
     const toastr = await screen.findByText("Ticket marked as spam.");
     expect(toastr).toBeInTheDocument();
-    const alertMock = jest.spyOn(window,'alert').mockImplementation();
+    const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const callToAction = screen.getByText("Block Customer");
     userEvent.click(callToAction);
     expect(alertMock).toHaveBeenCalledTimes(1);
   });
 
-  it("should render Error Toastr without error", async () => {
-    render(
-      <>
-        <ToastContainer/>
-        <Button
-          label="Error Toastr"
-          onClick={() =>
-            Toastr.error(Error("Some error occured!"))
-          }
-        />
-      </>
-    );
-    const button = screen.getByText("Error Toastr");
-    userEvent.click(button);
-    const errorToastr = await screen.findByText("Some error occured!");
-    expect(errorToastr).toBeInTheDocument();
-  });
-
   it("should render a clickable message when the toastr has a link", async () => {
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button
           label="Info Toastr"
           onClick={() => Toastr.info("https://github.com/bigbinary/neeto-ui")}
@@ -110,24 +145,27 @@ describe("Toastr", () => {
     const button = screen.getByText("Info Toastr");
     userEvent.click(button);
     const link = await screen.findByRole("link");
-    expect(link).toHaveAttribute("href", "https://github.com/bigbinary/neeto-ui");
-  })
+    expect(link).toHaveAttribute(
+      "href",
+      "https://github.com/bigbinary/neeto-ui"
+    );
+  });
 
   it("should render plain text error toastr", async () => {
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button
           label="String Error"
-          onClick={() =>
-            Toastr.error("This is a plain text error toastr!")
-          }
+          onClick={() => Toastr.error("This is a plain text error toastr!")}
         />
       </>
     );
     const button = screen.getByText("String Error");
     userEvent.click(button);
-    const errorToastr = await screen.findByText("This is a plain text error toastr!");
+    const errorToastr = await screen.findByText(
+      "This is a plain text error toastr!"
+    );
     expect(errorToastr).toBeInTheDocument();
   });
 
@@ -154,7 +192,7 @@ describe("Toastr", () => {
     };
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button label="Throw an axios error" onClick={onAxiosStringError} />
       </>
     );
@@ -173,7 +211,7 @@ describe("Toastr", () => {
           config: {
             url: "https://api.github.com/users/org",
           },
-          message: "Network Error"
+          message: "Network Error",
         };
         throw axiosError;
       } catch (e) {
@@ -182,14 +220,16 @@ describe("Toastr", () => {
     };
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button
           label="Throw an axios error with undefined response"
           onClick={onAxiosArrayError}
         />
       </>
     );
-    const button = screen.getByText("Throw an axios error with undefined response");
+    const button = screen.getByText(
+      "Throw an axios error with undefined response"
+    );
     userEvent.click(button);
     const axiosError = await screen.findByText("Network Error");
     expect(axiosError).toBeInTheDocument();
@@ -217,14 +257,16 @@ describe("Toastr", () => {
     };
     render(
       <>
-        <ToastContainer/>
+        <ToastContainer />
         <Button
           label="Throw an axios error with array of error messages"
           onClick={onAxiosArrayError}
         />
       </>
     );
-    const button = screen.getByText("Throw an axios error with array of error messages");
+    const button = screen.getByText(
+      "Throw an axios error with array of error messages"
+    );
     userEvent.click(button);
     const axiosError = await screen.findByText("A is required B is required");
     expect(axiosError).toBeInTheDocument();
@@ -233,11 +275,8 @@ describe("Toastr", () => {
   it("should render Error Toastr with 'Something went wrong.' when there is no message passed explicitly", async () => {
     render(
       <>
-        <ToastContainer/>
-        <Button
-          label="Error Toastr"
-          onClick={() => Toastr.error()}
-        />
+        <ToastContainer />
+        <Button label="Error Toastr" onClick={() => Toastr.error()} />
       </>
     );
     const button = screen.getByText("Error Toastr");
