@@ -4,6 +4,11 @@
   width: 100%;
   border-collapse: collapse;
 
+  .ant-table-cell-fix-left,
+  .ant-table-cell-fix-right {
+    background-color: rgb(var(--neeto-ui-white));
+  }
+
   .ant-table-tbody > tr > td,
   .ant-table-thead > tr > th {
     border-bottom: 0;
