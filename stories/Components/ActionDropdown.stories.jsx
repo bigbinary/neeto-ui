@@ -1,4 +1,5 @@
 import React from "react";
+import { Settings, Delete } from "@bigbinary/neeto-icons";
 
 import ActionDropdown from "../../lib/components/ActionDropdown";
 
@@ -8,6 +9,7 @@ export default {
   subcomponents: {
     "ActionDropdown.Menu": ActionDropdown.Menu,
     "ActionDropdown.MenuItem": ActionDropdown.MenuItem,
+    "ActionDropdown.MenuItem.Button": ActionDropdown.MenuItem.Button,
     "ActionDropdown.Divider": ActionDropdown.Divider,
   },
   parameters: {
@@ -40,10 +42,10 @@ const Template = (args) => {
       <ActionDropdown {...args}>
         <Menu>
           {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>{item}</MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger">
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
             Delete
           </MenuItem.Button>
         </Menu>
