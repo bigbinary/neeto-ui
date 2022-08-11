@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Settings } from "@bigbinary/neeto-icons";
+import { Settings, Delete } from "@bigbinary/neeto-icons";
 
 import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
@@ -11,6 +11,7 @@ export default {
   subcomponents: {
     "Dropdown.Menu": Dropdown.Menu,
     "Dropdown.MenuItem": Dropdown.MenuItem,
+    "Dropdown.MenuItem.Button": Dropdown.MenuItem.Button,
     "Dropdown.Divider": Dropdown.Divider,
   },
   parameters: {
@@ -126,6 +127,23 @@ export const TextDropdown = () => {
           ))}
           <Divider />
           <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
+    </div>
+  );
+};
+
+export const WithPrefixAndSuffix = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
+  return (
+    <div className="h-40">
+      <Dropdown label="Text Dropdown" buttonStyle="primary" position="bottom-end">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />} suffix={<Settings size={20} />}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />} suffix={<Settings size={20} />}>Delete</MenuItem.Button>
         </Menu>
       </Dropdown>
     </div>
