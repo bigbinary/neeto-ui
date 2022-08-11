@@ -102,7 +102,9 @@
     font-size: var(--neeto-ui-text-sm);
     font-weight: var(--neeto-ui-font-normal);
     color: rgb(var(--neeto-ui-gray-800));
-    padding: 8px 40px 8px 12px;
+    padding: 6px 12px;
+    min-height: 32px;
+    gap: 8px;
     text-decoration: none;
     outline-color: transparent;
     border-radius: 0;
@@ -134,5 +136,8 @@
     background-color: rgb(var(--neeto-ui-gray-200));
     margin: 4px 0;
     pointer-events: none;
+  }
+  .neeto-ui-dropdown__popup-menu-item-btn__suffix{
+    margin-left: auto;
   }
 }
