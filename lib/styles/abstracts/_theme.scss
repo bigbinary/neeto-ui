@@ -1,40 +1,44 @@
 .neeto-ui-theme--dark {
-  background-color: #121212;
-  color: rgba(255, 255, 255, 0.87);
+  --neeto-ui-surface: 47, 57, 65;
+  --neeto-ui-surface-bg: 18, 18, 18;
+
+  background-color: rgb(var(--neeto-ui-surface-bg));
+  color: rgb(var(--neeto-ui-surface));
 
   --neeto-ui-white: 18, 18, 18;
-  --neeto-ui-black: 255, 255, 255;
+  --neeto-ui-black: 208, 208, 208;
 
   --neeto-ui-gray-100: 30, 30, 30;
-  --neeto-ui-gray-200: 50, 50, 50;
-  --neeto-ui-gray-300: 80, 80, 80;
-  --neeto-ui-gray-400: 99, 99, 99;
-  --neeto-ui-gray-500: 138, 138, 138;
-  --neeto-ui-gray-600: 171, 171, 171;
-  --neeto-ui-gray-700: 208, 208, 208;
-  --neeto-ui-gray-800: 238, 238, 238;
+  --neeto-ui-gray-200: 44, 44, 44;
+  --neeto-ui-gray-300: 57, 57, 57;
+  --neeto-ui-gray-400: 73, 73, 73;
+  --neeto-ui-gray-500: 92, 92, 92;
+  --neeto-ui-gray-600: 124, 124, 124;
+  --neeto-ui-gray-700: 162, 162, 162;
+  --neeto-ui-gray-800: 200, 200, 200;
 
-  --neeto-ui-primary-300: 168, 175, 254;
-  --neeto-ui-primary-500: 130, 143, 253;
-  --neeto-ui-primary-800: 168, 175, 254;
+  --neeto-ui-primary-800: 209, 213, 254;
+  --neeto-ui-primary-600: 181, 188, 253;
+  --neeto-ui-primary-500: 125, 137, 251;
+  --neeto-ui-primary-100: 41, 52, 149;
 
-  // success
-  --neeto-ui-success-800: 18, 128, 92;
-  --neeto-ui-success-500: 38, 142, 108;
-  --neeto-ui-success-800: 225, 243, 238;
+  --neeto-ui-error-800: 247, 109, 116;
+  --neeto-ui-error-600: 236, 91, 98;
+  --neeto-ui-error-500: 227, 72, 80;
+  --neeto-ui-error-100: 129, 33, 38;
 
-  // error
-  --neeto-ui-error-100: 201, 37, 45;
-  --neeto-ui-error-500: 215, 55, 63;
-  --neeto-ui-error-800: 254, 236, 240;
+  --neeto-ui-success-800: 57, 185, 144;
+  --neeto-ui-success-600: 51, 171, 132;
+  --neeto-ui-success-500: 45, 157, 120;
+  --neeto-ui-success-100: 23, 85, 65;
 
-  // info
-  --neeto-ui-info-100: 13, 102, 208;
-  --neeto-ui-info-500: 20, 115, 230;
-  --neeto-ui-info-800: 226, 242, 255;
+  --neeto-ui-warning-800: 249, 164, 63;
+  --neeto-ui-warning-600: 242, 148, 35;
+  --neeto-ui-warning-500: 230, 134, 25;
+  --neeto-ui-warning-100: 131, 74, 11;
 
-  // warning
-  --neeto-ui-warning-100: 203, 111, 16;
-  --neeto-ui-warning-500: 218, 123, 17;
-  --neeto-ui-warning-800: 251, 242, 225;
+  --neeto-ui-info-800: 75, 156, 245;
+  --neeto-ui-info-600: 55, 142, 240;
+  --neeto-ui-info-500: 38, 128, 235;
+  --neeto-ui-info-100: 11, 69, 137;
 }

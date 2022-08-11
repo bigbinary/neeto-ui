@@ -308,6 +308,10 @@
   background-color: rgb(var(--neeto-ui-white));
 }
 
+.ant-picker-panel-container .ant-picker-panel{
+  border: 0;
+}
+
 .ant-picker-focused {
   border-color: rgb(var(--neeto-ui-primary-500)) !important;
   box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%) !important;
@@ -501,9 +505,11 @@
 }
 
 .ant-picker-clear {
+  background-color: rgb(var(--neeto-ui-white));
   svg {
     width: 16px;
     height: 16px;
+    color: rgb(var(--neeto-ui-black));
   }
 }
 
