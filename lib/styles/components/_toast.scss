@@ -65,6 +65,7 @@ body {
         opacity: 0.8;
         margin: auto 0 auto 8px;
         flex-shrink: 0;
+        color: rgb(var(--neeto-ui-white));
 
         // transition: var(--neeto-ui-transition);
         transition: all 0.3s ease-in-out;
