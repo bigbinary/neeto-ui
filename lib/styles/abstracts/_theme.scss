@@ -1,12 +1,10 @@
-.neeto-ui-theme--dark {
-  --neeto-ui-surface: 47, 57, 65;
+:root {
   --neeto-ui-surface-bg: 18, 18, 18;
 
-  background-color: rgb(var(--neeto-ui-surface-bg));
-  color: rgb(var(--neeto-ui-surface));
+  background-color: rgb(18, 18, 18);
 
   --neeto-ui-white: 18, 18, 18;
-  --neeto-ui-black: 208, 208, 208;
+  --neeto-ui-black: 224, 224, 224;
 
   --neeto-ui-gray-100: 30, 30, 30;
   --neeto-ui-gray-200: 44, 44, 44;
@@ -20,7 +18,7 @@
   --neeto-ui-primary-800: 209, 213, 254;
   --neeto-ui-primary-600: 181, 188, 253;
   --neeto-ui-primary-500: 125, 137, 251;
-  --neeto-ui-primary-100: 41, 52, 149;
+  --neeto-ui-primary-100: 27, 28, 37;
 
   --neeto-ui-error-800: 247, 109, 116;
   --neeto-ui-error-600: 236, 91, 98;
