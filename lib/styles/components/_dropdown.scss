@@ -31,7 +31,6 @@
   overflow-y: auto;
   background-color: rgb(var(--neeto-ui-white));
   border-radius: var(--neeto-ui-rounded);
-  padding: 4px 0;
   z-index: 99999;
 
   li,
@@ -82,9 +81,8 @@
       color: rgb(var(--neeto-ui-white));
     }
   }
-
-  .neeto-ui-dropdown__popup-menu {
-    all: unset;
+  .neeto-ui-dropdown__popup-menu{
+    padding: 4px 0;
   }
   .neeto-ui-dropdown__popup-menu-item {
     all: unset;
