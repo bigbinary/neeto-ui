@@ -261,7 +261,7 @@
 .neeto-ui-profile-popup-wrapper {
   box-shadow: var(--neeto-ui-shadow-xs) !important;
   border-radius: var(--neeto-ui-rounded) !important;
-  border: 1px solid rgb(var(--neeto-ui-gray-300));
+  border: 1px solid rgb(var(--neeto-ui-gray-400));
   .tippy-content{
     padding: 0;
   }
@@ -271,7 +271,7 @@
 }
 
 .neeto-ui-profile-sublist{
-  border-top: 1px solid rgb(var(--neeto-ui-gray-300));
+  border-top: 1px solid rgb(var(--neeto-ui-gray-400));
   list-style: none;
   margin: 0;
   padding: 4px 0;
