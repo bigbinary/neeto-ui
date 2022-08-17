@@ -90,7 +90,7 @@ export const PaneWithModalAndAlert = () => {
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane isOpen={showPane} onClose={() => setShowPane(false)} closeOnEsc={!(showModal || showAlert)}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
