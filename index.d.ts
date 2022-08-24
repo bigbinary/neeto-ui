@@ -418,6 +418,7 @@ export interface TooltipProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  [key: string]: any;
 }
 
 export type TypographyProps = {
