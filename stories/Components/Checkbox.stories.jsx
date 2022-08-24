@@ -31,21 +31,21 @@ Checked.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  id: "checkbox_name",
+  id: "checkbox_name_disabled",
   label: "This Checkbox is disabled",
   disabled: true,
 };
 
 export const Required = Template.bind({});
 Required.args = {
-  id: "checkbox_name",
+  id: "checkbox_name_required",
   label: "This Checkbox is required",
   required: true,
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  id: "checkbox_name",
+  id: "checkbox_name_error",
   label: "Checkbox with error",
   error: "Error message",
 };

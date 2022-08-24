@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
 import { Figma } from "storybook-addon-designs/blocks";
 import colorPalette from "./ColorPalette.js";
+import Radio from "../../lib/components/Radio";
 
 <Meta
   title="Foundation/Colors"
@@ -45,6 +46,10 @@ import colorPalette from "./ColorPalette.js";
 # Colors
 
 <div className="demo-color-swatch-wrapper p-10 rounded border neeto-ui-border-gray-300">
+  <Radio className="flex justify-end items-center mb-8 w-full">
+    <Radio.Item label="Light theme" name="theme" value="lightTheme" />
+    <Radio.Item label="Dark theme" name="theme" value="darkTheme" />
+  </Radio>
   <h5>BASE</h5>
   <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
     <div className="demo-color-swatch border neeto-ui-border-gray-300 neeto-ui-bg-white neeto-ui-text-black">
