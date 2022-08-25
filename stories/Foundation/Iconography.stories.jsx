@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as iconset from "@bigbinary/neeto-icons";
 import Toastr from "../../lib/components/Toastr";
 import Input from "../../lib/components/Input";
@@ -23,10 +23,14 @@ export default {
 };
 
 export const Iconography = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const copyIconName = (iconName) => {
     navigator.clipboard.writeText(iconName);
     Toastr.success("Icon name copied to clipboard");
   };
+  const filteredIconList = iconset.iconList.filter((name) =>
+    name.toLowerCase().includes(searchTerm.trim().toLowerCase())
+  );
   return (
     <>
       <ToastContainer />
@@ -58,11 +62,13 @@ export const Iconography = () => {
             size="large"
             type="search"
             prefix={<Search />}
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
             placeholder="Search icons"
           />
         </div>
         <div className="grid grid-cols-4 gap-3 lg:grid-cols-8">
-          {iconset.iconList.map((icon) => {
+          {filteredIconList.map((icon) => {
             const Component = iconset[icon];
             return (
               <div
