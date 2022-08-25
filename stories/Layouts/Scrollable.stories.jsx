@@ -1,3 +1,5 @@
+import { Delete } from "@bigbinary/neeto-icons";
+import { Button, Typography } from "../../lib/components";
 import React from "react";
 
 import {
@@ -72,9 +74,17 @@ export const WithHeaderAndSubHeader = (args) => {
     <Container isHeaderFixed>
       <Header title="Header" />
       <SubHeader
-        searchProps={{}}
-        disableButtonProps={{}}
-        deleteButtonProps={{}}
+        leftActionBlock={
+          <Typography style="h4" component="h4">
+            118 Contacts
+          </Typography>
+        }
+        rightActionBlock={
+          <>
+            <Button label="Delete" style="secondary" icon={Delete} />
+            <Button label="Disable" style="secondary" />
+          </>
+        }
       />
       <Scrollable
         {...args}
