@@ -9,7 +9,7 @@ const { getByRole, getByText, getAllByText, getAllByRole } = screen;
 
 describe("TimePicker", () => {
   it("should render without error", () => {
-    render(<TimePicker defaultValue={currentTime} />);
+    render(<TimePicker defaultValue={currentTime} format="HH:mm" />);
     expect(getByRole("textbox")).toHaveValue(currentTime.format("HH:mm"));
   });
 
@@ -40,14 +40,14 @@ describe("TimePicker", () => {
     const onChange = jest.fn();
     render(<TimePicker defaultValue={currentTime} onChange={onChange} open />);
     fireEvent.click(getAllByText("12")[0]);
-    fireEvent.click(getByText("30"));
+    fireEvent.click(getAllByText("30")[0]);
     fireEvent.click(getByText("Ok"));
     expect(onChange).toHaveBeenCalled();
   });
 
   it("should trigger onChange function on typing in textbox", () => {
     const onChange = jest.fn();
-    render(<TimePicker onChange={onChange} open />);
+    render(<TimePicker onChange={onChange} format="HH:mm" open />);
     userEvent.paste(getByRole("textbox"), "11:01");
     fireEvent.click(getByText("Ok"));
     expect(onChange).toHaveBeenCalledWith(
