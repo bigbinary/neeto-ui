@@ -5,6 +5,9 @@ import Radio from "../../lib/components/Radio";
 export default {
   title: "Components/Radio",
   component: Radio,
+  subcomponents: {
+    "Radio.Item": Radio.Item,
+  },
   parameters: {
     layout: "padded",
     docs: {
