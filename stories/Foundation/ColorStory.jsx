@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import classnames from "classnames";
 import Radio from "../../lib/components/Radio";
 import { colorPaletteMap } from "./ColorPalette";
+import tinycolor from "tinycolor2";
 
 const ColorStory = () => {
   const [theme, setTheme] = useState("light");
@@ -26,10 +27,9 @@ const ColorStory = () => {
       </Radio>
       {Object.entries(colorPaletteMap).map(([key, { title, colors }]) => (
         <Fragment key={key}>
-          {console.log('colors', colors)}
           <h5 className="mb-2">{title}</h5>
           <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
-            {colors.map(({ name, [theme]: { value, hexValue }, text = "white" }) => (
+            {colors.map(({ name, [theme]: { value }, text = "white" }) => (
               <div
                 key={name}
                 className={classnames(
@@ -43,7 +43,7 @@ const ColorStory = () => {
               >
                 <code>--{name}</code>
                 <code>{value}</code>
-                <code>{hexValue}</code>
+                <code>#{tinycolor(`rgb(${value})`).toHex()}</code>
               </div>
             ))}
           </div>
