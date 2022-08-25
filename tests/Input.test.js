@@ -65,11 +65,11 @@ describe("Input", () => {
       <Input id="input" label="Input label" maxLength={5} />
     );
 
-    expect(getByText("0 / 5")).toBeInTheDocument();
+    expect(getByText(/0(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Input label")).toHaveAttribute("maxLength", "5");
 
     userEvent.type(getByLabelText("Input label"), "Testing maxLength");
-    expect(getByText("5 / 5")).toBeInTheDocument();
+    expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Input label")).toHaveValue("Testi");
   });
 });

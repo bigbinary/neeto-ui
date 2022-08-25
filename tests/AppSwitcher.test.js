@@ -202,7 +202,7 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
 
-    const backButton = screen.getByRole("button", { name: /Back/i });
+    const backButton = screen.getByTestId("app-switcher-back-button");
     userEvent.click(backButton);
     expect(onClose).toHaveBeenCalled();
   });
