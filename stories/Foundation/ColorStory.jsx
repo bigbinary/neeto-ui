@@ -17,17 +17,19 @@ const ColorStory = () => {
         }
       )}
     >
+
       <Radio
-        className="flex justify-end items-center mb-8 w-full"
+        className="mb-8"
         onChange={(event) => setTheme(event.target.value)}
         value={theme}
       >
         <Radio.Item label="Light theme" name="theme" value="light" />
         <Radio.Item label="Dark theme" name="theme" value="dark" />
       </Radio>
+
       {Object.entries(colorPaletteMap).map(([key, { title, colors }]) => (
         <Fragment key={key}>
-          <h5 className="mb-2">{title}</h5>
+          <h5 className="mb-2 neeto-ui-text-black">{title}</h5>
           <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
             {colors.map(({ name, [theme]: { value }, text = "white" }) => (
               <div
