@@ -1,28 +1,10 @@
 import React, { useState } from "react";
 import * as iconset from "@bigbinary/neeto-icons";
-import Toastr from "../../lib/components/Toastr";
-import Input from "../../lib/components/Input";
+import { Typography, Input, Toastr } from "../../lib/components";
 import { ToastContainer } from "react-toastify";
 import { Search } from "@bigbinary/neeto-icons";
 
-export default {
-  title: "Foundation/Iconography",
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component:
-          '`import { Clock } from "@bigbinary/neeto-icons";` <br><br> Anywhere in your React file <br><br> `<Clock color="#1e1e20" size={24} />`',
-      },
-    },
-    viewMode: "docs",
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-  },
-};
-
-export const Iconography = () => {
+const Iconography = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const copyIconName = (iconName) => {
     navigator.clipboard.writeText(iconName);
@@ -63,7 +45,7 @@ export const Iconography = () => {
             type="search"
             prefix={<Search />}
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search icons"
           />
         </div>
@@ -82,7 +64,14 @@ export const Iconography = () => {
             );
           })}
         </div>
+        {filteredIconList.length === 0 && (
+          <Typography style="h6" className="text-center py-6">
+            No icons found for "{searchTerm}"
+          </Typography>
+        )}
       </div>
     </>
   );
 };
+
+export default Iconography;
