@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { getByText, render } from "@testing-library/react";
 import { Input } from "../lib/components";
 import userEvent from "@testing-library/user-event";
 
@@ -64,12 +64,19 @@ describe("Input", () => {
     const { getByLabelText, getByText } = render(
       <Input id="input" label="Input label" maxLength={5} />
     );
-
-    expect(getByText(/0(.*)\/(.*)5/)).toBeInTheDocument();
-    expect(getByLabelText("Input label")).toHaveAttribute("maxLength", "5");
-
     userEvent.type(getByLabelText("Input label"), "Testing maxLength");
-    expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
-    expect(getByLabelText("Input label")).toHaveValue("Testi");
+    expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();
+    expect(getByLabelText("Input label")).toHaveValue("Testing maxLength");
+  });
+
+  it("should display character count when the input text length reaches 90% of maxlength", () => {
+    const { getByLabelText, queryByText, getByText } = render(
+      <Input id="input" label="Input label" maxLength={10} />
+    );
+    expect(queryByText(/0(.*)\/(.*)10/)).not.toBeInTheDocument();
+    userEvent.type(getByLabelText("Input label"), "Testing ");
+    expect(queryByText(/8(.*)\/(.*)10/)).not.toBeInTheDocument();
+    userEvent.type(getByLabelText("Input label"), "m");
+    expect(getByText(/9(.*)\/(.*)10/)).toBeInTheDocument();
   });
 });
