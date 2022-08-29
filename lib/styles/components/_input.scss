@@ -23,7 +23,7 @@
       margin-left: auto;
 
       &.neeto-ui-input__max-length--error {
-        color: rgb(var(--neeto-ui-error-600));
+        color: rgb(var(--neeto-ui-error-800));
       }
     }
   }
@@ -46,10 +46,6 @@
     color: rgb(var(--neeto-ui-gray-800));
     overflow: hidden;
 
-    &.neeto-ui-input--textarea {
-      padding: 8px;
-    }
-
     input,
     textarea {
       width: 100%;
@@ -70,9 +66,7 @@
     }
 
     input {
-      padding: 8px 12px;
       line-height: 1.2;
-      min-height: 38px;
     }
 
     textarea {
@@ -123,6 +117,25 @@
 
     &.neeto-ui-input--small {
       input {
+        padding: 4px 8px;
+        min-height: 26px;
+      }
+
+      .neeto-ui-input__prefix {
+        margin-left: 8px;
+      }
+
+      .neeto-ui-input__suffix {
+        margin-right: 8px;
+      }
+
+      &.neeto-ui-input--textarea {
+        padding: 8px;
+      }
+    }
+
+    &.neeto-ui-input--medium {
+      input {
         padding: 5px 8px;
         min-height: 30px;
       }
@@ -133,6 +146,29 @@
 
       .neeto-ui-input__suffix {
         margin-right: 8px;
+      }
+
+      &.neeto-ui-input--textarea {
+        padding: 8px;
+      }
+    }
+
+    &.neeto-ui-input--large {
+      input {
+        padding: 8px 12px;
+        min-height: 38px;
+      }
+
+      .neeto-ui-input__prefix {
+        margin-left: 12px;
+      }
+
+      .neeto-ui-input__suffix {
+        margin-right: 12px;
+      }
+
+      &.neeto-ui-input--textarea {
+        padding: 12px;
       }
     }
 
@@ -169,13 +205,6 @@
       width: 16px;
       height: 16px;
     }
-  }
-
-  .neeto-ui-input__prefix {
-    margin-left: 12px;
-  }
-  .neeto-ui-input__suffix {
-    margin-right: 12px;
   }
 
   .neeto-ui-input--block-add-on {
