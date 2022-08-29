@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
@@ -7,15 +7,11 @@ import { AppSwitcher, Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
 
 const AppSwitcherTest = ({ children }) => {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
-
   return (
     <Router>
       <Sidebar
         navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => {}}
-        isCollapsed={isSidebarCollapsed}
-        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
         appName="neetoUI"
         profileInfo={{
