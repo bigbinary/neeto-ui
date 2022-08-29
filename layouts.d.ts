@@ -83,6 +83,7 @@ export interface SidebarProps {
   };
   navLinks?: NavLinkItemType[];
   tooltipStyle?: "default" | "featured";
+  /** @deprecated Prop removed as footer links in sidebar is no longer supported*/
   footerLinks?: FooterLinkType[];
   profileInfo?: {
     name?: string;
@@ -94,6 +95,7 @@ export interface SidebarProps {
     helpProps?: LinkType;
     "data-cy"?: string;
   } & AvatarProps;
+  /** @deprecated Prop removed as expanded state of sidebar is no longer supported */
   isCollapsed?: boolean;
   showAppSwitcher?: boolean;
   onAppSwitcherToggle?: React.MouseEventHandler<HTMLButtonElement>;
