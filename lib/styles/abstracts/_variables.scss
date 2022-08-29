@@ -47,14 +47,13 @@ $neeto-ui-warning-500: 218, 123, 17;
 $neeto-ui-warning-100: 251, 242, 225;
 
 // Pastel colors
-$neeto-ui-pastel-color-1: 229, 231, 235;
-$neeto-ui-pastel-color-2: 254, 202, 202;
-$neeto-ui-pastel-color-3: 253, 230, 138;
-$neeto-ui-pastel-color-4: 167, 243, 208;
-$neeto-ui-pastel-color-5: 191, 219, 254;
-$neeto-ui-pastel-color-6: 199, 210, 254;
-$neeto-ui-pastel-color-7: 221, 214, 254;
-$neeto-ui-pastel-color-8: 251, 207, 232;
+$neeto-ui-pastel-silver: 232, 233, 237;
+$neeto-ui-pastel-red: 255, 229, 229;
+$neeto-ui-pastel-yellow: 254, 243, 197;
+$neeto-ui-pastel-green: 211, 249, 232;
+$neeto-ui-pastel-blue: 236, 244, 255;
+$neeto-ui-pastel-purple: 238, 235, 255;
+$neeto-ui-pastel-pink: 253, 226, 241;
 
 // neeto-ui-theme-colors-map
 $neeto-ui-theme-colors: (
@@ -94,7 +93,15 @@ $neeto-ui-theme-colors: (
   "info-800": $neeto-ui-info-800,
   "info-600": $neeto-ui-info-600,
   "info-500": $neeto-ui-info-500,
-  "info-100": $neeto-ui-info-100
+  "info-100": $neeto-ui-info-100,
+  // pastel
+  "pastel-silver": $neeto-ui-pastel-silver,
+  "pastel-red": $neeto-ui-pastel-red,
+  "pastel-yellow": $neeto-ui-pastel-yellow,
+  "pastel-green": $neeto-ui-pastel-green,
+  "pastel-blue": $neeto-ui-pastel-blue,
+  "pastel-purple": $neeto-ui-pastel-purple,
+  "pastel-pink": $neeto-ui-pastel-pink
 );
 
 // Font Weights

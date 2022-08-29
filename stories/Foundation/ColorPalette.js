@@ -149,6 +149,41 @@ const colorPalette = [
     value: "251, 242, 225",
     compiledValue: "251, 242, 225",
   },
+  {
+    name: "$neeto-ui-pastel-silver",
+    value: "232, 233, 237",
+    compiledValue: "232, 233, 237",
+  },
+  {
+    name: "$neeto-ui-pastel-red",
+    value: "255, 229, 229",
+    compiledValue: "255, 229, 229",
+  },
+  {
+    name: "$neeto-ui-pastel-yellow",
+    value: "254, 243, 197",
+    compiledValue: "254, 243, 197",
+  },
+  {
+    name: "$neeto-ui-pastel-green",
+    value: "211, 249, 232",
+    compiledValue: "211, 249, 232",
+  },
+  {
+    name: "$neeto-ui-pastel-blue",
+    value: "236, 244, 255",
+    compiledValue: "236, 244, 255",
+  },
+  {
+    name: "$neeto-ui-pastel-purple",
+    value: "238, 235, 255",
+    compiledValue: "238, 235, 255",
+  },
+  {
+    name: "$neeto-ui-pastel-pink",
+    value: "253, 226, 241",
+    compiledValue: "253, 226, 241",
+  },
 ];
 
 export const colorPaletteMap = {
@@ -439,7 +474,7 @@ export const colorPaletteMap = {
         dark: {
           value: "249, 164, 63",
           compiledValue: "249, 164, 63",
-        }
+        },
       },
       {
         name: "neeto-ui-warning-600",
@@ -450,7 +485,7 @@ export const colorPaletteMap = {
         dark: {
           value: "242, 148, 35",
           compiledValue: "242, 148, 35",
-        }
+        },
       },
       {
         name: "neeto-ui-warning-500",
@@ -461,7 +496,7 @@ export const colorPaletteMap = {
         dark: {
           value: "230, 134, 25",
           compiledValue: "230, 134, 25",
-        }
+        },
       },
       {
         name: "neeto-ui-warning-100",
@@ -473,7 +508,7 @@ export const colorPaletteMap = {
         dark: {
           value: "131, 74, 11",
           compiledValue: "131, 74, 11",
-        }
+        },
       },
     ],
   },
@@ -515,6 +550,92 @@ export const colorPaletteMap = {
       },
       {
         name: "neeto-ui-info-100",
+        text: "black",
+        light: {
+          value: "226, 242, 255",
+          compiledValue: "226, 242, 255",
+        },
+        dark: {
+          value: "11, 69, 137",
+          compiledValue: "11, 69, 137",
+        },
+      },
+    ],
+  },
+  pastel: {
+    title: "PASTEL",
+    colors: [
+      {
+        name: "neeto-ui-pastel-silver",
+        light: {
+          value: "9, 90, 186",
+          compiledValue: "9, 90, 186",
+        },
+        dark: {
+          value: "75, 156, 245",
+          compiledValue: "75, 156, 245",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-red",
+        light: {
+          value: "13, 102, 208",
+          compiledValue: "13, 102, 208",
+        },
+        dark: {
+          value: "55, 142, 240",
+          compiledValue: "55, 142, 240",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-yellow",
+        light: {
+          value: "20, 115, 230",
+          compiledValue: "20, 115, 230",
+        },
+        dark: {
+          value: "38, 128, 235",
+          compiledValue: "38, 128, 235",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-green",
+        text: "black",
+        light: {
+          value: "226, 242, 255",
+          compiledValue: "226, 242, 255",
+        },
+        dark: {
+          value: "11, 69, 137",
+          compiledValue: "11, 69, 137",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-blue",
+        text: "black",
+        light: {
+          value: "226, 242, 255",
+          compiledValue: "226, 242, 255",
+        },
+        dark: {
+          value: "11, 69, 137",
+          compiledValue: "11, 69, 137",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-purple",
+        text: "black",
+        light: {
+          value: "226, 242, 255",
+          compiledValue: "226, 242, 255",
+        },
+        dark: {
+          value: "11, 69, 137",
+          compiledValue: "11, 69, 137",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-pink",
         text: "black",
         light: {
           value: "226, 242, 255",
