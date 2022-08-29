@@ -117,13 +117,29 @@ export const NakedInput = () => (
 );
 
 export const InputWithMaxLength = () => (
-  <Input
-    label="Input with max length"
-    maxLength={10}
-    placeholder="Input Placeholder"
-  />
-);
-
-export const InputWithMaxLengthWithoutLabel = () => (
-  <Input maxLength={10} placeholder="Input Placeholder" />
+  <div className="flex flex-col space-y-6">
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value={"Sample I"}
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value={"Sample In"}
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value={"Sample Input"}
+      placeholder="Input Placeholder"
+    />
+  </div>
 );
