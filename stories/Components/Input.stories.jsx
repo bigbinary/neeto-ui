@@ -126,19 +126,19 @@ export const InputWithMaxLength = () => (
     <Input
       label="Input with max length"
       maxLength={10}
-      value={"Sample I"}
+      value="Sample I"
       placeholder="Input Placeholder"
     />
     <Input
       label="Input with max length"
       maxLength={10}
-      value={"Sample In"}
+      value="Sample In"
       placeholder="Input Placeholder"
     />
     <Input
       label="Input with max length"
       maxLength={10}
-      value={"Sample Input"}
+      value="Sample Input"
       placeholder="Input Placeholder"
     />
   </div>
