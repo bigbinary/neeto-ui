@@ -102,36 +102,6 @@ SidebarCollapsed.args = {
   appName: "neetoUI",
 };
 
-export const SidebarExpanded = Template.bind({});
-SidebarExpanded.storyName = "Expanded Sidebar";
-SidebarExpanded.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.onrender.com",
-  },
-  isCollapsed: false,
-  navLinks: STORYBOOK_NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    email: "kieran.miller@email.com",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    topLinks: [
-      {
-        label: "Edit",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-  showAppSwitcher: true,
-  appName: "neetoUI",
-};
-
 export const SidebarWithAppSwitcher = (args) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
 
