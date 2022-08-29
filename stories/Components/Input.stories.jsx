@@ -91,18 +91,55 @@ export const SearchInput = () => (
   </div>
 );
 
-export const Error = () => <Input label="Error" error="Provide valid email" placeholder="Input Placeholder" prefix={<Favorite />} />;
+export const Error = () => (
+  <Input
+    label="Error"
+    error="Provide valid email"
+    placeholder="Input Placeholder"
+    prefix={<Favorite />}
+  />
+);
 
 export const HelpText = () => (
-  <Input label="Name" helpText="This is help text." placeholder="Input Placeholder" />
+  <Input
+    label="Name"
+    helpText="This is help text."
+    placeholder="Input Placeholder"
+  />
 );
 
 export const NakedInput = () => (
-  <Input label="Naked Input Field" nakedInput={true} placeholder="Input Placeholder" />
+  <Input
+    label="Naked Input Field"
+    nakedInput={true}
+    placeholder="Input Placeholder"
+  />
 );
 
 export const InputWithMaxLength = () => (
-  <Input label="Input with max length" maxLength={10} placeholder="Input Placeholder" />
+  <div className="flex flex-col space-y-6">
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value="Sample I"
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value="Sample In"
+      placeholder="Input Placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      value="Sample Input"
+      placeholder="Input Placeholder"
+    />
+  </div>
 );
-
-export const InputWithMaxLengthWithoutLabel = () => <Input maxLength={10} placeholder="Input Placeholder" />;

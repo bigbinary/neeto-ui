@@ -21,6 +21,10 @@
       line-height: 1;
       margin-bottom: 8px;
       margin-left: auto;
+
+      &.neeto-ui-input__max-length--error {
+        color: rgb(var(--neeto-ui-error-600));
+      }
     }
   }
 
@@ -138,7 +142,7 @@
       padding-left: 0;
       padding-right: 0;
 
-      input{
+      input {
         padding-left: 0;
         padding-right: 0;
       }
@@ -161,7 +165,7 @@
     align-items: center;
     font-size: 14px;
     color: rgb(var(--neeto-ui-gray-700));
-    svg{
+    svg {
       width: 16px;
       height: 16px;
     }
