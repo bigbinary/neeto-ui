@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 3.5.17 - 2022-08-25
+
+- Fixed: false positive type errors for tooltip
+
 ## 3.5.16 - 2022-08-17
 
 - Changed: avoided showing duplicate toastr when called multiple times with the same arguments.
