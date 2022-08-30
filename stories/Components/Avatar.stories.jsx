@@ -46,11 +46,11 @@ Large.args = {
   size: "large",
 };
 
-export const Xlarge = Template.bind({});
-Xlarge.args = {
+export const extralarge = Template.bind({});
+extralarge.args = {
   onClick,
   user: { name: "neeto UI" },
-  size: "xlarge",
+  size: "extraLarge",
 };
 
 export const WithCustomClassName = Template.bind({});
@@ -58,7 +58,7 @@ WithCustomClassName.storyName = "With Custom className";
 WithCustomClassName.args = {
   onClick,
   user: { name: "neeto UI" },
-  size: "xlarge",
+  size: "extraLarge",
   className: "cursor-pointer",
 };
 
@@ -86,7 +86,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam" }}
-            size="xlarge"
+            size="extraLarge"
           />
         </div>
         <div className="flex flex-col p-2 space-y-4">
@@ -114,7 +114,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam" }}
-            size="xlarge"
+            size="extraLarge"
             status="online"
             isSquare
           />
@@ -142,7 +142,7 @@ export const Variants = () => {
             onClick={onClick}
             user={{ name: "Goutham Subramanyam", imageUrl }}
             status="online"
-            size="xlarge"
+            size="extraLarge"
           />
         </div>
         <div className="flex flex-col p-2 space-y-4">
@@ -167,7 +167,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam", imageUrl }}
-            size="xlarge"
+            size="extraLarge"
             isSquare
           />
         </div>

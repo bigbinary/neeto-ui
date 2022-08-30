@@ -49,15 +49,15 @@
       right: var(--neeto-ui-modal-spacing);
     }
 
-    &.neeto-ui-modal__wrapper--xs {
+    &.neeto-ui-modal__wrapper--small {
       width: 320px;
     }
 
-    &.neeto-ui-modal__wrapper--sm {
+    &.neeto-ui-modal__wrapper--medium {
       width: 480px;
     }
 
-    &.neeto-ui-modal__wrapper--md {
+    &.neeto-ui-modal__wrapper--large {
       width: 720px;
     }
 

@@ -3,7 +3,6 @@ import { NavLinkProps } from "react-router-dom";
 import { AvatarProps, InputProps } from "./index";
 
 export interface AppSwitcherProps {
-  size?: "lg" | "sm";
   isOpen?: boolean;
   className?: string;
   closeOnEsc?: boolean;

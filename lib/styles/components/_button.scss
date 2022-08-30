@@ -28,7 +28,7 @@
   }
 
   // size - large - 32px
-  &--size-large {
+  &--size-medium {
     font-size: var(--neeto-ui-text-sm);
     padding: 8px 16px;
     gap: 8px;
@@ -42,7 +42,7 @@
     }
   }
   // size - xlarge - 40px
-  &--size-xlarge {
+  &--size-large {
     font-size: var(--neeto-ui-text-base);
     padding: 12px 20px;
     gap: 10px;

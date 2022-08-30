@@ -93,13 +93,30 @@
   padding: 8px 12px;
   gap: 12px;
 
-  &-size--small{
+  &-size--small {
+    height: 28px;
+    padding: 8px;
+    gap: 12px;
+
+    .neeto-ui-colorpicker-target__color{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-size--medium {
     height: 32px;
     padding: 8px;
     gap: 12px;
   }
 
-  .neeto-ui-colorpicker-target__color-wrapper{
+  &-size--large {
+    height: 40px;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .neeto-ui-colorpicker-target__color-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -116,6 +133,13 @@
 
     width: 24px;
     height: 24px;
+  }
+
+  &-size--small {
+    .neeto-ui-colorpicker-target__color{
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .neeto-ui-colorpicker-target__code {
