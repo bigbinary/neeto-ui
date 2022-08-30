@@ -77,8 +77,8 @@ export const Default = () => {
 
 export const ModalSizing = () => {
   const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
-  const [showModalSmall, setShowModalSmall] = useState(false);
   const [showModalMedium, setShowModalMedium] = useState(false);
+  const [showModalLarge, setShowModalLarge] = useState(false);
 
   return (
     <div className="w-full">
@@ -86,11 +86,11 @@ export const ModalSizing = () => {
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button
-              label="Extra Small"
+              label="Small"
               onClick={() => setShowModalExtraSmall(true)}
             />
-            <Button label="Small" onClick={() => setShowModalSmall(true)} />
             <Button label="Medium" onClick={() => setShowModalMedium(true)} />
+            <Button label="Large" onClick={() => setShowModalLarge(true)} />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export const ModalSizing = () => {
       <Modal
         isOpen={showModalExtraSmall}
         onClose={() => setShowModalExtraSmall(false)}
-        size="xs"
+        size="small"
       >
         <Modal.Header>
           <Typography style="h2">They're creepy & they're kooky</Typography>
@@ -120,35 +120,6 @@ export const ModalSizing = () => {
             size="large"
             label="Cancel"
             onClick={() => setShowModalExtraSmall(false)}
-          />
-        </Modal.Footer>
-      </Modal>
-
-      <Modal
-        isOpen={showModalSmall}
-        onClose={() => setShowModalSmall(false)}
-        size="sm"
-      >
-        <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
-        </Modal.Header>
-        <Modal.Body>
-          <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
-          </Typography>
-        </Modal.Body>
-        <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalSmall(false)}
-          />
-          <Button
-            style="text"
-            size="large"
-            label="Cancel"
-            onClick={() => setShowModalSmall(false)}
           />
         </Modal.Footer>
       </Modal>
@@ -156,7 +127,36 @@ export const ModalSizing = () => {
       <Modal
         isOpen={showModalMedium}
         onClose={() => setShowModalMedium(false)}
-        size="md"
+        size="medium"
+      >
+        <Modal.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button
+            size="large"
+            label="Continue"
+            onClick={() => setShowModalMedium(false)}
+          />
+          <Button
+            style="text"
+            size="large"
+            label="Cancel"
+            onClick={() => setShowModalMedium(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+
+      <Modal
+        isOpen={showModalLarge}
+        onClose={() => setShowModalLarge(false)}
+        size="large"
       >
         <Modal.Header>
           <Typography style="h2">They're creepy & they're kooky</Typography>
@@ -175,13 +175,13 @@ export const ModalSizing = () => {
           <Button
             size="large"
             label="Continue"
-            onClick={() => setShowModalMedium(false)}
+            onClick={() => setShowModalLarge(false)}
           />
           <Button
             style="text"
             size="large"
             label="Cancel"
-            onClick={() => setShowModalMedium(false)}
+            onClick={() => setShowModalLarge(false)}
           />
         </Modal.Footer>
       </Modal>

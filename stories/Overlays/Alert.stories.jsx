@@ -44,9 +44,9 @@ export const Default = () => {
 };
 
 export const AlertSizing = () => {
-  const [showAlertExtraSmall, setShowAlertExtraSmall] = useState(false);
   const [showAlertSmall, setShowAlertSmall] = useState(false);
   const [showAlertMedium, setShowAlertMedium] = useState(false);
+  const [showAlertLarge, setShowAlertLarge] = useState(false);
 
   return (
     <div className="w-full">
@@ -54,22 +54,14 @@ export const AlertSizing = () => {
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button
-              label="Extra Small"
-              onClick={() => setShowAlertExtraSmall(true)}
+              label="Small"
+              onClick={() => setShowAlertSmall(true)}
             />
-            <Button label="Small" onClick={() => setShowAlertSmall(true)} />
             <Button label="Medium" onClick={() => setShowAlertMedium(true)} />
+            <Button label="Large" onClick={() => setShowAlertLarge(true)} />
           </div>
           <Alert
-            size="xs"
-            isOpen={showAlertExtraSmall}
-            title="Leave page with unsaved changes?"
-            message="Leaving this page will delete all unsaved changes."
-            onClose={() => setShowAlertExtraSmall(false)}
-            onSubmit={() => setShowAlertExtraSmall(false)}
-          />
-          <Alert
-            size="sm"
+            size="small"
             isOpen={showAlertSmall}
             title="Leave page with unsaved changes?"
             message="Leaving this page will delete all unsaved changes."
@@ -77,12 +69,20 @@ export const AlertSizing = () => {
             onSubmit={() => setShowAlertSmall(false)}
           />
           <Alert
-            size="md"
+            size="medium"
             isOpen={showAlertMedium}
             title="Leave page with unsaved changes?"
             message="Leaving this page will delete all unsaved changes."
             onClose={() => setShowAlertMedium(false)}
             onSubmit={() => setShowAlertMedium(false)}
+          />
+          <Alert
+            size="large"
+            isOpen={showAlertLarge}
+            title="Leave page with unsaved changes?"
+            message="Leaving this page will delete all unsaved changes."
+            onClose={() => setShowAlertLarge(false)}
+            onSubmit={() => setShowAlertLarge(false)}
           />
         </div>
       </div>
