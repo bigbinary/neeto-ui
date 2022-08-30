@@ -260,53 +260,56 @@ export const colorPalette = {
         name: "neeto-ui-pastel-silver",
         text: "black",
         value: {
-          light: "9, 90, 186",
-          dark: "75, 156, 245",
+          light: "232, 233, 237",
+          dark: "232, 233, 237",
         },
       },
       {
         name: "neeto-ui-pastel-red",
         text: "black",
         value: {
-          light: "13, 102, 208",
-          dark: "55, 142, 240",
+          light: "255, 229, 229",
+          dark: "255, 229, 229",
         },
       },
       {
         name: "neeto-ui-pastel-yellow",
         text: "black",
         value: {
-          light: "20, 115, 230",
-          dark: "38, 128, 235",
+          light: "254, 243, 197",
+          dark: "254, 243, 197",
         },
       },
       {
         name: "neeto-ui-pastel-green",
         text: "black",
         value: {
-          light: "226, 242, 255",
-          dark: "11, 69, 137",
+          light: "211, 249, 232",
+          dark: "211, 249, 232",
         },
       },
       {
         name: "neeto-ui-pastel-blue",
+        text: "black",
         value: {
-          light: "226, 242, 255",
-          dark: "11, 69, 137",
+          light: "236, 244, 255",
+          dark: "236, 244, 255",
         },
       },
       {
         name: "neeto-ui-pastel-purple",
+        text: "black",
         value: {
-          light: "226, 242, 255",
-          dark: "11, 69, 137",
+          light: "238, 235, 255",
+          dark: "238, 235, 255",
         },
       },
       {
         name: "neeto-ui-pastel-pink",
+        text: "black",
         value: {
-          light: "226, 242, 255",
-          dark: "11, 69, 137",
+          light: "253, 226, 241",
+          dark: "253, 226, 241",
         },
       },
     ],
