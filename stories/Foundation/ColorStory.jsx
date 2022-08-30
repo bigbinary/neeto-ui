@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 
 import classnames from "classnames";
 import Radio from "../../lib/components/Radio";
-import { colorPaletteMap } from "./ColorPalette";
+import { colorPalette } from "./ColorPalette";
 import tinycolor from "tinycolor2";
 
 const ColorStory = () => {
@@ -17,7 +17,6 @@ const ColorStory = () => {
         }
       )}
     >
-
       <Radio
         className="mb-8"
         onChange={(event) => setTheme(event.target.value)}
@@ -27,11 +26,11 @@ const ColorStory = () => {
         <Radio.Item label="Dark theme" name="theme" value="dark" />
       </Radio>
 
-      {Object.entries(colorPaletteMap).map(([key, { title, colors }]) => (
+      {Object.entries(colorPalette).map(([key, { title, colors }]) => (
         <Fragment key={key}>
           <h5 className="mb-2 neeto-ui-text-black">{title}</h5>
-          <div className="demo-color-swatch-wrapper__row mb-10 flex flex-wrap gap-5">
-            {colors.map(({ name, [theme]: { value }, text = "white" }) => (
+          <div className="flex flex-wrap gap-5 mb-10 demo-color-swatch-wrapper__row">
+            {colors.map(({ name, value, text = "white" }) => (
               <div
                 key={name}
                 className={classnames(
@@ -44,7 +43,7 @@ const ColorStory = () => {
                 )}
               >
                 <code>--{name}</code>
-                <code>{value}</code>
+                <code>{value[theme]}</code>
                 <code>#{tinycolor(`rgb(${value})`).toHex()}</code>
               </div>
             ))}
