@@ -165,8 +165,6 @@ describe("AppSwitcher", () => {
   });
 
   it("should render className correctly", () => {
-    const size = "lg";
-
     render(
       <AppSwitcherTest>
         <AppSwitcher
@@ -175,7 +173,6 @@ describe("AppSwitcher", () => {
           activeApp="Planner"
           className="test-class"
           data-testid="neeto-app-switcher"
-          size={size}
           environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
