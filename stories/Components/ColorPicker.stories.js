@@ -56,7 +56,7 @@ export const Sizes = (args) => {
     setColor(args.color || "#000000");
   }, [args.color]);
 
-  return <div className="w-40 h-60 flex flex-col gap-4"><ColorPicker color={color} size="small" onChange={onChange} /><ColorPicker color={color} size="default" onChange={onChange} /></div>;
+  return <div className="w-40 h-60 flex flex-col gap-4"><ColorPicker color={color} size="small" onChange={onChange} /><ColorPicker color={color} size="medium" onChange={onChange} /><ColorPicker color={color} size="large" onChange={onChange} /></div>;
 };
 
 Sizes.storyName = "Sizes";
