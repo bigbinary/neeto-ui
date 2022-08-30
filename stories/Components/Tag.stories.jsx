@@ -112,6 +112,24 @@ export const Sizes = () => {
   );
 };
 
+// eslint-disable-next-line no-empty-pattern
+export const TagWithColor = ({}) => {
+  return (
+    <div className="p-6">
+      <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+        <div className="flex flex-col p-2 space-y-6">
+          <div className="flex flex-row items-start justify-start space-x-4">
+            <Tag label="Gray" color="gray" />
+            <Tag label="Red" color="red" />
+            <Tag label="Green" color="green" />
+            <Tag label="Blue" color="blue" />
+            <Tag label="Yellow" color="yellow" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
 export const Variants = () => {
   const STATUS_TAGS = [
     { style: "success", label: "Success" },

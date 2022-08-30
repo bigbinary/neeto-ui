@@ -3,12 +3,11 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import DatePicker from "../../lib/components/DatePicker";
-import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
 import dayjs from "dayjs";
 
 export default {
-  title: "Components/Date and Time",
+  title: "Components/DatePicker",
   component: DatePicker,
   parameters: {
     layout: "padded",
@@ -55,16 +54,7 @@ export const DatePickerWithRef = () => {
   );
 };
 
-export const TimeInput = (args) => {
-  return <TimePicker {...args} />;
-};
-
-TimeInput.storyName = "TimePicker";
-TimeInput.args = {
-  label: "Time",
-};
-
-export const DateTimePickerInModal = (args) => {
+export const DatePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
@@ -81,13 +71,6 @@ export const DateTimePickerInModal = (args) => {
               getPopupContainer={(triggerNode) => triggerNode.parentNode}
             />
           </div>
-          <div>
-            <Typography>Time</Typography>
-            <TimePicker
-              {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
-            />
-          </div>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
@@ -95,7 +78,7 @@ export const DateTimePickerInModal = (args) => {
   );
 };
 
-export const DateTimePickerInPane = (args) => {
+export const DatePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
@@ -112,33 +95,9 @@ export const DateTimePickerInPane = (args) => {
               getPopupContainer={(triggerNode) => triggerNode.parentNode}
             />
           </div>
-          <div className="w-full">
-            <Typography>Time</Typography>
-            <TimePicker
-              {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
-            />
-          </div>
         </Pane.Body>
       </Pane>
     </>
-  );
-};
-
-export const TimePickerWithRef = () => {
-  const ref = React.useRef();
-  const [open, setOpen] = React.useState(false);
-  return (
-    <div className="space-y-3">
-      <Button label="Focus" onClick={() => ref.current.focus()} />
-      <TimePicker
-        ref={ref}
-        open={open}
-        onFocus={() => setOpen(true)}
-        onBlur={() => setOpen(false)}
-        onOk={() => setOpen(false)}
-      />
-    </div>
   );
 };
 
@@ -154,28 +113,6 @@ export const DatePickerWithDefaultValue = (args) => {
 };
 
 DatePickerWithDefaultValue.parameters = {
-  docs: {
-    description: {
-      story:
-        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
-    },
-  },
-};
-
-export const TimePickerWithDefaultValue = (args) => {
-  return (
-    <div className="space-y-3">
-      <TimePicker
-        defaultValue={
-          isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
-        }
-        {...args}
-      />
-    </div>
-  );
-};
-
-TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {
       story:
