@@ -44,7 +44,7 @@ const ColorStory = () => {
               >
                 <code>--{name}</code>
                 <code>{value[theme]}</code>
-                <code>#{tinycolor(`rgb(${value})`).toHex()}</code>
+                <code>#{tinycolor(`rgb(${value[theme]})`).toHex()}</code>
               </div>
             ))}
           </div>

@@ -261,7 +261,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "232, 233, 237",
-          dark: "232, 233, 237",
+          dark: "104, 104, 106",
         },
       },
       {
@@ -269,7 +269,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "255, 229, 229",
-          dark: "255, 229, 229",
+          dark: "137, 0, 0",
         },
       },
       {
@@ -277,7 +277,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "254, 243, 197",
-          dark: "254, 243, 197",
+          dark: "234, 110, 33",
         },
       },
       {
@@ -285,7 +285,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "211, 249, 232",
-          dark: "211, 249, 232",
+          dark: "41, 145, 103",
         },
       },
       {
@@ -293,7 +293,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "236, 244, 255",
-          dark: "236, 244, 255",
+          dark: "108, 79, 169",
         },
       },
       {
@@ -301,7 +301,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "238, 235, 255",
-          dark: "238, 235, 255",
+          dark: "0, 61, 187",
         },
       },
       {
@@ -309,7 +309,7 @@ export const colorPalette = {
         text: "black",
         value: {
           light: "253, 226, 241",
-          dark: "253, 226, 241",
+          dark: "126, 4, 93",
         },
       },
     ],
