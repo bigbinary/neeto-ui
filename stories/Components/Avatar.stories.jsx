@@ -25,32 +25,46 @@ export default {
 
 const Template = (args) => <Avatar {...args} />;
 
-export const Small = Template.bind({});
-Small.args = {
+export const Default = Template.bind({});
+Default.args = {
   onClick,
   user: { name: "neeto UI" },
   size: "small",
 };
 
-export const Medium = Template.bind({});
-Medium.args = {
-  onClick,
-  user: { name: "neeto UI" },
-  size: "medium",
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  onClick,
-  user: { name: "neeto UI" },
-  size: "large",
-};
-
-export const extralarge = Template.bind({});
-extralarge.args = {
-  onClick,
-  user: { name: "neeto UI" },
-  size: "extraLarge",
+// eslint-disable-next-line no-empty-pattern
+export const Sizes = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+  return (
+    <div className="p-6">
+      <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
+        <span className="text-sm">Small</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          size="small"
+        />
+        <span className="text-sm">Medium</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          size="medium"
+        />
+        <span className="text-sm">Large</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          size="large"
+        />
+        <span className="text-sm">X Large</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          size="extraLarge"
+        />
+      </div>
+    </div>
+  );
 };
 
 export const WithCustomClassName = Template.bind({});
@@ -60,6 +74,35 @@ WithCustomClassName.args = {
   user: { name: "neeto UI" },
   size: "extraLarge",
   className: "cursor-pointer",
+};
+
+// eslint-disable-next-line no-empty-pattern
+export const WithStatus = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+  return (
+    <div className="p-6">
+      <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
+        <span className="text-sm">Offline</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          status="offline"
+        />
+        <span className="text-sm">Online</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          status="online"
+        />
+        <span className="text-sm">Idle</span>
+        <Avatar
+          onClick={onClick}
+          user={{ imageUrl }}
+          status="idle"
+        />
+      </div>
+    </div>
+  );
 };
 
 export const Variants = () => {
