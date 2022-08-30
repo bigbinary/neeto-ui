@@ -9,13 +9,12 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    transition: all .3s;
+    transition: all 0.3s;
     background-color: #1b1f23dd;
     backdrop-filter: blur(2px);
   }
   &__wrapper {
     overflow: hidden;
-    width: 480px;
     max-width: 100%;
     height: 100vh;
     background-color: rgb(var(--neeto-ui-white));
@@ -23,7 +22,15 @@
     transform: translateX(100%);
     backdrop-filter: blur(2px);
 
-    transition: all .3s;
+    transition: all 0.3s;
+
+    &--small {
+      width: 480px;
+    }
+
+    &--large {
+      width: 50vw;
+    }
 
     @include viewport(tab-min) {
       width: 50%;
@@ -54,7 +61,8 @@
 
     &.neeto-ui-pane__body--has-footer {
       height: calc(
-        100vh - var(--neeto-ui-pane-header-height) - var(--neeto-ui-pane-footer-height)
+        100vh - var(--neeto-ui-pane-header-height) -
+          var(--neeto-ui-pane-footer-height)
       );
     }
   }
@@ -77,42 +85,42 @@
 // CSS transition group
 
 .neeto-ui-pane-enter {
-  &.neeto-ui-pane__backdrop{
+  &.neeto-ui-pane__backdrop {
     opacity: 0;
     backdrop-filter: blur(2px);
   }
-  .neeto-ui-pane__wrapper{
+  .neeto-ui-pane__wrapper {
     transform: translateX(100%);
     backdrop-filter: blur(2px);
   }
 }
 .neeto-ui-pane-enter-active,
 .neeto-ui-pane-enter-done {
-  &.neeto-ui-pane__backdrop{
+  &.neeto-ui-pane__backdrop {
     opacity: 1;
     backdrop-filter: blur(2px);
   }
-  .neeto-ui-pane__wrapper{
+  .neeto-ui-pane__wrapper {
     transform: translateX(0);
     backdrop-filter: blur(0px);
   }
 }
 .neeto-ui-pane-exit {
-  &.neeto-ui-pane__backdrop{
+  &.neeto-ui-pane__backdrop {
     opacity: 1;
     backdrop-filter: blur(2px);
   }
-  .neeto-ui-pane__wrapper{
+  .neeto-ui-pane__wrapper {
     transform: translateX(100%);
     backdrop-filter: blur(2px);
   }
 }
 .neeto-ui-pane-exit-active {
-  &.neeto-ui-pane__backdrop{
+  &.neeto-ui-pane__backdrop {
     opacity: 0;
     backdrop-filter: blur(2px);
   }
-  .neeto-ui-pane__wrapper{
+  .neeto-ui-pane__wrapper {
     transform: translateX(100%);
     backdrop-filter: blur(2px);
   }
