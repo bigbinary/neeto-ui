@@ -43,20 +43,18 @@ Default.args = {
   label: "Label",
 };
 
-export const Styles = () => {
-  const STATUS_TAGS = [
-    { style: "success", label: "Success" },
-    { style: "warning", label: "Warning" },
-    { style: "danger", label: "Danger" },
-    { style: "primary", label: "Primary" },
-    { style: "inactive", label: "Inactive" },
-  ];
-
+// eslint-disable-next-line no-empty-pattern
+export const Sizes = ({}) => {
   return (
-    <div className="space-x-2">
-      {STATUS_TAGS.map((tag) => (
-        <Tag size="large" key={tag.label} style={tag.style} label={tag.label} />
-      ))}
+    <div className="p-6">
+      <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+        <div className="flex flex-col p-2 space-y-6">
+          <div className="flex flex-row items-center justify-start space-x-4">
+            <Tag label="Large" size="large" />
+            <Tag label="Small" size="small" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -93,42 +91,24 @@ export const Types = () => {
   );
 };
 
-export const Sizes = () => {
-  const TAG_SIZES = [
-    { value: "small", label: "Small" },
-    { value: "large", label: "Large" },
-  ];
-  return (
-    <div className="space-y-4">
-      {TAG_SIZES.map((size) => (
-        <>
-          <h5 className="capitalize">{size.label}</h5>
-          <div key={size.label}>
-            <Tag size={size.value} label={size.label} />
-          </div>
-        </>
-      ))}
-    </div>
-  );
-};
-
 // eslint-disable-next-line no-empty-pattern
-export const TagWithColor = ({}) => {
+export const Styles = ({}) => {
   return (
     <div className="p-6">
       <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
         <div className="flex flex-col p-2 space-y-6">
           <div className="flex flex-row items-start justify-start space-x-4">
-            <Tag label="Gray" color="gray" />
-            <Tag label="Red" color="red" />
-            <Tag label="Green" color="green" />
-            <Tag label="Blue" color="blue" />
-            <Tag label="Yellow" color="yellow" />
+            <Tag label="Gray" style="inactive" />
+            <Tag label="Red" style="danger" />
+            <Tag label="Green" style="success" />
+            <Tag label="Blue" style="primary" />
+            <Tag label="Yellow" style="warning" />
           </div>
         </div>
       </div>
     </div>
   );
+};
 
 export const Variants = () => {
   const STATUS_TAGS = [
