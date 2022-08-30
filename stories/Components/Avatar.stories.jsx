@@ -18,7 +18,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
     },
   },
 };
@@ -39,29 +40,13 @@ export const Sizes = ({}) => {
     <div className="p-6">
       <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
         <span className="text-sm">Small</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          size="small"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} size="small" />
         <span className="text-sm">Medium</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          size="medium"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} size="medium" />
         <span className="text-sm">Large</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          size="large"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} size="large" />
         <span className="text-sm">X Large</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          size="extraLarge"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} size="extraLarge" />
       </div>
     </div>
   );
@@ -83,23 +68,11 @@ export const WithStatus = ({}) => {
     <div className="p-6">
       <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
         <span className="text-sm">Offline</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          status="offline"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} status="offline" />
         <span className="text-sm">Online</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          status="online"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} status="online" />
         <span className="text-sm">Idle</span>
-        <Avatar
-          onClick={onClick}
-          user={{ imageUrl }}
-          status="idle"
-        />
+        <Avatar onClick={onClick} user={{ imageUrl }} status="idle" />
       </div>
     </div>
   );
