@@ -86,13 +86,17 @@ export type TabItemProps<S> = {
 
 export interface ActionDropdownProps {
   label?: string;
-  style?: "primary" | "secondary";
-  size?: "large" | "default";
+  buttonStyle?: "primary" | "secondary";
+  buttonSize?: "small" | "medium" | "large";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
   buttonProps?: ButtonProps;
   dropdownProps?: DropdownProps;
+  /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/
+  style?: "primary" | "secondary";
+  /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/
+  size?: "small" | "medium" | "large";
 }
 
 export interface AlertProps {
@@ -168,7 +172,7 @@ export type DatePickerProps = {
   defaultValue?: any;
   className?: string;
   label?: string;
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   dropdownClassName?: string;
   dateFormat?: string;
   timeFormat?: string;
@@ -206,7 +210,14 @@ export interface DropdownProps {
     | "left-start"
     | "left-end";
   className?: string;
-  buttonStyle?: "primary" | "secondary" | "text";
+  buttonSize?: "small" | "medium" | "large";
+  buttonStyle?:
+    | "primary"
+    | "secondary"
+    | "text"
+    | "danger"
+    | "danger-text"
+    | "link";
   buttonProps?: ButtonProps;
   customTarget?: React.ReactNode | (() => React.ReactNode);
   disabled?: boolean;
@@ -218,7 +229,7 @@ export interface DropdownProps {
   trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
-  /** @deprecated Prop deprecated. Use dropdownProps prop instead*/
+  /** @deprecated Prop deprecated. Use `dropdownProps` prop instead*/
   ulProps?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLUListElement>,
     HTMLUListElement
@@ -244,7 +255,7 @@ export interface EmailInputProps {
 }
 
 export type InputProps = {
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   label?: string;
   error?: string;
   suffix?: React.ReactNode;
@@ -289,7 +300,7 @@ export interface PaginationProps {
 }
 
 export type SelectProps = {
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   label?: string;
   required?: boolean;
   error?: string;
@@ -357,14 +368,12 @@ export interface TagProps {
   onClose?: () => void;
   disabled?: boolean;
   className?: string;
-  status?: "success" | "warning" | "danger" | "primary" | "inactive";
-  indicatorStatus?: "success" | "warning" | "danger" | "primary" | "inactive";
-  /** @deprecated Prop deprecated. Use status prop instead*/
+  style?: "success" | "warning" | "danger" | "primary" | "inactive";
+  indicatorStyle?: "success" | "warning" | "danger" | "primary" | "inactive";
+  /** @deprecated Prop deprecated. Use `style` prop instead*/
   color: string;
-  /** @deprecated Prop deprecated. Use indicatorStatus prop instead*/
+  /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
-  /** @deprecated Prop has been renamed to type*/
-  style?: string;
 }
 
 export type TextareaProps = {
@@ -386,7 +395,7 @@ export type TimePickerProps = {
   className?: string;
   label?: string;
   format?: string;
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   interval?: {
     hourStep: number;
     minuteStep: number;

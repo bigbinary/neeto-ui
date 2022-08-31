@@ -20,11 +20,12 @@ export default {
       },
       source: {
         type: "code",
-      }
+      },
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
 };
@@ -32,17 +33,16 @@ export default {
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
 const Template = (args) => {
-
-  const {
-    Menu, MenuItem, Divider
-  } = ActionDropdown;
+  const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40">
       <ActionDropdown {...args}>
         <Menu>
           {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>{item}</MenuItem.Button>
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
           ))}
           <Divider />
           <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
@@ -56,39 +56,18 @@ const Template = (args) => {
 
 export const PrimaryDropdown = Template.bind({});
 PrimaryDropdown.args = {
-  style: "primary",
+  buttonStyle: "primary",
   label: "Primary",
 };
 
 export const SecondaryDropdown = Template.bind({});
 SecondaryDropdown.args = {
-  style: "secondary",
+  buttonStyle: "secondary",
   label: "Secondary",
 };
 
 export const DisabledDropdown = Template.bind({});
 DisabledDropdown.args = {
-  label: "Disabled",
-  disabled: true,
-};
-
-export const LargePrimaryDropdown = Template.bind({});
-LargePrimaryDropdown.args = {
-  size: "large",
-  style: "primary",
-  label: "Large Primary",
-};
-
-export const LargeSecondaryDropdown = Template.bind({});
-LargeSecondaryDropdown.args = {
-  size: "large",
-  style: "secondary",
-  label: "Large Secondary",
-};
-
-export const LargeDisabledDropdown = Template.bind({});
-LargeDisabledDropdown.args = {
-  size: "large",
   label: "Disabled",
   disabled: true,
 };
