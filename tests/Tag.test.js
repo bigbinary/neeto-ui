@@ -15,8 +15,8 @@ describe("Tag", () => {
     expect(getByTestId("class-icon")).toBeInTheDocument();
   });
 
-  it("should show indicator when indicatorColor is provided", () => {
-    const { getByTestId } = render(<Tag indicatorColor="green" />);
+  it("should show indicator when indicatorStatus is provided", () => {
+    const { getByTestId } = render(<Tag indicatorStatus="success" />);
     expect(getByTestId("tag-indicator")).toBeInTheDocument();
   });
 
