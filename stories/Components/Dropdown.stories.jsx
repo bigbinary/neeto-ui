@@ -65,11 +65,6 @@ export const DropdownStory = (args) => {
   );
 };
 DropdownStory.storyName = "DropDown";
-DropdownStory.args = {
-  buttonProps: {
-    size: "large",
-  },
-};
 
 export const PrimaryDropdown = () => {
   const [dropdownOne, setDropdownOne] = useState(false);
