@@ -30,21 +30,6 @@ Default.args = {
   label: "Label",
 };
 
-export const TagColorStory = (props) => (
-  <div className="p-6">
-    <Tag {...props} />
-  </div>
-);
-
-TagColorStory.storyName = "Tag with Color";
-TagColorStory.args = {
-  status: "success",
-  type: "outline",
-  label: "Label",
-  size: "large",
-  onClose: null,
-};
-
 export const Statuses = () => {
   const STATUS_TAGS = [
     { status: "success", label: "Success" },
