@@ -350,12 +350,12 @@ export interface TagProps {
   icon?: string | any;
   size?: "small" | "large";
   label?: string;
-  style?: "outline" | "solid";
+  type?: "outline" | "solid";
   onClose?: () => void;
   disabled?: boolean;
   className?: string;
-  color?: "green" | "yellow" | "red" | "blue" | "gray";
-  indicatorColor?: "green" | "yellow" | "red" | "blue" | "gray";
+  status?: "success" | "warning" | "danger" | "primary" | "inactive";
+  indicatorStatus?: "success" | "warning" | "danger" | "primary" | "inactive";
 }
 
 export type TextareaProps = {
