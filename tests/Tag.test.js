@@ -1,7 +1,8 @@
 import React from "react";
-import { Tag } from "../lib/components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import { Tag } from "../lib/components";
 
 describe("Tag", () => {
   it("should render without error", () => {
