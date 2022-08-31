@@ -231,7 +231,7 @@ export const Variants = () => {
                 size="large"
                 key={tag.label}
                 label={tag.label}
-                indicatorColor={tag.status}
+                indicatorStatus={tag.status}
               />
             ))}
           </div>
@@ -243,7 +243,7 @@ export const Variants = () => {
                 size="large"
                 key={tag.label}
                 label={tag.label}
-                indicatorColor={tag.status}
+                indicatorStatus={tag.status}
               />
             ))}
           </div>
