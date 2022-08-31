@@ -45,6 +45,80 @@ TagColorStory.args = {
   onClose: null,
 };
 
+export const Statuses = () => {
+  const STATUS_TAGS = [
+    { status: "success", label: "Success" },
+    { status: "warning", label: "Warning" },
+    { status: "danger", label: "Danger" },
+    { status: "primary", label: "Primary" },
+    { status: "inactive", label: "Inactive" },
+  ];
+
+  return (
+    <div className="space-x-2">
+      {STATUS_TAGS.map((tag) => (
+        <Tag
+          size="large"
+          key={tag.label}
+          status={tag.status}
+          label={tag.label}
+        />
+      ))}
+    </div>
+  );
+};
+
+export const Types = () => {
+  const TYPE_TAGS = ["outline", "solid"];
+  const STATUS_TAGS = [
+    { status: "success", label: "Success" },
+    { status: "warning", label: "Warning" },
+    { status: "danger", label: "Danger" },
+    { status: "primary", label: "Primary" },
+    { status: "inactive", label: "Inactive" },
+  ];
+
+  return (
+    <div className="space-y-4">
+      {TYPE_TAGS.map((type) => (
+        <>
+          <h5 className="capitalize">{type}</h5>
+          <div key={type} className="space-x-2">
+            {STATUS_TAGS.map((tag) => (
+              <Tag
+                size="large"
+                type={type}
+                key={tag.label}
+                status={tag.status}
+                label={tag.label}
+              />
+            ))}
+          </div>
+        </>
+      ))}
+    </div>
+  );
+};
+
+export const Sizes = () => {
+  const TAG_SIZES = [
+    { value: "small", label: "Small" },
+    { value: "large", label: "Large" },
+  ];
+  return (
+    <div className="space-y-4">
+      {TAG_SIZES.map((size) => (
+        <>
+          <h5 className="capitalize">{size.label}</h5>
+          <div key={size.label}>
+            <Tag size={size.value} label={size.label} />
+          </div>
+        </>
+      ))}
+    </div>
+  );
+};
+
 export const Variants = () => {
   const STATUS_TAGS = [
     { status: "success", label: "Success" },
@@ -145,6 +219,18 @@ export const Variants = () => {
             {STATUS_TAGS.map((tag) => (
               <Tag
                 type="solid"
+                size="large"
+                key={tag.label}
+                status={tag.status}
+                label={tag.label}
+              />
+            ))}
+          </div>
+          <div className="flex flex-row items-start justify-start space-x-4">
+            <h5>Outline With Colors : </h5>
+            {STATUS_TAGS.map((tag) => (
+              <Tag
+                type="outline"
                 size="large"
                 key={tag.label}
                 status={tag.status}
