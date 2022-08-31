@@ -16,7 +16,7 @@ describe("Tag", () => {
   });
 
   it("should show indicator when indicatorStatus is provided", () => {
-    const { getByTestId } = render(<Tag indicatorStatus="success" />);
+    const { getByTestId } = render(<Tag indicatorStyle="success" />);
     expect(getByTestId("tag-indicator")).toBeInTheDocument();
   });
 
