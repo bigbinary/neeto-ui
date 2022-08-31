@@ -18,6 +18,17 @@ import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
 
 import { STORYBOOK_NAV_LINKS } from "../constants";
 
+const DEPRECATED_PROPS = {
+  footerLinks: {
+    control: false,
+    table: { type: { summary: null } },
+  },
+  isCollapsed: {
+    table: { type: { summary: null } },
+    control: false,
+  },
+};
+
 export default {
   title: "Layouts/Sidebar",
   component: Sidebar,
@@ -30,6 +41,9 @@ export default {
       inlineStories: false,
       iframeHeight: "100vh",
     },
+  },
+  argTypes: {
+    ...DEPRECATED_PROPS,
   },
 };
 

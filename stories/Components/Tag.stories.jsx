@@ -4,7 +4,7 @@ import { Favorite } from "@bigbinary/neeto-icons";
 import Tag from "../../lib/components/Tag";
 import { icons } from "../constants";
 
-const DEPREACTED_PROPS = {
+const DEPRECATED_PROPS = {
   color: {
     table: { type: { summary: null } },
     control: false,
@@ -36,7 +36,7 @@ export default {
       options: Object.keys(icons),
       mapping: icons,
     },
-    ...DEPREACTED_PROPS,
+    ...DEPRECATED_PROPS,
   },
 };
 

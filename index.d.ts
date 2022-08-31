@@ -188,10 +188,6 @@ export interface DropdownProps {
   label?: React.ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
-  ulProps?: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLUListElement>,
-    HTMLUListElement
-  >;
   position?:
     | "auto"
     | "auto-start"
@@ -213,6 +209,7 @@ export interface DropdownProps {
   buttonProps?: ButtonProps;
   customTarget?: React.ReactNode | (() => React.ReactNode);
   disabled?: boolean;
+  dropdownProps?: any;
   closeOnEsc?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
@@ -220,6 +217,11 @@ export interface DropdownProps {
   trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
+  /** @deprecated Prop deprecated. Use dropdownProps prop instead*/
+  ulProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLUListElement>,
+    HTMLUListElement
+  >;
   [key: string]: any;
 }
 
