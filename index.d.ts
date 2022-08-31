@@ -22,6 +22,7 @@ export interface AccordionItemProps {
 
 export interface ColorPickerProps {
   color: string;
+  size: "small" | "medium" | "large";
   onChange: (color: string) => void;
   colorPaletteProps?: {
     color: { from: string; to: string };

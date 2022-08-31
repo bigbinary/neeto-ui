@@ -24,24 +24,28 @@ const DEFAULT_COLORS = {
   "blue-500": "#276ef1",
 };
 
-export const ColorPickerStory = (args) => {
-  const [color, setColor] = useState("#000000");
+export const ColorPickerStory = ({ color, ...args }) => {
+  const [currentColor, setCurrentColor] = useState("#000000");
 
   const onChange = (value) => {
     action("onChange")(value);
-    setColor(value.hex);
+    setCurrentColor(value.hex);
   };
 
   useEffect(() => {
-    setColor(args.color || "#000000");
-  }, [args.color]);
+    setCurrentColor(color || "#000000");
+  }, [color]);
 
-  return <div className="w-40 h-60"><ColorPicker color={color} onChange={onChange} /></div>;
+  return (
+    <div className="w-40 h-60">
+      <ColorPicker color={currentColor} onChange={onChange} {...args} />
+    </div>
+  );
 };
 
 ColorPickerStory.storyName = "ColorPicker";
 ColorPickerStory.args = {
-  color: "#ffffff",
+  color: "#000000",
 };
 
 export const Sizes = (args) => {
@@ -56,12 +60,18 @@ export const Sizes = (args) => {
     setColor(args.color || "#000000");
   }, [args.color]);
 
-  return <div className="w-40 h-60 flex flex-col gap-4"><ColorPicker color={color} size="small" onChange={onChange} /><ColorPicker color={color} size="medium" onChange={onChange} /><ColorPicker color={color} size="large" onChange={onChange} /></div>;
+  return (
+    <div className="flex flex-col w-40 gap-4 h-60">
+      <ColorPicker color={color} size="small" onChange={onChange} />
+      <ColorPicker color={color} size="medium" onChange={onChange} />
+      <ColorPicker color={color} size="large" onChange={onChange} />
+    </div>
+  );
 };
 
 Sizes.storyName = "Sizes";
 Sizes.args = {
-  color: "#ffffff",
+  color: "#000000",
 };
 
 export const ColorPickerWithColorPalette = (args) => {
@@ -112,5 +122,5 @@ export const ColorPickerWithColorPalette = (args) => {
 
 ColorPickerWithColorPalette.storyName = "ColorPicker with Color Palette";
 ColorPickerWithColorPalette.args = {
-  color: "#ffffff",
+  color: "#000000",
 };
