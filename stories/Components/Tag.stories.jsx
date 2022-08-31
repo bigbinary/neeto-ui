@@ -4,17 +4,13 @@ import { Favorite } from "@bigbinary/neeto-icons";
 import Tag from "../../lib/components/Tag";
 import { icons } from "../constants";
 
-const DEPREACTED_PROPS = {
+const DEPRECATED_PROPS = {
   color: {
     table: { type: { summary: null } },
     control: false,
   },
 
   indicatorColor: {
-    table: { type: { summary: null } },
-    control: false,
-  },
-  style: {
     table: { type: { summary: null } },
     control: false,
   },
@@ -36,7 +32,7 @@ export default {
       options: Object.keys(icons),
       mapping: icons,
     },
-    ...DEPREACTED_PROPS,
+    ...DEPRECATED_PROPS,
   },
 };
 
@@ -47,24 +43,19 @@ Default.args = {
   label: "Label",
 };
 
-export const Statuses = () => {
+export const Styles = () => {
   const STATUS_TAGS = [
-    { status: "success", label: "Success" },
-    { status: "warning", label: "Warning" },
-    { status: "danger", label: "Danger" },
-    { status: "primary", label: "Primary" },
-    { status: "inactive", label: "Inactive" },
+    { style: "success", label: "Success" },
+    { style: "warning", label: "Warning" },
+    { style: "danger", label: "Danger" },
+    { style: "primary", label: "Primary" },
+    { style: "inactive", label: "Inactive" },
   ];
 
   return (
     <div className="space-x-2">
       {STATUS_TAGS.map((tag) => (
-        <Tag
-          size="large"
-          key={tag.label}
-          status={tag.status}
-          label={tag.label}
-        />
+        <Tag size="large" key={tag.label} style={tag.style} label={tag.label} />
       ))}
     </div>
   );
@@ -73,11 +64,11 @@ export const Statuses = () => {
 export const Types = () => {
   const TYPE_TAGS = ["outline", "solid"];
   const STATUS_TAGS = [
-    { status: "success", label: "Success" },
-    { status: "warning", label: "Warning" },
-    { status: "danger", label: "Danger" },
-    { status: "primary", label: "Primary" },
-    { status: "inactive", label: "Inactive" },
+    { style: "success", label: "Success" },
+    { style: "warning", label: "Warning" },
+    { style: "danger", label: "Danger" },
+    { style: "primary", label: "Primary" },
+    { style: "inactive", label: "Inactive" },
   ];
 
   return (
@@ -91,7 +82,7 @@ export const Types = () => {
                 size="large"
                 type={type}
                 key={tag.label}
-                status={tag.status}
+                style={tag.style}
                 label={tag.label}
               />
             ))}
@@ -123,19 +114,19 @@ export const Sizes = () => {
 
 export const Variants = () => {
   const STATUS_TAGS = [
-    { status: "success", label: "Success" },
-    { status: "warning", label: "Warning" },
-    { status: "danger", label: "Danger" },
-    { status: "primary", label: "Primary" },
-    { status: "inactive", label: "Inactive" },
+    { style: "success", label: "Success" },
+    { style: "warning", label: "Warning" },
+    { style: "danger", label: "Danger" },
+    { style: "primary", label: "Primary" },
+    { style: "inactive", label: "Inactive" },
   ];
 
   const INDICATOR_COLORS = [
-    { status: "success", label: "Success" },
-    { status: "warning", label: "Warning" },
-    { status: "danger", label: "Danger" },
-    { status: "primary", label: "Primary" },
-    { status: "inactive", label: "Inactive" },
+    { style: "success", label: "Success" },
+    { style: "warning", label: "Warning" },
+    { style: "danger", label: "Danger" },
+    { style: "primary", label: "Primary" },
+    { style: "inactive", label: "Inactive" },
   ];
 
   const onClose = () => alert("onClose Triggered!");
@@ -163,30 +154,30 @@ export const Variants = () => {
             <Tag
               type="outline"
               size="large"
-              status="gray"
+              style="gray"
               icon={Favorite}
               onClose={onClose}
               label="Label"
             />
-            <Tag type="outline" size="large" status="red" label="Label" />
+            <Tag type="outline" size="large" style="red" label="Label" />
             <Tag
               type="outline"
               size="large"
-              status="green"
+              style="green"
               icon={Favorite}
               label="Label"
             />
             <Tag
               type="outline"
               size="large"
-              status="blue"
+              style="blue"
               onClose={onClose}
               label="Label"
             />
             <Tag
               type="outline"
               size="large"
-              status="yellow"
+              style="yellow"
               icon={Favorite}
               onClose={onClose}
               label="Label"
@@ -199,7 +190,7 @@ export const Variants = () => {
                 type="solid"
                 size="small"
                 key={tag.label}
-                status={tag.status}
+                style={tag.style}
                 label={tag.label}
               />
             ))}
@@ -211,7 +202,7 @@ export const Variants = () => {
                 type="solid"
                 size="large"
                 key={tag.label}
-                status={tag.status}
+                style={tag.style}
                 label={tag.label}
               />
             ))}
@@ -223,7 +214,7 @@ export const Variants = () => {
                 type="solid"
                 size="large"
                 key={tag.label}
-                status={tag.status}
+                style={tag.style}
                 label={tag.label}
               />
             ))}
@@ -235,7 +226,7 @@ export const Variants = () => {
                 type="outline"
                 size="large"
                 key={tag.label}
-                status={tag.status}
+                style={tag.style}
                 label={tag.label}
               />
             ))}
@@ -248,7 +239,7 @@ export const Variants = () => {
                 size="large"
                 key={tag.label}
                 label={tag.label}
-                indicatorStatus={tag.status}
+                indicatorStatus={tag.style}
               />
             ))}
           </div>
@@ -260,7 +251,7 @@ export const Variants = () => {
                 size="large"
                 key={tag.label}
                 label={tag.label}
-                indicatorStatus={tag.status}
+                indicatorStatus={tag.style}
               />
             ))}
           </div>

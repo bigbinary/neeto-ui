@@ -5,6 +5,13 @@ import Dropdown from "../../lib/components/Dropdown";
 import { Button } from "../../lib/components";
 import { icons } from "../constants";
 
+const DEPRECATED_PROPS = {
+  ulProps: {
+    control: false,
+    table: { type: { summary: null } },
+  },
+};
+
 export default {
   title: "Components/Dropdown",
   component: Dropdown,
@@ -35,6 +42,7 @@ export default {
       options: Object.keys(icons),
       mapping: icons,
     },
+    ...DEPRECATED_PROPS,
   },
 };
 
@@ -137,13 +145,29 @@ export const WithPrefixAndSuffix = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="h-40">
-      <Dropdown label="Text Dropdown" buttonStyle="primary" position="bottom-end">
+      <Dropdown
+        label="Text Dropdown"
+        buttonStyle="primary"
+        position="bottom-end"
+      >
         <Menu>
           {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx} prefix={<Settings size={20} />} suffix={<Settings size={20} />}>{item}</MenuItem.Button>
+            <MenuItem.Button
+              key={idx}
+              prefix={<Settings size={20} />}
+              suffix={<Settings size={20} />}
+            >
+              {item}
+            </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />} suffix={<Settings size={20} />}>Delete</MenuItem.Button>
+          <MenuItem.Button
+            style="danger"
+            prefix={<Delete size={20} />}
+            suffix={<Settings size={20} />}
+          >
+            Delete
+          </MenuItem.Button>
         </Menu>
       </Dropdown>
     </div>
@@ -172,9 +196,7 @@ export const CustomIcon = () => {
 };
 
 export const MultiDropdownWithClickTrigger = () => {
-  const {
-    Menu, MenuItem, Divider
-  } = Dropdown;
+  const { Menu, MenuItem, Divider } = Dropdown;
 
   return (
     <div className="flex items-start h-80">
@@ -204,9 +226,7 @@ export const MultiDropdownWithClickTrigger = () => {
 };
 
 export const MultiDropdownWithHoverTrigger = () => {
-  const {
-    Menu, MenuItem, Divider
-  } = Dropdown;
+  const { Menu, MenuItem, Divider } = Dropdown;
 
   return (
     <div className="flex items-start h-80">
@@ -237,9 +257,7 @@ export const MultiDropdownWithHoverTrigger = () => {
 
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    Menu, MenuItem, Divider
-  } = Dropdown;
+  const { Menu, MenuItem, Divider } = Dropdown;
   return (
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
