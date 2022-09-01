@@ -40,26 +40,34 @@ Default.args = {
 export const Sizes = ({}) => {
   return (
     <div className="w-full">
-      <div className="w-full flex flex-col gap-3">
-        <div className="flex gap-4 items-start flex-wrap">
-          <Button
-            style="primary"
-            label="X Large"
-            size="xlarge"
-          />
+      <div className="flex w-full gap-3">
+        <div className="flex flex-wrap items-start gap-4">
+          <Button style="primary" label="Small" size="small" />
         </div>
-        <div className="flex gap-4 items-start flex-wrap">
-          <Button
-            style="primary"
-            label="Large"
-            size="large"
-          />
+        <div className="flex flex-wrap items-start gap-4">
+          <Button style="primary" label="Medium" size="medium" />
         </div>
-        <div className="flex gap-4 items-start flex-wrap">
-          <Button
-            style="primary"
-            label="Default"
-          />
+        <div className="flex flex-wrap items-start gap-4">
+          <Button style="primary" label="Large" size="large" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const Styles = ({}) => {
+  return (
+    <div className="w-full">
+      <div className="flex flex-col w-full gap-3">
+        <div className="flex flex-wrap items-center gap-4">
+          <Button style="primary" label="Primary" />
+          <Button style="secondary" label="Secondary" />
+          <Button style="text" label="Text" />
+          <Button style="link" label="Link" />
+        </div>
+        <div className="flex flex-wrap items-start gap-4">
+          <Button style="danger" label="Danger" />
+          <Button style="danger-text" label="Danger Text" />
         </div>
       </div>
     </div>
@@ -70,28 +78,15 @@ export const IconButtons = ({}) => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-4 items-start flex-wrap">
-            <Button
-              style="primary"
-              label="Label"
-              iconPosition="left"
-              icon={Favorite}
-            />
+        <div className="flex gap-3">
+          <div className="flex flex-wrap items-start gap-4">
+            <Button label="Label" iconPosition="left" icon={Favorite} />
           </div>
-          <div className="flex gap-4 items-start flex-wrap">
-            <Button
-              style="primary"
-              label="Label"
-              iconPosition="right"
-              icon={Favorite}
-            />
+          <div className="flex flex-wrap items-start gap-4">
+            <Button label="Label" iconPosition="right" icon={Favorite} />
           </div>
-          <div className="flex gap-4 items-start flex-wrap">
-            <Button
-              style="primary"
-              icon={Favorite}
-            />
+          <div className="flex flex-wrap items-start gap-4">
+            <Button icon={Favorite} />
           </div>
         </div>
       </div>
@@ -102,27 +97,16 @@ export const IconButtons = ({}) => {
 export const LoadingState = Template.bind({});
 LoadingState.args = {
   loading: true,
-  label: "Loading"
+  label: "Loading",
 };
 
 export const FullWidth = ({}) => {
   return (
     <div className="w-full">
-      <div className="flex gap-4 items-start flex-wrap w-80">
-        <Button
-          label="Primary"
-          fullWidth
-        />
-        <Button
-          style="secondary"
-          label="Secondary"
-          fullWidth
-        />
-        <Button
-          style="text"
-          label="Text"
-          fullWidth
-        />
+      <div className="flex flex-wrap items-start gap-4 w-80">
+        <Button label="Primary" fullWidth />
+        <Button style="secondary" label="Secondary" fullWidth />
+        <Button style="text" label="Text" fullWidth />
       </div>
     </div>
   );
@@ -135,46 +119,4 @@ Tooltip.args = {
     content: "Top",
     position: "top",
   },
-};
-export const Variants = ({}) => {
-  return (
-    <div className="w-full">
-      <div className="w-full flex flex-col gap-3">
-        <div className="flex gap-4 items-center flex-wrap">
-          <Button
-            style="primary"
-            label="Primary"
-            size="large"
-          />
-          <Button
-            style="secondary"
-            label="Secondary"
-            size="large"
-          />
-          <Button
-            style="text"
-            label="Text"
-            size="large"
-          />
-          <Button
-            style="link"
-            label="Link"
-            size="large"
-          />
-        </div>
-        <div className="flex gap-4 items-start flex-wrap">
-          <Button
-            style="danger"
-            label="Danger"
-            size="large"
-          />
-          <Button
-            style="danger-text"
-            label="Danger Text"
-            size="large"
-          />
-        </div>
-      </div>
-    </div>
-  );
 };
