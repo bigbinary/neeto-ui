@@ -67,7 +67,7 @@ export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
 >;
 
 export type TabProps = {
-  size?: "large" | "default";
+  size?: "large" | "small";
   noUnderline?: boolean;
   className?: string;
 } & React.DetailedHTMLProps<
@@ -440,7 +440,17 @@ export interface TooltipProps {
 }
 
 export type TypographyProps = {
-  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1" | "body2" | "body3";
+  style?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "body1"
+    | "body2"
+    | "body3"
+    | "nano";
   weight?:
     | "thin"
     | "extralight"
