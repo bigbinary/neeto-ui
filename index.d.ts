@@ -46,9 +46,9 @@ interface PopupContentProps {
   className?: string;
 }
 
-export type ModalProps = PopupProps & { size?: "xs" | "sm" | "md" };
+export type ModalProps = PopupProps & { size?: "small" | "medium" | "large" };
 
-export type PaneProps = PopupProps & { size?: "sm" | "lg" };
+export type PaneProps = PopupProps & { size?: "small" | "large" };
 
 export interface RadioProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -67,7 +67,7 @@ export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
 >;
 
 export type TabProps = {
-  size?: "large" | "default";
+  size?: "large" | "small";
   noUnderline?: boolean;
   className?: string;
 } & React.DetailedHTMLProps<
@@ -100,7 +100,7 @@ export interface ActionDropdownProps {
 }
 
 export interface AlertProps {
-  size?: "xs" | "sm" | "md";
+  size?: "small" | "medium" | "large";
   isOpen?: boolean;
   isSubmitting?: boolean;
   className?: string;
@@ -117,7 +117,7 @@ export interface AlertProps {
 }
 
 export type AvatarProps = {
-  size?: "small" | "medium" | "large" | "xlarge";
+  size?: "small" | "medium" | "large" | "extraLarge";
   user?: { name: string; imageUrl: string };
   isSquare?: boolean;
   status?: "online" | "idle" | "offline";
@@ -141,7 +141,7 @@ export interface ButtonProps {
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;
-  size?: "large" | "xlarge" | "default";
+  size?: "small" | "medium" | "large";
   href?: string;
   tooltipProps?: TooltipProps;
   [key: string]: any;
@@ -440,7 +440,17 @@ export interface TooltipProps {
 }
 
 export type TypographyProps = {
-  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1" | "body2" | "body3";
+  style?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "body1"
+    | "body2"
+    | "body3"
+    | "nano";
   weight?:
     | "thin"
     | "extralight"

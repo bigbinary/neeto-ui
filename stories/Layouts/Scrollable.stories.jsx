@@ -30,17 +30,17 @@ export default {
 };
 
 const DummyCard = () => (
-  <div className="neeto-ui-bg-white w-full h-36 rounded-md p-5 space-y-2 shadow">
-    <div className="neeto-ui-bg-gray-200 w-1/4 h-8 flex-1 neeto rounded" />
-    <div className="neeto-ui-bg-gray-200 w-full h-4 flex-1 neeto rounded" />
-    <div className="neeto-ui-bg-gray-200 w-5/6 h-4 flex-1 neeto rounded" />
-    <div className="neeto-ui-bg-gray-200 w-3/4 h-4 flex-1 neeto rounded" />
+  <div className="w-full p-5 space-y-2 rounded-md shadow neeto-ui-bg-white h-36">
+    <div className="flex-1 w-1/4 h-8 rounded neeto-ui-bg-gray-200 neeto" />
+    <div className="flex-1 w-full h-4 rounded neeto-ui-bg-gray-200 neeto" />
+    <div className="flex-1 w-5/6 h-4 rounded neeto-ui-bg-gray-200 neeto" />
+    <div className="flex-1 w-3/4 h-4 rounded neeto-ui-bg-gray-200 neeto" />
   </div>
 );
 
 export const ScrollableStory = (args) => {
   return (
-    <Scrollable {...args} className="neeto-ui-bg-gray-100 p-6 space-y-6">
+    <Scrollable {...args} className="p-6 space-y-6 neeto-ui-bg-gray-100">
       {[...Array(5)].map((_, i) => (
         <DummyCard key={i} />
       ))}
@@ -55,7 +55,7 @@ export const WithHeader = (args) => {
       <Header title="Header" />
       <Scrollable
         {...args}
-        className="w-full space-y-6 py-6 neeto-ui-bg-gray-300"
+        className="w-full py-6 space-y-6 neeto-ui-bg-gray-300"
       >
         {[...Array(5)].map((_, i) => (
           <DummyCard key={i} />
@@ -81,14 +81,19 @@ export const WithHeaderAndSubHeader = (args) => {
         }
         rightActionBlock={
           <>
-            <Button label="Delete" style="secondary" icon={Delete} />
-            <Button label="Disable" style="secondary" />
+            <Button
+              size="small"
+              label="Delete"
+              style="secondary"
+              icon={Delete}
+            />
+            <Button size="small" label="Disable" style="secondary" />
           </>
         }
       />
       <Scrollable
         {...args}
-        className="w-full space-y-6 py-6 neeto-ui-bg-gray-300"
+        className="w-full py-6 space-y-6 neeto-ui-bg-gray-300"
       >
         {[...Array(6)].map((_, i) => (
           <DummyCard key={i} />
