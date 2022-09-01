@@ -63,13 +63,11 @@ export const Panes = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
-            size="large"
             label="Continue"
             onClick={() => setShowPane(false)}
           />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowPane(false)}
           />
@@ -118,13 +116,11 @@ export const PaneWithModalAndAlert = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
-            size="large"
             label="Continue"
             onClick={() => setShowPane(false)}
           />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowPane(false)}
           />

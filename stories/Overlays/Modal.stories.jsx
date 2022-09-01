@@ -58,16 +58,11 @@ export const Default = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowModal(false)}
-            size="large"
-          />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             style="text"
             label="Cancel"
             onClick={() => setShowModal(false)}
-            size="large"
           />
         </Modal.Footer>
       </Modal>
@@ -111,13 +106,11 @@ export const ModalSizing = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            size="large"
             label="Continue"
             onClick={() => setShowModalExtraSmall(false)}
           />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowModalExtraSmall(false)}
           />
@@ -139,25 +132,16 @@ export const ModalSizing = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalMedium(false)}
-          />
+          <Button label="Continue" onClick={() => setShowModalMedium(false)} />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowModalMedium(false)}
           />
         </Modal.Footer>
       </Modal>
 
-      <Modal
-        isOpen={showModalLarge}
-        onClose={() => setShowModalLarge(false)}
-        size="large"
-      >
+      <Modal isOpen={showModalLarge} onClose={() => setShowModalLarge(false)}>
         <Modal.Header>
           <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
@@ -172,14 +156,9 @@ export const ModalSizing = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalLarge(false)}
-          />
+          <Button label="Continue" onClick={() => setShowModalLarge(false)} />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowModalLarge(false)}
           />
@@ -226,16 +205,11 @@ export const ModalFocusTrapping = () => {
           <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowModal(false)}
-            size="large"
-          />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             style="text"
             label="Cancel"
             onClick={() => setShowModal(false)}
-            size="large"
           />
         </Modal.Footer>
       </Modal>
@@ -281,13 +255,11 @@ export const NestedModals = () => {
           <Button
             label="Open second modal"
             onClick={() => setShowModal2(true)}
-            size="large"
           />
           <Button
             style="text"
             label="Cancel"
             onClick={() => setShowModal(false)}
-            size="large"
           />
         </Modal.Footer>
       </Modal>
@@ -308,16 +280,11 @@ export const NestedModals = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowModal2(false)}
-            size="large"
-          />
+          <Button label="Continue" onClick={() => setShowModal2(false)} />
           <Button
             style="text"
             label="Cancel"
             onClick={() => setShowModal2(false)}
-            size="large"
           />
         </Modal.Footer>
       </Modal>
@@ -370,16 +337,11 @@ export const InitialAndFinalFocusRef = () => {
           <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowModal(false)}
-            size="large"
-          />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             style="text"
             label="Cancel"
             onClick={() => setShowModal(false)}
-            size="large"
           />
         </Modal.Footer>
       </Modal>

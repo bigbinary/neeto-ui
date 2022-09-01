@@ -112,10 +112,20 @@ export const Themes = () => {
     <div className="p-10 space-y-8">
       <h2 className="text-xl">Theme</h2>
       <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Tooltip position="top" content="Tooltip" theme="dark" trigger={"click"}>
+        <Tooltip
+          position="top"
+          content="Tooltip"
+          theme="dark"
+          trigger={"click"}
+        >
           <Button style="secondary" label="dark" />
         </Tooltip>
-        <Tooltip position="top" content="Tooltip" theme="light" trigger={"click"}>
+        <Tooltip
+          position="top"
+          content="Tooltip"
+          theme="light"
+          trigger={"click"}
+        >
           <Button style="secondary" label="light" />
         </Tooltip>
       </div>
@@ -192,19 +202,23 @@ TooltipOnCustomComponent.parameters = {
 };
 
 export const HidingTooltipOnTargetExit = () => {
-
   return (
-    <div className="max-h-56 overflow-auto p-10 space-y-2 bg-gray-300">
-      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
+    <div className="p-10 space-y-2 overflow-auto bg-gray-300 max-h-56">
+      {Array.from({ length: 6 }).map((_, key) => (
+        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
+      ))}
       <Tooltip
         position="top"
         content="Press esc to reset input after typing"
         hideOnTargetExit
       >
-        <Typography className="text-center mx-auto h-6 w-full bg-white">Hover Me and Scroll</Typography>
+        <Typography className="w-full h-6 mx-auto text-center bg-white">
+          Hover Me and Scroll
+        </Typography>
       </Tooltip>
-      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
+      {Array.from({ length: 6 }).map((_, key) => (
+        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
+      ))}
     </div>
   );
 };
-
