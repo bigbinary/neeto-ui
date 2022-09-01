@@ -1,5 +1,6 @@
+/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-
+import { Favorite, Search, Close } from "@bigbinary/neeto-icons";
 import Tab from "../../lib/components/Tab";
 
 export default {
@@ -27,18 +28,39 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
+export const Sizes = ({}) => (
+  <div className="flex flex-col mb-4 space-y-4">
+    <Tab>
+      <Tab.Item active>Small</Tab.Item>
+      <Tab.Item>Small</Tab.Item>
+    </Tab>
+
+    <Tab size="large">
+      <Tab.Item active>Large</Tab.Item>
+      <Tab.Item>Large</Tab.Item>
+    </Tab>
+  </div>
+);
+
+export const WithIcon = ({}) => {
+  return (
+    <Tab>
+      <Tab.Item active icon={Favorite}>
+        Label
+      </Tab.Item>
+      <Tab.Item icon={Search}>Label</Tab.Item>
+      <Tab.Item icon={Close}>Label</Tab.Item>
+    </Tab>
+  );
 };
 
-export const LargeWithoutUnderline = Template.bind({});
-LargeWithoutUnderline.args = {
+export const WithoutUnderline = Template.bind({});
+WithoutUnderline.args = {
   size: "large",
   noUnderline: true,
 };
 
-export const TwoItems = () => {
+export const TwoItems = ({}) => {
   const [tab, setTab] = useState(true);
   return (
     <Tab>
@@ -52,7 +74,7 @@ export const TwoItems = () => {
   );
 };
 
-export const ThreeItems = () => {
+export const ThreeItems = ({}) => {
   return (
     <Tab>
       <Tab.Item active>Label</Tab.Item>
@@ -62,7 +84,7 @@ export const ThreeItems = () => {
   );
 };
 
-export const FourItems = () => {
+export const FourItems = ({}) => {
   return (
     <Tab>
       <Tab.Item active>Label</Tab.Item>

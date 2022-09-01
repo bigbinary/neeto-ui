@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+/* eslint-disable no-empty-pattern */
+import React, { useState } from "react";
 
 import Switch from "../../lib/components/Switch";
 
@@ -14,7 +15,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
     },
   },
 };
@@ -25,39 +27,39 @@ const Template = (args) => (
   </div>
 );
 
-export const CheckedState = Template.bind({});
-CheckedState.args = {
+export const Default = Template.bind({});
+Default.args = {
+  checked: false,
+};
+
+export const Checked = Template.bind({});
+Checked.args = {
   checked: true,
 };
 
-export const UncheckedState = Template.bind({});
-UncheckedState.args = {
-  checked: false,
-};
-
-export const WithChangeListener = () => {
-  const [isChecked , setIsChecked] = useState(false);
+export const Controlled = ({}) => {
+  const [isChecked, setIsChecked] = useState(false);
   const onChange = (e) => {
     setIsChecked(e.target.checked);
   };
-  return (
-    <Switch onChange={onChange} checked={isChecked} />
-  );
+  return <Switch onChange={onChange} checked={isChecked} />;
 };
 
-export const DisabledState = Template.bind({});
-DisabledState.args = {
+export const Disabled = Template.bind({});
+Disabled.args = {
   disabled: true,
+  checked: true,
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  label: "Switch Label Example",
-  checked: false,
-};
-
-export const WithCustomLabel = Template.bind({});
-WithCustomLabel.args = {
-  label: <span className="neeto-ui-text-info-500">Custom Label Example</span>,
-  checked: false,
-};
+export const Label = ({}) => (
+  <div className="flex flex-col space-y-6">
+    <Switch label="Switch Label Example" />
+    <Switch
+      label={
+        <span className="font-semibold neeto-ui-text-info-500">
+          Custom Label Example
+        </span>
+      }
+    />
+  </div>
+);
