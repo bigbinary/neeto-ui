@@ -32,16 +32,10 @@ Default.args = {
 // eslint-disable-next-line no-empty-pattern
 export const Sizes = ({}) => {
   return (
-    <div className="w-full flex flex-col gap-3">
-      <Input
-        label="Default"
-        placeholder="Input Placeholder"
-      />
-      <Input
-        label="Large"
-        placeholder="Input Placeholder"
-        size="large"
-      />
+    <div className="flex flex-col w-full gap-3">
+      <Input label="Small" placeholder="Input Placeholder" size="small" />
+      <Input label="Medium" placeholder="Input Placeholder" />
+      <Input label="Large" placeholder="Input Placeholder" size="large" />
     </div>
   );
 };
@@ -59,19 +53,22 @@ export const Controlled = () => {
 };
 
 // eslint-disable-next-line no-empty-pattern
-export const Required = ({}) => <Input label="Required Input" placeholder="Input Placeholder" required={true} />;
+export const Required = ({}) => (
+  <Input
+    label="Required Input"
+    placeholder="Input Placeholder"
+    required={true}
+  />
+);
 
 // eslint-disable-next-line no-empty-pattern
-export const Disabled = ({}) => <Input label="Disabled Input" placeholder="Input Placeholder" disabled={true} />;
-
-export const SearchInput = Template.bind({});
-SearchInput.args = {
-  label: "Search",
-  prefix: <Search />,
-  suffix: ".neetohelp.com",
-  type: "search",
-  placeholder: "Input search text",
-};
+export const Disabled = ({}) => (
+  <Input
+    label="Disabled Input"
+    placeholder="Input Placeholder"
+    disabled={true}
+  />
+);
 
 export const Error = Template.bind({});
 Error.args = {
@@ -94,17 +91,41 @@ NakedInput.args = {
   placeholder: "Input Placeholder",
 };
 
+export const SearchInput = Template.bind({});
+SearchInput.args = {
+  label: "Search",
+  prefix: <Search />,
+  suffix: ".neetohelp.com",
+  type: "search",
+  placeholder: "Input search text",
+};
+
 export const InputWithMaxLength = () => {
-  const [value, setValue] = useState("BigBinary");
-  return (<div className="flex flex-col space-y-6">
-    <Input
-      label="Input with max length"
-      maxLength={10}
-      placeholder="Input Placeholder"
-      value={value}
-      onChange={(e) => {
-        setValue(e.target.value);
-      }}
-    />
-  </div>);
+  return (
+    <div className="flex flex-col space-y-6">
+      <Input
+        label="Input with max length"
+        maxLength={10}
+        placeholder="Input Placeholder"
+      />
+      <Input
+        label="Input with max length"
+        maxLength={10}
+        value="Sample I"
+        placeholder="Input Placeholder"
+      />
+      <Input
+        label="Input with max length"
+        maxLength={10}
+        value="Sample In"
+        placeholder="Input Placeholder"
+      />
+      <Input
+        label="Input with max length"
+        maxLength={10}
+        value="Sample Input"
+        placeholder="Input Placeholder"
+      />
+    </div>
+  );
 };

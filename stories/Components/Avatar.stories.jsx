@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import React from "react";
 
 import Avatar from "../../lib/components/Avatar";
@@ -28,26 +29,37 @@ const Template = (args) => <Avatar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  onClick,
   user: { name: "neeto UI" },
-  size: "small",
 };
 
 // eslint-disable-next-line no-empty-pattern
 export const Sizes = ({}) => {
   const imageUrl = "https://i.pravatar.cc/300";
   return (
-    <div className="p-6">
-      <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
-        <span className="text-sm">Small</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} size="small" />
-        <span className="text-sm">Medium</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} size="medium" />
-        <span className="text-sm">Large</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} size="large" />
-        <span className="text-sm">X Large</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} size="extraLarge" />
-      </div>
+    <div className="flex flex-col p-2 space-y-4 ">
+      <span className="text-sm">Small</span>
+      <Avatar onClick={onClick} user={{ imageUrl }} size="small" />
+      <span className="text-sm">Medium</span>
+      <Avatar onClick={onClick} user={{ imageUrl }} size="medium" />
+      <span className="text-sm">Large</span>
+      <Avatar onClick={onClick} user={{ imageUrl }} size="large" />
+      <span className="text-sm">X Large</span>
+      <Avatar onClick={onClick} user={{ imageUrl }} size="extraLarge" />
+    </div>
+  );
+};
+
+// eslint-disable-next-line no-empty-pattern
+export const WithStatus = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+  return (
+    <div className="flex flex-col p-2 space-y-4 ">
+      <span className="text-sm">Offline</span>
+      <Avatar user={{ imageUrl }} status="offline" size="large" />
+      <span className="text-sm">Online</span>
+      <Avatar user={{ imageUrl }} status="online" size="large" />
+      <span className="text-sm">Idle</span>
+      <Avatar user={{ imageUrl }} status="idle" size="large" />
     </div>
   );
 };
@@ -60,133 +72,115 @@ WithCustomClassName.args = {
   size: "extraLarge",
   className: "cursor-pointer",
 };
+WithCustomClassName.storyName = "With custom className";
 
-// eslint-disable-next-line no-empty-pattern
-export const WithStatus = ({}) => {
+export const Variants = ({}) => {
   const imageUrl = "https://i.pravatar.cc/300";
   return (
-    <div className="p-6">
-      <div className="flex flex-col p-2 space-y-4 border border-indigo-500 border-dashed">
-        <span className="text-sm">Offline</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} status="offline" />
-        <span className="text-sm">Online</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} status="online" />
-        <span className="text-sm">Idle</span>
-        <Avatar onClick={onClick} user={{ imageUrl }} status="idle" />
+    <div className="flex p-4 space-x-4">
+      <div className="flex flex-col p-2 space-y-4">
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Akkshay Lawrence" }}
+          size="small"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Vinay V Chandran" }}
+          size="medium"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Neeraj Singh" }}
+          size="large"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Goutham Subramanyam" }}
+          size="extraLarge"
+        />
       </div>
-    </div>
-  );
-};
-
-export const Variants = () => {
-  const imageUrl = "https://i.pravatar.cc/300";
-  return (
-    <div className="p-6">
-      <div className="flex p-4 space-x-4 border border-indigo-500 border-dashed">
-        <div className="flex flex-col p-2 space-y-4">
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Akkshay Lawrence" }}
-            size="small"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Vinay V Chandran" }}
-            size="medium"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Neeraj Singh" }}
-            size="large"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Goutham Subramanyam" }}
-            size="extraLarge"
-          />
-        </div>
-        <div className="flex flex-col p-2 space-y-4">
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Akkshay Lawrence" }}
-            size="small"
-            status="online"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Vinay V" }}
-            size="medium"
-            status="idle"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Neeraj Singh" }}
-            size="large"
-            status="offline"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Goutham Subramanyam" }}
-            size="extraLarge"
-            status="online"
-            isSquare
-          />
-        </div>
-        <div className="flex flex-col p-2 space-y-4">
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Akkshay Lawrence", imageUrl }}
-            status="online"
-            size="small"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Vinay V", imageUrl }}
-            status="idle"
-            size="medium"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Neeraj Singh", imageUrl }}
-            status="offline"
-            size="large"
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Goutham Subramanyam", imageUrl }}
-            status="online"
-            size="extraLarge"
-          />
-        </div>
-        <div className="flex flex-col p-2 space-y-4">
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Akkshay Lawrence", imageUrl }}
-            size="small"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Vinay V", imageUrl }}
-            size="medium"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Neeraj Singh", imageUrl }}
-            size="large"
-            isSquare
-          />
-          <Avatar
-            onClick={onClick}
-            user={{ name: "Goutham Subramanyam", imageUrl }}
-            size="extraLarge"
-            isSquare
-          />
-        </div>
+      <div className="flex flex-col p-2 space-y-4">
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Akkshay Lawrence" }}
+          size="small"
+          status="online"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Vinay V" }}
+          size="medium"
+          status="idle"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Neeraj Singh" }}
+          size="large"
+          status="offline"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Goutham Subramanyam" }}
+          size="extraLarge"
+          status="online"
+          isSquare
+        />
+      </div>
+      <div className="flex flex-col p-2 space-y-4">
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Akkshay Lawrence", imageUrl }}
+          status="online"
+          size="small"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Vinay V", imageUrl }}
+          status="idle"
+          size="medium"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Neeraj Singh", imageUrl }}
+          status="offline"
+          size="large"
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Goutham Subramanyam", imageUrl }}
+          status="online"
+          size="extraLarge"
+        />
+      </div>
+      <div className="flex flex-col p-2 space-y-4">
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Akkshay Lawrence", imageUrl }}
+          size="small"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Vinay V", imageUrl }}
+          size="medium"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Neeraj Singh", imageUrl }}
+          size="large"
+          isSquare
+        />
+        <Avatar
+          onClick={onClick}
+          user={{ name: "Goutham Subramanyam", imageUrl }}
+          size="extraLarge"
+          isSquare
+        />
       </div>
     </div>
   );

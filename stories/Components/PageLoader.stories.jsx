@@ -16,17 +16,16 @@ export default {
 };
 
 const Template = (args) => (
-  <div className="h-screen w-full">
+  <div className="w-full h-screen">
     <PageLoader {...args} />
   </div>
 );
 
-export const BasicUsage = Template.bind({});
-BasicUsage.args = {};
+export const Default = Template.bind({});
 
 export const LoadingText = () => {
   return (
-    <div className="h-screen w-full">
+    <div className="w-full h-screen">
       <PageLoader text="Loading..." />
     </div>
   );

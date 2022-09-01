@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import { FieldArray, Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
 
@@ -28,8 +29,8 @@ const Template = (args) => (
   </div>
 );
 
-export const Single = Template.bind({});
-Single.args = {
+export const Default = Template.bind({});
+Default.args = {
   label: "Select",
   defaultValue: { value: "value3", label: "Value Three" },
   placeholder: "Select an Option",
@@ -46,8 +47,59 @@ Single.args = {
   ],
 };
 
-export const Multi = Template.bind({});
-Multi.args = {
+export const Sizes = ({}) => {
+  return (
+    <div className="w-full h-60">
+      <div className="flex flex-col gap-8">
+        <div className="w-full">
+          <Select
+            label="Small"
+            size="small"
+            placeholder="Select Placeholder"
+            options={[
+              { value: "value1", label: "Value One" },
+              { value: "value2", label: "Value Two" },
+              { value: "value3", label: "Value Three" },
+              { value: "value4", label: "Value Four" },
+              { value: "value5", label: "Value Five" },
+            ]}
+          />
+        </div>
+        <div className="w-full">
+          <Select
+            label="Medium"
+            // size="medium"
+            placeholder="Select Placeholder"
+            options={[
+              { value: "value1", label: "Value One" },
+              { value: "value2", label: "Value Two" },
+              { value: "value3", label: "Value Three" },
+              { value: "value4", label: "Value Four" },
+              { value: "value5", label: "Value Five" },
+            ]}
+          />
+        </div>
+        <div className="w-full">
+          <Select
+            label="Large"
+            size="large"
+            placeholder="Select Placeholder"
+            options={[
+              { value: "value1", label: "Value One" },
+              { value: "value2", label: "Value Two" },
+              { value: "value3", label: "Value Three" },
+              { value: "value4", label: "Value Four" },
+              { value: "value5", label: "Value Five" },
+            ]}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const MultiSelect = Template.bind({});
+MultiSelect.args = {
   label: "Multi Select",
   isMulti: true,
   defaultValue: [
@@ -99,7 +151,7 @@ Grouped.args = {
   ],
 };
 
-export const Creatable = () => {
+export const Creatable = ({}) => {
   const [options, setOptions] = useState([
     { value: "value1", label: "Value One" },
     { value: "value2", label: "Value Two" },
@@ -126,7 +178,7 @@ export const Creatable = () => {
   );
 };
 
-export const AsyncCreatable = () => {
+export const AsyncCreatable = ({}) => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
     { value: "value1", label: "Value One" },
@@ -173,7 +225,7 @@ export const AsyncCreatable = () => {
   );
 };
 
-export const Searchable = () => {
+export const Searchable = ({}) => {
   return (
     <div className="p-4 mb-2 h-60">
       <Select
@@ -194,48 +246,12 @@ export const Searchable = () => {
   );
 };
 
-export const Sizes = () => {
-  return (
-    <div className="w-full h-60">
-      <div className="flex flex-col gap-8">
-        <div className="w-full">
-          <Select
-            label="Default/Large"
-            placeholder="Select Placeholder"
-            options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
-            ]}
-          />
-        </div>
-        <div className="w-full">
-          <Select
-            label="Small"
-            placeholder="Select Placeholder"
-            size="small"
-            options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
-            ]}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const ExampleWithRef = () => {
+export const ExampleWithRef = ({}) => {
   const selectRef = useRef();
 
   return (
     <>
-      <div className="w-full mb-4 flex gap-3">
+      <div className="flex w-full gap-3 mb-4">
         <Button
           onClick={() => {
             selectRef.current.focus();
@@ -264,7 +280,7 @@ export const ExampleWithRef = () => {
   );
 };
 
-export const SelectInModal = () => {
+export const SelectInModal = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -276,7 +292,6 @@ export const SelectInModal = () => {
         <Modal.Body>
           <Select
             placeholder="Select Placeholder"
-            size="small"
             label="Select"
             strategy="fixed"
             options={[
@@ -301,7 +316,7 @@ SelectInModal.parameters = {
   },
 };
 
-export const SelectInPane = () => {
+export const SelectInPane = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -314,7 +329,6 @@ export const SelectInPane = () => {
           <Select
             placeholder="Select Placeholder"
             className="w-full"
-            size="small"
             label="Select"
             strategy="fixed"
             options={[
@@ -329,7 +343,7 @@ export const SelectInPane = () => {
   );
 };
 
-export const FormikSelectStory = () => {
+export const FormikSelectStory = ({}) => {
   const [values, setValues] = useState([]);
   return (
     <>

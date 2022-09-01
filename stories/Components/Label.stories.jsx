@@ -20,9 +20,9 @@ export default {
 
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
 
-export const Basic = Template.bind({});
-Basic.args = {
-  children: "This is a basic label",
+export const Default = Template.bind({});
+Default.args = {
+  children: "This is a default label",
 };
 
 export const Required = Template.bind({});

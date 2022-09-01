@@ -16,17 +16,16 @@ export default {
 };
 
 const Template = (args) => (
-  <div className="w-20 h-20 flex items-center justify-center">
+  <div className="flex items-center justify-center w-20 h-20">
     <Spinner {...args} />
   </div>
 );
 
-export const BasicUsage = Template.bind({});
-BasicUsage.args = {};
+export const Default = Template.bind({});
 
 export const lightTheme = () => {
   return (
-    <div className="w-20 h-20 flex items-center justify-center neeto-ui-bg-black">
+    <div className="flex items-center justify-center w-20 h-20 neeto-ui-bg-black">
       <Spinner theme="light" />
     </div>
   );
