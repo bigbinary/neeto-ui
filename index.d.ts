@@ -46,9 +46,9 @@ interface PopupContentProps {
   className?: string;
 }
 
-export type ModalProps = PopupProps & { size?: "xs" | "sm" | "md" };
+export type ModalProps = PopupProps & { size?: "small" | "medium" | "large" };
 
-export type PaneProps = PopupProps & { size?: "sm" | "lg" };
+export type PaneProps = PopupProps & { size?: "small" | "large" };
 
 export interface RadioProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -100,7 +100,7 @@ export interface ActionDropdownProps {
 }
 
 export interface AlertProps {
-  size?: "xs" | "sm" | "md";
+  size?: "small" | "medium" | "large";
   isOpen?: boolean;
   isSubmitting?: boolean;
   className?: string;
@@ -117,7 +117,7 @@ export interface AlertProps {
 }
 
 export type AvatarProps = {
-  size?: "small" | "medium" | "large" | "xlarge";
+  size?: "small" | "medium" | "large" | "extraLarge";
   user?: { name: string; imageUrl: string };
   isSquare?: boolean;
   status?: "online" | "idle" | "offline";
@@ -141,7 +141,7 @@ export interface ButtonProps {
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;
-  size?: "large" | "xlarge" | "default";
+  size?: "small" | "medium" | "large";
   href?: string;
   tooltipProps?: TooltipProps;
   [key: string]: any;
