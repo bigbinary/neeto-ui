@@ -18,8 +18,17 @@ const plugins = [
   babel({
     exclude: "node_modules/**",
     presets: ["@babel/preset-env", "@babel/preset-react"],
-    plugins: [],
-    babelHelpers: "bundled",
+    plugins: [
+      "@babel/plugin-transform-runtime",
+      [
+        "import",
+        {
+          libraryName: "antd",
+          libraryDirectory: "lib",
+        },
+      ],
+    ],
+    babelHelpers: "runtime",
   }),
   resolve({
     preferBuiltins: true,
