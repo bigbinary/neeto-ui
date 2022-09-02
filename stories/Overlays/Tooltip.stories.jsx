@@ -1,8 +1,7 @@
 import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "../../lib/components";
-import CustomTooltipStoriesDocs from "!raw-loader!./CustomTooltipStoriesDocs.mdx";
-import TooltipStoriesDocs from "!raw-loader!./TooltipStoriesDocs.mdx";
+import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
 export default {
   title: "Overlays/Tooltip",
@@ -12,13 +11,8 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: TooltipStoriesDocs,
+        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
       },
-    },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
     },
   },
 };
@@ -37,7 +31,6 @@ export const FollowCursor = (args) => {
     </div>
   );
 };
-FollowCursor.storyName = "Follow cursor";
 
 export const JSXContentInside = (args) => {
   return (
@@ -57,7 +50,6 @@ export const JSXContentInside = (args) => {
     </div>
   );
 };
-JSXContentInside.storyName = "JSX content inside";
 
 export const positions = () => {
   return (
@@ -115,20 +107,10 @@ export const Themes = () => {
     <div className="p-10 space-y-8">
       <h2 className="text-xl">Theme</h2>
       <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Tooltip
-          position="top"
-          content="Tooltip"
-          theme="dark"
-          trigger={"click"}
-        >
+        <Tooltip position="top" content="Tooltip" theme="dark">
           <Button style="secondary" label="dark" />
         </Tooltip>
-        <Tooltip
-          position="top"
-          content="Tooltip"
-          theme="light"
-          trigger={"click"}
-        >
+        <Tooltip position="top" content="Tooltip" theme="light">
           <Button style="secondary" label="light" />
         </Tooltip>
       </div>
@@ -154,7 +136,6 @@ export const TooltipOnText = () => {
     </div>
   );
 };
-TooltipOnText.storyName = "Tooltip on text";
 
 export const TooltipOnCustomComponent = () => {
   const CustomComponent = forwardRef(({ text }, ref) => (
@@ -173,7 +154,6 @@ export const TooltipOnCustomComponent = () => {
     </div>
   );
 };
-TooltipOnCustomComponent.storyName = "Tooltip on custom component";
 
 export const AutoHidingTooltip = () => {
   const DEFAULT_EMAIL = "oliver@example.";
@@ -201,30 +181,25 @@ export const AutoHidingTooltip = () => {
     </div>
   );
 };
-AutoHidingTooltip.storyName = "Auto hiding Tooltip";
+
 TooltipOnCustomComponent.parameters = {
-  docs: { description: { story: CustomTooltipStoriesDocs } },
+  docs: { description: { story: TooltipDocs } },
 };
 
 export const HidingTooltipOnTargetExit = () => {
+
   return (
-    <div className="p-10 space-y-2 overflow-auto bg-gray-300 max-h-56">
-      {Array.from({ length: 6 }).map((_, key) => (
-        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
-      ))}
+    <div className="max-h-56 overflow-auto p-10 space-y-2 bg-gray-300">
+      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
       <Tooltip
         position="top"
         content="Press esc to reset input after typing"
         hideOnTargetExit
       >
-        <Typography className="w-full h-6 mx-auto text-center bg-white">
-          Hover Me and Scroll
-        </Typography>
+        <Typography className="text-center mx-auto h-6 w-full bg-white">Hover Me and Scroll</Typography>
       </Tooltip>
-      {Array.from({ length: 6 }).map((_, key) => (
-        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
-      ))}
+      {Array.from({ length: 6 }).map((_, key) => (<div key={key} className="h-6 w-full bg-white rounded shadow-sm" />))}
     </div>
   );
 };
-HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
+

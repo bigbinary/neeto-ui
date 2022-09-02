@@ -33,13 +33,8 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: TableDocs,
+        component: TableDocs
       },
-    },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
 };
@@ -273,11 +268,12 @@ export const TableWithSelectedRowKeys = ({
     />
   );
 };
-TableWithSelectedRowKeys.storyName = "Table with selected row keys";
+
 TableWithSelectedRowKeys.args = {
   defaultPageSize: 10,
   selectedRowKeys: [1, 2, 3],
 };
+
 TableWithSelectedRowKeys.parameters = {
   docs: {
     source: {
@@ -286,17 +282,17 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
+
 export const TableWithSorting = (args) => {
-  return (
-    <NeetoTable
-      columnData={columns}
-      rowData={TABLE_DATA}
-      currentPageNumber={1}
-      {...args}
-    />
-  );
+
+  return <NeetoTable
+    columnData={columns}
+    rowData={TABLE_DATA}
+    currentPageNumber={1}
+    {...args}
+  />;
 };
-TableWithSorting.storyName = "Table with sorting";
+
 TableWithSorting.parameters = {
   docs: {
     description: { story: TableSortingDocs },
@@ -323,11 +319,12 @@ export const TableWithFixedHeight = (args) => {
     </div>
   );
 };
-TableWithFixedHeight.storyName = "Table with fixed height";
+
 TableWithFixedHeight.args = {
   defaultPageSize: 10,
   fixedHeight: true,
 };
+
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
@@ -351,10 +348,11 @@ export const TableWithoutCheckbox = (args) => {
     </div>
   );
 };
-TableWithoutCheckbox.storyName = "Table without checkbox";
+
 TableWithoutCheckbox.args = {
-  rowSelection: false,
+  rowSelection: false
 };
+
 TableWithoutCheckbox.parameters = {
   docs: {
     description: { story: TableWithoutCheckboxDocs },
@@ -384,7 +382,7 @@ export const TableWithDynamicData = (args) => {
     </div>
   );
 };
-TableWithDynamicData.storyName = "Table with dynamic data";
+
 TableWithDynamicData.args = {
   defaultPageSize: 10,
 };
@@ -503,12 +501,12 @@ export const TableInLayout = (args) => {
           deleteButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => {},
+            onClick: () => { },
           }}
           disableButtonProps={{
             count: 0,
             selectedIDs: [],
-            onClick: () => {},
+            onClick: () => { },
           }}
         />
         <Scrollable className="w-full">

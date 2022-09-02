@@ -1,5 +1,4 @@
 import React from "react";
-import PaginationStoriesDocs from "!raw-loader!./PaginationStories.mdx";
 
 import Pagination from "../../lib/components/Pagination";
 
@@ -10,21 +9,16 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: PaginationStoriesDocs,
+        component: '`import { Pagination } from "@bigbinary/neetoui";`',
       },
-    },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1070%3A3918",
     },
   },
 };
 
 const Template = (args) => <Pagination {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {
   count: 500,
   pageNo: 3,
   pageSize: 100,

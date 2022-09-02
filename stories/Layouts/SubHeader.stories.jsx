@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const BasicUsage = () => {
   return (
     <SubHeader
       leftActionBlock={
@@ -29,8 +29,8 @@ export const Default = () => {
       }
       rightActionBlock={
         <>
-          <Button size="small" label="Delete" style="secondary" icon={Delete} />
-          <Button size="small" label="Disable" style="secondary" />
+          <Button label="Delete" style="secondary" icon={Delete} />
+          <Button label="Disable" style="secondary" />
         </>
       }
     />
@@ -48,18 +48,16 @@ export const WithLeftActionBlock = () => {
     />
   );
 };
-WithLeftActionBlock.storyName = "With left action block";
 
 export const WithRightActionBlock = () => {
   return (
     <SubHeader
       rightActionBlock={
         <>
-          <Button size="small" label="Delete" style="secondary" icon={Delete} />
-          <Button size="small" label="Disable" style="secondary" />
+          <Button label="Delete" style="secondary" icon={Delete} />
+          <Button label="Disable" style="secondary" />
         </>
       }
     />
   );
 };
-WithRightActionBlock.storyName = "With right action block";

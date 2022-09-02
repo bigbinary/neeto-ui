@@ -107,46 +107,10 @@ describe("Modal", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Modal isOpen onClose={onClose} closeOnOutsideClick={false}>
-        <Modal.Body>
-          Sample text
-          <input placeholder="This in input text field." type="text" />
-        </Modal.Body>
+        <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
     userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
-  });
-
-  it("should block scroll when modal is opened", () => {
-    render(<Modal isOpen />);
-    expect(document.body.style.overflow).toBe("hidden");
-  });
-
-  it("should not block scroll on body when blockScrollOnMount is false", () => {
-    render(<Modal isOpen blockScrollOnMount={false} />);
-    expect(document.body.style.overflow).not.toBe("hidden");
-  });
-
-  it("should focus on the first focusable element when the modal opens", () => {
-    const { getByTestId } = render(
-      <Modal isOpen>
-        <Modal.Body>
-          <Button label="Submit" size="large" />
-        </Modal.Body>
-      </Modal>
-    );
-    expect(getByTestId("close-button")).toHaveFocus();
-  });
-
-  it("should focus on input box when initialFocusRef is passed to it", () => {
-    const inputRef = React.createRef(null);
-    const { getByTestId } = render(
-      <Modal isOpen initialFocusRef={inputRef}>
-        <Modal.Body>
-          <input data-testid="input" ref={inputRef} />
-        </Modal.Body>
-      </Modal>
-    );
-    expect(getByTestId("input")).toHaveFocus();
   });
 });

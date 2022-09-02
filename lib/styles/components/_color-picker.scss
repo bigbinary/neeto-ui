@@ -1,4 +1,4 @@
-.neeto-ui-colorpicker__dropdown {
+.neeto-ui-colorpicker__dropdown{
   width: 100%;
 }
 
@@ -47,16 +47,15 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border: thin solid rgb(var(--neeto-ui-gray-200));
-    border-radius: var(--neeto-ui-rounded-md);
+    border: thin solid $neeto-ui-gray-200;
+    border-radius: $neeto-ui-rounded-md;
     padding: 4px;
 
     input {
       width: 100%;
       outline-color: transparent;
       font-size: 14px;
-      color: rgb(var(--neeto-ui-gray-800));
-      background-color: transparent;
+      color: $neeto-ui-gray-800;
     }
   }
 }
@@ -67,85 +66,53 @@
   border: thin solid transparent;
   transition: all 0.3s;
   padding: 2px;
-  border-radius: var(--neeto-ui-rounded-md);
+  border-radius: $neeto-ui-rounded-md;
   margin: 0 4px 4px 0;
 
   &.active {
-    border-color: rgb(var(--neeto-ui-gray-500));
+    border-color: $neeto-ui-gray-500;
   }
 
   div {
     width: 100%;
     min-height: 100%;
-    border-radius: var(--neeto-ui-rounded-md);
+    border-radius: $neeto-ui-rounded-md;
     overflow: hidden;
   }
 }
 
 .neeto-ui-colorpicker__target {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-  background-color: rgb(var(--neeto-ui-white));
-  border-radius: var(--neeto-ui-rounded);
-  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  background-color: $neeto-ui-gray-100;
+  border-radius: $neeto-ui-rounded-md;
+  width: 100%;
   height: 40px;
-  padding: 8px 12px;
-  gap: 12px;
-
-  &-size--small {
-    height: 28px;
-    padding: 8px;
-    gap: 12px;
-
-    .neeto-ui-colorpicker-target__color{
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  &-size--medium {
-    height: 32px;
-    padding: 8px;
-    gap: 12px;
-  }
-
-  &-size--large {
-    height: 40px;
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .neeto-ui-colorpicker-target__color-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
 
   .neeto-ui-colorpicker-target__color {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-radius: var(--neeto-ui-rounded);
+    width: 40px;
+    height: 40px;
+    box-shadow: $neeto-ui-shadow-md;
+    border-radius: $neeto-ui-rounded-md;
+    background-color: $neeto-ui-white;
 
-    width: 24px;
-    height: 24px;
-  }
-
-  &-size--small {
-    .neeto-ui-colorpicker-target__color{
+    div {
       width: 20px;
       height: 20px;
+      border-radius: 100%;
     }
   }
 
   .neeto-ui-colorpicker-target__code {
+    padding: 10px 16px;
     font-size: 14px;
-    color: rgb(var(--neeto-ui-gray-800));
-    font-weight: var(--neeto-ui-font-medium);
-    min-width: 70px;
+    color: $neeto-ui-gray-800;
+    font-weight: $neeto-ui-font-medium;
   }
 }

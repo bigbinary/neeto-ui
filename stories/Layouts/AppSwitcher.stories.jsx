@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
-import { STORYBOOK_NAV_LINKS } from "../constants";
+import { STORYBOOK_NAV_LINKS } from "../../example/src/constants";
 
 export default {
   title: "Layouts/AppSwitcher",
@@ -22,8 +22,9 @@ export default {
   },
 };
 
-export const Default = ({ isOpen, ...args }) => {
+export const AppSwitcherStory = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
   useEffect(() => {
     setIsAppSwitcherOpen(isOpen);
@@ -34,6 +35,8 @@ export const Default = ({ isOpen, ...args }) => {
       <Sidebar
         navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((open) => !open)}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
         appName="neetoUI"
         profileInfo={{
@@ -52,13 +55,16 @@ export const Default = ({ isOpen, ...args }) => {
       <AppSwitcher
         {...args}
         isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
         environment={process.env.NODE_ENV}
       />
     </Router>
   );
 };
-Default.args = {
+
+AppSwitcherStory.storyName = "AppSwitcher";
+AppSwitcherStory.args = {
   isOpen: true,
   neetoApps: ["KB", "Desk", "Planner"],
   activeApp: "Chat",
@@ -66,6 +72,7 @@ Default.args = {
 
 export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
   useEffect(() => {
     setIsAppSwitcherOpen(isOpen);
@@ -76,6 +83,8 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
       <Sidebar
         navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
         appName="neetoUI"
         profileInfo={{
@@ -94,13 +103,14 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
       <AppSwitcher
         {...args}
         isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!isSidebarCollapsed}
         onClose={() => setIsAppSwitcherOpen(false)}
         environment={process.env.NODE_ENV}
       />
     </Router>
   );
 };
-AppSwitcherWithRecentApps.storyName = "AppSwitcher with recent apps";
+
 AppSwitcherWithRecentApps.args = {
   isOpen: true,
   recentApps: ["Quiz", "Runner"],
