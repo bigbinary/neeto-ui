@@ -3,10 +3,7 @@ import { render, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
-import {
-  STORYBOOK_FOOTER_LINKS,
-  STORYBOOK_NAV_LINKS,
-} from "../example/src/constants";
+import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
 import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
@@ -40,7 +37,6 @@ const sidebarProps = {
       },
     ],
   },
-  isCollapsed: false,
   appName: "neetoUI",
 };
 
@@ -52,42 +48,24 @@ const {
 
 describe("Sidebar", () => {
   it("should render without error", () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Router>
         <Sidebar {...sidebarProps} />
       </Router>
     );
-    expect(getByText(subdomain)).toBeInTheDocument();
-  });
-
-  it("should not display text when collapsed", () => {
-    const { queryByText } = render(
-      <Router>
-        <Sidebar {...sidebarProps} isCollapsed />
-      </Router>
-    );
-    expect(queryByText(subdomain)).not.toBeInTheDocument();
-  });
-
-  it("should display organization name correctly", () => {
-    const { getByText } = render(
-      <Router>
-        <Sidebar {...sidebarProps} />
-      </Router>
-    );
-    expect(getByText(orgName)).toBeInTheDocument();
+    expect(getByTestId("sidebar")).toBeInTheDocument();
   });
 
   it("should display all navlink elements correctly", () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Router>
         <Sidebar {...sidebarProps} />
       </Router>
     );
     navLinks.forEach(({ label, to }) => {
-      const sideNavLabel = getByText(label);
-      const sideNavLink = sideNavLabel.parentElement;
-      expect(getByText(label)).toBeInTheDocument();
+      const sideNavItem = getByTestId(label);
+      const sideNavLink = sideNavItem.parentElement;
+      expect(sideNavItem).toBeInTheDocument();
       expect(sideNavLink["href"].endsWith(to)).toBe(true);
     });
   });
@@ -95,7 +73,7 @@ describe("Sidebar", () => {
   it("should display profile information correctly", async () => {
     const { getByText, container, queryByText, findByText } = render(
       <Router>
-        <Sidebar {...sidebarProps} isCollapsed />
+        <Sidebar {...sidebarProps} />
       </Router>
     );
 
@@ -113,7 +91,7 @@ describe("Sidebar", () => {
   it("should apply featured toolTipStyle correctly", async () => {
     const { container, findByText } = render(
       <Router>
-        <Sidebar {...sidebarProps} isCollapsed tooltipStyle="featured" />
+        <Sidebar {...sidebarProps} tooltipStyle="featured" />
       </Router>
     );
     const { to, label, description } = navLinks[0];
@@ -128,7 +106,7 @@ describe("Sidebar", () => {
   it("should apply default toolTipStyle correctly", async () => {
     const { queryByText, findByText, container } = render(
       <Router>
-        <Sidebar {...sidebarProps} isCollapsed tooltipStyle="default" />
+        <Sidebar {...sidebarProps} tooltipStyle="default" />
       </Router>
     );
 
@@ -145,34 +123,12 @@ describe("Sidebar", () => {
     }
   });
 
-  it("should display footer links correctly", async () => {
-    const { container, findByText } = render(
-      <Router>
-        <Sidebar
-          {...sidebarProps}
-          isCollapsed={false}
-          footerLinks={STORYBOOK_FOOTER_LINKS}
-        />
-      </Router>
-    );
-
-    for (const { to, label, href } of STORYBOOK_FOOTER_LINKS) {
-      const footerLink = container.querySelector(`a[href="${to || href}"]`);
-      expect(footerLink).toBeInTheDocument();
-      if (!href) {
-        userEvent.hover(footerLink);
-        expect(await findByText(label)).toBeInTheDocument();
-      }
-    }
-  });
-
   it("should render a working AppSwitcher button", () => {
     const onAppSwitcherToggle = jest.fn();
     const { container } = render(
       <Router>
         <Sidebar
           {...sidebarProps}
-          isCollapsed
           showAppSwitcher
           onAppSwitcherToggle={onAppSwitcherToggle}
         />

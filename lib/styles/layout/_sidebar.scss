@@ -1,14 +1,23 @@
 .neeto-ui-sidebar {
   width: 300px;
+  max-width: 300px;
   height: 100vh;
   padding: 40px 0;
   z-index: 99997;
+  transition: all 0.3s;
 
   @include scrollbars(0);
-  background-color: $neeto-ui-gray-200;
+  background-color: rgb(var(--neeto-ui-white));
+  border-right: 1px solid rgb(var(--neeto-ui-gray-200));
 
   @include min(1440px) {
     width: 320px;
+    max-width: 320px;
+  }
+
+  &.neeto-ui-sidebar--collapsed {
+    width: 72px;
+    max-width: 72px;
   }
 
   // header
@@ -23,8 +32,7 @@
     width: 40px;
     height: 40px;
 
-    border-radius: $neeto-ui-rounded;
-    background-color: $neeto-ui-gray-800;
+    border-radius: var(--neeto-ui-rounded);
   }
 
   &__info {
@@ -50,28 +58,23 @@
   }
 
   &__link {
-    padding: 12px 8px;
+    padding: 8px 8px;
     margin: 8px 0;
 
     &.mb-0 {
       margin-bottom: 0;
     }
 
-    color: $neeto-ui-gray-600;
+    color: rgb(var(--neeto-ui-gray-600));
     transition: all 0.3s;
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    border-radius: $neeto-ui-rounded;
+    border-radius: var(--neeto-ui-rounded);
 
     &-icon {
       flex-shrink: 0;
-      transition: transform 0.3s ease-in-out;
       width: 40px;
-
-      path {
-        transition: all 0.3s;
-      }
     }
 
     &-label {
@@ -90,22 +93,22 @@
     }
 
     &:hover {
-      color: $neeto-ui-gray-700;
+      color: rgb(var(--neeto-ui-gray-800));
       text-decoration: none;
-      background-color: $neeto-ui-gray-300;
+      background-color: rgb(var(--neeto-ui-gray-200));
     }
 
     &:focus,
     &:focus-visible {
-      color: $neeto-ui-gray-700;
+      color: rgb(var(--neeto-ui-gray-800));
       outline: none;
-      background-color: $neeto-ui-gray-300;
+      background-color: rgb(var(--neeto-ui-gray-200));
       text-decoration: none;
     }
 
     &.active {
-      background-color: $neeto-ui-white;
-      color: $neeto-ui-gray-800;
+      background-color: rgb(var(--neeto-ui-primary-100));
+      color: rgb(var(--neeto-ui-primary-600));
       text-decoration: none;
     }
     &--button {
@@ -113,12 +116,13 @@
         background-color: transparent;
       }
       &:focus-visible {
-        background-color: $neeto-ui-gray-300;
+        color: rgb(var(--neeto-ui-gray-800));
+        background-color: rgb(var(--neeto-ui-gray-200));
       }
     }
   }
 
-  &__link--change-log{
+  &__link--change-log {
     outline: none !important;
   }
 
@@ -126,29 +130,29 @@
     padding: 8px 8px 8px 58px;
     margin: 4px 0;
 
-    color: $neeto-ui-gray-600;
+    color: rgb(var(--neeto-ui-gray-600));
     transition: all 0.3s;
     cursor: pointer;
     text-decoration: none;
-    border-radius: $neeto-ui-rounded;
+    border-radius: var(--neeto-ui-rounded);
     text-decoration: none;
 
     &:hover {
-      color: $neeto-ui-gray-700;
+      color: rgb(var(--neeto-ui-gray-700));
       text-decoration: none;
     }
 
     &:focus,
     &:focus-visible {
-      color: $neeto-ui-gray-700;
+      color: rgb(var(--neeto-ui-gray-700));
       outline: none;
-      background-color: $neeto-ui-gray-300;
+      background-color: rgb(var(--neeto-ui-gray-300));
       text-decoration: none;
     }
 
     &:active,
     &.active {
-      color: $neeto-ui-gray-800;
+      color: rgb(var(--neeto-ui-gray-800));
       text-decoration: none;
     }
   }
@@ -166,11 +170,11 @@
       width: 100%;
       padding: 8px;
 
-      background-color: $neeto-ui-white;
-      border-radius: $neeto-ui-rounded-sm;
-      transition: $neeto-ui-transition;
+      background-color: rgb(var(--neeto-ui-white));
+      border-radius: var(--neeto-ui-rounded);
+      transition: var(--neeto-ui-transition);
       cursor: pointer;
-      box-shadow: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
+      box-shadow: var(--neeto-ui-shadow-s);
 
       // profile content
 
@@ -196,56 +200,139 @@
         top: 50%;
         right: 8px;
         transform: translateY(-50%);
-        color: $neeto-ui-gray-500;
+        color: rgb(var(--neeto-ui-gray-500));
       }
     }
   }
 
   &.neeto-ui-sidebar--collapsed {
-    padding: 20px 0;
+    padding: 24px 0;
     .neeto-ui-sidebar__profile {
       background-color: transparent;
       box-shadow: none;
-      padding: 4px;
+      padding: 0;
     }
-    .neeto-ui-sidebar__links{
-      padding-left: 8px;
-      padding-right: 8px;
+    .neeto-ui-sidebar__links {
+      padding-left: 16px;
+      padding-right: 16px;
     }
-    .neeto-ui-sidebar__header{
-      padding-left: 12px;
-      padding-right: 12px;
+    .neeto-ui-sidebar__header {
+      padding-left: 16px;
+      padding-right: 16px;
     }
-    .neeto-ui-sidebar__link-icon{
-      width: 32px;
+    .neeto-ui-sidebar__link-icon {
+      width: 24px;
     }
-    .neeto-ui-sidebar__footer{
-      padding-left: 8px;
-      padding-right: 8px;
+    .neeto-ui-sidebar__footer {
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }
 
-.sidebar-featured-tooltip__content{
+.sidebar-featured-tooltip__content {
   border-radius: 8px !important;
-  box-shadow: $neeto-ui-shadow-s !important;
+  box-shadow: var(--neeto-ui-shadow-s) !important;
+
+  .tippy-content {
+    padding: 0;
+  }
 }
 
-.sidebar-featured-tooltip{
+.sidebar-featured-tooltip {
   padding: 12px;
-  width: 144px;
+  width: 150px;
 }
 
-.sidebar-featured-tooltip__icon-wrap{
+.sidebar-featured-tooltip__icon-wrap {
   width: 40px;
   height: 40px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 8px;
   border-radius: 8px;
-  background-color: $neeto-ui-gray-100;
+  background-color: rgb(var(--neeto-ui-gray-100));
 }
 
-.sidebar-featured-tooltip__title{
+.sidebar-featured-tooltip__title {
   margin-bottom: 4px;
+}
+
+.neeto-ui-profile-popup-wrapper {
+  box-shadow: var(--neeto-ui-shadow-xs) !important;
+  border-radius: var(--neeto-ui-rounded) !important;
+  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  .tippy-content{
+    padding: 0;
+  }
+  .tippy-svg-arrow{
+    display: none !important;
+  }
+}
+
+.neeto-ui-profile-sublist{
+  border-top: 1px solid rgb(var(--neeto-ui-gray-400));
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.neeto-ui-profile-sublist__item{
+  width: 100%;
+}
+
+.neeto-ui-profile-sublist__item-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  line-height: 1.143;
+  transition: var(--neeto-ui-transition);
+  font-size: var(--neeto-ui-text-sm);
+  font-weight: var(--neeto-ui-font-normal);
+  color: rgb(var(--neeto-ui-gray-800));
+  padding: 6px 40px 6px 12px;
+  min-height: 32px;
+  text-decoration: none;
+  outline-color: transparent;
+  border-radius: 0;
+
+  &.disabled {
+    cursor: not-allowed;
+    color: rgb(var(--neeto-ui-gray-500));
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgb(var(--neeto-ui-gray-200));
+  }
+
+  &.active {
+    background-color: rgb(var(--neeto-ui-gray-800));
+    color: rgb(var(--neeto-ui-white));
+  }
+
+  &--style-danger {
+    color: rgb(var(--neeto-ui-error-800));
+  }
+
+  &-icon{
+    color: rgb(var(--neeto-ui-gray-600));
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.neeto-ui-profile-sublist__item-btn-icon{
+
+}
+
+.neeto-ui-profile-sublist__item-btn-label{
+
 }

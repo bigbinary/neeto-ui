@@ -1,0 +1,213 @@
+import { Meta } from "@storybook/addon-docs";
+import { Check, Close } from "@bigbinary/neeto-icons";
+
+<Meta
+  title="Foundation/Content"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<style>{`
+  .story-demo-table tr{
+      background: transparent !important;
+  }
+  .demo-do-dont-wrap{
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  
+`}</style>
+
+# Content
+
+<br />
+
+### Headings and subheadings
+
+Headings and subheadings should be:
+
+Informative and descriptive:
+
+- Use simple, clear language
+- Keep headings to a single sentence
+- Avoid using punctuation such as periods, commas, or semicolons
+- Write in sentence case (capitalize the first word and proper nouns only)
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>Create collection</li>
+      <li>Outbound notifications</li>
+      <li>Automation rules</li>
+      <li>Allow SMS conversations</li>
+      <li>Secure your account with two-step authentication</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>Create a collection</li>
+      <li>Outbound Notifications</li>
+      <li>Automation Rules.</li>
+      <li>Allow SMS conversations!</li>
+      <li>Two-step authentication</li>
+    </ul>
+  </div>
+</div>
+<br/>
+
+### Buttons
+
+Buttons should be:
+
+Clear and predictable:
+
+- Use simple, clear language
+- Avoid unnecessary words and articles such as “the,” “an,” or “a.”
+- Write in sentence case (capitalize the first word and proper nouns only)
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>Explore themes</li>
+      <li>Save changes</li>
+      <li>Add menu item</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>Themes</li>
+      <li>Save Changes</li>
+      <li>Add a menu item</li>
+    </ul>
+  </div>
+</div>
+<br/>
+
+### Links
+
+Links need to be clear and predictable.
+
+- Use the meaningful piece of text into the link itself, rather than filler words like "Here" or "Read More."
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>See <a href="https://webaim.org/intro/" rel="noopener">WebAIM's Introduction to Web Accessibility</a> for more information.</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li><a href="https://webaim.org/intro/" rel="noopener">Click here</a> to see WebAIM's Introduction to Web Accessibility for more information.</li>
+    </ul>
+  </div>
+</div>
+<br/>
+
+### Confirmations
+
+Confirmations are presented for actions that can’t be undone or are difficult to undo.
+
+**Confirmation messages should:**
+
+- Always give users the option to either confirm or cancel their action
+- Be used for a single, primary task
+- Keep body content to one line of text and not use more than two calls to action(CTA)
+
+**Confirmation titles should:**
+
+- Avoid articles (the, a, an) to keep content short and actionable
+- Be one sentence and avoid using punctuation, with the exception of question marks
+- Be written in sentence case (the first word is capitalized, and the rest is lowercase)
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>Discard unsaved changes?</li>
+      <li>Delete 2 tags?</li>
+      <li>Leave page with unsaved changes?</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>Discard?</li>
+      <li>Are you sure you want to delete?</li>
+      <li>This page has unsaved changes are you sure you want to leave?</li>
+    </ul>
+  </div>
+</div>
+
+**Confirmation body content should:**
+
+- Clearly explain if the action is irreversible or difficult to undo, using plain language.
+- Be concise: use only one line of text. Don’t start the sentence with “Are you sure?”
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>This can’t be undone.</li>
+      <li>Leaving this page will delete all unsaved changes.</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>Are you sure you want to delete this theme?</li>
+      <li>If you leave this page, all unsaved changes will be lost. Are you sure you want to leave this page?</li>
+    </ul>
+  </div>
+</div>
+<br/>
+
+### Directional language
+<br/>
+
+#### Save vs done
+
+**Saving immediately to a database**
+
+Use "Save" as the default for any action that saves immediately to a database.
+
+**Deferred saves**
+
+Sometimes, when users confirm a set of changes inside a modal or sheet, these changes are applied as unsaved changes to the current page. In other words, the changes made weren’t immediately saved to the database. When this happens, don’t use the verb “Save” as the call to action because it would be misleading.
+
+Use the adjective “Done” for deferred saves. When the modal or sheet closes, then merchants can save all of the changes they made.
+
+Most deferred saves happen when confirming changes in Add, Edit, Manage, and Select modals and sheets.
+
+
+

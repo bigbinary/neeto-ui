@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/addon-docs";
-import colorPalette from "../ColorPalette.js";
+import { colorPaletteList } from "../ColorPalette.js";
 
 <Meta
   title="Foundation/Helpers/Border Color"
@@ -15,7 +15,7 @@ import colorPalette from "../ColorPalette.js";
   .story-demo-table tr{
       background: transparent !important;
   }
-  
+
 `}</style>
 
 # Border Color
@@ -24,18 +24,18 @@ import colorPalette from "../ColorPalette.js";
   <thead>
     <tr>
       <td></td>
-      <td>Hex code</td>
+      <td>RGB code</td>
       <td>Class</td>
     </tr>
   </thead>
   <tbody>
-    {colorPalette.map((color) => {
+    {colorPaletteList.map((color) => {
       return (
         <tr key={color.name}>
           <td>
             <div
               className={`w-12 h-12 border ${color.name.replace(
-                "$neeto-ui",
+                "--neeto-ui",
                 "neeto-ui-border"
               )}`}
             ></div>
@@ -46,7 +46,7 @@ import colorPalette from "../ColorPalette.js";
           <td>
             <div className="flex justify-between">
               <code>{`${color.name.replace(
-                "$neeto-ui",
+                "--neeto-ui",
                 "neeto-ui-border"
               )}`}</code>
             </div>

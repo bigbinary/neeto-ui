@@ -1,0 +1,194 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+  title="Customize/CSS Variables"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# CSS variables
+
+neetoUI incorporates many CSS custom properties (variables) in its compiled CSS for real-time customization without the need to recompile Sass. These offer easy access to commonly used values like our theme colors, font sizes, box shadows etc.
+
+All our custom properties are prefixed with `neeto-ui` to avoid conflicts with third party CSS.
+
+<br />
+
+### Root variables
+
+Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our \_root.scss file and included in our compiled CSS file.
+
+```css
+:root {
+  --neeto-ui-black: 27, 31, 35;
+  --neeto-ui-white: 255, 255, 255;
+  --neeto-ui-gray-800: 47, 57, 65;
+  --neeto-ui-gray-700: 73, 84, 92;
+  --neeto-ui-gray-600: 104, 115, 125;
+  --neeto-ui-gray-500: 135, 146, 157;
+  --neeto-ui-gray-400: 194, 200, 204;
+  --neeto-ui-gray-300: 216, 220, 222;
+  --neeto-ui-gray-200: 233, 235, 237;
+  --neeto-ui-gray-100: 248, 249, 249;
+  --neeto-ui-primary-800: 45, 54, 212;
+  --neeto-ui-primary-600: 54, 66, 223;
+  --neeto-ui-primary-500: 69, 88, 249;
+  --neeto-ui-primary-100: 235, 236, 254;
+  --neeto-ui-error-800: 187, 18, 26;
+  --neeto-ui-error-600: 201, 37, 45;
+  --neeto-ui-error-500: 215, 55, 63;
+  --neeto-ui-error-100: 254, 236, 240;
+  --neeto-ui-success-800: 16, 113, 84;
+  --neeto-ui-success-600: 18, 128, 92;
+  --neeto-ui-success-500: 38, 142, 108;
+  --neeto-ui-success-100: 225, 243, 238;
+  --neeto-ui-warning-800: 189, 100, 13;
+  --neeto-ui-warning-600: 203, 111, 16;
+  --neeto-ui-warning-500: 218, 123, 17;
+  --neeto-ui-warning-100: 251, 242, 225;
+  --neeto-ui-info-800: 9, 90, 186;
+  --neeto-ui-info-600: 13, 102, 208;
+  --neeto-ui-info-500: 20, 115, 230;
+  --neeto-ui-info-100: 226, 242, 255;
+  --neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
+  --neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12), 0px 2px
+      4px -1px rgba(28, 55, 90, 0.08);
+  --neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12), 0px 2px
+      6px -1px rgba(28, 55, 90, 0.08);
+  --neeto-ui-shadow-l: 0px 12px 48px -6px rgba(28, 50, 79, 0.12), 0px 3px
+      18px -2px rgba(28, 55, 90, 0.08);
+  --neeto-ui-text-h1: 32px;
+  --neeto-ui-text-h2: 24px;
+  --neeto-ui-text-h3: 20px;
+  --neeto-ui-text-h4: 16px;
+  --neeto-ui-text-h5: 14px;
+  --neeto-ui-text-h6: 12px;
+  --neeto-ui-text-body1: 16px;
+  --neeto-ui-text-body2: 14px;
+  --neeto-ui-text-body3: 12px;
+  --neeto-ui-text-nano: 10px;
+  --neeto-ui-text-xxs: 10px;
+  --neeto-ui-text-xs: 12px;
+  --neeto-ui-text-sm: 14px;
+  --neeto-ui-text-base: 16px;
+  --neeto-ui-text-lg: 18px;
+  --neeto-ui-text-xl: 20px;
+  --neeto-ui-text-2xl: 24px;
+  --neeto-ui-text-3xl: 32px;
+  --neeto-ui-text-4xl: 48px;
+  --neeto-ui-font-thin: 100;
+  --neeto-ui-font-extralight: 200;
+  --neeto-ui-font-light: 300;
+  --neeto-ui-font-normal: 400;
+  --neeto-ui-font-medium: 500;
+  --neeto-ui-font-semibold: 600;
+  --neeto-ui-font-bold: 700;
+  --neeto-ui-font-extrabold: 800;
+  --neeto-ui-font-black: 900;
+  --neeto-ui-leading-none: 1;
+  --neeto-ui-leading-tight: 1.25;
+  --neeto-ui-leading-snug: 1.375;
+  --neeto-ui-leading-normal: 1.5;
+  --neeto-ui-leading-relaxed: 1.625;
+  --neeto-ui-leading-loose: 2;
+  --neeto-ui-text-transform-none: none;
+  --neeto-ui-text-transform-capitalize: capitalize;
+  --neeto-ui-text-transform-uppercase: uppercase;
+  --neeto-ui-text-transform-lowercase: lowercase;
+  --neeto-ui-text-transform-full-width: full-width;
+  --neeto-ui-text-transform-inherit: inherit;
+  --neeto-ui-text-transform-initial: initial;
+  --neeto-ui-text-transform-revert: revert;
+  --neeto-ui-text-transform-unset: unset;
+  --neeto-ui-rounded-none: 0;
+  --neeto-ui-rounded-sm: 3px;
+  --neeto-ui-rounded: 5px;
+  --neeto-ui-rounded-md: 6px;
+  --neeto-ui-rounded-lg: 8px;
+  --neeto-ui-rounded-xl: 12px;
+  --neeto-ui-rounded-full: 999px;
+  --neeto-ui-transition: all 0.3s linear;
+  --neeto-ui-modal-z-index: 99999;
+  --neeto-ui-pane-header-height: 78px;
+  --neeto-ui-pane-footer-height: 80px;
+  --neeto-ui-main-header-height: 80px;
+  --neeto-ui-main-header-with-breadcrumbs-height: 94px;
+  --neeto-ui-sub-header-height: 37px;
+  --neeto-ui-sub-header-bottom-margin: 20px;
+  --neeto-ui-pagination-block-height: 88px;
+  --neeto-ui-table-header-height: 40px;
+  --neeto-ui-surface-bg: 255, 255, 255;
+  --neeto-ui-pastel-color-1: 229, 231, 235;
+  --neeto-ui-pastel-color-2: 254, 202, 202;
+  --neeto-ui-pastel-color-3: 253, 230, 138;
+  --neeto-ui-pastel-color-4: 167, 243, 208;
+  --neeto-ui-pastel-color-5: 191, 219, 254;
+  --neeto-ui-pastel-color-6: 199, 210, 254;
+  --neeto-ui-pastel-color-7: 221, 214, 254;
+  --neeto-ui-pastel-color-8: 251, 207, 232;
+}
+```
+
+### Using CSS Variables
+
+CSS variables offer similar flexibility to Sass’s variables, but without the need for compilation before being served to the browser.
+
+```
+a {
+  color: rgb(var(--neeto-ui-primary-600));
+}
+```
+
+Adding transparency in color
+
+```
+a {
+  color: rgba(var(--neeto-ui-primary-600), 0.5);
+}
+```
+
+### Theming
+
+#### Custom branding
+
+<Story name="Custom branding">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/branding-54hfvm?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="branding"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
+
+#### Dark theme [Experimental]
+
+<Story name="Dark theme">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/dark-theme-2dhsl0?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark&view=preview"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="dark-theme"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
