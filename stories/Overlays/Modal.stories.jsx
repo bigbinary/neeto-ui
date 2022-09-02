@@ -3,17 +3,27 @@ import React, { useState } from "react";
 import Button from "../../lib/components/Button";
 import Modal from "../../lib/components/Modal";
 import Typography from "../../lib/components/Typography";
+import Input from "../../lib/components/Input";
 
 export default {
   title: "Overlays/Modal",
   component: Modal,
-  subcomponents: { Button },
+  subcomponents: {
+    "Modal.Header": Modal.Header,
+    "Modal.Body": Modal.Body,
+    "Modal.Footer": Modal.Footer,
+  },
   parameters: {
     layout: "padded",
     docs: {
       description: {
         component: '`import { Modal } from "@bigbinary/neetoui";`',
       },
+    },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A20",
     },
   },
 };
@@ -31,11 +41,231 @@ export const Default = () => {
         </div>
       </div>
 
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Header description="Short description">
+          <Typography style="h2" id="dialog1Title">
+            They're creepy & they're kooky
+          </Typography>
+        </Modal.Header>
+        <Modal.Body className="space-y-2">
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModal(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModal(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
+export const Sizes = () => {
+  const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
+  const [showModalMedium, setShowModalMedium] = useState(false);
+  const [showModalLarge, setShowModalLarge] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button
+              label="Small"
+              onClick={() => setShowModalExtraSmall(true)}
+            />
+            <Button label="Medium" onClick={() => setShowModalMedium(true)} />
+            <Button label="Large" onClick={() => setShowModalLarge(true)} />
+          </div>
+        </div>
+      </div>
+
       <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
+        isOpen={showModalExtraSmall}
+        onClose={() => setShowModalExtraSmall(false)}
+        size="small"
       >
         <Modal.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setShowModalExtraSmall(false)}
+          />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModalExtraSmall(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+
+      <Modal
+        isOpen={showModalMedium}
+        onClose={() => setShowModalMedium(false)}
+        size="medium"
+      >
+        <Modal.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModalMedium(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModalMedium(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+
+      <Modal isOpen={showModalLarge} onClose={() => setShowModalLarge(false)}>
+        <Modal.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModalLarge(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModalLarge(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
+export const ModalFocusTrapping = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+          </div>
+        </div>
+      </div>
+
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Header
+          description="Try pressing tab or shift + tab on your keyboard. You would realise
+            that the focus is trapped to within the modal. This is done
+            inherently by the modal component."
+        >
+          <Typography style="h2" id="dialog1Title">
+            They're creepy & they're kooky
+          </Typography>
+        </Modal.Header>
+        <Modal.Body className="space-y-2">
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're The Herculoids!
+          </Typography>
+          <Input label="First Name" />
+          <Input label="Last Name" />
+          <Input type="email" label="Email" />
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModal(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModal(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+ModalFocusTrapping.storyName = "Modal focus trapping";
+
+export const NestedModals = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+          </div>
+        </div>
+      </div>
+
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Header
+          description="Try pressing tab or shift + tab on your keyboard. You would realise
+            that the focus is trapped to within the modal. This is done
+            inherently by the modal component."
+        >
+          <Typography style="h2" id="dialog1Title">
+            They're creepy & they're kooky
+          </Typography>
+        </Modal.Header>
+        <Modal.Body className="space-y-2">
+          <Typography style="body2" lineHeight="normal">
+            Try pressing tab or shift + tab on your keyboard. You would realise
+            that the focus is trapped to within the modal. This is done
+            inherently by the modal component.
+          </Typography>
+          <Input label="First Name" />
+          <Input label="Last Name" />
+          <Input type="email" label="Email" />
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button
+            label="Open second modal"
+            onClick={() => setShowModal2(true)}
+          />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModal(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+      <Modal isOpen={showModal2} onClose={() => setShowModal2(false)}>
+        <Modal.Header description="Now, you would notice that the focus is trapped inside of the second modal.">
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
           </Typography>
@@ -51,16 +281,11 @@ export const Default = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowModal(false)}
-            size="large"
-          />
+          <Button label="Continue" onClick={() => setShowModal2(false)} />
           <Button
             style="text"
             label="Cancel"
-            onClick={() => setShowModal(false)}
-            size="large"
+            onClick={() => setShowModal2(false)}
           />
         </Modal.Footer>
       </Modal>
@@ -68,95 +293,38 @@ export const Default = () => {
   );
 };
 
-export const ModalSizing = () => {
-  const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
-  const [showModalSmall, setShowModalSmall] = useState(false);
-  const [showModalMedium, setShowModalMedium] = useState(false);
+export const InitialAndFinalFocusRef = () => {
+  const [showModal, setShowModal] = useState(false);
+  const inputRef = React.useRef(null);
+  const buttonRef = React.useRef(null);
 
   return (
     <div className="w-full">
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button
-              label="Extra Small"
-              onClick={() => setShowModalExtraSmall(true)}
+              style="secondary"
+              label="Focus here on close"
+              ref={buttonRef}
             />
-            <Button label="Small" onClick={() => setShowModalSmall(true)} />
-            <Button label="Medium" onClick={() => setShowModalMedium(true)} />
           </div>
         </div>
       </div>
 
       <Modal
-        isOpen={showModalExtraSmall}
-        onClose={() => setShowModalExtraSmall(false)}
-        size="xs"
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        initialFocusRef={inputRef}
+        finalFocusRef={buttonRef}
       >
-        <Modal.Header>
-          <Typography style="h2">
+        <Modal.Header description="The focous would be on the input field for first name on opening of the modal and on the secondary button on close.">
+          <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
-        <Modal.Body>
-          <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
-          </Typography>
-        </Modal.Body>
-        <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalExtraSmall(false)}
-          />
-          <Button
-            style="text"
-            size="large"
-            label="Cancel"
-            onClick={() => setShowModalExtraSmall(false)}
-          />
-        </Modal.Footer>
-      </Modal>
-
-      <Modal
-        isOpen={showModalSmall}
-        onClose={() => setShowModalSmall(false)}
-        size="sm"
-      >
-        <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
-        </Modal.Header>
-        <Modal.Body>
-          <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
-          </Typography>
-        </Modal.Body>
-        <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalSmall(false)}
-          />
-          <Button
-            style="text"
-            size="large"
-            label="Cancel"
-            onClick={() => setShowModalSmall(false)}
-          />
-        </Modal.Footer>
-      </Modal>
-
-      <Modal
-        isOpen={showModalMedium}
-        onClose={() => setShowModalMedium(false)}
-        size="md"
-      >
-        <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
-        </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="space-y-2">
           <Typography style="body2" lineHeight="normal">
             Somewhere out in space live The Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
@@ -165,21 +333,20 @@ export const ModalSizing = () => {
             planet from sinister invaders! All-strong! All-brave! All-heroes!
             They're The Herculoids!
           </Typography>
+          <Input ref={inputRef} label="First Name" />
+          <Input label="Last Name" />
+          <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            size="large"
-            label="Continue"
-            onClick={() => setShowModalMedium(false)}
-          />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             style="text"
-            size="large"
             label="Cancel"
-            onClick={() => setShowModalMedium(false)}
+            onClick={() => setShowModal(false)}
           />
         </Modal.Footer>
       </Modal>
     </div>
   );
 };
+InitialAndFinalFocusRef.storyName = "Initial and final focus ref";
