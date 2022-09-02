@@ -1,174 +1,328 @@
-const colorPalette = [
-  {
-    name: "$neeto-ui-white",
-    value: "#ffffff",
-    compiledValue: "#ffffff",
+export const colorPalette = {
+  BASE: {
+    colors: [
+      {
+        name: "neeto-ui-white",
+        text: "black",
+        value: {
+          light: "255, 255, 255",
+          dark: "18, 18, 18",
+        },
+      },
+      {
+        name: "neeto-ui-black",
+        value: {
+          light: "27, 31, 35",
+          dark: "224, 224, 224",
+        },
+      },
+    ],
+    title: "BASE",
   },
-  {
-    name: "$neeto-ui-black",
-    value: "#1b1f23",
-    compiledValue: "#1b1f23",
+  GRAY: {
+    colors: [
+      {
+        name: "neeto-ui-gray-800",
+        value: {
+          light: "47, 57, 65",
+          dark: "200, 200, 200",
+        },
+      },
+      {
+        name: "neeto-ui-gray-700",
+        value: {
+          light: "73, 84, 92",
+          dark: "162, 162, 162",
+        },
+      },
+      {
+        name: "neeto-ui-gray-600",
+        value: {
+          light: "104, 115, 125",
+          dark: "124, 124, 124",
+        },
+      },
+      {
+        name: "neeto-ui-gray-500",
+        value: {
+          light: "135, 146, 157",
+          dark: "92, 92, 92",
+        },
+      },
+      {
+        name: "neeto-ui-gray-400",
+        text: "black",
+        value: {
+          light: "194, 200, 204",
+          dark: "73, 73, 73",
+        },
+      },
+      {
+        name: "neeto-ui-gray-300",
+        text: "black",
+        value: {
+          light: "216, 220, 222",
+          dark: "57, 57, 57",
+        },
+      },
+      {
+        name: "neeto-ui-gray-200",
+        text: "black",
+        value: {
+          light: "233, 235, 237",
+          dark: "44, 44, 44",
+        },
+      },
+      {
+        name: "neeto-ui-gray-100",
+        text: "black",
+        value: {
+          light: "248, 249, 249",
+          dark: "27, 27, 27",
+        },
+      },
+    ],
+    title: "GRAY",
   },
-  {
-    name: "$neeto-ui-gray-800",
-    value: "#2f3941",
-    compiledValue: "#2f3941",
+  PRIMARY: {
+    colors: [
+      {
+        name: "neeto-ui-primary-800",
+        value: {
+          light: "45, 54, 212",
+          dark: "209, 213, 254",
+        },
+      },
+      {
+        name: "neeto-ui-primary-600",
+        value: {
+          light: "54, 66, 223",
+          dark: "166, 170, 254",
+        },
+      },
+      {
+        name: "neeto-ui-primary-500",
+        value: {
+          light: "69, 88, 249",
+          dark: "137, 147, 254",
+        },
+      },
+      {
+        name: "neeto-ui-primary-100",
+        text: "black",
+        value: {
+          light: "235, 236, 254",
+          dark: "27, 28, 37",
+        },
+      },
+    ],
+    title: "PRIMARY",
   },
-  {
-    name: "$neeto-ui-gray-700",
-    value: "#49545c",
-    compiledValue: "#49545c",
+  SUCCESS: {
+    colors: [
+      {
+        name: "neeto-ui-success-800",
+        value: {
+          light: "16, 113, 84",
+          dark: "57, 185, 144",
+        },
+      },
+      {
+        name: "neeto-ui-success-600",
+        value: {
+          light: "18, 128, 92",
+          dark: "51, 171, 132",
+        },
+      },
+      {
+        name: "neeto-ui-success-500",
+        value: {
+          light: "38, 142, 108",
+          dark: "45, 157, 120",
+        },
+      },
+      {
+        name: "neeto-ui-success-100",
+        text: "black",
+        value: {
+          light: "225, 243, 238",
+          dark: "23, 85, 65",
+        },
+      },
+    ],
+    title: "SUCCESS",
   },
-  {
-    name: "$neeto-ui-gray-600",
-    value: "#68737d",
-    compiledValue: "#68737d",
+  ERROR: {
+    colors: [
+      {
+        name: "neeto-ui-error-800",
+        value: {
+          light: "187, 18, 26",
+          dark: "247, 109, 116",
+        },
+      },
+      {
+        name: "neeto-ui-error-600",
+        value: {
+          light: "201, 37, 45",
+          dark: "236, 91, 98",
+        },
+      },
+      {
+        name: "neeto-ui-error-500",
+        value: {
+          light: "215, 55, 63",
+          dark: "227, 72, 80",
+        },
+      },
+      {
+        name: "neeto-ui-error-100",
+        text: "black",
+        value: {
+          light: "254, 236, 240",
+          dark: "129, 33, 38",
+        },
+      },
+    ],
+    title: "ERROR",
   },
-  {
-    name: "$neeto-ui-gray-500",
-    value: "#87929d",
-    compiledValue: "#87929d",
+  WARNING: {
+    colors: [
+      {
+        name: "neeto-ui-warning-800",
+        value: {
+          light: "189, 100, 13",
+          dark: "249, 164, 63",
+        },
+      },
+      {
+        name: "neeto-ui-warning-600",
+        value: {
+          light: "203, 111, 16",
+          dark: "242, 148, 35",
+        },
+      },
+      {
+        name: "neeto-ui-warning-500",
+        value: {
+          light: "218, 123, 17",
+          dark: "230, 134, 25",
+        },
+      },
+      {
+        name: "neeto-ui-warning-100",
+        text: "black",
+        value: {
+          light: "251, 242, 225",
+          dark: "131, 74, 11",
+        },
+      },
+    ],
+    title: "WARNING",
   },
-  {
-    name: "$neeto-ui-gray-400",
-    value: "#c2c8cc",
-    compiledValue: "#c2c8cc",
+  INFO: {
+    colors: [
+      {
+        name: "neeto-ui-info-800",
+        value: {
+          light: "9, 90, 186",
+          dark: "75, 156, 245",
+        },
+      },
+      {
+        name: "neeto-ui-info-600",
+        value: {
+          light: "13, 102, 208",
+          dark: "55, 142, 240",
+        },
+      },
+      {
+        name: "neeto-ui-info-500",
+        value: {
+          light: "20, 115, 230",
+          dark: "38, 128, 235",
+        },
+      },
+      {
+        name: "neeto-ui-info-100",
+        text: "black",
+        value: {
+          light: "226, 242, 255",
+          dark: "11, 69, 137",
+        },
+      },
+    ],
+    title: "INFO",
   },
-  {
-    name: "$neeto-ui-gray-300",
-    value: "#d8dcde",
-    compiledValue: "#d8dcde",
+  PASTEL: {
+    colors: [
+      {
+        name: "neeto-ui-pastel-silver",
+        text: "black",
+        value: {
+          light: "232, 233, 237",
+          dark: "104, 104, 106",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-red",
+        text: "black",
+        value: {
+          light: "255, 229, 229",
+          dark: "137, 0, 0",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-yellow",
+        text: "black",
+        value: {
+          light: "254, 243, 197",
+          dark: "234, 110, 33",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-green",
+        text: "black",
+        value: {
+          light: "211, 249, 232",
+          dark: "41, 145, 103",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-blue",
+        text: "black",
+        value: {
+          light: "236, 244, 255",
+          dark: "108, 79, 169",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-purple",
+        text: "black",
+        value: {
+          light: "238, 235, 255",
+          dark: "0, 61, 187",
+        },
+      },
+      {
+        name: "neeto-ui-pastel-pink",
+        text: "black",
+        value: {
+          light: "253, 226, 241",
+          dark: "126, 4, 93",
+        },
+      },
+    ],
+    title: "PASTEL",
   },
-  {
-    name: "$neeto-ui-gray-200",
-    value: "#e9ebed",
-    compiledValue: "#e9ebed",
-  },
-  {
-    name: "$neeto-ui-gray-100",
-    value: "#f8f9f9",
-    compiledValue: "#f8f9f9",
-  },
-  {
-    name: "$neeto-ui-success",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
-  },
-  {
-    name: "$neeto-ui-info",
-    value: "#276ef1",
-    compiledValue: "#276ef1",
-  },
-  {
-    name: "$neeto-ui-warning",
-    value: "#f57c00",
-    compiledValue: "#f57c00",
-  },
-  {
-    name: "$neeto-ui-error",
-    value: "#ea4335",
-    compiledValue: "#ea4335",
-  },
-  {
-    name: "$neeto-ui-pastel-blue",
-    value: "#eaf3fc",
-    compiledValue: "#eaf3fc",
-  },
-  {
-    name: "$neeto-ui-pastel-green",
-    value: "#ebf5ec",
-    compiledValue: "#ebf5ec",
-  },
-  {
-    name: "$neeto-ui-pastel-yellow",
-    value: "#fff2d7",
-    compiledValue: "#fff2d7",
-  },
-  {
-    name: "$neeto-ui-pastel-red",
-    value: "#ffefed",
-    compiledValue: "#ffefed",
-  },
-  {
-    name: "$neeto-ui-pastel-teal",
-    value: "#98f3f4",
-    compiledValue: "#98f3f4",
-  },
-  {
-    name: "$neeto-ui-accent1-700",
-    value: "#5b5ac4",
-    compiledValue: "#5b5ac4",
-  },
-  {
-    name: "$neeto-ui-accent1-500",
-    value: "#5e5ce6",
-    compiledValue: "#5e5ce6",
-  },
-  {
-    name: "$neeto-ui-accent1-300",
-    value: "#7e7deb",
-    compiledValue: "#7e7deb",
-  },
-  {
-    name: "$neeto-ui-accent2-700",
-    value: "#00956d",
-    compiledValue: "#00956d",
-  },
-  {
-    name: "$neeto-ui-accent2-500",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
-  },
-  {
-    name: "$neeto-ui-accent2-300",
-    value: "#33c8a0",
-    compiledValue: "#33c8a0",
-  },
-  {
-    name: "$neeto-ui-accent3-700",
-    value: "#50a8cc",
-    compiledValue: "#50a8cc",
-  },
-  {
-    name: "$neeto-ui-accent3-500",
-    value: "#64d2ff",
-    compiledValue: "#64d2ff",
-  },
-  {
-    name: "$neeto-ui-accent3-300",
-    value: "#83dbff",
-    compiledValue: "#83dbff",
-  },
-  {
-    name: "$neeto-ui-accent4-700",
-    value: "#d62516",
-    compiledValue: "#d62516",
-  },
-  {
-    name: "$neeto-ui-accent4-500",
-    value: "#ea4335",
-    compiledValue: "#ea4335",
-  },
-  {
-    name: "$neeto-ui-accent4-300",
-    value: "#f78879",
-    compiledValue: "#f78879",
-  },
-  {
-    name: "$neeto-ui-secondary-indigo",
-    value: "#5e5ce6",
-    compiledValue: "#5e5ce6",
-  },
-  {
-    name: "$neeto-ui-secondary-green",
-    value: "#00ba88",
-    compiledValue: "#00ba88",
-  },
-  {
-    name: "$neeto-ui-secondary-teal",
-    value: "#64d2ff",
-    compiledValue: "#64d2ff",
-  },
-];
+};
 
-export default colorPalette;
+export const colorPaletteList = Object.values(colorPalette).reduce(
+  (acc, colorItem) => {
+    const newColors = colorItem.colors.map((color) => {
+      return { name: `--${color.name}`, value: color.value.light };
+    });
+    return [...acc, ...newColors];
+  },
+  []
+);

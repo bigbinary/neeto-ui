@@ -1,10 +1,10 @@
 .neeto-ui-tab__wrapper {
   width: 100%;
-  border-bottom: 2px solid $neeto-ui-gray-300;
+  border-bottom: 2px solid rgb(var(--neeto-ui-gray-300));
 
   &--size-large {
     .neeto-ui-tab {
-      font-size: $neeto-ui-text-xl;
+      font-size: var(--neeto-ui-text-xl);
       padding-left: 12px;
       padding-right: 12px;
     }
@@ -20,12 +20,12 @@
 }
 
 .neeto-ui-tab {
-  color: $neeto-ui-gray-500;
-  font-weight: $neeto-ui-font-semibold;
-  font-size: $neeto-ui-text-sm;
+  color: rgb(var(--neeto-ui-gray-500));
+  font-weight: var(--neeto-ui-font-semibold);
+  font-size: var(--neeto-ui-text-sm);
   line-height: 1;
   padding: 12px 8px;
-  transition: $neeto-ui-transition;
+  transition: var(--neeto-ui-transition);
   position: relative;
   cursor: pointer;
   text-decoration: none;
@@ -41,7 +41,7 @@
 
   &:focus,
   &:focus-visible{
-    color: $neeto-ui-gray-800;
+    color: rgb(var(--neeto-ui-gray-800));
   }
 
   &__icon {
@@ -54,7 +54,7 @@
   }
 
   &:hover {
-    color: $neeto-ui-gray-600;
+    color: rgb(var(--neeto-ui-gray-600));
   }
 
   &:before {
@@ -66,14 +66,14 @@
     left: 0;
     right: 0;
     bottom: -2px;
-    transition: $neeto-ui-transition;
+    transition: var(--neeto-ui-transition);
   }
 
   &.active {
-    color: $neeto-ui-gray-800;
+    color: rgb(var(--neeto-ui-gray-800));
 
     &:before {
-      background-color: $neeto-ui-gray-800;
+      background-color: rgb(var(--neeto-ui-gray-800));
     }
   }
 }

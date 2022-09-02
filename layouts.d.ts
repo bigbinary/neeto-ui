@@ -3,7 +3,6 @@ import { NavLinkProps } from "react-router-dom";
 import { AvatarProps, InputProps } from "./index";
 
 export interface AppSwitcherProps {
-  size?: "lg" | "sm";
   isOpen?: boolean;
   className?: string;
   closeOnEsc?: boolean;
@@ -83,6 +82,7 @@ export interface SidebarProps {
   };
   navLinks?: NavLinkItemType[];
   tooltipStyle?: "default" | "featured";
+  /** @deprecated Prop removed as footer links in sidebar is no longer supported*/
   footerLinks?: FooterLinkType[];
   profileInfo?: {
     name?: string;
@@ -94,6 +94,7 @@ export interface SidebarProps {
     helpProps?: LinkType;
     "data-cy"?: string;
   } & AvatarProps;
+  /** @deprecated Prop removed as expanded state of sidebar is no longer supported */
   isCollapsed?: boolean;
   showAppSwitcher?: boolean;
   onAppSwitcherToggle?: React.MouseEventHandler<HTMLButtonElement>;

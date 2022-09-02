@@ -29,8 +29,8 @@ export const BasicUsage = () => {
       }
       rightActionBlock={
         <>
-          <Button label="Delete" style="secondary" icon={Delete} />
-          <Button label="Disable" style="secondary" />
+          <Button size="small" label="Delete" style="secondary" icon={Delete} />
+          <Button size="small" label="Disable" style="secondary" />
         </>
       }
     />
@@ -54,8 +54,8 @@ export const WithRightActionBlock = () => {
     <SubHeader
       rightActionBlock={
         <>
-          <Button label="Delete" style="secondary" icon={Delete} />
-          <Button label="Disable" style="secondary" />
+          <Button size="small" label="Delete" style="secondary" icon={Delete} />
+          <Button size="small" label="Disable" style="secondary" />
         </>
       }
     />

@@ -1,9 +1,10 @@
 .neeto-ui-accordions-outer-wrapper{
   padding: 24px;
+  border-radius: var(--neeto-ui-rounded-lg);
 }
 
 .neeto-ui-accordion__wrapper {
-  border-bottom: thin solid $neeto-ui-gray-300;
+  border-bottom: thin solid rgb(var(--neeto-ui-gray-400));
 
   &--last-item {
     border-bottom: none;
@@ -16,6 +17,7 @@
 
     .neeto-ui-accordion__item-handle {
       font-size: 16px;
+      font-weight: 500;
       line-height: 16px;
     }
 
@@ -24,13 +26,15 @@
     }
 
     &:focus-visible, &:hover {
-      background-color: $neeto-ui-gray-100;
+      .neeto-ui-accordion__item-handle{
+        color: rgb(var(--neeto-ui-gray-800));
+      }
     }
   }
 
   .neeto-ui-accordion__drop {
     padding: 4px 8px 16px;
     margin-bottom: 0px;
-    color: $neeto-ui-gray-700;
+    color: rgb(var(--neeto-ui-gray-700));
   }
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  staticDirs: ['./public'],
+  staticDirs: ["./public"],
   core: {
     builder: "webpack5",
   },
@@ -13,5 +13,7 @@ module.exports = {
     "@storybook/preset-scss",
     "@storybook/addon-postcss",
     "@storybook/addon-docs",
+    "storybook-addon-designs",
+    "@storybook/addon-console",
   ],
 };

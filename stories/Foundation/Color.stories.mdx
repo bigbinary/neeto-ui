@@ -1,6 +1,8 @@
 import { Meta } from "@storybook/addon-docs";
-
-import colorPalette from "./ColorPalette.js";
+import { Figma } from "storybook-addon-designs/blocks";
+import { colorPaletteList } from "./ColorPalette.js";
+import Radio from "../../lib/components/Radio";
+import ColorStory from "./ColorStory";
 
 <Meta
   title="Foundation/Colors"
@@ -13,63 +15,35 @@ import colorPalette from "./ColorPalette.js";
 />
 
 <style>{`
-  .story-demo-table tr{
-      background: transparent !important;
+
+  .demo-color-swatch-wrapper{
+    background-color: rgb(var(--neeto-ui-surface-bg));
   }
-  
+
+  .demo-color-swatch{
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 12px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .demo-color-swatch code{
+    background:transparent;
+    padding:0;
+    outline:0;
+    border:0;
+    color: inherit;
+    font-size: inherit;
+  }
+  .demo-color-swatch code:nth-child(2{
+    font-weight:bold;
+  }
+
 `}</style>
 
 # Colors
 
-<table className="story-demo-table">
-  <thead>
-    <tr>
-      <td></td>
-      <td>Hex code</td>
-      <td>Variable name</td>
-      <td>Text color class</td>
-      <td>Background color class</td>
-    </tr>
-  </thead>
-  <tbody>
-    {colorPalette.map((color) => {
-      return (
-        <tr key={color.name}>
-          <td>
-            <div
-              className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
-                "$neeto-ui",
-                "neeto-ui-bg"
-              )}`}
-            ></div>
-          </td>
-          <td>
-            <code>{color.value}</code>
-          </td>
-          <td>
-            <code>{color.name}</code>
-          </td>
-          <td>
-            <div className="flex justify-between">
-              <code>{`${color.name.replace(
-                "$neeto-ui",
-                "neeto-ui-text"
-              )}`}</code>
-              <b
-                className={`ml-2 ${color.name.replace(
-                  "$neeto-ui",
-                  "neeto-ui-text"
-                )}`}
-              >
-                Aa
-              </b>
-            </div>
-          </td>
-          <td className={`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}>
-            <code>{`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
-          </td>
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
+<ColorStory />

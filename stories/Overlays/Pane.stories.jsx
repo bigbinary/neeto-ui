@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Check } from "@bigbinary/neeto-icons";
 
 import Button from "../../lib/components/Button";
@@ -23,6 +23,11 @@ export default {
       description: {
         component: '`import { Pane } from "@bigbinary/neetoui";`',
       },
+    },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
     },
   },
 };
@@ -58,13 +63,11 @@ export const Panes = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
-            size="large"
             label="Continue"
             onClick={() => setShowPane(false)}
           />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowPane(false)}
           />
@@ -84,7 +87,7 @@ export const PaneWithModalAndAlert = () => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+          <div className="flex flex-row items-center justify-start space-x-2">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -105,7 +108,7 @@ export const PaneWithModalAndAlert = () => {
             planet from sinister invaders! All-strong! All-brave! All-heroes!
             They're The Herculoids!
           </Typography>
-          <div className="flex space-x-6">
+          <div className="flex space-x-2">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button label="Show Alert" onClick={() => setShowAlert(true)} />
           </div>
@@ -113,13 +116,11 @@ export const PaneWithModalAndAlert = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
-            size="large"
             label="Continue"
             onClick={() => setShowPane(false)}
           />
           <Button
             style="text"
-            size="large"
             label="Cancel"
             onClick={() => setShowPane(false)}
           />
@@ -144,7 +145,7 @@ export const PaneWithModalAndAlert = () => {
             onChange={(event) => setInputValue(event.target.value)}
           />
         </Modal.Body>
-        <Modal.Footer className="space-x-4">
+        <Modal.Footer className="space-x-2">
           <Button
             icon={Check}
             label="Continue"

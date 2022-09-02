@@ -21,6 +21,11 @@ export default {
         component: '`import { EmailInput } from "@bigbinary/neetoui";`',
       },
     },
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
+    },
   },
   argTypes: {
     prefix: {

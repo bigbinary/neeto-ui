@@ -21,6 +21,7 @@ export const parameters = {
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers"],
         "Components",
+        ["Button", "Checkbox", "Radio", "Switch", "Input", "Textarea", "Label", "Select", "Email Input", "Dropdown", "ActionDropdown", "Date and Time", "Tag", "Tab", "Accordion", "Avatar", "Callout", "Table", "Pagination", "ColorPicker", "Spinner", "PageLoader"],
         "Molecules",
         "Overlays",
         "Layouts",
