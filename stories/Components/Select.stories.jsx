@@ -1,6 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import { FieldArray, Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
+import { FORMIK_SELECT } from "../constants";
 
 import { Select, Button, Modal, Pane, Typography } from "../../lib/components";
 import { Select as FormikSelect } from "../../lib/components/formik";
@@ -279,6 +280,7 @@ export const ExampleWithRef = ({}) => {
     </>
   );
 };
+ExampleWithRef.storyName = "Example with ref";
 
 export const SelectInModal = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -306,6 +308,7 @@ export const SelectInModal = ({}) => {
     </>
   );
 };
+SelectInModal.storyName = "Select in modal";
 
 SelectInModal.parameters = {
   docs: {
@@ -342,6 +345,7 @@ export const SelectInPane = ({}) => {
     </>
   );
 };
+SelectInPane.storyName = "Select in pane";
 
 export const FormikSelectStory = ({}) => {
   const [values, setValues] = useState([]);
@@ -410,5 +414,6 @@ FormikSelectStory.parameters = {
       story:
         "`import { Select as FormikSelect } from '@bigbinary/neetoui/formik';`",
     },
+    source: { code: FORMIK_SELECT },
   },
 };

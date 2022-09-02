@@ -1,9 +1,11 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import { Settings, Delete } from "@bigbinary/neeto-icons";
+import { Settings, Delete, Search } from "@bigbinary/neeto-icons";
 
-import { Button, Dropdown, Tag } from "../../lib/components";
+import { Button, Dropdown, Tag, Input, Typography } from "../../lib/components";
+
 import { icons } from "../constants";
+import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {
   ulProps: {
@@ -24,9 +26,7 @@ export default {
   parameters: {
     layout: "padded",
     docs: {
-      description: {
-        component: '`import { Dropdown } from "@bigbinary/neetoui";`',
-      },
+      description: { component: DropdownStoriesDocs },
       source: {
         type: "code",
       },
@@ -315,3 +315,40 @@ export const CustomTarget = () => {
   );
 };
 CustomTarget.storyName = "Custom target";
+
+export const CustomDropdown = () => {
+  const { Menu, MenuItem } = Dropdown;
+  const members = ["Oliver Smith", "Jack Smith"];
+  const articles = ["Article 1", "Article 2"];
+  return (
+    <div className="h-56">
+      <Dropdown closeOnSelect={false} label="Custom Dropdown">
+        <div className="flex divide-x">
+          <div className="p-2 space-y-2">
+            <Input prefix={<Search />} placeholder="Search Members" />
+            <Typography style="body2">Results</Typography>
+            <Menu>
+              {members.map((item, idx) => (
+                <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+              ))}
+            </Menu>
+          </div>
+          <div className="p-2 space-y-2">
+            <Input prefix={<Search />} placeholder="Search Articles" />
+            <Typography style="body2">Results</Typography>
+            <div className="flex gap-4">
+              {articles.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="cursor-pointer rounded-md p-2 neeto-ui-bg-gray-200"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Dropdown>
+    </div>
+  );
+};
