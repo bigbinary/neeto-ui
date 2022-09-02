@@ -1,5 +1,4 @@
-/* eslint-disable no-empty-pattern */
-import React, { useState } from "react";
+import React from "react";
 
 import Switch from "../../lib/components/Switch";
 
@@ -13,11 +12,6 @@ export default {
         component: '`import { Switch } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
-    },
   },
 };
 
@@ -27,39 +21,32 @@ const Template = (args) => (
   </div>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const CheckedState = Template.bind({});
+CheckedState.args = {
+  checked: true,
+};
+
+export const UncheckedState = Template.bind({});
+UncheckedState.args = {
   checked: false,
 };
 
-export const Checked = Template.bind({});
-Checked.args = {
-  checked: true,
-};
-
-export const Controlled = ({}) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const onChange = (e) => {
-    setIsChecked(e.target.checked);
-  };
-  return <Switch onChange={onChange} checked={isChecked} />;
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
+export const DisabledState = Template.bind({});
+DisabledState.args = {
   disabled: true,
-  checked: true,
 };
 
-export const Label = ({}) => (
-  <div className="flex flex-col space-y-6">
-    <Switch label="Switch Label Example" />
-    <Switch
-      label={
-        <span className="font-semibold neeto-ui-text-info-500">
-          Custom Label Example
-        </span>
-      }
-    />
-  </div>
-);
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+  label: "Switch Label Example",
+};
+
+export const WithCustomLabel = Template.bind({});
+WithCustomLabel.args = {
+  label: <span className="neeto-ui-text-info">Custom Label Example</span>,
+};
+
+export const WithChangeListner = Template.bind({});
+WithChangeListner.args = {
+  onChange: (e) => alert("Callback invoked"),
+};

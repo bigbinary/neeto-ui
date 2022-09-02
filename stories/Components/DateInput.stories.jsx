@@ -1,26 +1,24 @@
-import dayjs from "dayjs";
+import { Modal, Typography, Pane } from "../../lib/components";
 import React from "react";
 
-import { Modal, Typography, Pane, DatePicker } from "../../lib/components";
 import isChromatic from "chromatic/isChromatic";
+import DatePicker from "../../lib/components/DatePicker";
+import TimePicker from "../../lib/components/TimePicker";
 import Button from "../../lib/components/Button";
-import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
+import dayjs from "dayjs";
 
 export default {
-  title: "Components/DatePicker",
+  title: "Components/Date and Time",
   component: DatePicker,
   parameters: {
     layout: "padded",
     docs: {
-      description: { component: DateInputStoriesDocs },
+      description: {
+        component: '`import { DatePicker } from "@bigbinary/neetoui";`',
+      },
       source: {
         type: "code",
       },
-    },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
     },
   },
 };
@@ -52,9 +50,17 @@ export const DatePickerWithRef = () => {
     </div>
   );
 };
-DatePickerWithRef.storyName = "DatePicker with ref";
 
-export const DatePickerInModal = (args) => {
+export const TimeInput = (args) => {
+  return <TimePicker {...args} />;
+};
+
+TimeInput.storyName = "TimePicker";
+TimeInput.args = {
+  label: "Time",
+};
+
+export const DateTimePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
@@ -71,15 +77,21 @@ export const DatePickerInModal = (args) => {
               getPopupContainer={(triggerNode) => triggerNode.parentNode}
             />
           </div>
+          <div>
+            <Typography>Time</Typography>
+            <TimePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );
 };
-DatePickerInModal.storyName = "DatePicker in Modal";
 
-export const DatePickerInPane = (args) => {
+export const DateTimePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
@@ -96,12 +108,35 @@ export const DatePickerInPane = (args) => {
               getPopupContainer={(triggerNode) => triggerNode.parentNode}
             />
           </div>
+          <div className="w-full">
+            <Typography>Time</Typography>
+            <TimePicker
+              {...args}
+              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+            />
+          </div>
         </Pane.Body>
       </Pane>
     </>
   );
 };
-DatePickerInPane.storyName = "DatePicker in Pane";
+
+export const TimePickerWithRef = () => {
+  const ref = React.useRef();
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="space-y-3">
+      <Button label="Focus" onClick={() => ref.current.focus()} />
+      <TimePicker
+        ref={ref}
+        open={open}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        onOk={() => setOpen(false)}
+      />
+    </div>
+  );
+};
 
 export const DatePickerWithDefaultValue = (args) => {
   return (
@@ -113,9 +148,30 @@ export const DatePickerWithDefaultValue = (args) => {
     </div>
   );
 };
-DatePickerWithDefaultValue.storyName = "DatePicker with default value";
 
 DatePickerWithDefaultValue.parameters = {
+  docs: {
+    description: {
+      story:
+        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+    },
+  },
+};
+
+export const TimePickerWithDefaultValue = (args) => {
+  return (
+    <div className="space-y-3">
+      <TimePicker
+        defaultValue={
+          isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
+        }
+        {...args}
+      />
+    </div>
+  );
+};
+
+TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {
       story:
@@ -142,9 +198,3 @@ export const DateRangePicker = () => {
     </div>
   );
 };
-DateRangePicker.storyName = "DateRangePicker";
-
-export const ShowTime = () => {
-  return <DatePicker showTime label="Date" type="date" picker="date" />;
-};
-ShowTime.storyName = "Show time";

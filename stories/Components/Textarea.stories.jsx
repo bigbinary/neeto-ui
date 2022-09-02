@@ -12,18 +12,13 @@ export default {
         component: '`import { Textarea } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A13",
-    },
   },
 };
 
 const Template = (args) => <Textarea {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {
   label: "Textarea",
   placeholder: "Enter text",
 };
@@ -39,46 +34,26 @@ export const Controlled = () => {
   );
 };
 
-export const Required = Template.bind({});
-Required.args = {
-  label: "Required Textarea",
-  placeholder: "Enter text",
-  required: true,
-};
+export const Required = () => (
+  <Textarea label="Required Textarea" required={true} />
+);
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  label: "Disabled Textarea",
-  placeholder: "Enter text",
-  disabled: true,
-};
+export const Disabled = () => (
+  <Textarea label="Disabled Textarea" disabled={true} />
+);
 
-export const Error = Template.bind({});
-Error.args = {
-  label: "Error",
-  placeholder: "Enter text",
-  error: "Provide valid email",
-};
+export const Error = () => (
+  <Textarea label="Error" error="Provide valid email" />
+);
 
-export const HelpText = Template.bind({});
-HelpText.storyName = "Help text";
-HelpText.args = {
-  label: "Name",
-  placeholder: "Enter text",
-  helpText: "This is help text props to the component",
-};
+export const HelpText = () => (
+  <Textarea label="Name" helpText="This is help text props to the component." />
+);
 
-export const NakedInput = Template.bind({});
-NakedInput.args = {
-  label: "Naked Textarea Field",
-  placeholder: "Enter text",
-  nakedTextarea: true,
-};
+export const NakedInput = () => (
+  <Textarea label="Naked Textarea Field" nakedTextarea={true} />
+);
 
-export const TextareaWithMaxLength = Template.bind({});
-TextareaWithMaxLength.storyName = "Textarea with max length";
-TextareaWithMaxLength.args = {
-  label: "Textarea with max length",
-  placeholder: "Enter text",
-  maxLength: 10,
-};
+export const TextareaWithMaxLength = () => (
+  <Textarea label="Textarea with max length" maxLength={10} />
+);

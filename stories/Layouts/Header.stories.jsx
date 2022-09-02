@@ -23,25 +23,23 @@ const Template = (args) => (
   </Router>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {
   title: "Layouts",
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button size="large" label="Primary Action" />,
 };
 
 export const WithSearchInput = Template.bind({});
-WithSearchInput.storyName = "With search input";
 WithSearchInput.args = {
   title: "Layouts",
   searchProps: {
     value: "",
     onChange: () => {},
   },
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button size="large" label="Primary Action" />,
 };
 
 export const WithMenuBarToggle = Template.bind({});
-WithMenuBarToggle.storyName = "With MenuBar toggle";
 WithMenuBarToggle.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
@@ -53,8 +51,5 @@ WithBreadcrumbs.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
   actionBlock: <Button label="Primary Action" />,
-  breadcrumbs: [
-    { text: "Home", link: "/" },
-    { text: "Settings", link: "/" },
-  ],
+  breadcrumbs: [{ text: "Home", link: "/" }],
 };

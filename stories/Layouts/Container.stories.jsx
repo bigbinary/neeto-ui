@@ -22,14 +22,17 @@ export default {
   },
 };
 
-export const Default = (args) => {
+export const ContainerStory = (args) => {
   return (
     <Container {...args}>
       <div className="neeto-ui-bg-gray-100 w-full h-full flex-1" />
     </Container>
   );
 };
-Default.decorators = [(Story) => <div className="bg-green-200">{Story()}</div>];
+ContainerStory.storyName = "Container";
+ContainerStory.decorators = [
+  (Story) => <div className="bg-green-200">{Story()}</div>,
+];
 
 const DummyCard = () => (
   <div className="neeto-ui-bg-white w-full h-36 rounded-md p-5 space-y-2 shadow">
@@ -55,7 +58,7 @@ export const WithHeaderAndScrollable = (args) => {
     </Container>
   );
 };
-WithHeaderAndScrollable.storyName = "With Header and Scrollable";
+
 WithHeaderAndScrollable.args = {
   isHeaderFixed: true,
 };

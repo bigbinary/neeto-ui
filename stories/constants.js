@@ -9,11 +9,6 @@ import {
   Right,
   Download,
   Search,
-  Copy,
-  Design,
-  UserCircle,
-  Settings,
-  Image,
 } from "@bigbinary/neeto-icons";
 
 export const icons = {
@@ -5197,93 +5192,3 @@ export const TABLE_IN_LAYOUT = `
  </Container>
 </div>
 `;
-
-export const FORMIK_SELECT = `
-<>
-  <Formik
-    initialValues={{
-      selects: [
-        { formikSelect: { value: "v1", label: "v1" } },
-        { formikSelect: { value: "v1", label: "v1" } },
-      ],
-    }}
-    onSubmit={(values) => setValues(values)}
-  >
-    {({ values }) => (
-      <Form>
-        <div className="flex flex-col space-y-6">
-          <FieldArray name="selects">
-            {({ push, remove }) => (
-              <div className="flex flex-col space-y-3">
-                {values.selects.map((_, index) => (
-                  <div key={index} className="flex items-end space-x-6">
-                    <FormikSelect
-                      name={\`selects.\${index}.formikSelect\`}
-                      label="Select"
-                      options={[
-                        { value: "v1", label: "v1" },
-                        { value: "v2", label: "v2" },
-                        { value: "v3", label: "v3" },
-                      ]}
-                    />
-                    <Button
-                      label="Remove"
-                      className="mb-2"
-                      onClick={() => remove(index)}
-                    />
-                  </div>
-                ))}
-                <Button
-                  className="self-start"
-                  label="Add"
-                  onClick={() => push({ formikSelect: null })}
-                />
-              </div>
-            )}
-          </FieldArray>
-          <Button className="self-start" label="Submit" type="submit" />
-        </div>
-      </Form>
-    )}
-  </Formik>
-  <div className="py-6">
-    <Typography weight="bold">Selected Values:</Typography>
-    {values.selects?.map(({ formikSelect }, index) => (
-      <Typography key={index}>{formikSelect?.label}</Typography>
-    ))}
-  </div>
-</>;
-`;
-
-export const STORYBOOK_NAV_LINKS = [
-  {
-    label: "Components",
-    description: "Description here",
-    to: "/components",
-    icon: Copy,
-  },
-  {
-    label: "Form Elements",
-    description: "Description here",
-    to: "/form-elements",
-    icon: Design,
-  },
-  {
-    label: "Formik",
-    description: "Description here",
-    to: "/formik",
-    icon: Image,
-  },
-  {
-    label: "Overlays",
-    description: "Description here",
-    to: "/overlays",
-    icon: Settings,
-  },
-  {
-    label: "Layouts",
-    description: "Description here",
-    to: "/layouts",
-    icon: UserCircle,
-  },
-];

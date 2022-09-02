@@ -1,41 +1,22 @@
 .neeto-ui-header {
   width: 100%;
-  min-height: var(--neeto-ui-main-header-height);
-  background: rgb(var(--neeto-ui-white));
+  min-height: $neeto-ui-main-header-height;
+  background: $neeto-ui-white;
   padding: 24px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  &--has-breadcrumbs {
-    min-height: var(--neeto-ui-main-header-with-breadcrumbs-height);
-  }
-
-  .neeto-ui-header__toggle-menubar-btn {
+  .neeto-ui-header__toggle-menubar-btn{
     margin-right: 8px;
   }
 
   .neeto-ui-header__left {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-  }
-
-  .neeto-ui-header__left-data-wrap {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .neeto-ui-header__page-title{
-    width: 100%;
-    display: block;
-  }
-
-  .neeto-ui-header__breadcrumbs-wrap{
-    display: flex;
   }
 
   .neeto-ui-header__breadcrumb {
@@ -43,11 +24,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    line-height: 1;
-
     a {
       transition: all ease-in-out 300ms;
       text-decoration: none;
+      h2 {
+        color: $neeto-ui-gray-500;
+        &:hover {
+          color: $neeto-ui-gray-800;
+        }
+      }
     }
   }
 
@@ -69,9 +54,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-height: var(--neeto-ui-sub-header-height);
-  margin-bottom: var(--neeto-ui-sub-header-bottom-margin);
-  background-color: rgb(var(--neeto-ui-white));
+  min-height: $neeto-ui-sub-header-height;
+  margin-bottom: $neeto-ui-sub-header-bottom-margin;
+  background-color: $neeto-ui-white;
 
   .neeto-ui-subheader__left-wrapper {
     display: flex;
@@ -86,7 +71,7 @@
       align-items: center;
 
       .neeto-ui-input__prefix {
-        color: rgb(var(--neeto-ui-gray-400));
+        color: $neeto-ui-gray-400;
       }
     }
   }
