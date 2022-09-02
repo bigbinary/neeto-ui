@@ -127,8 +127,7 @@ export const WithColorPalette = (args) => {
     </div>
   );
 };
-
-WithColorPalette.storyName = "With Color Palette";
+WithColorPalette.storyName = "With color palette";
 WithColorPalette.args = {
   color: "#4558F9",
 };

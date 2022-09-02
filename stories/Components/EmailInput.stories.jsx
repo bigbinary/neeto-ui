@@ -39,14 +39,14 @@ export default {
   },
 };
 
-export const Controlled = args => {
+export const Controlled = (args) => {
   const [emails, setEmails] = useState(args.value);
 
   return (
     <EmailInput
       {...args}
       value={emails}
-      onChange={emails => setEmails(emails)}
+      onChange={(emails) => setEmails(emails)}
     />
   );
 };
@@ -54,24 +54,24 @@ export const Controlled = args => {
 Controlled.args = {
   value: [
     {
-      "label": "test@example.com",
-      "value": "test@example.com",
-      "valid": true
-    }
-  ]
+      label: "test@example.com",
+      value: "test@example.com",
+      valid: true,
+    },
+  ],
 };
 
-export const Error = args => <EmailInput {...args} />;
+export const Error = (args) => <EmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
   value: [
     {
-      "label": "test",
-      "value": "test",
-      "valid": false
-    }
-  ]
+      label: "test",
+      value: "test",
+      valid: false,
+    },
+  ],
 };
 
 export const Disabled = () => <EmailInput disabled />;
@@ -79,29 +79,32 @@ export const Disabled = () => <EmailInput disabled />;
 export const HelpText = () => (
   <EmailInput helpText="This is the help text for this component." />
 );
+HelpText.storyName = "Help text";
 
 export const Counter = () => {
-  const [emails, setEmails] = useState([{
-    "label": "test@example.com",
-    "value": "test@example.com",
-    "valid": true
-  },
-  {
-    "label": "test2@example.com",
-    "value": "test2@example.com",
-    "valid": true
-  },
-  {
-    "label": "test3@example.com",
-    "value": "test3@example.com",
-    "valid": true
-  }]);
+  const [emails, setEmails] = useState([
+    {
+      label: "test@example.com",
+      value: "test@example.com",
+      valid: true,
+    },
+    {
+      label: "test2@example.com",
+      value: "test2@example.com",
+      valid: true,
+    },
+    {
+      label: "test3@example.com",
+      value: "test3@example.com",
+      valid: true,
+    },
+  ]);
 
   return (
     <EmailInput
       counter={{ startsFrom: 3 }}
       value={emails}
-      onChange={emails => setEmails(emails)}
+      onChange={(emails) => setEmails(emails)}
     />
   );
 };
@@ -109,7 +112,7 @@ export const Counter = () => {
 Counter.parameters = {
   docs: {
     description: { story: EmailInputDocs },
-  }
+  },
 };
 
 export const WithPrefixAndSuffix = (args) => {
@@ -135,6 +138,7 @@ WithPrefixAndSuffix.args = {
     },
   ],
 };
+WithPrefixAndSuffix.storyName = "With prefix and suffix";
 
 export const FormikEmail = () => {
   const [emails, setEmails] = useState([]);
@@ -147,7 +151,7 @@ export const FormikEmail = () => {
       .test(
         "are-all-emails-valid",
         "Please make sure all emails are valid.",
-        emails => emails.every(({ valid }) => valid)
+        (emails) => emails.every(({ valid }) => valid)
       )
       .nullable(),
   });

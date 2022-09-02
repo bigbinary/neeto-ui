@@ -63,6 +63,7 @@ export const WithStatus = ({}) => {
     </div>
   );
 };
+WithStatus.storyName = "With status";
 
 export const WithCustomClassName = Template.bind({});
 WithCustomClassName.storyName = "With Custom className";

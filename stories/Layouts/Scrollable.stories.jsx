@@ -38,7 +38,7 @@ const DummyCard = () => (
   </div>
 );
 
-export const ScrollableStory = (args) => {
+export const Default = (args) => {
   return (
     <Scrollable {...args} className="p-6 space-y-6 neeto-ui-bg-gray-100">
       {[...Array(5)].map((_, i) => (
@@ -47,7 +47,6 @@ export const ScrollableStory = (args) => {
     </Scrollable>
   );
 };
-ScrollableStory.storyName = "Scrollable";
 
 export const WithHeader = (args) => {
   return (
@@ -102,7 +101,7 @@ export const WithHeaderAndSubHeader = (args) => {
     </Container>
   );
 };
-
+WithHeaderAndSubHeader.storyName = "With Header and SubHeader";
 WithHeaderAndSubHeader.args = {
   size: "small",
 };

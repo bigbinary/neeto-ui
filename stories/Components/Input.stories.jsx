@@ -83,6 +83,7 @@ HelpText.args = {
   helpText: "This is help text.",
   placeholder: "Input Placeholder",
 };
+HelpText.storyName = "Help text";
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
@@ -129,3 +130,4 @@ export const InputWithMaxLength = () => {
     </div>
   );
 };
+InputWithMaxLength.storyName = "Input with max length";

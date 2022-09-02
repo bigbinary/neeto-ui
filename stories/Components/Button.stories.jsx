@@ -99,6 +99,7 @@ LoadingState.args = {
   loading: true,
   label: "Loading",
 };
+LoadingState.storyName = "Loading state";
 
 export const FullWidth = ({}) => {
   return (
@@ -111,6 +112,7 @@ export const FullWidth = ({}) => {
     </div>
   );
 };
+FullWidth.storyName = "Full width";
 
 export const Tooltip = Template.bind({});
 Tooltip.args = {

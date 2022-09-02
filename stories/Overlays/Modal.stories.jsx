@@ -70,7 +70,7 @@ export const Default = () => {
   );
 };
 
-export const ModalSizing = () => {
+export const Sizes = () => {
   const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
   const [showModalMedium, setShowModalMedium] = useState(false);
   const [showModalLarge, setShowModalLarge] = useState(false);
@@ -216,6 +216,7 @@ export const ModalFocusTrapping = () => {
     </div>
   );
 };
+ModalFocusTrapping.storyName = "Modal focus trapping";
 
 export const NestedModals = () => {
   const [showModal, setShowModal] = useState(false);
@@ -348,3 +349,4 @@ export const InitialAndFinalFocusRef = () => {
     </div>
   );
 };
+InitialAndFinalFocusRef.storyName = "Initial and final focus ref";
