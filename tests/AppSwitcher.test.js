@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
@@ -7,11 +7,15 @@ import { AppSwitcher, Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
 
 const AppSwitcherTest = ({ children }) => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
   return (
     <Router>
       <Sidebar
         navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         onAppSwitcherToggle={() => {}}
+        isCollapsed={isSidebarCollapsed}
+        onCollapse={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
         showAppSwitcher
         appName="neetoUI"
         profileInfo={{
@@ -165,6 +169,8 @@ describe("AppSwitcher", () => {
   });
 
   it("should render className correctly", () => {
+    const size = "lg";
+
     render(
       <AppSwitcherTest>
         <AppSwitcher
@@ -173,6 +179,7 @@ describe("AppSwitcher", () => {
           activeApp="Planner"
           className="test-class"
           data-testid="neeto-app-switcher"
+          size={size}
           environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
@@ -195,7 +202,7 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
 
-    const backButton = screen.getByTestId("app-switcher-back-button");
+    const backButton = screen.getByRole("button", { name: /Back/i });
     userEvent.click(backButton);
     expect(onClose).toHaveBeenCalled();
   });

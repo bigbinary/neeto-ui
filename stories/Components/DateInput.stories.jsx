@@ -20,10 +20,6 @@ export default {
         type: "code",
       },
     },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
-    },
   },
 };
 
@@ -193,9 +189,9 @@ export const DateRangePicker = () => {
         defaultValue={
           isChromatic()
             ? [
-              dayjs(new Date(1999, 7, 16)),
-              dayjs(new Date(1999, 7, 16)).add(7, "day"),
-            ]
+                dayjs(new Date(1999, 7, 16)),
+                dayjs(new Date(1999, 7, 16)).add(7, "day"),
+              ]
             : [dayjs(), dayjs().add(7, "day")]
         }
       />

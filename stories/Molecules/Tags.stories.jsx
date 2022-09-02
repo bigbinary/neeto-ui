@@ -116,7 +116,7 @@ TagWithColor.args = {
     },
   ],
   tagProps: {
-    status: "primary",
-    type: "outline",
+    color: "green",
+    style: "outline",
   },
 };
