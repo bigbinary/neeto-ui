@@ -1,7 +1,8 @@
 import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "../../lib/components";
-import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
+import CustomTooltipStoriesDocs from "!raw-loader!./CustomTooltipStoriesDocs.mdx";
+import TooltipStoriesDocs from "!raw-loader!./TooltipStoriesDocs.mdx";
 
 export default {
   title: "Overlays/Tooltip",
@@ -11,7 +12,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
+        component: TooltipStoriesDocs,
       },
     },
     design: {
@@ -202,7 +203,7 @@ export const AutoHidingTooltip = () => {
 };
 AutoHidingTooltip.storyName = "Auto hiding Tooltip";
 TooltipOnCustomComponent.parameters = {
-  docs: { description: { story: TooltipDocs } },
+  docs: { description: { story: CustomTooltipStoriesDocs } },
 };
 
 export const HidingTooltipOnTargetExit = () => {

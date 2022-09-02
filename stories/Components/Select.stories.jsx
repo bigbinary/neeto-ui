@@ -5,6 +5,7 @@ import { FORMIK_SELECT } from "../constants";
 
 import { Select, Button, Modal, Pane, Typography } from "../../lib/components";
 import { Select as FormikSelect } from "../../lib/components/formik";
+import SelectStoriesDocs from "!raw-loader!./SelectStoriesDocs.mdx";
 
 export default {
   title: "Components/Select",
@@ -12,9 +13,7 @@ export default {
   parameters: {
     layout: "padded",
     docs: {
-      description: {
-        component: '`import { Select } from "@bigbinary/neetoui";`',
-      },
+      description: { component: SelectStoriesDocs },
     },
     design: {
       type: "figma",
