@@ -1,10 +1,6 @@
-:root {
-  --neeto-ui-modal-spacing: 24px;
-}
-
 .neeto-ui-modal__backdrop {
   position: fixed;
-  z-index: var(--neeto-ui-modal-z-index);
+  z-index: $neeto-ui-modal-z-index;
   left: 0;
   top: 0;
   width: 100vw;
@@ -15,75 +11,47 @@
   justify-content: center;
   align-items: center;
 
-  transition: all 0.3s;
-  background-color: #1b1f23dd;
-  backdrop-filter: blur(2px);
-
   .neeto-ui-modal__wrapper {
     width: 50%;
     max-width: 100%;
     position: relative;
-    background-color: rgb(var(--neeto-ui-white));
-    border-radius: var(--neeto-ui-rounded-xl);
-    opacity: 0;
-    transform: scale(1.1);
-    backdrop-filter: blur(2px);
-    animation: showModalWrapper 0.3s forwards;
-
-    @keyframes showModalWrapper {
-      0% {
-        opacity: 0;
-        transform: scale(1.1);
-        backdrop-filter: blur(2px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-        backdrop-filter: blur(0px);
-      }
-    }
+    background-color: $neeto-ui-white;
+    border-radius: $neeto-ui-rounded-sm;
 
     .neeto-ui-modal__close {
       position: absolute;
-      top: var(--neeto-ui-modal-spacing);
-      right: var(--neeto-ui-modal-spacing);
+      top: 32px;
+      right: 32px;
     }
 
-    &.neeto-ui-modal__wrapper--small {
+    &.neeto-ui-modal__wrapper--xs {
       width: 320px;
     }
 
-    &.neeto-ui-modal__wrapper--medium {
+    &.neeto-ui-modal__wrapper--sm {
       width: 480px;
     }
 
-    &.neeto-ui-modal__wrapper--large {
+    &.neeto-ui-modal__wrapper--md {
       width: 720px;
     }
 
     .neeto-ui-modal__header {
-      padding: var(--neeto-ui-modal-spacing) 64px 16px
-        var(--neeto-ui-modal-spacing);
-      overflow-wrap: break-word;
-    }
-
-    .neeto-ui-modal__header-desc {
-      margin-top: 8px;
-      color: rgb(var(--neeto-ui-gray-700));
+      padding: 32px 64px 16px 32px;
     }
 
     .neeto-ui-modal__body {
-      padding: 0 var(--neeto-ui-modal-spacing);
-      font-size: var(--neeto-ui-text-sm);
+      padding: 0 32px;
+      font-size: $neeto-ui-text-sm;
       line-height: 1.5;
     }
 
     .neeto-ui-modal__footer {
-      padding: var(--neeto-ui-modal-spacing);
+      padding: 24px 32px 32px;
     }
 
     .neeto-ui-alert__footer {
-      padding: var(--neeto-ui-modal-spacing);
+      padding: 24px 32px 32px 32px;
       display: flex;
     }
   }
@@ -93,35 +61,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: var(--neeto-ui-modal-spacing);
+    margin-bottom: 32px;
     padding: 10px 0 0 2px;
-  }
-}
-
-// CSS transition group
-
-.neeto-ui-modal-enter {
-  &.neeto-ui-modal__backdrop {
-    opacity: 0;
-    backdrop-filter: blur(2px);
-  }
-}
-.neeto-ui-modal-enter-active,
-.neeto-ui-modal-enter-done {
-  &.neeto-ui-modal__backdrop {
-    opacity: 1;
-    backdrop-filter: blur(2px);
-  }
-}
-.neeto-ui-modal-exit {
-  &.neeto-ui-modal__backdrop {
-    opacity: 1;
-    backdrop-filter: blur(2px);
-  }
-}
-.neeto-ui-modal-exit-active {
-  &.neeto-ui-modal__backdrop {
-    opacity: 0;
-    backdrop-filter: blur(2px);
   }
 }

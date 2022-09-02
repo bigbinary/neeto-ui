@@ -14,17 +14,12 @@ export default {
         component: '`import { Select } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
-    },
   },
 };
 
 const Template = (args) => (
-  <div className="p-4 mb-2 h-80">
-    <Select {...args} defaultMenuIsOpen />
+  <div className="p-4 mb-2">
+    <Select {...args} />
   </div>
 );
 
@@ -109,7 +104,7 @@ export const Creatable = () => {
   ]);
 
   return (
-    <div className="p-4 mb-2 h-60">
+    <div className="p-4 mb-2">
       <Select
         label="Grouped Select"
         isCreateable
@@ -150,80 +145,83 @@ export const AsyncCreatable = () => {
     });
 
   return (
-    <div className="p-4 mb-2 h-60">
-      <Select
-        placeholder="Select Placeholder"
-        className="w-full"
-        size="small"
-        label="Select"
-        isCreateable
-        cacheOptions
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-        defaultOptions={options}
-        onCreateOption={(inputValue) =>
-          setOptions((prevOptions) => [
-            ...prevOptions,
-            { label: inputValue, value: inputValue },
-          ])
-        }
-        loadOptions={loadOptions}
-      />
-    </div>
+    <Select
+      placeholder="Select Placeholder"
+      className="w-full"
+      size="small"
+      label="Select"
+      isCreateable
+      cacheOptions
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+      defaultOptions={options}
+      onCreateOption={(inputValue) =>
+        setOptions((prevOptions) => [
+          ...prevOptions,
+          { label: inputValue, value: inputValue },
+        ])
+      }
+      loadOptions={loadOptions}
+    />
   );
 };
 
 export const Searchable = () => {
   return (
-    <div className="p-4 mb-2 h-60">
-      <Select
-        placeholder="Select Placeholder"
-        className="w-full"
-        size="small"
-        label="Select"
-        isSearchable
-        options={[
-          { value: "value1", label: "Value One" },
-          { value: "value2", label: "Value Two" },
-          { value: "value3", label: "Value Three" },
-          { value: "value4", label: "Value Four" },
-          { value: "value5", label: "Value Five" },
-        ]}
-      />
-    </div>
+    <Select
+      placeholder="Select Placeholder"
+      className="w-full"
+      size="small"
+      label="Select"
+      isSearchable
+      options={[
+        { value: "value1", label: "Value One" },
+        { value: "value2", label: "Value Two" },
+        { value: "value3", label: "Value Three" },
+        { value: "value4", label: "Value Four" },
+        { value: "value5", label: "Value Five" },
+      ]}
+    />
   );
 };
 
-export const Sizes = () => {
+export const Variants = () => {
   return (
-    <div className="w-full h-60">
-      <div className="flex flex-col gap-8">
-        <div className="w-full">
-          <Select
-            label="Default/Large"
-            placeholder="Select Placeholder"
-            options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
-            ]}
-          />
+    <div className="w-full">
+      <div className="p-6 space-y-6">
+        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Select/Large</h2>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" isDisabled />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" error="This is an error" />
+          </div>
         </div>
-        <div className="w-full">
-          <Select
-            label="Small"
-            placeholder="Select Placeholder"
-            size="small"
-            options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
-            ]}
-          />
+        <div className="p-4 space-y-8 border border-indigo-500 border-dashed">
+          <h2 className="text-xl">Select/Small</h2>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" size="small" />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" size="small" />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select placeholder="Select Placeholder" size="small" isDisabled />
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-8">
+            <Select
+              placeholder="Select Placeholder"
+              size="small"
+              error="This is an error"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -235,7 +233,7 @@ export const ExampleWithRef = () => {
 
   return (
     <>
-      <div className="w-full mb-4 flex gap-3">
+      <div className="space-x-3 mb-3">
         <Button
           onClick={() => {
             selectRef.current.focus();
@@ -249,17 +247,7 @@ export const ExampleWithRef = () => {
           label="Blur"
         />
       </div>
-      <div className="h-60">
-        <Select
-          innerRef={selectRef}
-          openMenuOnFocus
-          options={[
-            { value: "value1", label: "Value One" },
-            { value: "value2", label: "Value Two" },
-            { value: "value3", label: "Value Three" },
-          ]}
-        />
-      </div>
+      <Select innerRef={selectRef} openMenuOnFocus />
     </>
   );
 };
@@ -331,70 +319,62 @@ export const SelectInPane = () => {
 
 export const FormikSelectStory = () => {
   const [values, setValues] = useState([]);
-  return (
-    <>
-      <Formik
-        initialValues={{
-          selects: [
-            { formikSelect: { value: "v1", label: "v1" } },
-            { formikSelect: { value: "v1", label: "v1" } },
-          ],
-        }}
-        onSubmit={(values) => setValues(values)}
-      >
-        {({ values }) => (
-          <Form>
-            <div className="flex flex-col space-y-6">
-              <FieldArray name="selects">
-                {({ push, remove }) => (
-                  <div className="flex flex-col space-y-3">
-                    {values.selects.map((_, index) => (
-                      <div key={index} className="flex items-end space-x-6">
-                        <FormikSelect
-                          name={`selects.${index}.formikSelect`}
-                          label="Select"
-                          options={[
-                            { value: "v1", label: "v1" },
-                            { value: "v2", label: "v2" },
-                            { value: "v3", label: "v3" },
-                          ]}
-                        />
-                        <Button
-                          label="Remove"
-                          className="mb-2"
-                          onClick={() => remove(index)}
-                        />
-                      </div>
-                    ))}
-                    <Button
-                      className="self-start"
-                      label="Add"
-                      onClick={() => push({ formikSelect: null })}
-                    />
-                  </div>
-                )}
-              </FieldArray>
-              <Button className="self-start" label="Submit" type="submit" />
-            </div>
-          </Form>
-        )}
-      </Formik>
-      <div className="py-6">
-        <Typography weight="bold">Selected Values:</Typography>
-        {values.selects?.map(({ formikSelect }, index) => (
+  return (<>
+    <Formik
+      initialValues={{ selects: [{ formikSelect: { value: "v1", label: "v1" } }, { formikSelect: { value: "v1", label: "v1" } }] }}
+      onSubmit={(values) => setValues(values)}
+    >
+      {({ values }) => (
+        <Form>
+          <div className="flex flex-col space-y-6">
+            <FieldArray name="selects">
+              {({ push, remove }) => (
+                <div className="flex flex-col space-y-3">
+                  {values.selects.map((_, index) => (
+                    <div key={index} className="flex items-end space-x-6">
+                      <FormikSelect
+                        name={`selects.${index}.formikSelect`}
+                        label="Select"
+                        options={[
+                          { value: "v1", label: "v1" },
+                          { value: "v2", label: "v2" },
+                          { value: "v3", label: "v3" },
+                        ]}
+                      />
+                      <Button label="Remove" className="mb-2" onClick={() => remove(index)} />
+                    </div>
+                  ))}
+                  <Button
+                    className="self-start"
+                    label="Add"
+                    onClick={() =>
+                      push({ formikSelect: null })
+                    }
+                  />
+                </div>
+              )}
+            </FieldArray>
+            <Button className="self-start" label="Submit" type="submit" />
+          </div>
+        </Form>
+      )}
+    </Formik>
+    <div className="py-6">
+      <Typography weight="bold">Selected Values:</Typography>
+      {
+        values.selects?.map(({ formikSelect }, index) => (
           <Typography key={index}>{formikSelect?.label}</Typography>
-        ))}
-      </div>
-    </>
-  );
+        ))
+      }
+    </div>
+  </>);
 };
 
 FormikSelectStory.storyName = "Formik Select";
 FormikSelectStory.parameters = {
   docs: {
     description: {
-      story:
-        "`import { Select as FormikSelect } from '@bigbinary/neetoui/formik';`",
-    },
-  },
+      story: "`import { Select as FormikSelect } from '@bigbinary/neetoui/formik';`"
+    }
+  }
 };

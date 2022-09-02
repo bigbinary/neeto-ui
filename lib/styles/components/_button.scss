@@ -5,11 +5,11 @@
   padding: 6px 8px;
   gap: 4px;
 
-  font-size: var(--neeto-ui-text-sm);
-  font-weight: var(--neeto-ui-font-medium);
+  font-size: $neeto-ui-text-sm;
+  font-weight: $neeto-ui-font-medium;
   line-height: 16px;
-  transition: var(--neeto-ui-transition);
-  border-radius: var(--neeto-ui-rounded);
+  transition: $neeto-ui-transition;
+  border-radius: $neeto-ui-rounded-sm;
   border: none;
 
   outline: none;
@@ -27,9 +27,9 @@
     }
   }
 
-  // size - medium - 32px
-  &--size-medium {
-    font-size: var(--neeto-ui-text-sm);
+  // size - large - 32px
+  &--size-large {
+    font-size: $neeto-ui-text-sm;
     padding: 8px 16px;
     gap: 8px;
 
@@ -41,9 +41,9 @@
       }
     }
   }
-  // size - large - 40px
-  &--size-large {
-    font-size: var(--neeto-ui-text-base);
+  // size - xlarge - 40px
+  &--size-xlarge {
+    font-size: $neeto-ui-text-base;
     padding: 12px 20px;
     gap: 10px;
 
@@ -94,127 +94,97 @@
 // styles
 .neeto-ui-btn--style {
   &-primary {
-    color: rgb(var(--neeto-ui-white));
-    background-color: rgb(var(--neeto-ui-primary-500));
+    color: $neeto-ui-white;
+    background-color: $neeto-ui-gray-800;
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-primary-600));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+      color: $neeto-ui-white;
+      background-color: $neeto-ui-gray-700;
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+      color: $neeto-ui-white;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
   &-secondary {
-    color: rgb(var(--neeto-ui-gray-800));
-    background-color: rgb(var(--neeto-ui-gray-200));
+    color: $neeto-ui-gray-800;
+    background-color: $neeto-ui-gray-200;
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-gray-800));
-      background-color: rgb(var(--neeto-ui-gray-300));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
+      color: $neeto-ui-gray-800;
+      background-color: $neeto-ui-gray-300;
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
+      color: $neeto-ui-gray-800;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
   &-text {
-    color: rgb(var(--neeto-ui-gray-800));
+    color: $neeto-ui-gray-800;
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-gray-800));
-      background-color: rgb(var(--neeto-ui-gray-200));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+      color: $neeto-ui-gray-800;
+      background-color: $neeto-ui-gray-300;
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+      color: $neeto-ui-gray-800;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 
   &-link {
-    color: rgb(var(--neeto-ui-primary-500));
+    color: $neeto-ui-secondary-indigo;
     padding: 0;
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
-      color: rgb(var(--neeto-ui-primary-500));
-    }
-
-    &:focus {
-      opacity: 0.8;
-      color: rgb(var(--neeto-ui-primary-500));
+      color: $neeto-ui-secondary-indigo;
     }
 
     &:focus-visible {
-      opacity: 0.8;
-      color: rgb(var(--neeto-ui-primary-500));
+      color: darken($neeto-ui-secondary-indigo, 25%);
     }
   }
 
   &-danger {
-    color: rgb(var(--neeto-ui-white));
-    background-color: rgb(var(--neeto-ui-error-500));
+    color: $neeto-ui-white;
+    background-color: $neeto-ui-accent4-700;
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-error-600));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+      color: $neeto-ui-white;
+      background-color: $neeto-ui-accent4-500;
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+      color: $neeto-ui-white;
+      box-shadow: 0 0 0 3px $neeto-ui-pastel-red;
     }
   }
 
   &-danger-text {
-    color: rgb(var(--neeto-ui-error-800));
+    color: $neeto-ui-accent4-700;
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-error-800));
-      background-color: rgb(var(--neeto-ui-error-100));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+      color: $neeto-ui-accent4-700;
+      background-color: $neeto-ui-pastel-red;
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+      color: $neeto-ui-accent4-700;
+      background-color: $neeto-ui-pastel-red;
+      box-shadow: 0 0 0 3px $neeto-ui-gray-300;
     }
   }
 }

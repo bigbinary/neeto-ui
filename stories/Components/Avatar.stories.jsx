@@ -16,10 +16,6 @@ export default {
         component: '`import { Avatar } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
-    },
   },
 };
 
@@ -46,11 +42,11 @@ Large.args = {
   size: "large",
 };
 
-export const extralarge = Template.bind({});
-extralarge.args = {
+export const Xlarge = Template.bind({});
+Xlarge.args = {
   onClick,
   user: { name: "neeto UI" },
-  size: "extraLarge",
+  size: "xlarge",
 };
 
 export const WithCustomClassName = Template.bind({});
@@ -58,7 +54,7 @@ WithCustomClassName.storyName = "With Custom className";
 WithCustomClassName.args = {
   onClick,
   user: { name: "neeto UI" },
-  size: "extraLarge",
+  size: "xlarge",
   className: "cursor-pointer",
 };
 
@@ -86,7 +82,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam" }}
-            size="extraLarge"
+            size="xlarge"
           />
         </div>
         <div className="flex flex-col p-2 space-y-4">
@@ -114,7 +110,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam" }}
-            size="extraLarge"
+            size="xlarge"
             status="online"
             isSquare
           />
@@ -142,7 +138,7 @@ export const Variants = () => {
             onClick={onClick}
             user={{ name: "Goutham Subramanyam", imageUrl }}
             status="online"
-            size="extraLarge"
+            size="xlarge"
           />
         </div>
         <div className="flex flex-col p-2 space-y-4">
@@ -167,7 +163,7 @@ export const Variants = () => {
           <Avatar
             onClick={onClick}
             user={{ name: "Goutham Subramanyam", imageUrl }}
-            size="extraLarge"
+            size="xlarge"
             isSquare
           />
         </div>

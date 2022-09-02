@@ -14,11 +14,6 @@ export default {
         component: '`import { Button } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
-    },
   },
   argTypes: {
     icon: {
@@ -42,18 +37,6 @@ Secondary.args = {
   label: "Button",
 };
 
-export const Text = Template.bind({});
-Text.args = {
-  style: "text",
-  label: "Button",
-};
-
-export const Link = Template.bind({});
-Link.args = {
-  style: "link",
-  label: "Button",
-};
-
 export const Danger = Template.bind({});
 Danger.args = {
   style: "danger",
@@ -66,7 +49,28 @@ DangerText.args = {
   label: "Button",
 };
 
-export const Styles = () => {
+export const Text = Template.bind({});
+Text.args = {
+  style: "text",
+  label: "Button",
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  style: "link",
+  label: "Button",
+};
+
+export const Tooltip = Template.bind({});
+Tooltip.args = {
+  label: "Tooltip button",
+  tooltipProps: {
+    content: "Top",
+    position: "top",
+  },
+};
+
+export const Variants = () => {
   const [loading, setLoading] = useState(false);
   const toggle = () => {
     setLoading(!loading);
@@ -79,9 +83,9 @@ export const Styles = () => {
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Styles</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -135,28 +139,13 @@ export const Styles = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const Sizes = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Sizes</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -302,28 +291,13 @@ export const Sizes = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const IconOnly = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Icon Only</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -451,28 +425,13 @@ export const IconOnly = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const LabelOnly = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Label Only</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -600,28 +559,13 @@ export const LabelOnly = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const WithLeftIcon = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">With left Icon</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -785,28 +729,13 @@ export const WithLeftIcon = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const WithRightIcon = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">With right Icon</h2>
             <div className="flex gap-4 items-start flex-wrap">
               <Button
                 style="primary"
@@ -970,28 +899,13 @@ export const WithRightIcon = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const FullWidth = () => {
-  const [loading, setLoading] = useState(false);
-  const toggle = () => {
-    setLoading(!loading);
-  };
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3">
           <Button
             onClick={toggle}
             label="Toggle Loading State"
             className="self-end"
-            style="secondary"
           />
-          <div className="w-full flex flex-col gap-3 py-4">
+          <div className="w-full flex flex-col gap-3 border-indigo-500 border-dashed border p-4">
+            <h2 className="text-xl">Full width</h2>
             <div className="flex gap-4 items-start flex-wrap w-80">
               <Button
                 style="primary"
@@ -1172,13 +1086,4 @@ export const FullWidth = () => {
       </div>
     </div>
   );
-};
-
-export const Tooltip = Template.bind({});
-Tooltip.args = {
-  label: "Tooltip button",
-  tooltipProps: {
-    content: "Top",
-    position: "top",
-  },
 };
