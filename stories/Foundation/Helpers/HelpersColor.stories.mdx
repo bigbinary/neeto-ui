@@ -1,6 +1,5 @@
-import { Meta } from "@storybook/addon-docs";
-import { Figma } from "storybook-addon-designs/blocks";
-import { colorPaletteList } from "../ColorPalette.js";
+import { Meta, Story } from "@storybook/addon-docs";
+import colorPalette from "../ColorPalette.js";
 
 <Meta
   title="Foundation/Helpers/Color"
@@ -13,12 +12,10 @@ import { colorPaletteList } from "../ColorPalette.js";
 />
 
 <style>{`
-  .story-demo-table{
-    table-layout: fixed;
-  }
   .story-demo-table tr{
-    background: transparent !important;
+      background: transparent !important;
   }
+
 `}</style>
 
 # Colors
@@ -26,21 +23,21 @@ import { colorPaletteList } from "../ColorPalette.js";
 <table className="story-demo-table">
   <thead>
     <tr>
-      <td style={{ width: "75px" }}></td>
-      <td>RGB code</td>
-      <td>CSS Variable name</td>
+      <td></td>
+      <td>Hex code</td>
+      <td>Variable name</td>
       <td>Text color class</td>
       <td>Background color class</td>
     </tr>
   </thead>
   <tbody>
-    {colorPaletteList.map((color) => {
+    {colorPalette.map((color) => {
       return (
         <tr key={color.name}>
           <td>
             <div
               className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
-                "--neeto-ui",
+                "$neeto-ui",
                 "neeto-ui-bg"
               )}`}
             ></div>
@@ -49,17 +46,17 @@ import { colorPaletteList } from "../ColorPalette.js";
             <code>{color.value}</code>
           </td>
           <td>
-            <code>{`${color.name}`}</code>
+            <code>{color.name}</code>
           </td>
           <td>
             <div className="flex justify-between">
               <code>{`${color.name.replace(
-                "--neeto-ui",
+                "$neeto-ui",
                 "neeto-ui-text"
               )}`}</code>
               <b
                 className={`ml-2 ${color.name.replace(
-                  "--neeto-ui",
+                  "$neeto-ui",
                   "neeto-ui-text"
                 )}`}
               >
@@ -67,15 +64,11 @@ import { colorPaletteList } from "../ColorPalette.js";
               </b>
             </div>
           </td>
-          <td className={`${color.name.replace("--neeto-ui", "neeto-ui-bg")}`}>
-            <code>{`${color.name.replace("--neeto-ui", "neeto-ui-bg")}`}</code>
+          <td className={`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}>
+            <code>{`${color.name.replace("$neeto-ui", "neeto-ui-bg")}`}</code>
           </td>
         </tr>
       );
     })}
   </tbody>
 </table>
-
-# Design
-
-<Figma url="https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A2" />

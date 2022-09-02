@@ -7,19 +7,15 @@ body {
     max-width: 640px;
     min-width: 320px;
 
-    .Toastify__toast{
-      background-color: rgb(var(--neeto-ui-gray-800));
-    }
-
     .Toastify__toast,
     .neeto-ui-toastr {
-      min-height: 48px;
-      padding: 0.75rem 1rem;
+      min-height: 40px;
+      padding: 0.5rem;
       margin: 0 0 1rem;
 
       box-shadow: none;
 
-      border-radius: var(--neeto-ui-rounded-md);
+      border-radius: $neeto-ui-rounded-sm;
 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
@@ -31,43 +27,36 @@ body {
       .Toastify__toast-icon {
         margin: 0;
         svg{
-          width: 24px;
-          height: 24px;
+          width: 20px;
+          height: 20px;
         }
       }
 
       .Toastify__toast-body {
         margin: 0;
         padding: 0;
-        gap: 12px;
-        color: rgb(var(--neeto-ui-white));
+        gap: 8px;
+        color: $neeto-ui-gray-800;
 
         div {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
 
           p {
-            font-size: var(--neeto-ui-text-sm);
-            font-weight: var(--neeto-ui-font-normal);
+            font-size: $neeto-ui-text-sm;
+            font-weight: $neeto-ui-font-medium;
           }
-        }
-
-        .toastr-message-container__btn-wrapper{
-          display: flex;
-          align-items: center;
         }
       }
 
       .neeto-ui-toastr__close-button {
         opacity: 0.8;
         margin: auto 0 auto 8px;
-        flex-shrink: 0;
-        color: rgb(var(--neeto-ui-white));
 
-        // transition: var(--neeto-ui-transition);
+        // transition: $neeto-ui-transition;
         transition: all 0.3s ease-in-out;
 
         &:hover,
@@ -75,6 +64,31 @@ body {
         &:active {
           opacity: 1;
         }
+      }
+
+      &.Toastify__toast--success {
+        background: $neeto-ui-pastel-green;
+        border: 1px solid $neeto-ui-success;
+      }
+
+      &.Toastify__toast--error {
+        background: $neeto-ui-pastel-red;
+        border: 1px solid $neeto-ui-error;
+      }
+
+      &.Toastify__toast--info {
+        background: $neeto-ui-pastel-blue;
+        border: 1px solid $neeto-ui-info;
+      }
+
+      &.Toastify__toast--warning {
+        background: $neeto-ui-pastel-yellow;
+        border: 1px solid $neeto-ui-warning;
+      }
+
+      &.Toastify__toast--default {
+        background: $neeto-ui-pastel-blue;
+        border: 1px solid $neeto-ui-info;
       }
     }
   }

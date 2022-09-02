@@ -14,11 +14,6 @@ export default {
         component: '`import { Alert } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
-    },
   },
 };
 
@@ -34,8 +29,8 @@ export const Default = () => {
       />
       <Alert
         isOpen={open}
-        title="Leave page with unsaved changes?"
-        message="Leaving this page will delete all unsaved changes."
+        title="You have unsaved changes!"
+        message="Are you sure you want to continue? All of your unsaved changes will be lost."
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
       />
@@ -44,9 +39,9 @@ export const Default = () => {
 };
 
 export const AlertSizing = () => {
+  const [showAlertExtraSmall, setShowAlertExtraSmall] = useState(false);
   const [showAlertSmall, setShowAlertSmall] = useState(false);
   const [showAlertMedium, setShowAlertMedium] = useState(false);
-  const [showAlertLarge, setShowAlertLarge] = useState(false);
 
   return (
     <div className="w-full">
@@ -54,35 +49,35 @@ export const AlertSizing = () => {
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
             <Button
-              label="Small"
-              onClick={() => setShowAlertSmall(true)}
+              label="Extra Small"
+              onClick={() => setShowAlertExtraSmall(true)}
             />
+            <Button label="Small" onClick={() => setShowAlertSmall(true)} />
             <Button label="Medium" onClick={() => setShowAlertMedium(true)} />
-            <Button label="Large" onClick={() => setShowAlertLarge(true)} />
           </div>
           <Alert
-            size="small"
+            size="xs"
+            isOpen={showAlertExtraSmall}
+            title="You have unsaved changes!"
+            message="Are you sure you want to continue? All of your unsaved changes will be lost."
+            onClose={() => setShowAlertExtraSmall(false)}
+            onSubmit={() => setShowAlertExtraSmall(false)}
+          />
+          <Alert
+            size="sm"
             isOpen={showAlertSmall}
-            title="Leave page with unsaved changes?"
-            message="Leaving this page will delete all unsaved changes."
+            title="You have unsaved changes!"
+            message="Are you sure you want to continue? All of your unsaved changes will be lost."
             onClose={() => setShowAlertSmall(false)}
             onSubmit={() => setShowAlertSmall(false)}
           />
           <Alert
-            size="medium"
+            size="md"
             isOpen={showAlertMedium}
-            title="Leave page with unsaved changes?"
-            message="Leaving this page will delete all unsaved changes."
+            title="You have unsaved changes!"
+            message="Are you sure you want to continue? All of your unsaved changes will be lost."
             onClose={() => setShowAlertMedium(false)}
             onSubmit={() => setShowAlertMedium(false)}
-          />
-          <Alert
-            size="large"
-            isOpen={showAlertLarge}
-            title="Leave page with unsaved changes?"
-            message="Leaving this page will delete all unsaved changes."
-            onClose={() => setShowAlertLarge(false)}
-            onSubmit={() => setShowAlertLarge(false)}
           />
         </div>
       </div>

@@ -12,10 +12,6 @@ export default {
         component: '`import { Pagination } from "@bigbinary/neetoui";`',
       },
     },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1070%3A3918",
-    },
   },
 };
 
