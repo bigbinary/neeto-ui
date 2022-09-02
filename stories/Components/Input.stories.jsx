@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Search, Favorite } from "@bigbinary/neeto-icons";
+import { Search } from "@bigbinary/neeto-icons";
 
 import Input from "../../lib/components/Input";
+import Button from "../../lib/components/Button";
+import Typography from "../../lib/components/Typography";
+import { Input as FormikInput } from "../../lib/components/formik";
+import { Formik, Form } from "formik";
 
 export default {
   title: "Components/Input",
@@ -131,3 +135,31 @@ export const InputWithMaxLength = () => {
   );
 };
 InputWithMaxLength.storyName = "Input with max length";
+
+export const FormikInputStory = ({}) => {
+  const [values, setValues] = useState({});
+  return (
+    <>
+      <Formik
+        initialValues={{ name: "" }}
+        onSubmit={(values) => setValues(values)}
+      >
+        <Form className="space-y-2">
+          <FormikInput name="name" label="Name" />
+          <Button type="submit" label="Submit" />
+          <Typography>Name: {values.name} </Typography>
+        </Form>
+      </Formik>
+    </>
+  );
+};
+
+FormikInputStory.storyName = "Formik Input";
+FormikInputStory.parameters = {
+  docs: {
+    description: {
+      story:
+        "`import { Input as FormikInput } from '@bigbinary/neetoui/formik';`",
+    },
+  },
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { Settings, Delete } from "@bigbinary/neeto-icons";
+import { Settings, Delete, MenuHorizontal } from "@bigbinary/neeto-icons";
 
 import ActionDropdown from "../../lib/components/ActionDropdown";
 
@@ -54,20 +54,130 @@ const Template = (args) => {
   );
 };
 
-export const PrimaryDropdown = Template.bind({});
-PrimaryDropdown.args = {
+export const Default = Template.bind({});
+Default.args = {
   buttonStyle: "primary",
   label: "Primary",
 };
 
-export const SecondaryDropdown = Template.bind({});
-SecondaryDropdown.args = {
-  buttonStyle: "secondary",
-  label: "Secondary",
+export const Styles = () => {
+  const { Menu, MenuItem, Divider } = ActionDropdown;
+
+  return (
+    <div className="h-40 space-x-6">
+      <ActionDropdown buttonStyle="primary" label="Primary">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+      <ActionDropdown buttonStyle="secondary" label="Secondary">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+      <ActionDropdown disabled label="Disabled">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+    </div>
+  );
 };
 
-export const DisabledDropdown = Template.bind({});
-DisabledDropdown.args = {
-  label: "Disabled",
-  disabled: true,
+export const Sizes = () => {
+  const { Menu, MenuItem, Divider } = ActionDropdown;
+
+  return (
+    <div className="h-40 space-x-6">
+      <ActionDropdown buttonSize="small" label="Small">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+      <ActionDropdown label="Medium">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+      <ActionDropdown buttonSize="large" label="Large">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+    </div>
+  );
 };
+
+export const CustomIcon = () => {
+  const { Menu, MenuItem, Divider } = ActionDropdown;
+
+  return (
+    <div className="h-40">
+      <ActionDropdown
+        dropdownProps={{ icon: MenuHorizontal }}
+        label="Custom icon"
+      >
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+    </div>
+  );
+};
+CustomIcon.storyName = "Custom icon";

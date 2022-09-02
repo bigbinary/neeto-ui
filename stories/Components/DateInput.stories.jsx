@@ -1,10 +1,10 @@
-import { Modal, Typography, Pane } from "../../lib/components";
+import dayjs from "dayjs";
 import React from "react";
 
+import { Modal, Typography, Pane, DatePicker } from "../../lib/components";
 import isChromatic from "chromatic/isChromatic";
-import DatePicker from "../../lib/components/DatePicker";
 import Button from "../../lib/components/Button";
-import dayjs from "dayjs";
+import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
 export default {
   title: "Components/DatePicker",
@@ -12,9 +12,7 @@ export default {
   parameters: {
     layout: "padded",
     docs: {
-      description: {
-        component: '`import { DatePicker } from "@bigbinary/neetoui";`',
-      },
+      description: { component: DateInputStoriesDocs },
       source: {
         type: "code",
       },
@@ -145,3 +143,8 @@ export const DateRangePicker = () => {
   );
 };
 DateRangePicker.storyName = "DateRangePicker";
+
+export const ShowTime = () => {
+  return <DatePicker showTime label="Date" type="date" picker="date" />;
+};
+ShowTime.storyName = "Show time";

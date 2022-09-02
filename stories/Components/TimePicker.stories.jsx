@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { Modal, Typography, Pane } from "../../lib/components";
 import Button from "../../lib/components/Button";
 import TimePicker from "../../lib/components/TimePicker";
+import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
 export default {
   title: "Components/TimePicker",
@@ -12,9 +13,7 @@ export default {
   parameters: {
     layout: "padded",
     docs: {
-      description: {
-        component: '`import { TimePicker } from "@bigbinary/neetoui";`',
-      },
+      description: { component: TimePickerStoriesDocs },
     },
   },
 };
