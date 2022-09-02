@@ -32,7 +32,7 @@ export default {
   },
 };
 
-export const Panes = () => {
+export const Default = () => {
   const [showPane, setShowPane] = useState(false);
   return (
     <div className="w-full">
@@ -169,3 +169,4 @@ export const PaneWithModalAndAlert = () => {
     </div>
   );
 };
+PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";

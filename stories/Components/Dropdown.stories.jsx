@@ -1,9 +1,11 @@
+/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import { Settings, Delete } from "@bigbinary/neeto-icons";
+import { Settings, Delete, Search } from "@bigbinary/neeto-icons";
 
-import Dropdown from "../../lib/components/Dropdown";
-import { Button } from "../../lib/components";
+import { Button, Dropdown, Tag, Input, Typography } from "../../lib/components";
+
 import { icons } from "../constants";
+import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {
   ulProps: {
@@ -24,9 +26,7 @@ export default {
   parameters: {
     layout: "padded",
     docs: {
-      description: {
-        component: '`import { Dropdown } from "@bigbinary/neetoui";`',
-      },
+      description: { component: DropdownStoriesDocs },
       source: {
         type: "code",
       },
@@ -46,10 +46,9 @@ export default {
   },
 };
 
-const listItems = ["Action", "Another action", "Something else here"];
-
-export const DropdownStory = (args) => {
+export const Default = (args) => {
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
       <Dropdown label="Dropdown" {...args}>
@@ -64,28 +63,74 @@ export const DropdownStory = (args) => {
     </div>
   );
 };
-DropdownStory.storyName = "DropDown";
 
-export const PrimaryDropdown = () => {
-  const [dropdownOne, setDropdownOne] = useState(false);
+export const TriggerStyles = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <Dropdown
-        label="Primary Dropdown"
-        buttonStyle="primary"
-        position="bottom-end"
-        isOpen={dropdownOne}
-        onClose={() => {
-          setDropdownOne(false);
-        }}
-        buttonProps={{
-          onClick: () => {
-            setDropdownOne(!dropdownOne);
-          },
-        }}
-        closeOnSelect={false}
-      >
+      <div className="flex space-x-3">
+        <Dropdown buttonStyle="primary" label="Primary Dropdown">
+          <Menu>
+            {listItems.map((item, idx) => (
+              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+            ))}
+            <Divider />
+            <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+
+        <Dropdown buttonStyle="secondary" label="Secondary Dropdown">
+          <Menu>
+            {listItems.map((item, idx) => (
+              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+            ))}
+            <Divider />
+            <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+
+        <Dropdown buttonStyle="text" label="Text Dropdown">
+          <Menu>
+            {listItems.map((item, idx) => (
+              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+            ))}
+            <Divider />
+            <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+      </div>
+    </div>
+  );
+};
+TriggerStyles.storyName = "Trigger styles";
+
+export const TriggerSizes = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
+  return (
+    <div className="h-40 space-x-3">
+      <Dropdown buttonSize="small" label="Small">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
+
+      <Dropdown label="Medium">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
+
+      <Dropdown buttonSize="large" label="Large">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -97,16 +142,14 @@ export const PrimaryDropdown = () => {
     </div>
   );
 };
+TriggerSizes.storyName = "Trigger sizes";
 
-export const SecondaryDropdown = () => {
+export const TriggerWithCustomIcon = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <Dropdown
-        label="Secondary Dropdown"
-        buttonStyle="secondary"
-        position="bottom-end"
-      >
+      <Dropdown label="Dropdown with custom icon" icon={Settings}>
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -118,33 +161,14 @@ export const SecondaryDropdown = () => {
     </div>
   );
 };
-
-export const TextDropdown = () => {
-  const { Menu, MenuItem, Divider } = Dropdown;
-  return (
-    <div className="h-40">
-      <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
-        <Menu>
-          {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-          ))}
-          <Divider />
-          <MenuItem.Button style="danger">Delete</MenuItem.Button>
-        </Menu>
-      </Dropdown>
-    </div>
-  );
-};
+TriggerWithCustomIcon.storyName = "Trigger with custom icon";
 
 export const WithPrefixAndSuffix = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <Dropdown
-        label="Text Dropdown"
-        buttonStyle="primary"
-        position="bottom-end"
-      >
+      <Dropdown label="Prefix and Suffix" position="bottom-end">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button
@@ -168,30 +192,11 @@ export const WithPrefixAndSuffix = () => {
     </div>
   );
 };
+WithPrefixAndSuffix.storyName = "With prefix and suffix";
 
-export const CustomIcon = () => {
+export const MultiDropdownWithClickTrigger = ({}) => {
   const { Menu, MenuItem, Divider } = Dropdown;
-  return (
-    <div className="h-40">
-      <Dropdown
-        label="Dropdown with custom icon"
-        icon={Settings}
-        position="bottom-end"
-      >
-        <Menu>
-          {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-          ))}
-          <Divider />
-          <MenuItem.Button style="danger">Delete</MenuItem.Button>
-        </Menu>
-      </Dropdown>
-    </div>
-  );
-};
-
-export const MultiDropdownWithClickTrigger = () => {
-  const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
 
   return (
     <div className="flex items-start h-80">
@@ -203,7 +208,7 @@ export const MultiDropdownWithClickTrigger = () => {
           <Divider />
           <Dropdown
             position="right-start"
-            customTarget={<li>Another Dropdown</li>}
+            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
             onClick={(e) => e.stopPropagation()}
           >
             <Menu>
@@ -219,22 +224,24 @@ export const MultiDropdownWithClickTrigger = () => {
     </div>
   );
 };
+MultiDropdownWithClickTrigger.storyName = "Multi dropdown with click trigger";
 
 export const MultiDropdownWithHoverTrigger = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
 
   return (
     <div className="flex items-start h-80">
-      <Dropdown position="bottom" label="Dropdown" isMultiLevel>
+      <Dropdown label="Dropdown" isMultiLevel>
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
           <Divider />
           <Dropdown
-            position="right-start"
             trigger="hover"
-            customTarget={<li>Another Dropdown</li>}
+            position="right-start"
+            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -249,10 +256,13 @@ export const MultiDropdownWithHoverTrigger = () => {
     </div>
   );
 };
+MultiDropdownWithHoverTrigger.storyName = "Multi dropdown with hover trigger";
 
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
@@ -284,16 +294,46 @@ export const ControlledDropdown = () => {
   );
 };
 
-export const TextDropdownOld = () => {
+export const CustomTarget = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
-      <Dropdown label="Text Dropdown" buttonStyle="text" position="bottom-end">
-        {listItems.map((item, idx) => (
-          <li key={idx}>{item}</li>
-        ))}
+      <Dropdown customTarget={<Tag label="Click me" style="success" />}>
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
+CustomTarget.storyName = "Custom target";
 
-TextDropdownOld.storyName = "DropDown with list items (li)";
+export const CustomDropdown = () => {
+  const { Menu, MenuItem } = Dropdown;
+  const members = ["Oliver Smith", "Jack Smith"];
+  return (
+    <div className="h-56">
+      <Dropdown closeOnSelect={false} label="Custom Dropdown">
+        <div className="flex p-2 gap-2 flex-col">
+          <Input prefix={<Search />} placeholder="Search Members" />
+          <Typography style="body2" mb="mb-0">
+            Results
+          </Typography>
+          <Menu className="gap-1 flex flex-col">
+            {members.map((item, idx) => (
+              <MenuItem.Button key={idx} className="neeto-ui-rounded">
+                {item}
+              </MenuItem.Button>
+            ))}
+          </Menu>
+        </div>
+      </Dropdown>
+    </div>
+  );
+};

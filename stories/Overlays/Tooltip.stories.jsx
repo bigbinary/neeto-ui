@@ -1,7 +1,8 @@
 import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "../../lib/components";
-import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
+import CustomTooltipStoriesDocs from "!raw-loader!./CustomTooltipStoriesDocs.mdx";
+import TooltipStoriesDocs from "!raw-loader!./TooltipStoriesDocs.mdx";
 
 export default {
   title: "Overlays/Tooltip",
@@ -11,7 +12,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
+        component: TooltipStoriesDocs,
       },
     },
     design: {
@@ -36,6 +37,7 @@ export const FollowCursor = (args) => {
     </div>
   );
 };
+FollowCursor.storyName = "Follow cursor";
 
 export const JSXContentInside = (args) => {
   return (
@@ -55,6 +57,7 @@ export const JSXContentInside = (args) => {
     </div>
   );
 };
+JSXContentInside.storyName = "JSX content inside";
 
 export const positions = () => {
   return (
@@ -151,6 +154,7 @@ export const TooltipOnText = () => {
     </div>
   );
 };
+TooltipOnText.storyName = "Tooltip on text";
 
 export const TooltipOnCustomComponent = () => {
   const CustomComponent = forwardRef(({ text }, ref) => (
@@ -169,6 +173,7 @@ export const TooltipOnCustomComponent = () => {
     </div>
   );
 };
+TooltipOnCustomComponent.storyName = "Tooltip on custom component";
 
 export const AutoHidingTooltip = () => {
   const DEFAULT_EMAIL = "oliver@example.";
@@ -196,9 +201,9 @@ export const AutoHidingTooltip = () => {
     </div>
   );
 };
-
+AutoHidingTooltip.storyName = "Auto hiding Tooltip";
 TooltipOnCustomComponent.parameters = {
-  docs: { description: { story: TooltipDocs } },
+  docs: { description: { story: CustomTooltipStoriesDocs } },
 };
 
 export const HidingTooltipOnTargetExit = () => {
@@ -222,3 +227,4 @@ export const HidingTooltipOnTargetExit = () => {
     </div>
   );
 };
+HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
