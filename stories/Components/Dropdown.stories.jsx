@@ -319,34 +319,17 @@ CustomTarget.storyName = "Custom target";
 export const CustomDropdown = () => {
   const { Menu, MenuItem } = Dropdown;
   const members = ["Oliver Smith", "Jack Smith"];
-  const articles = ["Article 1", "Article 2"];
   return (
     <div className="h-56">
       <Dropdown closeOnSelect={false} label="Custom Dropdown">
-        <div className="flex divide-x">
-          <div className="p-2 space-y-2">
-            <Input prefix={<Search />} placeholder="Search Members" />
-            <Typography style="body2">Results</Typography>
-            <Menu>
-              {members.map((item, idx) => (
-                <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-              ))}
-            </Menu>
-          </div>
-          <div className="p-2 space-y-2">
-            <Input prefix={<Search />} placeholder="Search Articles" />
-            <Typography style="body2">Results</Typography>
-            <div className="flex gap-4">
-              {articles.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="cursor-pointer rounded-md p-2 neeto-ui-bg-gray-200"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="flex p-2 gap-2 flex-col">
+          <Input prefix={<Search />} placeholder="Search Members" />
+          <Typography style="body2" mb="mb-0">Results</Typography>
+          <Menu className="gap-1 flex flex-col">
+            {members.map((item, idx) => (
+              <MenuItem.Button key={idx} className="neeto-ui-rounded">{item}</MenuItem.Button>
+            ))}
+          </Menu>
         </div>
       </Dropdown>
     </div>
