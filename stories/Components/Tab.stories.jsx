@@ -53,44 +53,28 @@ export const WithIcon = ({}) => {
     </Tab>
   );
 };
+WithIcon.storyName = "With icon";
 
 export const WithoutUnderline = Template.bind({});
 WithoutUnderline.args = {
-  size: "large",
   noUnderline: true,
 };
+WithoutUnderline.storyName = "Without underline";
 
-export const TwoItems = ({}) => {
-  const [tab, setTab] = useState(true);
+export const MultipleItems = ({}) => {
+  const [tab, setTab] = useState("label1");
   return (
     <Tab>
-      <Tab.Item active={tab} onClick={() => setTab(true)}>
-        Label
+      <Tab.Item active={tab === "label1"} onClick={() => setTab("label1")}>
+        Label 1
       </Tab.Item>
-      <Tab.Item active={!tab} onClick={() => setTab(false)}>
-        Label
+      <Tab.Item active={tab === "label2"} onClick={() => setTab("label2")}>
+        Label 2
+      </Tab.Item>
+      <Tab.Item active={tab === "label3"} onClick={() => setTab("label3")}>
+        Label 3
       </Tab.Item>
     </Tab>
   );
 };
-
-export const ThreeItems = ({}) => {
-  return (
-    <Tab>
-      <Tab.Item active>Label</Tab.Item>
-      <Tab.Item>Label</Tab.Item>
-      <Tab.Item>Label</Tab.Item>
-    </Tab>
-  );
-};
-
-export const FourItems = ({}) => {
-  return (
-    <Tab>
-      <Tab.Item active>Label</Tab.Item>
-      <Tab.Item>Label</Tab.Item>
-      <Tab.Item>Label</Tab.Item>
-      <Tab.Item>Label</Tab.Item>
-    </Tab>
-  );
-};
+MultipleItems.storyName = "Multiple items";

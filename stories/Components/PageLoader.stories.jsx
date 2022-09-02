@@ -30,3 +30,4 @@ export const LoadingText = () => {
     </div>
   );
 };
+LoadingText.storyName = "Loading text";

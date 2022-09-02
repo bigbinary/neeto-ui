@@ -17,7 +17,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A10",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A10",
     },
   },
 };
@@ -48,6 +49,7 @@ OptionsStacked.args = {
   label: "Radio Options Stacked",
   stacked: true,
 };
+OptionsStacked.storyName = "Options stacked";
 
 export const ControlledRadio = (args) => {
   const [value, setValue] = React.useState("");

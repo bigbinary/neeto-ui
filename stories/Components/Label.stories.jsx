@@ -44,3 +44,4 @@ WithHelpIcon.args = {
     },
   },
 };
+WithHelpIcon.storyName = "With help icon";

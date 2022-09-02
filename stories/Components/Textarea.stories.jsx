@@ -61,6 +61,7 @@ Error.args = {
 };
 
 export const HelpText = Template.bind({});
+HelpText.storyName = "Help text";
 HelpText.args = {
   label: "Name",
   placeholder: "Enter text",
@@ -75,6 +76,7 @@ NakedInput.args = {
 };
 
 export const TextareaWithMaxLength = Template.bind({});
+TextareaWithMaxLength.storyName = "Textarea with max length";
 TextareaWithMaxLength.args = {
   label: "Textarea with max length",
   placeholder: "Enter text",

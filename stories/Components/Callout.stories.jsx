@@ -51,6 +51,7 @@ export const WithIcon = ({}) => {
     </Callout>
   );
 };
+WithIcon.storyName = "With icon";
 
 export const Variants = ({}) => {
   return (

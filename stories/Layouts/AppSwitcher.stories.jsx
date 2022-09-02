@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const AppSwitcherStory = ({ isOpen, ...args }) => {
+export const Default = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
 
   useEffect(() => {
@@ -58,9 +58,7 @@ export const AppSwitcherStory = ({ isOpen, ...args }) => {
     </Router>
   );
 };
-
-AppSwitcherStory.storyName = "AppSwitcher";
-AppSwitcherStory.args = {
+Default.args = {
   isOpen: true,
   neetoApps: ["KB", "Desk", "Planner"],
   activeApp: "Chat",
@@ -102,7 +100,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
     </Router>
   );
 };
-
+AppSwitcherWithRecentApps.storyName = "AppSwitcher with recent apps";
 AppSwitcherWithRecentApps.args = {
   isOpen: true,
   recentApps: ["Quiz", "Runner"],

@@ -21,7 +21,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
+      url:
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
     },
   },
 };
@@ -53,6 +54,7 @@ export const DatePickerWithRef = () => {
     </div>
   );
 };
+DatePickerWithRef.storyName = "DatePicker with ref";
 
 export const DatePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -77,6 +79,7 @@ export const DatePickerInModal = (args) => {
     </>
   );
 };
+DatePickerInModal.storyName = "DatePicker in Modal";
 
 export const DatePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -100,6 +103,7 @@ export const DatePickerInPane = (args) => {
     </>
   );
 };
+DatePickerInPane.storyName = "DatePicker in Pane";
 
 export const DatePickerWithDefaultValue = (args) => {
   return (
@@ -111,6 +115,7 @@ export const DatePickerWithDefaultValue = (args) => {
     </div>
   );
 };
+DatePickerWithDefaultValue.storyName = "DatePicker with default value";
 
 DatePickerWithDefaultValue.parameters = {
   docs: {
@@ -130,12 +135,13 @@ export const DateRangePicker = () => {
         defaultValue={
           isChromatic()
             ? [
-              dayjs(new Date(1999, 7, 16)),
-              dayjs(new Date(1999, 7, 16)).add(7, "day"),
-            ]
+                dayjs(new Date(1999, 7, 16)),
+                dayjs(new Date(1999, 7, 16)).add(7, "day"),
+              ]
             : [dayjs(), dayjs().add(7, "day")]
         }
       />
     </div>
   );
 };
+DateRangePicker.storyName = "DateRangePicker";

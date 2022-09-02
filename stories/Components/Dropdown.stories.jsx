@@ -144,7 +144,7 @@ export const TriggerSizes = () => {
     </div>
   );
 };
-TriggerStyles.storyName = "Trigger styles";
+TriggerSizes.storyName = "Trigger sizes";
 
 export const TriggerWithCustomIcon = () => {
   const { Menu, MenuItem, Divider } = Dropdown;

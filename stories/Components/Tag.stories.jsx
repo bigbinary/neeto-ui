@@ -103,6 +103,7 @@ export const WithIndicator = ({}) => {
     </div>
   );
 };
+WithIndicator.storyName = "With indicator";
 
 export const WithIcon = ({}) => {
   return (
@@ -112,6 +113,7 @@ export const WithIcon = ({}) => {
     </div>
   );
 };
+WithIcon.storyName = "With icon";
 
 export const WithOnClose = ({}) => {
   return (
@@ -121,6 +123,7 @@ export const WithOnClose = ({}) => {
     </div>
   );
 };
+WithOnClose.storyName = "With on close";
 
 // export const Variants = () => {
 //   const STATUS_TAGS = [

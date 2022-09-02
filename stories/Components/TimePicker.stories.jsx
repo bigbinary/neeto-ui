@@ -51,6 +51,7 @@ export const TimePickerInModal = (args) => {
     </>
   );
 };
+TimePickerInModal.storyName = "TimePicker in Modal";
 
 export const TimePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -74,6 +75,7 @@ export const TimePickerInPane = (args) => {
     </>
   );
 };
+TimePickerInPane.storyName = "TimePicker in Pane";
 
 export const TimePickerWithRef = () => {
   const ref = React.useRef();
@@ -91,6 +93,7 @@ export const TimePickerWithRef = () => {
     </div>
   );
 };
+TimePickerWithRef.storyName = "TimePicker with ref";
 
 export const TimePickerWithDefaultValue = (args) => {
   return (
@@ -104,7 +107,7 @@ export const TimePickerWithDefaultValue = (args) => {
     </div>
   );
 };
-
+TimePickerWithDefaultValue.storyName = "TimePicker with default value";
 TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {

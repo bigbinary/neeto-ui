@@ -23,10 +23,11 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 
-export const lightTheme = () => {
+export const LightTheme = () => {
   return (
     <div className="flex items-center justify-center w-20 h-20 neeto-ui-bg-black">
       <Spinner theme="light" />
     </div>
   );
 };
+LightTheme.storyName = "Light theme";
