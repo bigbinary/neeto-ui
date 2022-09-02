@@ -109,38 +109,36 @@ export const TriggerSizes = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
   return (
-    <div className="h-40">
-      <div className="flex space-x-3">
-        <Dropdown buttonSize="small" label="Small">
-          <Menu>
-            {listItems.map((item, idx) => (
-              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-            ))}
-            <Divider />
-            <MenuItem.Button style="danger">Delete</MenuItem.Button>
-          </Menu>
-        </Dropdown>
+    <div className="h-40 space-x-3">
+      <Dropdown buttonSize="small" label="Small">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
 
-        <Dropdown label="Medium">
-          <Menu>
-            {listItems.map((item, idx) => (
-              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-            ))}
-            <Divider />
-            <MenuItem.Button style="danger">Delete</MenuItem.Button>
-          </Menu>
-        </Dropdown>
+      <Dropdown label="Medium">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
 
-        <Dropdown buttonSize="large" label="Large">
-          <Menu>
-            {listItems.map((item, idx) => (
-              <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-            ))}
-            <Divider />
-            <MenuItem.Button style="danger">Delete</MenuItem.Button>
-          </Menu>
-        </Dropdown>
-      </div>
+      <Dropdown buttonSize="large" label="Large">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
     </div>
   );
 };
@@ -324,10 +322,14 @@ export const CustomDropdown = () => {
       <Dropdown closeOnSelect={false} label="Custom Dropdown">
         <div className="flex p-2 gap-2 flex-col">
           <Input prefix={<Search />} placeholder="Search Members" />
-          <Typography style="body2" mb="mb-0">Results</Typography>
+          <Typography style="body2" mb="mb-0">
+            Results
+          </Typography>
           <Menu className="gap-1 flex flex-col">
             {members.map((item, idx) => (
-              <MenuItem.Button key={idx} className="neeto-ui-rounded">{item}</MenuItem.Button>
+              <MenuItem.Button key={idx} className="neeto-ui-rounded">
+                {item}
+              </MenuItem.Button>
             ))}
           </Menu>
         </div>
