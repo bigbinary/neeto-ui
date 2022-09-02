@@ -1,0 +1,71 @@
+:root {
+  // Color
+  @each $color, $value in $neeto-ui-theme-colors {
+    --neeto-ui-#{$color}: #{$value};
+  }
+
+  // pastel colors
+  --neeto-ui-pastel-silver: #{$neeto-ui-pastel-silver};
+  --neeto-ui-pastel-red: #{$neeto-ui-pastel-red};
+  --neeto-ui-pastel-yellow: #{$neeto-ui-pastel-yellow};
+  --neeto-ui-pastel-green: #{$neeto-ui-pastel-green};
+  --neeto-ui-pastel-blue: #{$neeto-ui-pastel-blue};
+  --neeto-ui-pastel-purple: #{$neeto-ui-pastel-purple};
+  --neeto-ui-pastel-pink: #{$neeto-ui-pastel-pink};
+
+  // surface color
+  --neeto-ui-surface-bg: #{$neeto-ui-surface-bg};
+
+  // Box shadow
+  @each $shadow, $value in $neeto-ui-shadows {
+    --neeto-ui-shadow-#{$shadow}: #{$value};
+  }
+
+  // Font sizes
+  @each $size, $value in $neeto-ui-font-sizes {
+    --neeto-ui-text-#{$size}: #{$value};
+  }
+
+  // Font weights
+  @each $weight, $value in $neeto-ui-font-weights {
+    --neeto-ui-font-#{$weight}: #{$value};
+  }
+
+  // Line height
+  @each $lh, $value in $neeto-ui-line-heights {
+    --neeto-ui-leading-#{$lh}: #{$value};
+  }
+
+  // Text transform
+  @each $tt, $value in $neeto-ui-text-transform {
+    --neeto-ui-text-transform-#{$tt}: #{$value};
+  }
+
+  // Border Radius
+  --neeto-ui-rounded-none: #{$neeto-ui-rounded-none};
+  --neeto-ui-rounded-sm: #{$neeto-ui-rounded-sm};
+  --neeto-ui-rounded: #{$neeto-ui-rounded};
+  --neeto-ui-rounded-md: #{$neeto-ui-rounded-md};
+  --neeto-ui-rounded-lg: #{$neeto-ui-rounded-lg};
+  --neeto-ui-rounded-xl: #{$neeto-ui-rounded-xl};
+  --neeto-ui-rounded-full: #{$neeto-ui-rounded-full};
+
+  // Transition
+  --neeto-ui-transition: #{$neeto-ui-transition};
+
+  // Z Indexes
+  --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
+
+  // Layout constants
+  --neeto-ui-pane-header-height: #{$neeto-ui-pane-header-height};
+  --neeto-ui-pane-footer-height: #{$neeto-ui-pane-footer-height};
+
+  --neeto-ui-main-header-height: #{$neeto-ui-main-header-height};
+  --neeto-ui-main-header-with-breadcrumbs-height: #{$neeto-ui-main-header-with-breadcrumbs-height};
+
+  --neeto-ui-sub-header-height: #{$neeto-ui-sub-header-height};
+  --neeto-ui-sub-header-bottom-margin: #{$neeto-ui-sub-header-bottom-margin};
+
+  --neeto-ui-pagination-block-height: #{$neeto-ui-pagination-block-height};
+  --neeto-ui-table-header-height: #{$neeto-ui-table-header-height};
+}

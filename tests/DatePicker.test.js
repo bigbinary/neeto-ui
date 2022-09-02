@@ -82,7 +82,7 @@ describe("DatePicker", () => {
   it("should show 12 hour format if timeFormat is in 12 hr format", () => {
     render(
       <DatePicker
-        defaultValue={dayjs("12/04/2022", "DD/MM/YYYY").hour(14).minute(30)}
+        defaultValue={dayjs("04/12/2022").hour(14).minute(30)}
         dateFormat="DD/MM/YYYY"
         showTime
         timeFormat="h:mm A"
@@ -96,8 +96,8 @@ describe("DatePicker", () => {
     render(
       <DatePicker
         defaultValue={[
-          dayjs("12/04/2022", "DD/MM/YYYY"),
-          dayjs("14/04/2022", "DD/MM/YYYY"),
+          dayjs("04/12/2022"),
+          dayjs("04/14/2022"),
         ]}
         type="range"
         open

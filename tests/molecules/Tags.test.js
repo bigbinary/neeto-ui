@@ -1,7 +1,8 @@
 import React from "react";
-import Tags from "../../lib/molecules/Tags";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import Tags from "../../lib/molecules/Tags";
 
 const allTags = [
   {

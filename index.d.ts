@@ -22,6 +22,7 @@ export interface AccordionItemProps {
 
 export interface ColorPickerProps {
   color: string;
+  size: "small" | "medium" | "large";
   onChange: (color: string) => void;
   colorPaletteProps?: {
     color: { from: string; to: string };
@@ -45,9 +46,9 @@ interface PopupContentProps {
   className?: string;
 }
 
-export type ModalProps = PopupProps & { size?: "xs" | "sm" | "md" };
+export type ModalProps = PopupProps & { size?: "small" | "medium" | "large" };
 
-export type PaneProps = PopupProps & { size?: "sm" | "lg" };
+export type PaneProps = PopupProps & { size?: "small" | "large" };
 
 export interface RadioProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -66,7 +67,7 @@ export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
 >;
 
 export type TabProps = {
-  size?: "large" | "default";
+  size?: "large" | "small";
   noUnderline?: boolean;
   className?: string;
 } & React.DetailedHTMLProps<
@@ -85,17 +86,21 @@ export type TabItemProps<S> = {
 
 export interface ActionDropdownProps {
   label?: string;
-  style?: "primary" | "secondary";
-  size?: "large" | "default";
+  buttonStyle?: "primary" | "secondary";
+  buttonSize?: "small" | "medium" | "large";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
   buttonProps?: ButtonProps;
   dropdownProps?: DropdownProps;
+  /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/
+  style?: "primary" | "secondary";
+  /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/
+  size?: "small" | "medium" | "large";
 }
 
 export interface AlertProps {
-  size?: "xs" | "sm" | "md";
+  size?: "small" | "medium" | "large";
   isOpen?: boolean;
   isSubmitting?: boolean;
   className?: string;
@@ -112,7 +117,7 @@ export interface AlertProps {
 }
 
 export type AvatarProps = {
-  size?: "small" | "medium" | "large" | "xlarge";
+  size?: "small" | "medium" | "large" | "extraLarge";
   user?: { name: string; imageUrl: string };
   isSquare?: boolean;
   status?: "online" | "idle" | "offline";
@@ -136,7 +141,7 @@ export interface ButtonProps {
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;
-  size?: "large" | "xlarge" | "default";
+  size?: "small" | "medium" | "large";
   href?: string;
   tooltipProps?: TooltipProps;
   [key: string]: any;
@@ -167,7 +172,7 @@ export type DatePickerProps = {
   defaultValue?: any;
   className?: string;
   label?: string;
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   dropdownClassName?: string;
   dateFormat?: string;
   timeFormat?: string;
@@ -188,10 +193,6 @@ export interface DropdownProps {
   label?: React.ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
-  ulProps?: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLUListElement>,
-    HTMLUListElement
-  >;
   position?:
     | "auto"
     | "auto-start"
@@ -209,10 +210,18 @@ export interface DropdownProps {
     | "left-start"
     | "left-end";
   className?: string;
-  buttonStyle?: "primary" | "secondary" | "text";
+  buttonSize?: "small" | "medium" | "large";
+  buttonStyle?:
+    | "primary"
+    | "secondary"
+    | "text"
+    | "danger"
+    | "danger-text"
+    | "link";
   buttonProps?: ButtonProps;
   customTarget?: React.ReactNode | (() => React.ReactNode);
   disabled?: boolean;
+  dropdownProps?: any;
   closeOnEsc?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
@@ -220,6 +229,11 @@ export interface DropdownProps {
   trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
+  /** @deprecated Prop deprecated. Use `dropdownProps` prop instead*/
+  ulProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLUListElement>,
+    HTMLUListElement
+  >;
   [key: string]: any;
 }
 
@@ -241,7 +255,7 @@ export interface EmailInputProps {
 }
 
 export type InputProps = {
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   label?: string;
   error?: string;
   suffix?: React.ReactNode;
@@ -286,7 +300,7 @@ export interface PaginationProps {
 }
 
 export type SelectProps = {
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   label?: string;
   required?: boolean;
   error?: string;
@@ -350,12 +364,16 @@ export interface TagProps {
   icon?: string | any;
   size?: "small" | "large";
   label?: string;
-  style?: "outline" | "solid";
+  type?: "outline" | "solid";
   onClose?: () => void;
   disabled?: boolean;
   className?: string;
-  color?: "green" | "yellow" | "red" | "blue" | "gray";
-  indicatorColor?: "green" | "yellow" | "red" | "blue" | "gray";
+  style?: "success" | "warning" | "danger" | "primary" | "inactive";
+  indicatorStyle?: "success" | "warning" | "danger" | "primary" | "inactive";
+  /** @deprecated Prop deprecated. Use `style` prop instead*/
+  color: string;
+  /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
+  indicatorColor?: string;
 }
 
 export type TextareaProps = {
@@ -377,7 +395,7 @@ export type TimePickerProps = {
   className?: string;
   label?: string;
   format?: string;
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   interval?: {
     hourStep: number;
     minuteStep: number;
@@ -422,7 +440,17 @@ export interface TooltipProps {
 }
 
 export type TypographyProps = {
-  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1" | "body2" | "body3";
+  style?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "body1"
+    | "body2"
+    | "body3"
+    | "nano";
   weight?:
     | "thin"
     | "extralight"
