@@ -15,19 +15,11 @@ import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
 import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
-
-import { STORYBOOK_NAV_LINKS } from "../constants";
-
-const DEPRECATED_PROPS = {
-  footerLinks: {
-    control: false,
-    table: { type: { summary: null } },
-  },
-  isCollapsed: {
-    table: { type: { summary: null } },
-    control: false,
-  },
-};
+import {
+  STORYBOOK_NAV_LINKS,
+  COMPONENT_MAPPING,
+  STORYBOOK_FOOTER_LINKS,
+} from "../../example/src/constants";
 
 export default {
   title: "Layouts/Sidebar",
@@ -38,21 +30,8 @@ export default {
       description: {
         component: '`import { Sidebar } from "@bigbinary/neetoui/layouts";`',
       },
-      inlineStories: false,
-      iframeHeight: "100vh",
     },
   },
-  argTypes: {
-    ...DEPRECATED_PROPS,
-  },
-};
-
-const SidebarContent = ({ label }) => {
-  return (
-    <div className="flex items-center justify-center w-full h-full">
-      {label}
-    </div>
-  );
 };
 
 const Template = (args) => {
@@ -68,7 +47,7 @@ const Template = (args) => {
                   <Route
                     key={index}
                     path={to}
-                    component={() => <SidebarContent label={label} />}
+                    component={COMPONENT_MAPPING[label]}
                   />
                 );
               })}
@@ -79,9 +58,9 @@ const Template = (args) => {
   );
 };
 
-export const BasicUsage = Template.bind({});
-BasicUsage.storyName = "Sidebar";
-BasicUsage.args = {
+export const SidebarCollapsed = Template.bind({});
+SidebarCollapsed.storyName = "Collapsed Sidebar";
+SidebarCollapsed.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -118,6 +97,38 @@ BasicUsage.args = {
       },
     ],
   },
+  showAppSwitcher: true,
+  isCollapsed: true,
+  appName: "neetoUI",
+};
+
+export const SidebarExpanded = Template.bind({});
+SidebarExpanded.storyName = "Expanded Sidebar";
+SidebarExpanded.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.onrender.com",
+  },
+  isCollapsed: false,
+  navLinks: STORYBOOK_NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    email: "kieran.miller@email.com",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    topLinks: [
+      {
+        label: "Edit",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+  showAppSwitcher: true,
   appName: "neetoUI",
 };
 
@@ -129,19 +140,23 @@ export const SidebarWithAppSwitcher = (args) => {
       <Sidebar
         {...args}
         onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        isCollapsed={true}
       />
       <AppSwitcher
         neetoApps={[]}
         activeApp="Chat"
         isOpen={isAppSwitcherOpen}
+        isSidebarOpen={!true}
         onClose={() => setIsAppSwitcherOpen(false)}
         environment={process.env.NODE_ENV}
       />
     </Router>
   );
 };
+
 SidebarWithAppSwitcher.storyName = "Sidebar with AppSwitcher";
 SidebarWithAppSwitcher.args = {
+  isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -167,14 +182,50 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
+export const SidebarWithFooterLinks = ({ ...args }) => (
+  <Router>
+    <Sidebar {...args} />
+  </Router>
+);
+SidebarWithFooterLinks.storyName = "Sidebar with Footer links";
+SidebarWithFooterLinks.args = {
+  isCollapsed: true,
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.onrender.com",
+  },
+  navLinks: STORYBOOK_NAV_LINKS.slice(0, 3),
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    topLinks: [
+      {
+        label: "Profile",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+  footerLinks: STORYBOOK_FOOTER_LINKS,
+  showAppSwitcher: true,
+  appName: "neetoUI",
+};
+
 export const ProfileSectionWithChangelogAndHelp = ({ ...args }) => (
   <Router>
     <Sidebar {...args} />
   </Router>
 );
+
 ProfileSectionWithChangelogAndHelp.storyName =
   "Profile Section with Changelog and Help";
 ProfileSectionWithChangelogAndHelp.args = {
+  isCollapsed: true,
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -250,5 +301,7 @@ ProfileSectionWithCustomContent.args = {
       },
     ],
   },
+  showAppSwitcher: true,
+  isCollapsed: true,
   appName: "neetoUI",
 };

@@ -26,9 +26,7 @@ describe("Textarea", () => {
   });
 
   it("should display helpText", () => {
-    const { getByText } = render(
-      <Textarea id="text" label="Textarea" helpText="Help text" />
-    );
+    const { getByText } = render(<Textarea id="text" label="Textarea" helpText="Help text" />);
     expect(getByText("Help text")).toBeInTheDocument();
   });
 
@@ -43,8 +41,11 @@ describe("Textarea", () => {
     const { getByLabelText, getByText } = render(
       <Textarea id="text" label="Textarea" maxLength={5} />
     );
+    expect(getByText("0 / 5")).toBeInTheDocument();
+    expect(getByLabelText("Textarea")).toHaveAttribute("maxLength", "5");
+
     userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
-    expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();
-    expect(getByLabelText("Textarea")).toHaveValue("Testing maxLength");
+    expect(getByText("5 / 5")).toBeInTheDocument();
+    expect(getByLabelText("Textarea")).toHaveValue("Testi");
   });
 });

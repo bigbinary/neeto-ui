@@ -26,7 +26,7 @@ const Template = (args) => (
 export const BasicUsage = Template.bind({});
 BasicUsage.args = {
   title: "Layouts",
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button size="large" label="Primary Action" />,
 };
 
 export const WithSearchInput = Template.bind({});
@@ -36,7 +36,7 @@ WithSearchInput.args = {
     value: "",
     onChange: () => {},
   },
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button size="large" label="Primary Action" />,
 };
 
 export const WithMenuBarToggle = Template.bind({});
@@ -51,8 +51,5 @@ WithBreadcrumbs.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
   actionBlock: <Button label="Primary Action" />,
-  breadcrumbs: [
-    { text: "Home", link: "/" },
-    { text: "Settings", link: "/" },
-  ],
+  breadcrumbs: [{ text: "Home", link: "/" }],
 };

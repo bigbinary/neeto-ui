@@ -9,11 +9,6 @@ import {
   Right,
   Download,
   Search,
-  Copy,
-  Design,
-  UserCircle,
-  Settings,
-  Image,
 } from "@bigbinary/neeto-icons";
 
 export const icons = {
@@ -5197,36 +5192,3 @@ export const TABLE_IN_LAYOUT = `
  </Container>
 </div>
 `;
-
-export const STORYBOOK_NAV_LINKS = [
-  {
-    label: "Components",
-    description: "Description here",
-    to: "/components",
-    icon: Copy,
-  },
-  {
-    label: "Form Elements",
-    description: "Description here",
-    to: "/form-elements",
-    icon: Design,
-  },
-  {
-    label: "Formik",
-    description: "Description here",
-    to: "/formik",
-    icon: Image,
-  },
-  {
-    label: "Overlays",
-    description: "Description here",
-    to: "/overlays",
-    icon: Settings,
-  },
-  {
-    label: "Layouts",
-    description: "Description here",
-    to: "/layouts",
-    icon: UserCircle,
-  },
-];

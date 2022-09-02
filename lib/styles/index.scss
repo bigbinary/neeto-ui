@@ -2,8 +2,6 @@
 @import "./abstracts/mixins";
 @import "./abstracts/normalize";
 @import "./abstracts/variables";
-@import "./abstracts/root";
-@import "./abstracts/theme";
 
 //Base
 @import "./base/base";
@@ -31,7 +29,7 @@
 @import "./components/checkbox";
 @import "./components/color-picker";
 @import "./components/common";
-@import "./components/date-time-picker";
+@import "./components/date-picker";
 @import "./components/dropdown";
 @import "./components/input";
 @import "./components/modal";

@@ -36,7 +36,7 @@ describe("ColorPicker", () => {
   it("should trigger onChange when a color is selected from palette", async () => {
     const selectedColor = "#ffffff";
     const DEFAULT_COLORS = {
-      "red-500": "#f22d2d",
+      "red-500": "#ea4335",
       "yellow-500": "#f57c00",
       "green-500": "#00ba88",
       "blue-500": "#276ef1",

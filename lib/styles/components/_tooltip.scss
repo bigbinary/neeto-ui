@@ -7,10 +7,10 @@
 }
 .tippy-box {
   position: relative;
-  background-color: rgb(var(--neeto-ui-gray-800));
-  color: rgb(var(--neeto-ui-white));
-  border-radius: var(--neeto-ui-rounded);
-  font-size: var(--neeto-ui-text-xs);
+  background-color: $neeto-ui-gray-800;
+  color: $neeto-ui-white;
+  border-radius: $neeto-ui-rounded-sm;
+  font-size: $neeto-ui-text-xs;
   line-height: 1.4;
   outline: 0;
   transition-property: transform, visibility, opacity;
@@ -59,7 +59,7 @@
 .tippy-arrow {
   width: 16px;
   height: 16px;
-  color: rgb(var(--neeto-ui-gray-800));
+  color: $neeto-ui-gray-800;
 }
 .tippy-arrow:before {
   content: "";
@@ -69,7 +69,7 @@
 }
 .tippy-content {
   position: relative;
-  padding: 4px 8px;
+  padding: 5px 9px;
   z-index: 1;
 }
 
@@ -109,7 +109,7 @@
 .tippy-svg-arrow {
   width: 17px;
   height: 17px;
-  fill: rgb(var(--neeto-ui-gray-800));
+  fill: $neeto-ui-gray-800;
   text-align: initial;
 }
 .tippy-svg-arrow,
@@ -118,34 +118,36 @@
 }
 
 .tippy-svg-arrow > svg > path{
-  fill: rgb(var(--neeto-ui-gray-800));
+  fill: $neeto-ui-gray-800;
 }
 
 // light theme
 .tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path{
-  fill: rgb(var(--neeto-ui-white));
+  fill: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"] {
-  color: rgb(var(--neeto-ui-gray-800));
-  box-shadow: var(--neeto-ui-shadow-s);
-  background-color: rgb(var(--neeto-ui-white));
+  color: $neeto-ui-gray-800;
+  box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15),
+    0 4px 80px -8px rgba(36, 40, 47, 0.25),
+    0 4px 4px -2px rgba(91, 94, 105, 0.15);
+  background-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
-  border-top-color: rgb(var(--neeto-ui-white));
+  border-top-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"][data-placement^="bottom"]
   > .tippy-arrow:before {
-  border-bottom-color: rgb(var(--neeto-ui-white));
+  border-bottom-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
-  border-left-color: rgb(var(--neeto-ui-white));
+  border-left-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
-  border-right-color: rgb(var(--neeto-ui-white));
+  border-right-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"] > .tippy-backdrop {
-  background-color: rgb(var(--neeto-ui-white));
+  background-color: $neeto-ui-white;
 }
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow {
-  fill: rgb(var(--neeto-ui-white));
+  fill: $neeto-ui-white;
 }
