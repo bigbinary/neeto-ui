@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const BasicUsage = () => {
+export const Default = () => {
   return (
     <SubHeader
       leftActionBlock={
@@ -48,6 +48,7 @@ export const WithLeftActionBlock = () => {
     />
   );
 };
+WithLeftActionBlock.storyName = "With left action block";
 
 export const WithRightActionBlock = () => {
   return (
@@ -61,3 +62,4 @@ export const WithRightActionBlock = () => {
     />
   );
 };
+WithRightActionBlock.storyName = "With right action block";

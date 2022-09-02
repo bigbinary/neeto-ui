@@ -38,7 +38,8 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
+      url:
+        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
 };
@@ -272,12 +273,11 @@ export const TableWithSelectedRowKeys = ({
     />
   );
 };
-
+TableWithSelectedRowKeys.storyName = "Table with selected row keys";
 TableWithSelectedRowKeys.args = {
   defaultPageSize: 10,
   selectedRowKeys: [1, 2, 3],
 };
-
 TableWithSelectedRowKeys.parameters = {
   docs: {
     source: {
@@ -296,7 +296,7 @@ export const TableWithSorting = (args) => {
     />
   );
 };
-
+TableWithSorting.storyName = "Table with sorting";
 TableWithSorting.parameters = {
   docs: {
     description: { story: TableSortingDocs },
@@ -323,12 +323,11 @@ export const TableWithFixedHeight = (args) => {
     </div>
   );
 };
-
+TableWithFixedHeight.storyName = "Table with fixed height";
 TableWithFixedHeight.args = {
   defaultPageSize: 10,
   fixedHeight: true,
 };
-
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
@@ -352,11 +351,10 @@ export const TableWithoutCheckbox = (args) => {
     </div>
   );
 };
-
+TableWithoutCheckbox.storyName = "Table without checkbox";
 TableWithoutCheckbox.args = {
   rowSelection: false,
 };
-
 TableWithoutCheckbox.parameters = {
   docs: {
     description: { story: TableWithoutCheckboxDocs },
@@ -386,7 +384,7 @@ export const TableWithDynamicData = (args) => {
     </div>
   );
 };
-
+TableWithDynamicData.storyName = "Table with dynamic data";
 TableWithDynamicData.args = {
   defaultPageSize: 10,
 };

@@ -79,9 +79,8 @@ const Template = (args) => {
   );
 };
 
-export const BasicUsage = Template.bind({});
-BasicUsage.storyName = "Sidebar";
-BasicUsage.args = {
+export const Default = Template.bind({});
+Default.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -173,7 +172,7 @@ export const ProfileSectionWithChangelogAndHelp = ({ ...args }) => (
   </Router>
 );
 ProfileSectionWithChangelogAndHelp.storyName =
-  "Profile Section with Changelog and Help";
+  "Profile section with changelog and help";
 ProfileSectionWithChangelogAndHelp.args = {
   organizationInfo: {
     name: "neetoUI",
@@ -212,7 +211,7 @@ ProfileSectionWithChangelogAndHelp.args = {
 
 export const ProfileSectionWithCustomContent = Template.bind({});
 ProfileSectionWithCustomContent.storyName =
-  "Profile Section With Custom Content";
+  "Profile section with custom content";
 ProfileSectionWithCustomContent.args = {
   organizationInfo: {
     name: "neetoUI",
