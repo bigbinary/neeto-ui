@@ -368,8 +368,8 @@ export interface TagProps {
   onClose?: () => void;
   disabled?: boolean;
   className?: string;
-  style?: "success" | "warning" | "danger" | "primary" | "inactive";
-  indicatorStyle?: "success" | "warning" | "danger" | "primary" | "inactive";
+  style?: "success" | "warning" | "danger" | "primary" | "secondary" | "info";
+  indicatorStyle?: "success" | "warning" | "danger" | "primary" | "secondary" | "info";
   /** @deprecated Prop deprecated. Use `style` prop instead*/
   color: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
