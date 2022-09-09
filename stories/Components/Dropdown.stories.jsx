@@ -110,7 +110,7 @@ export const TriggerSizes = () => {
   const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <div className="flex space-x-3">
+      <div className="flex items-center space-x-3">
         <Dropdown buttonSize="small" label="Small">
           <Menu>
             {listItems.map((item, idx) => (
