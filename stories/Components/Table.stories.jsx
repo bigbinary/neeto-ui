@@ -210,18 +210,17 @@ const columns = [
     dataIndex: "icon_button",
     key: "icon_button",
     width: 150,
-    render: () => (
-      <Dropdown
-        icon={MenuHorizontal}
-        buttonStyle="text"
-        buttonProps={{ size: "large" }}
-        strategy="fixed"
-      >
-        <li>Option 1</li>
-        <li>Option 2</li>
-        <li>Option 3</li>
-      </Dropdown>
-    ),
+    render: () => {
+      const { Menu, MenuItem } = Dropdown;
+      return (
+        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+          <Menu>
+            <MenuItem.Button>Action</MenuItem.Button>
+            <MenuItem.Button>Another action</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+      );
+    },
   },
 ];
 
