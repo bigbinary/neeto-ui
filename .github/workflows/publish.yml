@@ -21,6 +21,8 @@ jobs:
       - run: yarn build
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
+      - run: git config user.email "amalkdinesh@gmail.com"
+      - run: git config user.name "Amal dinesh"
 
       - name: Find version bump type
         id: BUMP_TYPE
@@ -56,7 +58,7 @@ jobs:
 
       - name: Read pull request body
         uses: 8BitJonny/gh-get-current-pr@2.0.0
-        id: PR
+        id: PR1295-fix-tag-color
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.event.pull_request.head.sha }}
@@ -64,8 +66,8 @@ jobs:
       - name: Extract changelog
         id: CHANGELOG
         run: |
-           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("**Description**")[2].partition("**Checklist**")[0].strip()))')
-           echo "CHANGELOG=${content}" >> $GITHUB_ENV
+          content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("**Description**")[2].partition("**Checklist**")[0].strip()))')
+          echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
       - name: Update Changelog
@@ -78,7 +80,7 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           branch: master
-          message: 'New version release'
+          message: "New version release"
 
       - name: Create Github Release
         uses: release-drafter/release-drafter@v5.15.0
