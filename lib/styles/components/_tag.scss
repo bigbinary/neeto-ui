@@ -59,9 +59,17 @@
     }
   }
 
-  &--style-outline {
-    border-color: rgb(var(--neeto-ui-gray-400));
-    background-color: rgb(var(--neeto-ui-white));
+  &--type-outline {
+    &.neeto-ui-tag--style-primary {
+      background-color: rgb(var(--neeto-ui-primary-100));
+      border-color: rgb(var(--neeto-ui-primary-500));
+      color: rgb(var(--neeto-ui-primary-500));
+    }
+
+    &.neeto-ui-tag--style-secondary {
+      border-color: rgb(var(--neeto-ui-gray-400));
+      background-color: rgb(var(--neeto-ui-white));
+    }
 
     &.neeto-ui-tag--style-danger {
       background-color: rgb(var(--neeto-ui-error-100));
@@ -69,7 +77,7 @@
       color: rgb(var(--neeto-ui-error-500));
     }
 
-    &.neeto-ui-tag--style-primary {
+    &.neeto-ui-tag--style-info {
       background-color: rgb(var(--neeto-ui-info-100));
       border-color: rgb(var(--neeto-ui-info-500));
       color: rgb(var(--neeto-ui-info-500));
@@ -86,22 +94,25 @@
       border-color: rgb(var(--neeto-ui-warning-500));
       color: rgb(var(--neeto-ui-warning-500));
     }
-
-    &.neeto-ui-tag--style-inactive {
-      background-color: rgb(var(--neeto-ui-gray-200));
-    }
   }
 
-  &--style-solid {
-    border-color: rgb(var(--neeto-ui-info-100));
-    background-color: rgb(var(--neeto-ui-info-100));
+  &--type-solid {
+    &.neeto-ui-tag--style-primary {
+      background-color: rgb(var(--neeto-ui-primary-100));
+      border-color: rgb(var(--neeto-ui-primary-100));
+    }
+
+    &.neeto-ui-tag--style-secondary {
+      background-color: rgb(var(--neeto-ui-gray-200));
+      border-color: rgb(var(--neeto-ui-gray-200));
+    }
 
     &.neeto-ui-tag--style-danger {
       background-color: rgb(var(--neeto-ui-error-100));
       border-color: rgb(var(--neeto-ui-error-100));
     }
 
-    &.neeto-ui-tag--style-primary {
+    &.neeto-ui-tag--style-info {
       background-color: rgb(var(--neeto-ui-info-100));
       border-color: rgb(var(--neeto-ui-info-100));
     }
@@ -114,11 +125,6 @@
     &.neeto-ui-tag--style-warning {
       background-color: rgb(var(--neeto-ui-warning-100));
       border-color: rgb(var(--neeto-ui-warning-100));
-    }
-
-    &.neeto-ui-tag--style-inactive {
-      background-color: rgb(var(--neeto-ui-gray-200));
-      border-color: rgb(var(--neeto-ui-gray-200));
     }
   }
 }
