@@ -57,10 +57,11 @@ export const Styles = ({}) => {
   return (
     <div className="flex flex-row items-start justify-start space-x-4">
       <Tag label="Primary" style="primary" />
+      <Tag label="Secondary" style="secondary" />
+      <Tag label="Info" style="info" />
       <Tag label="Success" style="success" />
       <Tag label="Warning" style="warning" />
       <Tag label="Danger" style="danger" />
-      <Tag label="Inactive" style="inactive" />
     </div>
   );
 };
@@ -72,20 +73,22 @@ export const Types = ({}) => {
         <h5 className="mb-4 capitalize">Outline</h5>
         <div className="space-x-3">
           <Tag type="outline" label="Primary" style="primary" />
+          <Tag type="outline" label="Secondary" style="secondary" />
+          <Tag type="outline" label="Info" style="info" />
           <Tag type="outline" label="Success" style="success" />
           <Tag type="outline" label="Warning" style="warning" />
           <Tag type="outline" label="Danger" style="danger" />
-          <Tag type="outline" label="Inactive" style="inactive" />
         </div>
       </div>
       <div>
         <h5 className="mb-4 capitalize">Solid</h5>
         <div className="space-x-3">
           <Tag type="solid" label="Primary" style="primary" />
+          <Tag type="solid" label="Secondary" style="secondary" />
+          <Tag type="solid" label="Info" style="info" />
           <Tag type="solid" label="Success" style="success" />
           <Tag type="solid" label="Warning" style="warning" />
           <Tag type="solid" label="Danger" style="danger" />
-          <Tag type="solid" label="Inactive" style="inactive" />
         </div>
       </div>
     </div>
@@ -95,11 +98,12 @@ export const Types = ({}) => {
 export const WithIndicator = ({}) => {
   return (
     <div className="flex flex-row items-start justify-start space-x-4">
-      <Tag label="Primary" indicatorStyle="primary" />
-      <Tag label="Success" indicatorStyle="success" />
-      <Tag label="Warning" indicatorStyle="warning" />
-      <Tag label="Danger" indicatorStyle="danger" />
-      <Tag label="Inactive" indicatorStyle="inactive" />
+      <Tag label="Primary" indicatorStyle="primary" style="secondary" />
+      <Tag label="Secondary" indicatorStyle="secondary" style="secondary" />
+      <Tag label="Info" indicatorStyle="info" style="secondary" />
+      <Tag label="Success" indicatorStyle="success" style="secondary" />
+      <Tag label="Warning" indicatorStyle="warning" style="secondary" />
+      <Tag label="Danger" indicatorStyle="danger" style="secondary" />
     </div>
   );
 };
