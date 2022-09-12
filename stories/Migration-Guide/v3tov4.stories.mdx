@@ -12,19 +12,29 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # V3 to V4
 
-This document will help you upgrade from neetoUI `3.x` version to neetoUI `4.0` version.
+This document will help you upgrade from neetoUI `3.x` version to neetoUI `4.x` version.
 
 ## Start upgrading
 
-You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@bigbinary/neetoui-codemod-v4](https://github.com/@bigbinary/neetoui-codemod-v4) To help you quickly upgrade to v4.
+1. Update neetoUI package version to `4.x.x`
+
+2. Install the missing peer-dependencies as shown in the terminal.
+
+3. As we have removed the dependencies from the neetoUI package, you will have to install them separately, if any such package missing errors are shown in the terminal.
+
+4. You can manually check the code one by one against the [list for modification](/docs/changelog--page). In addition, we also provide a codemod cli tool [@bigbinary/neetoui-codemod-v4](https://github.com/@bigbinary/neetoui-codemod-v4) To help you quickly upgrade to v4.
 
 Before running codemod cli, please submit your local code changes.
 
 ```shell
 # Run directly through npx
 npx @bigbinary/neetoui-codemod-v4 src
+```
 
-# Or global installation
+Or
+
+```shell
+# Global installation
 # Use yarn
 yarn global add @bigbinary/neetoui-codemod-v4
 
@@ -33,6 +43,9 @@ neetoui-codemod-v4 src
 ```
 
 > Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+
+> This script will migrate all the direct props changes of components. Changes in the nested props have to done manually.
+> E.g.: `Dropdown` component has a prop `buttonProps` which is an object. If you are using any of the nested props of `buttonProps` like `buttonProps={{ size: "large" }}` then you have to change it manually.
 
 <br />
 <br />
