@@ -50,7 +50,7 @@ jobs:
         id: BUMP_VERSION
         run: |
           BUMP_TYPE=${{steps.BUMP_TYPE.outputs.TYPE}}
-          VERSION_BUMP_TYPE=$([ -z BUMP_TYPE ] && echo "patch" || echo $BUMP_TYPE)
+          VERSION_BUMP_TYPE="${BUMP_TYPE:="patch"}"
           yarn version --$VERSION_BUMP_TYPE ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
 
           PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
@@ -58,7 +58,7 @@ jobs:
 
       - name: Read pull request body
         uses: 8BitJonny/gh-get-current-pr@2.0.0
-        id: PR1295-fix-tag-color
+        id: PR
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.event.pull_request.head.sha }}
@@ -71,6 +71,7 @@ jobs:
         shell: bash
 
       - name: Update Changelog
+        continue-on-error: true
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           latest-version: ${{ steps.BUMP_VERSION.outputs.PACKAGE_VERSION }}
