@@ -50,7 +50,7 @@ jobs:
         id: BUMP_VERSION
         run: |
           BUMP_TYPE=${{steps.BUMP_TYPE.outputs.TYPE}}
-          VERSION_BUMP_TYPE=$([ -z BUMP_TYPE ] && echo "patch" || echo $BUMP_TYPE)
+          VERSION_BUMP_TYPE="${BUMP_TYPE:="patch"}"
           yarn version --$VERSION_BUMP_TYPE ${{steps.TAG_CHECK.outputs.TAG_OPTION}}
 
           PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
@@ -67,6 +67,7 @@ jobs:
         id: CHANGELOG
         run: |
           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("**Description**")[2].partition("**Checklist**")[0].strip()))')
+          content="${content:="Add changelog here"}"
           echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
