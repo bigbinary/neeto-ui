@@ -67,11 +67,11 @@ jobs:
         id: CHANGELOG
         run: |
           content=$(echo '${{ steps.PR.outputs.pr_body }}' | python3 -c 'import json; import sys; print(json.dumps(sys.stdin.read().partition("**Description**")[2].partition("**Checklist**")[0].strip()))')
-          content="${content:="Add changelog here"}"
           echo "CHANGELOG=${content}" >> $GITHUB_ENV
         shell: bash
 
       - name: Update Changelog
+        continue-on-error: true
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           latest-version: ${{ steps.BUMP_VERSION.outputs.PACKAGE_VERSION }}
