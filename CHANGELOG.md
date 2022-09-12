@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.2 - 2022-09-12
+
+- Fixed: navigation issue in *BlockNavigation* component
+
 ## 4.0.1 - 2022-09-12
 
 - Added: `secondary` style variant
