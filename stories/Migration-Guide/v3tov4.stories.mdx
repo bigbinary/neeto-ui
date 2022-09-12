@@ -42,10 +42,21 @@ yarn global add @bigbinary/neetoui-codemod-v4
 neetoui-codemod-v4 src
 ```
 
-> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+<div className="tip-wrapper">
+  <span className="tip">
+    Note that codemod cannot cover all scenarios, please check the below
+    mentioned exceptions and make changes manually.
+  </span>
+</div>
 
 > This script will migrate all the direct props changes of components. Changes in the nested props have to done manually.
 > E.g.: `Dropdown` component has a prop `buttonProps` which is an object. If you are using any of the nested props of `buttonProps` like `buttonProps={{ size: "large" }}` then you have to change it manually.
+
+### Exceptions
+
+1. Implementation of **Dropdown** and **ActionDropdown** component
+2. Complex usage of `style`(old: `color`) prop of **Tag** component
+3. Usage of nested props. Eg. `buttonProps` of **Dropdown** component
 
 <br />
 <br />
