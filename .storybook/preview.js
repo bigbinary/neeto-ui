@@ -18,6 +18,7 @@ export const parameters = {
         "Getting started",
         "Formik",
         "Changelog",
+        "Older Versions",
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers"],
         "Components",
