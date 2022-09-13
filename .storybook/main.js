@@ -15,5 +15,6 @@ module.exports = {
     "@storybook/addon-docs",
     "storybook-addon-designs",
     "@storybook/addon-console",
+    "storybook-dark-mode",
   ],
 };
