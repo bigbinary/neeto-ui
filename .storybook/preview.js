@@ -1,6 +1,7 @@
 import "./style.scss";
 import "../lib/styles/index.scss";
 import { themes } from "@storybook/theming";
+import neetoTheme from "./neetoTheme";
 
 export const parameters = {
   layout: "fullscreen",
@@ -54,4 +55,14 @@ export const parameters = {
       ],
     },
   },
+  darkMode: {
+    // Override the default dark theme
+    dark: { ...themes.dark, ...neetoTheme },
+    // Override the default light theme
+    light: { ...themes.normal, ...neetoTheme },
+    darkClass: 'neeto-ui-theme--dark',
+    lightClass: 'neeto-ui-theme--light',
+    classTarget: 'body',
+    stylePreview: true,
+  }
 };
