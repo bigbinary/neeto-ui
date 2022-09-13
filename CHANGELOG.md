@@ -23,6 +23,12 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.3 - 2022-09-13
+
+- Added: Storybook addon that lets users toggle between dark and light mode
+- Fixed:  date/time input color in darkmode
+- Fixed: overlapping issue with *Dropdown* in *Table*
+
 ## 4.0.2 - 2022-09-12
 
 - Fixed: navigation issue in *BlockNavigation* component
