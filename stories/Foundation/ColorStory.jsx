@@ -1,30 +1,22 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 import classnames from "classnames";
-import Radio from "../../lib/components/Radio";
 import { colorPalette } from "./ColorPalette";
 import tinycolor from "tinycolor2";
+import { useDarkMode } from "storybook-dark-mode";
 
 const ColorStory = () => {
-  const [theme, setTheme] = useState("light");
-
+  const isDarkMode = useDarkMode();
+  const theme = isDarkMode ? "dark" : "light";
   return (
     <div
       className={classnames(
         "demo-color-swatch-wrapper p-10 rounded border neeto-ui-border-gray-300",
         {
-          "neeto-ui-theme--dark": theme === "dark",
+          "neeto-ui-theme--dark": isDarkMode,
         }
       )}
     >
-      <Radio
-        className="mb-8"
-        onChange={(event) => setTheme(event.target.value)}
-        value={theme}
-      >
-        <Radio.Item label="Light theme" name="theme" value="light" />
-        <Radio.Item label="Dark theme" name="theme" value="dark" />
-      </Radio>
 
       {Object.entries(colorPalette).map(([key, { title, colors }]) => (
         <Fragment key={key}>
