@@ -213,7 +213,7 @@ const columns = [
     render: () => {
       const { Menu, MenuItem } = Dropdown;
       return (
-        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed" appendTo={() => document.body}>
           <Menu>
             <MenuItem.Button>Action</MenuItem.Button>
             <MenuItem.Button>Another action</MenuItem.Button>
@@ -221,6 +221,7 @@ const columns = [
         </Dropdown>
       );
     },
+    fixed: "right",
   },
 ];
 
