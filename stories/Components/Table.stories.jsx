@@ -44,7 +44,7 @@ export default {
   },
 };
 
-const columns = [
+const getColumns = (fixed = false) => [
   {
     title: "ID",
     dataIndex: "id",
@@ -210,10 +210,11 @@ const columns = [
     dataIndex: "icon_button",
     key: "icon_button",
     width: 150,
+    fixed: fixed ? "right" : undefined,
     render: () => {
       const { Menu, MenuItem } = Dropdown;
       return (
-        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed" appendTo={() => document.body}>
+        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed" appendTo={fixed ? () => document.body : undefined}>
           <Menu>
             <MenuItem.Button>Action</MenuItem.Button>
             <MenuItem.Button>Another action</MenuItem.Button>
@@ -221,7 +222,6 @@ const columns = [
         </Dropdown>
       );
     },
-    fixed: "right",
   },
 ];
 
@@ -229,7 +229,7 @@ export const Table = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
-      columnData={columns}
+      columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
       handlePageChange={(page, pageSize) => setPageNumber(page)}
@@ -250,6 +250,21 @@ Table.parameters = {
   },
 };
 
+export const TableWithFixedRightColumn = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <NeetoTable
+      columnData={getColumns(true)}
+      rowData={TABLE_DATA}
+      currentPageNumber={pageNumber}
+      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      {...args}
+    />
+  );
+};
+
+TableWithFixedRightColumn.storyName = "Table with fixed right column";
+
 export const TableWithSelectedRowKeys = ({
   selectedRowKeys: selectedRowKeysProp,
   ...args
@@ -263,7 +278,7 @@ export const TableWithSelectedRowKeys = ({
 
   return (
     <NeetoTable
-      columnData={columns}
+      columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
       handlePageChange={(page) => setPageNumber(page)}
@@ -289,7 +304,7 @@ TableWithSelectedRowKeys.parameters = {
 export const TableWithSorting = (args) => {
   return (
     <NeetoTable
-      columnData={columns}
+      columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={1}
       {...args}
@@ -314,7 +329,7 @@ export const TableWithFixedHeight = (args) => {
   return (
     <div className="h-96">
       <NeetoTable
-        columnData={columns}
+        columnData={getColumns()}
         rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
         handlePageChange={(page) => setPageNumber(page)}
@@ -342,7 +357,7 @@ export const TableWithoutCheckbox = (args) => {
   return (
     <div className="h-96">
       <NeetoTable
-        columnData={columns}
+        columnData={getColumns()}
         rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
         handlePageChange={(page) => setPageNumber(page)}
@@ -375,7 +390,7 @@ export const TableWithDynamicData = (args) => {
         onClick={() => setSlice(slice === 20 ? 5 : 20)}
       />
       <NeetoTable
-        columnData={columns}
+        columnData={getColumns()}
         rowData={data}
         currentPageNumber={pageNumber}
         handlePageChange={(page) => setPageNumber(page)}
@@ -514,7 +529,7 @@ export const TableInLayout = (args) => {
         <Scrollable className="w-full">
           <Table
             loading={isLoading}
-            columnData={columns}
+            columnData={getColumns()}
             rowData={rowData}
             defaultPageSize={10}
             currentPageNumber={pageNumber}
