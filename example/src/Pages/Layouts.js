@@ -228,7 +228,7 @@ const Layouts = () => {
           iconProps={[
             {
               icon: () => <Search size={20} />,
-              onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
+              onClick: () => setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
