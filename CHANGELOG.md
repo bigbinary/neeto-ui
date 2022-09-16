@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.4 - 2022-09-16
+
+- Changed: Allowed `hideOnSinglePage` override in *Table* `paginationProps`
+
 ## 4.0.3 - 2022-09-13
 
 - Added: Storybook addon that lets users toggle between dark and light mode
