@@ -60,6 +60,7 @@ export const parameters = {
     dark: { ...themes.dark, ...neetoTheme },
     // Override the default light theme
     light: { ...themes.normal, ...neetoTheme },
+    current: "light",
     darkClass: 'neeto-ui-theme--dark',
     lightClass: 'neeto-ui-theme--light',
     classTarget: 'body',
