@@ -16,7 +16,7 @@ export interface AccordionItemProps {
   titleProps?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
-  >;
+  > & { [key: string]: any };
   iconProps?: React.SVGProps<SVGSVGElement>;
 }
 
@@ -64,7 +64,7 @@ export interface RadioProps {
 export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
->;
+> & { [key: string]: any };
 
 export type TabProps = {
   size?: "large" | "small";
@@ -73,7 +73,7 @@ export type TabProps = {
 } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->;
+> & { [key: string]: any };
 
 export type TabItemProps<S> = {
   active?: boolean;
@@ -126,7 +126,7 @@ export type AvatarProps = {
 } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLSpanElement>,
   HTMLSpanElement
->;
+> & { [key: string]: any };
 
 export interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -154,7 +154,7 @@ export type CalloutProps = {
 } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->;
+> & { [key: string]: any };
 
 export type CheckboxProps = {
   label?: string;
@@ -165,7 +165,7 @@ export type CheckboxProps = {
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
->;
+> & { [key: string]: any };
 
 export type DatePickerProps = {
   value: any;
@@ -233,7 +233,7 @@ export interface DropdownProps {
   ulProps?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLUListElement>,
     HTMLUListElement
-  >;
+  > & { [key: string]: any };
   [key: string]: any;
 }
 
@@ -269,7 +269,7 @@ export type InputProps = {
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
->;
+> & { [key: string]: any };
 
 export type LabelProps = {
   className?: string;
@@ -283,12 +283,12 @@ export type LabelProps = {
 } & React.DetailedHTMLProps<
   React.LabelHTMLAttributes<HTMLLabelElement>,
   HTMLLabelElement
->;
+> & { [key: string]: any };
 
 export type PageLoaderProps = { text?: string } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->;
+> & { [key: string]: any };
 
 export interface PaginationProps {
   pageSize: number;
@@ -330,7 +330,7 @@ export type SwitchProps = {
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
->;
+> & { [key: string]: any };
 
 export interface TableProps {
   rowData: any[];
@@ -369,7 +369,13 @@ export interface TagProps {
   disabled?: boolean;
   className?: string;
   style?: "success" | "warning" | "danger" | "primary" | "secondary" | "info";
-  indicatorStyle?: "success" | "warning" | "danger" | "primary" | "secondary" | "info";
+  indicatorStyle?:
+    | "success"
+    | "warning"
+    | "danger"
+    | "primary"
+    | "secondary"
+    | "info";
   /** @deprecated Prop deprecated. Use `style` prop instead*/
   color: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
@@ -389,7 +395,7 @@ export type TextareaProps = {
 } & React.DetailedHTMLProps<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   HTMLTextAreaElement
->;
+> & { [key: string]: any };
 
 export type TimePickerProps = {
   className?: string;
@@ -495,7 +501,9 @@ export type TypographyProps = {
     | "revert"
     | "unset";
   className?: string;
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+    [key: string]: any;
+  };
 
 // components
 
