@@ -285,6 +285,7 @@ export const TableWithSelectedRowKeys = ({
       {...args}
       selectedRowKeys={selectedRowKeys}
       onRowSelect={(selectedRowKeys) => setSelectedRowKeys(selectedRowKeys)}
+      rowSelection
     />
   );
 };
@@ -296,7 +297,7 @@ TableWithSelectedRowKeys.args = {
 TableWithSelectedRowKeys.parameters = {
   docs: {
     source: {
-      code: getTableSource("selectedRowKeys={[1, 2, 3]}"),
+      code: getTableSource("selectedRowKeys={[1, 2, 3]} rowSelection"),
     },
   },
 };
