@@ -214,7 +214,12 @@ const getColumns = (fixed = false) => [
     render: () => {
       const { Menu, MenuItem } = Dropdown;
       return (
-        <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed" appendTo={fixed ? () => document.body : undefined}>
+        <Dropdown
+          icon={MenuHorizontal}
+          buttonStyle="text"
+          strategy="fixed"
+          appendTo={fixed ? () => document.body : undefined}
+        >
           <Menu>
             <MenuItem.Button>Action</MenuItem.Button>
             <MenuItem.Button>Another action</MenuItem.Button>
@@ -297,7 +302,7 @@ TableWithSelectedRowKeys.args = {
 TableWithSelectedRowKeys.parameters = {
   docs: {
     source: {
-      code: getTableSource("selectedRowKeys={[1, 2, 3]} rowSelection"),
+      code: getTableSource("rowSelection \n \tselectedRowKeys={[1, 2, 3]}"),
     },
   },
 };
@@ -439,7 +444,8 @@ export const TableInLayout = (args) => {
           iconProps={[
             {
               icon: () => <Search size={20} />,
-              onClick: () => setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
+              onClick: () =>
+                setIsSearchCollapsed((isSearchCollapsed) => !isSearchCollapsed),
             },
           ]}
         >
