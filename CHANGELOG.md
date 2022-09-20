@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.6 - 2022-09-20
+
+- Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
+
 ## 4.0.5 - 2022-09-20
 
 - Added: type support for data-cy props in all components that are forward referenced to HTML native elements.
