@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.7 - 2022-09-22
+
+- Fixed: Clicking on neetoQuiz from the app switcher takes the user to the consumer page.
+
 ## 4.0.6 - 2022-09-20
 
 - Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
