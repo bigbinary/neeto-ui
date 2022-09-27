@@ -1,0 +1,12 @@
+.neeto-ui-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  height: 24px;
+  min-width: 24px;
+  color: rgb(var(--neeto-ui-gray-600));
+  font-weight: var(--neeto-ui-font-semibold);
+  background-color: rgb(var(--neeto-ui-gray-200));
+  border-radius: var(--neeto-ui-rounded);
+}
