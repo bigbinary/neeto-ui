@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.8 - 2022-09-28
+
+- Added: *Kbd* component to render keyboard keys.
+
 ## 4.0.7 - 2022-09-22
 
 - Fixed: Clicking on neetoQuiz from the app switcher takes the user to the consumer page.
