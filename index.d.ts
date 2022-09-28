@@ -505,6 +505,11 @@ export type TypographyProps = {
     [key: string]: any;
   };
 
+export type KbdProps = {
+  keyName?: string;
+  className?: string;
+};
+
 // components
 
 export const Accordion: React.FC<AccordionProps> & {
@@ -569,3 +574,4 @@ export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
 export const TimePicker: React.FC<TimePickerProps>;
 export const Typography: React.ForwardRefExoticComponent<TypographyProps>;
 export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
+export const Kbd: React.FC<KbdProps>;

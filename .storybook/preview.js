@@ -46,6 +46,9 @@ export const parameters = {
           "ColorPicker",
           "Spinner",
           "PageLoader",
+          "DatePicker",
+          "TimePicker",
+          "Kbd",
         ],
         "Molecules",
         "Overlays",
@@ -61,9 +64,9 @@ export const parameters = {
     // Override the default light theme
     light: { ...themes.normal, ...neetoTheme },
     current: "light",
-    darkClass: 'neeto-ui-theme--dark',
-    lightClass: 'neeto-ui-theme--light',
-    classTarget: 'body',
+    darkClass: "neeto-ui-theme--dark",
+    lightClass: "neeto-ui-theme--light",
+    classTarget: "body",
     stylePreview: true,
-  }
+  },
 };
