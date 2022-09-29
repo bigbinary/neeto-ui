@@ -51,15 +51,15 @@ const columns = [
     dataIndex: "first_name",
     key: "first_name",
     width: 150,
-    render: (first_name, last_name) => {
+    render: (firstName, lastName) => {
       return (
         <div className="flex flex-row items-center">
           <Avatar
-            user={{ name: `${first_name} ${last_name}` }}
+            user={{ name: `${firstName} ${lastName}` }}
             size="small"
             className="mr-2"
           />
-          {first_name}
+          {firstName}
         </div>
       );
     },
