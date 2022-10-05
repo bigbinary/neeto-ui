@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.10 - 2022-10-05
+
+- Fixed: issue with week picker in `DatePicker`.
+
 ## 4.0.9 - 2022-09-29
 
 - Fixed: warnings in `Tag` and `DatePicker` props.
