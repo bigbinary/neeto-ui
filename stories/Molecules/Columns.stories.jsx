@@ -88,7 +88,7 @@ export const WithFixedColumns = Template.bind();
 WithFixedColumns.args = {
   columnData: DEFAULT_COLUMNS_DATA,
   localStorageKey: "neeto-ui-hidden-columns",
-  fixedColumns: ["Name"],
+  fixedColumns: ["email"],
 };
 
 export const WithActionBlock = Template.bind();
