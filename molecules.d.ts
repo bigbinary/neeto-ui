@@ -1,5 +1,12 @@
 import React from "react";
-import { ButtonProps, SelectProps, TagProps } from "./index";
+import {
+  ButtonProps,
+  CheckboxProps,
+  DropdownProps,
+  InputProps,
+  SelectProps,
+  TagProps,
+} from "./index";
 
 interface Option {
   label: string;
@@ -16,6 +23,19 @@ export interface TagsProps {
   tagProps?: TagProps;
   selectProps?: SelectProps;
   buttonProps?: ButtonProps;
+}
+
+export interface ColumnsProps {
+  actionBlock?: React.ReactNode;
+  checkboxProps?: CheckboxProps;
+  columnData: Object[];
+  dropdownProps?: DropdownProps,
+  fixedColumns?: String[];
+  isSearchable?: boolean;
+  localStorageKey: string;
+  noColumnMessage?: string;
+  searchProps?: InputProps;
+  setColumns: (columns: any[]) => void;
 }
 
 export const Tags: React.FC<TagsProps>;
