@@ -71,7 +71,7 @@ const Template = (args) => {
   return (
     <div className="p-4 mb-2 h-80">
       <div className="flex flex-row justify-end">
-        <Columns {...args} renderColumns={(columns) => setColumnData(columns)} />
+        <Columns {...args} setColumns={(columns) => setColumnData(columns)} />
       </div>
       <Table columnData={columnData} rowData={DEFAULT_ROW_DATA} />
     </div>
@@ -85,6 +85,15 @@ Default.args = {
 };
 
 export const WithFixedColumns = Template.bind();
+WithFixedColumns.storyName = "With fixed columns";
+WithFixedColumns.parameters = {
+  docs: {
+    description: {
+      story:
+        "If you want some columns to be always visible, then add those columns to the `fixedColumns` prop. The `dataIndex` prop is used to identify the column. In the example below, the `email` column will be always visible.",
+    },
+  },
+};
 WithFixedColumns.args = {
   columnData: DEFAULT_COLUMNS_DATA,
   localStorageKey: "neeto-ui-hidden-columns",
@@ -92,10 +101,18 @@ WithFixedColumns.args = {
 };
 
 export const WithActionBlock = Template.bind();
+WithActionBlock.storyName = "With action block";
+WithActionBlock.parameters = {
+  docs: {
+    description: {
+      story: "Action block is a block where you can add custom components. It can be used to add a button or any other component.",
+    },
+  },
+};
 WithActionBlock.args = {
   columnData: DEFAULT_COLUMNS_DATA,
   localStorageKey: "neeto-ui-hidden-columns",
-  actionBlock: () => (
+  actionBlock: (
     <div className="flex w-full flex-col px-3 py-2">
       <Button
         fullWidth
@@ -115,8 +132,16 @@ WithActionBlock.args = {
     </div>)
 };
 
-export const WithSearch = Template.bind();
-WithSearch.args = {
+export const WithSearchInput = Template.bind();
+WithSearchInput.storyName = "With search input";
+WithSearchInput.parameters = {
+  docs: {
+    description: {
+      story: "To enable the search functionality, please provide the `isSearchable` prop. It is disabled by default.",
+    },
+  },
+};
+WithSearchInput.args = {
   columnData: DEFAULT_COLUMNS_DATA,
   localStorageKey: "neeto-ui-hidden-columns",
   isSearchable: true,
