@@ -37,7 +37,7 @@ Table props:
 
 - `columnData` : Columns of the table. Accepts an array of [column definitions](#column_data).
 - `rowData` : Data for rows to be displayed. Accepts an array of JavaScript Objects.
-- `onRowClick` : Handles click event on each row. Accepts a method with `event`, `record` and `index` as parameters.
+- `onRowClick` : Handles click event on each row. Accepts a method with `event`, `record`, and `index` as parameters.
 - `onRowSelect` : Handles select event on each row. Accepts a method with `selectedRowKeys` and `selectedRows` as parameters.
 - `allowRowClick` : Enables row click event. Accepts boolean values. Defaults to `true`.
 - `className` : Custom classnames for each row. Accepts a string.
@@ -87,11 +87,11 @@ const columnData = [
 ```
 
 Keys for a column definition:
-- `title` : The title of a column. It accepts a react Node.
+- `title` : The title of a column. Accepts a react Node.
 - `dataIndex` : The unique key over which, the row data is mapped over for the particular column. Accepts a string or an array of strings.
 - `key` : Unique identifier of a column. Accepts a string.
-- `render` : Defines a render method of that clumn. Accepts a method that returns a react Node.
-- `width` : Width of a column. By default, width will be set to `auto`. Accepts a string or a number.
+- `render` : Defines a render method of that column. Accepts a method that returns a react Node.
+- `width` : Width of a column. Accepts a string or a number. Default value is `auto`.
 
 Refer [column docs](https://ant.design/components/table/#Column) from AntD for more customizations.
 
