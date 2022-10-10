@@ -44,6 +44,7 @@ interface PopupProps {
 
 interface PopupContentProps {
   className?: string;
+  children?: React.ReactNode;
 }
 
 export type ModalProps = PopupProps & { size?: "small" | "medium" | "large" };
@@ -254,7 +255,12 @@ export interface EmailInputProps {
   [key: string]: any;
 }
 
-export type InputProps = {
+export interface InputProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
+  [key: string]: any;
   size?: "small" | "medium" | "large";
   label?: string;
   error?: string;
@@ -266,10 +272,7 @@ export type InputProps = {
   nakedInput?: boolean;
   contentSize?: number;
   required?: boolean;
-} & React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> & { [key: string]: any };
+}
 
 export type LabelProps = {
   className?: string;
@@ -544,8 +547,8 @@ export const Toastr: {
   success: ToastrFunction;
   error: (
     message: React.ReactNode | Error,
-    buttonLabel: React.ReactNode,
-    onClick: () => void
+    buttonLabel?: React.ReactNode,
+    onClick?: () => void
   ) => void;
   warning: ToastrFunction;
 };
