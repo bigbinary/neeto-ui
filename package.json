@@ -6,7 +6,7 @@
   "types": "./index.d.ts",
   "author": "BigBinary",
   "license": "MIT",
-  "description": "neetoUI is the library that drives the experience in all neeto products built at BigBinary",
+  "description": "neetoUI drives the experience at all neeto products",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "build": "NODE_ENV=production rollup -c rollup.config.js",
