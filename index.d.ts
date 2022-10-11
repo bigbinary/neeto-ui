@@ -123,6 +123,8 @@ export type AvatarProps = {
   isSquare?: boolean;
   status?: "online" | "idle" | "offline";
   onClick?: React.MouseEventHandler<HTMLSpanElement>;
+  showTooltip?: boolean;
+  tooltipProps?: TooltipProps;
   className?: string;
 } & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLSpanElement>,

@@ -65,6 +65,24 @@ export const WithStatus = ({}) => {
 };
 WithStatus.storyName = "With status";
 
+// eslint-disable-next-line no-empty-pattern
+export const WithTooltip = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+  return (
+    <div className="flex space-x-6 ">
+      <Avatar user={{ name: "Neeraj Singh" }} size="large" showTooltip />
+      <Avatar
+        user={{ name: "Amal Dinesh", imageUrl }}
+        size="large"
+        showTooltip
+      />
+
+      {/* <Avatar user={{}} status="idle" size="large" /> */}
+    </div>
+  );
+};
+WithTooltip.storyName = "With tooltip";
+
 export const WithCustomClassName = Template.bind({});
 WithCustomClassName.storyName = "With Custom className";
 WithCustomClassName.args = {
