@@ -1,5 +1,7 @@
 `import { Table } from "@bigbinary/neetoui";`
 
+We use Ant Design's `Table` component under the hood. For extra customization, refer [AntD Table](https://ant.design/components/table/).
+
 ```jsx
 const columnData = [
   {
@@ -14,11 +16,11 @@ const columnData = [
 
 const rowData = [
   {
-    id: "1",
+    id: 1,
     // Data for other columns
   },
   {
-    id: "2",
+    id: 2,
     // Data for other columns
   }
 
@@ -28,8 +30,8 @@ const rowData = [
 
 
 <Table
-  columnData = {columnData}
-  rowData = {rowData}
+  columnData={columnData}
+  rowData={rowData}
   />
 ```
 
@@ -37,13 +39,13 @@ Table props:
 
 - `columnData` : Columns of the table. Accepts an array of [column definitions](#column_data).
 - `rowData` : Data for rows to be displayed. Accepts an array of JavaScript Objects.
-- `onRowClick` : Handles click event on each row. Accepts a method with `event`, `record`, and `index` as parameters.
-- `onRowSelect` : Handles select event on each row. Accepts a method with `selectedRowKeys` and `selectedRows` as parameters.
+- `onRowClick` : Handles click event on each row. Accepts a callback with `event`, `record`, and `index` as parameters.
+- `onRowSelect` : Handles select event on each row. Accepts a callback with `selectedRowKeys` and `selectedRows` as parameters.
 - `allowRowClick` : Enables row click event. Accepts boolean values. Defaults to `true`.
 - `className` : Custom classnames for each row. Accepts a string.
-- `currentPageNumber` : Active page number. Accepts an integer.
-- `defaultPageSize` : Sets the number of rows in a page. Accepts an integer.
-- `handlePageChange` : Handles page change events. Accepts a method with `page` and `pageSize` as parameters.
+- `currentPageNumber` : Active page number. Accepts an integer. Defaults to `1`.
+- `defaultPageSize` : Sets the number of rows in a page. Accepts an integer. Defaults to `15`.
+- `handlePageChange` : Handles page change events. Accepts a callback with `page` and `pageSize` as parameters.
 - `totalCount` : Total number of data items. Accepts an integer. Defaults to `0`.
 - `selectedRowKeys` : Controlled selected row keys. Accepts an array of row keys.
 - `paginationProps` : Additional props for pagination. Refer [pagination docs](https://ant.design/components/pagination/#API) from AntD Table.
@@ -87,10 +89,10 @@ const columnData = [
 ```
 
 Keys for a column definition:
-- `title` : The title of a column. Accepts a react Node.
+- `title` : The title of a column. Accepts a valid React Node(string | number | JSX) or a callback that returns a React Node. A hash with `sortOrder`, `sortColumn` and `filters` as keys are available as a parameter to the callback.
 - `dataIndex` : The unique key over which, the row data is mapped over for the particular column. Accepts a string or an array of strings.
 - `key` : Unique identifier of a column. Accepts a string.
-- `render` : Defines a render method of that column. Accepts a method that returns a react Node.
+- `render` : Defines how data should be rendered within the column. Accepts a callback that returns a React Node.
 - `width` : Width of a column. Accepts a string or a number. Default value is `auto`.
 
 Refer [column docs](https://ant.design/components/table/#Column) from AntD for more customizations.
