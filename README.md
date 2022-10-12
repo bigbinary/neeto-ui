@@ -58,7 +58,7 @@ Running the `yarn storybook` command starts a storybook app. Use this applicatio
 
 ## Building
 
-neetoUI gets auto-published to npm on new commit to master. You can checkout the `publish` workflow in git actions to get a live update.
+neetoUI gets auto-published to npm on new commit to main. You can checkout the `publish` workflow in git actions to get a live update.
 
 ## Documentation
 

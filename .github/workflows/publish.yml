@@ -2,7 +2,7 @@ name: "Publish and create releases"
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [closed]
 jobs:
   release:
@@ -80,7 +80,7 @@ jobs:
       - name: Commit and Push changes
         uses: EndBug/add-and-commit@v7
         with:
-          branch: master
+          branch: main
           message: "New version release"
 
       - name: Create Github Release
