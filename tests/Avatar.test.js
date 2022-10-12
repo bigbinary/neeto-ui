@@ -23,9 +23,7 @@ describe("Avatar", () => {
 
   it("should call onClick when the avatar is clicked", () => {
     const onClick = jest.fn();
-    render(
-      <Avatar user={{ name: "neeto UI" }} onClick={onClick} />
-    );
+    render(<Avatar user={{ name: "neeto UI" }} onClick={onClick} />);
     const avatar = screen.getByText("NU");
     userEvent.click(avatar);
     expect(onClick).toBeCalledTimes(1);
@@ -55,5 +53,19 @@ describe("Avatar", () => {
       />
     );
     expect(screen.getByTestId("indicator")).toBeInTheDocument();
+  });
+
+  it("should not show tooltip on hover if showTooltip is not provided", () => {
+    const { queryByText } = render(<Avatar user={{ name: "John Doe" }} />);
+    userEvent.hover(queryByText("JD"));
+    expect(queryByText("John Doe")).not.toBeInTheDocument();
+  });
+
+  it("should show tooltip on hover with user name if showTooltip is set to true", () => {
+    const { getByText } = render(
+      <Avatar user={{ name: "John Doe" }} showTooltip />
+    );
+    userEvent.hover(getByText("JD"));
+    expect(getByText("John Doe")).toBeInTheDocument();
   });
 });
