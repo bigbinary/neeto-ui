@@ -76,8 +76,6 @@ export const WithTooltip = ({}) => {
         size="large"
         showTooltip
       />
-
-      {/* <Avatar user={{}} status="idle" size="large" /> */}
     </div>
   );
 };
