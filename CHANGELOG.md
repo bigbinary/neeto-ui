@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.12 - 2022-10-17
+
+- Added: tooltip to *Avatar* component
+
 ## 4.0.11 - 2022-10-10
 
 - Fixed false positive type errors
