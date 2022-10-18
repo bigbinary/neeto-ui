@@ -5,11 +5,11 @@ on:
     types:
       - completed
     branches:
-      - master
+      - main
 
   pull_request:
     branches:
-      - master
+      - main
     types: [labeled, unlabeled]
 
 jobs:
@@ -30,5 +30,5 @@ jobs:
           always() && steps.enforce_pr_labels.outputs.message != ''
         uses: thollander/actions-comment-pull-request@v1
         with:
-          message: '${{steps.enforce_pr_labels.outputs.message}}'
+          message: "${{steps.enforce_pr_labels.outputs.message}}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
