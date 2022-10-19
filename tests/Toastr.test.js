@@ -18,16 +18,22 @@ const renderToastrButton = (
   return screen.getByText(`${type} Toastr`);
 };
 
-describe("Toastr", () => {
-  ["Success", "Info", "Warning", "Error"].forEach((type) => {
-    it(`should render ${type} Toastr without error`, async () => {
-      const button = renderToastrButton(type);
-      userEvent.click(button);
-      const toastr = await screen.findByText(`This is a ${type} toastr.`);
-      expect(toastr).toBeInTheDocument();
-    });
-  });
+const renderCustomConfigToastrButton = type => {
+  const customConfig = {
+    hideProgressBar: false,
+    role: "custom-role",
+  };
+  const onClick = () => Toastr[type.toLowerCase()](`This is a ${type} toastr.`, "Close", () => {}, customConfig);
+  render(
+    <>
+      <ToastContainer />
+      <Button label={`${type} Toastr`} onClick={onClick} />
+    </>
+  );
+  return screen.getByText(`${type} Toastr`);
+};
 
+describe("Toastr", () => {
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
     it(`should render ${type} Toastr without error`, async () => {
       const button = renderToastrButton(type);
@@ -253,5 +259,23 @@ describe("Toastr", () => {
     userEvent.click(button);
     const errorToastr = await screen.findByText("Something went wrong.");
     expect(errorToastr).toBeInTheDocument();
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr when custom config is passed`, async () => {
+      const button = renderCustomConfigToastrButton(type);
+      userEvent.click(button);
+
+      const toastr = await screen.findByText(`This is a ${type} toastr.`);
+      expect(toastr).toBeInTheDocument();
+
+      const progressBar = await screen.findByRole("progressbar");
+      expect(progressBar).toBeInTheDocument();
+
+      if (type !== "Error") { // Error toast have hardcoded role `alert`
+        const toastrRole = await screen.findByRole("custom-role");
+        expect(toastrRole).toBeInTheDocument();
+      }
+    });
   });
 });
