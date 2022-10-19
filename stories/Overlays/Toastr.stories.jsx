@@ -63,6 +63,20 @@ export const Toastrs = () => {
               )
             }
           />
+          <Button
+            label="Custom config"
+            onClick={() =>
+              Toastr.info(
+                "This toastr have a custom config passed",
+                null,
+                null,
+                {
+                  hideProgressBar: false,
+                  delay: 5000,
+                }
+              )
+            }
+          />
         </div>
       </div>
     </>
