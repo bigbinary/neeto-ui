@@ -35,24 +35,6 @@ const rowData = [
   />
 ```
 
-Table props:
-
-- `columnData` : Columns of the table. Accepts an array of [column definitions](#column_data).
-- `rowData` : Data for rows to be displayed. Accepts an array of JavaScript Objects.
-- `onRowClick` : Handles click event on each row. Accepts a callback with `event`, `record`, and `index` as parameters.
-- `onRowSelect` : Handles select event on each row. Accepts a callback with `selectedRowKeys` and `selectedRows` as parameters.
-- `allowRowClick` : Enables row click event. Accepts boolean values. Defaults to `true`.
-- `className` : Custom classnames for each row. Accepts a string.
-- `currentPageNumber` : Active page number. Accepts an integer. Defaults to `1`.
-- `defaultPageSize` : Sets the number of rows in a page. Accepts an integer. Defaults to `15`.
-- `handlePageChange` : Handles page change events. Accepts a callback with `page` and `pageSize` as parameters.
-- `totalCount` : Total number of data items. Accepts an integer. Defaults to `0`.
-- `selectedRowKeys` : Controlled selected row keys. Accepts an array of row keys.
-- `paginationProps` : Additional props for pagination. Refer [pagination docs](https://ant.design/components/pagination/#API) from AntD Table.
-- `rowSelection` : Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table.
-
-You can find the documentation for other supported props from [AntD Table](https://ant.design/components/table/#API).
-
 ##### columnData <a id="column_data" />
 
 Unlike Antd table `columnData` prop is used to set the column definition.
