@@ -32,7 +32,7 @@ export const Controlled = () => {
   const [value, setValue] = useState("BigBinary");
   return (
     <Textarea
-      label="Controlled Input"
+      label="Controlled input"
       value={value}
       onChange={(e) => setValue(e.target.value)}
     />
@@ -41,14 +41,14 @@ export const Controlled = () => {
 
 export const Required = Template.bind({});
 Required.args = {
-  label: "Required Textarea",
+  label: "Required textarea",
   placeholder: "Enter text",
   required: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: "Disabled Textarea",
+  label: "Disabled textarea",
   placeholder: "Enter text",
   disabled: true,
 };
@@ -70,7 +70,7 @@ HelpText.args = {
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
-  label: "Naked Textarea Field",
+  label: "Naked textarea field",
   placeholder: "Enter text",
   nakedTextarea: true,
 };
