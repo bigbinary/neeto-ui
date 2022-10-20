@@ -1,42 +1,43 @@
 `import { Table } from "@bigbinary/neetoui";`
 
-We use Ant Design's `Table` component under the hood. For extra customization, refer [AntD Table](https://ant.design/components/table/#API).
+We use Ant Design's `Table` component under the hood. For extra customization, refer [AntD Table](https://ant.design/components/table/).
 
-Please follow the below syntax for `columnData` and `rowData`.
+```jsx
+const columnData = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: 75,
+    sorter: (a, b) => a.id - b.id,
+  },
+  // Other column defenitions
+  ]
 
-```js
-const columns = [
-    {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
-      width: 75,
-      sorter: true;
-    },
-    {
-      title: "GUID",
-      dataIndex: "guid",
-      key: "guid",
-      width: 150,
-      ellipsis: {
-        showTitle: false,
-      },
-    },
-  ];
+const rowData = [
+  {
+    id: 1,
+    // Data for other columns
+  },
+  {
+    id: 2,
+    // Data for other columns
+  }
 
-  const handleTableChange = (pagination, filters, sorter) => {
-    console.log(pagination, filters, sorter);
-  };
+  // Other rows
 
+];
+
+
+<Table
+  columnData={columnData}
+  rowData={rowData}
+  />
 ```
 
-- Each column in the table needs to have a `title`, which is the title of that particular column.
-- We can define `width` for certain columns. By default, width will be set to `auto`.
-- Defining a `width` can be useful where you wish to truncate large texts.
-- `dataIndex` is the `key` over which, the row data is mapped over for the particular column.
-- Each column needs to have a unique `key`.
-- `title` accepts `JSX`. Hence, we can wrap it inside a `tooltip` if we wish to show a tooltip on hover of a header.
-- The `render` method inside `columnData` accepts `JSX` and can be used to define custom row data like cells with `Avatar` or `IconButton`. This method is called with the `key` properties of columnData objects. Example,
+##### columnData <a id="column_data" />
+
+Unlike Antd table `columnData` prop is used to set the column definition.
 
 ```jsx
 const columnData = [
@@ -69,11 +70,15 @@ const columnData = [
 ];
 ```
 
-- The `ellipsis` key is used to truncate any large text that overflows the given width for a cell.
-- `defaultPageSize` by default is set to `100`.
-- `onRowClick` handler returns `selectedRowKey and selectedRow`.
-- `onRowSelect` handler returns `selectedRowKeys and selectedRows`.
-- `handlePageChange` returns `page and pageSize`.
+Keys for a column definition:
+- `title` : The title of a column. Accepts a valid React Node(string | number | JSX) or a callback that returns a React Node. A hash with `sortOrder`, `sortColumn` and `filters` as keys are available as a parameter to the callback.
+- `dataIndex` : The unique key over which, the row data is mapped over for the particular column. Accepts a string or an array of strings.
+- `key` : Unique identifier of a column. Accepts a string.
+- `render` : Defines how data should be rendered within the column. Accepts a callback that returns a React Node.
+- `width` : Width of a column. Accepts a string or a number. Default value is `auto`.
+
+Refer [column docs](https://ant.design/components/table/#Column) from AntD for more customizations.
+
 
 #### Using Dropdown inside the table
 

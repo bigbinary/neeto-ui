@@ -42,6 +42,15 @@ export default {
         "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
+  argTypes:{
+    rowData: {
+      control: false,
+    },
+
+    columnData: {
+      control: false,
+    },
+  }
 };
 
 const getColumns = (fixed = false) => [
@@ -230,7 +239,7 @@ const getColumns = (fixed = false) => [
   },
 ];
 
-export const Table = (args) => {
+export const Default = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
@@ -243,11 +252,11 @@ export const Table = (args) => {
   );
 };
 
-Table.args = {
+Default.args = {
   defaultPageSize: 10,
 };
 
-Table.parameters = {
+Default.parameters = {
   docs: {
     source: {
       code: getTableSource(),
@@ -534,7 +543,7 @@ export const TableInLayout = (args) => {
           }}
         />
         <Scrollable className="w-full">
-          <Table
+          <NeetoTable
             loading={isLoading}
             columnData={getColumns()}
             rowData={rowData}

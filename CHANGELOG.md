@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.13 - 2022-10-20
+
+- Fixed: Icons grabbing away click events & onClick not being triggered when icons are replaced during a state change.
+- Fixed: False positive type errors for MenuBar & Dropdown subcomponents
+
 ## 4.0.12 - 2022-10-17
 
 - Added: tooltip to *Avatar* component
