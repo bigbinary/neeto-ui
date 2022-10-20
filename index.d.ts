@@ -564,7 +564,26 @@ export const Button: React.FC<ButtonProps>;
 export const Callout: React.FC<CalloutProps>;
 export const Checkbox: React.FC<CheckboxProps>;
 export const DatePicker: React.FC<DatePickerProps>;
-export const Dropdown: React.FC<DropdownProps>;
+export const Dropdown: React.FC<DropdownProps> & {
+  Menu: React.FC<
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLUListElement>,
+      HTMLUListElement
+    >
+  >;
+  MenuItem: React.FC<
+    React.DetailedHTMLProps<
+      React.LiHTMLAttributes<HTMLLIElement>,
+      HTMLLIElement
+    >
+  > & { Button: ButtonProps };
+  Divider: React.FC<
+    React.DetailedHTMLProps<
+      React.LiHTMLAttributes<HTMLLIElement>,
+      HTMLLIElement
+    >
+  >;
+};
 export const EmailInput: React.FC<EmailInputProps>;
 export const Input: React.ForwardRefExoticComponent<InputProps>;
 export const Label: React.FC<LabelProps>;
