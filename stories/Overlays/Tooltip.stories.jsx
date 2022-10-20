@@ -31,7 +31,7 @@ export const FollowCursor = (args) => {
         content={"Content is string"}
         {...args}
       >
-        <Button style="secondary" label="Follow Cursor" />
+        <Button style="secondary" label="Follow cursor" />
       </Tooltip>
     </div>
   );
@@ -51,7 +51,7 @@ export const JSXContentInside = (args) => {
         }
         {...args}
       >
-        <Button style="secondary" label="On Click" />
+        <Button style="secondary" label="On click" />
       </Tooltip>
     </div>
   );
@@ -167,7 +167,7 @@ export const TooltipOnCustomComponent = () => {
   return (
     <div className="flex items-center justify-center p-10 space-x-6 ">
       <Tooltip position="top" content="Tooltip">
-        <CustomComponent text="Custom Component" />
+        <CustomComponent text="Custom component" />
       </Tooltip>
     </div>
   );
@@ -200,7 +200,7 @@ export const AutoHidingTooltip = () => {
     </div>
   );
 };
-AutoHidingTooltip.storyName = "Auto hiding Tooltip";
+AutoHidingTooltip.storyName = "Auto hiding tooltip";
 TooltipOnCustomComponent.parameters = {
   docs: { description: { story: TooltipDocs } },
 };
@@ -217,7 +217,7 @@ export const HidingTooltipOnTargetExit = () => {
         hideOnTargetExit
       >
         <Typography className="w-full h-6 mx-auto text-center bg-white">
-          Hover Me and Scroll
+          Hover me and scroll
         </Typography>
       </Tooltip>
       {Array.from({ length: 6 }).map((_, key) => (
@@ -226,4 +226,4 @@ export const HidingTooltipOnTargetExit = () => {
     </div>
   );
 };
-HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
+HidingTooltipOnTargetExit.storyName = "Hiding tooltip on target exit";
