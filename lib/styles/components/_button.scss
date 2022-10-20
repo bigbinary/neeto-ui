@@ -22,6 +22,7 @@
 
     .neeto-ui-btn__icon,
     .neeto-ui-btn__spinner svg {
+      pointer-events: none;
       width: 16px !important;
       height: 16px !important;
     }
@@ -36,6 +37,7 @@
     &.neeto-ui-btn--icon-only {
       .neeto-ui-btn__icon,
       .neeto-ui-btn__spinner svg {
+        pointer-events: none;
         width: 20px !important;
         height: 20px !important;
       }
@@ -79,6 +81,7 @@
 .neeto-ui-btn__icon,
 .neeto-ui-btn__spinner,
 .neeto-ui-btn__spinner-wrapper {
+  pointer-events: none;
   color: inherit;
   svg {
     color: inherit !important;
