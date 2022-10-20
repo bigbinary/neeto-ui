@@ -67,7 +67,7 @@ export const Toastrs = () => {
             label="Custom config"
             onClick={() =>
               Toastr.info(
-                "This toastr have a custom config passed",
+                "This toastr has a custom config passed",
                 null,
                 null,
                 {

@@ -272,7 +272,7 @@ describe("Toastr", () => {
       const progressBar = await screen.findByRole("progressbar");
       expect(progressBar).toBeInTheDocument();
 
-      if (type !== "Error") { // Error toast have hardcoded role `alert`
+      if (type !== "Error") {
         const toastrRole = await screen.findByRole("custom-role");
         expect(toastrRole).toBeInTheDocument();
       }
