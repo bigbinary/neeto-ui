@@ -59,7 +59,7 @@ export const MenuBarStory = () => {
         <MenuBar.Block label="Europe" count={80} />
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
-        <MenuBar.AddNew label="Add New Segments" />
+        <MenuBar.AddNew label="Add new segments" />
         <MenuBar.SubTitle
           iconProps={[
             {
@@ -85,20 +85,20 @@ export const MenuBarStory = () => {
         <MenuBar.Block label="Europe" count={80} />
         <MenuBar.Block label="Middle-East" count={60} />
         <MenuBar.Block label="Asia" count={60} />
-        <MenuBar.AddNew label="Add New Tag" />
+        <MenuBar.AddNew label="Add new tag" />
 
         <MenuBar.Item
           label="General"
-          description="Welcome Message, KB and Labels "
+          description="Welcome message, KB and labels "
         />
         <MenuBar.Item
           label="Styling"
           active
-          description="Brand Color, Logo and Widget Position"
+          description="Brand color, logo and widget position"
         />
         <MenuBar.Item
-          label="Widget Icon"
-          description="Position, Icon and Label"
+          label="Widget icon"
+          description="Position, Icon and label"
         />
       </MenuBar>
       <Container>
