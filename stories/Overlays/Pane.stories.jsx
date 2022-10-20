@@ -39,7 +39,7 @@ export const Default = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+            <Button label="Show pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
       </div>
@@ -52,12 +52,12 @@ export const Default = () => {
         </Pane.Header>
         <Pane.Body>
           <Typography style="body2">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
@@ -88,7 +88,7 @@ export const PaneWithModalAndAlert = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
-            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+            <Button label="Show pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
       </div>
@@ -101,16 +101,16 @@ export const PaneWithModalAndAlert = () => {
         </Pane.Header>
         <Pane.Body className="space-y-4">
           <Typography style="body2">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
           <div className="flex space-x-2">
-            <Button label="Show Modal" onClick={() => setShowModal(true)} />
-            <Button label="Show Alert" onClick={() => setShowAlert(true)} />
+            <Button label="Show modal" onClick={() => setShowModal(true)} />
+            <Button label="Show alert" onClick={() => setShowAlert(true)} />
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
@@ -128,16 +128,16 @@ export const PaneWithModalAndAlert = () => {
       </Pane>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header>
-          <h2>Add Label</h2>
+          <h2>Add label</h2>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
           <Input
             label="Input"
@@ -169,4 +169,4 @@ export const PaneWithModalAndAlert = () => {
     </div>
   );
 };
-PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
+PaneWithModalAndAlert.storyName = "Pane with modal and alert";
