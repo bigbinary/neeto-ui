@@ -36,7 +36,7 @@ export const Default = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+            <Button label="Show modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -49,12 +49,12 @@ export const Default = () => {
         </Modal.Header>
         <Modal.Body className="space-y-2">
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
@@ -100,7 +100,7 @@ export const Sizes = () => {
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
         </Modal.Body>
@@ -127,7 +127,7 @@ export const Sizes = () => {
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
         </Modal.Body>
@@ -147,12 +147,12 @@ export const Sizes = () => {
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
@@ -176,7 +176,7 @@ export const ModalFocusTrapping = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+            <Button label="Show modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -193,15 +193,15 @@ export const ModalFocusTrapping = () => {
         </Modal.Header>
         <Modal.Body className="space-y-2">
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
-          <Input label="First Name" />
-          <Input label="Last Name" />
+          <Input label="First name" />
+          <Input label="Last name" />
           <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
@@ -227,7 +227,7 @@ export const NestedModals = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+            <Button label="Show modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -248,8 +248,8 @@ export const NestedModals = () => {
             that the focus is trapped to within the modal. This is done
             inherently by the modal component.
           </Typography>
-          <Input label="First Name" />
-          <Input label="Last Name" />
+          <Input label="First name" />
+          <Input label="Last name" />
           <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
@@ -272,12 +272,12 @@ export const NestedModals = () => {
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
@@ -292,6 +292,7 @@ export const NestedModals = () => {
     </div>
   );
 };
+NestedModals.storyName = "Nested modals";
 
 export const InitialAndFinalFocusRef = () => {
   const [showModal, setShowModal] = useState(false);
@@ -303,7 +304,7 @@ export const InitialAndFinalFocusRef = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+            <Button label="Show modal" onClick={() => setShowModal(true)} />
             <Button
               style="secondary"
               label="Focus here on close"
@@ -326,15 +327,15 @@ export const InitialAndFinalFocusRef = () => {
         </Modal.Header>
         <Modal.Body className="space-y-2">
           <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live The Herculoids! Zok, the laser-ray
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
             and his wife, Tara, and son, Dorno, they team up to protect their
             planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're The Herculoids!
+            They're the Herculoids!
           </Typography>
-          <Input ref={inputRef} label="First Name" />
-          <Input label="Last Name" />
+          <Input ref={inputRef} label="First name" />
+          <Input label="Last name" />
           <Input type="email" label="Email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
