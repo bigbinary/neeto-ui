@@ -70,7 +70,7 @@ export const TriggerStyles = () => {
   return (
     <div className="h-40">
       <div className="flex space-x-3">
-        <Dropdown buttonStyle="primary" label="Primary Dropdown">
+        <Dropdown buttonStyle="primary" label="Primary dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -80,7 +80,7 @@ export const TriggerStyles = () => {
           </Menu>
         </Dropdown>
 
-        <Dropdown buttonStyle="secondary" label="Secondary Dropdown">
+        <Dropdown buttonStyle="secondary" label="Secondary dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -90,7 +90,7 @@ export const TriggerStyles = () => {
           </Menu>
         </Dropdown>
 
-        <Dropdown buttonStyle="text" label="Text Dropdown">
+        <Dropdown buttonStyle="text" label="Text dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -170,7 +170,7 @@ export const WithPrefixAndSuffix = () => {
   const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <Dropdown label="Prefix and Suffix" position="bottom-end">
+      <Dropdown label="Prefix and suffix" position="bottom-end">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button
@@ -269,12 +269,12 @@ export const ControlledDropdown = () => {
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
         <Button
-          label="Open Dropdown"
+          label="Open dropdown"
           style="secondary"
           onClick={() => setIsOpen(true)}
         />
         <Button
-          label="Close Dropdown"
+          label="Close dropdown"
           style="secondary"
           onClick={() => setIsOpen(false)}
         />
@@ -282,7 +282,7 @@ export const ControlledDropdown = () => {
       <Dropdown
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        label="Controlled Dropdown"
+        label="Controlled dropdown"
       >
         <Menu>
           {listItems.map((item, idx) => (
@@ -295,6 +295,7 @@ export const ControlledDropdown = () => {
     </div>
   );
 };
+ControlledDropdown.storyName = "Controlled dropdown";
 
 export const CustomTarget = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -321,9 +322,9 @@ export const CustomDropdown = () => {
   const members = ["Oliver Smith", "Jack Smith"];
   return (
     <div className="h-56">
-      <Dropdown closeOnSelect={false} label="Custom Dropdown">
+      <Dropdown closeOnSelect={false} label="Custom dropdown">
         <div className="flex flex-col gap-y-1 p-2 rounded-md">
-          <Input prefix={<Search />} placeholder="Search Members" />
+          <Input prefix={<Search />} placeholder="Search members" />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">
             {members.map((item, idx) => (
@@ -335,3 +336,5 @@ export const CustomDropdown = () => {
     </div>
   );
 };
+
+CustomDropdown.storyName = "Custom dropdown";
