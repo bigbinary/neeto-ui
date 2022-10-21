@@ -104,7 +104,7 @@ export const MenuBarStory = () => {
       <Container>
         <div className="flex items-center justify-center w-full h-full">
           <Button
-            label={`${showMenu ? "Close" : "Open"} MenuBar`}
+            label={`${showMenu ? "Close" : "Open"} menubar`}
             onClick={() => setShowMenu(!showMenu)}
           />
         </div>
