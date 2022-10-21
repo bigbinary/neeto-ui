@@ -20,7 +20,7 @@ import { Check, Close } from "@bigbinary/neeto-icons";
     gap: 16px;
     margin: 24px 0;
   }
-  
+
 `}</style>
 
 # Content
@@ -31,14 +31,11 @@ import { Check, Close } from "@bigbinary/neeto-icons";
 
 <h3 id="headings-and-subheadings"><a href="#headings-and-subheadings">Headings and subheadings</a></h3>
 
-Headings and subheadings should be:
+Headings and subheadings should be informative and descriptive:
 
-Informative and descriptive:
-
-- Use simple, clear language
-- Keep headings to a single sentence
 - Avoid using punctuation such as periods, commas, or semicolons
-- Write in sentence case (capitalize the first word and proper nouns only)
+- Write in sentence case. Capitalize the first word and proper nouns only.
+- Keep headings to a single sentence
 
 <div className="demo-do-dont-wrap flex gap-4">
   <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
@@ -46,7 +43,7 @@ Informative and descriptive:
       <Check size={30} className="neeto-ui-text-success-500" /> Do
     </h4>
     <ul>
-      <li>Create collection</li>
+      <li>Add new form</li>
       <li>Outbound notifications</li>
       <li>Automation rules</li>
       <li>Allow SMS conversations</li>
@@ -58,7 +55,7 @@ Informative and descriptive:
       <Close size={30} className="neeto-ui-text-error-500" /> Don’t
     </h4>
     <ul>
-      <li>Create a collection</li>
+      <li>Add a new form</li>
       <li>Outbound Notifications</li>
       <li>Automation Rules.</li>
       <li>Allow SMS conversations!</li>
@@ -70,13 +67,10 @@ Informative and descriptive:
 
 <h3 id="buttons"><a href="#buttons">Buttons</a></h3>
 
-Buttons should be:
+Buttons should be clear and predictable:
 
-Clear and predictable:
-
-- Use simple, clear language
 - Avoid unnecessary words and articles such as “the,” “an,” or “a.”
-- Write in sentence case (capitalize the first word and proper nouns only)
+- Write in sentence case. Capitalize the first word and proper nouns only.
 
 <div className="demo-do-dont-wrap flex gap-4">
   <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-m">
@@ -114,7 +108,11 @@ Links need to be clear and predictable.
       <Check size={30} className="neeto-ui-text-success-500" /> Do
     </h4>
     <ul>
-      <li>See <a href="https://webaim.org/intro/" rel="noopener">WebAIM's Introduction to Web Accessibility</a> for more information.</li>
+      <li>
+        See <a href="https://neetodeskhelp.neetokb.com/articles/understanding-ticket-statuses" rel="noopener">
+            neetoDesk's ticket status
+            </a> documentation for more information.
+      </li>
     </ul>
   </div>
   <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-m">
@@ -122,7 +120,9 @@ Links need to be clear and predictable.
       <Close size={30} className="neeto-ui-text-error-500" /> Don’t
     </h4>
     <ul>
-      <li><a href="https://webaim.org/intro/" rel="noopener">Click here</a> to see WebAIM's Introduction to Web Accessibility for more information.</li>
+      <li>
+        <a href="https://neetodeskhelp.neetokb.com/articles/understanding-ticket-statuses" rel="noopener">
+        Click here</a> to see neetoDesk's ticket status documentation for more information.</li>
     </ul>
   </div>
 </div>
