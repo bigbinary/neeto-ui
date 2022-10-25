@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { Formik, Form } from "formik";
 
 import Radio from "../../lib/components/Radio";
+import Button from "../../lib/components/Button";
+import Typography from "../../lib/components/Typography";
+import { Radio as FormikRadio } from "../../lib/components/formik";
 
 export default {
   title: "Components/Radio",
@@ -62,4 +66,47 @@ export const ControlledRadio = (args) => {
       <Radio.Item name="controlledOptions" label="option5" value="Option5" />
     </Radio>
   );
+};
+
+export const FormikRadioStory = () => {
+  const [values, setValues] = useState({});
+
+  return (
+    <>
+      <Formik
+        initialValues={{ reaction: "Happy" }}
+        onSubmit={(values) => setValues(values)}
+      >
+        <Form className="space-y-4">
+          <FormikRadio name="reaction">
+            {[
+              { label: "Happy", value: "Happy" },
+              { label: "Sad", value: "Sad" },
+              { label: "Neutral", value: "Neutral" },
+            ].map((option) => (
+              <FormikRadio.Item
+                key={option.value}
+                label={option.label}
+                value={option.value}
+                name="reaction"
+              />
+            ))}
+          </FormikRadio>
+          <Button type="submit" label="Submit" />
+          <Typography>Reaction: {values.reaction} </Typography>
+        </Form>
+      </Formik>
+    </>
+  );
+};
+
+FormikRadioStory.storyName = "Formik Radio";
+FormikRadioStory.parameters = {
+  docs: {
+    description: {
+      story:
+        "`import { Radio as FormikRadio } from '@bigbinary/neetoui/formik';`",
+    },
+    // source: { code: FORMIK_SELECT },
+  },
 };
