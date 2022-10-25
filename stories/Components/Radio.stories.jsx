@@ -107,6 +107,5 @@ FormikRadioStory.parameters = {
       story:
         "`import { Radio as FormikRadio } from '@bigbinary/neetoui/formik';`",
     },
-    // source: { code: FORMIK_SELECT },
   },
 };
