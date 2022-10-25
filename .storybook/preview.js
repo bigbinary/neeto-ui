@@ -21,7 +21,7 @@ export const parameters = {
         "Changelog",
         "Older versions",
         "Foundation",
-        ["Colors", "Typography", "Iconography", "Helpers"],
+        ["Colors", "Typography", "Iconography", "Helpers", "Language"],
         "Components",
         [
           "Button",
