@@ -88,7 +88,6 @@ export const FormikRadioStory = () => {
                 key={option.value}
                 label={option.label}
                 value={option.value}
-                name="reaction"
               />
             ))}
           </FormikRadio>
