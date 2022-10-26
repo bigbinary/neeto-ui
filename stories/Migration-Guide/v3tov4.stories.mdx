@@ -25,7 +25,7 @@ yarn upgrade @bigbinary/neetoui@4.0.13
 2. **Commit the changes** to `package.json` and `yarn.lock` immediately.
 
 ```shell
-git commit -m "Upgraded neetoui to v4"
+git commit -m "Upgraded neetoUI to v4"
 ```
 
 3. As we have removed the dependencies from the neetoUI package, you will have to install them separately.
@@ -37,7 +37,8 @@ yarn add @emotion/is-prop-valid@1.2.0 antd@4.23.6
 4. We provide a codemod cli tool [@bigbinary/neetoui-codemod-v4](https://github.com/bigbinary/neetoui-codemod-v4) To help you quickly upgrade to v4.
 
 > **Before running codemod cli command, ensure the following:**
-> 1. __The changes related to upgrading neetoUI to v4 should be committed.__ That is, changes to package.json and yarn.lock should be committed.
+>
+> 1. **The changes related to upgrading neetoUI to v4 should be committed.** That is, changes to package.json and yarn.lock should be committed.
 > 2. All other changes, you can either [stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash) them if those changes are not yet commit ready or directly commit them via git.
 
 > This script will migrate all the direct props changes of components. Changes in the nested props have to done manually.
@@ -47,6 +48,7 @@ yarn add @emotion/is-prop-valid@1.2.0 antd@4.23.6
 # Run directly through npx
 npx @bigbinary/neetoui-codemod-v4 src
 ```
+
 Or
 
 ```shell
@@ -65,10 +67,11 @@ neetoui-codemod-v4 src
   </span>
 </div>
 
-__Exceptions__
-  - Implementation of **Dropdown** and **ActionDropdown** component
-  - Complex usage of `style`(old: `color`) prop of **Tag** component
-  - Usage of nested props. Eg. `buttonProps` of **Dropdown** component
+**Exceptions**
+
+- Implementation of **Dropdown** and **ActionDropdown** component
+- Complex usage of `style`(old: `color`) prop of **Tag** component
+- Usage of nested props. Eg. `buttonProps` of **Dropdown** component
 
 <br />
 
