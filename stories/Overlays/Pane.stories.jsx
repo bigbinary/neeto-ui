@@ -39,7 +39,7 @@ export const Default = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show pane" onClick={() => setShowPane(true)} />
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ export const PaneWithModalAndAlert = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
-            <Button label="Show pane" onClick={() => setShowPane(true)} />
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
       </div>
@@ -169,4 +169,4 @@ export const PaneWithModalAndAlert = () => {
     </div>
   );
 };
-PaneWithModalAndAlert.storyName = "Pane with modal and alert";
+PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
