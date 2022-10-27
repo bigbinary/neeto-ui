@@ -32,15 +32,15 @@ export const Toastrs = () => {
       <div className="space-y-6">
         <div className="flex flex-row items-center justify-start space-x-6">
           <Button
-            label="Info toastr"
-            onClick={() => Toastr.info("This is an info toastr.")}
+            label="Info Toastr"
+            onClick={() => Toastr.info("This is an info Toastr.")}
           />
           <Button
-            label="Warning toastr"
-            onClick={() => Toastr.warning("This is a warning toastr.")}
+            label="Warning Toastr"
+            onClick={() => Toastr.warning("This is a warning Toastr.")}
           />
           <Button
-            label="Success toastr"
+            label="Success Toastr"
             onClick={() => Toastr.success("Form has been successfully saved.")}
           />
           <Button
@@ -54,7 +54,7 @@ export const Toastrs = () => {
             }
           />
           <Button
-            label="Error toastr"
+            label="Error Toastr"
             onClick={() =>
               Toastr.error(
                 Error(
@@ -71,7 +71,7 @@ export const Toastrs = () => {
 
 export const ErrorToastr = () => {
   const onStringError = () => {
-    Toastr.error("This is a plain text error toastr!");
+    Toastr.error("This is a plain text error Toastr!");
   };
 
   const onAxiosStringError = () => {
