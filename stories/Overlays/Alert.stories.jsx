@@ -28,7 +28,7 @@ export const Default = () => {
   return (
     <div className="p-4">
       <Button
-        label="Show alert"
+        label="Show Alert"
         style="primary"
         onClick={() => setOpen(true)}
       />
