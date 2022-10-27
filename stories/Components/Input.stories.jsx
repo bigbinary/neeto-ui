@@ -49,7 +49,7 @@ export const Controlled = () => {
   return (
     <Input
       prefix={<Search />}
-      label="Controlled input"
+      label="Controlled Input"
       value={value}
       onChange={(e) => setValue(e.target.value)}
     />
@@ -59,7 +59,7 @@ export const Controlled = () => {
 // eslint-disable-next-line no-empty-pattern
 export const Required = ({}) => (
   <Input
-    label="Required input"
+    label="Required Input"
     placeholder="Input placeholder"
     required={true}
   />
@@ -68,7 +68,7 @@ export const Required = ({}) => (
 // eslint-disable-next-line no-empty-pattern
 export const Disabled = ({}) => (
   <Input
-    label="Disabled input"
+    label="Disabled Input"
     placeholder="Input placeholder"
     disabled={true}
   />
@@ -91,7 +91,7 @@ HelpText.storyName = "Help text";
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
-  label: "Naked input field",
+  label: "Naked Input field",
   nakedInput: true,
   placeholder: "Input placeholder",
 };
@@ -128,7 +128,7 @@ export const InputWithMaxLength = () => {
       <Input
         label="Input with max length"
         maxLength={10}
-        value="Sample input"
+        value="Sample Input"
         placeholder="Input placeholder"
       />
     </div>
