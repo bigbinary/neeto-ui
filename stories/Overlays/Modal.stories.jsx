@@ -36,7 +36,7 @@ export const Default = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ export const ModalFocusTrapping = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -184,8 +184,8 @@ export const ModalFocusTrapping = () => {
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header
           description="Try pressing tab or shift + tab on your keyboard. You would realise
-            that the focus is trapped to within the modal. This is done
-            inherently by the modal component."
+            that the focus is trapped to within the Modal. This is done
+            inherently by the Modal component."
         >
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
@@ -227,7 +227,7 @@ export const NestedModals = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
       </div>
@@ -235,8 +235,8 @@ export const NestedModals = () => {
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header
           description="Try pressing tab or shift + tab on your keyboard. You would realise
-            that the focus is trapped to within the modal. This is done
-            inherently by the modal component."
+            that the focus is trapped to within the Modal. This is done
+            inherently by the Modal component."
         >
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
@@ -245,8 +245,8 @@ export const NestedModals = () => {
         <Modal.Body className="space-y-2">
           <Typography style="body2" lineHeight="normal">
             Try pressing tab or shift + tab on your keyboard. You would realise
-            that the focus is trapped to within the modal. This is done
-            inherently by the modal component.
+            that the focus is trapped to within the Modal. This is done
+            inherently by the Modal component.
           </Typography>
           <Input label="First name" />
           <Input label="Last name" />
@@ -254,7 +254,7 @@ export const NestedModals = () => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            label="Open second modal"
+            label="Open second Modal"
             onClick={() => setShowModal2(true)}
           />
           <Button
@@ -265,7 +265,7 @@ export const NestedModals = () => {
         </Modal.Footer>
       </Modal>
       <Modal isOpen={showModal2} onClose={() => setShowModal2(false)}>
-        <Modal.Header description="Now, you would notice that the focus is trapped inside of the second modal.">
+        <Modal.Header description="Now, you would notice that the focus is trapped inside of the second Modal.">
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
           </Typography>
@@ -304,7 +304,7 @@ export const InitialAndFinalFocusRef = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button
               style="secondary"
               label="Focus here on close"
@@ -320,7 +320,7 @@ export const InitialAndFinalFocusRef = () => {
         initialFocusRef={inputRef}
         finalFocusRef={buttonRef}
       >
-        <Modal.Header description="The focous would be on the input field for first name on opening of the modal and on the secondary button on close.">
+        <Modal.Header description="The focous would be on the input field for first name on opening of the Modal and on the secondary button on close.">
           <Typography style="h2" id="dialog1Title">
             They're creepy & they're kooky
           </Typography>
