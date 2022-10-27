@@ -200,7 +200,7 @@ export const AutoHidingTooltip = () => {
     </div>
   );
 };
-AutoHidingTooltip.storyName = "Auto hiding tooltip";
+AutoHidingTooltip.storyName = "Auto hiding Tooltip";
 TooltipOnCustomComponent.parameters = {
   docs: { description: { story: TooltipDocs } },
 };
@@ -226,4 +226,4 @@ export const HidingTooltipOnTargetExit = () => {
     </div>
   );
 };
-HidingTooltipOnTargetExit.storyName = "Hiding tooltip on target exit";
+HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
