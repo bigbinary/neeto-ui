@@ -70,7 +70,7 @@ export const TriggerStyles = () => {
   return (
     <div className="h-40">
       <div className="flex space-x-3">
-        <Dropdown buttonStyle="primary" label="Primary dropdown">
+        <Dropdown buttonStyle="primary" label="Primary Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -80,7 +80,7 @@ export const TriggerStyles = () => {
           </Menu>
         </Dropdown>
 
-        <Dropdown buttonStyle="secondary" label="Secondary dropdown">
+        <Dropdown buttonStyle="secondary" label="Secondary Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -90,7 +90,7 @@ export const TriggerStyles = () => {
           </Menu>
         </Dropdown>
 
-        <Dropdown buttonStyle="text" label="Text dropdown">
+        <Dropdown buttonStyle="text" label="Text Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -210,7 +210,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
           <Divider />
           <Dropdown
             position="right-start"
-            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
+            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             onClick={(e) => e.stopPropagation()}
           >
             <Menu>
@@ -226,7 +226,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
     </div>
   );
 };
-MultiDropdownWithClickTrigger.storyName = "Multi dropdown with click trigger";
+MultiDropdownWithClickTrigger.storyName = "Multi Dropdown with click trigger";
 
 export const MultiDropdownWithHoverTrigger = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -243,7 +243,7 @@ export const MultiDropdownWithHoverTrigger = () => {
           <Dropdown
             trigger="hover"
             position="right-start"
-            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
+            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -258,7 +258,7 @@ export const MultiDropdownWithHoverTrigger = () => {
     </div>
   );
 };
-MultiDropdownWithHoverTrigger.storyName = "Multi dropdown with hover trigger";
+MultiDropdownWithHoverTrigger.storyName = "Multi Dropdown with hover trigger";
 
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -269,12 +269,12 @@ export const ControlledDropdown = () => {
     <div className="flex flex-col items-start space-y-6 h-60">
       <div className="flex items-center space-x-4">
         <Button
-          label="Open dropdown"
+          label="Open Dropdown"
           style="secondary"
           onClick={() => setIsOpen(true)}
         />
         <Button
-          label="Close dropdown"
+          label="Close Dropdown"
           style="secondary"
           onClick={() => setIsOpen(false)}
         />
@@ -282,7 +282,7 @@ export const ControlledDropdown = () => {
       <Dropdown
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        label="Controlled dropdown"
+        label="Controlled Dropdown"
       >
         <Menu>
           {listItems.map((item, idx) => (
@@ -295,7 +295,7 @@ export const ControlledDropdown = () => {
     </div>
   );
 };
-ControlledDropdown.storyName = "Controlled dropdown";
+ControlledDropdown.storyName = "Controlled Dropdown";
 
 export const CustomTarget = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -322,7 +322,7 @@ export const CustomDropdown = () => {
   const members = ["Oliver Smith", "Jack Smith"];
   return (
     <div className="h-56">
-      <Dropdown closeOnSelect={false} label="Custom dropdown">
+      <Dropdown closeOnSelect={false} label="Custom Dropdown">
         <div className="flex flex-col gap-y-1 p-2 rounded-md">
           <Input prefix={<Search />} placeholder="Search members" />
           <Typography style="body3">Results</Typography>
@@ -337,4 +337,4 @@ export const CustomDropdown = () => {
   );
 };
 
-CustomDropdown.storyName = "Custom dropdown";
+CustomDropdown.storyName = "Custom Dropdown";
