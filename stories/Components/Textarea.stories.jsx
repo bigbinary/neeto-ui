@@ -41,14 +41,14 @@ export const Controlled = () => {
 
 export const Required = Template.bind({});
 Required.args = {
-  label: "Required textarea",
+  label: "Required Textarea",
   placeholder: "Enter text",
   required: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: "Disabled textarea",
+  label: "Disabled Textarea",
   placeholder: "Enter text",
   disabled: true,
 };
@@ -70,7 +70,7 @@ HelpText.args = {
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
-  label: "Naked textarea field",
+  label: "Naked Textarea field",
   placeholder: "Enter text",
   nakedTextarea: true,
 };
