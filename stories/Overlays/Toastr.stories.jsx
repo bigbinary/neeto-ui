@@ -64,15 +64,28 @@ export const Toastrs = () => {
             }
           />
           <Button
-            label="Custom config"
+            label="Custom config 1"
             onClick={() =>
               Toastr.info(
-                "This toastr has a custom config passed",
-                null,
-                null,
+                "This toastr has a custom configuration along with buttonLabel and onClick callback as separate arguments",
+                "Okay",
+                () => {},
                 {
                   hideProgressBar: false,
-                  delay: 5000,
+                  duration: 5000,
+                }
+              )
+            }
+          />
+          <Button
+            label="Custom config 2"
+            onClick={() =>
+              Toastr.show(
+                "This toastr has a custom configuration passed which includes buttonLabel and onClick in the same config object",
+                {
+                  buttonLabel: "Custom button label impl 2",
+                  onClick: () => {},
+                  duration: 3000,
                 }
               )
             }
