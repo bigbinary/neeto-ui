@@ -100,10 +100,10 @@ export const Sizes = ({}) => {
 };
 
 export const MultiSelect = Template.bind({});
-MultiSelect.storyName = "Multi select";
+MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
-  label: "Multi select",
-  storyName: "Multi select",
+  label: "Multi Select",
+  storyName: "Multi Select",
   isMulti: true,
   defaultValue: [
     { value: "value3", label: "Value three" },
@@ -122,7 +122,7 @@ MultiSelect.args = {
 
 export const Grouped = Template.bind({});
 Grouped.args = {
-  label: "Grouped select",
+  label: "Grouped Select",
   isMulti: true,
   defaultValue: [
     { value: "value3", label: "Value three" },
@@ -166,7 +166,7 @@ export const Creatable = ({}) => {
   return (
     <div className="p-4 mb-2 h-60">
       <Select
-        label="Grouped select"
+        label="Grouped Select"
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
@@ -317,7 +317,7 @@ SelectInModal.parameters = {
   docs: {
     description: {
       story:
-        "To properly render select inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+        "To properly render Select inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
@@ -410,7 +410,7 @@ export const FormikSelectStory = ({}) => {
   );
 };
 
-FormikSelectStory.storyName = "Formik select";
+FormikSelectStory.storyName = "Formik Select";
 FormikSelectStory.parameters = {
   docs: {
     description: {
