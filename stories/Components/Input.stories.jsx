@@ -30,16 +30,16 @@ const Template = (args) => <Input {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   label: "Input label",
-  placeholder: "Input Placeholder",
+  placeholder: "Input placeholder",
 };
 
 // eslint-disable-next-line no-empty-pattern
 export const Sizes = ({}) => {
   return (
     <div className="flex flex-col w-full gap-3">
-      <Input label="Small" placeholder="Input Placeholder" size="small" />
-      <Input label="Medium" placeholder="Input Placeholder" />
-      <Input label="Large" placeholder="Input Placeholder" size="large" />
+      <Input label="Small" placeholder="Input placeholder" size="small" />
+      <Input label="Medium" placeholder="Input placeholder" />
+      <Input label="Large" placeholder="Input placeholder" size="large" />
     </div>
   );
 };
@@ -60,7 +60,7 @@ export const Controlled = () => {
 export const Required = ({}) => (
   <Input
     label="Required Input"
-    placeholder="Input Placeholder"
+    placeholder="Input placeholder"
     required={true}
   />
 );
@@ -69,7 +69,7 @@ export const Required = ({}) => (
 export const Disabled = ({}) => (
   <Input
     label="Disabled Input"
-    placeholder="Input Placeholder"
+    placeholder="Input placeholder"
     disabled={true}
   />
 );
@@ -78,22 +78,22 @@ export const Error = Template.bind({});
 Error.args = {
   label: "Error",
   error: "Provide valid email",
-  placeholder: "Input Placeholder",
+  placeholder: "Input placeholder",
 };
 
 export const HelpText = Template.bind({});
 HelpText.args = {
   label: "Error",
   helpText: "This is help text.",
-  placeholder: "Input Placeholder",
+  placeholder: "Input placeholder",
 };
 HelpText.storyName = "Help text";
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
-  label: "Naked Input Field",
+  label: "Naked Input field",
   nakedInput: true,
-  placeholder: "Input Placeholder",
+  placeholder: "Input placeholder",
 };
 
 export const SearchInput = Template.bind({});
@@ -111,25 +111,25 @@ export const InputWithMaxLength = () => {
       <Input
         label="Input with max length"
         maxLength={10}
-        placeholder="Input Placeholder"
+        placeholder="Input placeholder"
       />
       <Input
         label="Input with max length"
         maxLength={10}
-        value="Sample I"
-        placeholder="Input Placeholder"
+        value="Sample i"
+        placeholder="Input placeholder"
       />
       <Input
         label="Input with max length"
         maxLength={10}
-        value="Sample In"
-        placeholder="Input Placeholder"
+        value="Sample in"
+        placeholder="Input placeholder"
       />
       <Input
         label="Input with max length"
         maxLength={10}
         value="Sample Input"
-        placeholder="Input Placeholder"
+        placeholder="Input placeholder"
       />
     </div>
   );

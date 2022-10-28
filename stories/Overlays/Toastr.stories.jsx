@@ -33,11 +33,11 @@ export const Toastrs = () => {
         <div className="flex flex-row items-center justify-start space-x-6">
           <Button
             label="Info Toastr"
-            onClick={() => Toastr.info("This is an info toastr.")}
+            onClick={() => Toastr.info("This is an info Toastr.")}
           />
           <Button
             label="Warning Toastr"
-            onClick={() => Toastr.warning("This is a warning toastr.")}
+            onClick={() => Toastr.warning("This is a warning Toastr.")}
           />
           <Button
             label="Success Toastr"
@@ -48,7 +48,7 @@ export const Toastrs = () => {
             onClick={() =>
               Toastr.error(
                 Error("Ticket marked as spam."),
-                "Block Customer",
+                "Block customer",
                 showAlert
               )
             }
@@ -71,7 +71,7 @@ export const Toastrs = () => {
 
 export const ErrorToastr = () => {
   const onStringError = () => {
-    Toastr.error("This is a plain text error toastr!");
+    Toastr.error("This is a plain text error Toastr!");
   };
 
   const onAxiosStringError = () => {
@@ -84,7 +84,7 @@ export const ErrorToastr = () => {
         },
         response: {
           data: {
-            error: "Not Found",
+            error: "Not found",
           },
           status: 404,
         },
@@ -119,7 +119,7 @@ export const ErrorToastr = () => {
     <>
       <ToastContainer />
       <div className="space-x-6">
-        <Button label="String Error" onClick={onStringError} />
+        <Button label="String error" onClick={onStringError} />
         <Button label="Throw an axios error" onClick={onAxiosStringError} />
         <Button
           label="Throw an axios error with array of error messages"

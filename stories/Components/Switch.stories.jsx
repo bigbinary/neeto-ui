@@ -53,11 +53,11 @@ Disabled.args = {
 
 export const Label = ({}) => (
   <div className="flex flex-col space-y-6">
-    <Switch label="Switch Label Example" />
+    <Switch label="Switch label example" />
     <Switch
       label={
         <span className="font-semibold neeto-ui-text-info-500">
-          Custom Label Example
+          Custom label example
         </span>
       }
     />
