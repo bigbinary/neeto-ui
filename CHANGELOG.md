@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.14 - 2022-10-28
+
+- Added: ability to pass custom config to Toastr.
+
 ## 4.0.13 - 2022-10-20
 
 - Fixed: Icons grabbing away click events & onClick not being triggered when icons are replaced during a state change.
