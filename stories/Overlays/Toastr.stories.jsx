@@ -63,33 +63,6 @@ export const Toastrs = () => {
               )
             }
           />
-          <Button
-            label="Custom config 1"
-            onClick={() =>
-              Toastr.info(
-                "This toastr has a custom configuration along with buttonLabel and onClick callback as separate arguments",
-                "Okay",
-                () => {},
-                {
-                  hideProgressBar: false,
-                  duration: 5000,
-                }
-              )
-            }
-          />
-          <Button
-            label="Custom config 2"
-            onClick={() =>
-              Toastr.show(
-                "This toastr has a custom configuration passed which includes buttonLabel and onClick in the same config object",
-                {
-                  buttonLabel: "Custom button label impl 2",
-                  onClick: () => {},
-                  duration: 3000,
-                }
-              )
-            }
-          />
         </div>
       </div>
     </>
@@ -156,3 +129,39 @@ export const ErrorToastr = () => {
     </>
   );
 };
+
+export const CustomConfigToastr = () =>
+  <>
+    <ToastContainer />
+    <div className="space-x-6">
+      <Button
+        label="Custom config 1"
+        onClick={() =>
+          Toastr.info(
+            "This toastr has a custom configuration along with buttonLabel and onClick callback as separate arguments",
+            "Okay",
+            () => {},
+            {
+              hideProgressBar: false,
+              duration: 5000,
+            }
+          )
+        }
+      />
+      <Button
+        label="Custom config 2"
+        onClick={() =>
+          Toastr.show(
+            "This toastr has a custom configuration passed which includes buttonLabel and onClick in the same config object",
+            {
+              buttonLabel: "Okay",
+              onClick: () => {},
+              duration: 3000,
+            }
+          )
+        }
+      />
+    </div>
+  </>;
+
+CustomConfigToastr.storyName = "Custom config toastr";
