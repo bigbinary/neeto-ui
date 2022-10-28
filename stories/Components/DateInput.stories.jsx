@@ -58,7 +58,7 @@ export const DatePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
+      <Button label="Open modal" onClick={() => setIsOpen(true)} />
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
@@ -77,13 +77,13 @@ export const DatePickerInModal = (args) => {
     </>
   );
 };
-DatePickerInModal.storyName = "DatePicker in Modal";
+DatePickerInModal.storyName = "DatePicker in modal";
 
 export const DatePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <Button label="Open Pane" onClick={() => setIsOpen(true)} />
+      <Button label="Open pane" onClick={() => setIsOpen(true)} />
       <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h3">Pane</Typography>
@@ -101,7 +101,7 @@ export const DatePickerInPane = (args) => {
     </>
   );
 };
-DatePickerInPane.storyName = "DatePicker in Pane";
+DatePickerInPane.storyName = "DatePicker in pane";
 
 export const DatePickerWithDefaultValue = (args) => {
   return (
@@ -128,7 +128,7 @@ export const DateRangePicker = () => {
   return (
     <div className="space-y-3">
       <DatePicker
-        label="Date Range"
+        label="Date range"
         type="range"
         defaultValue={
           isChromatic()

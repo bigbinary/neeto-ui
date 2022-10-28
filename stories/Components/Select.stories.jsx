@@ -33,18 +33,18 @@ const Template = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Select",
-  defaultValue: { value: "value3", label: "Value Three" },
-  placeholder: "Select an Option",
+  defaultValue: { value: "value3", label: "Value three" },
+  placeholder: "Select an option",
   isDisabled: false,
   isClearable: true,
   isSearchable: true,
   name: "ValueList",
   options: [
-    { value: "value1", label: "Value One" },
-    { value: "value2", label: "Value Two" },
-    { value: "value3", label: "Value Three" },
-    { value: "value4", label: "Value Four" },
-    { value: "value5", label: "Value Five" },
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
   ],
 };
 
@@ -56,13 +56,13 @@ export const Sizes = ({}) => {
           <Select
             label="Small"
             size="small"
-            placeholder="Select Placeholder"
+            placeholder="Select placeholder"
             options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
+              { value: "value1", label: "Value one" },
+              { value: "value2", label: "Value two" },
+              { value: "value3", label: "Value three" },
+              { value: "value4", label: "Value four" },
+              { value: "value5", label: "Value five" },
             ]}
           />
         </div>
@@ -70,13 +70,13 @@ export const Sizes = ({}) => {
           <Select
             label="Medium"
             // size="medium"
-            placeholder="Select Placeholder"
+            placeholder="Select placeholder"
             options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
+              { value: "value1", label: "Value one" },
+              { value: "value2", label: "Value two" },
+              { value: "value3", label: "Value three" },
+              { value: "value4", label: "Value four" },
+              { value: "value5", label: "Value five" },
             ]}
           />
         </div>
@@ -84,13 +84,13 @@ export const Sizes = ({}) => {
           <Select
             label="Large"
             size="large"
-            placeholder="Select Placeholder"
+            placeholder="Select placeholder"
             options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
-              { value: "value4", label: "Value Four" },
-              { value: "value5", label: "Value Five" },
+              { value: "value1", label: "Value one" },
+              { value: "value2", label: "Value two" },
+              { value: "value3", label: "Value three" },
+              { value: "value4", label: "Value four" },
+              { value: "value5", label: "Value five" },
             ]}
           />
         </div>
@@ -100,21 +100,23 @@ export const Sizes = ({}) => {
 };
 
 export const MultiSelect = Template.bind({});
+MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
   label: "Multi Select",
+  storyName: "Multi Select",
   isMulti: true,
   defaultValue: [
-    { value: "value3", label: "Value Three" },
-    { value: "value5", label: "Value Five" },
+    { value: "value3", label: "Value three" },
+    { value: "value5", label: "Value five" },
   ],
-  placeholder: "Select an Option",
+  placeholder: "Select an option",
   name: "ValueList",
   options: [
-    { value: "value1", label: "Value One" },
-    { value: "value2", label: "Value Two" },
-    { value: "value3", label: "Value Three" },
-    { value: "value4", label: "Value Four" },
-    { value: "value5", label: "Value Five" },
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
   ],
 };
 
@@ -123,30 +125,30 @@ Grouped.args = {
   label: "Grouped Select",
   isMulti: true,
   defaultValue: [
-    { value: "value3", label: "Value Three" },
-    { value: "value7", label: "Value Seven" },
+    { value: "value3", label: "Value three" },
+    { value: "value7", label: "Value seven" },
   ],
-  placeholder: "Select an Option",
+  placeholder: "Select an option",
   name: "ValueList",
   options: [
     {
       label: "Group A",
       options: [
-        { value: "value1", label: "Value One" },
-        { value: "value2", label: "Value Two" },
-        { value: "value3", label: "Value Three" },
-        { value: "value4", label: "Value Four" },
-        { value: "value5", label: "Value Five" },
+        { value: "value1", label: "Value one" },
+        { value: "value2", label: "Value two" },
+        { value: "value3", label: "Value three" },
+        { value: "value4", label: "Value four" },
+        { value: "value5", label: "Value five" },
       ],
     },
     {
       label: "Group B",
       options: [
-        { value: "value6", label: "Value Six" },
-        { value: "value7", label: "Value Seven" },
-        { value: "value8", label: "Value Eight" },
-        { value: "value9", label: "Value Nine" },
-        { value: "value10", label: "Value Ten" },
+        { value: "value6", label: "Value six" },
+        { value: "value7", label: "Value seven" },
+        { value: "value8", label: "Value eight" },
+        { value: "value9", label: "Value nine" },
+        { value: "value10", label: "Value ten" },
       ],
     },
   ],
@@ -154,11 +156,11 @@ Grouped.args = {
 
 export const Creatable = ({}) => {
   const [options, setOptions] = useState([
-    { value: "value1", label: "Value One" },
-    { value: "value2", label: "Value Two" },
-    { value: "value3", label: "Value Three" },
-    { value: "value4", label: "Value Four" },
-    { value: "value5", label: "Value Five" },
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
   ]);
 
   return (
@@ -167,8 +169,8 @@ export const Creatable = ({}) => {
         label="Grouped Select"
         isCreateable
         isSearchable
-        defaultValue={[{ value: "value3", label: "Value Three" }]}
-        placeholder="Select an Option"
+        defaultValue={[{ value: "value3", label: "Value three" }]}
+        placeholder="Select an option"
         onCreateOption={(inputValue) =>
           setOptions([...options, { label: inputValue, value: inputValue }])
         }
@@ -182,11 +184,11 @@ export const Creatable = ({}) => {
 export const AsyncCreatable = ({}) => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
-    { value: "value1", label: "Value One" },
-    { value: "value2", label: "Value Two" },
-    { value: "value3", label: "Value Three" },
-    { value: "value4", label: "Value Four" },
-    { value: "value5", label: "Value Five" },
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
   ]);
 
   const filterOptions = (inputValue) => {
@@ -205,7 +207,7 @@ export const AsyncCreatable = ({}) => {
   return (
     <div className="p-4 mb-2 h-60">
       <Select
-        placeholder="Select Placeholder"
+        placeholder="Select placeholder"
         className="w-full"
         size="small"
         label="Select"
@@ -225,22 +227,23 @@ export const AsyncCreatable = ({}) => {
     </div>
   );
 };
+AsyncCreatable.storyName = "Async creatable";
 
 export const Searchable = ({}) => {
   return (
     <div className="p-4 mb-2 h-60">
       <Select
-        placeholder="Select Placeholder"
+        placeholder="Select placeholder"
         className="w-full"
         size="small"
         label="Select"
         isSearchable
         options={[
-          { value: "value1", label: "Value One" },
-          { value: "value2", label: "Value Two" },
-          { value: "value3", label: "Value Three" },
-          { value: "value4", label: "Value Four" },
-          { value: "value5", label: "Value Five" },
+          { value: "value1", label: "Value one" },
+          { value: "value2", label: "Value two" },
+          { value: "value3", label: "Value three" },
+          { value: "value4", label: "Value four" },
+          { value: "value5", label: "Value five" },
         ]}
       />
     </div>
@@ -271,9 +274,9 @@ export const ExampleWithRef = ({}) => {
           innerRef={selectRef}
           openMenuOnFocus
           options={[
-            { value: "value1", label: "Value One" },
-            { value: "value2", label: "Value Two" },
-            { value: "value3", label: "Value Three" },
+            { value: "value1", label: "Value one" },
+            { value: "value2", label: "Value two" },
+            { value: "value3", label: "Value three" },
           ]}
         />
       </div>
@@ -293,13 +296,13 @@ export const SelectInModal = ({}) => {
         </Modal.Header>
         <Modal.Body>
           <Select
-            placeholder="Select Placeholder"
+            placeholder="Select placeholder"
             label="Select"
             strategy="fixed"
             options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
+              { value: "value1", label: "Value one" },
+              { value: "value2", label: "Value two" },
+              { value: "value3", label: "Value three" },
             ]}
           />
         </Modal.Body>
@@ -314,7 +317,7 @@ SelectInModal.parameters = {
   docs: {
     description: {
       story:
-        "To properly render Select inside a Modal or Pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+        "To properly render Select inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
@@ -330,14 +333,14 @@ export const SelectInPane = ({}) => {
         </Pane.Header>
         <Pane.Body className="w-full">
           <Select
-            placeholder="Select Placeholder"
+            placeholder="Select placeholder"
             className="w-full"
             label="Select"
             strategy="fixed"
             options={[
-              { value: "value1", label: "Value One" },
-              { value: "value2", label: "Value Two" },
-              { value: "value3", label: "Value Three" },
+              { value: "value1", label: "Value one" },
+              { value: "value2", label: "Value two" },
+              { value: "value3", label: "Value three" },
             ]}
           />
         </Pane.Body>
@@ -398,7 +401,7 @@ export const FormikSelectStory = ({}) => {
         )}
       </Formik>
       <div className="py-6">
-        <Typography weight="bold">Selected Values:</Typography>
+        <Typography weight="bold">Selected values:</Typography>
         {values.selects?.map(({ formikSelect }, index) => (
           <Typography key={index}>{formikSelect?.label}</Typography>
         ))}

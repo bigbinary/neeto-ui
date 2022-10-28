@@ -93,7 +93,7 @@ export const Styles = ({}) => {
 };
 
 export const MultipleAccordionStory = Template.bind({});
-MultipleAccordionStory.storyName = "Multiple Accordions";
+MultipleAccordionStory.storyName = "Multiple accordions";
 
 export const DefaultActiveKeyStory = Template.bind({});
 DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";

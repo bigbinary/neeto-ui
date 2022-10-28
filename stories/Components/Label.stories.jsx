@@ -22,18 +22,18 @@ const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: "This is a default label",
+  children: "This is a default Label",
 };
 
 export const Required = Template.bind({});
 Required.args = {
-  children: "This is a required label",
+  children: "This is a required Label",
   required: true,
 };
 
 export const WithHelpIcon = Template.bind({});
 WithHelpIcon.args = {
-  children: "This is a label with a help icon",
+  children: "This is a Label with a help icon",
   required: true,
   helpIconProps: {
     onClick: () => window.open("https://neetoui.onrender.com"),

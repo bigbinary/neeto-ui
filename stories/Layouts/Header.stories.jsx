@@ -26,7 +26,7 @@ const Template = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   title: "Layouts",
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button label="Primary action" />,
 };
 
 export const WithSearchInput = Template.bind({});
@@ -37,7 +37,7 @@ WithSearchInput.args = {
     value: "",
     onChange: () => {},
   },
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button label="Primary action" />,
 };
 
 export const WithMenuBarToggle = Template.bind({});
@@ -45,16 +45,17 @@ WithMenuBarToggle.storyName = "With MenuBar toggle";
 WithMenuBarToggle.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button label="Primary action" />,
 };
 
 export const WithBreadcrumbs = Template.bind({});
 WithBreadcrumbs.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
-  actionBlock: <Button label="Primary Action" />,
+  actionBlock: <Button label="Primary action" />,
   breadcrumbs: [
     { text: "Home", link: "/" },
     { text: "Settings", link: "/" },
   ],
 };
+WithBreadcrumbs.storyName = "With breadcrumbs";

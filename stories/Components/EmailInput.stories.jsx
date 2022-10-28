@@ -12,7 +12,7 @@ import Typography from "../../lib/components/Typography";
 import EmailInputDocs from "!raw-loader!./EmailInputDocs.mdx";
 
 export default {
-  title: "Components/Email Input",
+  title: "Components/Email input",
   component: EmailInput,
   parameters: {
     layout: "padded",
@@ -174,7 +174,7 @@ export const FormikEmail = () => {
         />
         <Button
           type="submit"
-          label="Save Changes"
+          label="Save changes"
           style="primary"
           data-cy="add-member-submit-button"
         />
@@ -183,3 +183,5 @@ export const FormikEmail = () => {
     </Formik>
   );
 };
+
+FormikEmail.storyName = "Formik email";
