@@ -186,11 +186,11 @@ ProfileSectionWithChangelogAndHelp.args = {
     changelogProps: {
       icon: Notification,
       id: "neetochangelog-trigger",
-      label: "What's New",
-      onClick: () => alert("Clicked on What's new"),
+      label: "What's new",
+      onClick: () => alert("Clicked on what's new"),
     },
     helpProps: {
-      onClick: () => alert("Clicked on Help"),
+      onClick: () => alert("Clicked on help"),
     },
     topLinks: [
       {

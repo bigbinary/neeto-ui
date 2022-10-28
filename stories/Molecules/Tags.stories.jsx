@@ -92,6 +92,7 @@ WithHeading.args = {
     },
   ],
 };
+WithHeading.storyName = "With heading";
 
 export const TagWithColor = Template.bind();
 TagWithColor.args = {
@@ -120,3 +121,4 @@ TagWithColor.args = {
     type: "outline",
   },
 };
+TagWithColor.storyName = "Tag with color";

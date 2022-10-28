@@ -10,7 +10,7 @@ import {
 } from "../../lib/components/layouts";
 
 const description = `
-Scrollable is used when contents are overflowing the viewport and requires scrolling. It is primarily used along with Container.
+Scrollable is used when contents are overflowing the viewport and requires scrolling. It is primarily used along with \`Container\`.
 
 \`import { Scrollable } from "@bigbinary/neetoui/layouts"\`
 `;
@@ -63,7 +63,7 @@ export const WithHeader = (args) => {
     </Container>
   );
 };
-
+WithHeader.storyName = "With header";
 WithHeader.args = {
   size: "large",
 };
@@ -101,7 +101,7 @@ export const WithHeaderAndSubHeader = (args) => {
     </Container>
   );
 };
-WithHeaderAndSubHeader.storyName = "With Header and SubHeader";
+WithHeaderAndSubHeader.storyName = "With header and subheader";
 WithHeaderAndSubHeader.args = {
   size: "small",
 };

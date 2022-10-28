@@ -82,7 +82,7 @@ export const WithTooltip = ({}) => {
 WithTooltip.storyName = "With tooltip";
 
 export const WithCustomClassName = Template.bind({});
-WithCustomClassName.storyName = "With Custom className";
+WithCustomClassName.storyName = "With custom className";
 WithCustomClassName.args = {
   onClick,
   user: { name: "neeto UI" },

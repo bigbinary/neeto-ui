@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.15 - 2022-10-28
+
+- Added: Border for menubar block and item active states.
+
 ## 4.0.14 - 2022-10-28
 
 - Added: ability to pass custom config to Toastr.
