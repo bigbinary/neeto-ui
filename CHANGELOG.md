@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.16 - 2022-10-28
+
+Changes documentations to sentence case from title casing.
+
 ## 4.0.15 - 2022-10-28
 
 - Added: Border for menubar block and item active states.
