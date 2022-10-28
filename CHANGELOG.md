@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.17 - 2022-10-28
+
+- Fixed:`ValidateDOMNesting` warning in *DatePicker* component.
+- Fixed: the issue with date items looking disabled in normal state
+
 ## 4.0.16 - 2022-10-28
 
 Changes documentations to sentence case from title casing.
