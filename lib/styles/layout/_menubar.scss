@@ -61,6 +61,7 @@
   cursor: pointer;
   color: rgb(var(--neeto-ui-gray-700));
   border-radius: var(--neeto-ui-rounded);
+  border: thin solid transparent;
 
   &:hover,
   &:focus,
@@ -75,6 +76,7 @@
     background-color: rgb(var(--neeto-ui-white));
     color: rgb(var(--neeto-ui-gray-800));
     box-shadow: var(--neeto-ui-shadow-xs);
+    border-color: rgb(var(--neeto-ui-gray-300));
 
     &:hover,
     &:focus,
@@ -103,6 +105,7 @@
   text-align: left;
   cursor: pointer;
   border-radius: var(--neeto-ui-rounded);
+  border: thin solid transparent;
 
   &:hover,
   &:focus,
@@ -116,6 +119,7 @@
     background-color: rgb(var(--neeto-ui-white));
     color: rgb(var(--neeto-ui-gray-800));
     box-shadow: var(--neeto-ui-shadow-xs);
+    border-color: rgb(var(--neeto-ui-gray-300));
 
     &:hover,
     &:focus,

@@ -31,7 +31,7 @@ export const TimePickerInModal = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
+      <Button label="Open modal" onClick={() => setIsOpen(true)} />
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
@@ -50,13 +50,13 @@ export const TimePickerInModal = (args) => {
     </>
   );
 };
-TimePickerInModal.storyName = "TimePicker in Modal";
+TimePickerInModal.storyName = "TimePicker in modal";
 
 export const TimePickerInPane = (args) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <Button label="Open Pane" onClick={() => setIsOpen(true)} />
+      <Button label="Open pane" onClick={() => setIsOpen(true)} />
       <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h3">Pane</Typography>
@@ -74,7 +74,7 @@ export const TimePickerInPane = (args) => {
     </>
   );
 };
-TimePickerInPane.storyName = "TimePicker in Pane";
+TimePickerInPane.storyName = "TimePicker in pane";
 
 export const TimePickerWithRef = () => {
   const ref = React.useRef();

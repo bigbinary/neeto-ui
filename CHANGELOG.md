@@ -23,6 +23,23 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.0.17 - 2022-10-28
+
+- Fixed:`ValidateDOMNesting` warning in *DatePicker* component.
+- Fixed: the issue with date items looking disabled in normal state
+
+## 4.0.16 - 2022-10-28
+
+Changes documentations to sentence case from title casing.
+
+## 4.0.15 - 2022-10-28
+
+- Added: Border for menubar block and item active states.
+
+## 4.0.14 - 2022-10-28
+
+- Added: ability to pass custom config to Toastr.
+
 ## 4.0.13 - 2022-10-20
 
 - Fixed: Icons grabbing away click events & onClick not being triggered when icons are replaced during a state change.

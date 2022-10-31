@@ -32,7 +32,7 @@ export const Controlled = () => {
   const [value, setValue] = useState("BigBinary");
   return (
     <Textarea
-      label="Controlled Input"
+      label="Controlled input"
       value={value}
       onChange={(e) => setValue(e.target.value)}
     />
@@ -70,7 +70,7 @@ HelpText.args = {
 
 export const NakedInput = Template.bind({});
 NakedInput.args = {
-  label: "Naked Textarea Field",
+  label: "Naked Textarea field",
   placeholder: "Enter text",
   nakedTextarea: true,
 };

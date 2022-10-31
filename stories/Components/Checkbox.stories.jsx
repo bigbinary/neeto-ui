@@ -24,7 +24,7 @@ const Template = (args) => <Checkbox {...args} />;
 export const Checked = Template.bind({});
 Checked.args = {
   id: "checkbox_name",
-  label: "This is a Checkbox",
+  label: "This is a checkbox",
   checked: true,
   onChange: () => {},
 };
@@ -32,14 +32,14 @@ Checked.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   id: "checkbox_name_disabled",
-  label: "This Checkbox is disabled",
+  label: "This checkbox is disabled",
   disabled: true,
 };
 
 export const Required = Template.bind({});
 Required.args = {
   id: "checkbox_name_required",
-  label: "This Checkbox is required",
+  label: "This checkbox is required",
   required: true,
 };
 

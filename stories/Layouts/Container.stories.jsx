@@ -55,7 +55,7 @@ export const WithHeaderAndScrollable = (args) => {
     </Container>
   );
 };
-WithHeaderAndScrollable.storyName = "With Header and Scrollable";
+WithHeaderAndScrollable.storyName = "With header and scrollable";
 WithHeaderAndScrollable.args = {
   isHeaderFixed: true,
 };

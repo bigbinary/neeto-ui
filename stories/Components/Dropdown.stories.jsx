@@ -170,7 +170,7 @@ export const WithPrefixAndSuffix = () => {
   const listItems = ["Action", "Another action", "Something else here"];
   return (
     <div className="h-40">
-      <Dropdown label="Prefix and Suffix" position="bottom-end">
+      <Dropdown label="Prefix and suffix" position="bottom-end">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button
@@ -210,7 +210,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
           <Divider />
           <Dropdown
             position="right-start"
-            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
+            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             onClick={(e) => e.stopPropagation()}
           >
             <Menu>
@@ -226,7 +226,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
     </div>
   );
 };
-MultiDropdownWithClickTrigger.storyName = "Multi dropdown with click trigger";
+MultiDropdownWithClickTrigger.storyName = "Multi Dropdown with click trigger";
 
 export const MultiDropdownWithHoverTrigger = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -243,7 +243,7 @@ export const MultiDropdownWithHoverTrigger = () => {
           <Dropdown
             trigger="hover"
             position="right-start"
-            customTarget={<MenuItem.Button>Another dropdown</MenuItem.Button>}
+            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -258,7 +258,7 @@ export const MultiDropdownWithHoverTrigger = () => {
     </div>
   );
 };
-MultiDropdownWithHoverTrigger.storyName = "Multi dropdown with hover trigger";
+MultiDropdownWithHoverTrigger.storyName = "Multi Dropdown with hover trigger";
 
 export const ControlledDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -295,6 +295,7 @@ export const ControlledDropdown = () => {
     </div>
   );
 };
+ControlledDropdown.storyName = "Controlled Dropdown";
 
 export const CustomTarget = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -323,7 +324,7 @@ export const CustomDropdown = () => {
     <div className="h-56">
       <Dropdown closeOnSelect={false} label="Custom Dropdown">
         <div className="flex flex-col gap-y-1 p-2 rounded-md">
-          <Input prefix={<Search />} placeholder="Search Members" />
+          <Input prefix={<Search />} placeholder="Search members" />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">
             {members.map((item, idx) => (
@@ -335,3 +336,5 @@ export const CustomDropdown = () => {
     </div>
   );
 };
+
+CustomDropdown.storyName = "Custom Dropdown";

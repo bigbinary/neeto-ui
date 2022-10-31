@@ -93,6 +93,7 @@ export const IconButtons = ({}) => {
     </div>
   );
 };
+IconButtons.storyName = "Icon buttons";
 
 export const LoadingState = Template.bind({});
 LoadingState.args = {
