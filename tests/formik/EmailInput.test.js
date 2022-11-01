@@ -2,10 +2,10 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Formik, Form } from "formik";
-import { EmailInput } from "../../lib/components/formik";
+import { MultiEmailInput } from "../../lib/components/formik";
 import * as yup from "yup";
 
-const TestEmailInputForm = ({ onSubmit }) => {
+const TestMultiEmailInputForm = ({ onSubmit }) => {
   const handleSubmit = (values) => {
     onSubmit(values);
   };
@@ -29,7 +29,7 @@ const TestEmailInputForm = ({ onSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <EmailInput label="Email(s)" name="emails" />
+          <MultiEmailInput label="Email(s)" name="emails" />
           <button type="submit">Submit</button>
         </Form>
       </Formik>
@@ -42,7 +42,7 @@ describe("formik/Input", () => {
     render(
       <Formik initialValues={{}} onSubmit={() => {}}>
         <Form>
-          <EmailInput name="emails" />
+          <MultiEmailInput name="emails" />
         </Form>
       </Formik>
     );
@@ -51,7 +51,7 @@ describe("formik/Input", () => {
 
   it("should return entered values when used inside a formik form", async () => {
     const onSubmit = jest.fn();
-    render(<TestEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
 
     const emailInput = screen.getByRole("combobox");
     userEvent.paste(
@@ -85,7 +85,7 @@ describe("formik/Input", () => {
 
   it("should display validation error when invalid email is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.paste(emailInput, "sam.doeemail.com");
     userEvent.click(document.body);
@@ -99,7 +99,7 @@ describe("formik/Input", () => {
 
   it("should display error when no email is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(

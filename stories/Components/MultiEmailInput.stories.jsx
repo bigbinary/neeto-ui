@@ -4,21 +4,21 @@ import { Formik, Form } from "formik";
 import * as yup from "yup";
 import { Search } from "@bigbinary/neeto-icons";
 
-import EmailInput from "../../lib/components/EmailInput";
+import MultiEmailInput from "../../lib/components/MultiEmailInput";
 import { suffixes, prefixes } from "../constants";
-import { EmailInput as FormikEmailInput } from "../../lib/components/formik";
+import { MultiEmailInput as FormikMultiEmailInput } from "../../lib/components/formik";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
-import EmailInputDocs from "!raw-loader!./EmailInputDocs.mdx";
+import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 export default {
-  title: "Components/Email input",
-  component: EmailInput,
+  title: "Components/Multi email input",
+  component: MultiEmailInput,
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { EmailInput } from "@bigbinary/neetoui";`',
+        component: '`import { MultiEmailInput } from "@bigbinary/neetoui";`',
       },
     },
     design: {
@@ -43,7 +43,7 @@ export const Controlled = (args) => {
   const [emails, setEmails] = useState(args.value);
 
   return (
-    <EmailInput
+    <MultiEmailInput
       {...args}
       value={emails}
       onChange={(emails) => setEmails(emails)}
@@ -61,7 +61,7 @@ Controlled.args = {
   ],
 };
 
-export const Error = (args) => <EmailInput {...args} />;
+export const Error = (args) => <MultiEmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
@@ -74,10 +74,10 @@ Error.args = {
   ],
 };
 
-export const Disabled = () => <EmailInput disabled />;
+export const Disabled = () => <MultiEmailInput disabled />;
 
 export const HelpText = () => (
-  <EmailInput helpText="This is the help text for this component." />
+  <MultiEmailInput helpText="This is the help text for this component." />
 );
 HelpText.storyName = "Help text";
 
@@ -101,7 +101,7 @@ export const Counter = () => {
   ]);
 
   return (
-    <EmailInput
+    <MultiEmailInput
       counter={{ startsFrom: 3 }}
       value={emails}
       onChange={(emails) => setEmails(emails)}
@@ -119,7 +119,7 @@ export const WithPrefixAndSuffix = (args) => {
   const [emails, setEmails] = useState(args.value);
 
   return (
-    <EmailInput
+    <MultiEmailInput
       {...args}
       prefix={<Search />}
       suffix={<div className="neeto-ui-text-gray-700">.bigbinary.com</div>}
@@ -166,7 +166,7 @@ export const FormikEmail = () => {
       validationSchema={VALIDATION_SCHEMA}
     >
       <Form className="space-y-2">
-        <FormikEmailInput
+        <FormikMultiEmailInput
           label="Email(s)*"
           counter
           filterInvalidEmails
