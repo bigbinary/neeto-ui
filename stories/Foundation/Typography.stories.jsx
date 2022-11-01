@@ -149,3 +149,410 @@ export const Variants = () => {
     </>
   );
 };
+
+export const TextTransform = () => {
+  const textTransform = [
+    {
+      name: "$neeto-ui-text-transform-none",
+      value: "none",
+      compiledValue: "none",
+    },
+    {
+      name: "$neeto-ui-text-transform-capitalize",
+      value: "capitalize",
+      compiledValue: "capitalize",
+    },
+    {
+      name: "$neeto-ui-text-transform-uppercase",
+      value: "uppercase",
+      compiledValue: "uppercase",
+    },
+    {
+      name: "$neeto-ui-text-transform-lowercase",
+      value: "lowercase",
+      compiledValue: "lowercase",
+    },
+    {
+      name: "$neeto-ui-text-transform-fullwidth",
+      value: "fullwidth",
+      compiledValue: "fullwidth",
+    },
+    {
+      name: "$neeto-ui-text-transform-inherit",
+      value: "inherit",
+      compiledValue: "inherit",
+    },
+    {
+      name: "$neeto-ui-text-transform-initial",
+      value: "initial",
+      compiledValue: "initial",
+    },
+    {
+      name: "$neeto-ui-text-transform-revert",
+      value: "revert",
+      compiledValue: "revert",
+    },
+    {
+      name: "$neeto-ui-text-transform-unset",
+      value: "unset",
+      compiledValue: "unset",
+    },
+  ];
+  return (
+    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+      <thead>
+        <tr>
+          <td>Preview</td>
+          <td>CSS Variable</td>
+          <td>Class</td>
+        </tr>
+      </thead>
+      <tbody>
+        {textTransform.map((transform) => {
+          return (
+            <tr key={transform.name}>
+              <td className="neeto-ui-bg-gray-800">
+                <div className="p-6">
+                  <div
+                    className={`w-36 h-12 flex items-center justify-center rounded-sm neeto-ui-bg-white ${transform.name.replace(
+                      "$neeto-ui",
+                      "neeto-ui"
+                    )}`}
+                  >
+                    {transform.compiledValue}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <code>{`${transform.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+              </td>
+              <td>
+                <div className="flex justify-between">
+                  <code>{`${transform.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  ) ;
+};
+TextTransform.storyName = "Text transform";
+
+export const LineHeight = () => {
+  const lineHeightHelpers = [
+    {
+      name: "$neeto-ui-leading-none",
+      value: "none",
+      compiledValue: "none",
+    },
+    {
+      name: "$neeto-ui-leading-tight",
+      value: "tight",
+      compiledValue: "tight",
+    },
+    {
+      name: "$neeto-ui-leading-snug",
+      value: "snug",
+      compiledValue: "snug",
+    },
+    {
+      name: "$neeto-ui-leading-normal",
+      value: "normal",
+      compiledValue: "normal",
+    },
+    {
+      name: "$neeto-ui-leading-relaxed",
+      value: "relaxed",
+      compiledValue: "relaxed",
+    },
+    {
+      name: "$neeto-ui-leading-loose",
+      value: "loose",
+      compiledValue: "loose",
+    }
+  ];
+  return (
+    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+      <thead>
+        <tr>
+          <td>Preview</td>
+          <td>Name</td>
+          <td>CSS Variable</td>
+          <td>Class</td>
+        </tr>
+      </thead>
+      <tbody>
+        {lineHeightHelpers.map((helper) => {
+          return (
+            <tr key={helper.name}>
+              <td className="neeto-ui-bg-gray-800">
+                <div className="p-6">
+                  <div
+                    className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
+                      "$neeto-ui",
+                      "neeto-ui"
+                    )}`}
+                  >
+                    Lorem Ipsum is simply<br />
+                    dummy textof the<br />
+                    printing and typesetting<br />
+                    industry
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div className="p-6">
+                  <div>
+                    {helper.compiledValue}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+              </td>
+              <td>
+                <div className="flex justify-between">
+                  <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  ) ;
+};
+LineHeight.storyName = "Line height";
+
+export const FontWeights = () => {
+  const lineHeightHelpers = [
+    {
+      name: "$neeto-ui-font-thin",
+      value: "thin",
+      compiledValue: "thin",
+    },
+    {
+      name: "$neeto-ui-font-extralight",
+      value: "extralight",
+      compiledValue: "extralight",
+    },
+    {
+      name: "$neeto-ui-font-light",
+      value: "light",
+      compiledValue: "light",
+    },
+    {
+      name: "$neeto-ui-font-normal",
+      value: "normal",
+      compiledValue: "normal",
+    },
+    {
+      name: "$neeto-ui-font-medium",
+      value: "medium",
+      compiledValue: "medium",
+    },
+    {
+      name: "$neeto-ui-font-semibold",
+      value: "semibold",
+      compiledValue: "semibold",
+    },
+    {
+      name: "$neeto-ui-font-bold",
+      value: "bold",
+      compiledValue: "bold",
+    },
+    {
+      name: "$neeto-ui-font-extrabold",
+      value: "extrabold",
+      compiledValue: "extrabold",
+    },
+    {
+      name: "$neeto-ui-font-black",
+      value: "black",
+      compiledValue: "black",
+    },
+  ];
+  return (
+    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+      <thead>
+        <tr>
+          <td>Preview</td>
+          <td>CSS Variable</td>
+          <td>Class</td>
+        </tr>
+      </thead>
+      <tbody>
+        {lineHeightHelpers.map((helper) => {
+          return (
+            <tr key={helper.name}>
+              <td className="neeto-ui-bg-gray-800">
+                <div className="p-6">
+                  <div
+                    className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
+                      "$neeto-ui",
+                      "neeto-ui"
+                    )}`}
+                  >
+                    {helper.compiledValue}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+              </td>
+              <td>
+                <div className="flex justify-between">
+                  <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  ) ;
+};
+FontWeights.storyName = "Font weights";
+
+export const FontSizes = () => {
+  const lineHeightHelpers = [
+    {
+      name: "$neeto-ui-text-3xl",
+      value: "h1",
+      compiledValue: "h1",
+    },
+    {
+      name: "$neeto-ui-text-2xl",
+      value: "h2",
+      compiledValue: "h2",
+    },
+    {
+      name: "$neeto-ui-text-xl",
+      value: "h3",
+      compiledValue: "h3",
+    },
+    {
+      name: "$neeto-ui-text-base",
+      value: "h4",
+      compiledValue: "h4",
+    },
+    {
+      name: "$neeto-ui-text-sm",
+      value: "h5",
+      compiledValue: "h5",
+    },
+    {
+      name: "$neeto-ui-text-xs",
+      value: "h6",
+      compiledValue: "h6",
+    },
+    {
+      name: "$neeto-ui-text-base",
+      value: "body1",
+      compiledValue: "body1",
+    },
+    {
+      name: "$neeto-ui-text-sm",
+      value: "body2",
+      compiledValue: "body2",
+    },
+    {
+      name: "$neeto-ui-text-xs",
+      value: "body3",
+      compiledValue: "body3",
+    },
+    {
+      name: "$neeto-ui-text-xxs",
+      value: "nano",
+      compiledValue: "nano",
+    },
+    {
+      name: "$neeto-ui-text-xxs",
+      value: "xxs",
+      compiledValue: "xxs",
+    },
+    {
+      name: "$neeto-ui-text-xs",
+      value: "xs",
+      compiledValue: "xs",
+    },
+    {
+      name: "$neeto-ui-text-sm",
+      value: "sm",
+      compiledValue: "sm",
+    },
+    {
+      name: "$neeto-ui-text-base",
+      value: "base",
+      compiledValue: "base",
+    },
+    {
+      name: "$neeto-ui-text-lg",
+      value: "lg",
+      compiledValue: "lg",
+    },
+    {
+      name: "$neeto-ui-text-xl",
+      value: "xl",
+      compiledValue: "xl",
+    },
+    {
+      name: "$neeto-ui-text-2xl",
+      value: "2xl",
+      compiledValue: "2xl",
+    },
+    {
+      name: "$neeto-ui-text-3xl",
+      value: "3xl",
+      compiledValue: "3xl",
+    },
+    {
+      name: "$neeto-ui-text-4xl",
+      value: "4xl",
+      compiledValue: "4xl",
+    },
+  ];
+  return (
+    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+      <thead>
+        <tr>
+          <td>Preview</td>
+          <td>CSS Variable</td>
+          <td>Class</td>
+        </tr>
+      </thead>
+      <tbody>
+        {lineHeightHelpers.map((helper) => {
+          return (
+            <tr key={helper.name}>
+              <td className="neeto-ui-bg-gray-800">
+                <div className="p-6">
+                  <div
+                    className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
+                      "$neeto-ui",
+                      "neeto-ui"
+                    )}`}
+                  >
+                    {helper.compiledValue}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+              </td>
+              <td>
+                <div className="flex justify-between">
+                  <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  ) ;
+};
+FontSizes.storyName = "Font sizes";
+
