@@ -199,19 +199,19 @@ export const TextTransform = () => {
     },
   ];
   return (
-    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+    <table className="table-auto">
       <thead>
         <tr>
-          <td>Preview</td>
-          <td>CSS Variable</td>
-          <td>Class</td>
+          <td className="border p-2">Preview</td>
+          <td className="border p-2">CSS Variable</td>
+          <td className="border p-2">Class</td>
         </tr>
       </thead>
       <tbody>
         {textTransform.map((transform) => {
           return (
             <tr key={transform.name}>
-              <td className="neeto-ui-bg-gray-800">
+              <td className="neeto-ui-bg-gray-800 p-2">
                 <div className="p-6">
                   <div
                     className={`w-36 h-12 flex items-center justify-center rounded-sm neeto-ui-bg-white ${transform.name.replace(
@@ -223,10 +223,10 @@ export const TextTransform = () => {
                   </div>
                 </div>
               </td>
-              <td>
+              <td className="border p-2">
                 <code>{`${transform.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
               </td>
-              <td>
+              <td className="border p-2">
                 <div className="flex justify-between">
                   <code>{`${transform.name.replace("$neeto-ui", "neeto-ui")}`}</code>
                 </div>
@@ -274,20 +274,20 @@ export const LineHeight = () => {
     }
   ];
   return (
-    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+    <table className="table-auto">
       <thead>
         <tr>
-          <td>Preview</td>
-          <td>Name</td>
-          <td>CSS Variable</td>
-          <td>Class</td>
+          <td className="border p-2">Preview</td>
+          <td className="border p-2">Name</td>
+          <td className="border p-2">CSS Variable</td>
+          <td className="border p-2">Class</td>
         </tr>
       </thead>
       <tbody>
         {lineHeightHelpers.map((helper) => {
           return (
             <tr key={helper.name}>
-              <td className="neeto-ui-bg-gray-800">
+              <td className="neeto-ui-bg-gray-800 p-2">
                 <div className="p-6">
                   <div
                     className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
@@ -302,17 +302,17 @@ export const LineHeight = () => {
                   </div>
                 </div>
               </td>
-              <td>
+              <td className="border p-2">
                 <div className="p-6">
                   <div>
                     {helper.compiledValue}
                   </div>
                 </div>
               </td>
-              <td>
+              <td className="border p-2">
                 <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
               </td>
-              <td>
+              <td className="border p-2">
                 <div className="flex justify-between">
                   <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
                 </div>
@@ -375,19 +375,19 @@ export const FontWeights = () => {
     },
   ];
   return (
-    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+    <table className="table-auto">
       <thead>
         <tr>
-          <td>Preview</td>
-          <td>CSS Variable</td>
-          <td>Class</td>
+          <td className="border p-2">Preview</td>
+          <td className="border p-2">CSS Variable</td>
+          <td className="border p-2">Class</td>
         </tr>
       </thead>
       <tbody>
         {lineHeightHelpers.map((helper) => {
           return (
             <tr key={helper.name}>
-              <td className="neeto-ui-bg-gray-800">
+              <td className="neeto-ui-bg-gray-800 p-2">
                 <div className="p-6">
                   <div
                     className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
@@ -399,10 +399,10 @@ export const FontWeights = () => {
                   </div>
                 </div>
               </td>
-              <td>
+              <td className="border p-2">
                 <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
               </td>
-              <td>
+              <td className="border p-2">
                 <div className="flex justify-between">
                   <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
                 </div>
@@ -515,19 +515,19 @@ export const FontSizes = () => {
     },
   ];
   return (
-    <table className="sbdocs sbdocs-table story-demo-table css-10n01gg">
+    <table className="table-auto">
       <thead>
         <tr>
-          <td>Preview</td>
-          <td>CSS Variable</td>
-          <td>Class</td>
+          <td className="border p-2">Preview</td>
+          <td className="border p-2">CSS Variable</td>
+          <td className="border p-2">Class</td>
         </tr>
       </thead>
       <tbody>
         {lineHeightHelpers.map((helper) => {
           return (
             <tr key={helper.name}>
-              <td className="neeto-ui-bg-gray-800">
+              <td className="neeto-ui-bg-gray-800 p-2">
                 <div className="p-6">
                   <div
                     className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white ${helper.name.replace(
@@ -539,10 +539,10 @@ export const FontSizes = () => {
                   </div>
                 </div>
               </td>
-              <td>
+              <td className="border p-2">
                 <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
               </td>
-              <td>
+              <td className="border p-2">
                 <div className="flex justify-between">
                   <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
                 </div>
