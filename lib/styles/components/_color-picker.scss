@@ -3,8 +3,14 @@
 }
 
 .neeto-ui-colorpicker__popover {
-  width: 100%;
+  width: 224px;
   padding: 12px;
+
+  .neeto-ui-colorpicker__eyedropper-btn{
+    svg{
+      fill: currentColor;
+    }
+  }
 
   .neeto-ui-colorpicker__palette-wrapper {
     margin-top: 12px;
@@ -42,28 +48,9 @@
     }
   }
 
-  .neeto-ui-colorpicker__input {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    border: thin solid rgb(var(--neeto-ui-gray-200));
-    border-radius: var(--neeto-ui-rounded-md);
-    padding: 4px;
-
-    input {
-      width: 100%;
-      outline-color: transparent;
-      font-size: 14px;
-      color: rgb(var(--neeto-ui-gray-800));
-      background-color: transparent;
-    }
-  }
-
   .neeto-ui-colorpicker__pointer .react-colorful__saturation-pointer {
     width: 20px;
     height: 20px;
-    /* border-radius: 3px; */
   }
 }
 
