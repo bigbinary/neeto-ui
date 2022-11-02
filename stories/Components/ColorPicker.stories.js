@@ -152,3 +152,30 @@ WithEyeDropper.storyName = "With eye dropper";
 WithEyeDropper.args = {
   color: "#4558F9",
 };
+
+export const ShowHexValue = (args) => {
+  const [color, setColor] = useState("#4558F9");
+
+  const onChange = (value) => {
+    action("onChange")(value);
+    setColor(value.hex);
+  };
+
+  useEffect(() => {
+    setColor(args.color || "#4558F9");
+  }, [args.color]);
+
+  return (
+    <div className="w-40 h-60">
+      <ColorPicker
+        color={color}
+        onChange={onChange}
+        showHexValue={true}
+      />
+    </div>
+  );
+};
+ShowHexValue.storyName = "Show hex value";
+ShowHexValue.args = {
+  color: "#4558F9",
+};
