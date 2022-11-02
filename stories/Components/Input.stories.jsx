@@ -148,13 +148,14 @@ export const FormikInputStory = ({}) => {
           }),
           onSubmit: (values) => setValues(values),
         }}
-        formProps={{
-          className: "space-y-2",
-        }}
       >
-        <FormikInput name="name" label="Name" />
-        <Button type="submit" label="Submit" />
-        <Typography>Name: {values.name} </Typography>
+        {() => (
+          <div className="space-y-2">
+            <FormikInput name="name" label="Name" />
+            <Button type="submit" label="Submit" />
+            <Typography>Name: {values.name} </Typography>
+          </div>
+        )}
       </Form>
     </>
   );
