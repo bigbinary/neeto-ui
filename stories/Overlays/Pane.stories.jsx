@@ -34,6 +34,7 @@ export default {
 
 export const Default = () => {
   const [showPane, setShowPane] = useState(false);
+  const inputRef = React.useRef(null);
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -44,13 +45,18 @@ export const Default = () => {
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane
+        isOpen={showPane}
+        onClose={() => setShowPane(false)}
+        initialFocusRef={inputRef}
+      >
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
         <Pane.Body>
+          <Input ref={inputRef} label="Name" />
           <Typography style="body2">
             Somewhere out in space live The Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and

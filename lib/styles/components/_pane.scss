@@ -9,7 +9,9 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    transition: all 0.3s;
+    transition: all;
+    transition-duration: 0.3s;
+
     background-color: #1b1f23dd;
     backdrop-filter: blur(2px);
   }
@@ -22,7 +24,8 @@
     transform: translateX(100%);
     backdrop-filter: blur(2px);
 
-    transition: all 0.3s;
+    transition: all;
+    transition-duration: 0.3s;
 
     &--small {
       width: 480px;
