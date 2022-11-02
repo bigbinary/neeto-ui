@@ -43,6 +43,7 @@ Available components in neetoUI formik:
 - Input
 - Radio
 - Button
+- Form
 - ActionBlock
 - Select
 - Switch
@@ -51,6 +52,19 @@ Available components in neetoUI formik:
 - BlockNavigation
 
 You can refer the [formik folder](https://github.com/bigbinary/neeto-ui/tree/main/lib/components/formik) to check for latest Formik components.
+
+In order to use the neetoUI formik components, you need to wrap your form with the `Form` component.
+
+```jsx
+import { Form } from "@bigbinary/neetoui/formik";
+
+<Form>// Form fields</Form>;
+```
+
+The `Form` component accepts the following props:
+
+- `formikProps`: Formik props object. You can pass `initialValues`, `validationSchema`, `onSubmit` etc. as props to the `Form` component.
+- `formProps`: Form props object. You can pass `className`, `style` etc. as props to the `Form` component.
 
 #### Acceptable props for Components
 

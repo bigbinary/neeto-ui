@@ -1,9 +1,8 @@
 import React from "react";
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
 
-import { Select as FormikSelect } from "../../lib/components/formik";
+import { Select as FormikSelect, Form } from "../../lib/components/formik";
 
 const SELECT_OPTIONS = [
   {
@@ -29,37 +28,40 @@ const validate = (values) => {
 
 const SelectTest = ({ onSubmit }) => {
   return (
-    <Formik
-      initialValues={{ formikSelect: {} }}
-      onSubmit={(values) => onSubmit(values)}
-      validate={validate}
+    <Form
+      formikProps={{
+        initialValues: { formikSelect: {} },
+        validate,
+        onSubmit: (values) => onSubmit(values),
+      }}
     >
-      <Form>
-        <FormikSelect
-          name="formikSelect"
-          label="Formik Select"
-          options={SELECT_OPTIONS}
-          className="mb-8"
-          data-testid="formik-select"
-        />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+      <FormikSelect
+        name="formikSelect"
+        label="Formik Select"
+        options={SELECT_OPTIONS}
+        className="mb-8"
+        data-testid="formik-select"
+      />
+      <button type="submit">Submit</button>
+    </Form>
   );
 };
 
 describe("formik/Select", () => {
   it("should render without error", () => {
     const { getByLabelText } = render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <FormikSelect
-            name="formikSelect"
-            label="Formik Select"
-            options={SELECT_OPTIONS}
-          />
-        </Form>
-      </Formik>
+      <Form
+        formikProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <FormikSelect
+          name="formikSelect"
+          label="Formik Select"
+          options={SELECT_OPTIONS}
+        />
+      </Form>
     );
 
     expect(getByLabelText("Formik Select")).toBeInTheDocument();
@@ -67,15 +69,18 @@ describe("formik/Select", () => {
 
   it("should show available options when clicked", () => {
     render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <FormikSelect
-            name="formikSelect"
-            label="Formik Select"
-            options={SELECT_OPTIONS}
-          />
-        </Form>
-      </Formik>
+      <Form
+        formProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <FormikSelect
+          name="formikSelect"
+          label="Formik Select"
+          options={SELECT_OPTIONS}
+        />
+      </Form>
     );
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
@@ -87,15 +92,18 @@ describe("formik/Select", () => {
 
   it("should should show no options if the input deosn't match any options", () => {
     render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <FormikSelect
-            name="formikSelect"
-            label="Formik Select"
-            options={SELECT_OPTIONS}
-          />
-        </Form>
-      </Formik>
+      <Form
+        formProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <FormikSelect
+          name="formikSelect"
+          label="Formik Select"
+          options={SELECT_OPTIONS}
+        />
+      </Form>
     );
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");

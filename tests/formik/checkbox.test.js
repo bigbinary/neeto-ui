@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
-import { Checkbox } from "../../lib/components/formik";
+import { Checkbox, Form } from "../../lib/components/formik";
 import * as yup from "yup";
 
 const TestCheckboxForm = ({ onSubmit }) => {
@@ -11,20 +10,23 @@ const TestCheckboxForm = ({ onSubmit }) => {
   };
   return (
     <>
-      <Formik
+      <Form
+        formikProps={{
+          initialValues: { formikCheckbox: false },
+          validationSchema: yup.object().shape({
+            formikCheckbox: yup
+              .boolean()
+              .required("Checking the formik checkbox is required."),
+          }),
+          onSubmit: handleSubmit,
+        }}
         initialValues={{
           formikCheckbox: false,
         }}
-        validationSchema={yup.object().shape({
-          formikCheckbox: yup.boolean().oneOf([true],"Checking the formik checkbox is required"),
-        })}
-        onSubmit={handleSubmit}
       >
-        <Form>
-          <Checkbox name="formikCheckbox" label="Formik Checkbox" />
-          <button type="submit">Submit</button>
-        </Form>
-      </Formik>
+        <Checkbox name="formikCheckbox" label="Formik Checkbox" />
+        <button type="submit">Submit</button>
+      </Form>
     </>
   );
 };
@@ -32,11 +34,14 @@ const TestCheckboxForm = ({ onSubmit }) => {
 describe("formik/Checkbox", () => {
   it("should render without error", () => {
     render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <Checkbox name="checkbox" label="Checkbox" />
-        </Form>
-      </Formik>
+      <Form
+        formikProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <Checkbox name="checkbox" label="Checkbox" />
+      </Form>
     );
     expect(screen.getByLabelText("Checkbox")).toBeInTheDocument();
   });
@@ -48,7 +53,7 @@ describe("formik/Checkbox", () => {
     userEvent.click(checkbox);
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({formikCheckbox : true })
+      expect(onSubmit).toHaveBeenCalledWith({ formikCheckbox: true })
     );
   });
 
@@ -58,8 +63,8 @@ describe("formik/Checkbox", () => {
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(
-        screen.getByText("Checking the formik checkbox is required")
-      ).toBeInTheDocument()
+        screen.getByText("Checking the formik checkbox is required.")
+      ).toBeVisible()
     );
   });
 });

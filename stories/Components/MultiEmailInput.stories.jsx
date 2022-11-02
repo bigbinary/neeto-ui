@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
-import { Formik, Form } from "formik";
 import * as yup from "yup";
 import { Search } from "@bigbinary/neeto-icons";
 
 import MultiEmailInput from "../../lib/components/MultiEmailInput";
 import { suffixes, prefixes } from "../constants";
-import { MultiEmailInput as FormikMultiEmailInput } from "../../lib/components/formik";
+import {
+  MultiEmailInput as FormikMultiEmailInput,
+  Form,
+} from "../../lib/components/formik";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
@@ -160,27 +162,30 @@ export const FormikEmail = () => {
     setEmails(emails.map(({ value }) => value));
 
   return (
-    <Formik
-      initialValues={INITIAL_VALUES}
-      onSubmit={handleSubmit}
-      validationSchema={VALIDATION_SCHEMA}
+    <Form
+      formikProps={{
+        initialValues: INITIAL_VALUES,
+        validationSchema: VALIDATION_SCHEMA,
+        onSubmit: handleSubmit,
+      }}
+      formProps={{
+        className: "space-y-2",
+      }}
     >
-      <Form className="space-y-2">
-        <FormikMultiEmailInput
-          label="Email(s)*"
-          counter
-          filterInvalidEmails
-          name="emails"
-        />
-        <Button
-          type="submit"
-          label="Save changes"
-          style="primary"
-          data-cy="add-member-submit-button"
-        />
-        <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
-      </Form>
-    </Formik>
+      <FormikMultiEmailInput
+        label="Email(s)*"
+        counter
+        filterInvalidEmails
+        name="emails"
+      />
+      <Button
+        type="submit"
+        label="Save changes"
+        style="primary"
+        data-cy="add-member-submit-button"
+      />
+      <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
+    </Form>
   );
 };
 
