@@ -240,7 +240,7 @@ export interface DropdownProps {
   [key: string]: any;
 }
 
-export interface EmailInputProps {
+export interface MultiEmailInputProps {
   label?: string;
   placeholder?: string;
   helpText?: string;
@@ -584,7 +584,7 @@ export const Dropdown: React.FC<DropdownProps> & {
     >
   >;
 };
-export const EmailInput: React.FC<EmailInputProps>;
+export const MultiEmailInput: React.FC<MultiEmailInputProps>;
 export const Input: React.ForwardRefExoticComponent<InputProps>;
 export const Label: React.FC<LabelProps>;
 export const PageLoader: React.FC<PageLoaderProps>;
