@@ -137,7 +137,6 @@ export const InputWithMaxLength = () => {
 InputWithMaxLength.storyName = "Input with max length";
 
 export const FormikInputStory = ({}) => {
-  const [values, setValues] = useState({});
   return (
     <>
       <Form
@@ -146,14 +145,13 @@ export const FormikInputStory = ({}) => {
           validationSchema: yup.object({
             name: yup.string().required("Name is required"),
           }),
-          onSubmit: (values) => setValues(values),
+          onSubmit: (values) => window.alert(values.name),
         }}
       >
-        {() => (
+        {(props) => (
           <div className="space-y-2">
             <FormikInput name="name" label="Name" />
             <Button type="submit" label="Submit" />
-            <Typography>Name: {values.name} </Typography>
           </div>
         )}
       </Form>

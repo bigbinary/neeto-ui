@@ -58,7 +58,16 @@ In order to use the neetoUI formik components, you need to wrap your form with t
 ```jsx
 import { Form } from "@bigbinary/neetoui/formik";
 
-<Form>// Form fields</Form>;
+<Form>
+  {(props) => {
+    return (
+      <div>
+        <Input {...props} label="Name" name="name" />
+        <Input {...props} label="Email" name="email" />
+      </div>
+    );
+  }}
+</Form>;
 ```
 
 The `Form` component accepts the following props:
