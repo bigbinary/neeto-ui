@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.1 - 2022-11-03
+
+- Added: Eyedropper to *ColorPicker*
+
 ## 4.1.0 - 2022-11-03
 
 - Changed: **BREAKING** Name of the *EmailInput* component to *MultiEmailInput* in both components and Formik components.
