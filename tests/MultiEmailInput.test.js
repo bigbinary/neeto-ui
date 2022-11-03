@@ -1,5 +1,5 @@
 import React from "react";
-import { EmailInput } from "../lib/components";
+import { MultiEmailInput } from "../lib/components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -27,48 +27,48 @@ const SAMPLE_EMAILS = [
   },
 ];
 
-describe("EmailInput", () => {
+describe("MultiEmailInput", () => {
   it("should render without error", () => {
-    render(<EmailInput />);
+    render(<MultiEmailInput />);
     expect(screen.getByText("Email(s)")).toBeInTheDocument();
   });
 
   it("should display helpText", () => {
-    render(<EmailInput helpText="Help text" />);
+    render(<MultiEmailInput helpText="Help text" />);
     expect(screen.getByText("Help text")).toBeInTheDocument();
   });
 
   it("should display error message", () => {
-    render(<EmailInput error="Error message" />);
+    render(<MultiEmailInput error="Error message" />);
     expect(screen.getByText("Error message")).toBeInTheDocument();
   });
 
   it("should not render email counter when the email count start from 3 and count is 2", () => {
     render(
-      <EmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(3)} />
+      <MultiEmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(3)} />
     );
     expect(screen.queryByText("2 emails")).not.toBeInTheDocument();
   });
 
   it("should render email counter when the email count start from 3 and count is 3", () => {
     render(
-      <EmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(2)} />
+      <MultiEmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(2)} />
     );
     expect(screen.getByText("3 emails")).toBeInTheDocument();
   });
 
   it("should render default counter text when no label is provided", () => {
     const { rerender } = render(
-      <EmailInput counter value={SAMPLE_EMAILS.slice(1)} />
+      <MultiEmailInput counter value={SAMPLE_EMAILS.slice(1)} />
     );
     expect(screen.getByText("4 emails")).toBeInTheDocument();
-    rerender(<EmailInput counter value={SAMPLE_EMAILS} />);
+    rerender(<MultiEmailInput counter value={SAMPLE_EMAILS} />);
     expect(screen.getByText("5 emails")).toBeInTheDocument();
   });
 
   it("should call onBlur when focus from the input field changes", () => {
     const onBlur = jest.fn();
-    render(<EmailInput onBlur={onBlur} />);
+    render(<MultiEmailInput onBlur={onBlur} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.click(emailInput);
     userEvent.click(document.body);
@@ -77,7 +77,7 @@ describe("EmailInput", () => {
 
   it("should call onChange when input loses focus after entering email", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.paste(emailInput, "test@email.com test2@email.com");
     userEvent.click(document.body);
@@ -90,7 +90,7 @@ describe("EmailInput", () => {
 
   it("should call onInputChange when email input value changes", () => {
     const onInputChange = jest.fn();
-    render(<EmailInput onInputChange={onInputChange} />);
+    render(<MultiEmailInput onInputChange={onInputChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.type(emailInput, "test");
     expect(onInputChange).toHaveBeenCalledTimes(4);
@@ -98,7 +98,7 @@ describe("EmailInput", () => {
 
   it("should call onChange when Enter key is pressed", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.type(emailInput, "email@domain.com{enter}");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -109,7 +109,7 @@ describe("EmailInput", () => {
 
   it("should call onChange when Space key is pressed", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.type(emailInput, "email@domain.com{space}");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -120,7 +120,7 @@ describe("EmailInput", () => {
 
   it("should call onChange when Tab key is pressed", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.type(emailInput, "email@domain.com");
     userEvent.tab();
@@ -132,7 +132,7 @@ describe("EmailInput", () => {
 
   it("should call onChange when comma key is pressed", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.type(emailInput, "email@domain.com,");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -144,7 +144,7 @@ describe("EmailInput", () => {
   it("should remove all invalid emails on clicking filterInvalidEmails label", () => {
     const onChange = jest.fn();
     render(
-      <EmailInput
+      <MultiEmailInput
         onChange={onChange}
         value={[
           { label: "test@example.com", value: "test@example.com", valid: true },
@@ -166,7 +166,7 @@ describe("EmailInput", () => {
   it("should display filterInvalidEmails label if no label is provided", () => {
     const onChange = jest.fn();
     render(
-      <EmailInput
+      <MultiEmailInput
         onChange={onChange}
         value={[
           { label: "test@example.com", value: "test@example.com", valid: true },
@@ -183,7 +183,7 @@ describe("EmailInput", () => {
 
   it("should accept a generic string containing an email and should pluck out that email", () => {
     const onChange = jest.fn();
-    render(<EmailInput onChange={onChange} />);
+    render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.paste(emailInput, "John Doe <john@example.com>");
     userEvent.tab();

@@ -6,7 +6,7 @@ import {
   Textarea as PlainTextarea,
   Checkbox as PlainCheckbox,
   Select as PlainSelect,
-  EmailInput as PlainEmailInput,
+  MultiEmailInput as PlainMultiEmailInput,
   Button as PlainButton,
   ButtonProps,
 } from "./index";
@@ -29,5 +29,5 @@ export const Switch: typeof PlainSwitch;
 export const Textarea: typeof PlainTextarea;
 export const Checkbox: typeof PlainCheckbox;
 export const Select: typeof PlainSelect;
-export const EmailInput: typeof PlainEmailInput;
+export const MultiEmailInput: typeof PlainMultiEmailInput;
 export const Button: typeof PlainButton;
