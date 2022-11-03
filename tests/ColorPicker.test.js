@@ -63,8 +63,18 @@ describe("ColorPicker", () => {
   });
 
   it("should call onChange when user touches Hue slider", async () => {
-    const touchStart = [{ pageX: 0, pageY: 1 }];
+    const onChange = jest.fn();
+    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    userEvent.click(screen.getByTestId("neeto-color-picker"));
+    const hueSlider = await screen.findByLabelText("Hue");
+    userEvent.click(hueSlider, { clientX: 0 });
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
 
+  it("should call onChange when user touches Saturation slider", async () => {
+    const touchStart = [{ pageX: 1, pageY: 1 }];
+
+    // black color
     const hex = "#000000";
     const rgb = { a: 1, b: 0, g: 0, r: 0 };
     const onChange = jest.fn((color) => {
@@ -75,35 +85,14 @@ describe("ColorPicker", () => {
     render(<ColorPicker color="#ffffff" onChange={onChange} />);
     userEvent.click(screen.getByTestId("neeto-color-picker"));
 
-    await waitFor(() => expect(screen.getByLabelText("Color")).toBeInTheDocument());
-
-    fireEvent.touchStart(
-      (screen.getByLabelText("Color")),
-      { touches: touchStart }
+    await waitFor(() =>
+      expect(screen.getByLabelText("Color")).toBeInTheDocument()
     );
 
-    expect(onChange).toHaveBeenCalledTimes(1);
-  });
-
-  it("should call onChange when user touches Saturation selector", async () => {
-    const hueTouchStart = [{ pageX: 0, pageY: 1 }];
-
-    const hex = "#000000";
-    const rgb = { a: 0, b: 0, g: 0, r: 0 };
-    const onChange = jest.fn((color) => {
-      expect(color.hex).toEqual(hex);
-      expect(color.rgb).toEqual(rgb);
+    fireEvent.touchStart(screen.getByLabelText("Color"), {
+      touches: touchStart,
     });
 
-    render(<ColorPicker color="#ff0000" onChange={onChange} />);
-    userEvent.click(screen.getByTestId("neeto-color-picker"));
-    await waitFor(() => expect(screen.getByLabelText("Hue")).toBeInTheDocument());
-
-    fireEvent.touchStart(
-      (screen.getByLabelText("Hue")).querySelector("div"),
-      { touches: hueTouchStart }
-    );
-
-    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
