@@ -149,3 +149,9 @@ export const Variants = () => {
     </>
   );
 };
+
+export const Helpers = () => {
+  return (<div>
+    More typography helpers are documented <a className="underline" href="/?path=/docs/foundation-helpers-font-size--page">here</a>.
+  </div>);
+};

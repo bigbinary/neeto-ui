@@ -1,0 +1,106 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+  title="Foundation/Helpers/Text transform"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<style>{`
+  .story-demo-table tr{
+      background: transparent !important;
+  }
+
+`}</style>
+
+# Text transform
+
+export const textTransform = [
+  {
+    name: "$neeto-ui-text-transform-none",
+    value: "none",
+    compiledValue: "none",
+  },
+  {
+    name: "$neeto-ui-text-transform-capitalize",
+    value: "capitalize",
+    compiledValue: "capitalize",
+  },
+  {
+    name: "$neeto-ui-text-transform-uppercase",
+    value: "uppercase",
+    compiledValue: "uppercase",
+  },
+  {
+    name: "$neeto-ui-text-transform-lowercase",
+    value: "lowercase",
+    compiledValue: "lowercase",
+  },
+  {
+    name: "$neeto-ui-text-transform-fullwidth",
+    value: "fullwidth",
+    compiledValue: "fullwidth",
+  },
+  {
+    name: "$neeto-ui-text-transform-inherit",
+    value: "inherit",
+    compiledValue: "inherit",
+  },
+  {
+    name: "$neeto-ui-text-transform-initial",
+    value: "initial",
+    compiledValue: "initial",
+  },
+  {
+    name: "$neeto-ui-text-transform-revert",
+    value: "revert",
+    compiledValue: "revert",
+  },
+  {
+    name: "$neeto-ui-text-transform-unset",
+    value: "unset",
+    compiledValue: "unset",
+  },
+];
+
+<table className="table-auto">
+  <thead>
+    <tr>
+      <td className="border p-2">Preview</td>
+      <td className="border p-2">CSS Variable</td>
+      <td className="border p-2">Class</td>
+    </tr>
+  </thead>
+  <tbody>
+    {textTransform.map((transform) => {
+      return (
+        <tr key={transform.name}>
+          <td className="neeto-ui-bg-gray-800 p-2">
+            <div className="p-6">
+              <div
+                className={`w-36 h-12 flex items-center justify-center rounded-sm neeto-ui-text-black neeto-ui-bg-white ${transform.name.replace(
+                  "$neeto-ui",
+                  "neeto-ui"
+                )}`}
+              >
+                {transform.compiledValue}
+              </div>
+            </div>
+          </td>
+          <td className="border p-2">
+            <code>{`${transform.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+          </td>
+          <td className="border p-2">
+            <div className="flex justify-between">
+              <code>{`${transform.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+            </div>
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>

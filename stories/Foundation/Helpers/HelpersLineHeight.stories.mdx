@@ -1,0 +1,102 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+  title="Foundation/Helpers/Line height"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<style>{`
+  .story-demo-table tr{
+      background: transparent !important;
+  }
+
+`}</style>
+
+# Line height
+
+export const lineHeightHelpers = [
+  {
+    name: "$neeto-ui-leading-none",
+    value: "none",
+    compiledValue: "none",
+  },
+  {
+    name: "$neeto-ui-leading-tight",
+    value: "tight",
+    compiledValue: "tight",
+  },
+  {
+    name: "$neeto-ui-leading-snug",
+    value: "snug",
+    compiledValue: "snug",
+  },
+  {
+    name: "$neeto-ui-leading-normal",
+    value: "normal",
+    compiledValue: "normal",
+  },
+  {
+    name: "$neeto-ui-leading-relaxed",
+    value: "relaxed",
+    compiledValue: "relaxed",
+  },
+  {
+    name: "$neeto-ui-leading-loose",
+    value: "loose",
+    compiledValue: "loose",
+  }
+];
+
+<table className="table-auto">
+  <thead>
+    <tr>
+      <td className="border p-2">Preview</td>
+      <td className="border p-2">Name</td>
+      <td className="border p-2">CSS Variable</td>
+      <td className="border p-2">Class</td>
+    </tr>
+  </thead>
+  <tbody>
+    {lineHeightHelpers.map((helper) => {
+      return (
+        <tr key={helper.name}>
+          <td className="neeto-ui-bg-gray-800 p-2">
+            <div className="p-6">
+              <div
+                className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-text-black neeto-ui-bg-white ${helper.name.replace(
+                  "$neeto-ui",
+                  "neeto-ui"
+                )}`}
+              >
+                Lorem Ipsum is simply<br />
+                dummy textof the<br />
+                printing and typesetting<br />
+                industry
+              </div>
+            </div>
+          </td>
+          <td className="border p-2">
+            <div className="p-6">
+              <div>
+                {helper.compiledValue}
+              </div>
+            </div>
+          </td>
+          <td className="border p-2">
+            <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+          </td>
+          <td className="border p-2">
+            <div className="flex justify-between">
+              <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+            </div>
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
