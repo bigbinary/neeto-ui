@@ -1,0 +1,106 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+  title="Foundation/Helpers/Font weight"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<style>{`
+  .story-demo-table tr{
+      background: transparent !important;
+  }
+
+`}</style>
+
+# Font weight
+
+export const fontWeightHelpers = [
+  {
+    name: "$neeto-ui-font-thin",
+    value: "thin",
+    compiledValue: "thin",
+  },
+  {
+    name: "$neeto-ui-font-extralight",
+    value: "extralight",
+    compiledValue: "extralight",
+  },
+  {
+    name: "$neeto-ui-font-light",
+    value: "light",
+    compiledValue: "light",
+  },
+  {
+    name: "$neeto-ui-font-normal",
+    value: "normal",
+    compiledValue: "normal",
+  },
+  {
+    name: "$neeto-ui-font-medium",
+    value: "medium",
+    compiledValue: "medium",
+  },
+  {
+    name: "$neeto-ui-font-semibold",
+    value: "semibold",
+    compiledValue: "semibold",
+  },
+  {
+    name: "$neeto-ui-font-bold",
+    value: "bold",
+    compiledValue: "bold",
+  },
+  {
+    name: "$neeto-ui-font-extrabold",
+    value: "extrabold",
+    compiledValue: "extrabold",
+  },
+  {
+    name: "$neeto-ui-font-black",
+    value: "black",
+    compiledValue: "black",
+  },
+];
+
+<table className="table-auto">
+  <thead>
+    <tr>
+      <td className="border p-2">Preview</td>
+      <td className="border p-2">CSS Variable</td>
+      <td className="border p-2">Class</td>
+    </tr>
+  </thead>
+  <tbody>
+    {fontWeightHelpers.map((helper) => {
+      return (
+        <tr key={helper.name}>
+          <td className="neeto-ui-bg-gray-800 p-2">
+            <div className="p-6">
+              <div
+                className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-bg-white neeto-ui-text-black ${helper.name.replace(
+                  "$neeto-ui",
+                  "neeto-ui"
+                )}`}
+              >
+                {helper.compiledValue}
+              </div>
+            </div>
+          </td>
+          <td className="border p-2">
+            <code>{`${helper.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+          </td>
+          <td className="border p-2">
+            <div className="flex justify-between">
+              <code>{`${helper.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+            </div>
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
