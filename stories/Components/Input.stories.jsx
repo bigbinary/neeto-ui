@@ -145,7 +145,7 @@ export const FormikInputStory = ({}) => {
           validationSchema: yup.object({
             name: yup.string().required("Name is required"),
           }),
-          onSubmit: (values) => window.alert(values.name),
+          onSubmit: (values) => window.alert(JSON.stringify(values)),
         }}
       >
         {(props) => (
