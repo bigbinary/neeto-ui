@@ -141,7 +141,7 @@ export const FormikInputStory = ({}) => {
     <>
       <Form
         formikProps={{
-          initialValues: { name: "" },
+          initialValues: { name: "", email: "" },
           validationSchema: yup.object({
             name: yup.string().required("Name is required"),
           }),
@@ -151,6 +151,7 @@ export const FormikInputStory = ({}) => {
         {(props) => (
           <div className="space-y-2">
             <FormikInput name="name" label="Name" />
+            <FormikInput name="email" type="email" label="Email" />
             <Button type="submit" label="Submit" />
           </div>
         )}
