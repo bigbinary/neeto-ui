@@ -1,4 +1,5 @@
 import React from "react";
+import { FormikProps } from "formik";
 import {
   Input as PlainInput,
   Radio as PlainRadio,
@@ -21,7 +22,7 @@ export interface BlockNavigationProps {
 }
 
 export interface Form {
-  children: React.ReactNode;
+  children: React.ReactNode | ((props: FormikProps<any>) => React.ReactNode);
   formikProps: {[key: string]: any};
   formProps: {[key: string]: any};
 }
