@@ -30,7 +30,7 @@ export const Toastrs = () => {
     <>
       <ToastContainer />
       <div className="space-y-6">
-        <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="flex flex-row items-center justify-start flex-wrap gap-2">
           <Button
             label="Info Toastr"
             onClick={() => Toastr.info("This is an info Toastr.")}
@@ -42,24 +42,6 @@ export const Toastrs = () => {
           <Button
             label="Success Toastr"
             onClick={() => Toastr.success("Form has been successfully saved.")}
-          />
-          <Button
-            label="Without icon"
-            onClick={() =>
-              Toastr.success("", {
-                autoClose: false,
-                icon: "👍", //Can be false as well, if no icon is need
-              })
-            }
-          />
-          <Button
-            label="classname support"
-            onClick={() =>
-              Toastr.success("Form has been successfully saved.", {
-                className: "custom-classname__Toaster",
-                autoClose: false,
-              })
-            }
           />
           <Button
             label="Toastr with CTA"
@@ -184,3 +166,56 @@ export const CustomConfigToastr = () => (
 );
 
 CustomConfigToastr.storyName = "Custom config toastr";
+
+export const POC = () => {
+  return (
+    <>
+      <ToastContainer />
+      <div className="space-y-6">
+        <div className="flex flex-row items-center justify-start flex-wrap gap-2">
+          <Button
+            label="🎉"
+            onClick={() =>
+              Toastr.success("", {
+                autoClose: 3000,
+                icon: "🎉", //Can be false as well, if no icon is need
+                position: "bottom-left",
+                className: "w-24",
+              })
+            }
+          />
+          <Button
+            label="Info Toastr"
+            onClick={() =>
+              Toastr.info("This is an info Toastr.", {
+                autoClose: 3000,
+                position: "bottom-left",
+              })
+            }
+          />
+          <Button
+            label="Warning Toastr"
+            onClick={() => Toastr.warning("This is a warning Toastr.", {
+              autoClose: 3000,
+              position: "bottom-left",
+            })}
+          />
+          <Button
+            label="Success Toastr"
+            onClick={() => Toastr.success("Form has been successfully saved.", {
+              autoClose: 3000,
+              position: "bottom-left",
+            })}
+          />
+          <Button
+            label="Error Toastr with link"
+            onClick={() => Toastr.error("Some error occured! Please visit https://github.com/bigbinary/neeto-ui.", {
+              autoClose: 3000,
+              position: "bottom-left",
+            })}
+          />
+        </div>
+      </div>
+    </>
+  );
+};
