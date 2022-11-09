@@ -15,7 +15,7 @@ const TestCheckboxForm = ({ onSubmit }) => {
           initialValues: { formikCheckbox: false },
           validationSchema: yup.object().shape({
             formikCheckbox: yup
-              .boolean()
+              .boolean().oneOf([true], "Checking the formik checkbox is checked.")
               .required("Checking the formik checkbox is required."),
           }),
           onSubmit: handleSubmit,
@@ -61,10 +61,6 @@ describe("formik/Checkbox", () => {
     const onSubmit = jest.fn();
     render(<TestCheckboxForm onSubmit={onSubmit} />);
     userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(
-        screen.getByText("Checking the formik checkbox is required.")
-      ).toBeVisible()
-    );
+    expect(await screen.findByText("Checking the formik checkbox is checked.")).toBeVisible();
   });
 });

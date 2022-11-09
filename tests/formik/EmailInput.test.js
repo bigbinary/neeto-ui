@@ -27,16 +27,14 @@ const TestMultiEmailInputForm = ({ onSubmit }) => {
           onSubmit: handleSubmit,
         }}
       >
-        <Form>
-          <MultiEmailInput label="Email(s)" name="emails" />
-          <button type="submit">Submit</button>
-        </Form>
+        <MultiEmailInput label="Email(s)" name="emails" />
+        <button type="submit">Submit</button>
       </Form>
     </>
   );
 };
 
-describe("formik/Input", () => {
+describe("formik/EmailInput", () => {
   it("should render without error", () => {
     render(
       <Form
