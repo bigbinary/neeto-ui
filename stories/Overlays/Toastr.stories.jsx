@@ -44,6 +44,24 @@ export const Toastrs = () => {
             onClick={() => Toastr.success("Form has been successfully saved.")}
           />
           <Button
+            label="Without icon"
+            onClick={() =>
+              Toastr.success("", {
+                autoClose: false,
+                icon: "👍", //Can be false as well, if no icon is need
+              })
+            }
+          />
+          <Button
+            label="classname support"
+            onClick={() =>
+              Toastr.success("Form has been successfully saved.", {
+                className: "custom-classname__Toaster",
+                autoClose: false,
+              })
+            }
+          />
+          <Button
             label="Toastr with CTA"
             onClick={() =>
               Toastr.error(
@@ -130,7 +148,7 @@ export const ErrorToastr = () => {
   );
 };
 
-export const CustomConfigToastr = () =>
+export const CustomConfigToastr = () => (
   <>
     <ToastContainer />
     <div className="space-x-6">
@@ -162,6 +180,7 @@ export const CustomConfigToastr = () =>
         }
       />
     </div>
-  </>;
+  </>
+);
 
 CustomConfigToastr.storyName = "Custom config toastr";
