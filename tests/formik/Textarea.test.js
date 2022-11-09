@@ -1,33 +1,30 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
 import * as yup from "yup";
 
-import { Textarea } from "../../lib/components/formik";
+import { Textarea, Form } from "../../lib/components/formik";
 
 const TestTextarea = ({ onSubmit }) => {
   const handleSubmit = (values) => {
     onSubmit(values);
   };
   return (
-    <Formik
-      initialValues={{
-        textarea: "",
+    <Form
+      formikProps={{
+        initialValues: { textarea: "" },
+        validationSchema: yup.object().shape({
+          textarea: yup
+            .string()
+            .min(10, "Must be atleast 10 characters long")
+            .required("This field is required"),
+        }),
+        onSubmit: handleSubmit,
       }}
-      validationSchema={yup.object().shape({
-        textarea: yup
-          .string()
-          .min(10, "Must be atleast 10 characters long")
-          .required("This field is required"),
-      })}
-      onSubmit={handleSubmit}
     >
-      <Form>
-        <Textarea name="textarea" label="Textarea label" />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+      <Textarea name="textarea" label="Textarea label" />
+      <button type="submit">Submit</button>
+    </Form>
   );
 };
 

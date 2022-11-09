@@ -1,10 +1,9 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
 import * as yup from "yup";
 
-import { Switch as FormikSwitch } from "../../lib/components/formik";
+import { Switch as FormikSwitch, Form } from "../../lib/components/formik";
 
 const TestSwitch = ({ onSubmit, schema }) => {
   const handleSubmit = (values) => {
@@ -16,18 +15,16 @@ const TestSwitch = ({ onSubmit, schema }) => {
       formikSwitch: yup.boolean(),
     });
   return (
-    <Formik
-      initialValues={{
-        formikSwitch: false,
+    <Form
+      formikProps={{
+        initialValues: { formikSwitch: false },
+        validationSchema,
+        onSubmit: handleSubmit,
       }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
     >
-      <Form>
-        <FormikSwitch name="formikSwitch" />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+      <FormikSwitch name="formikSwitch" />
+      <button type="submit">Submit</button>
+    </Form>
   );
 };
 

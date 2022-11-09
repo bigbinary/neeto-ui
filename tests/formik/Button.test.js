@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
-import { Button, Input } from "../../lib/components/formik";
+import { Button, Input, Form } from "../../lib/components/formik";
 import * as yup from "yup";
 
 const TestButtonForm = ({ onSubmit }) => {
@@ -10,18 +9,18 @@ const TestButtonForm = ({ onSubmit }) => {
     onSubmit(values);
   };
   return (
-    <Formik
-      initialValues={{ name: "Oliver" }}
-      validationSchema={yup.object().shape({
-        name: yup.string().required("Name is required"),
-      })}
-      onSubmit={handleSubmit}
+    <Form
+      formikProps={{
+        initialValues: { name: "Oliver" },
+        validationSchema: yup.object().shape({
+          name: yup.string().required("Name is required"),
+        }),
+        onSubmit: handleSubmit,
+      }}
     >
-      <Form>
-        <Input name="name" label="Name" />
-        <Button type="submit">Submit</Button>
-      </Form>
-    </Formik>
+      <Input name="name" label="Name" />
+      <Button type="submit">Submit</Button>
+    </Form>
   );
 };
 
@@ -36,11 +35,14 @@ const renderTestComponent = () => {
 describe("formik/Button", () => {
   it("Should render without error", () => {
     render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <Button label="Submit" type="submit" />
-        </Form>
-      </Formik>
+      <Form
+        formikProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <Button label="Submit" type="submit" />
+      </Form>
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
