@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
-import { MultiEmailInput } from "../../lib/components/formik";
+import { MultiEmailInput, Form } from "../../lib/components/formik";
 import * as yup from "yup";
 
 const TestMultiEmailInputForm = ({ onSubmit }) => {
@@ -11,40 +10,41 @@ const TestMultiEmailInputForm = ({ onSubmit }) => {
   };
   return (
     <>
-      <Formik
-        initialValues={{
-          emails: [],
+      <Form
+        formikProps={{
+          initialValues: { emails: [] },
+          validationSchema: yup.object().shape({
+            emails: yup
+              .array()
+              .min(1, "Atleast one email is required.")
+              .test(
+                "are-all-emails-valid",
+                "All emails should be valid.",
+                (emails) => emails.every(({ valid }) => valid)
+              )
+              .nullable(),
+          }),
+          onSubmit: handleSubmit,
         }}
-        validationSchema={yup.object().shape({
-          emails: yup
-            .array()
-            .min(1, "Atleast one email is required.")
-            .test(
-              "are-all-emails-valid",
-              "All emails should be valid.",
-              (emails) => emails.every(({ valid }) => valid)
-            )
-            .nullable(),
-        })}
-        onSubmit={handleSubmit}
       >
-        <Form>
-          <MultiEmailInput label="Email(s)" name="emails" />
-          <button type="submit">Submit</button>
-        </Form>
-      </Formik>
+        <MultiEmailInput label="Email(s)" name="emails" />
+        <button type="submit">Submit</button>
+      </Form>
     </>
   );
 };
 
-describe("formik/Input", () => {
+describe("formik/EmailInput", () => {
   it("should render without error", () => {
     render(
-      <Formik initialValues={{}} onSubmit={() => {}}>
-        <Form>
-          <MultiEmailInput name="emails" />
-        </Form>
-      </Formik>
+      <Form
+        formikProps={{
+          initialValues: {},
+          onSubmit: () => {},
+        }}
+      >
+        <MultiEmailInput name="emails" />
+      </Form>
     );
     expect(screen.getByText("Email(s)")).toBeInTheDocument();
   });
