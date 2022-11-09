@@ -4,8 +4,8 @@ import { Search } from "@bigbinary/neeto-icons";
 import Input from "../../lib/components/Input";
 import Button from "../../lib/components/Button";
 import Typography from "../../lib/components/Typography";
-import { Input as FormikInput } from "../../lib/components/formik";
-import { Formik, Form } from "formik";
+import { Input as FormikInput, Form } from "../../lib/components/formik";
+import * as yup from "yup";
 
 export default {
   title: "Components/Input",
@@ -137,19 +137,25 @@ export const InputWithMaxLength = () => {
 InputWithMaxLength.storyName = "Input with max length";
 
 export const FormikInputStory = ({}) => {
-  const [values, setValues] = useState({});
   return (
     <>
-      <Formik
-        initialValues={{ name: "" }}
-        onSubmit={(values) => setValues(values)}
+      <Form
+        formikProps={{
+          initialValues: { name: "", email: "" },
+          validationSchema: yup.object({
+            name: yup.string().required("Name is required"),
+          }),
+          onSubmit: (values) => window.alert(JSON.stringify(values)),
+        }}
       >
-        <Form className="space-y-2">
-          <FormikInput name="name" label="Name" />
-          <Button type="submit" label="Submit" />
-          <Typography>Name: {values.name} </Typography>
-        </Form>
-      </Formik>
+        {(props) => (
+          <div className="space-y-2">
+            <FormikInput name="name" label="Name" />
+            <FormikInput name="email" type="email" label="Email" />
+            <Button type="submit" label="Submit" />
+          </div>
+        )}
+      </Form>
     </>
   );
 };
