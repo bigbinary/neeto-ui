@@ -23,6 +23,13 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.2 - 2022-11-09
+
+- Added `Form` component to `neetoui/formik`.
+- Added relevant tests for `Form` component.
+- Removed the usage of `Formik` and `Form` from `formik` in stories and used `Form`.
+- Fixed flaky tests.
+
 ## 4.1.1 - 2022-11-03
 
 - Added: Eyedropper to *ColorPicker*
