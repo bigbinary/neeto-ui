@@ -141,7 +141,11 @@ export const Sizes = () => {
         </Modal.Footer>
       </Modal>
 
-      <Modal isOpen={showModalLarge} onClose={() => setShowModalLarge(false)}>
+      <Modal
+        isOpen={showModalLarge}
+        onClose={() => setShowModalLarge(false)}
+        size="large"
+      >
         <Modal.Header>
           <Typography style="h2">They're creepy & they're kooky</Typography>
         </Modal.Header>
