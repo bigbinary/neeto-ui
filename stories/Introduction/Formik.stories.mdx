@@ -73,9 +73,7 @@ import { Form } from "@bigbinary/neetoui/formik";
       email: Yup.string().email("Invalid email").required("Email is required"),
     }),
   }}
-  formProps={{
-    className: "w-full space-y-6",
-  }}
+  className="w-full space-y-6"
 >
   {(props) => {
     return (
@@ -109,9 +107,7 @@ import { Form } from "@bigbinary/neetoui/formik";
       email: Yup.string().email("Invalid email").required("Email is required"),
     }),
   }}
-  formProps={{
-    className: "w-full space-y-6",
-  }}
+  className="w-full space-y-6"
 >
   <>
     <Input {...props} label="Name" name="name" />
