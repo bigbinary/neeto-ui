@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.3 - 2022-11-10
+
+- Removes Tags molecule from library and moved to [neeto-tags-frontend](https://github.com/bigbinary/neeto-tags-frontend)
+
 ## 4.1.2 - 2022-11-09
 
 - Added `Form` component to `neetoui/formik`.
