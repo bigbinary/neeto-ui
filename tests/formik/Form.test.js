@@ -50,7 +50,6 @@ describe("formik/Form", () => {
     );
   });
 
-  // expect the html form element to show the custom classname
   it("should render form with custom classname", () => {
     render(<FormikForm />);
     expect(screen.getByTestId("neeto-ui-form-wrapper")).toHaveClass(
