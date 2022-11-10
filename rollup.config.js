@@ -75,13 +75,4 @@ export default [
     },
     plugins,
   },
-  {
-    input: "./lib/molecules/index.js",
-    output: {
-      file: "molecules.js",
-      format: "cjs",
-      sourcemap: false,
-    },
-    plugins,
-  },
 ];
