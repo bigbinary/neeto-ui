@@ -17,6 +17,7 @@ const FormikForm = ({ onSubmit }) => {
         }),
         onSubmit: handleSubmit,
       }}
+      className="nui-form-wrapper"
     >
       <Input name="name" label="First Name" />
       <Button type="submit">Submit</Button>
@@ -46,6 +47,13 @@ describe("formik/Form", () => {
     userEvent.click(button);
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({ name: "Oliver" })
+    );
+  });
+
+  it("should render form with custom classname", () => {
+    render(<FormikForm />);
+    expect(screen.getByTestId("neeto-ui-form-wrapper")).toHaveClass(
+      "nui-form-wrapper"
     );
   });
 
