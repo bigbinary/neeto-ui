@@ -173,11 +173,6 @@ export const STORYBOOK_NAV_LINKS = [
     label: "Layouts",
     to: "/layouts",
     icon: Image,
-  },
-  {
-    label: "Molecules",
-    to: "/molecules",
-    icon: Image
   }
 ];
 
