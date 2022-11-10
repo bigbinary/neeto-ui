@@ -180,22 +180,27 @@ export const PaneWithModalAndAlert = () => {
 PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
 
 export const MultiplePanes = () => {
-  const [showPane, setShowPane] = useState(false);
-  const [showPane2, setShowPane2] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
+  const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <div className="w-full">
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
-            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+            <Button
+              label="Show Pane"
+              onClick={() => setIsFirstPaneVisible(true)}
+            />
           </div>
         </div>
       </div>
 
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane
+        isOpen={isFirstPaneVisible}
+        onClose={() => setIsFirstPaneVisible(false)}
+      >
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
@@ -211,24 +216,29 @@ export const MultiplePanes = () => {
             They're the Herculoids!
           </Typography>
           <div className="flex space-x-2">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
-            <Button label="Show alert" onClick={() => setShowAlert(true)} />
+            <Button
+              label="Show second pane"
+              onClick={() => setIsSecondPaneVisible(true)}
+            />
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
             label="Continue"
-            onClick={() => setShowPane2(true)}
+            onClick={() => setIsFirstPaneVisible(false)}
           />
           <Button
             style="text"
             label="Cancel"
-            onClick={() => setShowPane(false)}
+            onClick={() => setIsFirstPaneVisible(false)}
           />
         </Pane.Footer>
       </Pane>
-      <Pane isOpen={showPane2} onClose={() => setShowPane2(false)}>
+      <Pane
+        isOpen={isSecondPaneVisible}
+        onClose={() => setIsSecondPaneVisible(false)}
+      >
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
@@ -244,24 +254,26 @@ export const MultiplePanes = () => {
             They're the Herculoids!
           </Typography>
           <div className="flex space-x-2">
-            <Button label="Show modal" onClick={() => setShowModal(true)} />
-            <Button label="Show alert" onClick={() => setShowAlert(true)} />
+            <Button
+              label="Show modal"
+              onClick={() => setIsModalVisible(true)}
+            />
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
           <Button
             icon={Check}
             label="Continue"
-            onClick={() => setShowModal(true)}
+            onClick={() => setIsSecondPaneVisible(false)}
           />
           <Button
             style="text"
             label="Cancel"
-            onClick={() => setShowPane2(false)}
+            onClick={() => setIsSecondPaneVisible(false)}
           />
         </Pane.Footer>
       </Pane>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
         <Modal.Header>
           <h2>Add label</h2>
         </Modal.Header>
@@ -276,16 +288,16 @@ export const MultiplePanes = () => {
           <Button
             icon={Check}
             label="Continue"
-            onClick={() => setShowModal(false)}
+            onClick={() => setIsModalVisible(false)}
           />
           <Button
             style="text"
             label="Cancel"
-            onClick={() => setShowModal(false)}
+            onClick={() => setIsModalVisible(false)}
           />
         </Modal.Footer>
       </Modal>
     </div>
   );
 };
-PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
+MultiplePanes.storyName = "Nested panes with modals";
