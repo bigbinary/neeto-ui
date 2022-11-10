@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import Button from "../../lib/components/Button";
 import Toastr from "../../lib/components/Toastr";
+import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
 export default {
   title: "Overlays/Toastr",
@@ -12,7 +13,7 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Toastr } from "@bigbinary/neetoui";`',
+        component: ToastrStory,
       },
     },
     design: {
@@ -143,7 +144,7 @@ export const CustomConfigToastr = () =>
             () => {},
             {
               hideProgressBar: false,
-              duration: 5000,
+              autoClose: 5000,
             }
           )
         }
@@ -156,7 +157,7 @@ export const CustomConfigToastr = () =>
             {
               buttonLabel: "Okay",
               onClick: () => {},
-              duration: 3000,
+              autoClose: 3000,
             }
           )
         }
