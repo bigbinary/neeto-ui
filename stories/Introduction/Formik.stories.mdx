@@ -56,23 +56,72 @@ You can refer the [formik folder](https://github.com/bigbinary/neeto-ui/tree/mai
 In order to use the neetoUI formik components, you need to wrap your form with the `Form` component.
 
 ```jsx
+import * as Yup from "yup";
 import { Form } from "@bigbinary/neetoui/formik";
 
-<Form>
+<Form
+  formikProps={{
+    initialValues: {
+      name: "",
+      email: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+    }),
+  }}
+  className="w-full space-y-6"
+>
   {(props) => {
     return (
-      <div>
+      <>
         <Input {...props} label="Name" name="name" />
         <Input {...props} label="Email" name="email" />
-      </div>
+        <Button label="Submit" type="submit" style="primary" />
+      </>
     );
   }}
+</Form>;
+```
+
+In case, you wish not to pass `children` as a function, you can use the following syntax:
+
+```jsx
+import * as Yup from "yup";
+import { Form } from "@bigbinary/neetoui/formik";
+
+<Form
+  formikProps={{
+    initialValues: {
+      name: "",
+      email: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+    }),
+  }}
+  className="w-full space-y-6"
+>
+  <>
+    <Input {...props} label="Name" name="name" />
+    <Input {...props} label="Email" name="email" />
+    <Button label="Submit" type="submit" style="primary" />
+  </>
 </Form>;
 ```
 
 The `Form` component accepts the following props:
 
 - `formikProps`: Formik props object. You can pass `initialValues`, `validationSchema`, `onSubmit` etc. as props to the `Form` component.
+- `children`: You can pass a function as `children` to the `Form` component. The function will receive the formik props object as an argument. Or you can directly pass the `children` inside the `Form` component.
+- `className`: You can use this prop to provide a custom class to the form.
 - `formProps`: Form props object. You can pass `className`, `style` etc. as props to the `Form` component.
 
 #### Acceptable props for Components
