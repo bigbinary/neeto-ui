@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.5 - 2022-11-11
+
+- Added `system-ui` to `font-family` in `_base.scss`
+
 ## 4.1.4 - 2022-11-10
 
 - Added: `className` as props to *Form* component.
