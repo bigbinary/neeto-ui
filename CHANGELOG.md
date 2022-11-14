@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.6 - 2022-11-13
+
+- Fixed: issue with *Select* dropdown when scrolling the page.
+
 ## 4.1.5 - 2022-11-11
 
 - Added `system-ui` to `font-family` in `_base.scss`
