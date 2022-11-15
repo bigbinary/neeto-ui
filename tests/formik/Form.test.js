@@ -92,8 +92,9 @@ describe("formik/Form", () => {
     userEvent.type(input, "{selectall}{backspace}");
     await waitFor(() => expect(screen.getByText("Name is required")).toBeInTheDocument());
 
-    userEvent.type(input, "Oliver Smith");
+    userEvent.type(input, "Oliver");
+    await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
-    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
+    await waitFor(() => expect(onSubmit).toHaveBeenCalled());
   });
 });
