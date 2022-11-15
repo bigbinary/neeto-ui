@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { Button, Input, Form } from "../../lib/components/formik";
 import * as yup from "yup";
 
-const FormikForm = ({ onSubmit }) => {
+const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {
   const handleSubmit = (values) => {
     onSubmit(values);
   };
@@ -16,6 +16,8 @@ const FormikForm = ({ onSubmit }) => {
           name: yup.string().required("Name is required"),
         }),
         onSubmit: handleSubmit,
+        validateOnBlur,
+        validateOnChange,
       }}
       className="nui-form-wrapper"
     >
@@ -64,6 +66,33 @@ describe("formik/Form", () => {
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");
     await waitFor(() => expect(button).toBeDisabled());
+    userEvent.click(button);
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
+  });
+
+  it("should not validate form on value change or field blur until form is submitted once", async () => {
+    const onSubmit = jest.fn();
+    render(<FormikForm validateOnBlur={true} validateOnChange={true} onSubmit={onSubmit} />);
+
+    const formWrapper = screen.getByTestId("neeto-ui-form-wrapper");
+    const input = screen.getByLabelText("First Name");
+    const button = screen.getByRole("button");
+
+    // clear initial values and blur field.
+    userEvent.type(input, "{selectall}{backspace}");
+    userEvent.click(formWrapper);
+    expect(screen.queryByText("Name is required")).not.toBeInTheDocument();
+
+    userEvent.click(button); // Try submitting form with empty value.
+    await waitFor(() => expect(screen.getByText("Name is required")).toBeInTheDocument());
+    // Check error is removed when user types in value.
+    userEvent.type(input, "Oliver Smith");
+    await waitFor(() => expect(screen.queryByText("Name is required")).not.toBeInTheDocument());
+    // Clear values and make sure error is shown for the onChange event.
+    userEvent.type(input, "{selectall}{backspace}");
+    await waitFor(() => expect(screen.getByText("Name is required")).toBeInTheDocument());
+
+    userEvent.type(input, "Oliver Smith");
     userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
