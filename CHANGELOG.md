@@ -23,6 +23,29 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.6 - 2022-11-13
+
+- Fixed: issue with *Select* dropdown when scrolling the page.
+
+## 4.1.5 - 2022-11-11
+
+- Added `system-ui` to `font-family` in `_base.scss`
+
+## 4.1.4 - 2022-11-10
+
+- Added: `className` as props to *Form* component.
+
+## 4.1.3 - 2022-11-10
+
+- Removes Tags molecule from library and moved to [neeto-tags-frontend](https://github.com/bigbinary/neeto-tags-frontend)
+
+## 4.1.2 - 2022-11-09
+
+- Added `Form` component to `neetoui/formik`.
+- Added relevant tests for `Form` component.
+- Removed the usage of `Formik` and `Form` from `formik` in stories and used `Form`.
+- Fixed flaky tests.
+
 ## 4.1.1 - 2022-11-03
 
 - Added: Eyedropper to *ColorPicker*

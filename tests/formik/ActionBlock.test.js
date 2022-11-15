@@ -1,9 +1,8 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Formik, Form } from "formik";
 
-import { ActionBlock, Input } from "../../lib/components/formik";
+import { ActionBlock, Input, Form } from "../../lib/components/formik";
 import { repeat } from "ramda";
 
 const TestActionBlock = ({
@@ -16,15 +15,18 @@ const TestActionBlock = ({
     onSubmit(value);
   };
   return (
-    <Formik initialValues={{ input }} onSubmit={handleSubmit}>
-      <Form>
-        <Input label="Input label" name="input" />
-        <ActionBlock
-          submitButtonProps={submitButtonProps}
-          cancelButtonProps={cancelButtonProps}
-        />
-      </Form>
-    </Formik>
+    <Form
+      formikProps={{
+        initialValues: { input },
+        onSubmit: handleSubmit,
+      }}
+    >
+      <Input label="Input label" name="input" />
+      <ActionBlock
+        submitButtonProps={submitButtonProps}
+        cancelButtonProps={cancelButtonProps}
+      />
+    </Form>
   );
 };
 
@@ -38,11 +40,9 @@ describe("formik/ActionBlock", () => {
 
   it("should apply the classNames correctly", () => {
     const { container } = render(
-      <Formik>
-        <Form>
-          <ActionBlock className="test-class" />
-        </Form>
-      </Formik>
+      <Form>
+        <ActionBlock className="test-class" />
+      </Form>
     );
 
     expect(container.querySelector(".test-class")).toBeInTheDocument();

@@ -1,11 +1,11 @@
 import React from "react";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
+import { Field } from "formik";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Input } from "../../lib/components";
-import { BlockNavigation } from "../../lib/components/formik";
+import { BlockNavigation, Form } from "../../lib/components/formik";
 
 const TestComponent = () => <div>test page</div>;
 
@@ -13,21 +13,23 @@ const TestForm = ({ isDirty }) => {
   return (
     <>
       <Link to="/test">Navigate</Link>
-      <Formik initialValues={{ formikInput: "test" }}>
-        <Form>
-          <BlockNavigation isDirty={isDirty} />
-          <Field name="formikInput">
-            {({ field }) => (
-              <Input
-                {...field}
-                type="text"
-                label="Formik Input"
-                placeholder="Type Something"
-              />
-            )}
-          </Field>
-        </Form>
-      </Formik>
+      <Form
+        formikProps={{
+          initialValues: { formikInput: "test" },
+        }}
+      >
+        <BlockNavigation isDirty={isDirty} />
+        <Field name="formikInput">
+          {({ field }) => (
+            <Input
+              {...field}
+              type="text"
+              label="Formik Input"
+              placeholder="Type Something"
+            />
+          )}
+        </Field>
+      </Form>
     </>
   );
 };
