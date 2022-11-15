@@ -56,7 +56,9 @@ export const Default = () => {
           </Typography>
         </Pane.Header>
         <Pane.Body>
-          <Input label="Input Label" ref={inputRef} />
+          <div className="w-full mb-4">
+            <Input label="Input Label" ref={inputRef} />
+          </div>
           <Typography style="body2">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
