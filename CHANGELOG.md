@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.8 - 2022-11-16
+
+- Updated: Toaster styles.
+- Added: POC for Toasters with minimum content and bottom left positioning
+
 ## 4.1.7 - 2022-11-14
 
 - Changed: color-picker related dependencies to dev dependency
