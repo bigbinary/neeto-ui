@@ -7,8 +7,24 @@ body {
     max-width: 640px;
     min-width: 320px;
 
-    .Toastify__toast{
-      background-color: rgb(var(--neeto-ui-gray-800));
+    // .Toastify__toast{
+    //   background-color: rgb(var(--neeto-ui-gray-800));
+    // }
+
+    .Toastify__toast.Toastify__toast--info {
+      background-color: rgba(var(--neeto-ui-info-800));
+    }
+
+    .Toastify__toast.Toastify__toast--error {
+      background-color: rgba(var(--neeto-ui-error-800));
+    }
+
+    .Toastify__toast.Toastify__toast--success {
+      background-color: rgba(var(--neeto-ui-success-800));
+    }
+
+    .Toastify__toast.Toastify__toast--warning {
+      background-color: rgba(var(--neeto-ui-warning-800));
     }
 
     .Toastify__toast,
