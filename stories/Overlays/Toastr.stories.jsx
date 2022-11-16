@@ -31,7 +31,7 @@ export const Toastrs = () => {
     <>
       <ToastContainer />
       <div className="space-y-6">
-        <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="flex flex-row items-center justify-start flex-wrap gap-2">
           <Button
             label="Info Toastr"
             onClick={() => Toastr.info("This is an info Toastr.")}
@@ -62,6 +62,15 @@ export const Toastrs = () => {
                   "Some error occured! Please visit https://github.com/bigbinary/neeto-ui."
                 )
               )
+            }
+          />
+          <Button
+            label="👍"
+            onClick={() =>
+              Toastr.success("", {
+                icon: "👍",
+                className: "w-20",
+              })
             }
           />
         </div>
@@ -131,7 +140,7 @@ export const ErrorToastr = () => {
   );
 };
 
-export const CustomConfigToastr = () =>
+export const CustomConfigToastr = () => (
   <>
     <ToastContainer />
     <div className="space-x-6">
@@ -163,6 +172,7 @@ export const CustomConfigToastr = () =>
         }
       />
     </div>
-  </>;
+  </>
+);
 
 CustomConfigToastr.storyName = "Custom config toastr";
