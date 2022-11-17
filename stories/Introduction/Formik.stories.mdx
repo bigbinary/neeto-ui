@@ -65,8 +65,8 @@ import { Form } from "@bigbinary/neetoui/formik";
       name: "",
       email: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, formikBag) => {
+      console.log(values, formikBag);
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -99,8 +99,8 @@ import { Form } from "@bigbinary/neetoui/formik";
       name: "",
       email: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, formikbag) => {
+      console.log(values, formikbag);
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
