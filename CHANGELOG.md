@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.10 - 2022-11-17
+
+- Adds formikBag to onSubmit
+
 ## 4.1.9 - 2022-11-16
 
 - Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the *Form*.
