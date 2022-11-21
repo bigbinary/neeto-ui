@@ -11,7 +11,9 @@ const anotherDate = theDate.add(1, "day");
 describe("DatePicker", () => {
   it("should render without error", () => {
     render(<DatePicker defaultValue={theDate} />);
-    expect(screen.getByRole("textbox")).toHaveValue(theDate.format("DD/MM/YYYY"));
+    expect(screen.getByRole("textbox")).toHaveValue(
+      theDate.format("DD/MM/YYYY")
+    );
   });
 
   it("should show label if label is provided", () => {
@@ -75,7 +77,7 @@ describe("DatePicker", () => {
   it("should trigger onOk method on clicking on ok button", () => {
     const onOk = jest.fn();
     render(<DatePicker open showTime defaultValue={theDate} onOk={onOk} />);
-    fireEvent.click(screen.getByText("Ok"));
+    fireEvent.click(screen.getByText("OK"));
     expect(onOk).toHaveBeenCalled();
   });
 
@@ -95,10 +97,7 @@ describe("DatePicker", () => {
   it("should be able to select date in a range", () => {
     render(
       <DatePicker
-        defaultValue={[
-          dayjs("04/12/2022"),
-          dayjs("04/14/2022"),
-        ]}
+        defaultValue={[dayjs("04/12/2022"), dayjs("04/14/2022")]}
         type="range"
         open
       />
