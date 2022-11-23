@@ -7,6 +7,7 @@ import Modal from "../../lib/components/Modal";
 import Alert from "../../lib/components/Alert";
 import Typography from "../../lib/components/Typography";
 import Input from "../../lib/components/Input";
+import { manager } from "../../lib/managers/OverlayManager";
 
 export default {
   title: "Overlays/Pane",
@@ -69,11 +70,7 @@ export const Default = () => {
           </Typography>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
-          <Button
-            icon={Check}
-            label="Continue"
-            onClick={() => setShowPane(false)}
-          />
+          <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             style="text"
             label="Cancel"
@@ -122,11 +119,7 @@ export const PaneWithModalAndAlert = () => {
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
-          <Button
-            icon={Check}
-            label="Continue"
-            onClick={() => setShowPane(false)}
-          />
+          <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             style="text"
             label="Cancel"
@@ -154,11 +147,7 @@ export const PaneWithModalAndAlert = () => {
           />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            icon={Check}
-            label="Continue"
-            onClick={() => setShowModal(false)}
-          />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             style="text"
             label="Cancel"
@@ -193,6 +182,10 @@ export const MultiplePanes = () => {
               label="Show Pane"
               onClick={() => setIsFirstPaneVisible(true)}
             />
+            <Button
+              label="hasOverlays"
+              onClick={() => console.log(manager.hasOverlays())}
+            />
           </div>
         </div>
       </div>
@@ -220,11 +213,18 @@ export const MultiplePanes = () => {
               label="Show second pane"
               onClick={() => setIsSecondPaneVisible(true)}
             />
+            <Button
+              label="hasOverlays"
+              onClick={() => console.log(manager.hasOverlays())}
+            />
+            <Button
+              label="ref to top overlay"
+              onClick={() => console.log(manager.returnTopMostOverlay())}
+            />
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
           <Button
-            icon={Check}
             label="Continue"
             onClick={() => setIsFirstPaneVisible(false)}
           />
@@ -258,11 +258,18 @@ export const MultiplePanes = () => {
               label="Show modal"
               onClick={() => setIsModalVisible(true)}
             />
+            <Button
+              label="hasOverlays"
+              onClick={() => console.log(manager.hasOverlays())}
+            />
+            <Button
+              label="ref to top overlay"
+              onClick={() => console.log(manager.returnTopMostOverlay())}
+            />
           </div>
         </Pane.Body>
         <Pane.Footer className="flex items-center space-x-2">
           <Button
-            icon={Check}
             label="Continue"
             onClick={() => setIsSecondPaneVisible(false)}
           />
@@ -283,13 +290,17 @@ export const MultiplePanes = () => {
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
           </Typography>
+          <Button
+            label="hasOverlays"
+            onClick={() => console.log(manager.hasOverlays())}
+          />
+          <Button
+            label="ref to top overlay"
+            onClick={() => console.log(manager.returnTopMostOverlay())}
+          />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button
-            icon={Check}
-            label="Continue"
-            onClick={() => setIsModalVisible(false)}
-          />
+          <Button label="Continue" onClick={() => setIsModalVisible(false)} />
           <Button
             style="text"
             label="Cancel"
