@@ -7,6 +7,8 @@ import Alert from "../../lib/components/Alert";
 import Typography from "../../lib/components/Typography";
 import Input from "../../lib/components/Input";
 
+import { OverlayManager } from "../../lib/managers";
+
 export default {
   title: "Overlays/Pane",
   component: Pane,
@@ -282,3 +284,174 @@ export const MultiplePanes = () => {
   );
 };
 MultiplePanes.storyName = "Nested panes with modals";
+
+export const PaneWithOverlayManager = () => {
+  const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
+  const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-2">
+            <Button
+              label="Show Pane"
+              onClick={() => setIsFirstPaneVisible(true)}
+            />
+            <Button
+              label="Check overlays"
+              onClick={() =>
+                window.alert(
+                  `The current application ${
+                    OverlayManager.hasOverlays() ? "has" : "does not have"
+                  } overlays.`
+                )
+              }
+            />
+          </div>
+        </div>
+      </div>
+
+      <Pane
+        isOpen={isFirstPaneVisible}
+        onClose={() => setIsFirstPaneVisible(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
+        </Pane.Header>
+        <Pane.Body className="space-y-4">
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+          <div className="flex space-x-2">
+            <Button
+              label="Show second pane"
+              onClick={() => setIsSecondPaneVisible(true)}
+            />
+            <Button
+              label="Check overlays"
+              onClick={() =>
+                window.alert(
+                  `The current application ${
+                    OverlayManager.hasOverlays() ? "has" : "does not have"
+                  } overlays.`
+                )
+              }
+            />
+            <Button
+              label="Ref to top overlay"
+              onClick={() => console.log(OverlayManager.getTopMostOverlay())}
+            />
+          </div>
+        </Pane.Body>
+        <Pane.Footer className="flex items-center space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setIsFirstPaneVisible(false)}
+          />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setIsFirstPaneVisible(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+      <Pane
+        isOpen={isSecondPaneVisible}
+        onClose={() => setIsSecondPaneVisible(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
+        </Pane.Header>
+        <Pane.Body className="space-y-4">
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+          <div className="flex space-x-2">
+            <Button
+              label="Show modal"
+              onClick={() => setIsModalVisible(true)}
+            />
+            <Button
+              label="Check overlays"
+              onClick={() =>
+                window.alert(
+                  `The current application ${
+                    OverlayManager.hasOverlays() ? "has" : "does not have"
+                  } overlays.`
+                )
+              }
+            />
+            <Button
+              label="Ref to top overlay"
+              onClick={() => console.log(OverlayManager.getTopMostOverlay())}
+            />
+          </div>
+        </Pane.Body>
+        <Pane.Footer className="flex items-center space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setIsSecondPaneVisible(false)}
+          />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setIsSecondPaneVisible(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+      <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
+        <Modal.Header>
+          <h2>Add label</h2>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+          </Typography>
+          <div className="flex space-x-2">
+            <Button
+              label="Check overlays"
+              onClick={() =>
+                window.alert(
+                  `The current application ${
+                    OverlayManager.hasOverlays() ? "has" : "does not have"
+                  } overlays.`
+                )
+              }
+            />
+            <Button
+              label="Ref to top overlay"
+              onClick={() => console.log(OverlayManager.getTopMostOverlay())}
+            />
+          </div>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setIsModalVisible(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setIsModalVisible(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+MultiplePanes.storyName = "Usage of OverlayManager";
