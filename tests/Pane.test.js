@@ -103,15 +103,16 @@ describe("Pane", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should focus on the first focusable element when isOpen is true", () => {
+  it("should focus on the close button when the pane is opened", () => {
+    // wait for pane animation to be completed and then check if the close button is focused
     const { getByTestId } = render(
       <Pane isOpen>
-        <Pane.Body>
-          <Button label="Submit" data-testid="button" />
-        </Pane.Body>
+        <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    expect(getByTestId("close-button")).toHaveFocus();
+    setTimeout(() => {
+      expect(getByTestId("close-button")).toHaveFocus();
+    }, 500);
   });
 
   it("should focus on input box when initialFocusRef is passed to it", () => {
@@ -123,10 +124,10 @@ describe("Pane", () => {
         </Pane.Body>
       </Pane>
     );
-    expect(getByTestId("input")).toHaveFocus();
+    setTimeout(() => {
+      expect(getByTestId("input")).toHaveFocus();
+    }, 500);
   });
-
-  it("");
 
   it("should not close pane on clicking outside when closeOnOutsideClick is false", () => {
     const onClose = jest.fn();
