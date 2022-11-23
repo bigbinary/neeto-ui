@@ -1,0 +1,47 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+  title="Managers/Overlay Manager"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Overlay Manager
+
+The overlay manager is a custom class data structure maintained internally that manages the order, visibility, and focus trapping of overlays.
+It is used by the Modal, Pane, and Alert components.
+
+The focus is now trapped inside of an overlay by using the `renderFocusOnFocusableElements` util. Using `tab` or `shift + tab` will now cycle through the focusable elements inside of the overlay.
+
+## Basics
+
+Even though the overlay manager is used internally, we can still access it via the methods below from the host application.
+
+```js
+hasOverlays(); // returns true if there are overlays in the stack
+getTopMostOverlay(); // returns the top most overlay in the stack
+```
+
+There are few other methods that are used internally by the overlay components. They are listed below.
+
+```js
+addOverlay(overlay); // adds an overlay to the stack
+removeOverlay(overlay); // removes an overlay from the stack
+isTopOverlay(overlay); // returns true if the overlay is the top most overlay in the stack
+getFinalFocusInOverlay(); // returns the final focusable element in the top most overlay in the stack
+```
+
+## Usage
+
+To use the methods above, we can import the overlay manager from the host application.
+
+```jsx
+import { OverlayManager } from "neetoui/managers";
+
+const hasOverlays = OverlayManager.hasOverlays();
+const topMostOverlay = OverlayManager.getTopMostOverlay();
+```

@@ -75,4 +75,13 @@ export default [
     },
     plugins,
   },
+  {
+    input: "./lib/components/managers/index.js",
+    output: {
+      file: "managers.js",
+      format: "cjs",
+      sourcemap: false,
+    },
+    plugins,
+  },
 ];
