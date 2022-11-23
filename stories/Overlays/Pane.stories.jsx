@@ -454,4 +454,3 @@ export const PaneWithOverlayManager = () => {
     </div>
   );
 };
-MultiplePanes.storyName = "Usage of OverlayManager";
