@@ -122,13 +122,8 @@
   align-items: center;
   justify-content: center;
   margin-right: 12px;
-  border-radius: var(--neeto-ui-rounded-xl);
+  border-radius: var(--neeto-ui-rounded-lg);
   flex-shrink: 0;
-}
-
-.neeto-ui-app-switcher-link__icon {
-  width: 24px;
-  height: 24px;
 }
 
 .neeto-ui-app-switcher-link__title {
@@ -138,101 +133,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
   transition: color 0.3s ease-in-out;
-}
-
-.gradient--analytics {
-  background: linear-gradient(135deg, #fb923c 0%, #db2777 100%);
-}
-
-.gradient--chat {
-  background: linear-gradient(137.62deg, #a855f7 0%, #6366f1 95.83%);
-}
-
-.gradient--desk {
-  background: linear-gradient(135deg, #facc15 0%, #f97316 97.5%);
-}
-
-.gradient--form {
-  background: linear-gradient(90.13deg, #ec4899 0%, #f43f5e 100%);
-}
-
-.gradient--kb {
-  background: linear-gradient(134.25deg, #57de4a 0.62%, #14b4c6 97.5%);
-}
-
-.gradient--changelog {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-}
-
-.gradient--cal {
-  background: linear-gradient(135deg, #39d0dd 0%, #0ea5e9 100%);
-}
-
-.gradient--engage {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-}
-
-.gradient--grow {
-  background: linear-gradient(135deg, #7f7ff5 0%, #451ab3 97.5%);
-}
-
-.gradient--quiz {
-  background: linear-gradient(135deg, #d0a8c2 0%, #5b5fe1 100%);
-}
-
-.gradient--replay {
-  background: linear-gradient(137.62deg, #e2e0a7 0%, #966eec 95.83%);
-}
-
-.gradient--invisible {
-  background: linear-gradient(135deg, #f1e205 0%, #6366f1 100%);
-}
-
-.gradient--planner {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-}
-
-.gradient--runner {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-}
-
-.gradient--wireframe {
-  background: linear-gradient(134.25deg, #f76d3b 0.62%, #a874c8 97.5%);
-}
-
-.gradient--invoice {
-  background: linear-gradient(135deg, #dcd4d3 0%, #21c77c 100%);
-}
-
-.gradient--crm {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--popups {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--store {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--course {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--hr {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--interview {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-
-.gradient--insights {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
-}
-.gradient--cal {
-  background: linear-gradient(135deg, #d2ccc4 0%, #2f4353 100%);
 }
 
 // CSS transition group
