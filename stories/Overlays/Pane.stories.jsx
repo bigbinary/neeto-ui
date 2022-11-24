@@ -82,6 +82,56 @@ export const Default = () => {
   );
 };
 
+export const PaneWithLongTitle = () => {
+  const [showPane, setShowPane] = useState(false);
+  const inputRef = React.useRef(null);
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+          </div>
+        </div>
+      </div>
+
+      <Pane
+        isOpen={showPane}
+        onClose={() => setShowPane(false)}
+        initialFocusRef={inputRef}
+      >
+        <Pane.Header>
+          <Typography style="h2" weight="semibold">
+            This is a title that will break into two or maybe three lines! But,
+            the footer will stay at the bottom. Yay!
+          </Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <div className="w-full mb-4">
+            <Input label="Input Label" ref={inputRef} />
+          </div>
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="flex items-center space-x-2">
+          <Button label="Continue" onClick={() => setShowPane(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowPane(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+    </div>
+  );
+};
+
 export const PaneWithModalAndAlert = () => {
   const [showPane, setShowPane] = useState(false);
   const [showModal, setShowModal] = useState(false);
