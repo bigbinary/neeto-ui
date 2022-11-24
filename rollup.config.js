@@ -76,7 +76,7 @@ export default [
     plugins,
   },
   {
-    input: "./lib/components/managers/index.js",
+    input: "./lib/managers/index.js",
     output: {
       file: "managers.js",
       format: "cjs",
