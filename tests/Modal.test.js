@@ -118,8 +118,14 @@ describe("Modal", () => {
   });
 
   it("should block scroll when modal is opened", () => {
-    render(<Modal isOpen />);
-    expect(document.body.style.overflow).toBe("hidden");
+    render(
+      <Modal isOpen>
+        <Modal.Body>Sample text</Modal.Body>
+      </Modal>
+    );
+    setTimeout(() => {
+      expect(document.body.style.overflow).toBe("hidden");
+    }, 500);
   });
 
   it("should not block scroll on body when blockScrollOnMount is false", () => {
@@ -135,7 +141,10 @@ describe("Modal", () => {
         </Modal.Body>
       </Modal>
     );
-    expect(getByTestId("close-button")).toHaveFocus();
+
+    setTimeout(() => {
+      expect(getByTestId("close-button")).toHaveFocus();
+    }, 500);
   });
 
   it("should focus on input box when initialFocusRef is passed to it", () => {
@@ -147,6 +156,9 @@ describe("Modal", () => {
         </Modal.Body>
       </Modal>
     );
-    expect(getByTestId("input")).toHaveFocus();
+
+    setTimeout(() => {
+      expect(getByTestId("input")).toHaveFocus();
+    }, 500);
   });
 });
