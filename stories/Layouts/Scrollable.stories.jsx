@@ -81,12 +81,11 @@ export const WithHeaderAndSubHeader = (args) => {
         rightActionBlock={
           <>
             <Button
-              size="small"
               label="Delete"
               style="secondary"
               icon={Delete}
             />
-            <Button size="small" label="Disable" style="secondary" />
+            <Button label="Disable" style="secondary" />
           </>
         }
       />
