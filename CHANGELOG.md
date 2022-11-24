@@ -25,7 +25,7 @@ Prefix the change with one of these keywords:
 
 ## 4.1.13 - 2022-11-24
 
-- Fixed: Rollup config managers bundle entry point
+- Fixed: Wrong managers bundle entry point in rollup config
 - Added: OverlayManager which is used by all overlay components in neetoUI internally. The host application can use the methods inside the class to determine whether an Overlay is open in the product or not.
 - Removed: ModalManager and migrate the Modal component to use OverlayManager.
 
