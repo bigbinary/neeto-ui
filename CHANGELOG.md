@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.12 - 2022-11-24
+
+- Fixed: UI issues in Subheader
+
 ## 4.1.11 - 2022-11-21
 
 - Fixed:  warnings in *DatePicker* and *TimePicker* component
