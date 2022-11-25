@@ -49,6 +49,7 @@ export default [
       sourcemap: false,
       assetFileNames: "[name][extname]",
     },
+    external: ["managers"],
     plugins: [
       ...plugins,
       styles({
@@ -73,6 +74,7 @@ export default [
       format: "cjs",
       sourcemap: false,
     },
+    external: ["managers"],
     plugins,
   },
   {
