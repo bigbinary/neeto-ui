@@ -49,7 +49,7 @@ export default [
       sourcemap: false,
       assetFileNames: "[name][extname]",
     },
-    external: ["managers"],
+    external: ["@bigbinary/neetoui/managers"],
     plugins: [
       ...plugins,
       styles({
@@ -74,7 +74,7 @@ export default [
       format: "cjs",
       sourcemap: false,
     },
-    external: ["managers"],
+    external: ["@bigbinary/neetoui/managers"],
     plugins,
   },
   {
