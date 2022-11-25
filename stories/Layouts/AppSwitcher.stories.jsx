@@ -60,7 +60,7 @@ export const Default = ({ isOpen, ...args }) => {
 };
 Default.args = {
   isOpen: true,
-  neetoApps: ["KB", "Desk", "Planner"],
+  neetoApps: ["KB", "Desk", "Planner", "Testify", "Chat", "Desk", "Form", "Analytics", "Changelog", "Insights", "Interview", "Invisible", "Quiz", "Replay", "Wireframe", "Site"],
   activeApp: "Chat",
 };
 
