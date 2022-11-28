@@ -138,6 +138,6 @@ describe("formik/Form", () => {
     // Form is cleared and the second enter should trigger validation
     // and since there's no value, the error message should be rendered.
     userEvent.type(addressInput, "{selectall}{backspace} {enter}{enter}");
-    await waitFor(() => expect(screen.getByText("Address is required")).toBeInTheDocument());
+   expect(await screen.findByText("Address is required")).toBeInTheDocument();
   });
 });
