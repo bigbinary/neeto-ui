@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Button, Input, Form } from "../../lib/components/formik";
+import { Button, Input, Form, Textarea } from "../../lib/components/formik";
 import * as yup from "yup";
 
 const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {
@@ -22,6 +22,27 @@ const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {
       className="nui-form-wrapper"
     >
       <Input name="name" label="First Name" />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+};
+
+const EmptyMultiLineForm = ({ onSubmit }) => {
+  const handleSubmit = (values) => {
+    onSubmit(values);
+  };
+  return (
+    <Form
+      formikProps={{
+        initialValues: {address: ""},
+        validationSchema: yup.object().shape({
+          address: yup.string().trim("").required("Address is required"),
+        }),
+        onSubmit: handleSubmit,
+      }}
+      className="nui-form-wrapper"
+    >
+      <Textarea id="address" name="address" label="Address" />
       <Button type="submit">Submit</Button>
     </Form>
   );
@@ -96,5 +117,27 @@ describe("formik/Form", () => {
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => expect(onSubmit).toHaveBeenCalled());
+  });
+
+  it("should not validate the form until form is dirty", async () => {
+    const onSubmit = jest.fn();
+    render(<EmptyMultiLineForm onSubmit={onSubmit} />);
+
+    const addressInput = screen.getByLabelText("Address");
+
+    // Form is not dirty and hence it's not validated for the enter press.
+    userEvent.type(addressInput, "{enter}");
+    expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
+
+    // Form is dirty and hence it's validated for the second enter press
+    // and submit is called since there is no error.
+    userEvent.type(addressInput, "Address Line 1{enter}{enter}");
+    expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
+    await waitFor(() => expect(onSubmit).toHaveBeenCalled());
+
+    // Form is cleared and the second enter should trigger validation
+    // and since there's no value, the error message should be rendered.
+    userEvent.type(addressInput, "{selectall}{backspace} {enter}{enter}");
+    expect(await screen.findByText("Address is required")).toBeInTheDocument();
   });
 });
