@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   staticDirs: ["./public"],
   core: {
@@ -17,4 +19,12 @@ module.exports = {
     "@storybook/addon-console",
     "storybook-dark-mode",
   ],
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@bigbinary/neetoui": path.resolve(__dirname, ".."),
+    };
+
+    return config;
+  },
 };
