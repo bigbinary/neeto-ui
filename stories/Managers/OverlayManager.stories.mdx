@@ -40,10 +40,10 @@ getFinalFocusInOverlay(); // returns the final focusable element in the top most
 To use the methods above, we can import the overlay manager from the host application.
 
 ```jsx
-import { OverlayManager } from "neetoui/managers";
+import { managers } from "neetoui/managers";
 
-const hasOverlays = OverlayManager.hasOverlays();
-const topMostOverlay = OverlayManager.getTopMostOverlay();
+const hasOverlays = managers.hasOverlays();
+const topMostOverlay = managers.getTopMostOverlay();
 ```
 
 You can find a working example [here](?path=/docs/overlays-pane--pane-with-overlay-manager#pane-with-overlay-manager).
