@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.16 - 2022-12-01
+
+Fixed: Prevents form submission when the `enter` key is pressed.
+
 ## 4.1.15 - 2022-11-28
 
 Fixed: Form validation triggered with incorrect values from MultiEmailInput.
