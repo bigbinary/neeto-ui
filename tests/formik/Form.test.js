@@ -34,7 +34,7 @@ const EmptyMultiLineForm = ({ onSubmit }) => {
   return (
     <Form
       formikProps={{
-        initialValues: {address: ""},
+        initialValues: { address: "" },
         validationSchema: yup.object().shape({
           address: yup.string().trim("").required("Address is required"),
         }),
@@ -93,7 +93,13 @@ describe("formik/Form", () => {
 
   it("should not validate form on value change or field blur until form is submitted once", async () => {
     const onSubmit = jest.fn();
-    render(<FormikForm validateOnBlur={true} validateOnChange={true} onSubmit={onSubmit} />);
+    render(
+      <FormikForm
+        validateOnBlur={true}
+        validateOnChange={true}
+        onSubmit={onSubmit}
+      />
+    );
 
     const formWrapper = screen.getByTestId("neeto-ui-form-wrapper");
     const input = screen.getByLabelText("First Name");
@@ -105,13 +111,19 @@ describe("formik/Form", () => {
     expect(screen.queryByText("Name is required")).not.toBeInTheDocument();
 
     userEvent.click(button); // Try submitting form with empty value.
-    await waitFor(() => expect(screen.getByText("Name is required")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Name is required")).toBeInTheDocument()
+    );
     // Check error is removed when user types in value.
     userEvent.type(input, "Oliver Smith");
-    await waitFor(() => expect(screen.queryByText("Name is required")).not.toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText("Name is required")).not.toBeInTheDocument()
+    );
     // Clear values and make sure error is shown for the onChange event.
     userEvent.type(input, "{selectall}{backspace}");
-    await waitFor(() => expect(screen.getByText("Name is required")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Name is required")).toBeInTheDocument()
+    );
 
     userEvent.type(input, "Oliver");
     await waitFor(() => expect(button).not.toBeDisabled());
@@ -131,13 +143,24 @@ describe("formik/Form", () => {
 
     // Form is dirty and hence it's validated for the second enter press
     // and submit is called since there is no error.
-    userEvent.type(addressInput, "Address Line 1{enter}{enter}");
+    userEvent.type(addressInput, "Address Line 1 {meta}{enter}");
     expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
     await waitFor(() => expect(onSubmit).toHaveBeenCalled());
 
     // Form is cleared and the second enter should trigger validation
     // and since there's no value, the error message should be rendered.
-    userEvent.type(addressInput, "{selectall}{backspace} {enter}{enter}");
+    userEvent.type(addressInput, "{selectall}{backspace} {meta}{enter}");
     expect(await screen.findByText("Address is required")).toBeInTheDocument();
+  });
+
+  it("should not call submit on hitting enter with EmptyMultiLineForm", async () => {
+    const onSubmit = jest.fn();
+    render(<EmptyMultiLineForm onSubmit={onSubmit} />);
+
+    const addressInput = screen.getByLabelText("Address");
+
+    userEvent.type(addressInput, "{enter}");
+    expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
 });
