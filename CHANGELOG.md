@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.17 - 2022-12-01
+
+Fixed: Issue with class instance producing undefined in the host application.
+Added: Types for `manager`.
+
 ## 4.1.16 - 2022-12-01
 
 Fixed: Prevents form submission when the `enter` key is pressed.
