@@ -5,7 +5,8 @@
     "module": "commonJS",
     "baseUrl": ".",
     "paths": {
-      "*": ["*"]
+      "*": ["*"],
+      "@bigbinary/neetoui/*": ["*"]
     },
     "esModuleInterop": true,
     "jsx": "react"

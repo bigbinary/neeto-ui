@@ -1,37 +1,43 @@
 version: 2.1
 aliases:
-        - &test_environment
-            docker:
-              # replace with your preferred image
-              - image: cimg/node:16.13.2
+  - &test_environment
+    docker:
+      # replace with your preferred image
+      - image: cimg/node:16.13.2
 jobs:
   "Snapshot Test":
-            <<: *test_environment
-            steps:
-             - checkout
-             - run: yarn install
-             - run:
-                  name: Run Snapshot Tests
-                  command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
+    <<: *test_environment
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run: yarn build
+      - run:
+          name: Run Snapshot Tests
+          command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN
   "Unit Test":
-          <<: *test_environment
-          steps:
-           - checkout
-           - restore_cache:
-              key: dependency-cache-{{ checksum "yarn.lock" }}
-           - run: yarn install
-           - save_cache:
-              key: dependency-cache-{{ checksum "yarn.lock" }}
-              paths:
-                - ./node_modules
-           - run:
-                name: Run Unit Tests
-                command: yarn test --runInBand
+    <<: *test_environment
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run: yarn build
+      - run:
+          name: Run Unit Tests
+          command: yarn test --runInBand
 
 workflows:
   neetoui-tests:
     jobs:
       - "Snapshot Test"
       - "Unit Test"
-
-
