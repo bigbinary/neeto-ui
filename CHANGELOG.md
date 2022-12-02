@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.18 - 2022-12-02
+
+Added: `shouldDynamicallyRenderRowSize` to calculate rows per page dynamically based on viewport height.
+
 ## 4.1.17 - 2022-12-01
 
 Fixed: Issue with class instance producing undefined in the host application.
