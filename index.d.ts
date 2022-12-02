@@ -362,6 +362,7 @@ export interface TableProps {
     scrollToFirstRowOnChange?: boolean;
   };
   rowSelection?: any;
+  shouldDynamicallyRenderRowSize: boolean;
   [key: string]: any;
 }
 
