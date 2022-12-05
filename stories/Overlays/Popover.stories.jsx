@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { Button, Typography, Popover } from "../../lib/components";
 
@@ -21,50 +21,22 @@ export default {
   },
 };
 
-const popoverContent =
-  <>
-    <Popover.Title>What is KB keywords?</Popover.Title>
-    <Typography style="body2" lineHeight="normal">Keywords represent the key concepts of an article. These will be shown on the KB and will be used for SEO</Typography>
-    <Button size="small" style="link" label="View help article" className="neeto-ui-mt-3"/>
-  </>;
-
 
 export const ShowPopover = (args) => {
+  const popoverReferenceElement = useRef();
   return (
     <div className="p-10 space-y-8">
+      <Button style="secondary" label="Show Popover" ref={popoverReferenceElement} />
       <Popover
-        position="top"
-        content={popoverContent}
+        reference={popoverReferenceElement}
         {...args}
       >
-        <Button style="secondary" label="Show Popover" />
+        <Popover.Title>What is KB keywords?</Popover.Title>
+        <Typography style="body2" lineHeight="normal">Keywords represent the key concepts of an article. These will be shown on the KB and will be used for SEO</Typography>
+        <Button size="small" style="link" label="View help article" className="neeto-ui-mt-3"/>
       </Popover>
     </div>
   );
 };
 
 ShowPopover.storyName = "Show Popover";
-
-export const Themes = () => {
-  return (
-    <div className="p-10 space-y-8">
-      <h2 className="text-xl">Themes</h2>
-      <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Popover
-          position="top"
-          content={popoverContent}
-          theme="dark"
-        >
-          <Button style="secondary" label="dark" />
-        </Popover>
-        <Popover
-          position="top"
-          content={popoverContent}
-          theme="light"
-        >
-          <Button style="secondary" label="light" />
-        </Popover>
-      </div>
-    </div>
-  );
-};
