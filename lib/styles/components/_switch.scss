@@ -57,11 +57,11 @@
         background-color: rgb(var(--neeto-ui-white));
         border-radius: 16px;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-      }
 
-      input:checked + .neeto-ui-switch {
-        transform: translateX(20px);
-        color: rgb(var(--neeto-ui-success-500));
+        &--checked{
+          transform: translateX(20px);
+          color: rgb(var(--neeto-ui-success-500));
+        }
       }
 
       &:focus-within {
