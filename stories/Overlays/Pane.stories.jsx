@@ -35,6 +35,7 @@ export default {
 
 export const Default = () => {
   const [showPane, setShowPane] = useState(false);
+  const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const inputRef = React.useRef(null);
   return (
     <div className="w-full">
@@ -58,7 +59,14 @@ export const Default = () => {
         </Pane.Header>
         <Pane.Body>
           <div className="w-full mb-4">
-            <Input label="Input Label" ref={inputRef} />
+            <Button
+              label="Show Input"
+              onClick={() => setIsInputFieldVisible((prev) => !prev)}
+            />
+            <Input label="Input Label" />
+            {isInputFieldVisible && (
+              <Input label="Input Label" ref={inputRef} />
+            )}
           </div>
           <Typography style="body2">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
