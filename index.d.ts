@@ -383,7 +383,7 @@ export interface TagProps {
     | "secondary"
     | "info";
   /** @deprecated Prop deprecated. Use `style` prop instead*/
-  color: string;
+  color?: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
 }
