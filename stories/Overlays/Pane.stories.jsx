@@ -335,6 +335,82 @@ export const MultiplePanes = () => {
 };
 MultiplePanes.storyName = "Nested panes with modals";
 
+export const Sizes = () => {
+  const [showPaneExtraSmall, setShowPaneExtraSmall] = useState(false);
+  const [showPaneLarge, setShowPaneLarge] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button
+              label="Small"
+              onClick={() => setShowPaneExtraSmall(true)}
+            />
+            <Button label="Large" onClick={() => setShowPaneLarge(true)} />
+          </div>
+        </div>
+      </div>
+
+      <Pane
+        isOpen={showPaneExtraSmall}
+        onClose={() => setShowPaneExtraSmall(false)}
+        size="small"
+      >
+        <Pane.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setShowPaneExtraSmall(false)}
+          />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowPaneExtraSmall(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+
+      <Pane
+        isOpen={showPaneLarge}
+        onClose={() => setShowPaneLarge(false)}
+        size="large"
+      >
+        <Pane.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowPaneLarge(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowPaneLarge(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+    </div>
+  );
+};
+
 export const PaneWithOverlayManager = () => {
   const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
   const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
