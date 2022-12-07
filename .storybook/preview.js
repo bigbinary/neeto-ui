@@ -52,6 +52,14 @@ export const parameters = {
         ],
         "Molecules",
         "Overlays",
+        [
+          "Alert",
+          "Modal",
+          "Pane",
+          "Toastr",
+          "Tooltip",
+          "Popover"
+        ],
         "Layouts",
         "Customize",
         "Migration-Guide",

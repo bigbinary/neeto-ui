@@ -451,6 +451,33 @@ export interface TooltipProps {
   [key: string]: any;
 }
 
+export interface PopoverProps {
+  content: React.ReactNode;
+  theme?: "dark" | "light";
+  disabled?: boolean;
+  position?:
+    | "auto"
+    | "auto-start"
+    | "auto-end"
+    | "top"
+    | "bottom"
+    | "right"
+    | "left"
+    | "auto"
+    | "top-start"
+    | "top-end"
+    | "bottom-start"
+    | "bottom-end"
+    | "right-start"
+    | "right-end"
+    | "left-start"
+    | "left-end";
+  interactive?: boolean;
+  hideAfter?: number;
+  hideOnTargetExit?: boolean;
+  [key: string]: any;
+}
+
 export type TypographyProps = {
   style?:
     | "h1"
@@ -599,4 +626,5 @@ export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
 export const TimePicker: React.FC<TimePickerProps>;
 export const Typography: React.ForwardRefExoticComponent<TypographyProps>;
 export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
+export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
 export const Kbd: React.FC<KbdProps>;
