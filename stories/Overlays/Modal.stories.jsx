@@ -87,7 +87,7 @@ export const Sizes = () => {
             />
             <Button label="Medium" onClick={() => setShowModalMedium(true)} />
             <Button label="Large" onClick={() => setShowModalLarge(true)} />
-            <Button label="Full Screen" onClick={() => setShowModalFullScreen(true)} />
+            <Button label="Full screen" onClick={() => setShowModalFullScreen(true)} />
           </div>
         </div>
       </div>
@@ -190,11 +190,11 @@ export const Sizes = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModalLarge(false)} />
+          <Button label="Continue" onClick={() => setShowModalFullScreen(false)} />
           <Button
             style="text"
             label="Cancel"
-            onClick={() => setShowModalLarge(false)}
+            onClick={() => setShowModalFullScreen(false)}
           />
         </Modal.Footer>
       </Modal>
