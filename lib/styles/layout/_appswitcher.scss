@@ -27,11 +27,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgb(var(--neeto-ui-white));
-  width: 320px;
+  width: calc(100vw - var(--neeto-ui-sidebar-width));
   height: 100vh;
   overflow-y: auto;
   max-width: 100%;
-  padding: 24px;
+  padding: 40px;
 
   transform: translateX(-100%);
   backdrop-filter: blur(2px);
@@ -40,9 +40,9 @@
 }
 
 .neeto-ui-app-switcher__grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
   margin-top: 8px;
 }
 
@@ -50,18 +50,19 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+  gap: 16px;
 }
 
 .neeto-ui-app-switcher__close-btn {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 8px;
+  top: 8px;
 }
 
 .neeto-ui-app-switcher__search-wrapper {
-  width: 100%;
-  margin: 16px 0 8px;
+  width: 30%;
 }
 
 .neeto-ui-app-switcher__body {
@@ -96,8 +97,10 @@
 .neeto-ui-app-switcher-link--active {
   background: rgb(var(--neeto-ui-gray-800));
 
-  .neeto-ui-app-switcher-link__title {
-    color: rgb(var(--neeto-ui-white));
+  .neeto-ui-app-switcher-link__content {
+    span {
+      color: rgb(var(--neeto-ui-white));
+    }
   }
 }
 
@@ -126,13 +129,9 @@
   flex-shrink: 0;
 }
 
-.neeto-ui-app-switcher-link__title {
-  flex-grow: 1;
-  max-width: calc(100% - 80px);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  transition: color 0.3s ease-in-out;
+.neeto-ui-app-switcher-link__content {
+  display: flex;
+  flex-direction: column;
 }
 
 // CSS transition group
