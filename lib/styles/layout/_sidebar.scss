@@ -16,8 +16,8 @@
   }
 
   &.neeto-ui-sidebar--collapsed {
-    width: 72px;
-    max-width: 72px;
+    width: var(--neeto-ui-sidebar-width);
+    max-width: var(--neeto-ui-sidebar-width);
   }
 
   // header
