@@ -99,7 +99,7 @@
   background: rgb(var(--neeto-ui-gray-800));
 
   .neeto-ui-app-switcher-link__content {
-    span {
+    svg, span {
       color: rgb(var(--neeto-ui-white));
     }
   }
@@ -131,8 +131,13 @@
 }
 
 .neeto-ui-app-switcher-link__content {
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
+
+  svg {
+    height: 20px;
+    width: auto;
+    margin-bottom: 4px;
+  }
 }
 
 // CSS transition group
