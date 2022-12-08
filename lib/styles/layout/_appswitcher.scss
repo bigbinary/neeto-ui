@@ -1,7 +1,7 @@
 .neeto-ui-app-switcher__backdrop {
   position: fixed;
   z-index: 99996;
-  left: 72px;
+  left: var(--neeto-ui-sidebar-width);
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -15,10 +15,6 @@
   transition: all 0.3s;
   background-color: #1b1f23dd;
   backdrop-filter: blur(2px);
-
-  &--expanded {
-    left: 300px;
-  }
 }
 
 .neeto-ui-app-switcher__wrapper {
@@ -31,7 +27,7 @@
   height: 100vh;
   overflow-y: auto;
   max-width: 100%;
-  padding: 40px;
+  padding: 72px;
 
   transform: translateX(-100%);
   backdrop-filter: blur(2px);
@@ -43,7 +39,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: 24px;
-  margin-top: 8px;
 }
 
 .neeto-ui-app-switcher__header {
@@ -53,16 +48,17 @@
   justify-content: space-between;
   position: relative;
   gap: 16px;
+  margin-bottom: 32px;
 }
 
 .neeto-ui-app-switcher__close-btn {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 24px;
+  top: 24px;
 }
 
 .neeto-ui-app-switcher__search-wrapper {
-  width: 30%;
+  width: 316px;
 }
 
 .neeto-ui-app-switcher__body {
@@ -70,7 +66,8 @@
   flex-direction: column;
   width: 100%;
   font-size: var(--neeto-ui-text-sm);
-  padding: 16px 0;
+  margin-bottom: 24px;
+  gap: 12px;
 }
 
 .neeto-ui-app-switcher-link {
@@ -80,6 +77,11 @@
   background-color: rgb(var(--neeto-ui-gray-100));
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
 
   &:focus,
   &:focus-visible {
@@ -105,27 +107,12 @@
   }
 }
 
-.neeto-ui-app-switcher-link__row {
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  position: relative;
-}
-
-.neeto-ui-app-switcher-link__check-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .neeto-ui-app-switcher-link__icon-holder {
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
   border-radius: var(--neeto-ui-rounded-lg);
   flex-shrink: 0;
 }
@@ -136,7 +123,7 @@
   svg {
     height: 20px;
     width: auto;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 }
 
