@@ -74,6 +74,7 @@ export const Sizes = () => {
   const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
   const [showModalMedium, setShowModalMedium] = useState(false);
   const [showModalLarge, setShowModalLarge] = useState(false);
+  const [showModalFullScreen, setShowModalFullScreen] = useState(false);
 
   return (
     <div className="w-full">
@@ -86,6 +87,7 @@ export const Sizes = () => {
             />
             <Button label="Medium" onClick={() => setShowModalMedium(true)} />
             <Button label="Large" onClick={() => setShowModalLarge(true)} />
+            <Button label="Full screen" onClick={() => setShowModalFullScreen(true)} />
           </div>
         </div>
       </div>
@@ -165,6 +167,34 @@ export const Sizes = () => {
             style="text"
             label="Cancel"
             onClick={() => setShowModalLarge(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+
+      <Modal
+        isOpen={showModalFullScreen}
+        onClose={() => setShowModalFullScreen(false)}
+        size="fullScreen"
+      >
+        <Modal.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Modal.Header>
+        <Modal.Body>
+          <Typography style="body2" lineHeight="normal">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModalFullScreen(false)} />
+          <Button
+            style="text"
+            label="Cancel"
+            onClick={() => setShowModalFullScreen(false)}
           />
         </Modal.Footer>
       </Modal>
