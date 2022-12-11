@@ -813,7 +813,7 @@ table tr td.ant-table-selection-column {
   padding-right: 8px;
   padding-left: 8px;
   text-align: center;
-  z-index: 1;
+  z-index: 9999;
 }
 table tr th.ant-table-selection-column .ant-radio-wrapper,
 table tr td.ant-table-selection-column .ant-radio-wrapper {
