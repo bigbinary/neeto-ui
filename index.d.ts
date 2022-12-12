@@ -60,6 +60,7 @@ export interface RadioProps {
   error?: string;
   id?: any;
   value?: any;
+  labelProps?: LabelProps;
 }
 
 export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
@@ -165,6 +166,7 @@ export type CheckboxProps = {
   className?: string;
   required?: false;
   id?: string;
+  labelProps?: LabelProps;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -188,6 +190,7 @@ export type DatePickerProps = {
   error?: string;
   id?: string;
   disabled?: boolean;
+  labelProps?: LabelProps;
   [key: string]: any;
 };
 
@@ -254,6 +257,7 @@ export interface MultiEmailInputProps {
   counter?: boolean | { label: string; startFrom: number };
   disabled?: boolean;
   maxHeight?: number;
+  labelProps?: LabelProps;
   [key: string]: any;
 }
 
@@ -274,6 +278,7 @@ export interface InputProps
   nakedInput?: boolean;
   contentSize?: number;
   required?: boolean;
+  labelProps?: LabelProps;
 }
 
 export type LabelProps = {
@@ -316,6 +321,7 @@ export type SelectProps = {
   strategy?: "default" | "fixed";
   id?: string;
   loadOptions?: boolean;
+  labelProps?: LabelProps;
   [key: string]: any;
 };
 
@@ -332,6 +338,7 @@ export type SwitchProps = {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   checked?: boolean;
   disabled?: boolean;
+  labelProps?: LabelProps;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -398,6 +405,7 @@ export type TextareaProps = {
   label?: string;
   className?: string;
   maxLength?: number;
+  labelProps?: LabelProps;
 } & React.DetailedHTMLProps<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   HTMLTextAreaElement
@@ -421,6 +429,7 @@ export type TimePickerProps = {
   defaultValue?: any;
   value?: any;
   id?: string;
+  labelProps?: LabelProps;
   [key: string]: any;
 };
 
