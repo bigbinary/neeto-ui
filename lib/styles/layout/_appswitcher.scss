@@ -101,7 +101,7 @@
   background: rgb(var(--neeto-ui-gray-800));
 
   .neeto-ui-app-switcher-link__content {
-    svg, span {
+    span {
       color: rgb(var(--neeto-ui-white));
     }
   }
@@ -120,10 +120,8 @@
 .neeto-ui-app-switcher-link__content {
   flex-grow: 1;
 
-  svg {
-    height: 20px;
-    width: auto;
-    margin-bottom: 2px;
+  span {
+    display: block;
   }
 }
 
