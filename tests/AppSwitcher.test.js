@@ -298,6 +298,7 @@ describe("AppSwitcher", () => {
     expect(screen.getByText("All")).toBeInTheDocument();
 
     userEvent.type(searchInput, neetoApps[0]);
+    expect(screen.getByText("Apps")).toBeInTheDocument();
     expect(screen.getByText(neetoApps[0])).toBeInTheDocument();
     expect(screen.queryByText(neetoApps[1])).not.toBeInTheDocument();
     expect(screen.queryByText(neetoApps[2])).not.toBeInTheDocument();
