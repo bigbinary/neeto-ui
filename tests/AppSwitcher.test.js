@@ -36,7 +36,7 @@ const neetoApps = ["KB", "Desk", "Planner"];
 
 describe("AppSwitcher", () => {
   it("should render without error", () => {
-    const { getByTitle } = render(
+    const { getByText } = render(
       <AppSwitcherTest>
         <AppSwitcher
           isOpen
@@ -48,7 +48,7 @@ describe("AppSwitcher", () => {
     );
 
     for (const app of neetoApps) {
-      expect(getByTitle(app)).toBeInTheDocument();
+      expect(getByText(app)).toBeInTheDocument();
     }
   });
 
@@ -158,7 +158,7 @@ describe("AppSwitcher", () => {
       </AppSwitcherTest>
     );
     const neetoUIClassPrefix = "neeto-ui-app-switcher-link--";
-    const activeLink = screen.getByTitle(/Planner/i);
+    const activeLink = screen.getByText(/Planner/i);
     expect(activeLink.parentElement.parentElement).toHaveClass(
       `${neetoUIClassPrefix}active`
     );
@@ -274,7 +274,7 @@ describe("AppSwitcher", () => {
     );
 
     for (const app of recentApps) {
-      expect(screen.getByTitle(app)).toBeInTheDocument();
+      expect(screen.getByText(app)).toBeInTheDocument();
     }
   });
 
