@@ -1,0 +1,11 @@
+.neeto-ui-popover {
+  border: thin solid rgb(var(--neeto-ui-gray-800));
+
+  &[data-theme~=light] {
+    border-color: rgb(var(--neeto-ui-gray-400));
+  }
+
+  .tippy-content {
+    padding: 1rem;
+  }
+}

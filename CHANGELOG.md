@@ -23,8 +23,17 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
-## 4.1.20 - 2022-12-06
+## 4.1.24 - 2022-12-12
 
+Added: `labelProps` to form elements to customize `Label`.
+Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
+
+## 4.1.22 - 2022-12-07
+
+- Added: *Popover* component
+
+<img width="1100" alt="Screenshot 2022-12-05 at 5 42 51 PM" src="https://user-images.githubusercontent.com/24496302/205637383-afe596b8-c117-43ce-ad00-fee566fa0859.png">
+## 4.1.20 - 2022-12-06
 - Changed: `color` prop in *Tag* component as optional in type definition.
 
 ## 4.1.19 - 2022-12-05
