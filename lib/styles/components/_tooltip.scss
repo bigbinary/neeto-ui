@@ -127,7 +127,7 @@
 }
 .tippy-box[data-theme~="light"] {
   color: rgb(var(--neeto-ui-gray-800));
-  box-shadow: var(--neeto-ui-shadow-s);
+  box-shadow: var(--neeto-ui-shadow-sm);
   background-color: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
