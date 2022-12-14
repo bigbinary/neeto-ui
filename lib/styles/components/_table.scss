@@ -4,6 +4,11 @@
   width: 100%;
   border-collapse: collapse;
 
+  table tr th.ant-table-selection-column,
+  table tr td.ant-table-selection-column {
+    z-index: 9999;
+  }
+
   .ant-table-cell-fix-left,
   .ant-table-cell-fix-right {
     background-color: rgb(var(--neeto-ui-white));
