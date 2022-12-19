@@ -174,7 +174,7 @@
       border-radius: var(--neeto-ui-rounded);
       transition: var(--neeto-ui-transition);
       cursor: pointer;
-      box-shadow: var(--neeto-ui-shadow-s);
+      box-shadow: var(--neeto-ui-shadow-sm);
 
       // profile content
 
@@ -232,7 +232,7 @@
 
 .sidebar-featured-tooltip__content {
   border-radius: 8px !important;
-  box-shadow: var(--neeto-ui-shadow-s) !important;
+  box-shadow: var(--neeto-ui-shadow-sm) !important;
 
   .tippy-content {
     padding: 0;
