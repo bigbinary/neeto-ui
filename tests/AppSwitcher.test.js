@@ -241,7 +241,7 @@ describe("AppSwitcher", () => {
 
   it("should link subdomains based on environment and subdomain props", () => {
     const environment = "production";
-    const appName = "Desk";
+    const appName = "Desk Desk Customer support & ticketing";
     const subdomain = "example";
     render(
       <AppSwitcherTest>
