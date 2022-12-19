@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.26 - 2022-12-19
+
+- Added: support for `neeto-ui-shadow-sm`, `neeto-ui-shadow-md` and `neeto-ui-shadow-lg`.
+
 ## 4.1.25 - 2022-12-14
 
 Fixed: Issue with overlapping column headers for fixed columns in tables.
@@ -40,7 +44,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 ## 4.1.20 - 2022-12-06
 - Changed: `color` prop in *Tag* component as optional in type definition.
 ## 4.1.19 - 2022-12-05
-
 - Fixed: Prevented form submission on the `enter` key for neetoEditor.
 
 ## 4.1.18 - 2022-12-02
