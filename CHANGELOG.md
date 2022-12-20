@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.28 - 2022-12-20
+
+- Fixed: **Form** `validateOnChange` and `validateOnBlur` is not being triggered after the form is submitted by pressing enter key and there are validation errors.
+
 ## 4.1.27 - 2022-12-19
 
 - Updated *Product switcher* component in neetoUI
@@ -47,7 +51,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 
 <img width="1100" alt="Screenshot 2022-12-05 at 5 42 51 PM" src="https://user-images.githubusercontent.com/24496302/205637383-afe596b8-c117-43ce-ad00-fee566fa0859.png">
 ## 4.1.20 - 2022-12-06
-
 - Changed: `color` prop in *Tag* component as optional in type definition.
 
 ## 4.1.19 - 2022-12-05
