@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.30 - 2022-12-21
+
+- Added: functionality to scroll to the selected value in *Select* component
+
 ## 4.1.29 - 2022-12-21
 
 - Fixed: pressing `enter` key in *Select* to select an option submitting the *Form*.
@@ -57,7 +61,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 ## 4.1.20 - 2022-12-06
 - Changed: `color` prop in *Tag* component as optional in type definition.
 ## 4.1.19 - 2022-12-05
-
 - Fixed: Prevented form submission on the `enter` key for neetoEditor.
 
 ## 4.1.18 - 2022-12-02
