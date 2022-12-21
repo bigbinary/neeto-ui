@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.31 - 2022-12-21
+
+- Fixed: issue with continue in *BlockNavigation*.
+
 ## 4.1.30 - 2022-12-21
 
 - Added: functionality to scroll to the selected value in *Select* component
@@ -62,7 +66,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 - Changed: `color` prop in *Tag* component as optional in type definition.
 ## 4.1.19 - 2022-12-05
 - Fixed: Prevented form submission on the `enter` key for neetoEditor.
-
 ## 4.1.18 - 2022-12-02
 
 Added: `shouldDynamicallyRenderRowSize` to calculate rows per page dynamically based on viewport height.
