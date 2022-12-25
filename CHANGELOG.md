@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.32 - 2022-12-25
+
+Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
+
 ## 4.1.31 - 2022-12-21
 
 - Fixed: issue with continue in *BlockNavigation*.
@@ -67,7 +71,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 ## 4.1.19 - 2022-12-05
 - Fixed: Prevented form submission on the `enter` key for neetoEditor.
 ## 4.1.18 - 2022-12-02
-
 Added: `shouldDynamicallyRenderRowSize` to calculate rows per page dynamically based on viewport height.
 
 ## 4.1.17 - 2022-12-01
