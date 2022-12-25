@@ -107,12 +107,12 @@
     outline-color: transparent;
     border-radius: 0;
 
-    &.disabled {
+    &--disabled {
       cursor: not-allowed;
       color: rgb(var(--neeto-ui-gray-500));
     }
 
-    &:hover,
+    &:hover:not(:disabled),
     &:focus {
       background-color: rgb(var(--neeto-ui-gray-200));
     }
