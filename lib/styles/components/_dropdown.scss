@@ -117,7 +117,7 @@
       background-color: rgb(var(--neeto-ui-gray-200));
     }
 
-    &.active {
+    &--active:not(:hover, :focus) {
       background-color: rgb(var(--neeto-ui-gray-800));
       color: rgb(var(--neeto-ui-white));
     }
