@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.34 - 2022-12-26
+
+- Fixed: Select dropdown width when strategy fixed.
+
 ## 4.1.33 - 2022-12-25
 
 - Fixed: Issues with `value` prop of *Select* component.
@@ -77,7 +81,6 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 ## 4.1.18 - 2022-12-02
 Added: `shouldDynamicallyRenderRowSize` to calculate rows per page dynamically based on viewport height.
 ## 4.1.17 - 2022-12-01
-
 Fixed: Issue with class instance producing undefined in the host application.
 Added: Types for `manager`.
 
