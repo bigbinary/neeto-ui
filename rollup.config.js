@@ -19,6 +19,8 @@ const plugins = [
     exclude: "node_modules/**",
     presets: ["@babel/preset-env", "@babel/preset-react"],
     plugins: [
+      process.env.NODE_ENV === "production" &&
+        "transform-react-remove-prop-types",
       "@babel/plugin-transform-runtime",
       [
         "import",
@@ -27,7 +29,7 @@ const plugins = [
           libraryDirectory: "lib",
         },
       ],
-    ],
+    ].filter((item) => !!item),
     babelHelpers: "runtime",
   }),
   resolve({
