@@ -7,9 +7,12 @@
   }
 }
 
+.neeto-ui-react-select__container{
+  width: 100%;
+}
+
 .neeto-ui-react-select__container,
 .neeto-ui-react-select__menu-portal {
-  width: 100%;
   font-size: var(--neeto-ui-text-sm);
 
   &.neeto-ui-react-select__container--naked {
