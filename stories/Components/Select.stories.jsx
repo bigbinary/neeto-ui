@@ -26,7 +26,7 @@ export default {
 
 const Template = (args) => (
   <div className="p-4 mb-2 h-80">
-    <Select {...args} defaultMenuIsOpen />
+    <Select {...args} />
   </div>
 );
 
