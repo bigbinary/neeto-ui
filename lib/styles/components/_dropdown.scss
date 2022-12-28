@@ -109,16 +109,16 @@
 
     &--disabled {
       cursor: not-allowed;
-      color: rgb(var(--neeto-ui-gray-500));
+      opacity: 0.5;
     }
 
-    &:hover:not(:disabled),
-    &:focus {
+    &:hover:not(:disabled):not(.neeto-ui-dropdown__popup-menu-item-btn--active),
+    &:focus:not(:disabled):not(.neeto-ui-dropdown__popup-menu-item-btn--active){
       background-color: rgb(var(--neeto-ui-gray-200));
     }
 
-    &--active:not(:hover, :focus) {
-      background-color: rgb(var(--neeto-ui-gray-800));
+    &--active {
+      background-color: rgb(var(--neeto-ui-primary-500));
       color: rgb(var(--neeto-ui-white));
     }
 
