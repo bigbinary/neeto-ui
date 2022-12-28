@@ -552,6 +552,15 @@ export type KbdProps = {
   className?: string;
 };
 
+export type NoDataProps = {
+  title?: string;
+  description?: string;
+  helpText?: string;
+  primaryButtonProps?: ButtonProps;
+  secondaryButtonProps?: ButtonProps;
+  className?: string;
+};
+
 // components
 
 export const Accordion: React.FC<AccordionProps> & {
@@ -637,3 +646,4 @@ export const Typography: React.ForwardRefExoticComponent<TypographyProps>;
 export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
 export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
 export const Kbd: React.FC<KbdProps>;
+export const NoData: React.FC<NoDataProps>;

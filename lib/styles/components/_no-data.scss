@@ -1,0 +1,14 @@
+.neeto-ui-no-data {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-bottom: 2rem;
+  }
+
+  .neeto-ui-no-data__action-block {
+    margin-top: 2rem;
+  }
+}
