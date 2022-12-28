@@ -56,6 +56,8 @@ export const Default = (args) => {
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
+          <MenuItem.Button isActive>Active</MenuItem.Button>
+          <MenuItem.Button isDisabled>Disabled</MenuItem.Button>
           <Divider />
           <MenuItem.Button style="danger">Delete</MenuItem.Button>
         </Menu>
