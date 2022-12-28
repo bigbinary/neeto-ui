@@ -555,7 +555,7 @@ export type KbdProps = {
 export type NoDataProps = {
   title?: string;
   description?: string;
-  helpText?: string;
+  helpText?: React.ReactNode;
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   className?: string;

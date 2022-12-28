@@ -4,8 +4,13 @@
   justify-content: center;
   align-items: center;
 
-  img {
+  .neeto-ui-no-data__image {
     margin-bottom: 2rem;
+
+    img {
+      max-width: 240px;
+      height: auto;
+    }
   }
 
   .neeto-ui-no-data__action-block {
