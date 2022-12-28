@@ -19,10 +19,9 @@ export default {
 const Template = () => (
   <div className="w-full flex items-center justify-center">
     <NoData
-      title="No wireframes found"
-      description="We couldn’t find any wireframes. You can add new ones"
+      title="There are no tickets to show"
       primaryButtonProps={{
-        label: "Add Wireframe"
+        label: "Add new ticket"
       }}
     />
   </div>
@@ -34,14 +33,14 @@ export const WithHelpText = () => {
   return (
     <div className="w-full flex items-center justify-center">
       <NoData
-        title="No wireframes found"
-        description="We couldn’t find any wireframes. You can add new ones"
+        title="There are no tickets to show"
         helpText={<>For more information, please visit our <Button style="link" label="Knowledge Base"/></>}
         primaryButtonProps={{
-          label: "Add Wireframe"
+          label: "Add new ticket"
         }}
       />
     </div>
   );
 };
+
 WithHelpText.storyName = "No Data with help text";
