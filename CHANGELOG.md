@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.37 - 2022-12-28
+
+- Fixed: issue with multiple links in *Sidebar* getting active at the same time.
+- Changed: logic in *Select* component to respect `getOptionValue` prop.
+
 ## 4.1.35 - 2022-12-27
 
 - Added: the ability to choose email from options in *EmailInput*.
@@ -88,7 +93,6 @@ Added: `shouldDynamicallyRenderRowSize` to calculate rows per page dynamically b
 Fixed: Issue with class instance producing undefined in the host application.
 Added: Types for `manager`.
 ## 4.1.16 - 2022-12-01
-
 Fixed: Prevents form submission when the `enter` key is pressed.
 
 ## 4.1.15 - 2022-11-28
