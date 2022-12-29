@@ -1,0 +1,19 @@
+.neeto-ui-no-data {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .neeto-ui-no-data__image {
+    margin-bottom: 1.5rem;
+
+    img {
+      max-width: 11.5rem;
+      height: auto;
+    }
+  }
+
+  .neeto-ui-no-data__action-block {
+    margin-top: 1.5rem;
+  }
+}
