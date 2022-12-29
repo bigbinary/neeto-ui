@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "4.1.36",
+  "version": "4.1.37",
   "main": "./index.js",
   "module": "./index.js",
   "types": "./index.d.ts",
@@ -55,6 +55,7 @@
     "babel-jest": "27.3.1",
     "babel-loader": "8.1.0",
     "babel-plugin-import": "^1.13.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chromatic": "6.5.1",
     "classnames": "2.2.6",
     "css-loader": "4.3.0",
