@@ -7,7 +7,7 @@ import Alert from "../../lib/components/Alert";
 import Typography from "../../lib/components/Typography";
 import Input from "../../lib/components/Input";
 
-import { OverlayManager } from "../../lib/managers";
+import { manager as OverlayManager } from "../../lib/managers";
 
 export default {
   title: "Overlays/Pane",
@@ -91,10 +91,7 @@ export const Sizes = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button
-              label="Small"
-              onClick={() => setShowPaneExtraSmall(true)}
-            />
+            <Button label="Small" onClick={() => setShowPaneExtraSmall(true)} />
             <Button label="Large" onClick={() => setShowPaneLarge(true)} />
           </div>
         </div>
