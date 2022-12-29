@@ -22,7 +22,7 @@ module.exports = {
   webpackFinal: async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@bigbinary/neetoui": path.resolve(__dirname, ".."),
+      "@bigbinary/neetoui": path.resolve(__dirname, "..", "lib"),
     };
 
     return config;
