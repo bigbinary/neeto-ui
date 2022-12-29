@@ -31,7 +31,6 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-      - run: yarn build
       - run:
           name: Run Unit Tests
           command: yarn test --runInBand
