@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.38 - 2022-12-29
+
+- Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
+- Changed: github workflow compilation environment to `production`
+
 ## 4.1.37 - 2022-12-28
 
 - Fixed: issue with multiple links in *Sidebar* getting active at the same time.
@@ -94,7 +99,6 @@ Fixed: Issue with class instance producing undefined in the host application.
 Added: Types for `manager`.
 ## 4.1.16 - 2022-12-01
 Fixed: Prevents form submission when the `enter` key is pressed.
-
 ## 4.1.15 - 2022-11-28
 
 Fixed: Form validation triggered with incorrect values from MultiEmailInput.
