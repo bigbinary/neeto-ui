@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.40 - 2022-12-30
+
+- Added: word break for *Modal* body and *Tooltip* content
+
 ## 4.1.38 - 2022-12-29
 
 - Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
@@ -100,7 +104,6 @@ Added: Types for `manager`.
 ## 4.1.16 - 2022-12-01
 Fixed: Prevents form submission when the `enter` key is pressed.
 ## 4.1.15 - 2022-11-28
-
 Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 
 ## 4.1.13 - 2022-11-24
