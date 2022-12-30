@@ -19,8 +19,10 @@ const plugins = [
     exclude: "node_modules/**",
     presets: ["@babel/preset-env", "@babel/preset-react"],
     plugins: [
-      process.env.NODE_ENV === "production" &&
-        "transform-react-remove-prop-types",
+      process.env.NODE_ENV === "production" && [
+        "babel-plugin-transform-react-remove-prop-types",
+        { removeImport: true },
+      ],
       "@babel/plugin-transform-runtime",
       [
         "import",
