@@ -14,6 +14,7 @@
   line-height: 1.4;
   outline: 0;
   transition-property: transform, visibility, opacity;
+  word-wrap: break-word;
 }
 .tippy-box[data-placement^="top"] > .tippy-arrow {
   bottom: 0;
@@ -117,12 +118,12 @@
   position: absolute;
 }
 
-.tippy-svg-arrow > svg > path{
+.tippy-svg-arrow > svg > path {
   fill: rgb(var(--neeto-ui-gray-800));
 }
 
 // light theme
-.tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path{
+.tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path {
   fill: rgb(var(--neeto-ui-white));
 }
 .tippy-box[data-theme~="light"] {
