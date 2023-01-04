@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "../../lib/components/Button";
 import Pane from "../../lib/components/Pane";
@@ -35,7 +35,6 @@ export default {
 
 export const Default = () => {
   const [showPane, setShowPane] = useState(false);
-  const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const inputRef = React.useRef(null);
   return (
     <div className="w-full">
@@ -59,14 +58,7 @@ export const Default = () => {
         </Pane.Header>
         <Pane.Body>
           <div className="w-full mb-4">
-            <Button
-              label="Show Input"
-              onClick={() => setIsInputFieldVisible((prev) => !prev)}
-            />
-            <Input label="Input Label" />
-            {isInputFieldVisible && (
-              <Input label="Input Label" ref={inputRef} />
-            )}
+            <Input label="Input Label"  ref={inputRef}/>
           </div>
           <Typography style="body2">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
@@ -588,3 +580,92 @@ export const PaneWithOverlayManager = () => {
     </div>
   );
 };
+PaneWithOverlayManager.storyName = "Pane with overlay manager";
+
+export const PaneWithRenderCallback = () => {
+  const [showPane, setShowPane] = useState(false);
+  const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
+  const [inputFields, setInputFields] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsInputFieldVisible(true);
+    }, 2500);
+  }, []);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+          </div>
+        </div>
+      </div>
+
+      <Pane
+        isOpen={showPane}
+        onClose={() => setShowPane(false)}
+      >
+        {({ setFocusField }) => (
+          <>
+            <Pane.Header>
+              <Typography style="h2" weight="semibold">
+                Typography
+              </Typography>
+            </Pane.Header>
+            <Pane.Body>
+              <div className="w-full mb-4 space-y-4">
+                <Input label="Input Label" />
+                {isInputFieldVisible && (
+                  <Input label="Dynamic field" ref={setFocusField} />
+                )}
+                <Button label="Add Field" onClick={() => {
+                  setInputFields([
+                    ...inputFields,
+                    {
+                      name: `Dynamic Field ${inputFields.length + 1}`,
+                    }
+                  ]);
+                }} />
+                {inputFields.map(field => (
+                  <Input label={field.name} key={field.name} ref={setFocusField} />
+                ))}
+              </div>
+              <Typography style="body2">
+                Somewhere out in space live the Herculoids! Zok, the laser-ray
+                dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+                Gleep, the formless, fearless wonders! With Zandor, their leader,
+                and his wife, Tara, and son, Dorno, they team up to protect their
+                planet from sinister invaders! All-strong! All-brave! All-heroes!
+                They're the Herculoids!
+              </Typography>
+            </Pane.Body>
+            <Pane.Footer className="flex items-center space-x-2">
+              <Button label="Continue" onClick={() => setShowPane(false)} />
+              <Button
+                style="text"
+                label="Cancel"
+                onClick={() => setShowPane(false)}
+              />
+            </Pane.Footer>
+          </>
+        )}
+      </Pane>
+    </div>
+  );
+};
+
+PaneWithRenderCallback.parameters = {
+  docs: {
+    description: {
+      story:
+        `To focus on a dynamic focusable component please use render callback approach, in which you will
+        get \`setFocusField\` method in thecallback. This method could be passed to ref of the component
+        which you want to focus.
+        \nYou can also use this approach to set focus on any field that you later add to the pane.
+        \n𝘜𝘯𝘥𝘦𝘳 𝘵𝘩𝘦 𝘩𝘰𝘰𝘥 𝘸𝘦 𝘶𝘴𝘦 𝘙𝘦𝘢𝘤𝘵'𝘴 𝘊𝘢𝘭𝘭𝘣𝘢𝘤𝘬 𝘙𝘦𝘧 𝘢𝘱𝘱𝘳𝘰𝘢𝘤𝘩.`,
+    },
+  },
+};
+PaneWithRenderCallback.storyName = "Pane with render callback";
