@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Button from "../../lib/components/Button";
 import Pane from "../../lib/components/Pane";
@@ -582,23 +582,22 @@ export const PaneWithOverlayManager = () => {
 };
 PaneWithOverlayManager.storyName = "Pane with overlay manager";
 
-export const PaneWithRenderCallback = () => {
+export const DynamicFieldFocusInsidePane = () => {
   const [showPane, setShowPane] = useState(false);
   const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const [inputFields, setInputFields] = useState([]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsInputFieldVisible(true);
-    }, 2500);
-  }, []);
 
   return (
     <div className="w-full">
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+            <Button label="Show Pane" onClick={() => {
+              setShowPane(true);
+              setTimeout(() => {
+                setIsInputFieldVisible(true);
+              }, 2500);
+            }} />
           </div>
         </div>
       </div>
@@ -656,7 +655,7 @@ export const PaneWithRenderCallback = () => {
   );
 };
 
-PaneWithRenderCallback.parameters = {
+DynamicFieldFocusInsidePane.parameters = {
   docs: {
     description: {
       story:
@@ -668,4 +667,4 @@ PaneWithRenderCallback.parameters = {
     },
   },
 };
-PaneWithRenderCallback.storyName = "Pane with render callback";
+DynamicFieldFocusInsidePane.storyName = "Dynamic field focus inside pane";
