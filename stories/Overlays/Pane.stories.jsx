@@ -58,7 +58,7 @@ export const Default = () => {
         </Pane.Header>
         <Pane.Body>
           <div className="w-full mb-4">
-            <Input label="Input Label"  ref={inputRef}/>
+            <Input label="Input Label" ref={inputRef}/>
           </div>
           <Typography style="body2">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
