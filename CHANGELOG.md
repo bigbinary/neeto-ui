@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.41 - 2023-01-05
+
+- Fixed: Focus trap for conditionally rendered elements in *Overlay*
+
 ## 4.1.40 - 2022-12-30
 
 - Added: word break for *Modal* body and *Tooltip* content
@@ -105,7 +109,6 @@ Added: Types for `manager`.
 Fixed: Prevents form submission when the `enter` key is pressed.
 ## 4.1.15 - 2022-11-28
 Fixed: Form validation triggered with incorrect values from MultiEmailInput.
-
 ## 4.1.13 - 2022-11-24
 
 - Fixed: Wrong managers bundle entry point in rollup config
