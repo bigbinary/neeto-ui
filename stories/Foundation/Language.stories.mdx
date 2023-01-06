@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/addon-docs";
 import { Check, Close } from "@bigbinary/neeto-icons";
+import NoDataTodo from "../assets/images/no-data-do.png";
 
 <Meta
   title="Foundation/Language"
@@ -240,6 +241,63 @@ Confirmations are presented for actions that can’t be undone or are difficult 
   </div>
 </div>
 <br />
+
+<h3 id="no-data-screens">
+  <a href="#no-data-screens">No data screens</a>
+</h3>
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-md">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <img src={NoDataTodo} />
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-md">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>
+        <p>No articles found.</p>
+        <p>We couldn't find any articles. Try creating one.</p>
+      </li>
+      <li>
+        Looks like you don't have any forms!
+      </li>
+      <li>
+        <p>No changelogs found</p>
+        <p>We couldn’t find any changelogs. You can add a new one.</p>
+      </li>
+      <li>
+        <p>No Quizzes</p>
+        <p>We do not have any quizzes to show here</p>
+      </li>
+      <li>
+        No Assignments yet
+      </li>
+      <li>
+        <p>No tasks found.</p>
+        <p>No tasks for you right now. You can go to projects and assign tasks to yourself</p>
+      </li>
+      <li>
+        <p>Start building user tests</p>
+        <p>You haven't created any test yet. Create your first test here and share it with your testers.</p>
+      </li>
+      <li>
+        <p>No Courses found.</p>
+        <p>We couldn't find any courses. Try creating one.</p>
+      </li>
+      <li>
+        Looks like you don't have any deals.
+      </li>
+      <li>
+        <p>There aren't any projects added yet.</p>
+        <p>Use the following button to add the first project.</p>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <h3 id="directional-language">
   <a href="#directional-language">Directional language</a>
