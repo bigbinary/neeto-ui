@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.1.42 - 2023-01-05
+
+- Updated: Sidebar neeto logo.
+
 ## 4.1.41 - 2023-01-05
 
 - Fixed: Focus trap for conditionally rendered elements in *Overlay*
@@ -110,7 +114,6 @@ Fixed: Prevents form submission when the `enter` key is pressed.
 ## 4.1.15 - 2022-11-28
 Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.13 - 2022-11-24
-
 - Fixed: Wrong managers bundle entry point in rollup config
 - Added: `OverlayManager` which is used by all overlay components in neetoUI internally. The host application can use the methods inside the class to determine whether an Overlay is open in the product or not.
 - Removed: `ModalManager` and migrate the Modal component to use `OverlayManager`.

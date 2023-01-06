@@ -127,3 +127,36 @@ AccordionWithPadding.storyName = "Accordion with padding";
 AccordionWithPadding.parameters = {
   layout: "default",
 };
+
+
+export const AccordionWithCustomizedIcon = (args) => {
+  return (
+    <Accordion {...args}>
+      <Accordion.Item title="Accordion 1" iconProps={{
+        color: "red",
+        size: 28,
+      }}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+      <Accordion.Item title="Accordion 2" iconProps={{
+        color: "red",
+        size: 28,
+      }}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+      <Accordion.Item title="Accordion 3" iconProps={{
+        color: "red",
+        size: 28,
+      }}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Accordion.Item>
+    </Accordion>
+  );
+};
+AccordionWithCustomizedIcon.storyName = "Accordion with customized icon";
+AccordionWithCustomizedIcon.parameters = {
+  layout: "default",
+};
