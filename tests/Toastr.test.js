@@ -317,9 +317,9 @@ describe("Toastr", () => {
   });
 
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
-    it(`should render ${type} Toastr with translated message when response object contains notice_code as key`, async () => {
+    it(`should render ${type} Toastr with translated message when response object contains noticeCode as key`, async () => {
       const button = renderCustomMessageToastrButton(type, {
-        notice_code: `message.${type.toLowerCase()}`,
+        noticeCode: `message.${type.toLowerCase()}`,
       });
       userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
