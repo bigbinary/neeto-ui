@@ -24,6 +24,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## 4.1.43 - 2023-01-09
+
+Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
+
 ## 4.1.42 - 2023-01-05
 
 - Updated: Sidebar neeto logo.
