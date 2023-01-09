@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ToastContainer } from "react-toastify";
 import { act } from "react-dom/test-utils";
+import { init } from "i18next";
 
 const renderToastrButton = (
   type,
@@ -18,12 +19,18 @@ const renderToastrButton = (
   return screen.getByText(`${type} Toastr`);
 };
 
-const renderCustomConfigToastrButton = type => {
+const renderCustomConfigToastrButton = (type) => {
   const customConfig = {
     hideProgressBar: false,
     role: "custom-role",
   };
-  const onClick = () => Toastr[type.toLowerCase()](`This is a ${type} toastr.`, "Close", () => {}, customConfig);
+  const onClick = () =>
+    Toastr[type.toLowerCase()](
+      `This is a ${type} toastr.`,
+      "Close",
+      () => {},
+      customConfig
+    );
   render(
     <>
       <ToastContainer />
@@ -32,6 +39,36 @@ const renderCustomConfigToastrButton = type => {
   );
   return screen.getByText(`${type} Toastr`);
 };
+
+const renderCustomMessageToastrButton = (type, message) => {
+  const onClick = () => Toastr[type.toLowerCase()](message);
+  render(
+    <>
+      <ToastContainer />
+      <Button label={`${type} Toastr`} onClick={onClick} />
+    </>
+  );
+  return screen.getByText(`${type} Toastr`);
+};
+
+beforeAll(() =>
+  init({
+    lng: "en",
+    debug: true,
+    resources: {
+      en: {
+        translation: {
+          message: {
+            success: "This is a Success toastr.",
+            info: "This is a Info toastr.",
+            warning: "This is a Warning toastr.",
+            error: "This is a Error toastr.",
+          },
+        },
+      },
+    },
+  })
+);
 
 describe("Toastr", () => {
   ["Success", "Info", "Warning", "Error"].forEach((type) => {
@@ -276,6 +313,28 @@ describe("Toastr", () => {
         const toastrRole = await screen.findByRole("custom-role");
         expect(toastrRole).toBeInTheDocument();
       }
+    });
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr with translated message when response object contains noticeCode as key`, async () => {
+      const button = renderCustomMessageToastrButton(type, {
+        noticeCode: `message.${type.toLowerCase()}`,
+      });
+      userEvent.click(button);
+      const toastr = await screen.findByText(`This is a ${type} toastr.`);
+      expect(toastr).toBeInTheDocument();
+    });
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr when response object contains notice as key`, async () => {
+      const button = renderCustomMessageToastrButton(type, {
+        notice: `This is a ${type} toastr.`,
+      });
+      userEvent.click(button);
+      const toastr = await screen.findByText(`This is a ${type} toastr.`);
+      expect(toastr).toBeInTheDocument();
     });
   });
 });
