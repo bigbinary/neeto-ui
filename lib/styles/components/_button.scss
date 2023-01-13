@@ -113,7 +113,10 @@
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 
@@ -134,7 +137,10 @@
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 
@@ -154,7 +160,10 @@
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 
@@ -175,8 +184,11 @@
     }
 
     &:focus-visible {
-      opacity: 0.8;
       color: rgb(var(--neeto-ui-primary-500));
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 
@@ -197,7 +209,10 @@
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 
@@ -217,7 +232,10 @@
 
     &:focus-visible {
       color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 80%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
 }
