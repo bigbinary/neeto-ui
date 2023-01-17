@@ -39,14 +39,14 @@
         cursor: not-allowed;
       }
 
-      &:focus,
-      &:focus-visible {
+      &:focus {
         outline: transparent;
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-        border-color: rgb(var(--neeto-ui-primary-500));
+        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+        outline-offset: 1px;
+        box-shadow: none;
       }
     }
   }
@@ -79,14 +79,14 @@
       cursor: not-allowed;
     }
 
-    &:focus,
-    &:focus-visible {
+    &:focus {
       outline: transparent;
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-      border-color: rgb(var(--neeto-ui-primary-500));
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+      outline-offset: 1px;
+      box-shadow: none;
     }
   }
   .ant-checkbox-inner{
