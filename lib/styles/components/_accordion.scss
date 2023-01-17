@@ -21,11 +21,20 @@
       line-height: 16px;
     }
 
-    &:focus-visible, &:focus {
+    &:focus {
       outline: none;
     }
 
-    &:focus-visible, &:hover {
+    &:hover {
+      .neeto-ui-accordion__item-handle{
+        color: rgb(var(--neeto-ui-gray-800));
+      }
+    }
+
+    &:focus-visible{
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+      outline-offset: 1px;
+      box-shadow: none;
       .neeto-ui-accordion__item-handle{
         color: rgb(var(--neeto-ui-gray-800));
       }

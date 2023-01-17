@@ -136,6 +136,12 @@
           color: rgb(var(--neeto-ui-gray-800));
         }
       }
+
+      &:focus-visible{
+        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+        outline-offset: 1px;
+        box-shadow: none;
+      }
     }
 
     li.ant-pagination-item.ant-pagination-item-active {
