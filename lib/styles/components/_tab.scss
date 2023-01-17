@@ -33,7 +33,6 @@
 
   &:hover,
   &:focus,
-  &:focus-visible,
   &:active{
     text-decoration: none;
     outline: none;
@@ -42,6 +41,14 @@
   &:focus,
   &:focus-visible{
     color: rgb(var(--neeto-ui-gray-800));
+  }
+
+  &:focus-visible{
+    text-decoration: none; 
+    
+    outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+    outline-offset: 1px;
+    box-shadow: none;
   }
 
   &__icon {
