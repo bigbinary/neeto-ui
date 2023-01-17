@@ -8,7 +8,6 @@
 ** Represent a version as second level heading and write the version number inside a square bracket, eg: ##  [3.3.2]
 
 --->
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -17,13 +16,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Prefix the change with one of these keywords:
 
-- _Added_: for new features.
-- _Changed_: for changes in existing functionality.
-- _Deprecated_: for soon-to-be removed features.
-- _Removed_: for now removed features.
-- _Fixed_: for any bug fixes.
-- _Security_: in case of vulnerabilities.
+- *Added*: for new features.
+- *Changed*: for changes in existing functionality.
+- *Deprecated*: for soon-to-be removed features.
+- *Removed*: for now removed features.
+- *Fixed*: for any bug fixes.
+- *Security*: in case of vulnerabilities.
 
+## 4.1.44 - 2023-01-17
+
+- Updated: Button keyboard focus styles
+- Updated: Radio keyboard focus styles
+- Updated: Checkbox keyboard focus styles
+- Updated: `antd` Checkbox focus styles in Table
+- Added: Switch focus styles
+- Added: Tab focus styles
+- Added: Accordion focus styles
+- Added: Pagination focus styles
+- Added: `antd` Pagination focus styles in Table
+
+Screenshot
+
+<img width="992" alt="Group 1 (1)" src="https://user-images.githubusercontent.com/48869249/212918441-d5c2c57c-16b1-4da7-a472-e64134b659ce.png">
 ## 4.1.43 - 2023-01-09
 
 Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
@@ -34,11 +48,11 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 
 ## 4.1.41 - 2023-01-05
 
-- Fixed: Focus trap for conditionally rendered elements in _Overlay_
+- Fixed: Focus trap for conditionally rendered elements in *Overlay*
 
 ## 4.1.40 - 2022-12-30
 
-- Added: word break for _Modal_ body and _Tooltip_ content
+- Added: word break for *Modal* body and *Tooltip* content
 
 ## 4.1.38 - 2022-12-29
 
@@ -47,12 +61,12 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 
 ## 4.1.37 - 2022-12-28
 
-- Fixed: issue with multiple links in _Sidebar_ getting active at the same time.
-- Changed: logic in _Select_ component to respect `getOptionValue` prop.
+- Fixed: issue with multiple links in *Sidebar* getting active at the same time.
+- Changed: logic in *Select* component to respect `getOptionValue` prop.
 
 ## 4.1.35 - 2022-12-27
 
-- Added: the ability to choose email from options in _EmailInput_.
+- Added: the ability to choose email from options in *EmailInput*.
 
 ## 4.1.34 - 2022-12-26
 
@@ -60,23 +74,23 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 
 ## 4.1.33 - 2022-12-25
 
-- Fixed: Issues with `value` prop of _Select_ component.
+- Fixed: Issues with `value` prop of *Select* component.
 
 ## 4.1.32 - 2022-12-25
 
-Added: _Checkbox_ and _MultiEmailInput_ are wrapped with `forwardref`.
+Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 
 ## 4.1.31 - 2022-12-21
 
-- Fixed: issue with continue in _BlockNavigation_.
+- Fixed: issue with continue in *BlockNavigation*.
 
 ## 4.1.30 - 2022-12-21
 
-- Added: functionality to scroll to the selected value in _Select_ component
+- Added: functionality to scroll to the selected value in *Select* component
 
 ## 4.1.29 - 2022-12-21
 
-- Fixed: pressing `enter` key in _Select_ to select an option submitting the _Form_.
+- Fixed: pressing `enter` key in *Select* to select an option submitting the *Form*.
 
 ## 4.1.28 - 2022-12-20
 
@@ -84,7 +98,7 @@ Added: _Checkbox_ and _MultiEmailInput_ are wrapped with `forwardref`.
 
 ## 4.1.27 - 2022-12-19
 
-- Updated: _Product switcher_ component in neetoUI
+- Updated: *Product switcher* component in neetoUI
 - Updated: the icon Tooltip content from "App switcher" to "Product switcher"
 
 ## 4.1.26 - 2022-12-19
@@ -102,7 +116,7 @@ Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 
 ## 4.1.22 - 2022-12-07
 
-- Added: _Popover_ component
+- Added: *Popover* component
 
 <img width="1100" alt="Screenshot 2022-12-05 at 5 42 51 PM" src="https://user-images.githubusercontent.com/24496302/205637383-afe596b8-c117-43ce-ad00-fee566fa0859.png">
 ## 4.1.20 - 2022-12-06
@@ -122,14 +136,13 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Fixed: Wrong managers bundle entry point in rollup config
 - Added: `OverlayManager` which is used by all overlay components in neetoUI internally. The host application can use the methods inside the class to determine whether an Overlay is open in the product or not.
 - Removed: `ModalManager` and migrate the Modal component to use `OverlayManager`.
-
 ## 4.1.12 - 2022-11-24
 
 - Fixed: UI issues in Subheader
 
 ## 4.1.11 - 2022-11-21
 
-- Fixed: warnings in _DatePicker_ and _TimePicker_ component
+- Fixed: warnings in *DatePicker* and *TimePicker* component
 
 ## 4.1.10 - 2022-11-17
 
@@ -137,7 +150,7 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 
 ## 4.1.9 - 2022-11-16
 
-- Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the _Form_.
+- Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the *Form*.
 
 ## 4.1.8 - 2022-11-16
 
@@ -150,7 +163,7 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 
 ## 4.1.6 - 2022-11-13
 
-- Fixed: issue with _Select_ dropdown when scrolling the page.
+- Fixed: issue with *Select* dropdown when scrolling the page.
 
 ## 4.1.5 - 2022-11-11
 
@@ -158,7 +171,7 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 
 ## 4.1.4 - 2022-11-10
 
-- Added: `className` as props to _Form_ component.
+- Added: `className` as props to *Form* component.
 
 ## 4.1.3 - 2022-11-10
 
@@ -173,15 +186,15 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 
 ## 4.1.1 - 2022-11-03
 
-- Added: Eyedropper to _ColorPicker_
+- Added: Eyedropper to *ColorPicker*
 
 ## 4.1.0 - 2022-11-03
 
-- Changed: **BREAKING** Name of the _EmailInput_ component to _MultiEmailInput_ in both components and Formik components.
+- Changed: **BREAKING** Name of the *EmailInput* component to *MultiEmailInput* in both components and Formik components.
 
 ## 4.0.17 - 2022-10-28
 
-- Fixed:`ValidateDOMNesting` warning in _DatePicker_ component.
+- Fixed:`ValidateDOMNesting` warning in *DatePicker* component.
 - Fixed: the issue with date items looking disabled in normal state
 
 ## 4.0.16 - 2022-10-28
@@ -203,7 +216,7 @@ Changes documentations to sentence case from title casing.
 
 ## 4.0.12 - 2022-10-17
 
-- Added: tooltip to _Avatar_ component
+- Added: tooltip to *Avatar* component
 
 ## 4.0.11 - 2022-10-10
 
@@ -220,7 +233,7 @@ Changes documentations to sentence case from title casing.
 
 ## 4.0.8 - 2022-09-28
 
-- Added: _Kbd_ component to render keyboard keys.
+- Added: *Kbd* component to render keyboard keys.
 
 ## 4.0.7 - 2022-09-22
 
@@ -228,7 +241,7 @@ Changes documentations to sentence case from title casing.
 
 ## 4.0.6 - 2022-09-20
 
-- Changed: default value of `defaultPageSize` prop of _Table_ component from 100 to 15.
+- Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
 
 ## 4.0.5 - 2022-09-20
 
@@ -236,24 +249,24 @@ Changes documentations to sentence case from title casing.
 
 ## 4.0.4 - 2022-09-16
 
-- Changed: Allowed `hideOnSinglePage` override in _Table_ `paginationProps`
+- Changed: Allowed `hideOnSinglePage` override in *Table* `paginationProps`
 
 ## 4.0.3 - 2022-09-13
 
 - Added: Storybook addon that lets users toggle between dark and light mode
 - Fixed: date/time input color in darkmode
-- Fixed: overlapping issue with _Dropdown_ in _Table_
+- Fixed: overlapping issue with *Dropdown* in *Table*
 
 ## 4.0.2 - 2022-09-12
 
-- Fixed: navigation issue in _BlockNavigation_ component
+- Fixed: navigation issue in *BlockNavigation* component
 
 ## 4.0.1 - 2022-09-12
 
 - Added: `secondary` style variant
 - Added: `info` style variant
 - Removed: `inactive` style variant
-- Fixed issue with custom target in _Dropdown_
+- Fixed issue with custom target in *Dropdown*
 - Fixed alignment issues in Dropdown `sizing` Story
 - Updated select styles of antd table pagination
 - Fixed Menuhorizontal button size in Table
@@ -512,8 +525,8 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.11 - 2022-07-06
 
-- Added: a _Button_ component in neetoui/formik that automatically disables itself if the form is not in a submittable state. Example: the form contains any invalid data, the form content has not been changed, or the form is already being submitted. To make this work, you need to import _Button_ from "neetoui/formik" as your submit button.
-- Changed: _ActionBlock_ will now use the above-mentioned logic internally. So its submit/cancel buttons will also be automatically enabled or disabled.
+- Added: a *Button* component in neetoui/formik that automatically disables itself if the form is not in a submittable state. Example: the form contains any invalid data, the form content has not been changed, or the form is already being submitted. To make this work, you need to import *Button* from "neetoui/formik" as your submit button.
+- Changed: *ActionBlock* will now use the above-mentioned logic internally. So its submit/cancel buttons will also be automatically enabled or disabled.
 
 ## 3.5.10 - 2022-07-05
 
@@ -521,7 +534,7 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.9 - 2022-07-05
 
-- Fixed: Checkbox in _Table_ component cut off in lower screen resolutions.
+- Fixed: Checkbox in *Table* component cut off in lower screen resolutions.
 
 ## 3.5.8 - 2022-07-01
 
@@ -529,7 +542,7 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.7 - 2022-06-24
 
-- Added: `startsFrom` to `counter` prop of _EmailInput_ component.
+- Added: `startsFrom` to `counter` prop of *EmailInput* component.
 
 ## 3.5.6 - 2022-06-13
 
@@ -537,19 +550,19 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.5 - 2022-06-09
 
-- Fixed: issue with `onClose` function reference when closing the _Modal_ using `Esc`.
+- Fixed: issue with `onClose` function reference when closing the *Modal* using `Esc`.
 
 ## 3.5.4 - 2022-06-08
 
-Fixed: `TypeError` issue in _Toastr_ component.
+Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.5.3 - 2022-06-07
 
-- Fixed: issue with `closeOnEsc` prop when the _Dropdown_ is controlled.
+- Fixed: issue with `closeOnEsc` prop when the *Dropdown* is controlled.
 
 ## 3.5.2 - 2022-06-07
 
-- Fixed : placeholder content extending into multiple lines in _Select_ component.
+- Fixed : placeholder content extending into multiple lines in *Select* component.
 
 ## 3.5.1 - 2022-06-07
 
@@ -569,22 +582,22 @@ Fixed: `TypeError` issue in _Toastr_ component.
 
 ## 3.4.3
 
-- Added: `prefix` and `suffix` to _EmailInput_.
+- Added: `prefix` and `suffix` to *EmailInput*.
 
 ## 3.4.2
 
-- Fixed: issue with search not working with `isCreatable` _Select_.
+- Fixed: issue with search not working with `isCreatable` *Select*.
 
 ## 3.4.1
 
-- Fixed: issue with `autoFocus` not working on _Input_ when inside _Dropdown_.
+- Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
 
 ## 3.4.0
 
 - Removed: all instances of TailwindCSS.
-- Added: `label` prop in _Tags_ molecule.
-- Changed: Added `neetoCal` into _AppSwitcher_ app list .
-- Removed: `count` limiting (to 99) logic from _MenuBar.Block_.
+- Added: `label` prop in *Tags* molecule.
+- Changed: Added `neetoCal` into *AppSwitcher* app list .
+- Removed: `count` limiting (to 99) logic from *MenuBar.Block*.
 
 ## 3.3.13
 
@@ -592,20 +605,20 @@ Fixed: `TypeError` issue in _Toastr_ component.
 
 ## 3.3.12
 
-- Fixed: loading state in _ActionBlock_ component.
+- Fixed: loading state in *ActionBlock* component.
 
 ## 3.3.11
 
-- Added: New input format for the _EmailInput_ component.
+- Added: New input format for the *EmailInput* component.
 
 ## 3.3.10
 
-- Fixed: Removed unnecessary scrollbar in _Table_ component.
-- Added: `maxHeight` prop to the _EmailInput_ component.
+- Fixed: Removed unnecessary scrollbar in *Table* component.
+- Added: `maxHeight` prop to the *EmailInput* component.
 
 ## 3.3.9
 
-- Fixed: _ActionDropdown_ issues with common props for button and dropdown
+- Fixed: *ActionDropdown* issues with common props for button and dropdown
 
 ## 3.3.7
 
@@ -613,44 +626,44 @@ Fixed: `TypeError` issue in _Toastr_ component.
 
 ## 3.3.6
 
-- Fixed: Reset Formik data on continue action in _BlockNavigation_ component.
+- Fixed: Reset Formik data on continue action in *BlockNavigation* component.
 
 ## 3.3.5
 
-- Added: active state to `NavLink` in _Sidebar_ component.
+- Added: active state to `NavLink` in *Sidebar* component.
 
 ## 3.3.4
 
-- Added: `hideOnTargetExit` prop to _Tooltip_ component
+- Added: `hideOnTargetExit` prop to *Tooltip* component
 
 ## 3.3.3
 
-- Added: data-cy for in _Alert_ component elements
+- Added: data-cy for in *Alert* component elements
 
 ## 3.3.2
 
-- Fixed: Added override for `onClick` prop in _Dropdown_ component
+- Fixed: Added override for `onClick` prop in *Dropdown* component
 
 ## 3.3.1
 
-- Fixed: Typography of Header in _Alert_ component.
-- Fixed: Max width issue in _Dropdown_ component.
+- Fixed: Typography of Header in *Alert* component.
+- Fixed: Max width issue in *Dropdown* component.
 
 ## 3.3.0
 
-- Changed: **BREAKING** `isLoading` prop of _Table_ to `loading`.
-- Changed: Implemented _Dropdown_ component with Tippy.js and removed `react-popper`
-- Deprecated: **BREAKING** `loading` prop of _Pane_, _Modal_ and _Alert_ components.
-- Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
+- Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
+- Changed: Implemented *Dropdown* component with Tippy.js and removed `react-popper`
+- Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert* components.
+- Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
 
 #### UI
 
-- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in _Color Palette_
-- Changed: the text color in _Table_ to `$neeto-ui-black`
-- Changed: UI of _Tag_ of component
-- Changed: look and feel of _Danger Button_
-- Changed: Contrast of _Avatar_, _Accordian_, _Toastr_ and _Callout_
-- Changed: Made _Modal_ Header text and Close icon aligned in a line
-- Added: new variant for _Danger Button_ -`danger-text`
+- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color Palette*
+- Changed: the text color in *Table* to `$neeto-ui-black`
+- Changed: UI of *Tag* of component
+- Changed: look and feel of *Danger Button*
+- Changed: Contrast of *Avatar*, *Accordian*, *Toastr* and *Callout*
+- Changed: Made *Modal* Header text and Close icon aligned in a line
+- Added: new variant for *Danger Button* -`danger-text`
 - Added: new accent colors
 - ![accent-colors](https://user-images.githubusercontent.com/48869249/160755429-d2830f42-3086-4cbe-b9f5-4f0bca4f1a32.png)
