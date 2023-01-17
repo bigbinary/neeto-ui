@@ -39,7 +39,14 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-300));
+      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+      outline-offset: 1px;
+      box-shadow: none;
+
+      a{
+        outline: none;
+        border: none;
+      }
     }
 
     &.active {
