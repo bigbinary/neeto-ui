@@ -59,10 +59,10 @@ beforeAll(() =>
       en: {
         translation: {
           message: {
-            success: " This is a Success {{entityName}}.",
-            info: " This is a Info {{entityName}}.",
-            warning: " This is a Warning {{entityName}}.",
-            error: " This is a Error {{entityName}}.",
+            success: "This is a Success {{entityName}}.",
+            info: "This is a Info {{entityName}}.",
+            warning: "This is a Warning {{entityName}}.",
+            error: "This is a Error {{entityName}}.",
           },
         },
       },
