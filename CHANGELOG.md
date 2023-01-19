@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.0 - 2023-01-19
+
+Fixed getToastrMessage in Toastr to accept object with the placeholder value for the translations.
+
 ## 4.1.44 - 2023-01-17
 
 - Updated: Button keyboard focus styles
@@ -39,7 +43,6 @@ Screenshot
 
 <img width="992" alt="Group 1 (1)" src="https://user-images.githubusercontent.com/48869249/212918441-d5c2c57c-16b1-4da7-a472-e64134b659ce.png">
 ## 4.1.43 - 2023-01-09
-
 Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
 
 ## 4.1.42 - 2023-01-05
@@ -137,7 +140,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Added: `OverlayManager` which is used by all overlay components in neetoUI internally. The host application can use the methods inside the class to determine whether an Overlay is open in the product or not.
 - Removed: `ModalManager` and migrate the Modal component to use `OverlayManager`.
 ## 4.1.12 - 2022-11-24
-
 - Fixed: UI issues in Subheader
 
 ## 4.1.11 - 2022-11-21
