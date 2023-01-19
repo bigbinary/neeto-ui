@@ -59,10 +59,10 @@ beforeAll(() =>
       en: {
         translation: {
           message: {
-            success: "This is a Success toastr.",
-            info: "This is a Info toastr.",
-            warning: "This is a Warning toastr.",
-            error: "This is a Error toastr.",
+            success: "This is a Success {{entityName}}.",
+            info: "This is a Info {{entityName}}.",
+            warning: "This is a Warning {{entityName}}.",
+            error: "This is a Error {{entityName}}.",
           },
         },
       },
@@ -320,6 +320,7 @@ describe("Toastr", () => {
     it(`should render ${type} Toastr with translated message when response object contains noticeCode as key`, async () => {
       const button = renderCustomMessageToastrButton(type, {
         noticeCode: `message.${type.toLowerCase()}`,
+        entityName: "toastr",
       });
       userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
@@ -337,4 +338,38 @@ describe("Toastr", () => {
       expect(toastr).toBeInTheDocument();
     });
   });
+});
+
+it("should render Axios Error Toastr using noticeCode without error", async () => {
+  const onAxiosStringError = () => {
+    try {
+      // Dummy axios error object
+      const axiosError = {
+        isAxiosError: true,
+        config: {
+          url: "https://api.github.com/users/org",
+        },
+        response: {
+          data: {
+            noticeCode: "message.error",
+            entityName: "toastr",
+          },
+          status: 404,
+        },
+      };
+      throw axiosError;
+    } catch (e) {
+      Toastr.error(e);
+    }
+  };
+  render(
+    <>
+      <ToastContainer />
+      <Button label="Throw an axios error" onClick={onAxiosStringError} />
+    </>
+  );
+  const button = screen.getByText("Throw an axios error");
+  userEvent.click(button);
+  const axiosError = await screen.findByText("This is a Error toastr.");
+  expect(axiosError).toBeInTheDocument();
 });
