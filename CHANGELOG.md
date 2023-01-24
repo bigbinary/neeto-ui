@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.1 - 2023-01-24
+
+- Changed: product descriptions as per the [list](https://docs.google.com/spreadsheets/d/1xFWMyXJkUCf1YBRhrokLdlQvyBn0X3uK2M2JUZClGgw).
+- Changed: product name from **Review** to **Deploy** in the app switcher.
+
 ## 4.2.0 - 2023-01-19
 
 Fixed getToastrMessage in Toastr to accept object with the placeholder value for the translations.
@@ -44,7 +49,6 @@ Screenshot
 <img width="992" alt="Group 1 (1)" src="https://user-images.githubusercontent.com/48869249/212918441-d5c2c57c-16b1-4da7-a472-e64134b659ce.png">
 ## 4.1.43 - 2023-01-09
 Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
-
 ## 4.1.42 - 2023-01-05
 
 - Updated: Sidebar neeto logo.
@@ -141,7 +145,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Removed: `ModalManager` and migrate the Modal component to use `OverlayManager`.
 ## 4.1.12 - 2022-11-24
 - Fixed: UI issues in Subheader
-
 ## 4.1.11 - 2022-11-21
 
 - Fixed: warnings in *DatePicker* and *TimePicker* component
