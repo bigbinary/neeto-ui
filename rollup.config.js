@@ -49,7 +49,7 @@ export default [
     input: "./lib/components/index.js",
     output: {
       file: "index.js",
-      format: "cjs",
+      format: "esm",
       sourcemap: false,
       assetFileNames: "[name][extname]",
     },
@@ -66,7 +66,7 @@ export default [
     input: "./lib/components/layouts/index.js",
     output: {
       file: "layouts.js",
-      format: "cjs",
+      format: "esm",
       sourcemap: false,
     },
     plugins,
@@ -75,7 +75,7 @@ export default [
     input: "./lib/components/formik/index.js",
     output: {
       file: "formik.js",
-      format: "cjs",
+      format: "esm",
       sourcemap: false,
     },
     external: ["@bigbinary/neetoui/managers"],
@@ -85,7 +85,7 @@ export default [
     input: "./lib/managers/index.js",
     output: {
       file: "managers.js",
-      format: "cjs",
+      format: "esm",
       sourcemap: false,
     },
     plugins,
