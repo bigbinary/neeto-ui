@@ -15,6 +15,6 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}
           scope: ${{ secrets.ORG_ID}}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
           working-directory: ./
           vercel-args: --prod
