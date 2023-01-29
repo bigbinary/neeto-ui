@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.2 - 2023-01-29
+
+- Fixed: respecting the prop `isCreatable` if `loadOptions` prop is provided in *Select* component
+
 ## 4.2.1 - 2023-01-24
 
 - Changed: product descriptions as per the [list](https://docs.google.com/spreadsheets/d/1xFWMyXJkUCf1YBRhrokLdlQvyBn0X3uK2M2JUZClGgw).
@@ -50,7 +54,6 @@ Screenshot
 ## 4.1.43 - 2023-01-09
 Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
 ## 4.1.42 - 2023-01-05
-
 - Updated: Sidebar neeto logo.
 
 ## 4.1.41 - 2023-01-05
@@ -146,7 +149,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.12 - 2022-11-24
 - Fixed: UI issues in Subheader
 ## 4.1.11 - 2022-11-21
-
 - Fixed: warnings in *DatePicker* and *TimePicker* component
 
 ## 4.1.10 - 2022-11-17
