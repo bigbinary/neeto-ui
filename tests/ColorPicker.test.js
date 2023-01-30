@@ -30,6 +30,12 @@ describe("ColorPicker", () => {
     expect(await screen.findByTestId("color-palette")).toBeInTheDocument();
   });
 
+  it("should display transparency control when showTransparencyControl is provided", async () => {
+    render(<ColorPicker color="#ffffff" showTransparencyControl />);
+    userEvent.click(screen.getByTestId("neeto-color-picker"));
+    expect(await screen.findByLabelText("Alpha")).toBeInTheDocument();
+  });
+
   it("should trigger onChange when a color is selected from palette", async () => {
     const selectedColor = "#ffffff";
     const DEFAULT_COLORS = {

@@ -29,6 +29,9 @@ export interface ColorPickerProps {
     colorList: { from: string; to: string }[];
     onChange: (from: string, to: string) => void;
   };
+  showEyeDropper?: boolean;
+  showHexValue?: boolean;
+  showTransparencyControl?: boolean;
 }
 
 interface PopupProps {
