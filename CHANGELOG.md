@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.3 - 2023-01-30
+
+- Added: transparency control option in *ColorPicker*, controlled via `showTransparencyControl`.
+
 ## 4.2.2 - 2023-01-29
 
 - Fixed: respecting the prop `isCreatable` if `loadOptions` prop is provided in *Select* component
@@ -55,7 +59,6 @@ Screenshot
 Added function in Toastr to check for notice_code in response and if it's not present then it will fall back to notice.
 ## 4.1.42 - 2023-01-05
 - Updated: Sidebar neeto logo.
-
 ## 4.1.41 - 2023-01-05
 
 - Fixed: Focus trap for conditionally rendered elements in *Overlay*
@@ -150,7 +153,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Fixed: UI issues in Subheader
 ## 4.1.11 - 2022-11-21
 - Fixed: warnings in *DatePicker* and *TimePicker* component
-
 ## 4.1.10 - 2022-11-17
 
 - Adds formikBag to onSubmit
