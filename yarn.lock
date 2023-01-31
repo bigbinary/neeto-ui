@@ -1336,10 +1336,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bigbinary/neeto-icons@1.8.40":
-  version "1.8.40"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.8.40.tgz#3885846f6bc53484770828f32000a320819901fc"
-  integrity sha512-apcqHE+YKW3nbDZ5mV/L77ga6N8aqkZvs2S1F2AlyBLqZlfZnchp9kD2oLOnls8g0Bn90YuhXCaJVXmsRgD6EA==
+"@bigbinary/neeto-icons@1.9.3":
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.9.3.tgz#1ebaf6548105be2c95eb60e0307904e1da2a9208"
+  integrity sha512-5qrcjXPryqrUbJRRojQJEIzRLQQDlM/siqqaOlQetdgSkcPCzVldvxmBOMJvmDTbosVRTreao83BrUFeTvbLOQ==
   dependencies:
     prop-types "^15.7.2"
     react "^17.0.2"
