@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.4 - 2023-01-31
+
+- Updated : `neeto-icons`
+
 ## 4.2.3 - 2023-01-30
 
 - Added: transparency control option in *ColorPicker*, controlled via `showTransparencyControl`.
@@ -60,7 +64,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 ## 4.1.42 - 2023-01-05
 - Updated: Sidebar neeto logo.
 ## 4.1.41 - 2023-01-05
-
 - Fixed: Focus trap for conditionally rendered elements in *Overlay*
 
 ## 4.1.40 - 2022-12-30
@@ -154,7 +157,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.11 - 2022-11-21
 - Fixed: warnings in *DatePicker* and *TimePicker* component
 ## 4.1.10 - 2022-11-17
-
 - Adds formikBag to onSubmit
 
 ## 4.1.9 - 2022-11-16
