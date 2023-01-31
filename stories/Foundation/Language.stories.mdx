@@ -301,12 +301,10 @@ Confirmations are presented for actions that can’t be undone or are difficult 
   </div>
 </div>
 
-<h3 id="directional-language">
-  <a href="#directional-language">Directional language</a>
+<h3 id="save-vs-done">
+  <a href="#save-vs-done">Save vs done</a>
 </h3>
 <br />
-
-#### Save vs done
 
 **Saving immediately to a database**
 
@@ -319,5 +317,25 @@ Sometimes, when users confirm a set of changes inside a modal or sheet, these ch
 Use the adjective "Done" for deferred saves. When the modal or sheet closes, then merchants can save all of the changes they made.
 
 Most deferred saves happen when confirming changes in Add, Edit, Manage, and Select modals and sheets.
+
+
+<h3 id="cancel-action">
+  <a href="#cancel-action">Cancel</a>
+</h3>
+<br />
+
+- Use “Cancel” button for users to back out of any changes made on a page, modal, pane etc.
+- "Cancel" button should be enabled always.
+- When the "Cancel" button is pressed, changes automatically get discarded, and it should take the user back to the previous screen/page.
+
+Edge case
+
+If there is no logical "previous" page to go back to. 
+
+For example, if we are on the home/root page,
+
+- Here "Cancel" button should be disabled initially.
+- If the user changes anything on the form, "Cancel" should be enabled.
+
 
 </div>
