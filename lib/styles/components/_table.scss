@@ -26,7 +26,7 @@
   thead.ant-table-thead {
     tr {
       th {
-        color: rgb(var(--neeto-ui-gray-600));
+        color: rgb(var(--neeto-ui-gray-700));
         background-color: rgb(var(--neeto-ui-white));
 
         font-size: var(--neeto-ui-text-xs);
@@ -42,6 +42,7 @@
       th.ant-table-cell.ant-table-column-has-sorters {
         &:hover {
           background-color: rgb(var(--neeto-ui-white));
+          color: rgb(var(--neeto-ui-primary-800));
         }
 
         .ant-table-column-sorters {
@@ -56,7 +57,7 @@
               }
 
               .active {
-                color: rgb(var(--neeto-ui-gray-800));
+                color: rgb(var(--neeto-ui-primary-800));
               }
             }
           }
@@ -346,4 +347,38 @@
 .ant-pagination-prev button,
 .ant-pagination-next button {
   color: rgb(var(--neeto-ui-gray-800));
+}
+
+td.ant-table-column-sort{
+  background-color: transparent;
+}
+
+.ant-table-column-sorters{
+  .ant-table-column-title{
+    flex-grow: 0;
+  }
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.ant-table-column-has-sorters[aria-sort="ascending"],
+.ant-table-column-has-sorters[aria-sort="descending"]{
+  .ant-table-column-title{
+    color: rgb(var(--neeto-ui-primary-800));
+  }
+}
+
+.ant-table-column-sorter-inner{
+  .anticon-caret-up{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+  .anticon-caret-down{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
 }
