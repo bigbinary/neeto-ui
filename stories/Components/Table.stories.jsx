@@ -58,7 +58,7 @@ const getColumns = (fixed = false) => [
     title: "ID",
     dataIndex: "id",
     key: "id",
-    width: 75,
+    width: 175,
     sorter: (a, b) => a.id - b.id,
   },
   {
