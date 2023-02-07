@@ -7,6 +7,10 @@ module.exports = () => {
     moduleNameMapper: {
       "^.+\\.(css|less|scss)$": "identity-obj-proxy",
       "^@bigbinary/neetoui/(.*)$": path.resolve(__dirname, "lib", "$1"),
+      "@bigbinary/neeto-icons/logos": path.resolve(
+        __dirname,
+        "node_modules/@bigbinary/neeto-icons/dist/neeto-logos.js"
+      ),
     },
     transformIgnorePatterns: [
       "/node_modules/(?!(@babel|react-router-nav-prompt|@bigbinary/neeto-icons|rc-picker|rc-util))",
