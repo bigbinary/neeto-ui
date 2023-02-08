@@ -10,7 +10,7 @@ const Iconography = () => {
     navigator.clipboard.writeText(iconName);
     Toastr.success("Icon name copied to clipboard");
   };
-  const filteredIconList = iconset.iconList.filter((name) =>
+  const filteredIconList = Object.keys(iconset).filter((name) =>
     name.toLowerCase().includes(searchTerm.trim().toLowerCase())
   );
   return (
@@ -65,7 +65,7 @@ const Iconography = () => {
           })}
         </div>
         {filteredIconList.length === 0 && (
-          <Typography style="h6" className="text-center py-6">
+          <Typography style="h6" className="py-6 text-center">
             No icons found for "{searchTerm}"
           </Typography>
         )}
