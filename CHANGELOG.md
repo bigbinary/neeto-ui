@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.7 - 2023-02-08
+
+- Updated: Pageloader component.
+
 ## 4.2.6 - 2023-02-08
 
 - Fixed: Submit on enter triggered when *Form* was being submitted.
@@ -75,7 +79,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Fixed: Focus trap for conditionally rendered elements in *Overlay*
 ## 4.1.40 - 2022-12-30
 - Added: word break for *Modal* body and *Tooltip* content
-
 ## 4.1.38 - 2022-12-29
 
 - Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
@@ -166,7 +169,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Adds formikBag to onSubmit
 ## 4.1.9 - 2022-11-16
 - Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the *Form*.
-
 ## 4.1.8 - 2022-11-16
 
 - Updated: Toaster styles.
