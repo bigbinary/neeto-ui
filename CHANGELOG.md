@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.8 - 2023-02-08
+
+- Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
+
 ## 4.2.7 - 2023-02-08
 
 - Updated: Pageloader component.
@@ -80,7 +84,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 ## 4.1.40 - 2022-12-30
 - Added: word break for *Modal* body and *Tooltip* content
 ## 4.1.38 - 2022-12-29
-
 - Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
 - Changed: github workflow compilation environment to `production`
 
@@ -170,7 +173,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.9 - 2022-11-16
 - Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the *Form*.
 ## 4.1.8 - 2022-11-16
-
 - Updated: Toaster styles.
 - Added: POC for Toasters with minimum content and bottom left positioning
 
