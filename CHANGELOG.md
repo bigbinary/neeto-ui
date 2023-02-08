@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.6 - 2023-02-08
+
+- Fixed: Submit on enter triggered when *Form* was being submitted.
+
 ## 4.2.5 - 2023-02-07
 
 - Updated : Table sorting UI styles
@@ -70,7 +74,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 ## 4.1.41 - 2023-01-05
 - Fixed: Focus trap for conditionally rendered elements in *Overlay*
 ## 4.1.40 - 2022-12-30
-
 - Added: word break for *Modal* body and *Tooltip* content
 
 ## 4.1.38 - 2022-12-29
@@ -162,7 +165,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.10 - 2022-11-17
 - Adds formikBag to onSubmit
 ## 4.1.9 - 2022-11-16
-
 - Fixed: `validateOnBlur` and `validateOnChange` getting triggered before the first submission of the *Form*.
 
 ## 4.1.8 - 2022-11-16
