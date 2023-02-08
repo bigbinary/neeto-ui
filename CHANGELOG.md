@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.2.9 - 2023-02-08
+
+- Changed: `Neeto` logo in the sidebar.
+
 ## 4.2.8 - 2023-02-08
 
 - Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
@@ -86,7 +90,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 ## 4.1.38 - 2022-12-29
 - Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
 - Changed: github workflow compilation environment to `production`
-
 ## 4.1.37 - 2022-12-28
 
 - Fixed: issue with multiple links in *Sidebar* getting active at the same time.
@@ -175,7 +178,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.8 - 2022-11-16
 - Updated: Toaster styles.
 - Added: POC for Toasters with minimum content and bottom left positioning
-
 ## 4.1.7 - 2022-11-14
 
 - Changed: color-picker related dependencies to dev dependency
