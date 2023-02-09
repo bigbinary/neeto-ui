@@ -32,7 +32,10 @@
     width: 40px;
     height: 40px;
 
-    border-radius: var(--neeto-ui-rounded);
+    svg{
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__info {
