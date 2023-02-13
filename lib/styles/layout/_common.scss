@@ -45,3 +45,7 @@
     padding-right: 24px;
   }
 }
+
+.neeto-ui-subheader [data-tippy-root]{
+  z-index: 10000 !important;
+}
