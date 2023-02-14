@@ -23,12 +23,6 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
-## 4.4.0 - 2023-02-14
-
-- Changed: **BREAKING** Included app description and url in `neetoApps` prop.
-- Changed: Product icons required for AppSwitcher component is directly picked from neeto-icons.
-- Removed: `subdomain` and `environment` props from AppSwitcher component.
-
 ## 4.3.0 - 2023-02-13
 
 - Fixed: overlay issues with Subheader Tippy dropdown
