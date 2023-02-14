@@ -11,6 +11,10 @@ module.exports = () => {
         __dirname,
         "node_modules/@bigbinary/neeto-icons/dist/neeto-logos.js"
       ),
+      "@bigbinary/neeto-icons/app-icons": path.resolve(
+        __dirname,
+        "node_modules/@bigbinary/neeto-icons/dist/app-icons.js"
+      ),
     },
     transformIgnorePatterns: [
       "/node_modules/(?!(@babel|react-router-nav-prompt|@bigbinary/neeto-icons|rc-picker|rc-util))",

@@ -7,10 +7,12 @@ export interface AppSwitcherProps {
   className?: string;
   closeOnEsc?: boolean;
   closeOnOutsideClick?: boolean;
-  environment?: "development" | "staging" | "production";
   activeApp?: string;
-  subdomain?: string;
-  neetoApps?: string[];
+  neetoApps?: {
+    name: string;
+    description: string;
+    url: string
+  }[];
   recentApps?: string[];
   isSidebarOpen?: boolean;
   onClose?: () => void;

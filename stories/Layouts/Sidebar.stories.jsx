@@ -134,7 +134,6 @@ export const SidebarWithAppSwitcher = (args) => {
         activeApp="Chat"
         isOpen={isAppSwitcherOpen}
         onClose={() => setIsAppSwitcherOpen(false)}
-        environment={process.env.NODE_ENV}
       />
     </Router>
   );
