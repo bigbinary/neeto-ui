@@ -63,6 +63,7 @@ beforeAll(() =>
             info: "This is a Info {{entityName}}.",
             warning: "This is a Warning {{entityName}}.",
             error: "This is a Error {{entityName}}.",
+            toastr: "This is a toastr."
           },
         },
       },
@@ -371,5 +372,73 @@ it("should render Axios Error Toastr using noticeCode without error", async () =
   const button = screen.getByText("Throw an axios error");
   userEvent.click(button);
   const axiosError = await screen.findByText("This is a Error toastr.");
+  expect(axiosError).toBeInTheDocument();
+});
+
+it("should render Axios Error Toastr using errorCode", async () => {
+  const onAxiosStringError = () => {
+    try {
+      // Dummy axios error object
+      const axiosError = {
+        isAxiosError: true,
+        config: {
+          url: "https://api.github.com/users/org",
+        },
+        response: {
+          data: {
+            errors: ["Error message as string", "Yet another error message"],
+            errorCode: "message.error",
+            entityName: "toastr",
+          },
+          status: 404,
+        },
+      };
+      throw axiosError;
+    } catch (e) {
+      Toastr.error(e);
+    }
+  };
+  render(
+    <>
+      <ToastContainer />
+      <Button label="Throw an axios error" onClick={onAxiosStringError} />
+    </>
+  );
+  const button = screen.getByText("Throw an axios error");
+  userEvent.click(button);
+  const axiosError = await screen.findByText("This is a Error toastr.");
+  expect(axiosError).toBeInTheDocument();
+});
+
+it("should render Axios Error Toastr using errorCodes", async () => {
+  const onAxiosStringError = () => {
+    try {
+      // Dummy axios error object
+      const axiosError = {
+        isAxiosError: true,
+        config: {
+          url: "https://api.github.com/users/org",
+        },
+        response: {
+          data: {
+            errorCodes: [{key: "message.error", context: { entityName: "toastr"}}, "message.toastr"],
+          },
+          status: 404,
+        },
+      };
+      throw axiosError;
+    } catch (e) {
+      Toastr.error(e);
+    }
+  };
+  render(
+    <>
+      <ToastContainer />
+      <Button label="Throw an axios error" onClick={onAxiosStringError} />
+    </>
+  );
+  const button = screen.getByText("Throw an axios error");
+  userEvent.click(button);
+  const axiosError = await screen.findByText("This is a Error toastr. This is a toastr.");
   expect(axiosError).toBeInTheDocument();
 });
