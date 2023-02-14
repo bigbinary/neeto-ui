@@ -5,6 +5,25 @@ import Sidebar from "../../lib/components/layouts/Sidebar";
 import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
 import { STORYBOOK_NAV_LINKS } from "../constants";
 
+const neetoApps = [
+  { name: "KB", description: "Knowledge Base to find answers" },
+  { name: "Desk", description: "Customer support & ticketing" },
+  { name: "Planner", description: "Manage projects and todos" },
+  { name: "Testify", description: "Manage manual & automated test cases" },
+  { name: "Chat", description: "Live chat & instant messaging" },
+  { name: "Desk", description: "Customer support & ticketing" },
+  { name: "Form", description: "Build forms and collect data effortlessly" },
+  { name: "Changelog", description: "Inform customers of new updates" },
+  {
+    name: "Invisible",
+    description: "Watch how users interact with your products",
+  },
+  { name: "Quiz", description: "Build quizzes" },
+  { name: "Replay", description: "Watch customer activities" },
+  { name: "Wireframe", description: "Build wireframes" },
+  { name: "Site", description: "Build websites" },
+];
+
 export default {
   title: "Layouts/AppSwitcher",
   component: AppSwitcher,
@@ -53,14 +72,13 @@ export const Default = ({ isOpen, ...args }) => {
         {...args}
         isOpen={isAppSwitcherOpen}
         onClose={() => setIsAppSwitcherOpen(false)}
-        environment={process.env.NODE_ENV}
       />
     </Router>
   );
 };
 Default.args = {
   isOpen: true,
-  neetoApps: ["KB", "Desk", "Planner", "Testify", "Chat", "Desk", "Form", "Analytics", "Changelog", "Insights", "Interview", "Invisible", "Quiz", "Replay", "Wireframe", "Site"],
+  neetoApps,
   activeApp: "Chat",
 };
 
@@ -81,21 +99,13 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          topLinks: [
-            {
-              label: "Logout",
-            },
-            {
-              label: "Settings",
-            },
-          ],
+          topLinks: [{ label: "Logout" }, { label: "Settings" }],
         }}
       />
       <AppSwitcher
         {...args}
         isOpen={isAppSwitcherOpen}
         onClose={() => setIsAppSwitcherOpen(false)}
-        environment={process.env.NODE_ENV}
       />
     </Router>
   );
@@ -103,7 +113,7 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
 AppSwitcherWithRecentApps.storyName = "AppSwitcher with recent apps";
 AppSwitcherWithRecentApps.args = {
   isOpen: true,
-  recentApps: ["Quiz", "Runner"],
+  recentApps: ["Quiz", "Form"],
   activeApp: "Chat",
-  neetoApps: ["Chat", "Desk", "KB", "Quiz", "Runner"],
+  neetoApps,
 };

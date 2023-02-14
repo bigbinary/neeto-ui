@@ -17,14 +17,7 @@ const AppSwitcherTest = ({ children }) => {
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
-          topLinks: [
-            {
-              label: "Logout",
-            },
-            {
-              label: "Settings",
-            },
-          ],
+          topLinks: [{ label: "Logout" }, { label: "Settings" }],
         }}
       />
       {children}
@@ -32,35 +25,29 @@ const AppSwitcherTest = ({ children }) => {
   );
 };
 
-const neetoApps = ["KB", "Desk", "Planner"];
+const neetoApps = [
+  { name: "KB", description: "Knowledge Base to find answers" },
+  { name: "Desk", description: "Customer support & ticketing" },
+  { name: "Planner", description: "Manage projects and todos" },
+];
 
 describe("AppSwitcher", () => {
   it("should render without error", () => {
     const { getByText } = render(
       <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          neetoApps={neetoApps}
-          activeApp="KB"
-          environment={process.env.NODE_ENV}
-        />
+        <AppSwitcher isOpen neetoApps={neetoApps} activeApp="KB" />
       </AppSwitcherTest>
     );
 
     for (const app of neetoApps) {
-      expect(getByText(app)).toBeInTheDocument();
+      expect(getByText(app.name)).toBeInTheDocument();
     }
   });
 
   it("should display appropriate message when no apps are found", () => {
     render(
       <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          neetoApps={[]}
-          activeApp="KB"
-          environment={process.env.NODE_ENV}
-        />
+        <AppSwitcher isOpen neetoApps={[]} activeApp="KB" />
       </AppSwitcherTest>
     );
     expect(screen.getByText(/No apps found/i)).toBeInTheDocument();
@@ -71,9 +58,8 @@ describe("AppSwitcher", () => {
       <AppSwitcherTest>
         <AppSwitcher
           isOpen
-          neetoApps={["Neeto Planner", "KB", "Desk"]}
+          neetoApps={[{ name: "Neeto Cal", description: "Schedule meetings" }]}
           activeApp="KB"
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -96,12 +82,7 @@ describe("AppSwitcher", () => {
   it("should throw error if neetoApps isn't an array", () => {
     const WithoutNeetoApps = () => (
       <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          neetoApps={null}
-          activeApp="KB"
-          environment="development"
-        />
+        <AppSwitcher isOpen neetoApps={null} activeApp="KB" />
       </AppSwitcherTest>
     );
 
@@ -111,7 +92,7 @@ describe("AppSwitcher", () => {
   it("should throw error if activeApp is invalid", () => {
     const WithoutActiveApp = () => (
       <AppSwitcherTest>
-        <AppSwitcher isOpen neetoApps={neetoApps} environment="development" />
+        <AppSwitcher isOpen neetoApps={neetoApps} />
       </AppSwitcherTest>
     );
     expect(() => render(<WithoutActiveApp />)).toThrow();
@@ -122,7 +103,6 @@ describe("AppSwitcher", () => {
           isOpen
           activeApp="Invalid app name with whitespace"
           neetoApps={neetoApps}
-          environment="development"
         />
       </AppSwitcherTest>
     );
@@ -132,29 +112,19 @@ describe("AppSwitcher", () => {
   it("should not render when isOpen is false", () => {
     const { queryByText } = render(
       <AppSwitcherTest>
-        <AppSwitcher
-          isOpen={false}
-          neetoApps={neetoApps}
-          activeApp="KB"
-          environment={process.env.NODE_ENV}
-        />
+        <AppSwitcher isOpen={false} neetoApps={neetoApps} activeApp="KB" />
       </AppSwitcherTest>
     );
 
     for (const app of neetoApps) {
-      expect(queryByText(app)).not.toBeInTheDocument();
+      expect(queryByText(app.name)).not.toBeInTheDocument();
     }
   });
 
   it("should render active app correctly", () => {
     render(
       <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          neetoApps={neetoApps}
-          activeApp="Planner"
-          environment={process.env.NODE_ENV}
-        />
+        <AppSwitcher isOpen neetoApps={neetoApps} activeApp="Planner" />
       </AppSwitcherTest>
     );
     const neetoUIClassPrefix = "neeto-ui-app-switcher-link--";
@@ -173,7 +143,6 @@ describe("AppSwitcher", () => {
           activeApp="Planner"
           className="test-class"
           data-testid="neeto-app-switcher"
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -190,7 +159,6 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           activeApp="Planner"
           onClose={onClose}
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -210,7 +178,6 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           activeApp="Planner"
           onClose={onClose}
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -229,7 +196,6 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           activeApp="Planner"
           onClose={onClose}
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -239,27 +205,8 @@ describe("AppSwitcher", () => {
     expect(onClose).toHaveBeenCalled();
   });
 
-  it("should link subdomains based on environment and subdomain props", () => {
-    const environment = "production";
-    const appName = "Desk Desk Customer support & ticketing";
-    const subdomain = "example";
-    render(
-      <AppSwitcherTest>
-        <AppSwitcher
-          isOpen
-          subdomain={subdomain}
-          neetoApps={neetoApps}
-          activeApp="Planner"
-          environment={environment}
-        />
-      </AppSwitcherTest>
-    );
-
-    expect(screen.getByRole("link", { name: appName })).toBeInTheDocument();
-  });
-
   it("should display recent apps correctly", () => {
-    const recentApps = ["Quiz", "Runner"];
+    const recentApps = ["KB", "Desk"];
 
     render(
       <AppSwitcherTest>
@@ -268,18 +215,18 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           recentApps={recentApps}
           activeApp="Planner"
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
 
     for (const app of recentApps) {
-      expect(screen.getByText(app)).toBeInTheDocument();
+      expect(screen.getAllByText(app)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(app)[1]).toBeInTheDocument();
     }
   });
 
   it("should have a functioning search input", () => {
-    const recentApps = ["Quiz", "Runner"];
+    const recentApps = ["KB", "Desk"];
 
     render(
       <AppSwitcherTest>
@@ -288,7 +235,6 @@ describe("AppSwitcher", () => {
           neetoApps={neetoApps}
           recentApps={recentApps}
           activeApp="Planner"
-          environment={process.env.NODE_ENV}
         />
       </AppSwitcherTest>
     );
@@ -297,9 +243,9 @@ describe("AppSwitcher", () => {
     expect(searchInput).toBeInTheDocument();
     expect(screen.getByText("All")).toBeInTheDocument();
 
-    userEvent.type(searchInput, neetoApps[0]);
-    expect(screen.getByText(neetoApps[0])).toBeInTheDocument();
-    expect(screen.queryByText(neetoApps[1])).not.toBeInTheDocument();
-    expect(screen.queryByText(neetoApps[2])).not.toBeInTheDocument();
+    userEvent.type(searchInput, neetoApps[0].name);
+    expect(screen.getByText(neetoApps[0].name)).toBeInTheDocument();
+    expect(screen.queryByText(neetoApps[1].name)).not.toBeInTheDocument();
+    expect(screen.queryByText(neetoApps[2].name)).not.toBeInTheDocument();
   });
 });
