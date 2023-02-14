@@ -42,7 +42,7 @@ export default {
         "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
-  argTypes:{
+  argTypes: {
     rowData: {
       control: false,
     },
@@ -50,7 +50,7 @@ export default {
     columnData: {
       control: false,
     },
-  }
+  },
 };
 
 const getColumns = (fixed = false) => [
@@ -564,4 +564,24 @@ TableInLayout.parameters = {
     description: { story: LayoutDocs },
     source: { code: TABLE_IN_LAYOUT },
   },
+};
+
+export const TableWithResizableColumns = (args) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <div className="h-96">
+      <NeetoTable
+        allowResize
+        columnData={getColumns()}
+        rowData={TABLE_DATA}
+        currentPageNumber={pageNumber}
+        handlePageChange={(page) => setPageNumber(page)}
+        {...args}
+      />
+    </div>
+  );
+};
+TableWithResizableColumns.storyName = "Table with resizable columns";
+TableWithResizableColumns.args = {
+  defaultPageSize: 10,
 };

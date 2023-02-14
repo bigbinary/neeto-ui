@@ -138,7 +138,7 @@
         }
       }
 
-      &:focus-visible{
+      &:focus-visible {
         outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
         outline-offset: 1px;
         box-shadow: none;
@@ -349,12 +349,12 @@
   color: rgb(var(--neeto-ui-gray-800));
 }
 
-td.ant-table-column-sort{
+td.ant-table-column-sort {
   background-color: transparent;
 }
 
-.ant-table-column-sorters{
-  .ant-table-column-title{
+.ant-table-column-sorters {
+  .ant-table-column-title {
     flex-grow: 0;
   }
   justify-content: flex-start;
@@ -362,23 +362,38 @@ td.ant-table-column-sort{
 }
 
 .ant-table-column-has-sorters[aria-sort="ascending"],
-.ant-table-column-has-sorters[aria-sort="descending"]{
-  .ant-table-column-title{
+.ant-table-column-has-sorters[aria-sort="descending"] {
+  .ant-table-column-title {
     color: rgb(var(--neeto-ui-primary-800));
   }
 }
 
-.ant-table-column-sorter-inner{
-  .anticon-caret-up{
+.ant-table-column-sorter-inner {
+  .anticon-caret-up {
     display: none;
-    &.active{
+    &.active {
       display: block;
     }
   }
-  .anticon-caret-down{
+  .anticon-caret-down {
     display: none;
-    &.active{
+    &.active {
       display: block;
     }
   }
+}
+
+.react-resizable {
+  position: relative;
+  background-clip: padding-box;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  bottom: 0;
+  right: -5px;
+  cursor: col-resize;
+  z-index: 1;
 }
