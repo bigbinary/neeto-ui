@@ -11,7 +11,6 @@ const neetoApps = [
   { name: "Planner", description: "Manage projects and todos" },
   { name: "Testify", description: "Manage manual & automated test cases" },
   { name: "Chat", description: "Live chat & instant messaging" },
-  { name: "Desk", description: "Customer support & ticketing" },
   { name: "Form", description: "Build forms and collect data effortlessly" },
   { name: "Changelog", description: "Inform customers of new updates" },
   {
