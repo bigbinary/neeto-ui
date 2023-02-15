@@ -160,10 +160,13 @@ export const DateRangePickerWithPresetRanges = () => {
         }
         ranges={{
           Today: [dayjs(), dayjs()],
-          Yesterday: [dayjs().add(-1, "d"), dayjs()],
-          "Last Week": [dayjs().add(-7, "d"), dayjs()],
+          Yesterday: [dayjs().subtract(1, "d"), dayjs()],
+          "Last Week": [dayjs().subtract(7, "d"), dayjs()],
           "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
-          "Last Month": [dayjs().add(-1, "month"), dayjs()],
+          "Last Month": [
+            dayjs().subtract(1, "month").startOf("month"),
+            dayjs().subtract(1, "month").endOf("month"),
+          ],
           "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
         }}
       />
