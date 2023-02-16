@@ -386,7 +386,7 @@ it("should render Axios Error Toastr using errorCode", async () => {
         },
         response: {
           data: {
-            errors: ["Error message as string", "Yet another error message"],
+            errors: ["Error message one.", "Error message two."],
             errorCode: "message.error",
             entityName: "toastr",
           },
@@ -406,7 +406,7 @@ it("should render Axios Error Toastr using errorCode", async () => {
   );
   const button = screen.getByText("Throw an axios error");
   userEvent.click(button);
-  const axiosError = await screen.findByText("This is a Error toastr.");
+  const axiosError = await screen.findByText("Error message one. Error message two. This is a Error toastr.");
   expect(axiosError).toBeInTheDocument();
 });
 
