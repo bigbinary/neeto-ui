@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.3.2 - 2023-02-16
+
+- Updated: styles of preset ranges in *DatePicker*.
+
 ## 4.3.1 - 2023-02-14
 
 - Changed: **BREAKING** Updated `neetoApps` prop in *AppSwitcher* component to include app description and url along with the app name.
@@ -49,7 +53,6 @@ After
 <img width="74" alt="Screenshot 2023-02-09 at 8 36 36 AM" src="https://user-images.githubusercontent.com/48869249/217708237-933c98b8-af0e-4647-9a92-19bdb2b7ba2b.png">
 ## 4.2.9 - 2023-02-08
 - Changed: `Neeto` logo in the sidebar.
-
 ## 4.2.8 - 2023-02-08
 
 - Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
@@ -117,7 +120,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Fixed: issue with multiple links in *Sidebar* getting active at the same time.
 - Changed: logic in *Select* component to respect `getOptionValue` prop.
 ## 4.1.35 - 2022-12-27
-
 - Added: the ability to choose email from options in *EmailInput*.
 
 ## 4.1.34 - 2022-12-26
@@ -202,7 +204,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.7 - 2022-11-14
 - Changed: color-picker related dependencies to dev dependency
 ## 4.1.6 - 2022-11-13
-
 - Fixed: issue with *Select* dropdown when scrolling the page.
 
 ## 4.1.5 - 2022-11-11
