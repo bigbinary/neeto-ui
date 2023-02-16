@@ -59,7 +59,6 @@
   margin-bottom: 8px;
   transition: all 0.3s;
   cursor: pointer;
-  color: rgb(var(--neeto-ui-gray-700));
   border-radius: var(--neeto-ui-rounded);
   border: thin solid transparent;
 
@@ -74,7 +73,6 @@
 
   &--active {
     background-color: rgb(var(--neeto-ui-white));
-    color: rgb(var(--neeto-ui-gray-800));
     box-shadow: var(--neeto-ui-shadow-xs);
     border-color: rgb(var(--neeto-ui-gray-300));
 
@@ -130,13 +128,13 @@
   }
 }
 
-.neeto-ui-menubar__item-header {
-  color: rgb(var(--neeto-ui-gray-800));
-}
+// .neeto-ui-menubar__item-header {
+//   color: rgb(var(--neeto-ui-gray-800));
+// }
 
-.neeto-ui-menubar__item-desc {
-  color: rgb(var(--neeto-ui-gray-700));
-}
+// .neeto-ui-menubar__item-desc {
+//   color: rgb(var(--neeto-ui-gray-700));
+// }
 
 // CSS transition group
 
