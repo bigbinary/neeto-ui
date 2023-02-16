@@ -323,6 +323,8 @@ td.ant-table-column-sort {
 .ant-table-column-sorters {
   .ant-table-column-title {
     flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
   }
   justify-content: flex-start;
   gap: 8px;
@@ -337,15 +339,23 @@ td.ant-table-column-sort {
 
 .ant-table-column-sorter-inner {
   .anticon-caret-up {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     &.active {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      top: 4px;
     }
   }
   .anticon-caret-down {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     &.active {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      top: -4px;
     }
   }
 }
