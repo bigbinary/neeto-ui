@@ -23,8 +23,31 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
-## 4.2.9 - 2023-02-08
+## 4.3.1 - 2023-02-14
 
+- Changed: **BREAKING** Updated `neetoApps` prop in *AppSwitcher* component to include app description and url along with the app name.
+- Changed: Product icons required for *AppSwitcher* component is directly picked from `neetoIcons`.
+- Removed: `subdomain` and `environment` props from *AppSwitcher* component.
+
+## 4.3.0 - 2023-02-13
+
+- Fixed: overlay issues with Subheader Tippy dropdown
+- Fixed: logo sizing in Sidebar
+
+Before
+
+<img width="965" alt="Screenshot 2023-02-09 at 8 26 47 AM" src="https://user-images.githubusercontent.com/48869249/217706767-1350dd62-2a23-4093-b989-a1d2ba98cb97.png">
+After
+<img width="968" alt="Screenshot 2023-02-09 at 8 27 04 AM" src="https://user-images.githubusercontent.com/48869249/217706816-2bc90bed-5a69-43dc-9cbd-ea4312ae73a6.png">
+
+---
+
+Before
+
+<img width="73" alt="Screenshot 2023-02-09 at 8 34 16 AM" src="https://user-images.githubusercontent.com/48869249/217708196-9d60c9db-87c5-4c12-a88e-7a643a46db0a.png">
+After
+<img width="74" alt="Screenshot 2023-02-09 at 8 36 36 AM" src="https://user-images.githubusercontent.com/48869249/217708237-933c98b8-af0e-4647-9a92-19bdb2b7ba2b.png">
+## 4.2.9 - 2023-02-08
 - Changed: `Neeto` logo in the sidebar.
 
 ## 4.2.8 - 2023-02-08
@@ -91,10 +114,8 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Fixed: proptypes declaration being included in production bundle (3% bundle size reduction)
 - Changed: github workflow compilation environment to `production`
 ## 4.1.37 - 2022-12-28
-
 - Fixed: issue with multiple links in *Sidebar* getting active at the same time.
 - Changed: logic in *Select* component to respect `getOptionValue` prop.
-
 ## 4.1.35 - 2022-12-27
 
 - Added: the ability to choose email from options in *EmailInput*.
@@ -179,9 +200,7 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Updated: Toaster styles.
 - Added: POC for Toasters with minimum content and bottom left positioning
 ## 4.1.7 - 2022-11-14
-
 - Changed: color-picker related dependencies to dev dependency
-
 ## 4.1.6 - 2022-11-13
 
 - Fixed: issue with *Select* dropdown when scrolling the page.
