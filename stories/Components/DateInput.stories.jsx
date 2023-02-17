@@ -144,6 +144,37 @@ export const DateRangePicker = () => {
 };
 DateRangePicker.storyName = "DateRangePicker";
 
+export const DateRangePickerWithPresetRanges = () => {
+  return (
+    <div className="space-y-3">
+      <DatePicker
+        label="Date range"
+        type="range"
+        defaultValue={
+          isChromatic()
+            ? [
+                dayjs(new Date(1999, 7, 16)),
+                dayjs(new Date(1999, 7, 16)).add(7, "day"),
+              ]
+            : [dayjs(), dayjs().add(7, "day")]
+        }
+        ranges={{
+          Today: [dayjs(), dayjs()],
+          Yesterday: [dayjs().subtract(1, "d"), dayjs()],
+          "Last Week": [dayjs().subtract(7, "d"), dayjs()],
+          "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
+          "Last Month": [
+            dayjs().subtract(1, "month").startOf("month"),
+            dayjs().subtract(1, "month").endOf("month"),
+          ],
+          "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
+        }}
+      />
+    </div>
+  );
+};
+DateRangePicker.storyName = "DateRangePicker with preset ranges";
+
 export const ShowTime = () => {
   return <DatePicker showTime label="Date" type="date" picker="date" />;
 };
