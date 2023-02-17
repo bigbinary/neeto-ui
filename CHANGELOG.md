@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.3.3 - 2023-02-17
+
+- Added: functionality to get `errorCode` or `errorCodes` from the Axios error object and displays translated string as toastr message
+
 ## 4.3.2 - 2023-02-16
 
 - Updated: styles of preset ranges in *DatePicker*.
@@ -54,7 +58,6 @@ After
 ## 4.2.9 - 2023-02-08
 - Changed: `Neeto` logo in the sidebar.
 ## 4.2.8 - 2023-02-08
-
 - Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
 
 ## 4.2.7 - 2023-02-08
@@ -121,7 +124,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Changed: logic in *Select* component to respect `getOptionValue` prop.
 ## 4.1.35 - 2022-12-27
 - Added: the ability to choose email from options in *EmailInput*.
-
 ## 4.1.34 - 2022-12-26
 
 - Fixed: Select dropdown width when strategy fixed.
@@ -205,7 +207,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Changed: color-picker related dependencies to dev dependency
 ## 4.1.6 - 2022-11-13
 - Fixed: issue with *Select* dropdown when scrolling the page.
-
 ## 4.1.5 - 2022-11-11
 
 - Added `system-ui` to `font-family` in `_base.scss`
