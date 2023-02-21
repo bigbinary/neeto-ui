@@ -547,3 +547,24 @@
     }
   }
 }
+.ant-picker-ranges > li {
+  margin-right: 8px;
+}
+
+.ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
+  height: auto;
+  padding: 5px 8px;
+  color: rgb(var(--neeto-ui-gray-800));
+  font-size: var(--neeto-ui-text-xs);
+  font-weight: var(--neeto-ui-font-medium);
+  line-height: 16px;
+  transition: var(--neeto-ui-transition);
+  border-radius: var(--neeto-ui-rounded);
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(var(--neeto-ui-gray-800));
+    background: rgb(var(--neeto-ui-gray-200));
+  }
+}
