@@ -20,7 +20,7 @@
 }
 
 .neeto-ui-tab {
-  color: rgb(var(--neeto-ui-gray-500));
+  color: rgb(var(--neeto-ui-gray-600));
   font-weight: var(--neeto-ui-font-semibold);
   font-size: var(--neeto-ui-text-sm);
   line-height: 1;
@@ -38,14 +38,9 @@
     outline: none;
   }
 
-  &:focus,
-  &:focus-visible{
-    color: rgb(var(--neeto-ui-gray-800));
-  }
-
   &:focus-visible{
     text-decoration: none; 
-    
+    color: rgb(var(--neeto-ui-gray-800));
     outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
     outline-offset: 1px;
     box-shadow: none;
