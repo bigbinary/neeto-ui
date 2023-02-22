@@ -126,17 +126,17 @@
 
     &:hover:not(:disabled),
     &:active {
-      color: rgb(var(--neeto-ui-gray-800));
+      color: rgb(var(--neeto-ui-black));
       background-color: rgb(var(--neeto-ui-gray-300));
     }
 
     &:focus {
-      color: rgb(var(--neeto-ui-gray-800));
+      color: rgb(var(--neeto-ui-black));
       box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-gray-800));
+      color: rgb(var(--neeto-ui-black));
 
       outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
       outline-offset: 1px;
