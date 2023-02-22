@@ -121,7 +121,7 @@
   }
 
   &-secondary {
-    color: rgb(var(--neeto-ui-gray-800));
+    color: rgb(var(--neeto-ui-black));
     background-color: rgb(var(--neeto-ui-gray-200));
 
     &:hover:not(:disabled),
@@ -168,24 +168,20 @@
   }
 
   &-link {
-    color: rgb(var(--neeto-ui-primary-500));
+    color: rgb(var(--neeto-ui-primary-800));
     padding: 0;
 
     &:hover:not(:disabled),
     &:active,
     &:focus {
       opacity: 0.8;
-      color: rgb(var(--neeto-ui-primary-500));
     }
 
     &:focus {
       opacity: 0.8;
-      color: rgb(var(--neeto-ui-primary-500));
     }
 
     &:focus-visible {
-      color: rgb(var(--neeto-ui-primary-500));
-
       outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
       outline-offset: 1px;
       box-shadow: none;
