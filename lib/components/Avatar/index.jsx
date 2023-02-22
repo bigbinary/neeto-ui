@@ -5,8 +5,9 @@ import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
 
-import { USER_ICON_URL } from "./constants";
-import { getInitials, getRandomBackgroundColor } from "./utils";
+import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
+
+import FallbackAvatar from "boring-avatars";
 
 const SIZE = {
   small: 24,
@@ -40,8 +41,6 @@ const Avatar = ({
   const isLarge = size === "large";
   const isExtraLarge = size === "extraLarge";
 
-  const avatarString = getInitials(name);
-
   const imageContainerStyle = {
     height: SIZE[size],
     width: SIZE[size],
@@ -53,12 +52,6 @@ const Avatar = ({
     "neeto-ui-avatar--xlarge": isExtraLarge,
     "neeto-ui-avatar--round": !isSquare,
     hidden: isLoadingFailed,
-  });
-
-  const placeholderClasses = classNames("neeto-ui-avatar__text", {
-    "neeto-ui-avatar__text-medium": isMedium,
-    "neeto-ui-avatar__text-large": isLarge,
-    "neeto-ui-avatar__text-xlarge": isExtraLarge,
   });
 
   const statusClasses = classNames("neeto-ui-avatar__status", `${status}`, {
@@ -75,13 +68,8 @@ const Avatar = ({
       <span className={statusClasses} data-testid="indicator" />
     );
 
-  const ImagePlaceholder = () => (
-    <span className={placeholderClasses} data-testid="initials">
-      {avatarString}
-    </span>
-  );
-
-  const shouldDisplayInitials = avatarString && !(imageUrl && !isLoadingFailed);
+  const avatarString = name.replace("", "-");
+  const shouldDisplayFallbackAvatar = !(imageUrl && !isLoadingFailed);
 
   return (
     <Tooltip
@@ -98,19 +86,24 @@ const Avatar = ({
           {
             "neeto-ui-avatar--container-round": !isSquare,
           },
-          className,
-          getRandomBackgroundColor(avatarString)
+          className
         )}
         {...otherProps}
       >
         <Indicator />
-        {shouldDisplayInitials ? (
-          <ImagePlaceholder />
+        {shouldDisplayFallbackAvatar ? (
+          <FallbackAvatar
+            size={SIZE[size]}
+            name={name}
+            square={isSquare}
+            variant={AVATAR_VARIANT}
+            colors={COLOR_PALLETE}
+          />
         ) : (
           <img
             className={imageClasses}
             onError={() => setIsLoadingFailed(true)}
-            src={imageUrl || USER_ICON_URL}
+            src={imageUrl}
             alt={`avatar-${avatarString}`}
             data-chromatic="ignore"
           />
