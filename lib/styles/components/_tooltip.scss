@@ -15,6 +15,20 @@
   outline: 0;
   transition-property: transform, visibility, opacity;
   word-wrap: break-word;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .neeto-ui-text-h1,
+  .neeto-ui-text-h2,
+  .neeto-ui-text-h3,
+  .neeto-ui-text-h4,
+  .neeto-ui-text-h5,
+  .neeto-ui-text-h6 {
+    color: inherit;
+  }
 }
 .tippy-box[data-placement^="top"] > .tippy-arrow {
   bottom: 0;

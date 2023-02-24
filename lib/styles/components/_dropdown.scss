@@ -19,7 +19,7 @@
     padding: 0;
     z-index: 1;
   }
-  box-shadow: var(--neeto-ui-shadow-xs) !important;
+  box-shadow: var(--neeto-ui-shadow-lg) !important;
   border-radius: var(--neeto-ui-rounded) !important;
   border: 1px solid rgb(var(--neeto-ui-gray-400));
 }
@@ -27,7 +27,7 @@
 .neeto-ui-dropdown__popup {
   width: auto;
   min-width: 168px;
-  max-height: 360px;
+  max-height: 480px;
   overflow-y: auto;
   background-color: rgb(var(--neeto-ui-white));
   border-radius: var(--neeto-ui-rounded);

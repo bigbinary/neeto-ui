@@ -12,7 +12,7 @@ export const colorPalette = {
       {
         name: "neeto-ui-black",
         value: {
-          light: "27, 31, 35",
+          light: "18, 18, 18",
           dark: "224, 224, 224",
         },
       },
@@ -24,14 +24,14 @@ export const colorPalette = {
       {
         name: "neeto-ui-gray-800",
         value: {
-          light: "47, 57, 65",
+          light: "31, 31, 31",
           dark: "200, 200, 200",
         },
       },
       {
         name: "neeto-ui-gray-700",
         value: {
-          light: "73, 84, 92",
+          light: "47, 57, 65",
           dark: "162, 162, 162",
         },
       },
