@@ -4,6 +4,7 @@
   justify-content: center;
   border-radius: var(--neeto-ui-rounded);
   position: relative;
+  flex-shrink: 0;
 
   &.neeto-ui-avatar--container-round {
     border-radius: var(--neeto-ui-rounded-full);

@@ -49,3 +49,9 @@
 .neeto-ui-subheader [data-tippy-root]{
   z-index: 10000 !important;
 }
+
+.neeto-chat-survey-question-accordion__header{
+  .neeto-ui-typography{
+    color: inherit;
+  }
+}

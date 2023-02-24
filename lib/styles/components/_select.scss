@@ -148,11 +148,12 @@
     margin: 6px 0 16px;
     z-index: 20;
     border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
-    box-shadow: var(--neeto-ui-shadow-xs);
+    box-shadow: var(--neeto-ui-shadow-lg);
     background-color: rgb(var(--neeto-ui-white));
 
     .neeto-ui-react-select__menu-list {
       position: relative;
+      max-height: 480px;
     }
 
     .neeto-ui-react-select__option {

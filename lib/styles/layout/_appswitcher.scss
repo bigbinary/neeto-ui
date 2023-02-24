@@ -75,6 +75,10 @@
   max-width: 100%;
   border-radius: var(--neeto-ui-rounded-lg);
   background-color: rgb(var(--neeto-ui-gray-100));
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+  border-color: rgb(var(--neeto-ui-gray-100));
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 
@@ -98,13 +102,8 @@
 }
 
 .neeto-ui-app-switcher-link--active {
-  background: rgb(var(--neeto-ui-gray-800));
-
-  .neeto-ui-app-switcher-link__content {
-    span {
-      color: rgb(var(--neeto-ui-white));
-    }
-  }
+  background: rgb(var(--neeto-ui-primary-100));
+  border-color: rgb(var(--neeto-ui-primary-600));
 }
 
 .neeto-ui-app-switcher-link__icon-holder {
