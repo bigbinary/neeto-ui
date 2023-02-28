@@ -5,7 +5,7 @@ import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
 
-import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
+// import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
 
 import FallbackAvatar from "boring-avatars";
 
@@ -21,6 +21,10 @@ const STATUS = {
   idle: "idle",
   offline: "offline",
 };
+
+const COLOR_PALLETE = ["#ffb5a7", "#fcd5ce", "#f8edeb", "#f9dcc4", "#fec89a"];
+
+const AVATAR_VARIANT = "beam";
 
 const Avatar = ({
   size = "medium",
@@ -98,6 +102,7 @@ const Avatar = ({
             square={isSquare}
             variant={AVATAR_VARIANT}
             colors={COLOR_PALLETE}
+            className="neeto-ui-avatar__svg"
           />
         ) : (
           <img
