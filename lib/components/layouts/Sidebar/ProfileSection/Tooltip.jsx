@@ -5,7 +5,7 @@ import { Rating, Help } from "@bigbinary/neeto-icons";
 import Avatar from "components/Avatar";
 import Typography from "components/Typography";
 
-import LinkSection from "./LinkSection";
+import LinkSection from "../LinkSection";
 import { truncate } from "./utils";
 
 const ProfileSectionTooltip = ({ profileInfo }) => {

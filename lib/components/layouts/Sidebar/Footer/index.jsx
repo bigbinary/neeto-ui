@@ -7,6 +7,7 @@ import AppSwitcher from "./AppSwitcher";
 import ProfileSection from "../ProfileSection";
 import ProfileSectionTooltip from "../ProfileSection/Tooltip";
 import HelpSection from "../HelpSection";
+import LinkSection from "../LinkSection";
 
 const Footer = ({
   profileInfo,
@@ -19,7 +20,18 @@ const Footer = ({
 
   return (
     <div className="neeto-ui-sidebar__footer">
-      {helpLinks && <HelpSection helpLinks={helpLinks}/>}
+      {helpLinks && (
+        <Tooltip
+          position="right"
+          className="neeto-ui-profile-popup-wrapper"
+          theme="light"
+          content={helpLinks && <LinkSection links={helpLinks} />}
+          interactive
+          hideOnClick={false}
+        >
+          <HelpSection helpLinks={helpLinks} />
+        </Tooltip>
+      )}
       {showAppSwitcher && (
         <AppSwitcher
           onAppSwitcherToggle={onAppSwitcherToggle}
