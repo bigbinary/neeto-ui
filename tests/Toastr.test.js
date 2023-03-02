@@ -264,6 +264,18 @@ describe("Toastr", () => {
     });
   });
 
+  ["Success", "Info", "Warning", "Error"].forEach((type) => {
+    it(`should render ${type} Toastr with customMessage string when response object contains custom_message as noticeCode`, async () => {
+      const button = renderCustomMessageToastrButton(type, {
+        noticeCode: "custom_message",
+        customMessage: "This is a custom message.",
+      });
+      userEvent.click(button);
+      const toastr = await screen.findByText("This is a custom message.");
+      expect(toastr).toBeInTheDocument();
+    });
+  });
+
   it("should render Axios Error Toastr using noticeCode without error", () => {
     const errorResponse = {
       noticeCode: "message.error",
