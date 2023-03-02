@@ -9,6 +9,7 @@ import {
   Notification,
   Help,
   LeftArrow,
+  Keyboard,
 } from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
@@ -254,5 +255,57 @@ ProfileSectionWithCustomContent.args = {
       },
     ],
   },
+  appName: "neetoUI",
+};
+
+export const SidebarWithHelpSection = (args) => {
+  const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
+
+  return (
+    <Router>
+      <Sidebar
+        {...args}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+      />
+      <AppSwitcher
+        neetoApps={[]}
+        activeApp="Chat"
+        isOpen={isAppSwitcherOpen}
+        onClose={() => setIsAppSwitcherOpen(false)}
+      />
+    </Router>
+  );
+};
+SidebarWithHelpSection.storyName = "Sidebar with Help Section";
+SidebarWithHelpSection.args = {
+  organizationInfo: {
+    name: "neetoUI",
+    subdomain: "neetoui.onrender.com",
+  },
+  navLinks: STORYBOOK_NAV_LINKS,
+  profileInfo: {
+    name: "Kieran Miller",
+    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    bottomLinks: [
+      {
+        label: "Edit",
+        onClick: () => {},
+        icon: Settings,
+      },
+      {
+        label: "Logout",
+        onClick: () => {},
+        icon: LeftArrow,
+      },
+    ],
+  },
+  showAppSwitcher: true,
+  helpLinks: [
+    { label: "Documentation", onClick: () => {}, icon: Keyboard },
+    { label: "Keyboard Shortcuts", onClick: () => {}, icon: Keyboard },
+    { label: "Chat with us", onClick: () => {}, icon: Keyboard },
+    { label: "What's new?", onClick: () => {}, icon: Keyboard },
+    { label: "Status", onClick: () => {}, icon: Keyboard },
+  ],
   appName: "neetoUI",
 };
