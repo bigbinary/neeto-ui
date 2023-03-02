@@ -18,6 +18,7 @@ const Sidebar = ({
   navLinks = [],
   tooltipStyle = TOOLTIP_STYLES.featured,
   profileInfo,
+  helpLinks,
   showAppSwitcher = false,
   onAppSwitcherToggle = noop,
 }) => (
@@ -38,6 +39,7 @@ const Sidebar = ({
       tooltipStyle={tooltipStyle}
       showAppSwitcher={showAppSwitcher}
       onAppSwitcherToggle={onAppSwitcherToggle}
+      helpLinks={helpLinks}
     />
   </div>
 );
@@ -108,6 +110,17 @@ Sidebar.propTypes = {
    *  To provide the function to toggle app switcher
    */
   onAppSwitcherToggle: PropTypes.func,
+  /**
+   *  To provide the help links to be rendered in the Sidebar
+   */
+  helpLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    })
+  ),
+  
   /**
    * The name of the app that is currently active
    */

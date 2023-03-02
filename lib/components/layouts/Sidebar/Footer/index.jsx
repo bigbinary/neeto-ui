@@ -6,17 +6,20 @@ import AppSwitcher from "./AppSwitcher";
 
 import ProfileSection from "../ProfileSection";
 import ProfileSectionTooltip from "../ProfileSection/Tooltip";
+import HelpSection from "../HelpSection";
 
 const Footer = ({
   profileInfo,
   tooltipStyle,
   showAppSwitcher = false,
   onAppSwitcherToggle,
+  helpLinks,
 }) => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   return (
     <div className="neeto-ui-sidebar__footer">
+      {helpLinks && <HelpSection helpLinks={helpLinks}/>}
       {showAppSwitcher && (
         <AppSwitcher
           onAppSwitcherToggle={onAppSwitcherToggle}
