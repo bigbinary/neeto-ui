@@ -37,6 +37,11 @@ const sidebarProps = {
       },
     ],
   },
+  helpLinks: [
+    { label: "Documentation", onClick: () => {}, icon: Keyboard },
+    { label: "Keyboard Shortcuts", onClick: () => {}, icon: Keyboard },
+    { label: "Chat with us", onClick: () => {}, icon: Keyboard },
+  ],
   appName: "neetoUI",
 };
 
@@ -44,6 +49,7 @@ const {
   organizationInfo: { name: orgName, subdomain },
   profileInfo: { email, imageUrl, name: userName, bottomLinks },
   navLinks,
+  helpLinks,
 } = sidebarProps;
 
 describe("Sidebar", () => {
@@ -142,5 +148,21 @@ describe("Sidebar", () => {
 
     userEvent.click(appSwitcherButton);
     expect(onAppSwitcherToggle).toHaveBeenCalled();
+  });
+
+  it("should display help links correctly", async () => {
+    const { container, queryByText, findByText } = render(
+      <Router>
+        <Sidebar {...sidebarProps} />
+      </Router>
+    );
+
+    const helpButton = container.querySelector("button[data-cy='help-button']");
+    expect(helpButton).toBeInTheDocument();
+
+    expect(queryByText(helpLinks[0].label)).not.toBeInTheDocument();
+
+    userEvent.hover(helpButton);
+    expect(await findByText(helpLinks[0].label)).toBeInTheDocument();
   });
 });
