@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
-import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT } from "../constants";
+import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT, SIMPLE_TABLE_DATA } from "../constants";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
 import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
@@ -52,6 +52,84 @@ export default {
     },
   }
 };
+
+const fixedColumnWidths = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: "25%",
+  },
+  {
+    title: "guid",
+    dataIndex: "guid",
+    key: "guid",
+    width: "25%",
+  },
+  {
+    title: "First Name",
+    dataIndex: "first_name",
+    key: "first_name",
+    width: "25%",
+  },
+  {
+    title: "Last Name",
+    dataIndex: "last_name",
+    key: "last_name",
+    width: "25%",
+  }, 
+];
+
+const headerTooltips = [
+  {
+    title: () => (
+      <div className="text-left">
+        <Tooltip content="Tooltip content goes here">
+          <span>ID</span>
+        </Tooltip>
+      </div>
+    ),
+    dataIndex: "id",
+    key: "id",
+    width: "25%",
+  },
+  {
+    title: () => (
+      <div className="text-left">
+        <Tooltip content="Tooltip content goes here">
+          <span>guid</span>
+        </Tooltip>
+      </div>
+    ),
+    dataIndex: "guid",
+    key: "guid",
+    width: "25%",
+  },
+  {
+    title: () => (
+      <div className="text-left">
+        <Tooltip content="Tooltip content goes here">
+          <span>First Name</span>
+        </Tooltip>
+      </div>
+    ),
+    dataIndex: "first_name",
+    key: "first_name",
+    width: "25%",
+  },
+  {
+    title: () => (
+      <div className="text-left">
+        <Tooltip content="Tooltip content goes here">
+          <span>Last Name</span>
+        </Tooltip>
+      </div>
+    ),
+    dataIndex: "last_name",
+    key: "last_name",
+    width: "25%",
+  }, 
+];
 
 const getColumns = (fixed = false) => [
   {
@@ -263,6 +341,37 @@ Default.parameters = {
     },
   },
 };
+
+export const TableWithSpecifiedHorizontalScrolling = (args) => {
+  return (
+    <div className="w-2/3 mx-auto mt-10">
+      <NeetoTable
+        scroll={{ x: "100%" }}
+        columnData={fixedColumnWidths}
+        rowData={SIMPLE_TABLE_DATA}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithSpecifiedHorizontalScrolling.storyName = "Table with specified width for horizontal scrolling";
+
+export const TableWithTooltipsOnHeader = (args) => {
+  return (
+    <div className="w-2/3 mx-auto mt-10">
+      <NeetoTable
+        scroll={{ x: "100%" }}
+        columnData={headerTooltips}
+        rowData={SIMPLE_TABLE_DATA}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithTooltipsOnHeader.storyName = "Table with Tooltips on header";
+
 
 export const TableWithFixedRightColumn = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
