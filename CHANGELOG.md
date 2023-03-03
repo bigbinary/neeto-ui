@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.1 - 2023-03-03
+
+- Added feature to display string from custom message key from response , when the noticeCode is custom_message
+
 ## 4.4.0 - 2023-02-24
 
 - Fixed: Alignment issues in Table headers when sort is enabled.
@@ -36,16 +40,12 @@ Prefix the change with one of these keywords:
 
 <img width="532" alt="Group 2" src="https://user-images.githubusercontent.com/48869249/220600134-0e92558c-4bb5-498b-a09a-63a04725fc0b.png">
 - Updated: `h1`, `h2`, `h3`, `h4`, `h5`, `h6` color to `--neeto-ui-black` (`#121212`).
-
 <img width="898" alt="Group 3" src="https://user-images.githubusercontent.com/48869249/220602168-ab61369c-5576-4661-aaf4-e532230ad5eb.png">
 - Updated: Color contrast of `secondary`, `text` and `link` variants of Button.
-
 <img width="545" alt="Group 7" src="https://user-images.githubusercontent.com/48869249/220705083-484434cc-d345-40b9-b331-fb9d33590f40.png">
 - Updated: Tags color contrast.
-
 <img width="1002" alt="Group 9" src="https://user-images.githubusercontent.com/48869249/220823524-3f8eec49-8bf7-4391-8cdc-cf79b289a2ef.png">
 - Updated: Menubar color contrast.
-
 
 ---
 
@@ -53,10 +53,8 @@ Prefix the change with one of these keywords:
 
 <img width="747" alt="Group 4" src="https://user-images.githubusercontent.com/48869249/220603160-2bb5f207-e2cc-4eb1-9d46-1f913c9d915f.png">
 - Added: Borders to Table.
-
 <img width="1440" alt="Screenshot 2023-02-22 at 4 41 14 PM" src="https://user-images.githubusercontent.com/48869249/220603744-4cdecc30-fa2d-4471-83ec-d88f5df5da63.png">
 **Dropdown changes**
-
 - Updated: `--neeto-ui-shadow-lg` to `0 8px 24px rgba(140,149,159,0.2)`.
 - Updated: Dropdown shadow to `--neeto-ui-shadow-lg`.
 - Updated: Select dropdown shadow to `--neeto-ui-shadow-lg`.
@@ -65,14 +63,11 @@ Prefix the change with one of these keywords:
 <img width="238" alt="shadow" src="https://user-images.githubusercontent.com/48869249/220604390-3c95f1d2-cf41-46e8-af63-32074ddcc60f.png">
 - Updated: Dropdown `max-height` from `360px` to `480px` to accommodate more number of items without scroll.
 - Updated: Select dropdown `max-height` to `480px`
-
 <img width="407" alt="max" src="https://user-images.githubusercontent.com/48869249/220604606-976fa6ee-76b0-4928-95a0-70f714a0723a.png">
 - Improved: The spacing in NoData component
 - Updated: AppSwitcher selection styles.
-
 <img width="1440" alt="Screenshot 2023-02-22 at 11 04 47 PM" src="https://user-images.githubusercontent.com/48869249/220709676-2ed9735e-1030-431d-a87e-53e78d9f5b2c.png">
 ## 4.3.3 - 2023-02-17
-
 - Added: functionality to get `errorCode` or `errorCodes` from the Axios error object and displays translated string as toastr message
 
 ## 4.3.2 - 2023-02-16
@@ -108,7 +103,6 @@ After
 ## 4.2.8 - 2023-02-08
 - Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
 ## 4.2.7 - 2023-02-08
-
 - Updated: Pageloader component.
 
 ## 4.2.6 - 2023-02-08
@@ -173,7 +167,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Added: the ability to choose email from options in *EmailInput*.
 ## 4.1.34 - 2022-12-26
 - Fixed: Select dropdown width when strategy fixed.
-
 ## 4.1.33 - 2022-12-25
 
 - Fixed: Issues with `value` prop of *Select* component.
@@ -255,7 +248,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Fixed: issue with *Select* dropdown when scrolling the page.
 ## 4.1.5 - 2022-11-11
 - Added `system-ui` to `font-family` in `_base.scss`
-
 ## 4.1.4 - 2022-11-10
 
 - Added: `className` as props to *Form* component.
