@@ -341,4 +341,15 @@ describe("Toastr", () => {
     const expectedMessage = "Error message one. Error message two. This is a Error toastr. This is a toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
+
+  it("should render Axios Error Toastr using error_code when errorCodes and errors are null", () => {
+    const errorResponse = {
+      errors: null,
+      errorCodes: null,
+      errorCode: "message.error",
+      entityName: "toastr"
+    };
+    const expectedMessage = "This is a Error toastr.";
+    testToastrErrorMessages(errorResponse, expectedMessage);
+  });
 });
