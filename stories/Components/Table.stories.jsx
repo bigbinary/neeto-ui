@@ -84,7 +84,7 @@ const headerTooltips = [
   {
     title: () => (
       <div className="text-left">
-        <Tooltip content="Tooltip content goes here">
+        <Tooltip content="Tooltip content goes here" position="top">
           <span>ID</span>
         </Tooltip>
       </div>
@@ -96,7 +96,7 @@ const headerTooltips = [
   {
     title: () => (
       <div className="text-left">
-        <Tooltip content="Tooltip content goes here">
+        <Tooltip content="Tooltip content goes here" position="top">
           <span>guid</span>
         </Tooltip>
       </div>
@@ -108,7 +108,7 @@ const headerTooltips = [
   {
     title: () => (
       <div className="text-left">
-        <Tooltip content="Tooltip content goes here">
+        <Tooltip content="Tooltip content goes here" position="top">
           <span>First Name</span>
         </Tooltip>
       </div>
@@ -120,7 +120,7 @@ const headerTooltips = [
   {
     title: () => (
       <div className="text-left">
-        <Tooltip content="Tooltip content goes here">
+        <Tooltip content="Tooltip content goes here" position="top">
           <span>Last Name</span>
         </Tooltip>
       </div>
