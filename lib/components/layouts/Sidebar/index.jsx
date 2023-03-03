@@ -76,11 +76,6 @@ Sidebar.propTypes = {
     name: PropTypes.string,
     email: PropTypes.string,
     customContent: PropTypes.element,
-    changelogProps: PropTypes.shape({
-      onClick: PropTypes.func,
-      label: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    }),
     topLinks: PropTypes.arrayOf(
       PropTypes.shape({
         onClick: PropTypes.func,
