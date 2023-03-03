@@ -103,13 +103,33 @@ Sidebar.propTypes = {
   /**
    *  To provide the help links to be rendered in the Sidebar
    */
-  helpLinks: PropTypes.arrayOf(
-    PropTypes.shape({
+  helpLinks: PropTypes.shape({
+    documentationProps: PropTypes.shape({
       onClick: PropTypes.func,
       label: PropTypes.string,
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    })
-  ),
+    }),
+    keyboardShortcutProps: PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    }),
+    chatProps: PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    }),
+    changelogProps: PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    }),
+    statusProps: PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    }),
+  }),
 
   /**
    * The name of the app that is currently active

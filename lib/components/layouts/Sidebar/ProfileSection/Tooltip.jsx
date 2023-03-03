@@ -4,7 +4,7 @@ import classnames from "classnames";
 import Avatar from "components/Avatar";
 import Typography from "components/Typography";
 
-import LinkSection from "../LinkSection";
+import LinkSection from "./LinkSection";
 import { truncate } from "./utils";
 
 const ProfileSectionTooltip = ({ profileInfo }) => {

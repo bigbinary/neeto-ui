@@ -127,14 +127,19 @@ export interface SidebarProps {
   tooltipStyle?: "default" | "featured";
   /** @deprecated Prop removed as footer links in sidebar is no longer supported*/
   footerLinks?: FooterLinkType[];
-  helpLinks?: LinkType[];
+  helpLinks?: {
+    documentationProps?: LinkType;
+    keyboardShortcutProps?: LinkType;
+    chatProps?: LinkType;
+    changelogProps?: LinkType;
+    statusProps?: LinkType;
+  };
   profileInfo?: {
     name?: string;
     email?: string;
     topLinks?: LinkType[];
     bottomLinks?: LinkType[];
     customContent?: React.ReactNode;
-    changelogProps?: LinkType;
     "data-cy"?: string;
   } & AvatarProps;
   /** @deprecated Prop removed as expanded state of sidebar is no longer supported */

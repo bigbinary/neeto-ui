@@ -4,11 +4,7 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import {
-  Settings,
-  LeftArrow,
-  Keyboard,
-} from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow, Keyboard, Articles, NeetoChat, Rating, NeetoAnalytics } from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
@@ -165,14 +161,13 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithChangelogAndHelp = ({ ...args }) => (
+export const HelpSectionWithChangelog = ({ ...args }) => (
   <Router>
     <Sidebar {...args} />
   </Router>
 );
-SidebarWithChangelogAndHelp.storyName =
-  "Sidebar with changelog and help";
-SidebarWithChangelogAndHelp.args = {
+HelpSectionWithChangelog.storyName = "Help section with changelog";
+HelpSectionWithChangelog.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -197,13 +192,21 @@ SidebarWithChangelogAndHelp.args = {
       },
     ],
   },
-  helpLinks: [
-    { label: "Documentation", onClick: () => {}, icon: Keyboard },
-    { label: "Keyboard Shortcuts", onClick: () => {}, icon: Keyboard },
-    { label: "Chat with us", onClick: () => {}, icon: Keyboard },
-    { label: "What's new?", onClick: () => {}, icon: Keyboard },
-    { label: "Status", onClick: () => {}, icon: Keyboard },
-  ],
+  helpLinks: {
+    documentationProps: {
+      label: "Documentation",
+      onClick: () => {},
+      icon: Articles,
+    },
+    keyboardShortcutProps: {
+      label: "Keyboard shortcuts",
+      onClick: () => {},
+      icon: Keyboard,
+    },
+    chatProps: { label: "Chat with us", onClick: () => {}, icon: NeetoChat },
+    changelogProps: { label: "What's new?", onClick: () => {}, icon: Rating },
+    statusProps: { label: "Status", onClick: () => {}, icon: NeetoAnalytics },
+  },
 };
 
 export const ProfileSectionWithCustomContent = Template.bind({});
@@ -243,4 +246,3 @@ ProfileSectionWithCustomContent.args = {
   },
   appName: "neetoUI",
 };
-
