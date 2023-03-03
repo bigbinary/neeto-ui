@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
-import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {
@@ -22,11 +22,6 @@ const sidebarProps = {
         label: "Profile",
         onClick: () => {},
         icon: Settings,
-      },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
       },
     ],
     bottomLinks: [

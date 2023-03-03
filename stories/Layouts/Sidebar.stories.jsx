@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import {
   Settings,
-  Notification,
-  Help,
   LeftArrow,
   Keyboard,
 } from "@bigbinary/neeto-icons";
@@ -110,11 +108,6 @@ Default.args = {
         onClick: () => {},
         icon: Settings,
       },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
     ],
     bottomLinks: [
       {
@@ -172,14 +165,14 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const ProfileSectionWithChangelogAndHelp = ({ ...args }) => (
+export const SidebarWithChangelogAndHelp = ({ ...args }) => (
   <Router>
     <Sidebar {...args} />
   </Router>
 );
-ProfileSectionWithChangelogAndHelp.storyName =
-  "Profile section with changelog and help";
-ProfileSectionWithChangelogAndHelp.args = {
+SidebarWithChangelogAndHelp.storyName =
+  "Sidebar with changelog and help";
+SidebarWithChangelogAndHelp.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -189,15 +182,6 @@ ProfileSectionWithChangelogAndHelp.args = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    changelogProps: {
-      icon: Notification,
-      id: "neetochangelog-trigger",
-      label: "What's new",
-      onClick: () => alert("Clicked on what's new"),
-    },
-    helpProps: {
-      onClick: () => alert("Clicked on help"),
-    },
     topLinks: [
       {
         label: "Profile",
@@ -213,6 +197,13 @@ ProfileSectionWithChangelogAndHelp.args = {
       },
     ],
   },
+  helpLinks: [
+    { label: "Documentation", onClick: () => {}, icon: Keyboard },
+    { label: "Keyboard Shortcuts", onClick: () => {}, icon: Keyboard },
+    { label: "Chat with us", onClick: () => {}, icon: Keyboard },
+    { label: "What's new?", onClick: () => {}, icon: Keyboard },
+    { label: "Status", onClick: () => {}, icon: Keyboard },
+  ],
 };
 
 export const ProfileSectionWithCustomContent = Template.bind({});
@@ -241,11 +232,6 @@ ProfileSectionWithCustomContent.args = {
         onClick: () => {},
         icon: Settings,
       },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
     ],
     bottomLinks: [
       {
@@ -258,54 +244,3 @@ ProfileSectionWithCustomContent.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithHelpSection = (args) => {
-  const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
-
-  return (
-    <Router>
-      <Sidebar
-        {...args}
-        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
-      />
-      <AppSwitcher
-        neetoApps={[]}
-        activeApp="Chat"
-        isOpen={isAppSwitcherOpen}
-        onClose={() => setIsAppSwitcherOpen(false)}
-      />
-    </Router>
-  );
-};
-SidebarWithHelpSection.storyName = "Sidebar with Help Section";
-SidebarWithHelpSection.args = {
-  organizationInfo: {
-    name: "neetoUI",
-    subdomain: "neetoui.onrender.com",
-  },
-  navLinks: STORYBOOK_NAV_LINKS,
-  profileInfo: {
-    name: "Kieran Miller",
-    imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    bottomLinks: [
-      {
-        label: "Edit",
-        onClick: () => {},
-        icon: Settings,
-      },
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
-  },
-  showAppSwitcher: true,
-  helpLinks: [
-    { label: "Documentation", onClick: () => {}, icon: Keyboard },
-    { label: "Keyboard Shortcuts", onClick: () => {}, icon: Keyboard },
-    { label: "Chat with us", onClick: () => {}, icon: Keyboard },
-    { label: "What's new?", onClick: () => {}, icon: Keyboard },
-    { label: "Status", onClick: () => {}, icon: Keyboard },
-  ],
-  appName: "neetoUI",
-};

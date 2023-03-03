@@ -81,11 +81,6 @@ Sidebar.propTypes = {
       label: PropTypes.string,
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     }),
-    helpProps: PropTypes.shape({
-      onClick: PropTypes.func,
-      label: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    }),
     topLinks: PropTypes.arrayOf(
       PropTypes.shape({
         onClick: PropTypes.func,
@@ -120,7 +115,7 @@ Sidebar.propTypes = {
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     })
   ),
-  
+
   /**
    * The name of the app that is currently active
    */
