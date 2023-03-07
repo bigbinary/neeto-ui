@@ -14,13 +14,13 @@
 /storybook-static
 
 
-/formik.js
+/formik*.js
 /formik.js.LICENSE.txt
 /index.css
-/index.js
-/layouts.js
+/index*.js
+/layouts*.js
 /molecules.js
-/managers.js
+/managers*.js
 /index.js.LICENSE.txt
 /layouts.js.LICENSE.txt
 /*.png
