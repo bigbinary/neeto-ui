@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.2 - 2023-03-03
+
+Fixed empty toastr message when errors or errorCodes are given null values.
+
 ## 4.4.1 - 2023-03-03
 
 - Added feature to display string from custom message key from response , when the noticeCode is custom_message
@@ -59,7 +63,6 @@ Prefix the change with one of these keywords:
 - Updated: Dropdown shadow to `--neeto-ui-shadow-lg`.
 - Updated: Select dropdown shadow to `--neeto-ui-shadow-lg`.
 - Updated: Date/Time picker dropdown shadow to `--neeto-ui-shadow-lg`.
-
 <img width="238" alt="shadow" src="https://user-images.githubusercontent.com/48869249/220604390-3c95f1d2-cf41-46e8-af63-32074ddcc60f.png">
 - Updated: Dropdown `max-height` from `360px` to `480px` to accommodate more number of items without scroll.
 - Updated: Select dropdown `max-height` to `480px`
@@ -69,7 +72,6 @@ Prefix the change with one of these keywords:
 <img width="1440" alt="Screenshot 2023-02-22 at 11 04 47 PM" src="https://user-images.githubusercontent.com/48869249/220709676-2ed9735e-1030-431d-a87e-53e78d9f5b2c.png">
 ## 4.3.3 - 2023-02-17
 - Added: functionality to get `errorCode` or `errorCodes` from the Axios error object and displays translated string as toastr message
-
 ## 4.3.2 - 2023-02-16
 
 - Updated: styles of preset ranges in *DatePicker*.
@@ -104,7 +106,6 @@ After
 - Fixed: *Modal* and *Alert* was adding a `margin-right` to the *body* when there was no scrollbar which caused the UI elements to shift right.
 ## 4.2.7 - 2023-02-08
 - Updated: Pageloader component.
-
 ## 4.2.6 - 2023-02-08
 
 - Fixed: Submit on enter triggered when *Form* was being submitted.
@@ -168,7 +169,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 ## 4.1.34 - 2022-12-26
 - Fixed: Select dropdown width when strategy fixed.
 ## 4.1.33 - 2022-12-25
-
 - Fixed: Issues with `value` prop of *Select* component.
 
 ## 4.1.32 - 2022-12-25
@@ -249,7 +249,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.5 - 2022-11-11
 - Added `system-ui` to `font-family` in `_base.scss`
 ## 4.1.4 - 2022-11-10
-
 - Added: `className` as props to *Form* component.
 
 ## 4.1.3 - 2022-11-10
