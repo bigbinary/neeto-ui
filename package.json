@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "4.4.2",
+  "version": "4.4.3",
   "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
@@ -17,6 +17,12 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic"
   },
+  "files": [
+    "index.*",
+    "formik.*",
+    "layouts.*",
+    "managers.*"
+  ],
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
       "eslint --fix"
