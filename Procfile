@@ -1,2 +1,2 @@
 release: yarn -v
-web: yarn storybook
+web: yarn serve
