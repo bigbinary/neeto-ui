@@ -25,7 +25,8 @@
   "exports": {
     ".": {
       "import": "./index.js",
-      "require": "./index.cjs.js"
+      "require": "./index.cjs.js",
+      "default": "./index.css"
     },
     "./layouts": {
       "import": "./layouts.js",
