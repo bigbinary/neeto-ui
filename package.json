@@ -17,6 +17,12 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic"
   },
+  "files": [
+    "index.*",
+    "formik.*",
+    "layouts.*",
+    "managers.*"
+  ],
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
       "eslint --fix"
