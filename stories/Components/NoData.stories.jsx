@@ -2,7 +2,6 @@ import React from "react";
 
 import NoData from "../../lib/components/NoData";
 import Button from "../../lib/components/Button";
-import { ChatOffline } from "@bigbinary/neeto-icons";
 
 export default {
   title: "Components/NoData",
@@ -45,6 +44,26 @@ export const WithDescription = () => {
 };
 
 WithDescription.storyName = "No Data with description";
+
+export const WithSecondaryButton = () => {
+  return (
+    <div className="w-full flex items-center justify-center">
+      <NoData
+        title="There are no suites to show"
+        description="You can try adding a new suite or importing test cases"
+        buttonSeparatorText="or"
+        primaryButtonProps={{
+          label: "Add new suite"
+        }}
+        secondaryButtonProps={{
+          label: "Import Test Cases"
+        }}
+      />
+    </div>
+  );
+};
+
+WithSecondaryButton.storyName = "No Data with secondary button";
 
 export const WithHelpText = () => {
   return (

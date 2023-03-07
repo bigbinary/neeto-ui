@@ -23,6 +23,14 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.4 - 2023-03-07
+
+- Added: the ability to add a custom separator text between the primary and secondary buttons using the `buttonSeparatorText` prop for the *NoData* component.
+
+## 4.4.3 - 2023-03-07
+
+- Changed: Exported both cjs and esm bundles.
+
 ## 4.4.2 - 2023-03-03
 
 Fixed empty toastr message when errors or errorCodes are given null values.
@@ -73,9 +81,7 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 ## 4.3.3 - 2023-02-17
 - Added: functionality to get `errorCode` or `errorCodes` from the Axios error object and displays translated string as toastr message
 ## 4.3.2 - 2023-02-16
-
 - Updated: styles of preset ranges in *DatePicker*.
-
 ## 4.3.1 - 2023-02-14
 
 - Changed: **BREAKING** Updated `neetoApps` prop in *AppSwitcher* component to include app description and url along with the app name.
@@ -107,9 +113,7 @@ After
 ## 4.2.7 - 2023-02-08
 - Updated: Pageloader component.
 ## 4.2.6 - 2023-02-08
-
 - Fixed: Submit on enter triggered when *Form* was being submitted.
-
 ## 4.2.5 - 2023-02-07
 
 - Updated : Table sorting UI styles
@@ -170,9 +174,7 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 - Fixed: Select dropdown width when strategy fixed.
 ## 4.1.33 - 2022-12-25
 - Fixed: Issues with `value` prop of *Select* component.
-
 ## 4.1.32 - 2022-12-25
-
 Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 
 ## 4.1.31 - 2022-12-21
@@ -250,9 +252,7 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Added `system-ui` to `font-family` in `_base.scss`
 ## 4.1.4 - 2022-11-10
 - Added: `className` as props to *Form* component.
-
 ## 4.1.3 - 2022-11-10
-
 - Removes Tags molecule from library and moved to [neeto-tags-frontend](https://github.com/bigbinary/neeto-tags-frontend)
 
 ## 4.1.2 - 2022-11-09

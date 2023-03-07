@@ -1,7 +1,7 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "4.4.2",
-  "main": "./index.js",
+  "version": "4.4.4",
+  "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
   "author": "BigBinary",
@@ -17,10 +17,35 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic"
   },
+  "files": [
+    "index.*",
+    "formik.*",
+    "layouts.*",
+    "managers.*"
+  ],
   "lint-staged": {
     "lib/**/*.{html,md,js,jsx,json}": [
       "eslint --fix"
     ]
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs.js",
+      "style": "./index.css"
+    },
+    "./layouts": {
+      "import": "./layouts.js",
+      "require": "./layouts.cjs.js"
+    },
+    "./formik": {
+      "import": "./formik.js",
+      "require": "./formik.cjs.js"
+    },
+    "./managers": {
+      "import": "./managers.js",
+      "require": "./managers.cjs.js"
+    }
   },
   "devDependencies": {
     "@babel/core": "7.11.6",

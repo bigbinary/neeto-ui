@@ -16,10 +16,14 @@ const NoData = ({
   className = "",
   primaryButtonProps = {},
   secondaryButtonProps = {},
+  buttonSeparatorText = "",
   ...otherProps
 }) => {
   const hasPrimaryButtonProps = !isEmpty(primaryButtonProps);
   const hasSecondaryButtonProps = !isEmpty(secondaryButtonProps);
+  const hasButtonSeparatorText = !isEmpty(buttonSeparatorText);
+
+  const showButtonSeparator = hasButtonSeparatorText && hasPrimaryButtonProps && hasSecondaryButtonProps;
 
   return (
     <div
@@ -60,16 +64,20 @@ const NoData = ({
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
         <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-gap-2">
-          {hasPrimaryButtonProps && (
-            <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
-          )}
-          {hasSecondaryButtonProps && (
+          {hasPrimaryButtonProps &&
+            <Button
+              data-cy="no-data-primary-button"
+              {...primaryButtonProps}
+            />
+          }
+          {showButtonSeparator && <Typography style="body2" lineHeight="normal">{buttonSeparatorText}</Typography>}
+          {hasSecondaryButtonProps &&
             <Button
               style="secondary"
               data-cy="no-data-secondary-button"
               {...secondaryButtonProps}
             />
-          )}
+          }
         </div>
       )}
     </div>
@@ -105,6 +113,10 @@ NoData.propTypes = {
    * To specify the props to be passed to the secondary button.
    */
   secondaryButtonProps: PropTypes.object,
+  /**
+   * To specify the text that appears between the primary and secondary buttons.
+   * */
+  buttonSeparatorText: PropTypes.string,
 };
 
 export default NoData;
