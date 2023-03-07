@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const projectResolve = require("./resolve.js");
 
 module.exports = {
   entry: "./example/src/index.js",
@@ -76,4 +77,5 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  resolve: projectResolve,
 };

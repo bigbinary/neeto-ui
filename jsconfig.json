@@ -6,7 +6,13 @@
     "baseUrl": ".",
     "paths": {
       "*": ["*"],
-      "@bigbinary/neetoui/*": ["*"]
+      "@bigbinary/neetoui/*": ["*"],
+      "hooks/*": ["lib/hooks/*"],
+      "hooks": ["lib/hooks"],
+      "utils/*": ["lib/utils/*"],
+      "utils": ["lib/utils"],
+      "constants/*": ["lib/constants/*"],
+      "constants": ["lib/constants"],
     },
     "esModuleInterop": true,
     "jsx": "react"
