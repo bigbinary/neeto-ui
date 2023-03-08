@@ -9,7 +9,7 @@ import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import Label from "components/Label";
 
-import { TIME_PICKER_INTERVAL, TIME_PCIKER_TYPES } from "./constants";
+import { TIME_PICKER_INTERVAL, TIME_PICKER_TYPES } from "./constants";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -38,7 +38,7 @@ const TimePicker = forwardRef(
     const id = useId(otherProps.id);
     const timePickerRef = useSyncedRef(ref);
 
-    const Component = TIME_PCIKER_TYPES[type.toLowerCase()];
+    const Component = TIME_PICKER_TYPES[type.toLowerCase()];
 
     const errorId = `error_${id}`;
 
