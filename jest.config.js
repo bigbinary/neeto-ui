@@ -20,6 +20,7 @@ module.exports = () => {
       "^components/(.*)$": path.resolve(__dirname, "lib/components", "$1"),
       "^constants/(.*)$": path.resolve(__dirname, "lib/constants", "$1"),
       "^hooks/(.*)$": path.resolve(__dirname, "lib/hooks", "$1"),
+      "^managers/(.*)$": path.resolve(__dirname, "lib/hooks", "$1"),
       "^utils/(.*)$": path.resolve(__dirname, "lib/utils", "$1"),
     },
     transformIgnorePatterns: [

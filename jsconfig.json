@@ -17,6 +17,8 @@
       "constants": ["lib/constants"],
       "hooks/*": ["lib/hooks/*"],
       "hooks": ["lib/hooks"],
+      "managers/*": ["lib/managers/*"],
+      "managers": ["lib/managers"],
       "utils/*": ["lib/utils/*"],
       "utils": ["lib/utils"],
     },

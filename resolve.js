@@ -7,6 +7,7 @@ module.exports = {
     components: path.resolve(__dirname, "./lib/components"),
     constants: path.resolve(__dirname, "./lib/constants"),
     hooks: path.resolve(__dirname, "./lib/hooks"),
+    managers: path.resolve(__dirname, "./lib/managers"),
     utils: path.resolve(__dirname, "./lib/utils"),
   },
   extensions: [
