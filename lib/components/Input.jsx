@@ -37,11 +37,12 @@ const Input = forwardRef(
     const errorId = `error_${id}`;
     const helpTextId = `helpText_${id}`;
 
+    const value = otherProps.value ?? valueInternal ?? "";
+
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.9;
     const maxLengthError = !!maxLength && valueLength > maxLength;
 
-    const value = otherProps.value ?? valueInternal ?? "";
 
     const onChangeInternal = (e) => setValueInternal(e.target.value);
 
