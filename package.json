@@ -87,6 +87,7 @@
     "babel-loader": "8.1.0",
     "babel-plugin-import": "^1.13.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "boring-avatars": "^1.7.0",
     "chromatic": "6.5.1",
     "classnames": "2.2.6",
     "css-loader": "4.3.0",

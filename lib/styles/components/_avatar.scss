@@ -58,10 +58,6 @@
       transform: translateX(-65%);
     }
 
-    &.neeto-ui-avatar__status-square {
-      transform: translate(25%, -25%);
-    }
-
     &.online {
       background-color: rgb(var(--neeto-ui-success-500));
     }
@@ -77,7 +73,7 @@
 
   .neeto-ui-avatar {
     display: inline-block;
-    border-radius: var(--neeto-ui-rounded-sm);
+    border-radius: var(--neeto-ui-rounded-full);
     height: 1.5rem;
     width: 1.5rem;
     object-fit: cover;
@@ -99,10 +95,6 @@
     &.neeto-ui-avatar--xlarge {
       height: 4rem;
       width: 4rem;
-    }
-
-    &.neeto-ui-avatar--round {
-      border-radius: var(--neeto-ui-rounded-full);
     }
   }
 }
