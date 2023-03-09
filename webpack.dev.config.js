@@ -33,6 +33,16 @@ module.exports = {
         ],
       },
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: [path.resolve(__dirname, "stories")],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
+      },
+      {
         test: /\.html$/,
         use: [
           {
@@ -76,4 +86,5 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  resolve: require("./resolve.js"),
 };

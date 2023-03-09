@@ -136,7 +136,7 @@
     "use-eye-dropper": "^1.4.3",
     "webpack": "5.64.3",
     "webpack-bundle-analyzer": "4.4.1",
-    "webpack-cli": "4.9.1",
+    "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.7.4",
     "yup": "0.32.11"
   },
