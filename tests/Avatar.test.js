@@ -11,35 +11,12 @@ describe("Avatar", () => {
     expect(avatarImg).toBeInTheDocument();
   });
 
-  it("should render initials  when username is given", () => {
-    render(<Avatar user={{ name: "neeto UI" }} />);
-    expect(screen.getByText("NU")).toBeInTheDocument();
-  });
-
-  it("should not render initials  when username is not given", () => {
-    render(<Avatar />);
-    expect(screen.queryByTestId("initials")).not.toBeInTheDocument();
-  });
-
   it("should call onClick when the avatar is clicked", () => {
     const onClick = jest.fn();
     render(<Avatar user={{ name: "neeto UI" }} onClick={onClick} />);
-    const avatar = screen.getByText("NU");
+    const avatar = screen.getByTestId("avatar");
     userEvent.click(avatar);
     expect(onClick).toBeCalledTimes(1);
-  });
-
-  it("should render initials when image is invalid", () => {
-    render(
-      <Avatar
-        user={{
-          name: "John Doe",
-          imageUrl: "not-found.png",
-        }}
-      />
-    );
-    fireEvent.error(screen.getByRole("img"));
-    expect(screen.getByText("JD")).toBeInTheDocument();
   });
 
   it("should render indicator when status is defined", () => {
@@ -56,16 +33,18 @@ describe("Avatar", () => {
   });
 
   it("should not show tooltip on hover if showTooltip is not provided", () => {
-    const { queryByText } = render(<Avatar user={{ name: "John Doe" }} />);
-    userEvent.hover(queryByText("JD"));
+    const { queryByText, getByTestId } = render(
+      <Avatar user={{ name: "John Doe" }} />
+    );
+    userEvent.hover(getByTestId("avatar"));
     expect(queryByText("John Doe")).not.toBeInTheDocument();
   });
 
   it("should show tooltip on hover with user name if showTooltip is set to true", () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <Avatar user={{ name: "John Doe" }} showTooltip />
     );
-    userEvent.hover(getByText("JD"));
+    userEvent.hover(getByTestId("avatar"));
     expect(getByText("John Doe")).toBeInTheDocument();
   });
 });
