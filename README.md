@@ -58,13 +58,16 @@ Running the `yarn start` command starts the local development server. To test ch
 - create a corresponding file in `examples/Pages`
 - import the required component from `lib/components`
 - Add the link to your page in Sidebar `NAV_LINKS` and `ROUTER_LINKS` in `examples/Playground`
+
 OR
+
 - Import and use your component in an existing page.
 
 Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
 
-To see if **netoUI** gets built and bundled after changes run `yarn build`.
-To see if the storybook gets built run `yarn build-storybook`.
+- To see if tests associated with your components pass run `yarn test`.
+- To see if **netoUI** gets built and bundled after changes run `yarn build`.
+- To see if the storybook gets built run `yarn build-storybook`.
 
 Note that nothing in the `stories` or `examples` folder will be bundled with **neetoUI**.
 
