@@ -66,7 +66,7 @@ OR
 Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
 
 - To see if tests associated with your components pass run `yarn test`.
-- To see if **netoUI** gets built and bundled after changes run `yarn build`.
+- To see if **neetoUI** gets built and bundled after changes run `yarn build`.
 - To see if the storybook gets built run `yarn build-storybook`.
 
 Note that nothing in the `stories` or `examples` folder will be bundled with **neetoUI**.
