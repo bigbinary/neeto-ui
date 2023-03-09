@@ -52,16 +52,12 @@ Install all the dependencies by executing following command.
 yarn
 ```
 
-You can create new components in the `lib/components` and export them from `lib/index.js`.
+You can create new components in `lib/components` and export them from `lib/index.js`.
 
 Running the `yarn start` command starts the local development server. To test changes or a new component:
-- create a corresponding file in `examples/Pages`
-- import the required component from `lib/components`
-- Add the link to your page in Sidebar `NAV_LINKS` and `ROUTER_LINKS` in `examples/Playground`
-
-OR
-
-- Import and use your component in an existing page.
+- Create a corresponding file in `examples/Pages`.
+- Import the required component from `lib/components`.
+- Add the link to your page in Sidebar `NAV_LINKS` and `ROUTER_LINKS` in `examples/Playground`.
 
 Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
 
