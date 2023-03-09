@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
-import { noop } from "utils";
-
 import Collapse from "./Collapse";
 
 const Item = ({
   id,
   title = "",
   isOpen = false,
-  onClick = noop,
+  onClick = () => {},
   children,
   className = "",
   titleProps = {},

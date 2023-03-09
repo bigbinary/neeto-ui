@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { noop } from "utils";
-
 import Button from "./Button";
 import Typography from "./Typography";
 import Modal from "./Modal";
@@ -18,8 +16,8 @@ const Alert = ({
   closeButton = true,
   backdropClassName = "",
   closeOnOutsideClick = true,
-  onClose = noop,
-  onSubmit = noop,
+  onClose = () => {},
+  onSubmit = () => {},
   title = "",
   message = "",
   submitButtonLabel = "Continue",

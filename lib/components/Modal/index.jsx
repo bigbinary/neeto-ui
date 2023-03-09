@@ -7,7 +7,6 @@ import { CSSTransition } from "react-transition-group";
 import { Portal, Backdrop } from "atoms";
 import Button from "components/Button";
 import { useOverlayManager, useOverlay } from "hooks";
-import { noop } from "utils";
 
 import Body from "./Body";
 import Header from "./Header";
@@ -23,7 +22,7 @@ const SIZES = {
 const Modal = ({
   size = SIZES.medium,
   isOpen = false,
-  onClose = noop,
+  onClose = () => {},
   children,
   finalFocusRef,
   initialFocusRef,

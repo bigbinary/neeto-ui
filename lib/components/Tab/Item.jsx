@@ -3,14 +3,12 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 
-import { noop } from "utils";
-
 const Item = ({
   active,
   className = "",
   children,
   icon = null,
-  onClick = noop,
+  onClick = () => {},
   activeClassName = "",
   ...otherProps
 }) => {

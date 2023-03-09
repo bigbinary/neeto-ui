@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { Link } from "react-router-dom";
 
 import Typography from "components/Typography";
-import { hyphenize, noop } from "utils";
+import { hyphenize } from "utils";
 
 const Block = ({
   url,
@@ -13,7 +13,7 @@ const Block = ({
   count,
   active = false,
   onEdit,
-  onClick = noop,
+  onClick = () => {},
   className,
   ...otherProps
 }) => {

@@ -7,7 +7,6 @@ import { CSSTransition } from "react-transition-group";
 import { Portal, Backdrop } from "atoms";
 import Button from "components/Button";
 import { useOverlay, useOverlayManager } from "hooks";
-import { noop } from "utils";
 
 import Body from "./Body";
 import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";
@@ -20,7 +19,7 @@ const SIZES = { small: "small", large: "large" };
 const Pane = ({
   size = SIZES.small,
   isOpen = false,
-  onClose = noop,
+  onClose = () => {},
   children,
   className = "",
   closeOnEsc = true,

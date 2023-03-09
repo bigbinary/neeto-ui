@@ -9,9 +9,15 @@ import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import Label from "components/Label";
 
-import { TIME_PICKER_INTERVAL, TIME_PICKER_TYPES } from "./constants";
+import { TIME_PICKER_TYPES } from "./constants";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
+
+const TIME_PICKER_INTERVAL = {
+  hourStep: 1,
+  minuteStep: 1,
+  secondStep: 1,
+};
 
 const TimePicker = forwardRef(
   (

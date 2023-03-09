@@ -5,7 +5,6 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import { Spinner } from "atoms";
-import { noop } from "utils";
 
 import Tooltip from "./Tooltip";
 
@@ -29,7 +28,7 @@ const Button = React.forwardRef(
       iconSize = 16,
       label = "",
       loading = false,
-      onClick = noop,
+      onClick = () => {},
       to = "",
       type = BUTTON_TYPES.button,
       style = BUTTON_STYLES.primary,

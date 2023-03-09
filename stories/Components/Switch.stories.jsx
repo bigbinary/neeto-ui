@@ -19,6 +19,14 @@ export default {
         "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
     },
   },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 const Template = (args) => (

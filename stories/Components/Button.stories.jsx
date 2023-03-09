@@ -26,6 +26,12 @@ export default {
       options: Object.keys(icons),
       mapping: icons,
     },
+    onClick: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
   },
 };
 
