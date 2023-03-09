@@ -29,7 +29,6 @@ const AVATAR_VARIANT = "beam";
 const Avatar = ({
   size = "medium",
   user = {},
-  isSquare = false,
   status = null,
   onClick = () => {},
   className = "",
@@ -54,7 +53,6 @@ const Avatar = ({
     "neeto-ui-avatar--medium": isMedium,
     "neeto-ui-avatar--large": isLarge,
     "neeto-ui-avatar--xlarge": isExtraLarge,
-    "neeto-ui-avatar--round": !isSquare,
     hidden: isLoadingFailed,
   });
 
@@ -62,7 +60,6 @@ const Avatar = ({
     "neeto-ui-avatar__status-medium": isMedium,
     "neeto-ui-avatar__status-large": isLarge,
     "neeto-ui-avatar__status-xlarge": isExtraLarge,
-    "neeto-ui-avatar__status-square": isSquare,
   });
 
   const Indicator = () =>
@@ -87,9 +84,6 @@ const Avatar = ({
         style={imageContainerStyle}
         className={classNames(
           "neeto-ui-avatar--container neeto-ui-select-none",
-          {
-            "neeto-ui-avatar--container-round": !isSquare,
-          },
           className
         )}
         {...otherProps}
@@ -99,7 +93,6 @@ const Avatar = ({
           <FallbackAvatar
             size={SIZE[size]}
             name={name}
-            square={isSquare}
             variant={AVATAR_VARIANT}
             colors={COLOR_PALLETE}
             className="neeto-ui-avatar__svg"
@@ -127,10 +120,6 @@ Avatar.propTypes = {
     imageUrl: PropTypes.string,
     name: PropTypes.string,
   }),
-  /**
-   * To display the Avatar as a square.
-   */
-  isSquare: PropTypes.bool,
   /**
    * To specify the action to be triggered on clicking the Avatar.
    */

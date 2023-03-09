@@ -124,7 +124,6 @@ export interface AlertProps {
 export type AvatarProps = {
   size?: "small" | "medium" | "large" | "extraLarge";
   user?: { name: string; imageUrl: string };
-  isSquare?: boolean;
   status?: "online" | "idle" | "offline";
   onClick?: React.MouseEventHandler<HTMLSpanElement>;
   showTooltip?: boolean;
