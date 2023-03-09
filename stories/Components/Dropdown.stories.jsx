@@ -42,6 +42,12 @@ export default {
       options: Object.keys(icons),
       mapping: icons,
     },
+    onClose: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
     ...DEPRECATED_PROPS,
   },
 };

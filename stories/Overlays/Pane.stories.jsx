@@ -31,6 +31,14 @@ export default {
         "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
     },
   },
+  argTypes: {
+    onClose: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 export const Default = () => {

@@ -28,6 +28,14 @@ export default {
         "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
+  argTypes: {
+    onClick: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 const listItems = ["Option 1", "Option 2", "Option 3"];

@@ -43,6 +43,12 @@ export default {
     },
   },
   argTypes: {
+    onAppSwitcherToggle: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "() => void" }
+      }
+    },
     ...DEPRECATED_PROPS,
   },
 };

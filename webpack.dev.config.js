@@ -76,4 +76,5 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  resolve: require("./resolve.js"),
 };
