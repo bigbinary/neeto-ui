@@ -123,28 +123,24 @@ export const Variants = ({}) => {
           user={{ name: "Akkshay Lawrence" }}
           size="small"
           status="online"
-          isSquare
         />
         <Avatar
           onClick={onClick}
           user={{ name: "Vinay V" }}
           size="medium"
           status="idle"
-          isSquare
         />
         <Avatar
           onClick={onClick}
           user={{ name: "Neeraj Singh" }}
           size="large"
           status="offline"
-          isSquare
         />
         <Avatar
           onClick={onClick}
           user={{ name: "Goutham Subramanyam" }}
           size="extraLarge"
           status="online"
-          isSquare
         />
       </div>
       <div className="flex flex-col p-2 space-y-4">
@@ -171,32 +167,6 @@ export const Variants = ({}) => {
           user={{ name: "Goutham Subramanyam", imageUrl }}
           status="online"
           size="extraLarge"
-        />
-      </div>
-      <div className="flex flex-col p-2 space-y-4">
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence", imageUrl }}
-          size="small"
-          isSquare
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V", imageUrl }}
-          size="medium"
-          isSquare
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh", imageUrl }}
-          size="large"
-          isSquare
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam", imageUrl }}
-          size="extraLarge"
-          isSquare
         />
       </div>
     </div>
