@@ -78,6 +78,7 @@ const Avatar = ({
       <span
         onClick={onClick}
         style={imageContainerStyle}
+        data-testid="avatar"
         className={classNames(
           "neeto-ui-avatar--container neeto-ui-select-none",
           className
