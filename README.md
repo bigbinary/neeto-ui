@@ -54,7 +54,19 @@ yarn
 
 You can create new components in the `lib/components` and export them from `lib/index.js`.
 
-Running the `yarn storybook` command starts a storybook app. Use this application to test out changes. Note that nothing in the `stories` folder will be bundled with neetoUI.
+Running the `yarn start` command starts the local development server. To test changes or a new component:
+- create a corresponding file in `examples/Pages`
+- import the required component from `lib/components`
+- Add the link to your page in Sidebar `NAV_LINKS` and `ROUTER_LINKS` in `examples/Playground`
+OR
+- Import and use your component in an existing page.
+
+Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
+
+To see if **netoUI** gets built and bundled after changes run `yarn build`.
+To see if the storybook gets built run `yarn build-storybook`.
+
+Note that nothing in the `stories` or `examples` folder will be bundled with **neetoUI**.
 
 ## Building
 
@@ -64,7 +76,7 @@ neetoUI gets auto-published to npm on new commit to main. You can checkout the `
 
 Read the docs here
 
-https://neetoui.onrender.com
+https://neeto-ui.neeto.com
 
 ## Other Libraries
 
