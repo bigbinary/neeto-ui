@@ -38,6 +38,18 @@ export default {
       options: Object.keys(suffixes),
       mapping: suffixes,
     },
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+    onBlur: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
   },
 };
 
