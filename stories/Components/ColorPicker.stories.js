@@ -13,6 +13,14 @@ export default {
       },
     },
   },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 const DEFAULT_COLORS = {

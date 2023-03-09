@@ -26,6 +26,14 @@ export default {
         "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A20",
     },
   },
+  argTypes: {
+    onClose: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 export const Default = () => {
