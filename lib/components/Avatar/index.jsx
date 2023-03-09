@@ -5,8 +5,9 @@ import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
 
-import { USER_ICON_URL } from "./constants";
-import { getInitials, getRandomBackgroundColor } from "./utils";
+import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
+
+import FallbackAvatar from "boring-avatars";
 
 const SIZE = {
   small: 24,
@@ -24,7 +25,6 @@ const STATUS = {
 const Avatar = ({
   size = "medium",
   user = {},
-  isSquare = false,
   status = null,
   onClick = () => {},
   className = "",
@@ -40,8 +40,6 @@ const Avatar = ({
   const isLarge = size === "large";
   const isExtraLarge = size === "extraLarge";
 
-  const avatarString = getInitials(name);
-
   const imageContainerStyle = {
     height: SIZE[size],
     width: SIZE[size],
@@ -51,21 +49,13 @@ const Avatar = ({
     "neeto-ui-avatar--medium": isMedium,
     "neeto-ui-avatar--large": isLarge,
     "neeto-ui-avatar--xlarge": isExtraLarge,
-    "neeto-ui-avatar--round": !isSquare,
     hidden: isLoadingFailed,
-  });
-
-  const placeholderClasses = classNames("neeto-ui-avatar__text", {
-    "neeto-ui-avatar__text-medium": isMedium,
-    "neeto-ui-avatar__text-large": isLarge,
-    "neeto-ui-avatar__text-xlarge": isExtraLarge,
   });
 
   const statusClasses = classNames("neeto-ui-avatar__status", `${status}`, {
     "neeto-ui-avatar__status-medium": isMedium,
     "neeto-ui-avatar__status-large": isLarge,
     "neeto-ui-avatar__status-xlarge": isExtraLarge,
-    "neeto-ui-avatar__status-square": isSquare,
   });
 
   const Indicator = () =>
@@ -75,13 +65,8 @@ const Avatar = ({
       <span className={statusClasses} data-testid="indicator" />
     );
 
-  const ImagePlaceholder = () => (
-    <span className={placeholderClasses} data-testid="initials">
-      {avatarString}
-    </span>
-  );
-
-  const shouldDisplayInitials = avatarString && !(imageUrl && !isLoadingFailed);
+  const avatarString = name.replace("", "-");
+  const shouldDisplayFallbackAvatar = !(imageUrl && !isLoadingFailed);
 
   return (
     <Tooltip
@@ -95,22 +80,24 @@ const Avatar = ({
         style={imageContainerStyle}
         className={classNames(
           "neeto-ui-avatar--container neeto-ui-select-none",
-          {
-            "neeto-ui-avatar--container-round": !isSquare,
-          },
-          className,
-          getRandomBackgroundColor(avatarString)
+          className
         )}
         {...otherProps}
       >
         <Indicator />
-        {shouldDisplayInitials ? (
-          <ImagePlaceholder />
+        {shouldDisplayFallbackAvatar ? (
+          <FallbackAvatar
+            size={SIZE[size]}
+            name={name}
+            variant={AVATAR_VARIANT}
+            colors={COLOR_PALLETE}
+            className="neeto-ui-avatar__svg"
+          />
         ) : (
           <img
             className={imageClasses}
             onError={() => setIsLoadingFailed(true)}
-            src={imageUrl || USER_ICON_URL}
+            src={imageUrl}
             alt={`avatar-${avatarString}`}
             data-chromatic="ignore"
           />
@@ -129,10 +116,6 @@ Avatar.propTypes = {
     imageUrl: PropTypes.string,
     name: PropTypes.string,
   }),
-  /**
-   * To display the Avatar as a square.
-   */
-  isSquare: PropTypes.bool,
   /**
    * To specify the action to be triggered on clicking the Avatar.
    */
