@@ -33,19 +33,23 @@
     ".": {
       "import": "./index.js",
       "require": "./index.cjs.js",
-      "style": "./index.css"
+      "style": "./index.css",
+      "types": "./index.d.ts"
     },
     "./layouts": {
       "import": "./layouts.js",
-      "require": "./layouts.cjs.js"
+      "require": "./layouts.cjs.js",
+      "types": "./layouts.d.ts"
     },
     "./formik": {
       "import": "./formik.js",
-      "require": "./formik.cjs.js"
+      "require": "./formik.cjs.js",
+      "types": "./formik.d.ts"
     },
     "./managers": {
       "import": "./managers.js",
-      "require": "./managers.cjs.js"
+      "require": "./managers.cjs.js",
+      "types": "./managers.d.ts"
     }
   },
   "devDependencies": {
