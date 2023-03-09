@@ -16,6 +16,14 @@ export default {
       description: { component: TimePickerStoriesDocs },
     },
   },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "-" }
+      }
+    },
+  },
 };
 
 export const TimeInput = (args) => {

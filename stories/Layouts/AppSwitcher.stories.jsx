@@ -38,6 +38,14 @@ export default {
       iframeHeight: "100vh",
     },
   },
+  argTypes: {
+    onClose: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 export const Default = ({ isOpen, ...args }) => {

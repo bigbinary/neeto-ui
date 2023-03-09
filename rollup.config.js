@@ -2,6 +2,7 @@ import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
+import alias from "@rollup/plugin-alias";
 import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
@@ -10,6 +11,7 @@ import { terser } from "rollup-plugin-terser";
 
 const plugins = [
   peerDepsExternal(),
+  alias({ entries: require("./resolve.js").alias }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("production"),
     preventAssignment: true,

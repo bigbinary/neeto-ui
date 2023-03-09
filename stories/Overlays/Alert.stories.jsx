@@ -20,6 +20,26 @@ export default {
         "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
     },
   },
+  argTypes: {
+    onClose: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "() => void" }
+      }
+    },
+    onSubmit: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "() => void" }
+      }
+    },
+    onClick: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" }
+      }
+    },
+  },
 };
 
 export const Default = () => {
