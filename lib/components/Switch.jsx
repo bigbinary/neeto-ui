@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import { useId } from "@reach/auto-id";
@@ -8,7 +8,7 @@ import { hyphenize, noop } from "utils";
 
 import Label from "./Label";
 
-const Switch = ({
+const Switch = forwardRef(({
   label = "",
   required = false,
   className = "",
@@ -16,13 +16,13 @@ const Switch = ({
   onChange = noop,
   labelProps,
   ...otherProps
-}) => {
+}, ref) => {
   const id = useId(otherProps.id);
   const errorId = `error_${id}`;
   const { checked, disabled } = otherProps;
 
   return (
-    <div className={classnames(["neeto-ui-switch__wrapper", className])}>
+    <div ref={ref} className={classnames(["neeto-ui-switch__wrapper", className])}>
       <div className="neeto-ui-switch__container">
         <label
           tabIndex={0}
@@ -67,7 +67,7 @@ const Switch = ({
       )}
     </div>
   );
-};
+});
 
 Switch.propTypes = {
   /**
