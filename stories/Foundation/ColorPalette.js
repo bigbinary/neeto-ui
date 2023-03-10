@@ -317,10 +317,10 @@ export const colorPalette = {
   },
 };
 
-export const colorPaletteList = Object.values(colorPalette).reduce(
+export const colorPaletteList = (theme = "light") => Object.values(colorPalette).reduce(
   (acc, colorItem) => {
     const newColors = colorItem.colors.map((color) => {
-      return { name: `--${color.name}`, value: color.value.light };
+      return { name: `--${color.name}`, value: color.value[theme], text: color.text };
     });
     return [...acc, ...newColors];
   },

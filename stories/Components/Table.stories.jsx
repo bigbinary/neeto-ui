@@ -50,6 +50,12 @@ export default {
     columnData: {
       control: false,
     },
+    handlePageChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "-" }
+      }
+    },
   }
 };
 

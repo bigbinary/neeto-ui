@@ -2,6 +2,7 @@ import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
+import alias from "@rollup/plugin-alias";
 import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
@@ -10,6 +11,7 @@ import { terser } from "rollup-plugin-terser";
 
 const plugins = [
   peerDepsExternal(),
+  alias({ entries: require("./resolve.js").alias }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("production"),
     preventAssignment: true,
@@ -44,15 +46,20 @@ const plugins = [
   terser({ compress: { evaluate: false } }),
 ];
 
+const formats = ["esm", "cjs"];
+
+const getOutputFileName = (name, format) =>
+  format === "esm" ? `${name}.js` : `${name}.cjs.js`;
+
 export default [
   {
     input: "./lib/components/index.js",
-    output: {
-      file: "index.js",
-      format: "esm",
+    output: formats.map((format) => ({
+      file: getOutputFileName("index", format),
+      format,
       sourcemap: false,
       assetFileNames: "[name][extname]",
-    },
+    })),
     external: ["@bigbinary/neetoui/managers"],
     plugins: [
       ...plugins,
@@ -64,30 +71,30 @@ export default [
   },
   {
     input: "./lib/components/layouts/index.js",
-    output: {
-      file: "layouts.js",
-      format: "esm",
+    output: formats.map((format) => ({
+      file: getOutputFileName("layouts", format),
+      format,
       sourcemap: false,
-    },
+    })),
     plugins,
   },
   {
     input: "./lib/components/formik/index.js",
-    output: {
-      file: "formik.js",
-      format: "esm",
+    output: formats.map((format) => ({
+      file: getOutputFileName("formik", format),
+      format,
       sourcemap: false,
-    },
+    })),
     external: ["@bigbinary/neetoui/managers"],
     plugins,
   },
   {
     input: "./lib/managers/index.js",
-    output: {
-      file: "managers.js",
-      format: "esm",
+    output: formats.map((format) => ({
+      file: getOutputFileName("managers", format),
+      format,
       sourcemap: false,
-    },
+    })),
     plugins,
   },
 ];
