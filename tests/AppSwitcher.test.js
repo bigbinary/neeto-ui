@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 
 import { AppSwitcher, Sidebar } from "../lib/components/layouts";
-import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
+import { STORYBOOK_NAV_LINKS } from "../stories/constants";
 
 const AppSwitcherTest = ({ children }) => {
   return (

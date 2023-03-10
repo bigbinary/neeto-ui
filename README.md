@@ -52,9 +52,15 @@ Install all the dependencies by executing following command.
 yarn
 ```
 
-You can create new components in the `lib/components` and export them from `lib/index.js`.
+You can create new components in `lib/components` and export them from `lib/index.js`.
 
-Running the `yarn storybook` command starts a storybook app. Use this application to test out changes. Note that nothing in the `stories` folder will be bundled with neetoUI.
+Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
+
+- To see if tests associated with your components pass run `yarn test`.
+- To see if **neetoUI** gets built and bundled after changes run `yarn build`.
+- To see if the storybook gets built run `yarn build-storybook`.
+
+Note that nothing in the `stories` folder will be bundled with **neetoUI**.
 
 ## Building
 
@@ -64,7 +70,7 @@ neetoUI gets auto-published to npm on new commit to main. You can checkout the `
 
 Read the docs here
 
-https://neetoui.onrender.com
+https://neeto-ui.neeto.com
 
 ## Other Libraries
 

@@ -3,7 +3,7 @@ import { render, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
-import { STORYBOOK_NAV_LINKS } from "../example/src/constants";
+import { STORYBOOK_NAV_LINKS } from "../stories/constants";
 import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
