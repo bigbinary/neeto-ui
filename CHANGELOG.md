@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.8 - 2023-03-10
+
+- Fixed: Issue with overriding components in *Select* component
+
 ## 4.4.7 - 2023-03-10
 
 - Added: entry points for TypeScript resolutions in package.json
@@ -95,7 +99,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 - Changed: Product icons required for *AppSwitcher* component is directly picked from `neetoIcons`.
 - Removed: `subdomain` and `environment` props from *AppSwitcher* component.
 ## 4.3.0 - 2023-02-13
-
 - Fixed: overlay issues with Subheader Tippy dropdown
 - Fixed: logo sizing in Sidebar
 
@@ -123,7 +126,6 @@ After
 ## 4.2.5 - 2023-02-07
 - Updated : Table sorting UI styles
 ## 4.2.4 - 2023-01-31
-
 - Updated : `neeto-icons`
 
 ## 4.2.3 - 2023-01-30
@@ -182,7 +184,6 @@ Added function in Toastr to check for notice_code in response and if it's not pr
 Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.31 - 2022-12-21
 - Fixed: issue with continue in *BlockNavigation*.
-
 ## 4.1.30 - 2022-12-21
 
 - Added: functionality to scroll to the selected value in *Select* component
@@ -261,7 +262,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Added relevant tests for `Form` component.
 - Removed the usage of `Formik` and `Form` from `formik` in stories and used `Form`.
 - Fixed flaky tests.
-
 ## 4.1.1 - 2022-11-03
 
 - Added: Eyedropper to *ColorPicker*
