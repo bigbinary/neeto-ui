@@ -81,8 +81,6 @@
     "@tippyjs/react": "4.2.5",
     "antd": "4.24.3",
     "autoprefixer": "9.0.0",
-    "babel-jest": "27.3.1",
-    "babel-loader": "8.1.0",
     "babel-plugin-import": "^1.13.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "boring-avatars": "^1.7.0",
@@ -138,10 +136,6 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tinycolor2": "^1.4.2",
     "use-eye-dropper": "^1.4.3",
-    "webpack": "5.64.3",
-    "webpack-bundle-analyzer": "4.4.1",
-    "webpack-cli": "4.10.0",
-    "webpack-dev-server": "4.7.4",
     "yup": "0.32.11"
   },
   "peerDependencies": {

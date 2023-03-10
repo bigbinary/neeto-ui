@@ -54,18 +54,13 @@ yarn
 
 You can create new components in `lib/components` and export them from `lib/index.js`.
 
-Running the `yarn start` command starts the local development server. To test changes or a new component:
-- Create a corresponding file in `examples/Pages`.
-- Import the required component from `lib/components`.
-- Add the link to your page in Sidebar `NAV_LINKS` and `ROUTER_LINKS` in `examples/Playground`.
-
 Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
 
 - To see if tests associated with your components pass run `yarn test`.
 - To see if **neetoUI** gets built and bundled after changes run `yarn build`.
 - To see if the storybook gets built run `yarn build-storybook`.
 
-Note that nothing in the `stories` or `examples` folder will be bundled with **neetoUI**.
+Note that nothing in the `stories` folder will be bundled with **neetoUI**.
 
 ## Building
 
