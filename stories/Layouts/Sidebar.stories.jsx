@@ -4,7 +4,7 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import { Settings, LeftArrow, Keyboard, Articles, NeetoChat, Rating, NeetoAnalytics } from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow, Keyboard, Book, Gift } from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
@@ -196,14 +196,14 @@ HelpSectionWithChangelog.args = {
     documentationProps: {
       label: "Documentation",
       onClick: () => {},
-      icon: Articles,
+      icon: Book,
     },
     keyboardShortcutProps: {
       label: "Keyboard shortcuts",
       onClick: () => {},
       icon: Keyboard,
     },
-    changelogProps: { label: "What's new?", onClick: () => {}, icon: Rating },
+    changelogProps: { label: "What's new?", onClick: () => {}, icon: Gift },
   },
 };
 

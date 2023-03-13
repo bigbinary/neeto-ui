@@ -4,13 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
-import {
-  Settings,
-  LeftArrow,
-  Keyboard,
-  Rating,
-  NeetoAnalytics,
-} from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow, Book, Gift } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {
@@ -42,12 +36,12 @@ const sidebarProps = {
     documentationProps: {
       label: "Documentation",
       onClick: () => {},
-      icon: NeetoAnalytics,
+      icon: Book,
     },
     changelogProps: {
       label: "What's new",
       onClick: () => {},
-      icon: Rating,
+      icon: Gift,
     },
   },
   appName: "neetoUI",
