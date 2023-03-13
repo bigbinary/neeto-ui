@@ -13,7 +13,11 @@ const LinkSection = ({ links }) => (
             {...otherProps}
             className="neeto-ui-profile-sublist__item-btn"
           >
-            {icon && <span className="neeto-ui-profile-sublist__item-btn-icon"><IconSVG /></span>}
+            {icon && (
+              <span className="neeto-ui-profile-sublist__item-btn-icon">
+                <IconSVG />
+              </span>
+            )}
             <Typography
               style="body2"
               weight="normal"

@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
-import { Settings, Help, LeftArrow } from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow, Book, Gift } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {
@@ -23,11 +23,6 @@ const sidebarProps = {
         onClick: () => {},
         icon: Settings,
       },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
     ],
     bottomLinks: [
       {
@@ -37,6 +32,18 @@ const sidebarProps = {
       },
     ],
   },
+  helpLinks: {
+    documentationProps: {
+      label: "Documentation",
+      onClick: () => {},
+      icon: Book,
+    },
+    changelogProps: {
+      label: "What's new",
+      onClick: () => {},
+      icon: Gift,
+    },
+  },
   appName: "neetoUI",
 };
 
@@ -44,6 +51,7 @@ const {
   organizationInfo: { name: orgName, subdomain },
   profileInfo: { email, imageUrl, name: userName, bottomLinks },
   navLinks,
+  helpLinks: { documentationProps, changelogProps },
 } = sidebarProps;
 
 describe("Sidebar", () => {
@@ -142,5 +150,22 @@ describe("Sidebar", () => {
 
     userEvent.click(appSwitcherButton);
     expect(onAppSwitcherToggle).toHaveBeenCalled();
+  });
+
+  it("should display help links correctly", async () => {
+    const { container, queryByText, findByText } = render(
+      <Router>
+        <Sidebar {...sidebarProps} />
+      </Router>
+    );
+
+    const helpButton = container.querySelector("button[data-cy='help-button']");
+    expect(helpButton).toBeInTheDocument();
+
+    expect(queryByText(changelogProps.label)).not.toBeInTheDocument();
+
+    userEvent.hover(helpButton);
+    expect(await findByText(documentationProps.label)).toBeInTheDocument();
+    expect(await findByText(changelogProps.label)).toBeInTheDocument();
   });
 });
