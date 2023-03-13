@@ -4,12 +4,7 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import {
-  Settings,
-  Notification,
-  Help,
-  LeftArrow,
-} from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow, Keyboard, Book, Gift } from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
@@ -109,11 +104,6 @@ Default.args = {
         onClick: () => {},
         icon: Settings,
       },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
-      },
     ],
     bottomLinks: [
       {
@@ -171,14 +161,13 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const ProfileSectionWithChangelogAndHelp = ({ ...args }) => (
+export const HelpSectionWithChangelog = ({ ...args }) => (
   <Router>
     <Sidebar {...args} />
   </Router>
 );
-ProfileSectionWithChangelogAndHelp.storyName =
-  "Profile section with changelog and help";
-ProfileSectionWithChangelogAndHelp.args = {
+HelpSectionWithChangelog.storyName = "Help section with changelog";
+HelpSectionWithChangelog.args = {
   organizationInfo: {
     name: "neetoUI",
     subdomain: "neetoui.onrender.com",
@@ -188,15 +177,6 @@ ProfileSectionWithChangelogAndHelp.args = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    changelogProps: {
-      icon: Notification,
-      id: "neetochangelog-trigger",
-      label: "What's new",
-      onClick: () => alert("Clicked on what's new"),
-    },
-    helpProps: {
-      onClick: () => alert("Clicked on help"),
-    },
     topLinks: [
       {
         label: "Profile",
@@ -211,6 +191,19 @@ ProfileSectionWithChangelogAndHelp.args = {
         icon: LeftArrow,
       },
     ],
+  },
+  helpLinks: {
+    documentationProps: {
+      label: "Documentation",
+      onClick: () => {},
+      icon: Book,
+    },
+    keyboardShortcutProps: {
+      label: "Keyboard shortcuts",
+      onClick: () => {},
+      icon: Keyboard,
+    },
+    changelogProps: { label: "What's new?", onClick: () => {}, icon: Gift },
   },
 };
 
@@ -239,11 +232,6 @@ ProfileSectionWithCustomContent.args = {
         label: "Profile",
         onClick: () => {},
         icon: Settings,
-      },
-      {
-        label: "Help",
-        onClick: () => {},
-        icon: Help,
       },
     ],
     bottomLinks: [

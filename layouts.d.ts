@@ -11,7 +11,7 @@ export interface AppSwitcherProps {
   neetoApps?: {
     name: string;
     description: string;
-    url: string
+    url: string;
   }[];
   recentApps?: string[];
   isSidebarOpen?: boolean;
@@ -127,14 +127,17 @@ export interface SidebarProps {
   tooltipStyle?: "default" | "featured";
   /** @deprecated Prop removed as footer links in sidebar is no longer supported*/
   footerLinks?: FooterLinkType[];
+  helpLinks?: {
+    documentationProps?: LinkType;
+    keyboardShortcutProps?: LinkType;
+    changelogProps?: LinkType;
+  };
   profileInfo?: {
     name?: string;
     email?: string;
     topLinks?: LinkType[];
     bottomLinks?: LinkType[];
     customContent?: React.ReactNode;
-    changelogProps?: LinkType;
-    helpProps?: LinkType;
     "data-cy"?: string;
   } & AvatarProps;
   /** @deprecated Prop removed as expanded state of sidebar is no longer supported */

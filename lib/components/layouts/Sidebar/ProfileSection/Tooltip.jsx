@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import { Rating, Help } from "@bigbinary/neeto-icons";
 
 import Avatar from "components/Avatar";
 import Typography from "components/Typography";
@@ -15,26 +14,8 @@ const ProfileSectionTooltip = ({ profileInfo }) => {
     topLinks,
     bottomLinks,
     customContent,
-    changelogProps,
-    helpProps,
   } = profileInfo;
 
-  let intermediateLinks = [];
-  if (changelogProps)
-    intermediateLinks.push({
-      icon: Rating,
-      label: "What's New",
-      "data-cy": "profile-section-whats-new-button",
-      ...changelogProps,
-    });
-  if (helpProps) {
-    intermediateLinks.push({
-      icon: Help,
-      label: "Help",
-      "data-cy": "profile-section-help-button",
-      ...helpProps,
-    });
-  }
 
   return (
     <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-profile-popup">
@@ -70,7 +51,6 @@ const ProfileSectionTooltip = ({ profileInfo }) => {
         {customContent}
       </div>
       {topLinks && <LinkSection links={topLinks} />}
-      {!!intermediateLinks.length && <LinkSection links={intermediateLinks} />}
       {bottomLinks && <LinkSection links={bottomLinks} />}
     </div>
   );
