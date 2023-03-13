@@ -114,17 +114,7 @@ Sidebar.propTypes = {
       label: PropTypes.string,
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     }),
-    chatProps: PropTypes.shape({
-      onClick: PropTypes.func,
-      label: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    }),
     changelogProps: PropTypes.shape({
-      onClick: PropTypes.func,
-      label: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    }),
-    statusProps: PropTypes.shape({
       onClick: PropTypes.func,
       label: PropTypes.string,
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),

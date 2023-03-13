@@ -1336,14 +1336,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bigbinary/neeto-icons@1.9.10":
-  version "1.9.10"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.9.10.tgz#b9a5fc423234182427ca8d6d2e6418a5678f01d2"
-  integrity sha512-zvtOGAAK9+qs5AN7IZ2ZDl83GRZ9qmOsFgftuQJC2Dm3ax+GNcmYe16h+0bMn4JzQ9CxozfrSJCIoyGfn+95FA==
-  dependencies:
-    prop-types "^15.7.2"
-    react "^17.0.2"
-    react-dom "^17.0.2"
+"@bigbinary/neeto-icons@^1.9.22":
+  version "1.9.22"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.9.22.tgz#e018fef34b1b0f09175eeac4cf5f40a8ce8cccd3"
+  integrity sha512-BiBsqk8ZNuZY7ODdrl1WwiW2WG7WmVnr/6KMTbFnLUKAjErB4T9n4aKZ3LwplKsG0tkPs5tCkR+3Es9v72K8TA==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -12718,7 +12714,7 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@17.0.2, react-dom@^17.0.2:
+react-dom@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -12899,7 +12895,7 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@17.0.2, react@^17.0.2:
+react@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

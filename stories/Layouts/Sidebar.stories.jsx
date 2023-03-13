@@ -203,9 +203,7 @@ HelpSectionWithChangelog.args = {
       onClick: () => {},
       icon: Keyboard,
     },
-    chatProps: { label: "Chat with us", onClick: () => {}, icon: NeetoChat },
     changelogProps: { label: "What's new?", onClick: () => {}, icon: Rating },
-    statusProps: { label: "Status", onClick: () => {}, icon: NeetoAnalytics },
   },
 };
 
