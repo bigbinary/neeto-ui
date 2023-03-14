@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
-import { Settings, LeftArrow, Book, Gift } from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow } from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {
@@ -33,16 +33,10 @@ const sidebarProps = {
     ],
   },
   helpLinks: {
-    documentationProps: {
-      label: "Documentation",
-      onClick: () => {},
-      icon: Book,
-    },
-    changelogProps: {
-      label: "What's new",
-      onClick: () => {},
-      icon: Gift,
-    },
+    documentationProps: { onClick: () => {} },
+    keyboardShortcutProps: { onClick: () => {} },
+    liveChatProps: { onClick: () => {} },
+    changelogProps: { onClick: () => {} },
   },
   appName: "neetoUI",
 };
@@ -51,7 +45,12 @@ const {
   organizationInfo: { name: orgName, subdomain },
   profileInfo: { email, imageUrl, name: userName, bottomLinks },
   navLinks,
-  helpLinks: { documentationProps, changelogProps },
+  helpLinks: {
+    documentationProps,
+    keyboardShortcutProps,
+    liveChatProps,
+    changelogProps,
+  },
 } = sidebarProps;
 
 describe("Sidebar", () => {
@@ -166,6 +165,8 @@ describe("Sidebar", () => {
 
     userEvent.hover(helpButton);
     expect(await findByText(documentationProps.label)).toBeInTheDocument();
+    expect(await findByText(keyboardShortcutProps.label)).toBeInTheDocument();
+    expect(await findByText(liveChatProps.label)).toBeInTheDocument();
     expect(await findByText(changelogProps.label)).toBeInTheDocument();
   });
 });

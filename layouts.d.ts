@@ -110,7 +110,7 @@ type FooterLinkType = {
 
 type LinkType = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  label: React.ReactNode;
+  label?: React.ReactNode;
   icon?: any;
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
