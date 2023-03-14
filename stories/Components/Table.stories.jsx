@@ -61,7 +61,7 @@ export default {
 
 const getColumns = (fixed = false) => [
   {
-    title: "A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application",
+    title: "ID",
     dataIndex: "id",
     key: "id",
     width: 175,
@@ -252,7 +252,7 @@ export const Default = (args) => {
       columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      handlePageChange={(page) => setPageNumber(page)}
       {...args}
     />
   );
@@ -277,7 +277,7 @@ export const TableWithFixedRightColumn = (args) => {
       columnData={getColumns(true)}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      handlePageChange={(page) => setPageNumber(page)}
       {...args}
     />
   );
@@ -425,7 +425,7 @@ TableWithDynamicData.args = {
   defaultPageSize: 10,
 };
 
-export const TableInLayout = (args) => {
+export const TableInLayout = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
