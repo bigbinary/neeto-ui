@@ -61,7 +61,7 @@ export default {
 
 const getColumns = (fixed = false) => [
   {
-    title: "ID",
+    title: "A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application",
     dataIndex: "id",
     key: "id",
     width: 175,
@@ -348,7 +348,7 @@ TableWithSorting.args = {
 export const TableWithFixedHeight = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div className="h-96">
+    <div style={{height: "700px"}}>
       <NeetoTable
         columnData={getColumns()}
         rowData={TABLE_DATA}
