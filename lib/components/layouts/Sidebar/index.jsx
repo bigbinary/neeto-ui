@@ -114,6 +114,11 @@ Sidebar.propTypes = {
       label: PropTypes.string,
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     }),
+    liveChatProps: PropTypes.shape({
+      onClick: PropTypes.func,
+      label: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    }),
     changelogProps: PropTypes.shape({
       onClick: PropTypes.func,
       label: PropTypes.string,

@@ -110,7 +110,7 @@ type FooterLinkType = {
 
 type LinkType = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  label: React.ReactNode;
+  label?: React.ReactNode;
   icon?: any;
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -130,6 +130,7 @@ export interface SidebarProps {
   helpLinks?: {
     documentationProps?: LinkType;
     keyboardShortcutProps?: LinkType;
+    liveChatProps?: LinkType;
     changelogProps?: LinkType;
   };
   profileInfo?: {
