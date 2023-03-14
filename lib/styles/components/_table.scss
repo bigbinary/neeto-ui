@@ -65,9 +65,6 @@
     }
   }
 
-  .ant-table-body {
-    overflow: auto !important;
-  }
 
   .ant-table-tbody > tr.ant-table-row:hover > td {
     background-color: rgb(var(--neeto-ui-gray-100));
@@ -94,10 +91,6 @@
         color: rgb(var(--neeto-ui-primary-500));
         text-decoration: underline;
       }
-    }
-
-    &.neeto-ui-table--row_hover {
-      cursor: pointer;
     }
   }
 
