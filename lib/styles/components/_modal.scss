@@ -83,18 +83,18 @@
     }
 
     .neeto-ui-modal__body {
-      padding: 0 var(--neeto-ui-modal-spacing);
+      padding: 0 var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing);
       font-size: var(--neeto-ui-text-sm);
       line-height: 1.5;
       word-wrap: break-word;
     }
 
     .neeto-ui-modal__footer {
-      padding: var(--neeto-ui-modal-spacing);
+      padding: 0 var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing);
     }
 
     .neeto-ui-alert__footer {
-      padding: var(--neeto-ui-modal-spacing);
+      padding: 0 var(--neeto-ui-modal-spacing) var(--neeto-ui-modal-spacing);
       display: flex;
     }
   }

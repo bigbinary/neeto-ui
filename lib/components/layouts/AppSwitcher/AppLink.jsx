@@ -34,7 +34,7 @@ const AppLink = ({ name, description, url, activeApp }) => {
       <div className="neeto-ui-app-switcher-link__content">
         <Typography
           style="h4"
-          weight="normal"
+          weight="medium"
           component="span"
           lineHeight="relaxed"
         >
