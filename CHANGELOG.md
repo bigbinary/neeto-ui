@@ -23,6 +23,29 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.10 - 2023-03-14
+
+- Updated: product title font weight in ProductSwitcher from `normal` to `medium`.
+
+<img width="725" alt="Group 6" src="https://user-images.githubusercontent.com/48869249/224666135-be677e88-6e79-4d1d-8cd7-b89842e55c51.png">
+- Updated: Accordion border color from `--neeto-ui-gray-400` to `--neeto-ui-gray-300`.
+- 
+- Updated: Label color from `--neeto-ui-gray-700` to `--neeto-ui-black`.
+- 
+- Updated: Label font weight from `normal` to `medium`.
+- 
+- Updated: Help text color from `--neeto-ui-gray-600` to `--neeto-ui-gray-700`.
+- 
+
+<img width="725" alt="Group 8" src="https://user-images.githubusercontent.com/48869249/224667904-67512253-f120-4cca-9ec3-a85e6c7e1499.png">
+- Fixed: Modal spacing when there is no footer.
+
+<img width="725" alt="Group 9" src="https://user-images.githubusercontent.com/48869249/224668860-20a74fb4-2f86-4159-9d49-c6ffa0c178d2.png">
+- Added: Storybook example for using Tooltip in Table header
+
+<img width="855" alt="Screenshot 2023-03-13 at 3 33 29 PM" src="https://user-images.githubusercontent.com/48869249/224669900-6ffd52b4-b9dd-4e2f-9c33-be5053548d63.png">
+- Fixed: Horizontal scroll issue in Table header
+
 ## 4.4.8 - 2023-03-10
 
 - Fixed: Issue with overriding components in *Select* component
@@ -101,7 +124,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 ## 4.3.0 - 2023-02-13
 - Fixed: overlay issues with Subheader Tippy dropdown
 - Fixed: logo sizing in Sidebar
-
 Before
 
 <img width="965" alt="Screenshot 2023-02-09 at 8 26 47 AM" src="https://user-images.githubusercontent.com/48869249/217706767-1350dd62-2a23-4093-b989-a1d2ba98cb97.png">
@@ -127,7 +149,6 @@ After
 - Updated : Table sorting UI styles
 ## 4.2.4 - 2023-01-31
 - Updated : `neeto-icons`
-
 ## 4.2.3 - 2023-01-30
 
 - Added: transparency control option in *ColorPicker*, controlled via `showTransparencyControl`.
@@ -185,7 +206,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.31 - 2022-12-21
 - Fixed: issue with continue in *BlockNavigation*.
 ## 4.1.30 - 2022-12-21
-
 - Added: functionality to scroll to the selected value in *Select* component
 
 ## 4.1.29 - 2022-12-21
@@ -263,7 +283,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Removed the usage of `Formik` and `Form` from `formik` in stories and used `Form`.
 - Fixed flaky tests.
 ## 4.1.1 - 2022-11-03
-
 - Added: Eyedropper to *ColorPicker*
 
 ## 4.1.0 - 2022-11-03
