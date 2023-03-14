@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
 import PropTypes from "prop-types";
@@ -8,6 +8,7 @@ import { noop } from "utils";
 
 import Typography from "./Typography";
 import Button from "./Button";
+import { useTimeout } from "hooks";
 
 const TABLE_PAGINATION_HEIGHT = 64;
 const TABLE_DEFAULT_HEADER_HEIGHT = 40;
@@ -45,14 +46,10 @@ const Table = ({
     )
   );
 
-  useLayoutEffect(() => {
-    const headerTimeout = setTimeout(() => {
-      const headerHeight = headerRef.current ? headerRef.current.offsetHeight : TABLE_DEFAULT_HEADER_HEIGHT;
-      setHeaderHeight(headerHeight);
-    }, 0);
-
-    return () => clearTimeout(headerTimeout);
-  }, [headerRef.current]);
+  useTimeout(() => {
+    const headerHeight = headerRef.current ? headerRef.current.offsetHeight : TABLE_DEFAULT_HEADER_HEIGHT;
+    setHeaderHeight(headerHeight);
+  }, 0);
 
   const tableRef = useCallback(
     (table) => {

@@ -348,7 +348,7 @@ TableWithSorting.args = {
 export const TableWithFixedHeight = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div style={{height: "700px"}}>
+    <div style={{height: "600px"}}>
       <NeetoTable
         columnData={getColumns()}
         rowData={TABLE_DATA}
