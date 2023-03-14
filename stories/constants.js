@@ -44,6 +44,23 @@ export const suffixes = {
   "Neeto.com": ".neeto.com",
 };
 
+export const SIMPLE_TABLE_DATA = [
+  {
+    key: 1,
+    id: "cd75b6a6-54fa-4a0f-8fe9-5b62a461a2d0",
+    guid: "cd75b6a6-54fa-4a0f-8fe9-5b62a461a2d0cd75b6a6-54fa-4a0f-8fe9-5b62a461a2d0",
+    first_name: "Brennen",
+    last_name: "Realy",
+  },
+  {
+    key: 2,
+    id: "c48cfefc-9e04-4169-9b31-442b363c30e8",
+    guid: "c48cfefc-9e04-4169-9b31-442b363c30e8c48cfefc-9e04-4169-9b31-442b363c30e8",
+    first_name: "Manny",
+    last_name: "Jaime",
+  },
+];
+
 export const TABLE_DATA = [
   {
     key: 1,
