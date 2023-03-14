@@ -4,7 +4,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Sidebar } from "../lib/components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
-import { Settings, LeftArrow } from "@bigbinary/neeto-icons";
+import {
+  Settings,
+  LeftArrow,
+  Book,
+  Gift,
+  ChatEmpty,
+  Keyboard,
+} from "@bigbinary/neeto-icons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {
@@ -33,10 +40,26 @@ const sidebarProps = {
     ],
   },
   helpLinks: {
-    documentationProps: { onClick: () => {} },
-    keyboardShortcutProps: { onClick: () => {} },
-    liveChatProps: { onClick: () => {} },
-    changelogProps: { onClick: () => {} },
+    documentationProps: {
+      label: "Documentation",
+      onClick: () => {},
+      icon: Book,
+    },
+    keyboardShortcutProps: {
+      label: "Keyboard shortcuts",
+      onClick: () => {},
+      icon: Keyboard,
+    },
+    liveChatProps: {
+      label: "Chat with us",
+      onClick: () => {},
+      icon: ChatEmpty,
+    },
+    changelogProps: {
+      label: "What's new?",
+      onClick: () => {},
+      icon: Gift,
+    },
   },
   appName: "neetoUI",
 };
