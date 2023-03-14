@@ -4,7 +4,14 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import { Settings, LeftArrow, Keyboard, Book, Gift } from "@bigbinary/neeto-icons";
+import {
+  Settings,
+  LeftArrow,
+  Keyboard,
+  Book,
+  Gift,
+  ChatEmpty
+} from "@bigbinary/neeto-icons";
 
 import Label from "../../lib/components/Label";
 import Switch from "../../lib/components/Switch";
@@ -41,8 +48,8 @@ export default {
     onAppSwitcherToggle: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "() => void" }
-      }
+        defaultValue: { summary: "() => void" },
+      },
     },
     ...DEPRECATED_PROPS,
   },
@@ -202,6 +209,11 @@ HelpSectionWithChangelog.args = {
       label: "Keyboard shortcuts",
       onClick: () => {},
       icon: Keyboard,
+    },
+    liveChatProps: {
+      label: "Chat with us",
+      onClick: () => {},
+      icon: ChatEmpty,
     },
     changelogProps: { label: "What's new?", onClick: () => {}, icon: Gift },
   },

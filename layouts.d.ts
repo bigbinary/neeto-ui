@@ -130,6 +130,7 @@ export interface SidebarProps {
   helpLinks?: {
     documentationProps?: LinkType;
     keyboardShortcutProps?: LinkType;
+    liveChatProps?: LinkType;
     changelogProps?: LinkType;
   };
   profileInfo?: {
