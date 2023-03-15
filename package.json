@@ -8,13 +8,13 @@
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
   "scripts": {
-    "build": "build-storybook && rollup -c rollup.config.js",
-    "prepare": "husky install",
-    "test": "jest",
+    "bundle": "NODE_ENV=production rollup -c rollup.config.js",
+    "build": "NODE_ENV=production build-storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "chromatic": "npx chromatic",
-    "serve": "http-server storybook-static"
+    "serve": "http-server storybook-static",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "files": [
     "index.*",
