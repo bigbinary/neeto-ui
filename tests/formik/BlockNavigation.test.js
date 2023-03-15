@@ -4,8 +4,8 @@ import { Field } from "formik";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Input } from "../../lib/components";
-import { BlockNavigation, Form } from "../../lib/components/formik";
+import { Input } from "components";
+import { BlockNavigation, Form } from "components/formik";
 
 const TestComponent = () => <div>test page</div>;
 

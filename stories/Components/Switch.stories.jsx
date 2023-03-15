@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 
-import Switch from "../../lib/components/Switch";
+import Switch from "components/Switch";
 
 export default {
   title: "Components/Switch",

@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "../lib/components";
+import { Checkbox } from "components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -26,16 +26,12 @@ describe("Checkbox", () => {
   });
 
   it("should be unchecked by default", () => {
-    const { getByRole } = render(
-      <Checkbox label="Checkbox"/>
-    );
+    const { getByRole } = render(<Checkbox label="Checkbox" />);
     expect(getByRole("checkbox")).not.toBeChecked();
   });
 
   it("should be checked on clicking the checkbox", () => {
-    const { getByRole } = render(
-      <Checkbox label="Checkbox"/>
-    );
+    const { getByRole } = render(<Checkbox label="Checkbox" />);
     const checkbox = getByRole("checkbox");
     userEvent.click(checkbox);
     expect(checkbox).toBeChecked();

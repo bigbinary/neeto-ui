@@ -1,10 +1,10 @@
 import React from "react";
-
-import SubHeader from "../../lib/components/layouts/SubHeader";
-import Button from "../../lib/components/Button";
-import Typography from "../../lib/components/Typography";
-
 import { Delete } from "@bigbinary/neeto-icons";
+
+import SubHeader from "components/layouts/SubHeader";
+import Button from "components/Button";
+import Typography from "components/Typography";
+
 
 export default {
   title: "Layouts/SubHeader",

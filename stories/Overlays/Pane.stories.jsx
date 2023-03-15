@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-import Button from "../../lib/components/Button";
-import Pane from "../../lib/components/Pane";
-import Modal from "../../lib/components/Modal";
-import Alert from "../../lib/components/Alert";
-import Typography from "../../lib/components/Typography";
-import Input from "../../lib/components/Input";
-
-import { manager as OverlayManager } from "../../lib/managers";
+import Button from "components/Button";
+import Pane from "components/Pane";
+import Modal from "components/Modal";
+import Alert from "components/Alert";
+import Typography from "components/Typography";
+import Input from "components/Input";
+import { manager as OverlayManager } from "managers";
 
 export default {
   title: "Overlays/Pane",

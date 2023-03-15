@@ -1,7 +1,7 @@
 import React from "react";
 import PaginationStoriesDocs from "!raw-loader!./PaginationStories.mdx";
 
-import Pagination from "../../lib/components/Pagination";
+import Pagination from "components/Pagination";
 
 export default {
   title: "Components/Pagination",

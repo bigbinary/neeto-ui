@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Typography, Button } from "../lib/components";
+import { Modal, Typography, Button } from "components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

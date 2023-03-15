@@ -3,8 +3,8 @@ import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
-import { MenuBar } from "../lib/components/layouts";
-import { Typography } from "../lib/components";
+import { MenuBar } from "components/layouts";
+import { Typography } from "components";
 import { Search } from "@bigbinary/neeto-icons";
 
 describe("Menubar", () => {

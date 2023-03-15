@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import { SubHeader } from "../lib/components/layouts";
+import { SubHeader } from "components/layouts";
 
 describe("SubHeader", () => {
   it("should render without error", () => {

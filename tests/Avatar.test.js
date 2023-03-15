@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "../lib/components";
+import { Avatar } from "components";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

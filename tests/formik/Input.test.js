@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Input, Form } from "../../lib/components/formik";
+import { Input, Form } from "components/formik";
 import * as yup from "yup";
 
 const TestForm = ({ onSubmit }) => {

@@ -7,7 +7,7 @@ import {
   Info,
 } from "@bigbinary/neeto-icons";
 
-import Callout from "../../lib/components/Callout";
+import Callout from "components/Callout";
 import { icons } from "../constants";
 
 export default {

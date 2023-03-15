@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
 
-import { Textarea, Form } from "../../lib/components/formik";
+import { Textarea, Form } from "components/formik";
 
 const TestTextarea = ({ onSubmit }) => {
   const handleSubmit = (values) => {

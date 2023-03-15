@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import React from "react";
 
-import Accordion from "../../lib/components/Accordion";
+import Accordion from "components/Accordion";
 
 export default {
   title: "Components/Accordion",

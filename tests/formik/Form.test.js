@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Button, Input, Form, Textarea } from "../../lib/components/formik";
+import { Button, Input, Form, Textarea } from "components/formik";
 import * as yup from "yup";
 
 const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {

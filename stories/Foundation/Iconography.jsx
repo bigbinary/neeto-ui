@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as iconset from "@bigbinary/neeto-icons";
-import { Typography, Input, Toastr } from "../../lib/components";
+import { Typography, Input, Toastr } from "components";
 import { ToastContainer } from "react-toastify";
 import { Search } from "@bigbinary/neeto-icons";
 

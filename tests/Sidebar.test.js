@@ -2,7 +2,7 @@ import React from "react";
 import { render, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Sidebar } from "../lib/components/layouts";
+import { Sidebar } from "components/layouts";
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
 import {
   Settings,

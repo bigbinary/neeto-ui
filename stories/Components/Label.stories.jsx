@@ -1,8 +1,8 @@
 import React from "react";
 import { Help } from "@bigbinary/neeto-icons";
 
-import Label from "../../lib/components/Label";
-import Tooltip from "../../lib/components/Tooltip";
+import Label from "components/Label";
+import Tooltip from "components/Tooltip";
 
 export default {
   title: "Components/Label",

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Settings, Delete, Search } from "@bigbinary/neeto-icons";
 
-import { Button, Dropdown, Tag, Input, Typography } from "../../lib/components";
+import { Button, Dropdown, Tag, Input, Typography } from "components";
 
 import { icons } from "../constants";
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";

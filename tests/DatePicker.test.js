@@ -2,7 +2,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import dayjs from "dayjs";
-import DatePicker from "../lib/components/DatePicker";
+import DatePicker from "components/DatePicker";
 
 const today = dayjs();
 const theDate = dayjs(new Date(1999, 7, 16));

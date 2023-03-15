@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header } from "../lib/components/layouts";
+import { Container, Header } from "components/layouts";
 import { render } from "@testing-library/react";
 
 describe("Container", () => {

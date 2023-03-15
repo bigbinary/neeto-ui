@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Header, Scrollable } from "../../lib/components/layouts";
+import { Container, Header, Scrollable } from "components/layouts";
 
 const description = `
 The container centers your content horizontally by providing a horizontal padding. It's the most basic layout element.

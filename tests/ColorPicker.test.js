@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { ColorPicker } from "../lib/components";
+import { ColorPicker } from "components";
 import userEvent from "@testing-library/user-event";
 
 describe("ColorPicker", () => {

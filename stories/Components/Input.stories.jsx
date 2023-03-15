@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Search } from "@bigbinary/neeto-icons";
 
-import Input from "../../lib/components/Input";
-import Button from "../../lib/components/Button";
-import Typography from "../../lib/components/Typography";
-import { Input as FormikInput, Form } from "../../lib/components/formik";
+import Input from "components/Input";
+import Button from "components/Button";
+import { Input as FormikInput, Form } from "components/formik";
 import * as yup from "yup";
 
 export default {

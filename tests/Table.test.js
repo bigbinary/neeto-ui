@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "../lib/components";
+import { Table } from "components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

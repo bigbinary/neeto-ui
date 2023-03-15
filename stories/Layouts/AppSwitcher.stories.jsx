@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Sidebar from "../../lib/components/layouts/Sidebar";
-import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
+import Sidebar from "components/layouts/Sidebar";
+import AppSwitcher from "components/layouts/AppSwitcher";
 import { STORYBOOK_NAV_LINKS } from "../constants";
 
 const neetoApps = [

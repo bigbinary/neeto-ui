@@ -1,13 +1,13 @@
-import { Delete } from "@bigbinary/neeto-icons";
-import { Button, Typography } from "../../lib/components";
 import React from "react";
+import { Delete } from "@bigbinary/neeto-icons";
 
+import { Button, Typography } from "components";
 import {
   Header,
   SubHeader,
   Scrollable,
   Container,
-} from "../../lib/components/layouts";
+} from "components/layouts";
 
 const description = `
 Scrollable is used when contents are overflowing the viewport and requires scrolling. It is primarily used along with \`Container\`.

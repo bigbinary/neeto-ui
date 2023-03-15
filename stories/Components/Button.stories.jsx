@@ -1,8 +1,8 @@
 /* eslint-disable no-empty-pattern */
-import React, { useState } from "react";
+import React from "react";
 import { Favorite } from "@bigbinary/neeto-icons";
 
-import Button from "../../lib/components/Button";
+import Button from "components/Button";
 import { icons } from "../constants";
 
 export default {

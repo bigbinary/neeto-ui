@@ -8,7 +8,7 @@ import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
-import NeetoTable from "../../lib/components/Table";
+import NeetoTable from "components/Table";
 
 import {
   Tooltip,
@@ -17,14 +17,14 @@ import {
   Button,
   Typography,
   Dropdown,
-} from "../../lib/components";
+} from "components";
 import {
   Container,
   Scrollable,
   MenuBar,
   Header,
   SubHeader,
-} from "../../lib/components/layouts";
+} from "components/layouts";
 
 export default {
   title: "Components/Table",
@@ -83,7 +83,7 @@ const fixedColumnWidths = [
     dataIndex: "last_name",
     key: "last_name",
     width: "25%",
-  }, 
+  },
 ];
 
 const headerTooltips = [
@@ -134,7 +134,7 @@ const headerTooltips = [
     dataIndex: "last_name",
     key: "last_name",
     width: "25%",
-  }, 
+  },
 ];
 
 const getColumns = (fixed = false) => [

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Spinner from "../../lib/components/Spinner";
+import Spinner from "components/Spinner";
 
 export default {
   title: "Components/Spinner",

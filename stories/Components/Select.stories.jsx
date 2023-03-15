@@ -3,8 +3,8 @@ import { FieldArray, Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
 import { FORMIK_SELECT } from "../constants";
 
-import { Select, Button, Modal, Pane, Typography } from "../../lib/components";
-import { Select as FormikSelect } from "../../lib/components/formik";
+import { Select, Button, Modal, Pane, Typography } from "components";
+import { Select as FormikSelect } from "components/formik";
 
 export default {
   title: "Components/Select",

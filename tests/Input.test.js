@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Input } from "../lib/components";
+import { Input } from "components";
 import userEvent from "@testing-library/user-event";
 
 describe("Input", () => {

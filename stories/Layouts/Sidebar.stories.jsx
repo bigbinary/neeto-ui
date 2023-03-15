@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import { Settings, LeftArrow } from "@bigbinary/neeto-icons";
 
-import Label from "../../lib/components/Label";
-import Switch from "../../lib/components/Switch";
-import Sidebar from "../../lib/components/layouts/Sidebar";
-import AppSwitcher from "../../lib/components/layouts/AppSwitcher";
+import Label from "components/Label";
+import Switch from "components/Switch";
+import Sidebar from "components/layouts/Sidebar";
+import AppSwitcher from "components/layouts/AppSwitcher";
 
 import { STORYBOOK_NAV_LINKS } from "../constants";
 

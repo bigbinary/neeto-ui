@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 
-import { Button, Tooltip, Typography, Input } from "../../lib/components";
+import { Button, Tooltip, Typography, Input } from "components";
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
 export default {
