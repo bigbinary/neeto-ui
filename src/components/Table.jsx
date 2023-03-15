@@ -8,9 +8,10 @@ import { noop } from "utils";
 
 import Typography from "./Typography";
 import Button from "./Button";
+import { useTimeout } from "hooks";
 
 const TABLE_PAGINATION_HEIGHT = 64;
-const TABLE_STICKY_HEADER_HEIGHT = 40;
+const TABLE_DEFAULT_HEADER_HEIGHT = 40;
 const TABLE_ROW_HEIGHT = 52;
 
 const Table = ({
@@ -35,6 +36,33 @@ const Table = ({
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
+  const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
+
+  const headerRef = useRef();
+
+  const resizeObserver = useRef(
+    new ResizeObserver(([{ contentRect: { height } }]) =>
+      setContainerHeight(height)
+    )
+  );
+
+  useTimeout(() => {
+    const headerHeight = headerRef.current ? headerRef.current.offsetHeight : TABLE_DEFAULT_HEADER_HEIGHT;
+    setHeaderHeight(headerHeight);
+  }, 0);
+
+  const tableRef = useCallback(
+    (table) => {
+      if (fixedHeight) {
+        if (table !== null) {
+          resizeObserver.current.observe(table?.parentNode);
+        } else {
+          if (resizeObserver.current) resizeObserver.current.disconnect();
+        }
+      }
+    },
+    [resizeObserver.current, fixedHeight]
+  );
 
   const locale = {
     emptyText: <Typography style="body2">No Data</Typography>,
@@ -52,30 +80,12 @@ const Table = ({
       selectedRowKeys,
     };
   }
+
   const calculateTableContainerHeight = () =>
     containerHeight -
-    TABLE_STICKY_HEADER_HEIGHT -
+    headerHeight -
     (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0);
-
-  const resizeObserver = useRef(
-    new ResizeObserver(([{ contentRect: { height } }]) =>
-      setContainerHeight(height)
-    )
-  );
-
-  const tableRef = useCallback(
-    (table) => {
-      if (fixedHeight) {
-        if (table !== null) {
-          resizeObserver.current.observe(table?.parentNode);
-        } else {
-          if (resizeObserver.current) resizeObserver.current.disconnect();
-        }
-      }
-    },
-    [resizeObserver.current, fixedHeight]
-  );
-
+  
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
       return <Button style="text" className="" icon={Left} />;
@@ -118,6 +128,7 @@ const Table = ({
 
   return (
     <AntTable
+      sticky
       bordered={bordered}
       ref={tableRef}
       columns={columnData}
@@ -130,7 +141,6 @@ const Table = ({
       )}
       rowSelection={rowSelectionProps}
       scroll={{
-        x: "max-content",
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
@@ -151,6 +161,13 @@ const Table = ({
         return {
           onClick: (event) =>
             allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+        };
+      }}
+      onHeaderRow={()=>{
+        return {
+          ref: headerRef,
+          className: "neeto-ui-table__header",
+          id: "neeto-ui-table__header"
         };
       }}
       locale={locale}
