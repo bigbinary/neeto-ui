@@ -11,6 +11,7 @@
     "bundle": "NODE_ENV=production rollup -c rollup.config.js",
     "build": "NODE_ENV=production build-storybook",
     "storybook": "start-storybook -p 6006",
+    "build-storybook":"build-storybook",
     "chromatic": "npx chromatic",
     "serve": "http-server storybook-static",
     "prepare": "husky install",
