@@ -23,7 +23,7 @@
     "managers.*"
   ],
   "lint-staged": {
-    "lib/**/*.{html,md,js,jsx,json}": [
+    "src/**/*.{html,md,js,jsx,json}": [
       "eslint --fix"
     ]
   },
@@ -157,7 +157,7 @@
     "cssnano/**/nth-check": "2.0.1"
   },
   "directories": {
-    "lib": "lib"
+    "src": "src"
   },
   "repository": {
     "type": "git",

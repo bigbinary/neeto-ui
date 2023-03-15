@@ -30,7 +30,7 @@ const plugins = [
         "import",
         {
           libraryName: "antd",
-          libraryDirectory: "lib",
+          libraryDirectory: "src",
         },
       ],
     ].filter((item) => !!item),
@@ -53,7 +53,7 @@ const getOutputFileName = (name, format) =>
 
 export default [
   {
-    input: "./lib/components/index.js",
+    input: "./src/components/index.js",
     output: formats.map((format) => ({
       file: getOutputFileName("index", format),
       format,
@@ -70,7 +70,7 @@ export default [
     ],
   },
   {
-    input: "./lib/components/layouts/index.js",
+    input: "./src/components/layouts/index.js",
     output: formats.map((format) => ({
       file: getOutputFileName("layouts", format),
       format,
@@ -79,7 +79,7 @@ export default [
     plugins,
   },
   {
-    input: "./lib/components/formik/index.js",
+    input: "./src/components/formik/index.js",
     output: formats.map((format) => ({
       file: getOutputFileName("formik", format),
       format,
@@ -89,7 +89,7 @@ export default [
     plugins,
   },
   {
-    input: "./lib/managers/index.js",
+    input: "./src/managers/index.js",
     output: formats.map((format) => ({
       file: getOutputFileName("managers", format),
       format,
