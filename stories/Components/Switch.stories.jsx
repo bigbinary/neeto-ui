@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 import Switch from "../../lib/components/Switch";
+import ToolTip from "../../lib/components/Tooltip";
 
 export default {
   title: "Components/Switch",
@@ -10,14 +11,14 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Switch } from "@bigbinary/neetoui";`',
-      },
+        component: "`import { Switch } from \"@bigbinary/neetoui\";`"
+      }
     },
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
-    },
+        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135"
+    }
   },
   argTypes: {
     onChange: {
@@ -25,8 +26,8 @@ export default {
         type: { summary: "func" },
         defaultValue: { summary: "(event) => void" }
       }
-    },
-  },
+    }
+  }
 };
 
 const Template = (args) => (
@@ -37,12 +38,12 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  checked: false,
+  checked: false
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
-  checked: true,
+  checked: true
 };
 
 export const Controlled = ({}) => {
@@ -56,7 +57,7 @@ export const Controlled = ({}) => {
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  checked: true,
+  checked: true
 };
 
 export const Label = ({}) => (
@@ -71,3 +72,19 @@ export const Label = ({}) => (
     />
   </div>
 );
+
+export const TooltipExample = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const onChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+  return (
+    <div className="flex flex-col space-y-6">
+      <ToolTip placement="right" content="This is a tooltip">
+        <Switch onChange={onChange} checked={isChecked} />
+      </ToolTip>
+    </div>);
+
+};
+
+
