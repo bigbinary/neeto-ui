@@ -1,8 +1,12 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 
+<<<<<<< HEAD
 import Switch from "../../lib/components/Switch";
 import ToolTip from "../../lib/components/Tooltip";
+=======
+import Switch from "components/Switch";
+>>>>>>> 3fcef5b (Removed instances of lib in imports and used aliased imports.)
 
 export default {
   title: "Components/Switch",
