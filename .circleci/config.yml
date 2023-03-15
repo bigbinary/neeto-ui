@@ -16,7 +16,7 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-      - run: yarn build
+      - run: yarn bundle
       - run:
           name: Run Snapshot Tests
           command: yarn chromatic test --exit-zero-on-changes --project-token $CHROMATIC_PROJECT_TOKEN

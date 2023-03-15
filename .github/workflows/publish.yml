@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: "14"
       - run: yarn install
-      - run: NODE_ENV=production yarn build
+      - run: yarn bundle
       - run: yarn config set version-tag-prefix "v"
       - run: git config core.hooksPath /dev/null
       - run: git config user.email "amalkdinesh@gmail.com"
