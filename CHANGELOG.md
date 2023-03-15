@@ -23,6 +23,12 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.12 - 2023-03-15
+
+This PR adds the following changes to the *Switch* component.
+
+- Added `forwardRef` to the *Switch* component so that it supports adding *Tooltip* to it, as per this [guide](https://github.com/atomiks/tippyjs-react#component-children).
+
 ## 4.4.11 - 2023-03-14
 
 - Added: `liveChat` prop to *HelpSection* component.
@@ -49,7 +55,6 @@ Prefix the change with one of these keywords:
 <img width="855" alt="Screenshot 2023-03-13 at 3 33 29 PM" src="https://user-images.githubusercontent.com/48869249/224669900-6ffd52b4-b9dd-4e2f-9c33-be5053548d63.png">
 - Fixed: Horizontal scroll issue in Table header
 ## 4.4.8 - 2023-03-10
-
 - Fixed: Issue with overriding components in *Select* component
 
 ## 4.4.7 - 2023-03-10
@@ -152,7 +157,6 @@ After
 - Updated : `neeto-icons`
 ## 4.2.3 - 2023-01-30
 - Added: transparency control option in *ColorPicker*, controlled via `showTransparencyControl`.
-
 ## 4.2.2 - 2023-01-29
 
 - Fixed: respecting the prop `isCreatable` if `loadOptions` prop is provided in *Select* component
@@ -208,7 +212,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.30 - 2022-12-21
 - Added: functionality to scroll to the selected value in *Select* component
 ## 4.1.29 - 2022-12-21
-
 - Fixed: pressing `enter` key in *Select* to select an option submitting the *Form*.
 
 ## 4.1.28 - 2022-12-20
@@ -284,7 +287,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.1.1 - 2022-11-03
 - Added: Eyedropper to *ColorPicker*
 ## 4.1.0 - 2022-11-03
-
 - Changed: **BREAKING** Name of the *EmailInput* component to *MultiEmailInput* in both components and Formik components.
 
 ## 4.0.17 - 2022-10-28
