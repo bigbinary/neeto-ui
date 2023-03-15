@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "4.4.11",
+  "version": "4.4.12",
   "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
@@ -11,7 +11,7 @@
     "bundle": "NODE_ENV=production rollup -c rollup.config.js",
     "build": "NODE_ENV=production build-storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook":"build-storybook",
+    "build-storybook": "build-storybook",
     "chromatic": "npx chromatic",
     "serve": "http-server storybook-static",
     "prepare": "husky install",
