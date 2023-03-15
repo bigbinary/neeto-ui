@@ -1,8 +1,8 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 
-import Switch from "components/Switch";
-import ToolTip from "components/Tooltip";
+import Switch from "../../lib/components/Switch";
+import ToolTip from "../../lib/components/Tooltip";
 
 export default {
   title: "Components/Switch",
