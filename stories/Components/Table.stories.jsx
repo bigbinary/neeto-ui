@@ -330,7 +330,7 @@ export const Default = (args) => {
       columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      handlePageChange={(page) => setPageNumber(page)}
       {...args}
     />
   );
@@ -386,7 +386,7 @@ export const TableWithFixedRightColumn = (args) => {
       columnData={getColumns(true)}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page, pageSize) => setPageNumber(page)}
+      handlePageChange={(page) => setPageNumber(page)}
       {...args}
     />
   );
@@ -457,7 +457,7 @@ TableWithSorting.args = {
 export const TableWithFixedHeight = (args) => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div className="h-96">
+    <div style={{height: "600px"}}>
       <NeetoTable
         columnData={getColumns()}
         rowData={TABLE_DATA}
@@ -534,7 +534,7 @@ TableWithDynamicData.args = {
   defaultPageSize: 10,
 };
 
-export const TableInLayout = (args) => {
+export const TableInLayout = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
