@@ -80,7 +80,7 @@ export const TooltipExample = () => {
   };
   return (
     <div className="flex flex-col space-y-6">
-      <ToolTip placement="left" sticky content="This is a tooltip">
+      <ToolTip placement="right" content="This is a tooltip">
         <Switch onChange={onChange} checked={isChecked} />
       </ToolTip>
     </div>);
