@@ -173,6 +173,39 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
 </div>
 <br />
 
+<h3 id="date">
+  <a href="#date">Date</a>
+</h3>
+
+Use international date format YYYY-MM-DD where
+
+- YYYY is the year
+- MM is the month
+- DD is the day
+
+For example, "3rd of April 2024", in this international format is written as 2024-04-03.
+
+<div className="demo-do-dont-wrap flex gap-4">
+  <div className="demo-do-dont__box demo-do-dont__box--do rounded border-t-4 neeto-ui-border-success-500 p-6 w-80 neeto-ui-shadow-md">
+    <h4 className="flex items-center gap-3">
+      <Check size={30} className="neeto-ui-text-success-500" /> Do
+    </h4>
+    <ul>
+      <li>YYYY-MM-DD</li>
+    </ul>
+  </div>
+  <div className="demo-do-dont__box demo-do-dont__box--dont rounded border-t-4 neeto-ui-border-error-500 p-6 w-80 neeto-ui-shadow-md">
+    <h4 className="flex items-center gap-3">
+      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
+    </h4>
+    <ul>
+      <li>02/04/03</li>
+    </ul>
+  </div>
+</div>
+
+<br />
+
 <h3 id="confirmations">
   <a href="#confirmations">Confirmations</a>
 </h3>
@@ -264,9 +297,7 @@ Confirmations are presented for actions that can’t be undone or are difficult 
         <p>No articles found.</p>
         <p>We couldn't find any articles. Try creating one.</p>
       </li>
-      <li>
-        Looks like you don't have any forms!
-      </li>
+      <li>Looks like you don't have any forms!</li>
       <li>
         <p>No changelogs found</p>
         <p>We couldn’t find any changelogs. You can add a new one.</p>
@@ -275,24 +306,26 @@ Confirmations are presented for actions that can’t be undone or are difficult 
         <p>No Quizzes</p>
         <p>We do not have any quizzes to show here</p>
       </li>
-      <li>
-        No Assignments yet
-      </li>
+      <li>No Assignments yet</li>
       <li>
         <p>No tasks found.</p>
-        <p>No tasks for you right now. You can go to projects and assign tasks to yourself</p>
+        <p>
+          No tasks for you right now. You can go to projects and assign tasks to
+          yourself
+        </p>
       </li>
       <li>
         <p>Start building user tests</p>
-        <p>You haven't created any test yet. Create your first test here and share it with your testers.</p>
+        <p>
+          You haven't created any test yet. Create your first test here and
+          share it with your testers.
+        </p>
       </li>
       <li>
         <p>No Courses found.</p>
         <p>We couldn't find any courses. Try creating one.</p>
       </li>
-      <li>
-        Looks like you don't have any deals.
-      </li>
+      <li>Looks like you don't have any deals.</li>
       <li>
         <p>There aren't any projects added yet.</p>
         <p>Use the following button to add the first project.</p>
@@ -318,7 +351,6 @@ Use the adjective "Done" for deferred saves. When the modal or sheet closes, the
 
 Most deferred saves happen when confirming changes in Add, Edit, Manage, and Select modals and sheets.
 
-
 <h3 id="cancel-action">
   <a href="#cancel-action">Cancel</a>
 </h3>
@@ -330,12 +362,11 @@ Most deferred saves happen when confirming changes in Add, Edit, Manage, and Sel
 
 Edge case
 
-If there is no logical "previous" page to go back to. 
+If there is no logical "previous" page to go back to.
 
 For example, if we are on the home/root page,
 
 - Here "Cancel" button should be disabled initially.
 - If the user changes anything on the form, "Cancel" should be enabled.
-
 
 </div>
