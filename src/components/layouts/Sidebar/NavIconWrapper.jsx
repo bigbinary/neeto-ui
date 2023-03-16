@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
 
+import { TOOLTIP_STYLES } from "components/layouts/Sidebar";
 import Tooltip from "components/Tooltip";
 
-import { TOOLTIP_STYLES } from "./index";
 import FeaturedTooltip from "./FeaturedTooltip";
 
 const NavIconWrapper = ({
