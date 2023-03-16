@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Checkbox, Form } from "../../lib/components/formik";
+import { Checkbox, Form } from "components/formik";
 import * as yup from "yup";
 
 const TestCheckboxForm = ({ onSubmit }) => {
@@ -15,7 +15,8 @@ const TestCheckboxForm = ({ onSubmit }) => {
           initialValues: { formikCheckbox: false },
           validationSchema: yup.object().shape({
             formikCheckbox: yup
-              .boolean().oneOf([true], "Checking the formik checkbox is checked.")
+              .boolean()
+              .oneOf([true], "Checking the formik checkbox is checked.")
               .required("Checking the formik checkbox is required."),
           }),
           onSubmit: handleSubmit,
@@ -61,6 +62,8 @@ describe("formik/Checkbox", () => {
     const onSubmit = jest.fn();
     render(<TestCheckboxForm onSubmit={onSubmit} />);
     userEvent.click(screen.getByText("Submit"));
-    expect(await screen.findByText("Checking the formik checkbox is checked.")).toBeVisible();
+    expect(
+      await screen.findByText("Checking the formik checkbox is checked.")
+    ).toBeVisible();
   });
 });

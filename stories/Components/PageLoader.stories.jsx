@@ -1,6 +1,6 @@
 import React from "react";
 
-import PageLoader from "../../lib/components/PageLoader";
+import PageLoader from "components/PageLoader";
 
 export default {
   title: "Components/PageLoader",

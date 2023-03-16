@@ -1,6 +1,6 @@
 import React from "react";
 
-import Typography from "../../lib/components/Typography";
+import Typography from "components/Typography";
 
 export default {
   title: "Foundation/Typography",

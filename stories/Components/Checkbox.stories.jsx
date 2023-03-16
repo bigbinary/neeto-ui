@@ -1,6 +1,6 @@
 import React from "react";
 
-import Checkbox from "../../lib/components/Checkbox";
+import Checkbox from "components/Checkbox";
 
 export default {
   title: "Components/Checkbox",

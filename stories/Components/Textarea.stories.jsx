@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Textarea from "../../lib/components/Textarea";
+import Textarea from "components/Textarea";
 
 export default {
   title: "Components/Textarea",

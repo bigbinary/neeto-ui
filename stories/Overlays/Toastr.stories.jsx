@@ -2,8 +2,8 @@ import React from "react";
 import { useCallback } from "react";
 import { ToastContainer } from "react-toastify";
 
-import Button from "../../lib/components/Button";
-import Toastr from "../../lib/components/Toastr";
+import Button from "components/Button";
+import Toastr from "components/Toastr";
 import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
 export default {

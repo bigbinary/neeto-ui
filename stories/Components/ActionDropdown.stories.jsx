@@ -1,7 +1,7 @@
 import React from "react";
 import { Settings, Delete, MenuHorizontal } from "@bigbinary/neeto-icons";
 
-import ActionDropdown from "../../lib/components/ActionDropdown";
+import ActionDropdown from "components/ActionDropdown";
 
 export default {
   title: "Components/ActionDropdown",

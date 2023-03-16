@@ -1,5 +1,5 @@
 import "./style.scss";
-import "../lib/styles/index.scss";
+import "../src/styles/index.scss";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
 

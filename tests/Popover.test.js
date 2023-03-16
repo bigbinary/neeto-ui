@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Popover, Typography, Button } from "../lib/components";
+import { Popover, Typography, Button } from "components";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

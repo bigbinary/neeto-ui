@@ -1,7 +1,8 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 import { Favorite, Search, Close } from "@bigbinary/neeto-icons";
-import Tab from "../../lib/components/Tab";
+
+import Tab from "components/Tab";
 
 export default {
   title: "Components/Tab",

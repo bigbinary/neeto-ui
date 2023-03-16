@@ -1,7 +1,7 @@
 import React from "react";
 
-import NoData from "../../lib/components/NoData";
-import Button from "../../lib/components/Button";
+import NoData from "components/NoData";
+import Button from "components/Button";
 
 export default {
   title: "Components/NoData",

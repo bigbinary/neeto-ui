@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionDropdown } from "../lib/components";
+import { ActionDropdown } from "components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Alert from "../../lib/components/Alert";
-import Button from "../../lib/components/Button";
+import Alert from "components/Alert";
+import Button from "components/Button";
 
 export default {
   title: "Overlays/Alert",

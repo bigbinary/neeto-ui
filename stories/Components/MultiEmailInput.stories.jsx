@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import * as yup from "yup";
 import { Search } from "@bigbinary/neeto-icons";
 
-import MultiEmailInput from "../../lib/components/MultiEmailInput";
-import { suffixes, prefixes } from "../constants";
+import MultiEmailInput from "components/MultiEmailInput";
 import {
   MultiEmailInput as FormikMultiEmailInput,
   Form,
-} from "../../lib/components/formik";
-import Button from "../../lib/components/Button";
-import Typography from "../../lib/components/Typography";
+} from "components/formik";
+import Button from "components/Button";
+import Typography from "components/Typography";
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
+
+import { suffixes, prefixes } from "../constants";
 
 export default {
   title: "Components/Multi email input",

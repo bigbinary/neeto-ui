@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert } from "../lib/components";
+import { Alert } from "components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

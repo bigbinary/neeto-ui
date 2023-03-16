@@ -7,7 +7,7 @@ import {
   Container,
   Scrollable,
   MenuBar,
-} from "../lib/components/layouts";
+} from "components/layouts";
 import {
   Button,
   Typography,
@@ -16,7 +16,7 @@ import {
   Tooltip,
   Avatar,
   Tag,
-} from "../lib/components";
+} from "components";
 import { TABLE_DATA } from "./constants";
 
 export default {

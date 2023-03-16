@@ -2,7 +2,8 @@
 import React from "react";
 import { Favorite } from "@bigbinary/neeto-icons";
 
-import Tag from "../../lib/components/Tag";
+import Tag from "components/Tag";
+
 import { icons } from "../constants";
 
 const DEPRECATED_PROPS = {

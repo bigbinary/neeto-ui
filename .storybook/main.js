@@ -23,7 +23,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...require("../resolve.js").alias,
-      "@bigbinary/neetoui": path.resolve(__dirname, "..", "lib"),
+      "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
     };
 
     return config;

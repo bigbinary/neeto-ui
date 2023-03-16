@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Header from "../../lib/components/layouts/Header";
-import Button from "../../lib/components/Button";
+import Header from "components/layouts/Header";
+import Button from "components/Button";
 
 export default {
   title: "Layouts/Header",

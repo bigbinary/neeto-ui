@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import React from "react";
 
-import Avatar from "../../lib/components/Avatar";
+import Avatar from "components/Avatar";
 
 const onClick = () => {
   alert("onClick event!");

@@ -52,7 +52,7 @@ Install all the dependencies by executing following command.
 yarn
 ```
 
-You can create new components in `lib/components` and export them from `lib/index.js`.
+You can create new components in `src/components` and export them from `src/index.js`.
 
 Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
 

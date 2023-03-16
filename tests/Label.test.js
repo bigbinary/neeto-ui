@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Label from "../lib/components/Label";
+import Label from "components/Label";
 import userEvent from "@testing-library/user-event";
 
 describe("Label", () => {
@@ -33,7 +33,7 @@ describe("Label", () => {
       <Label
         helpIconProps={{
           tooltipProps: { content: "Tooltip" },
-          "data-testid": "icon"
+          "data-testid": "icon",
         }}
       >
         <p>Content</p>
@@ -49,7 +49,7 @@ describe("Label", () => {
       <Label
         helpIconProps={{
           onClick,
-          "data-testid": "icon"
+          "data-testid": "icon",
         }}
       >
         <p>Content</p>

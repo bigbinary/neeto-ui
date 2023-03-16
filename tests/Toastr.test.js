@@ -1,5 +1,5 @@
 import React from "react";
-import { Toastr, Button } from "../lib/components";
+import { Toastr, Button } from "components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ToastContainer } from "react-toastify";
@@ -56,7 +56,7 @@ const testToastrErrorMessages = async (errorResponse, expectedMessage) => {
     const axiosError = {
       isAxiosError: true,
       response: { data: errorResponse },
-      message: "Default Message"
+      message: "Default Message",
     };
     Toastr.error(axiosError);
   };
@@ -84,7 +84,7 @@ beforeAll(() =>
             info: "This is a Info {{entityName}}.",
             warning: "This is a Warning {{entityName}}.",
             error: "This is a Error {{entityName}}.",
-            toastr: "This is a toastr."
+            toastr: "This is a toastr.",
           },
         },
       },
@@ -291,12 +291,13 @@ describe("Toastr", () => {
       errorCode: "message.error",
       entityName: "toastr",
     };
-    const expectedMessage = "Error message one. Error message two. This is a Error toastr.";
+    const expectedMessage =
+      "Error message one. Error message two. This is a Error toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
   it("should render Axios Error Toastr when errorCode and error are passed", () => {
-    const errorResponse =  {
+    const errorResponse = {
       error: "Error Message.",
       errorCode: "message.error",
       entityName: "toastr",
@@ -306,26 +307,32 @@ describe("Toastr", () => {
   });
 
   it("should render Axios Error Toastr when errorCodes and error are passed", () => {
-    const errorResponse =  {
+    const errorResponse = {
       error: "Error Message.",
-      errorCodes: [{key: "message.error", context: { entityName: "toastr"}}, "message.toastr"],
+      errorCodes: [
+        { key: "message.error", context: { entityName: "toastr" } },
+        "message.toastr",
+      ],
     };
     const expectedMessage = "Error Message. This is a Error toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
   it("should render Axios Error Toastr with errorCode when errorCode and errorCodes are passed", () => {
-    const errorResponse =  {
+    const errorResponse = {
       errorCode: "message.error",
-      errorCodes: [{key: "message.error", context: { entityName: "invisible"}}, "message.toastr"],
-      entityName: "toastr"
+      errorCodes: [
+        { key: "message.error", context: { entityName: "invisible" } },
+        "message.toastr",
+      ],
+      entityName: "toastr",
     };
     const expectedMessage = "This is a Error toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
   it("should render Axios Error Toastr with error when error and errors are passed", () => {
-    const errorResponse =  {
+    const errorResponse = {
       error: "Error message.",
       errors: ["Error message one. Error message two."],
     };
@@ -336,9 +343,13 @@ describe("Toastr", () => {
   it("should render Axios Error Toastr using when errorCodes and errors are passed", () => {
     const errorResponse = {
       errors: ["Error message one.", "Error message two."],
-      errorCodes: [{key: "message.error", context: { entityName: "toastr"}}, "message.toastr"],
+      errorCodes: [
+        { key: "message.error", context: { entityName: "toastr" } },
+        "message.toastr",
+      ],
     };
-    const expectedMessage = "Error message one. Error message two. This is a Error toastr. This is a toastr.";
+    const expectedMessage =
+      "Error message one. Error message two. This is a Error toastr. This is a toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
@@ -347,7 +358,7 @@ describe("Toastr", () => {
       errors: null,
       errorCodes: null,
       errorCode: "message.error",
-      entityName: "toastr"
+      entityName: "toastr",
     };
     const expectedMessage = "This is a Error toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);

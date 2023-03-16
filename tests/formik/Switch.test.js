@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
 
-import { Switch as FormikSwitch, Form } from "../../lib/components/formik";
+import { Switch as FormikSwitch, Form } from "components/formik";
 
 const TestSwitch = ({ onSubmit, schema }) => {
   const handleSubmit = (values) => {

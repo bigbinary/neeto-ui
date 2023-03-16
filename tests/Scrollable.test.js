@@ -1,5 +1,5 @@
 import React from "react";
-import { Scrollable, Header } from "../lib/components/layouts";
+import { Scrollable, Header } from "components/layouts";
 import { render } from "@testing-library/react";
 
 describe("Scrollable", () => {

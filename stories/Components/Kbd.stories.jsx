@@ -1,6 +1,6 @@
 import React from "react";
 
-import Kbd from "../../lib/components/Kbd";
+import Kbd from "components/Kbd";
 
 export default {
   title: "Components/Kbd",

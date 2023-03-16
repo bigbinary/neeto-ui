@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Textarea } from "../lib/components";
+import { Textarea } from "components";
 import userEvent from "@testing-library/user-event";
 
 describe("Textarea", () => {

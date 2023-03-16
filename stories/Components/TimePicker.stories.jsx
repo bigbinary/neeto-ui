@@ -2,9 +2,9 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
-import { Modal, Typography, Pane } from "../../lib/components";
-import Button from "../../lib/components/Button";
-import TimePicker from "../../lib/components/TimePicker";
+import { Modal, Typography, Pane } from "components";
+import Button from "components/Button";
+import TimePicker from "components/TimePicker";
 import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
 export default {

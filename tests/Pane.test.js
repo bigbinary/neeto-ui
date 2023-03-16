@@ -1,5 +1,5 @@
 import React from "react";
-import { Pane, Typography, Button } from "../lib/components";
+import { Pane, Typography, Button } from "components";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

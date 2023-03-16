@@ -1,8 +1,8 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 
-import Switch from "../../lib/components/Switch";
-import ToolTip from "../../lib/components/Tooltip";
+import Switch from "components/Switch";
+import ToolTip from "components/Tooltip";
 
 export default {
   title: "Components/Switch",
@@ -86,5 +86,3 @@ export const TooltipExample = () => {
     </div>);
 
 };
-
-

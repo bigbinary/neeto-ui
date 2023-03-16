@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import React from "react";
 
-import { Modal, Typography, Pane, DatePicker } from "../../lib/components";
+import { Modal, Typography, Pane, DatePicker } from "components";
 import isChromatic from "chromatic/isChromatic";
-import Button from "../../lib/components/Button";
+import Button from "components/Button";
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
 export default {

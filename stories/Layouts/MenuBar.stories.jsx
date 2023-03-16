@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Settings, Plus, Search } from "@bigbinary/neeto-icons";
 
-import { Container, MenuBar } from "../../lib/components/layouts";
-import { Button, Typography } from "../../lib/components";
+import { Container, MenuBar } from "components/layouts";
+import { Button, Typography } from "components";
 
 export default {
   title: "Layouts/MenuBar",

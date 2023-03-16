@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 
-import Radio from "../../lib/components/Radio";
-import Button from "../../lib/components/Button";
-import Typography from "../../lib/components/Typography";
-import { Radio as FormikRadio } from "../../lib/components/formik";
+import Radio from "components/Radio";
+import Button from "components/Button";
+import Typography from "components/Typography";
+import { Radio as FormikRadio } from "components/formik";
 
 export default {
   title: "Components/Radio",

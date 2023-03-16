@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../lib/components";
+import { Button } from "components";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";

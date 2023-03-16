@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Header } from "../lib/components/layouts";
+import { Header } from "components/layouts";
 import { BrowserRouter } from "react-router-dom";
 
 describe("Header", () => {
@@ -40,19 +40,20 @@ describe("Header", () => {
         />
       </BrowserRouter>
     );
-    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/about");
+    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute(
+      "href",
+      "/"
+    );
+    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(
+      "href",
+      "/about"
+    );
   });
 
   it("should render with an action block", () => {
     render(
       <BrowserRouter>
-        <Header
-          title="Header"
-          actionBlock={
-            <p>Action Block Text</p>
-          }
-        />
+        <Header title="Header" actionBlock={<p>Action Block Text</p>} />
       </BrowserRouter>
     );
     expect(screen.getByText("Action Block Text")).toBeInTheDocument();
@@ -61,10 +62,7 @@ describe("Header", () => {
   it("should render with a menu bar toggle", () => {
     render(
       <BrowserRouter>
-        <Header
-          title="Header"
-          menuBarToggle={() => {}}
-        />
+        <Header title="Header" menuBarToggle={() => {}} />
       </BrowserRouter>
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
@@ -74,10 +72,7 @@ describe("Header", () => {
     const menuBarToggle = jest.fn();
     render(
       <BrowserRouter>
-        <Header
-          title="Header"
-          menuBarToggle={menuBarToggle}
-        />
+        <Header title="Header" menuBarToggle={menuBarToggle} />
       </BrowserRouter>
     );
     userEvent.click(screen.getByRole("button"));

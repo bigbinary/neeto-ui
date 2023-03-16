@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip, Typography } from "../lib/components";
+import { Tooltip, Typography } from "components";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -10,23 +10,23 @@ describe("Tooltip", () => {
         <Typography>Text</Typography>
       </Tooltip>
     );
-    const text = screen.getByText("Text")
-    userEvent.hover(text)
-    const tooltip = screen.getByText("Tooltip")
+    const text = screen.getByText("Text");
+    userEvent.hover(text);
+    const tooltip = screen.getByText("Tooltip");
     expect(tooltip).toBeInTheDocument();
   });
 
   it("should not render when user stops hovering", async () => {
     render(
-      <Tooltip content="Tooltip" >
+      <Tooltip content="Tooltip">
         <Typography>Text</Typography>
       </Tooltip>
     );
-    const text = screen.getByText("Text")
-    userEvent.hover(text)
-    const tooltip = screen.getByText("Tooltip")
-    userEvent.unhover(text)
-    await waitFor(() => expect(tooltip).not.toBeVisible())
+    const text = screen.getByText("Text");
+    userEvent.hover(text);
+    const tooltip = screen.getByText("Tooltip");
+    userEvent.unhover(text);
+    await waitFor(() => expect(tooltip).not.toBeVisible());
   });
 
   it("should auto hide tooltip after n milliseconds", async () => {
@@ -36,9 +36,9 @@ describe("Tooltip", () => {
       </Tooltip>
     );
 
-    const text = screen.getByText("Text")
-    userEvent.hover(text)
-    const tooltip = screen.getByText("Tooltip")
-    await waitFor(() => expect(tooltip).not.toBeVisible())
+    const text = screen.getByText("Text");
+    userEvent.hover(text);
+    const tooltip = screen.getByText("Tooltip");
+    await waitFor(() => expect(tooltip).not.toBeVisible());
   });
 });

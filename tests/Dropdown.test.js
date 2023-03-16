@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown } from "../lib/components";
+import { Dropdown } from "components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -123,7 +123,12 @@ describe("Dropdown", () => {
     const { findByText } = render(
       <Dropdown label="Dropdown" isOpen>
         {options}
-        <Dropdown customTarget={<li>Another Dropdown</li>} onClick={e => e.stopPropagation()}>{secondOptions}</Dropdown>
+        <Dropdown
+          customTarget={<li>Another Dropdown</li>}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {secondOptions}
+        </Dropdown>
       </Dropdown>
     );
     userEvent.click(await findByText("Another Dropdown"));

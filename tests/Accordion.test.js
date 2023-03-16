@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion } from "../lib/components";
+import { Accordion } from "components";
 import { render, waitForElementToBeRemoved } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
-import { TimePicker } from "../lib/components";
+import { TimePicker } from "components";
 import { screen, render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

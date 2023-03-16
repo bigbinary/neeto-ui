@@ -2,7 +2,7 @@ import React from "react";
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Select as FormikSelect, Form } from "../../lib/components/formik";
+import { Select as FormikSelect, Form } from "components/formik";
 
 const SELECT_OPTIONS = [
   {

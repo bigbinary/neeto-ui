@@ -1,5 +1,5 @@
 import React from "react";
-import { Callout } from "../lib/components";
+import { Callout } from "components";
 import { Check } from "@bigbinary/neeto-icons";
 import { render } from "@testing-library/react";
 

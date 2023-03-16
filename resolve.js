@@ -2,13 +2,13 @@ const path = require("path");
 
 module.exports = {
   alias: {
-    lib: path.resolve(__dirname, "./lib"),
-    atoms: path.resolve(__dirname, "./lib/atoms"),
-    components: path.resolve(__dirname, "./lib/components"),
-    constants: path.resolve(__dirname, "./lib/constants"),
-    hooks: path.resolve(__dirname, "./lib/hooks"),
-    managers: path.resolve(__dirname, "./lib/managers"),
-    utils: path.resolve(__dirname, "./lib/utils"),
+    src: path.resolve(__dirname, "./src"),
+    atoms: path.resolve(__dirname, "./src/atoms"),
+    components: path.resolve(__dirname, "./src/components"),
+    constants: path.resolve(__dirname, "./src/constants"),
+    hooks: path.resolve(__dirname, "./src/hooks"),
+    managers: path.resolve(__dirname, "./src/managers"),
+    utils: path.resolve(__dirname, "./src/utils"),
   },
   extensions: [
     ".ts",

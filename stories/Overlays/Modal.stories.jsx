@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import Button from "../../lib/components/Button";
-import Modal from "../../lib/components/Modal";
-import Typography from "../../lib/components/Typography";
-import Input from "../../lib/components/Input";
+import Button from "components/Button";
+import Modal from "components/Modal";
+import Typography from "components/Typography";
+import Input from "components/Input";
 
 export default {
   title: "Overlays/Modal",

@@ -1,5 +1,5 @@
 import React from "react";
-import { MultiEmailInput } from "../lib/components";
+import { MultiEmailInput } from "components";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -45,14 +45,20 @@ describe("MultiEmailInput", () => {
 
   it("should not render email counter when the email count start from 3 and count is 2", () => {
     render(
-      <MultiEmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(3)} />
+      <MultiEmailInput
+        counter={{ startsFrom: 3 }}
+        value={SAMPLE_EMAILS.slice(3)}
+      />
     );
     expect(screen.queryByText("2 emails")).not.toBeInTheDocument();
   });
 
   it("should render email counter when the email count start from 3 and count is 3", () => {
     render(
-      <MultiEmailInput counter={{ startsFrom: 3 }} value={SAMPLE_EMAILS.slice(2)} />
+      <MultiEmailInput
+        counter={{ startsFrom: 3 }}
+        value={SAMPLE_EMAILS.slice(2)}
+      />
     );
     expect(screen.getByText("3 emails")).toBeInTheDocument();
   });

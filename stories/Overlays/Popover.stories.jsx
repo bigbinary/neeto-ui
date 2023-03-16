@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import { Button, Typography, Popover } from "../../lib/components";
+import { Button, Typography, Popover } from "components";
 
 export default {
   title: "Overlays/Popover",
