@@ -23,6 +23,14 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.13 - 2023-03-16
+
+- Renamed the lib folder to src.
+- Made the corresponding changes in config files.
+- Updated imports with lib to use aliased imports.
+- Updated the documentation.
+- Ensured tests are running as expected.
+
 ## 4.4.12 - 2023-03-15
 
 This PR adds the following changes to the *Switch* component.
@@ -56,7 +64,6 @@ This PR adds the following changes to the *Switch* component.
 - Fixed: Horizontal scroll issue in Table header
 ## 4.4.8 - 2023-03-10
 - Fixed: Issue with overriding components in *Select* component
-
 ## 4.4.7 - 2023-03-10
 
 - Added: entry points for TypeScript resolutions in package.json
@@ -158,7 +165,6 @@ After
 ## 4.2.3 - 2023-01-30
 - Added: transparency control option in *ColorPicker*, controlled via `showTransparencyControl`.
 ## 4.2.2 - 2023-01-29
-
 - Fixed: respecting the prop `isCreatable` if `loadOptions` prop is provided in *Select* component
 
 ## 4.2.1 - 2023-01-24
@@ -213,7 +219,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 - Added: functionality to scroll to the selected value in *Select* component
 ## 4.1.29 - 2022-12-21
 - Fixed: pressing `enter` key in *Select* to select an option submitting the *Form*.
-
 ## 4.1.28 - 2022-12-20
 
 - Fixed: **Form** `validateOnChange` and `validateOnBlur` is not being triggered after the form is submitted by pressing enter key and there are validation errors.
@@ -288,7 +293,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Added: Eyedropper to *ColorPicker*
 ## 4.1.0 - 2022-11-03
 - Changed: **BREAKING** Name of the *EmailInput* component to *MultiEmailInput* in both components and Formik components.
-
 ## 4.0.17 - 2022-10-28
 
 - Fixed:`ValidateDOMNesting` warning in *DatePicker* component.
