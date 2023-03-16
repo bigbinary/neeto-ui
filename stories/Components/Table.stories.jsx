@@ -533,7 +533,8 @@ const TableWithResizableColumns = args => {
   return (
     <div className="h-96">
       <NeetoTable
-        allowResize
+        enableResizeColumns
+        enableReorderColumns
         columnData={getColumns()}
         rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
@@ -543,8 +544,9 @@ const TableWithResizableColumns = args => {
     </div>
   );
 };
-TableWithResizableColumns.storyName = "Table with resizable columns";
-TableWithResizableColumns.args = {
+TableWithResizableAndReordableColumns.storyName =
+  "Table with resizable and reorderable columns";
+TableWithResizableAndReordableColumns.args = {
   defaultPageSize: 10,
 };
 

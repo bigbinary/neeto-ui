@@ -371,6 +371,11 @@ td.ant-table-column-sort {
   z-index: 1;
 }
 
+.ant-table-wrapper thead.ant-table-thead tr th :hover {
+  cursor: move;
+  background-color: #ccc;
+}
+
 // bordered table styles
 
 .ant-table.ant-table-bordered > .ant-table-title {
