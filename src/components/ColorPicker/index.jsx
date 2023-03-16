@@ -69,7 +69,7 @@ const ColorPicker = ({
   };
 
   const Target = ({ size }) => (
-    <div
+    <button
       data-cy="color-picker-target"
       className={classnames("neeto-ui-colorpicker__target", {
         "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,
@@ -80,18 +80,18 @@ const ColorPicker = ({
       data-testid="neeto-color-picker"
     >
       {showHexValue && (
-        <div className="neeto-ui-colorpicker-target__code">{color}</div>
+        <span className="neeto-ui-colorpicker-target__code">{color}</span>
       )}
-      <div className="neeto-ui-colorpicker-target__color-wrapper">
-        <div
+      <span className="neeto-ui-colorpicker-target__color-wrapper">
+        <span
           className="border neeto-ui-colorpicker-target__color neeto-ui-border-gray-400"
           style={{ backgroundColor: colorValue }}
         />
-        <div className="neeto-ui-colorpicker-target__icon">
+        <span className="neeto-ui-colorpicker-target__icon">
           <Down size={16} />
-        </div>
-      </div>
-    </div>
+        </span>
+      </span>
+    </button>
   );
 
   return (
