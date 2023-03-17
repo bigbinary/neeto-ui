@@ -3,11 +3,11 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import alias from "@rollup/plugin-alias";
+import terser from "@rollup/plugin-terser";
 import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import { terser } from "rollup-plugin-terser";
 
 const plugins = [
   peerDepsExternal(),
