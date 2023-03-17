@@ -372,6 +372,8 @@ export interface TableProps {
   };
   rowSelection?: any;
   shouldDynamicallyRenderRowSize?: boolean;
+  enableColumnResize?: boolean;
+  enableColumnReorder?: boolean;
   [key: string]: any;
 }
 
