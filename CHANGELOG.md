@@ -23,6 +23,12 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.16 - 2023-03-20
+
+- Added: keyboard accessibility to color picker.
+
+![Screen_Recording_2023-03-16_at_2_48_00_PM_AdobeExpress](https://user-images.githubusercontent.com/48869249/225571905-e8b6a5c5-2407-45d3-84d8-d52d59435a0f.gif)
+
 ## 4.4.15 - 2023-03-17
 
 Added terser plugin to rollup config to minimise bundle size.
@@ -70,7 +76,6 @@ This PR adds the following changes to the *Switch* component.
 - Fixed: Issue with overriding components in *Select* component
 ## 4.4.7 - 2023-03-10
 - Added: entry points for TypeScript resolutions in package.json
-
 ## 4.4.6 - 2023-03-09
 
 - Added: new fallback avatars in the *Avatar* component using `boringavatars`.
@@ -170,7 +175,6 @@ After
 ## 4.2.2 - 2023-01-29
 - Fixed: respecting the prop `isCreatable` if `loadOptions` prop is provided in *Select* component
 ## 4.2.1 - 2023-01-24
-
 - Changed: product descriptions as per the [list](https://docs.google.com/spreadsheets/d/1xFWMyXJkUCf1YBRhrokLdlQvyBn0X3uK2M2JUZClGgw).
 - Changed: product name from **Review** to **Deploy** in the app switcher.
 
@@ -223,7 +227,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 - Fixed: pressing `enter` key in *Select* to select an option submitting the *Form*.
 ## 4.1.28 - 2022-12-20
 - Fixed: **Form** `validateOnChange` and `validateOnBlur` is not being triggered after the form is submitted by pressing enter key and there are validation errors.
-
 ## 4.1.27 - 2022-12-19
 
 - Updated: *Product switcher* component in neetoUI
@@ -297,7 +300,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 ## 4.0.17 - 2022-10-28
 - Fixed:`ValidateDOMNesting` warning in *DatePicker* component.
 - Fixed: the issue with date items looking disabled in normal state
-
 ## 4.0.16 - 2022-10-28
 
 Changes documentations to sentence case from title casing.
