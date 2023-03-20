@@ -76,15 +76,26 @@
 }
 
 .neeto-ui-colorpicker__target {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: rgb(var(--neeto-ui-white));
   border-radius: var(--neeto-ui-rounded);
   border: 1px solid rgb(var(--neeto-ui-gray-400));
+  transition: var(--neeto-ui-transition);
   height: 40px;
   padding: 8px 12px;
   gap: 12px;
+
+  &:hover {
+    border-color: rgb(var(--neeto-ui-gray-700));
+  }
+
+  &:focus-visible{
+    border-color: rgb(var(--neeto-ui-primary-500));
+    box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    outline: none;
+  }
 
   &-size--small {
     height: 28px;
