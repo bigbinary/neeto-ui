@@ -24,7 +24,7 @@ module.exports = () => {
       "^utils/(.*)$": path.resolve(__dirname, "src/utils", "$1"),
     },
     transformIgnorePatterns: [
-      "/node_modules/(?!(@babel|react-router-nav-prompt|@bigbinary/neeto-icons|rc-picker|rc-util))",
+      "/node_modules/(?!(@babel|@bigbinary/neeto-icons|rc-picker|rc-util))",
     ],
     testEnvironment: "jsdom",
     setupFilesAfterEnv: ["./jest-setup.js"],

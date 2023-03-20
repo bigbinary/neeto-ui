@@ -18,7 +18,7 @@ Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get 
 **neetoUI** has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
 
 ```
-yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0 react-router-nav-prompt@0.4.1
+yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0
 ```
 
 **neetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.

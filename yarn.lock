@@ -12814,11 +12814,6 @@ react-router-dom@5.3.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-router-nav-prompt@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/react-router-nav-prompt/-/react-router-nav-prompt-0.4.1.tgz#d4e09466098efe4cd0bc64a2d843e1ddb39dd0b7"
-  integrity sha512-I7rJln0+OW46/az8JIbygccx+dvg9IzEHX76ikQ3mu1rcAHB6dOqqsXIwIWbIfTeoffm1QlGuLheF9fBy1bz6w==
-
 react-router@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.2.1.tgz#4d2e4e9d5ae9425091845b8dbc6d9d276239774d"
