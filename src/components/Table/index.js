@@ -299,7 +299,6 @@ Table.propTypes = {
    * `onColumnUpdate={(columns) => {}}`
    */
   onColumnUpdate: PropTypes.bool,
-
   /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.
