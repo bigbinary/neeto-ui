@@ -193,7 +193,9 @@ const Table = ({
         }}
         onHeaderRow={() => ({
           ref: headerRef,
-          className: "neeto-ui-table__header",
+          className: classnames("neeto-ui-table__header", {
+            "neeto-ui-table-reorderable": enableColumnReorder,
+          }),
           id: "neeto-ui-table__header",
         })}
         locale={locale}
@@ -298,7 +300,7 @@ Table.propTypes = {
    *
    * `onColumnUpdate={(columns) => {}}`
    */
-  onColumnUpdate: PropTypes.bool,
+  onColumnUpdate: PropTypes.func,
   /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.

@@ -25,6 +25,8 @@ const useReorderColumns = ({
     [columns]
   );
 
+  const isColumnFixed = (column) => !!column.fixed;
+
   const dragProps = {
     onDragEnd: (fromIndex, toIndex) => {
       let from = fromIndex;
@@ -33,7 +35,7 @@ const useReorderColumns = ({
         from = fromIndex - 1;
         to = toIndex - 1;
       }
-      if (columns[from].isActionColumn || columns[to].isActionColumn) return;
+      if (isColumnFixed(columns[from]) || isColumnFixed(columns[to])) return;
       const newColumns = move(from, to, columns);
       setColumns(newColumns);
       onColumnUpdate(newColumns);
