@@ -48,23 +48,25 @@ const useResizableColumns = ({
     setColumns(nextColumns);
   };
 
-  const computedColumnsData = useMemo(() => {
-    return columns.map((col, index) => {
-      const modifiedColumn = {
-        ...col,
-        onHeaderCell: (column) => ({
-          width: column.width,
-          onResize: handleResize(index),
-          onResizeStop: () => onColumnUpdate(columns),
-        }),
-      };
+  const computedColumnsData = useMemo(
+    () =>
+      columns.map((col, index) => {
+        const modifiedColumn = {
+          ...col,
+          onHeaderCell: (column) => ({
+            width: column.width,
+            onResize: handleResize(index),
+            onResizeStop: () => onColumnUpdate(columns),
+          }),
+        };
 
-      if (!col.ellipsis) {
-        modifiedColumn.ellipsis = true;
-      }
-      return modifiedColumn;
-    });
-  }, [columns]);
+        if (!col.ellipsis) {
+          modifiedColumn.ellipsis = true;
+        }
+        return modifiedColumn;
+      }),
+    [columns]
+  );
 
   const components = {
     header: {

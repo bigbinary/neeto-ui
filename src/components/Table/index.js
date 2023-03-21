@@ -181,16 +181,12 @@ const Table = ({
             : defaultPageSize,
           pageSizeOptions: calculatePageSizeOptions(),
           onChange: handlePageChange,
-          itemRender: itemRender,
+          itemRender,
         }}
-        onRow={(record, rowIndex) => {
-          return {
-            onClick: (event) =>
-              allowRowClick &&
-              onRowClick &&
-              onRowClick(event, record, rowIndex),
-          };
-        }}
+        onRow={(record, rowIndex) => ({
+          onClick: (event) =>
+            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+        })}
         onHeaderRow={() => ({
           ref: headerRef,
           className: classnames("neeto-ui-table__header", {
