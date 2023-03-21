@@ -1,12 +1,14 @@
-// this file is used for testing alone by jest
-module.exports = (api) => {
-  api.cache(true);
-  return {
-    presets: ["@babel/preset-env", "@babel/preset-react"],
-    env: {
-      test: {
-        plugins: ["@babel/plugin-transform-runtime"],
-      },
-    },
+const defaultConfig = require("@bigbinary/neeto-commons-frontend/configs/babel.js");
+const { mergeDeepLeft } = require("ramda");
+
+module.exports = api => {
+  const commonConfig = defaultConfig(api);
+  const projectConfig = {
+    plugins: [
+      ...commonConfig.plugins,
+      ["import", { libraryName: "antd", libraryDirectory: "lib" }],
+    ],
   };
+
+  return mergeDeepLeft(projectConfig, commonConfig);
 };

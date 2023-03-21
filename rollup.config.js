@@ -8,10 +8,15 @@ import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import { mergeDeepLeft } from "ramda";
+
+const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
+const projectResolve = require("./resolve.js");
+const { alias: aliasEntries } = mergeDeepLeft(projectResolve, commonResolve);
 
 const plugins = [
   peerDepsExternal(),
-  alias({ entries: require("./resolve.js").alias }),
+  alias({ entries: aliasEntries }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("production"),
     preventAssignment: true,
@@ -19,21 +24,6 @@ const plugins = [
   svgr(),
   babel({
     exclude: "node_modules/**",
-    presets: ["@babel/preset-env", "@babel/preset-react"],
-    plugins: [
-      process.env.NODE_ENV === "production" && [
-        "babel-plugin-transform-react-remove-prop-types",
-        { removeImport: true },
-      ],
-      "@babel/plugin-transform-runtime",
-      [
-        "import",
-        {
-          libraryName: "antd",
-          libraryDirectory: "src",
-        },
-      ],
-    ].filter((item) => !!item),
     babelHelpers: "runtime",
   }),
   resolve({
@@ -54,7 +44,7 @@ const getOutputFileName = (name, format) =>
 export default [
   {
     input: "./src/components/index.js",
-    output: formats.map((format) => ({
+    output: formats.map(format => ({
       file: getOutputFileName("index", format),
       format,
       sourcemap: false,
@@ -71,7 +61,7 @@ export default [
   },
   {
     input: "./src/components/layouts/index.js",
-    output: formats.map((format) => ({
+    output: formats.map(format => ({
       file: getOutputFileName("layouts", format),
       format,
       sourcemap: false,
@@ -80,7 +70,7 @@ export default [
   },
   {
     input: "./src/components/formik/index.js",
-    output: formats.map((format) => ({
+    output: formats.map(format => ({
       file: getOutputFileName("formik", format),
       format,
       sourcemap: false,
@@ -90,7 +80,7 @@ export default [
   },
   {
     input: "./src/managers/index.js",
-    output: formats.map((format) => ({
+    output: formats.map(format => ({
       file: getOutputFileName("managers", format),
       format,
       sourcemap: false,
