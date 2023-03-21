@@ -100,7 +100,7 @@ const MultiEmailInput = forwardRef(
         const doesInputContainSeparator =
           inputValue.includes(",") || inputValue.includes(" ");
         const isInputPresentInOptions = selectOptions.find(
-          (option) => option.name === inputValue
+          (option) => option.value === inputValue.toLowerCase()
         );
 
         if (
