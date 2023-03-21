@@ -86,7 +86,7 @@ const MultiEmailInput = forwardRef(
     const onCreateOption = (input) => {
       const email = formatEmailInputOptions(input);
       onChange(pruneDuplicates([...value, email]));
-      otherProps?.onCreateOption(input);
+      otherProps?.onCreateOption?.(input);
     };
 
     const handleBlur = (event) =>
