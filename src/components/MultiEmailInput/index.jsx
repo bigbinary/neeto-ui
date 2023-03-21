@@ -95,8 +95,23 @@ const MultiEmailInput = forwardRef(
     let overrideProps = {};
 
     if (isOptionsPresent) {
-      const isValidNewOption = (label) => {
-        return !EMAIL_SEPARATION_REGEX.test(label);
+      const isValidNewOption = (inputValue, _, selectOptions) => {
+        const isInputEmpty = inputValue.trim().length === 0;
+        const doesInputContainSeparator =
+          inputValue.includes(",") || inputValue.includes(" ");
+        const isInputPresentInOptions = selectOptions.find(
+          (option) => option.name === inputValue
+        );
+
+        if (
+          isInputEmpty ||
+          doesInputContainSeparator ||
+          isInputPresentInOptions
+        ) {
+          return false;
+        }
+
+        return true;
       };
       overrideProps = { onCreateOption, isValidNewOption };
     }
