@@ -42,14 +42,14 @@ export default {
     onChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
     onBlur: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
@@ -60,6 +60,38 @@ export const Controlled = (args) => {
   return (
     <MultiEmailInput
       {...args}
+      options={[
+        {
+          label: "Daniel Ferry (daniel.ferry@example.com)",
+          value: "daniel.ferry@example.com",
+          valid: true,
+        },
+        {
+          label: "Daniel Grady (daniel.grady@example.com)",
+          value: "daniel.grady@example.com",
+          valid: true,
+        },
+        {
+          label: "Daniel Gutkowski (daniel.gutkowski@example.com)",
+          value: "daniel.gutkowski@example.com",
+          valid: true,
+        },
+        {
+          label: "Daniel Langosh (daniel.langosh@example.com)",
+          value: "daniel.langosh@example.com",
+          valid: true,
+        },
+        {
+          label: "Daniel Newton (daniel.newton@example.com)",
+          value: "daniel.newton@example.com",
+          valid: true,
+        },
+        {
+          label: "Daniel Schiller (daniel.schiller@example.com)",
+          value: "daniel.schiller@example.com",
+          valid: true,
+        },
+      ]}
       value={emails}
       onChange={(emails) => setEmails(emails)}
     />

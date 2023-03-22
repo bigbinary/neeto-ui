@@ -86,7 +86,7 @@ const MultiEmailInput = forwardRef(
     const onCreateOption = (input) => {
       const email = formatEmailInputOptions(input);
       onChange(pruneDuplicates([...value, email]));
-      otherProps?.onCreateOption(input);
+      otherProps?.onCreateOption?.(input);
     };
 
     const handleBlur = (event) =>
@@ -95,8 +95,15 @@ const MultiEmailInput = forwardRef(
     let overrideProps = {};
 
     if (isOptionsPresent) {
-      const isValidNewOption = (label) => {
-        return !EMAIL_SEPARATION_REGEX.test(label);
+      const isValidNewOption = (inputValue, _, selectOptions) => {
+        const isInputEmpty = inputValue.trim().length === 0;
+        const doesInputContainSeparator =
+          inputValue.includes(",") || inputValue.includes(" ");
+        const isInputPresentInOptions = selectOptions.find(
+          (option) => option.value === inputValue.toLowerCase()
+        );
+
+        return !(isInputEmpty || doesInputContainSeparator || isInputPresentInOptions);
       };
       overrideProps = { onCreateOption, isValidNewOption };
     }
