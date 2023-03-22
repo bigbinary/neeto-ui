@@ -37,8 +37,8 @@
       "neetoeditor": ["node_modules/@bigbinary/neeto-editor"],
       "neetofilters": ["node_modules/@bigbinary/neeto-filters-frontend"],
       // You can add custom project specific paths below this comment
-      "atoms": ["src/common"],
-      "atoms/*": ["src/common/*"],
+      "atoms": ["src/atoms"],
+      "atoms/*": ["src/atoms/*"],
       "constants": ["src/constants"],
       "constants/*": ["src/constants/*"],
       "managers": ["src/managers"],
