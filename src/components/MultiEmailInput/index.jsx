@@ -103,15 +103,7 @@ const MultiEmailInput = forwardRef(
           (option) => option.value === inputValue.toLowerCase()
         );
 
-        if (
-          isInputEmpty ||
-          doesInputContainSeparator ||
-          isInputPresentInOptions
-        ) {
-          return false;
-        }
-
-        return true;
+        return !(isInputEmpty || doesInputContainSeparator || isInputPresentInOptions);
       };
       overrideProps = { onCreateOption, isValidNewOption };
     }
