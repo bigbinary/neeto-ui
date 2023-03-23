@@ -87,6 +87,7 @@ jobs:
 
       - name: Create a release draft on release
         uses: release-drafter/release-drafter@ac463ffd9cc4c6ad5682af93dc3e3591c4657ee3
+        if: ${{contains(github.event.pull_request.labels.*.name, 'release')}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
