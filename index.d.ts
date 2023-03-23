@@ -150,6 +150,7 @@ export interface ButtonProps {
   size?: "small" | "medium" | "large";
   href?: string;
   tooltipProps?: TooltipProps;
+  children?: string;
   [key: string]: any;
 }
 
@@ -395,6 +396,7 @@ export interface TagProps {
   color?: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
+  children:string;
 }
 
 export type TextareaProps = {
