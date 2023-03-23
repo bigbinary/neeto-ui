@@ -22,7 +22,7 @@
     tr {
       th {
         color: rgb(var(--neeto-ui-gray-700));
-        background-color: rgb(var(--neeto-ui-white));
+        background-color: rgb(var(--neeto-ui-gray-100));
 
         font-size: var(--neeto-ui-text-xs);
         vertical-align: middle;
@@ -36,7 +36,7 @@
 
       th.ant-table-cell.ant-table-column-has-sorters {
         &:hover {
-          background-color: rgb(var(--neeto-ui-white));
+          background-color: rgb(var(--neeto-ui-gray-100));
           color: rgb(var(--neeto-ui-primary-800));
         }
 
@@ -57,10 +57,6 @@
             }
           }
         }
-      }
-
-      th > .ant-table-column-sorters > .ant-table-column-title {
-        width: 90%;
       }
     }
   }
@@ -321,6 +317,7 @@ td.ant-table-column-sort {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
+    max-width: calc(100% - 20px);
   }
   justify-content: flex-start;
   gap: 8px;
@@ -649,6 +646,7 @@ td.ant-table-column-sort {
 
 .ant-table-thead > tr > th {
   border-bottom: 2px solid rgb(var(--neeto-ui-gray-200));
+  user-select: none;
 }
 
 .ant-table-tbody > tr > td {
@@ -687,6 +685,11 @@ td.ant-table-column-sort {
   z-index: 1;
 }
 
-.neeto-ui-table-reorderable th:not(.ant-table-cell-fix-sticky) :hover {
+.neeto-ui-table-reorderable .dragHandler{
+  width: 100%;
+  display: block;
+}
+
+.neeto-ui-table-reorderable th:not(.ant-table-cell-fix-sticky):hover .dragHandler{
   cursor: move;
 }
