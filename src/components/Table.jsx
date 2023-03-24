@@ -19,7 +19,7 @@ const Table = ({
   className = "",
   columnData = [],
   currentPageNumber = 1,
-  defaultPageSize = 15,
+  defaultPageSize = 30,
   handlePageChange = noop,
   loading = false,
   onRowClick,
@@ -47,7 +47,9 @@ const Table = ({
   );
 
   useTimeout(() => {
-    const headerHeight = headerRef.current ? headerRef.current.offsetHeight : TABLE_DEFAULT_HEADER_HEIGHT;
+    const headerHeight = headerRef.current
+      ? headerRef.current.offsetHeight
+      : TABLE_DEFAULT_HEADER_HEIGHT;
     setHeaderHeight(headerHeight);
   }, 0);
 
@@ -85,7 +87,7 @@ const Table = ({
     containerHeight -
     headerHeight -
     (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0);
-  
+
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
       return <Button style="text" className="" icon={Left} />;
@@ -148,6 +150,7 @@ const Table = ({
       pagination={{
         hideOnSinglePage: true,
         ...paginationProps,
+        showSizeChanger: false,
         total: totalCount ?? 0,
         current: currentPageNumber,
         defaultPageSize: shouldDynamicallyRenderRowSize
@@ -163,11 +166,11 @@ const Table = ({
             allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
         };
       }}
-      onHeaderRow={()=>{
+      onHeaderRow={() => {
         return {
           ref: headerRef,
           className: "neeto-ui-table__header",
-          id: "neeto-ui-table__header"
+          id: "neeto-ui-table__header",
         };
       }}
       locale={locale}
