@@ -170,6 +170,7 @@ export type CheckboxProps = {
   required?: false;
   id?: string;
   labelProps?: LabelProps;
+  children?: string;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -342,6 +343,7 @@ export type SwitchProps = {
   checked?: boolean;
   disabled?: boolean;
   labelProps?: LabelProps;
+  children?: string;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
