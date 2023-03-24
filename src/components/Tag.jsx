@@ -140,6 +140,10 @@ Tag.propTypes = {
    * _Use `indicatorStatus` prop instead._
    */
   indicatorColor: PropTypes.string,
+  /**
+   * To specify the children to be rendered inside the Tag.
+   */
+  children: PropTypes.string,
 };
 
 export default Tag;

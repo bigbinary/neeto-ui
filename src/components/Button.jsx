@@ -207,6 +207,10 @@ Button.propTypes = {
    * To specify the props to be passed to the tooltip.
    */
   tooltipProps: PropTypes.object,
+  /**
+   * To specify the children to be rendered inside the Button.
+   */
+  children: PropTypes.string,
 };
 
 export default Button;
