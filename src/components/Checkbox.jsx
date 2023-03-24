@@ -15,12 +15,14 @@ const Checkbox = forwardRef(
       className = "",
       required = false,
       labelProps,
+      children,
       ...otherProps
     },
     ref
   ) => {
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
+    const renderLabel = label || children;
 
     return (
       <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
@@ -35,14 +37,14 @@ const Checkbox = forwardRef(
             ref={ref}
             {...otherProps}
           />
-          {label && (
+          {renderLabel && (
             <Label
               data-cy={`${hyphenize(label)}-checkbox-label`}
               htmlFor={id}
               required={required}
               {...labelProps}
             >
-              {label}
+              {renderLabel}
             </Label>
           )}
         </div>
@@ -85,6 +87,10 @@ Checkbox.propTypes = {
    * To specify whether the Checkbox is a required field or not.
    */
   required: PropTypes.bool,
+  /**
+   *  To specify the children label to be rendered inside the Checkbox.
+   */
+  children: PropTypes.string, 
 };
 
 export default Checkbox;
