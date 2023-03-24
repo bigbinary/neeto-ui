@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.18 - 2023-03-24
+
+- Changed: -the default row size to 30 and hidden the page size changer in the *Table* component.
+
 ## 4.4.17 - 2023-03-22
 
 - Fixed: weird behavior or create new option in *MultiEmailInput*.
@@ -82,7 +86,6 @@ This PR adds the following changes to the *Switch* component.
 - Added: entry points for TypeScript resolutions in package.json
 ## 4.4.6 - 2023-03-09
 - Added: new fallback avatars in the *Avatar* component using `boringavatars`.
-
 ## 4.4.4 - 2023-03-07
 
 - Added: the ability to add a custom separator text between the primary and secondary buttons using the `buttonSeparatorText` prop for the *NoData* component.
@@ -181,7 +184,6 @@ After
 - Changed: product descriptions as per the [list](https://docs.google.com/spreadsheets/d/1xFWMyXJkUCf1YBRhrokLdlQvyBn0X3uK2M2JUZClGgw).
 - Changed: product name from **Review** to **Deploy** in the app switcher.
 ## 4.2.0 - 2023-01-19
-
 Fixed getToastrMessage in Toastr to accept object with the placeholder value for the translations.
 
 ## 4.1.44 - 2023-01-17
@@ -232,7 +234,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.27 - 2022-12-19
 - Updated: *Product switcher* component in neetoUI
 - Updated: the icon Tooltip content from "App switcher" to "Product switcher"
-
 ## 4.1.26 - 2022-12-19
 
 - Added: support for `neeto-ui-shadow-sm`, `neeto-ui-shadow-md` and `neeto-ui-shadow-lg`.
@@ -303,7 +304,6 @@ Fixed: Form validation triggered with incorrect values from MultiEmailInput.
 - Fixed: the issue with date items looking disabled in normal state
 ## 4.0.16 - 2022-10-28
 Changes documentations to sentence case from title casing.
-
 ## 4.0.15 - 2022-10-28
 
 - Added: Border for menubar block and item active states.
