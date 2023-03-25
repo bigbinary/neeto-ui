@@ -3,7 +3,7 @@ aliases:
   - &test_environment
     docker:
       # replace with your preferred image
-      - image: cimg/node:16.13.2
+      - image: cimg/node:18.12
 jobs:
   "Snapshot Test":
     <<: *test_environment

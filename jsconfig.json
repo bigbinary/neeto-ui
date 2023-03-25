@@ -1,30 +1,41 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "allowSyntheticDefaultImports": true,
-    "module": "commonJS",
+    "strictNullChecks": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
-      "*": ["*"],
-      "@bigbinary/neetoui/*": ["*"],
-      "src": ["src"],
-      "src/*": ["src/*"],
-      "atoms": ["src/atoms"],
-      "atoms/*": ["src/atoms/*"],
+      // Don't modify the below paths without consulting with neetoCompliance team
+      "assets": ["src/assets"],
+      "assets/*": ["src/assets/*"],
       "components": ["src/components"],
       "components/*": ["src/components/*"],
-      "constants": ["src/constants"],
-      "constants/*": ["src/constants/*"],
       "hooks": ["src/hooks"],
       "hooks/*": ["src/hooks/*"],
-      "managers": ["src/managers"],
-      "managers/*": ["src/managers/*"],
       "utils": ["src/utils"],
       "utils/*": ["src/utils/*"],
+      "src": ["src"],
+      "src/*": ["src/*"],
+      "neetoicons": ["node_modules/@bigbinary/neeto-icons"],
+      "neetoicons/*": ["node_modules/@bigbinary/neeto-icons/*"],
+      // You can add custom project specific paths below this comment
+      "atoms": ["src/atoms"],
+      "atoms/*": ["src/atoms/*"],
+      "constants": ["src/constants"],
+      "constants/*": ["src/constants/*"],
+      "managers": ["src/managers"],
+      "managers/*": ["src/managers/*"]
     },
+    "pretty": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "jsx": "react"
+    "checkJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve"
   },
-  "exclude": ["build", "node_modules", "storybook-static"],
-  "include": ["./**/*.js", "./**/*.jsx"]
+  "exclude": ["**/node_modules", "**/.*/"],
+  "include": ["./**/*.js", "./**/*.jsx", "./**/*.d.ts"]
 }
