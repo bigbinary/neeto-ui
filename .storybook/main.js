@@ -1,4 +1,9 @@
 const path = require("path");
+const { mergeDeepLeft } = require("ramda");
+
+const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
+const projectResolve = require("../resolve.js");
+const rootResolve = mergeDeepLeft(projectResolve, commonResolve);
 
 module.exports = {
   staticDirs: ["./public"],
@@ -19,10 +24,10 @@ module.exports = {
     "@storybook/addon-console",
     "storybook-dark-mode",
   ],
-  webpackFinal: async (config) => {
+  webpackFinal: async config => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      ...require("../resolve.js").alias,
+      ...rootResolve.alias,
       "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
     };
 
