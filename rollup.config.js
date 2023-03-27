@@ -30,7 +30,7 @@ const plugins = [
         "import",
         {
           libraryName: "antd",
-          libraryDirectory: "src",
+          libraryDirectory: "lib",
         },
       ],
     ].filter((item) => !!item),
