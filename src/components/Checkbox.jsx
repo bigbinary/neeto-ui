@@ -39,7 +39,7 @@ const Checkbox = forwardRef(
           />
           {renderLabel && (
             <Label
-              data-cy={`${hyphenize(label)}-checkbox-label`}
+              data-cy={`${hyphenize(renderLabel)}-checkbox-label`}
               htmlFor={id}
               required={required}
               {...labelProps}
@@ -50,7 +50,7 @@ const Checkbox = forwardRef(
         </div>
         {!!error && (
           <p
-            data-cy={`${hyphenize(label)}-checkbox-error`}
+            data-cy={`${hyphenize(renderLabel)}-checkbox-error`}
             className="neeto-ui-input__error"
             id={errorId}
           >
@@ -90,7 +90,7 @@ Checkbox.propTypes = {
   /**
    *  To specify the children label to be rendered inside the Checkbox.
    */
-  children: PropTypes.string, 
+  children: PropTypes.string,
 };
 
 export default Checkbox;

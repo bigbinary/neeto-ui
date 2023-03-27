@@ -50,7 +50,7 @@ const Switch = forwardRef(({
         {renderLabel && (
           <Label
             required={required}
-            data-cy={`${hyphenize(label)}-switch-label`}
+            data-cy={`${hyphenize(renderLabel)}-switch-label`}
             htmlFor={id}
             {...labelProps}
           >
@@ -60,7 +60,7 @@ const Switch = forwardRef(({
       </div>
       {!!error && (
         <p
-          data-cy={`${hyphenize(label)}-switch-error`}
+          data-cy={`${hyphenize(renderLabel)}-switch-error`}
           className="neeto-ui-input__error"
           id={errorId}
         >
@@ -103,7 +103,7 @@ Switch.propTypes = {
   /**
    *  To specify the children label to be rendered inside the Checkbox.
   */
-  children: PropTypes.string, 
+  children: PropTypes.string,
 };
 
 export default Switch;
