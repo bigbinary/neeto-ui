@@ -150,6 +150,7 @@ export interface ButtonProps {
   size?: "small" | "medium" | "large";
   href?: string;
   tooltipProps?: TooltipProps;
+  children?: string;
   [key: string]: any;
 }
 
@@ -169,6 +170,7 @@ export type CheckboxProps = {
   required?: false;
   id?: string;
   labelProps?: LabelProps;
+  children?: string;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -341,6 +343,7 @@ export type SwitchProps = {
   checked?: boolean;
   disabled?: boolean;
   labelProps?: LabelProps;
+  children?: string;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -395,6 +398,7 @@ export interface TagProps {
   color?: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
+  children:string;
 }
 
 export type TextareaProps = {

@@ -26,10 +26,12 @@ const Tag = ({
   disabled = false,
   size = SIZES.small,
   type = TYPES.outline,
+  children,
   ...otherProps
 }) => {
   let Icon =
     typeof icon == "string" ? () => <i className={icon} /> : icon || Fragment;
+  const renderLabel = label || children;
 
   return (
     <div
@@ -72,7 +74,7 @@ const Tag = ({
         </span>
       )}
 
-      {label}
+      {renderLabel}
 
       {onClose && (
         <span
@@ -138,6 +140,10 @@ Tag.propTypes = {
    * _Use `indicatorStatus` prop instead._
    */
   indicatorColor: PropTypes.string,
+  /**
+   * To specify the children to be rendered inside the Tag.
+   */
+  children: PropTypes.string,
 };
 
 export default Tag;

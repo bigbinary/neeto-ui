@@ -15,11 +15,13 @@ const Switch = forwardRef(({
   error = "",
   onChange = noop,
   labelProps,
+  children,
   ...otherProps
 }, ref) => {
   const id = useId(otherProps.id);
   const errorId = `error_${id}`;
   const { checked, disabled } = otherProps;
+  const renderLabel = label || children;
 
   return (
     <div ref={ref} className={classnames(["neeto-ui-switch__wrapper", className])}>
@@ -45,20 +47,20 @@ const Switch = forwardRef(({
             )}
           </span>
         </label>
-        {label && (
+        {renderLabel && (
           <Label
             required={required}
-            data-cy={`${hyphenize(label)}-switch-label`}
+            data-cy={`${hyphenize(renderLabel)}-switch-label`}
             htmlFor={id}
             {...labelProps}
           >
-            {label}
+            {renderLabel}
           </Label>
         )}
       </div>
       {!!error && (
         <p
-          data-cy={`${hyphenize(label)}-switch-error`}
+          data-cy={`${hyphenize(renderLabel)}-switch-error`}
           className="neeto-ui-input__error"
           id={errorId}
         >
@@ -98,6 +100,10 @@ Switch.propTypes = {
    * To disable the component
    */
   disabled: PropTypes.bool,
+  /**
+   *  To specify the children label to be rendered inside the Checkbox.
+  */
+  children: PropTypes.string,
 };
 
 export default Switch;

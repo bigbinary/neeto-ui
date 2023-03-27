@@ -38,11 +38,13 @@ const Button = React.forwardRef(
       size = SIZES.medium,
       href = "",
       tooltipProps = null,
+      children,
       ...otherProps
     },
     ref
   ) => {
     let Parent, elementSpecificProps;
+    const renderLabel = label || children;
 
     if (to) {
       Parent = Link;
@@ -95,7 +97,7 @@ const Button = React.forwardRef(
           {...elementSpecificProps}
           {...otherProps}
         >
-          {label && <span>{label}</span>}
+          {renderLabel && <span>{renderLabel}</span>}
 
           <AnimatePresence exitBeforeEnter>
             {icon ? (
@@ -205,6 +207,10 @@ Button.propTypes = {
    * To specify the props to be passed to the tooltip.
    */
   tooltipProps: PropTypes.object,
+  /**
+   * To specify the children to be rendered inside the Button.
+   */
+  children: PropTypes.string,
 };
 
 export default Button;
