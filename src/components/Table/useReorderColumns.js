@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import { move } from "ramda";
 
 const useReorderColumns = ({
@@ -9,21 +8,6 @@ const useReorderColumns = ({
   rowSelection,
 }) => {
   if (!isEnabled) return { dragProps: {}, columns };
-
-  const modifiedColumns = useMemo(
-    () =>
-      columns.map((col) => ({
-        ...col,
-        title: () => {
-          let { title } = col;
-          if (typeof col.title === "function") {
-            title = title();
-          }
-          return <span className="dragHandler">{title}</span>;
-        },
-      })),
-    [columns]
-  );
 
   const isColumnFixed = (column) => !!column.fixed;
 
@@ -41,11 +25,11 @@ const useReorderColumns = ({
       onColumnUpdate(newColumns);
     },
     nodeSelector: "th",
-    handleSelector: ".dragHandler",
-    ignoreSelector: "react-resizable-handle",
+    handleSelector: ".drag-handler",
+    ignoreSelector: ".react-resizable-handle",
   };
 
-  return { dragProps, columns: modifiedColumns };
+  return { dragProps, columns };
 };
 
 export default useReorderColumns;

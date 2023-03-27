@@ -3,6 +3,11 @@ import { Table as AntTable } from "antd";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Left, Right, MenuHorizontal } from "@bigbinary/neeto-icons";
+import {
+  ResizableHeaderCell,
+  ReorderableHeaderCell,
+  HeaderCell,
+} from "./HeaderCell";
 
 import { noop } from "utils";
 
@@ -40,6 +45,7 @@ const Table = ({
   shouldDynamicallyRenderRowSize = false,
   bordered = true,
   onColumnUpdate = noop,
+  components = {},
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -81,7 +87,7 @@ const Table = ({
     rowSelection,
   });
 
-  const { components, columns: curatedColumnsData } = useResizableColumns({
+  const { columns: curatedColumnsData } = useResizableColumns({
     isEnabled: enableColumnResize,
     columns: columnsWithReorderProps,
     setColumns,
@@ -104,6 +110,23 @@ const Table = ({
       selectedRowKeys,
     };
   }
+
+  const reordableHeader = {
+    header: {
+      cell: enableColumnResize
+        ? enableColumnReorder
+          ? HeaderCell
+          : ResizableHeaderCell
+        : enableColumnReorder
+          ? ReorderableHeaderCell
+          : null,
+    },
+  };
+
+  let componentOverrides = {
+    ...components,
+    ...reordableHeader,
+  };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
@@ -159,7 +182,7 @@ const Table = ({
         columns={curatedColumnsData}
         dataSource={rowData}
         loading={loading}
-        components={components}
+        components={componentOverrides}
         rowClassName={classnames(
           "neeto-ui-table--row",
           { "neeto-ui-table--row_hover": allowRowClick },

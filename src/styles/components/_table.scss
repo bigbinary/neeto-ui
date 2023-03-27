@@ -685,11 +685,11 @@ td.ant-table-column-sort {
   z-index: 1;
 }
 
-.neeto-ui-table-reorderable .dragHandler{
-  width: 100%;
-  display: block;
+.react-resizable-handle:hover {
+  background-color: rgb(var(--neeto-ui-gray-300));
 }
 
-.neeto-ui-table-reorderable th:not(.ant-table-cell-fix-sticky):hover .dragHandler{
+.neeto-ui-table-reorderable
+  .drag-handler:not(.ant-table-cell-fix-sticky):hover {
   cursor: move;
 }
