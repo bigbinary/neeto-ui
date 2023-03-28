@@ -70,6 +70,7 @@ const ColorPicker = ({
 
   const Target = ({ size }) => (
     <button
+     type="button"
       data-cy="color-picker-target"
       className={classnames("neeto-ui-colorpicker__target", {
         "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,
@@ -115,6 +116,7 @@ const ColorPicker = ({
               onClick={pickColor}
               size="small"
               className="neeto-ui-colorpicker__eyedropper-btn"
+              type="button"
             />
           )}
           <div className="neeto-ui-input__wrapper">
