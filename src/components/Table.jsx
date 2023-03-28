@@ -143,6 +143,7 @@ const Table = ({
       )}
       rowSelection={rowSelectionProps}
       scroll={{
+        x:"max-content",
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
