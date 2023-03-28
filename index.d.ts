@@ -398,7 +398,7 @@ export interface TagProps {
   color?: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
-  children:string;
+  children?: string;
 }
 
 export type TextareaProps = {

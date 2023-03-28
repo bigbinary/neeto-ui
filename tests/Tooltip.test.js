@@ -4,12 +4,20 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("Tooltip", () => {
-  it("should render on hover ", () => {
+  it("should render on hover", () => {
     render(
       <Tooltip content="Tooltip">
         <Typography>Text</Typography>
       </Tooltip>
     );
+    const text = screen.getByText("Text");
+    userEvent.hover(text);
+    const tooltip = screen.getByText("Tooltip");
+    expect(tooltip).toBeInTheDocument();
+  });
+
+  it("should render properly when string is passed as children", () => {
+    render(<Tooltip content="Tooltip">Text</Tooltip>);
     const text = screen.getByText("Text");
     userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
