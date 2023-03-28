@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.21 - 2023-03-28
+
+- Fixed: defaulted buttons inside color picker to type `button`
+
 ## 4.4.20 - 2023-03-28
 
 - Fixed: issue with content overflow and overlap in table cells
@@ -97,7 +101,6 @@ This PR adds the following changes to the *Switch* component.
 ## 4.4.4 - 2023-03-07
 - Added: the ability to add a custom separator text between the primary and secondary buttons using the `buttonSeparatorText` prop for the *NoData* component.
 ## 4.4.3 - 2023-03-07
-
 - Changed: Exported both cjs and esm bundles.
 
 ## 4.4.2 - 2023-03-03
@@ -201,7 +204,6 @@ Fixed getToastrMessage in Toastr to accept object with the placeholder value for
 - Added: Accordion focus styles
 - Added: Pagination focus styles
 - Added: `antd` Pagination focus styles in Table
-
 Screenshot
 
 <img width="992" alt="Group 1 (1)" src="https://user-images.githubusercontent.com/48869249/212918441-d5c2c57c-16b1-4da7-a472-e64134b659ce.png">
@@ -241,7 +243,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.26 - 2022-12-19
 - Added: support for `neeto-ui-shadow-sm`, `neeto-ui-shadow-md` and `neeto-ui-shadow-lg`.
 ## 4.1.25 - 2022-12-14
-
 Fixed: Issue with overlapping column headers for fixed columns in tables.
 
 ## 4.1.24 - 2022-12-12
@@ -309,7 +310,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.15 - 2022-10-28
 - Added: Border for menubar block and item active states.
 ## 4.0.14 - 2022-10-28
-
 - Added: ability to pass custom config to Toastr.
 
 ## 4.0.13 - 2022-10-20
