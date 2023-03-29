@@ -463,6 +463,7 @@ export interface TooltipProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  children: JSX.Element | string;
   [key: string]: any;
 }
 
