@@ -398,7 +398,7 @@ export interface TagProps {
   color?: string;
   /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
   indicatorColor?: string;
-  children:string;
+  children?: string;
 }
 
 export type TextareaProps = {
@@ -463,6 +463,7 @@ export interface TooltipProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  children: JSX.Element | string;
   [key: string]: any;
 }
 

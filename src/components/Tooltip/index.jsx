@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+
 import Tippy from "@tippyjs/react";
+import PropTypes from "prop-types";
 import { followCursor } from "tippy.js";
 
 import { ARROW } from "./constants";
@@ -17,40 +18,50 @@ const Tooltip = ({
   ...otherProps
 }) => {
   const [instance, setInstance] = useState(null);
+
   const localProps = {};
+  const childToBeRendered = Array.isArray(children) ? children[0] : children;
 
   if (hideAfter > 0) {
-    localProps["onShow"] = (instance) =>
+    localProps["onShow"] = instance =>
       setTimeout(() => instance.hide(), hideAfter);
   }
+
   useEffect(() => {
     if (hideOnTargetExit) {
-      const intersectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => !entry.isIntersecting && instance?.hide());
+      const intersectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => !entry.isIntersecting && instance?.hide());
       });
       instance?.reference && intersectionObserver.observe(instance?.reference);
+
       return () => intersectionObserver.disconnect();
     }
+
+    return undefined;
   }, [instance, hideOnTargetExit]);
 
   return (
     <Tippy
-      role="tooltip"
-      theme={theme}
-      content={content}
+      animation="scale-subtle"
       arrow={ARROW}
+      content={content}
       disabled={disabled}
-      animation={"scale-subtle"}
+      duration={[100, 200]}
+      interactive={interactive}
       placement={position}
       plugins={[followCursor]}
-      interactive={interactive}
-      duration={[100, 200]}
+      role="tooltip"
+      theme={theme}
       zIndex={100001}
-      onCreate={(instance) => setInstance(instance)}
+      onCreate={setInstance}
       {...localProps}
       {...otherProps}
     >
-      {children}
+      {React.isValidElement(childToBeRendered) ? (
+        childToBeRendered
+      ) : (
+        <span>{childToBeRendered}</span>
+      )}
     </Tippy>
   );
 };
