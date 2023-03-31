@@ -20,7 +20,6 @@ const Tooltip = ({
   const [instance, setInstance] = useState(null);
 
   const localProps = {};
-  const childToBeRendered = Array.isArray(children) ? children[0] : children;
 
   if (hideAfter > 0) {
     localProps["onShow"] = instance =>
@@ -57,11 +56,7 @@ const Tooltip = ({
       {...localProps}
       {...otherProps}
     >
-      {React.isValidElement(childToBeRendered) ? (
-        childToBeRendered
-      ) : (
-        <span>{childToBeRendered}</span>
-      )}
+      {React.isValidElement(children) ? children : <span>{children}</span>}
     </Tippy>
   );
 };
