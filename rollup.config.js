@@ -47,7 +47,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("index", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
       assetFileNames: "[name][extname]",
     })),
     external: ["@bigbinary/neetoui/managers"],
@@ -64,7 +64,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("layouts", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     plugins,
   },
@@ -73,7 +73,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("formik", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     external: ["@bigbinary/neetoui/managers"],
     plugins,
@@ -83,7 +83,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("managers", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     plugins,
   },

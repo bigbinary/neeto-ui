@@ -1,10 +1,10 @@
 import "../styles/index.scss";
 
+import Button from "./Button";
 import Accordion from "./Accordion";
 import ActionDropdown from "./ActionDropdown";
 import Alert from "./Alert";
 import Avatar from "./Avatar";
-import Button from "./Button";
 import Callout from "./Callout";
 import Checkbox from "./Checkbox";
 import ColorPicker from "./ColorPicker";
