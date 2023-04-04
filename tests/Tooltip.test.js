@@ -1,7 +1,9 @@
 import React from "react";
-import { Tooltip, Typography } from "components";
+
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import { Tooltip, Typography } from "components";
 
 describe("Tooltip", () => {
   it("should render on hover", () => {
@@ -22,6 +24,21 @@ describe("Tooltip", () => {
     userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
     expect(tooltip).toBeInTheDocument();
+  });
+
+  it("should render properly when array of nodes is passed as children", () => {
+    render(
+      <Tooltip content="Tooltip">
+        <span>Hello</span>
+        <span>World</span>
+      </Tooltip>
+    );
+    const text1 = screen.getByText("Hello");
+    const text2 = screen.getByText("World");
+    userEvent.hover(text1);
+    expect(screen.getByText("Tooltip")).toBeInTheDocument();
+    userEvent.hover(text2);
+    expect(screen.getByText("Tooltip")).toBeInTheDocument();
   });
 
   it("should not render when user stops hovering", async () => {
