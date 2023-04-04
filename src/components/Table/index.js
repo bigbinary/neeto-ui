@@ -190,6 +190,7 @@ const Table = ({
         )}
         rowSelection={rowSelectionProps}
         scroll={{
+           x:"max-content",
           y: calculateTableContainerHeight(),
           ...scroll,
         }}
@@ -197,6 +198,7 @@ const Table = ({
         pagination={{
           hideOnSinglePage: true,
           ...paginationProps,
+          showSizeChanger: false,
           total: totalCount ?? 0,
           current: currentPageNumber,
           defaultPageSize: shouldDynamicallyRenderRowSize
