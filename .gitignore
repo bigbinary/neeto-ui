@@ -21,6 +21,10 @@
 /layouts*.js
 /molecules.js
 /managers*.js
+/formik*.map
+/index*.map
+/layouts*.map
+/managers*.map
 /index.js.LICENSE.txt
 /layouts.js.LICENSE.txt
 /*.png
@@ -35,4 +39,3 @@
 
 #logs
 /*.log
-

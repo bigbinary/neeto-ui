@@ -3,7 +3,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import alias from "@rollup/plugin-alias";
-import terser from "@rollup/plugin-terser";
 import svgr from "@svgr/rollup";
 import styles from "rollup-plugin-styles";
 import json from "@rollup/plugin-json";
@@ -33,7 +32,6 @@ const plugins = [
   }),
   commonjs({ include: /\**node_modules\**/ }),
   json(),
-  terser({ compress: { evaluate: false } }),
 ];
 
 const formats = ["esm", "cjs"];
@@ -47,7 +45,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("index", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
       assetFileNames: "[name][extname]",
     })),
     external: ["@bigbinary/neetoui/managers"],
@@ -64,7 +62,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("layouts", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     plugins,
   },
@@ -73,7 +71,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("formik", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     external: ["@bigbinary/neetoui/managers"],
     plugins,
@@ -83,7 +81,7 @@ export default [
     output: formats.map(format => ({
       file: getOutputFileName("managers", format),
       format,
-      sourcemap: false,
+      sourcemap: true,
     })),
     plugins,
   },
