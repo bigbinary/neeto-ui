@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.23 - 2023-04-05
+
+- Removed: `@rollup/terser-plugin` from bundling.
+- Added: sourcemaps for each bundle.
+
 ## 4.4.22 - 2023-04-04
 
 Added: Support for children array in *Tooltip* component.
@@ -107,7 +112,6 @@ This PR adds the following changes to the *Switch* component.
 ## 4.4.3 - 2023-03-07
 - Changed: Exported both cjs and esm bundles.
 ## 4.4.2 - 2023-03-03
-
 Fixed empty toastr message when errors or errorCodes are given null values.
 
 ## 4.4.1 - 2023-03-03
@@ -247,7 +251,6 @@ Added: *Checkbox* and *MultiEmailInput* are wrapped with `forwardref`.
 ## 4.1.25 - 2022-12-14
 Fixed: Issue with overlapping column headers for fixed columns in tables.
 ## 4.1.24 - 2022-12-12
-
 Added: `labelProps` to form elements to customize `Label`.
 Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 
@@ -313,7 +316,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.14 - 2022-10-28
 - Added: ability to pass custom config to Toastr.
 ## 4.0.13 - 2022-10-20
-
 - Fixed: Icons grabbing away click events & onClick not being triggered when icons are replaced during a state change.
 - Fixed: False positive type errors for MenuBar & Dropdown subcomponents
 
