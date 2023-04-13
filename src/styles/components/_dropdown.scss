@@ -33,6 +33,10 @@
   border-radius: var(--neeto-ui-rounded);
   z-index: 99999;
 
+  @media (max-height: 1000px) {
+    max-height: 40vh;
+  }
+
   li,
   .neeto-ui-dropdown--item {
     display: flex;
