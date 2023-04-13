@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+
 import classnames from "classnames";
+import { AnimatePresence, motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import { Spinner } from "atoms";
 
@@ -64,11 +65,11 @@ const Button = React.forwardRef(
     };
 
     const Icon =
-      typeof icon == "string"
+      typeof icon === "string"
         ? () => (
             <i
-              data-testid="class-icon"
               className={classnames("neeto-ui-btn__icon", [icon])}
+              data-testid="class-icon"
             />
           )
         : icon || React.Fragment;
@@ -76,8 +77,8 @@ const Button = React.forwardRef(
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
         <Parent
+          disabled={disabled}
           ref={ref}
-          onClick={handleClick}
           className={classnames("neeto-ui-btn", [className], {
             "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
             "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
@@ -89,32 +90,31 @@ const Button = React.forwardRef(
             "neeto-ui-btn--size-medium": size === SIZES.medium,
             "neeto-ui-btn--size-large": size === SIZES.large,
             "neeto-ui-btn--width-full": fullWidth,
-            "neeto-ui-btn--icon-left": iconPosition == ICON_POSITIONS.left,
+            "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
             "neeto-ui-btn--icon-only": !renderLabel,
-            disabled: disabled,
+            disabled,
           })}
-          disabled={disabled}
+          onClick={handleClick}
           {...elementSpecificProps}
           {...otherProps}
         >
           {renderLabel && <span>{renderLabel}</span>}
-
           <AnimatePresence exitBeforeEnter>
             {icon ? (
               /* When Icon is present, animate between the icon and the spinner*/
               loading ? (
                 <Spinner
                   aria-hidden="true"
+                  className="neeto-ui-btn__spinner"
                   key="1"
                   size={16}
-                  className="neeto-ui-btn__spinner"
                 />
               ) : (
                 <Icon
                   aria-hidden="true"
+                  className="neeto-ui-btn__icon"
                   key="2"
                   size={iconSize}
-                  className="neeto-ui-btn__icon"
                 />
               )
             ) : (
@@ -122,19 +122,19 @@ const Button = React.forwardRef(
               loading && (
                 <motion.div
                   className="neeto-ui-btn__spinner-wrapper"
+                  exit={{ width: 0, scale: 0 }}
                   initial={{ width: 0, scale: 0 }}
+                  transition={{ bounce: false }}
                   animate={{
                     width: "auto",
                     scale: 1,
                   }}
-                  exit={{ width: 0, scale: 0 }}
-                  transition={{ bounce: false }}
                 >
                   <Spinner
                     aria-hidden="true"
+                    className="neeto-ui-btn__spinner"
                     key="3"
                     size={16}
-                    className="neeto-ui-btn__spinner"
                   />
                 </motion.div>
               )
@@ -145,6 +145,8 @@ const Button = React.forwardRef(
     );
   }
 );
+
+Button.displayName = "Button";
 
 Button.propTypes = {
   /**
