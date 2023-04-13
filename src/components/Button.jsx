@@ -57,7 +57,7 @@ const Button = React.forwardRef(
       elementSpecificProps = { type };
     }
 
-    const handleClick = (e) => {
+    const handleClick = e => {
       if (!loading && !disabled) {
         onClick(e);
       }
@@ -66,11 +66,11 @@ const Button = React.forwardRef(
     const Icon =
       typeof icon == "string"
         ? () => (
-          <i
-            data-testid="class-icon"
-            className={classnames("neeto-ui-btn__icon", [icon])}
-          />
-        )
+            <i
+              data-testid="class-icon"
+              className={classnames("neeto-ui-btn__icon", [icon])}
+            />
+          )
         : icon || React.Fragment;
 
     return (
@@ -90,7 +90,7 @@ const Button = React.forwardRef(
             "neeto-ui-btn--size-large": size === SIZES.large,
             "neeto-ui-btn--width-full": fullWidth,
             "neeto-ui-btn--icon-left": iconPosition == ICON_POSITIONS.left,
-            "neeto-ui-btn--icon-only": !label,
+            "neeto-ui-btn--icon-only": !renderLabel,
             disabled: disabled,
           })}
           disabled={disabled}
