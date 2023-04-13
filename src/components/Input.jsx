@@ -1,7 +1,9 @@
+/* eslint-disable react/display-name */
 import React, { useState, forwardRef } from "react";
+
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { useId } from "@reach/auto-id";
 
 import { hyphenize } from "utils";
 
@@ -26,6 +28,7 @@ const Input = forwardRef(
       contentSize = null,
       required = false,
       maxLength,
+      unlimitedChars = false,
       labelProps,
       ...otherProps
     },
@@ -40,11 +43,10 @@ const Input = forwardRef(
     const value = otherProps.value ?? valueInternal ?? "";
 
     const valueLength = value?.toString().length || 0;
-    const isCharacterLimitVisible = valueLength >= maxLength * 0.9;
-    const maxLengthError = !!maxLength && valueLength > maxLength;
+    const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
+    const maxLengthError = unlimitedChars && valueLength > maxLength;
 
-
-    const onChangeInternal = (e) => setValueInternal(e.target.value);
+    const onChangeInternal = e => setValueInternal(e.target.value);
 
     const onChange = otherProps.onChange || onChangeInternal;
 
@@ -53,9 +55,9 @@ const Input = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
-              required={required}
               data-cy={`${hyphenize(label)}-input-label`}
               htmlFor={id}
+              required={required}
               {...labelProps}
             >
               {label}
@@ -63,10 +65,10 @@ const Input = forwardRef(
           )}
           {isCharacterLimitVisible && (
             <Typography
+              style="body2"
               className={classnames("neeto-ui-input__max-length", {
                 "neeto-ui-input__max-length--error": maxLengthError,
               })}
-              style="body2"
             >
               {valueLength}/{maxLength}
             </Typography>
@@ -84,18 +86,19 @@ const Input = forwardRef(
         >
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
-            ref={ref}
-            id={id}
-            type={type}
-            disabled={disabled}
-            size={contentSize}
-            required={required}
             aria-invalid={!!error}
+            data-cy="input-field"
+            disabled={disabled}
+            id={id}
+            ref={ref}
+            required={required}
+            size={contentSize}
+            type={type}
             aria-describedby={classnames({
               [errorId]: !!error,
               [helpTextId]: helpText,
             })}
-            data-cy="input-field"
+            {...(maxLength && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -104,20 +107,20 @@ const Input = forwardRef(
         </div>
         {!!error && (
           <Typography
-            style="body3"
-            data-cy={`${hyphenize(label)}-input-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
+            style="body3"
           >
             {error}
           </Typography>
         )}
         {helpText && (
           <Typography
-            style="body3"
             className="neeto-ui-input__help-text"
-            id={helpTextId}
             data-cy={`${hyphenize(label)}-input-help`}
+            id={helpTextId}
+            style="body3"
           >
             {helpText}
           </Typography>
@@ -145,9 +148,13 @@ Input.propTypes = {
    */
   labelProps: PropTypes.object,
   /**
-   * To specify a maximum character limit to the Input. Charater limit is visible only if the Input value is greater than or equal to 90% of the maximum character limit.
+   * To specify a maximum character limit to the Input. Charater limit is visible only if the Input value is greater than or equal to 85% of the maximum character limit.
    */
-  maxLength: PropTypes.number,
+  maxLength: PropTypes.bool,
+  /**
+   * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
+   */
+  unlimitedChars: PropTypes.number,
   /**
    * To specify the text to be displayed above the Input.
    */

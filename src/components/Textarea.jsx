@@ -1,12 +1,14 @@
+/* eslint-disable react/display-name */
 import React, { useState, useEffect, forwardRef } from "react";
+
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import Label from "./Label";
-import { useId } from "@reach/auto-id";
 
 import { useSyncedRef } from "hooks";
 import { hyphenize } from "utils";
 
+import Label from "./Label";
 import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
@@ -24,6 +26,7 @@ const Textarea = forwardRef(
       label = "",
       className = "",
       maxLength,
+      unlimitedChars = false,
       labelProps,
       ...otherProps
     },
@@ -39,17 +42,17 @@ const Textarea = forwardRef(
     const textareaRef = useSyncedRef(ref);
 
     const valueLength = value?.toString().length || 0;
-    const isCharacterLimitVisible = valueLength >= maxLength * 0.9;
-    const maxLengthError = !!maxLength && valueLength > maxLength;
+    const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
+    const maxLengthError = unlimitedChars && valueLength > maxLength;
 
-    const onChangeInternal = (e) => setValueInternal(e.target.value);
+    const onChangeInternal = e => setValueInternal(e.target.value);
     const onChange = otherProps.onChange ?? onChangeInternal;
 
     useEffect(() => {
       textareaRef.current.style.minHeight = "22px";
       textareaRef.current.style.height = "auto";
       const scrollHeight = textareaRef.current.scrollHeight;
-      textareaRef.current.style.height = scrollHeight + "px";
+      textareaRef.current.style.height = `${scrollHeight}px`;
     }, [value]);
 
     return (
@@ -57,9 +60,9 @@ const Textarea = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
-              required={required}
               data-cy={`${hyphenize(label)}-label`}
               htmlFor={id}
+              required={required}
               {...labelProps}
             >
               {label}
@@ -67,10 +70,10 @@ const Textarea = forwardRef(
           )}
           {isCharacterLimitVisible && (
             <Typography
+              style="body2"
               className={classnames("neeto-ui-input__max-length", {
                 "neeto-ui-input__max-length--error": maxLengthError,
               })}
-              style="body2"
             >
               {valueLength}/{maxLength}
             </Typography>
@@ -87,9 +90,10 @@ const Textarea = forwardRef(
           })}
         >
           <textarea
-            rows={rows}
-            ref={textareaRef}
             disabled={disabled}
+            ref={textareaRef}
+            rows={rows}
+            {...(maxLength && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -97,19 +101,19 @@ const Textarea = forwardRef(
         </div>
         {!!error && (
           <Typography
-            style="body3"
-            data-cy={`${hyphenize(label)}-input-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
+            style="body3"
           >
             {error}
           </Typography>
         )}
         {helpText && (
           <Typography
-            style="body3"
             className="neeto-ui-input__help-text"
             id={helpTextId}
+            style="body3"
           >
             {helpText}
           </Typography>
@@ -169,9 +173,13 @@ Textarea.propTypes = {
    */
   nakedTextarea: PropTypes.bool,
   /**
-   * To specify a maximum character limit to the Textarea.
+   * To specify a maximum character limit to the Textarea. Charater limit is visible only if the Textarea value is greater than or equal to 85% of the maximum character limit.
    */
-  maxLength: PropTypes.number,
+  maxLength: PropTypes.bool,
+  /**
+   * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
+   */
+  unlimitedChars: PropTypes.number,
 };
 
 export default Textarea;
