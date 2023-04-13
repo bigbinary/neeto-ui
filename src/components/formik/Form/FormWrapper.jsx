@@ -1,10 +1,17 @@
 import React, { useEffect, useCallback, forwardRef } from "react";
-import PropTypes from "prop-types";
+
 import { Form as FormikForm, useFormikContext } from "formik";
+import PropTypes from "prop-types";
 
 const FormWrapper = forwardRef(
   (
-    { className, formProps, children, onSubmit, setEnableChangeAndBlurValidation },
+    {
+      className,
+      formProps,
+      children,
+      onSubmit,
+      setEnableChangeAndBlurValidation,
+    },
     formRef
   ) => {
     const {
@@ -19,21 +26,24 @@ const FormWrapper = forwardRef(
     const { dirty: isFormDirty, isSubmitting } = formikBag;
 
     const handleKeyDown = useCallback(
-      (event) => {
+      event => {
         const isEventFromEditorOrTextarea =
           event.target.tagName === "TEXTAREA" || event.target.editor;
 
         if (event.key !== "Enter") return;
+
         if (isEventFromEditorOrTextarea && !event.metaKey) return;
 
         event.preventDefault();
 
         if (event.shiftKey) {
           return;
-        } else {
-          if (!isFormDirty || isSubmitting) return;
+        }
 
-          validateForm().then((errors) => {
+        if (!isFormDirty || isSubmitting) return;
+
+        validateForm()
+          .then(errors => {
             setEnableChangeAndBlurValidation(true);
             if (Object.keys(errors).length > 0) {
               setErrors(errors);
@@ -41,10 +51,18 @@ const FormWrapper = forwardRef(
             } else {
               onSubmit(values, formikBag);
             }
-          });
-        }
+          })
+          .catch(() => {});
       },
-      [values, validateForm, setErrors, setTouched, onSubmit, isFormDirty, isSubmitting]
+      [
+        values,
+        validateForm,
+        setErrors,
+        setTouched,
+        onSubmit,
+        isFormDirty,
+        isSubmitting,
+      ]
     );
 
     useEffect(() => {
@@ -55,11 +73,11 @@ const FormWrapper = forwardRef(
 
     return (
       <FormikForm
-        onKeyDown={handleKeyDown}
         noValidate
         className={className}
-        ref={formRef}
         data-testid="neeto-ui-form-wrapper"
+        ref={formRef}
+        onKeyDown={handleKeyDown}
         {...formProps}
       >
         {children}
