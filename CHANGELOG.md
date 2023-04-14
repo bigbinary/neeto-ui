@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.25 - 2023-04-14
+
+- Fixed: multi dropdown position in Safari.
+
 ## 4.4.24 - 2023-04-13
 
 - Fixed: promise rejection in formik.
@@ -118,7 +122,6 @@ This PR adds the following changes to the *Switch* component.
 ## 4.4.2 - 2023-03-03
 Fixed empty toastr message when errors or errorCodes are given null values.
 ## 4.4.1 - 2023-03-03
-
 - Added feature to display string from custom message key from response , when the noticeCode is custom_message
 
 ## 4.4.0 - 2023-02-24
@@ -257,7 +260,6 @@ Fixed: Issue with overlapping column headers for fixed columns in tables.
 Added: `labelProps` to form elements to customize `Label`.
 Changed: Made `shouldDynamicallyRenderRowSize` `false` by default.
 ## 4.1.22 - 2022-12-07
-
 - Added: *Popover* component
 
 <img width="1100" alt="Screenshot 2022-12-05 at 5 42 51 PM" src="https://user-images.githubusercontent.com/24496302/205637383-afe596b8-c117-43ce-ad00-fee566fa0859.png">
@@ -321,7 +323,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: Icons grabbing away click events & onClick not being triggered when icons are replaced during a state change.
 - Fixed: False positive type errors for MenuBar & Dropdown subcomponents
 ## 4.0.12 - 2022-10-17
-
 - Added: tooltip to *Avatar* component
 
 ## 4.0.11 - 2022-10-10
