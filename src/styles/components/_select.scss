@@ -154,6 +154,10 @@
     .neeto-ui-react-select__menu-list {
       position: relative;
       max-height: 480px;
+
+      @media (max-height: 1000px) {
+        max-height: calc(40vh - 50px);
+      }
     }
 
     .neeto-ui-react-select__option {
