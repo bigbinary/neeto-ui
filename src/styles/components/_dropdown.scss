@@ -34,7 +34,7 @@
   z-index: 99999;
 
   @media (max-height: 1000px) {
-    max-height: 40vh;
+    max-height: calc(40vh - 50px);
   }
 
   li,
