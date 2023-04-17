@@ -47,6 +47,7 @@ const Textarea = forwardRef(
 
     const onChangeInternal = e => setValueInternal(e.target.value);
     const onChange = otherProps.onChange ?? onChangeInternal;
+    const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     useEffect(() => {
       textareaRef.current.style.minHeight = "22px";
@@ -93,7 +94,7 @@ const Textarea = forwardRef(
             disabled={disabled}
             ref={textareaRef}
             rows={rows}
-            {...(maxLength && !unlimitedChars && { maxLength })}
+            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -175,11 +176,11 @@ Textarea.propTypes = {
   /**
    * To specify a maximum character limit to the Textarea. Charater limit is visible only if the Textarea value is greater than or equal to 85% of the maximum character limit.
    */
-  maxLength: PropTypes.bool,
+  maxLength: PropTypes.number,
   /**
    * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
    */
-  unlimitedChars: PropTypes.number,
+  unlimitedChars: PropTypes.bool,
 };
 
 export default Textarea;

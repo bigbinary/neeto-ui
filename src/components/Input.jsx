@@ -49,6 +49,7 @@ const Input = forwardRef(
     const onChangeInternal = e => setValueInternal(e.target.value);
 
     const onChange = otherProps.onChange || onChangeInternal;
+    const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -98,7 +99,7 @@ const Input = forwardRef(
               [errorId]: !!error,
               [helpTextId]: helpText,
             })}
-            {...(maxLength && !unlimitedChars && { maxLength })}
+            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -150,11 +151,11 @@ Input.propTypes = {
   /**
    * To specify a maximum character limit to the Input. Charater limit is visible only if the Input value is greater than or equal to 85% of the maximum character limit.
    */
-  maxLength: PropTypes.bool,
+  maxLength: PropTypes.number,
   /**
    * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
    */
-  unlimitedChars: PropTypes.number,
+  unlimitedChars: PropTypes.bool,
   /**
    * To specify the text to be displayed above the Input.
    */
