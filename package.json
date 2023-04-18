@@ -20,7 +20,6 @@
   "files": [
     "index.*",
     "formik.*",
-    "layouts.*",
     "managers.*"
   ],
   "lint-staged": {
@@ -39,11 +38,6 @@
       "require": "./index.cjs.js",
       "style": "./index.css",
       "types": "./index.d.ts"
-    },
-    "./layouts": {
-      "import": "./layouts.js",
-      "require": "./layouts.cjs.js",
-      "types": "./layouts.d.ts"
     },
     "./formik": {
       "import": "./formik.js",
@@ -189,8 +183,7 @@
   "keywords": [
     "components",
     "ui",
-    "styles",
-    "layouts"
+    "styles"
   ],
   "bugs": {
     "url": "https://github.com/bigbinary/neeto-ui/issues"
