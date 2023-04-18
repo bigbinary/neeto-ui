@@ -6,15 +6,6 @@ export interface ContainerProps {
   isHeaderFixed?: boolean;
 }
 
-export interface HeaderProps {
-  title?: React.ReactNode;
-  menuBarToggle?: () => void;
-  searchProps?: InputProps;
-  className?: string;
-  actionBlock?: React.ReactNode;
-  breadcrumbs?: { text: React.ReactNode; link: string }[];
-}
-
 export interface MenuBarProps {
   title?: string;
   className?: string;
@@ -107,7 +98,6 @@ export interface SubHeaderProps {
 }
 
 export const Container: React.ForwardRefExoticComponent<ContainerProps>;
-export const Header: React.FC<HeaderProps>;
 export const MenuBar: React.FC<MenuBarProps> & {
   Block: React.FC<MenuBarBlockProps>;
   Item: React.FC<MenuBarItemProps>;

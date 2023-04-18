@@ -67,6 +67,8 @@
     "@bigbinary/eslint-plugin-neeto": "^1.0.26",
     "@bigbinary/neeto-commons-frontend": "^2.0.42",
     "@bigbinary/neeto-icons": "^1.9.22",
+    "@bigbinary/neeto-molecules": "^1.0.20",
+    "@bigbinary/neetoui": "^4.4.26",
     "@reach/auto-id": "0.15.0",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-babel": "^5.3.1",

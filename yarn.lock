@@ -1672,6 +1672,16 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.9.22.tgz#e018fef34b1b0f09175eeac4cf5f40a8ce8cccd3"
   integrity sha512-BiBsqk8ZNuZY7ODdrl1WwiW2WG7WmVnr/6KMTbFnLUKAjErB4T9n4aKZ3LwplKsG0tkPs5tCkR+3Es9v72K8TA==
 
+"@bigbinary/neeto-molecules@^1.0.20":
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-molecules/-/neeto-molecules-1.0.20.tgz#32ba5860de2c4bf21aef4764ebee845b309e6c5f"
+  integrity sha512-Bzd21m5GldaImW/mZVAr8yYPvRFSwPebgU4KTxiznjDR7gyiPkY1kut2YgDOuTwsp63bDIGXv7Ned26qCmmT6A==
+
+"@bigbinary/neetoui@^4.4.26":
+  version "4.4.26"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neetoui/-/neetoui-4.4.26.tgz#1ecec3e3e70bfd7bc932507b91149e025fee1a94"
+  integrity sha512-u8WS8N8z2uIX1nKKsvoNmeSyhuvGRQGEE6svLfsRHKkbLjB51nJMhGEc1E5pDq8nczxah14i+uhfyz7SO+GAmQ==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
