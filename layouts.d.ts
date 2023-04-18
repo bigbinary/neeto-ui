@@ -2,23 +2,6 @@ import React from "react";
 import { NavLinkProps } from "react-router-dom";
 import { AvatarProps, InputProps, ButtonProps } from "./index";
 
-export interface AppSwitcherProps {
-  isOpen?: boolean;
-  className?: string;
-  closeOnEsc?: boolean;
-  closeOnOutsideClick?: boolean;
-  activeApp?: string;
-  neetoApps?: {
-    name: string;
-    description: string;
-    url: string;
-  }[];
-  recentApps?: string[];
-  isSidebarOpen?: boolean;
-  onClose?: () => void;
-  [key: string]: any;
-}
-
 export interface ContainerProps {
   isHeaderFixed?: boolean;
 }
@@ -117,44 +100,12 @@ type LinkType = {
   HTMLButtonElement
 >;
 
-export interface SidebarProps {
-  organizationInfo?: {
-    logo?: React.ReactNode;
-    name?: React.ReactNode;
-    subdomain?: React.ReactNode;
-  };
-  navLinks?: NavLinkItemType[];
-  tooltipStyle?: "default" | "featured";
-  /** @deprecated Prop removed as footer links in sidebar is no longer supported*/
-  footerLinks?: FooterLinkType[];
-  helpLinks?: {
-    documentationProps?: LinkType;
-    keyboardShortcutProps?: LinkType;
-    liveChatProps?: LinkType;
-    changelogProps?: LinkType;
-  };
-  profileInfo?: {
-    name?: string;
-    email?: string;
-    topLinks?: LinkType[];
-    bottomLinks?: LinkType[];
-    customContent?: React.ReactNode;
-    "data-cy"?: string;
-  } & AvatarProps;
-  /** @deprecated Prop removed as expanded state of sidebar is no longer supported */
-  isCollapsed?: boolean;
-  showAppSwitcher?: boolean;
-  onAppSwitcherToggle?: React.MouseEventHandler<HTMLButtonElement>;
-  appName?: string;
-}
-
 export interface SubHeaderProps {
   className?: string;
   leftActionBlock?: React.ReactNode;
   rightActionBlock?: React.ReactNode;
 }
 
-export const AppSwitcher: React.FC<AppSwitcherProps>;
 export const Container: React.ForwardRefExoticComponent<ContainerProps>;
 export const Header: React.FC<HeaderProps>;
 export const MenuBar: React.FC<MenuBarProps> & {
@@ -165,5 +116,4 @@ export const MenuBar: React.FC<MenuBarProps> & {
   AddNew: React.FC<MenuBarAddNewProps>;
 };
 export const Scrollable: React.FC<ScrollableProps>;
-export const Sidebar: React.FC<SidebarProps>;
 export const SubHeader: React.FC<SubHeaderProps>;
