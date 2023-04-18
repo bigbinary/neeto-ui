@@ -1,30 +1,27 @@
 import React, { useEffect, useState, useRef } from "react";
-import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
 
-import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT, SIMPLE_TABLE_DATA } from "../constants";
-import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
-import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
-import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
-import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
-import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
+import { MenuHorizontal, Search, Settings, Plus } from "neetoicons";
 
+import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
 import NeetoTable from "components/Table";
+import Container from "neetomolecules/Container";
+import Header from "neetomolecules/Header";
+import MenuBar from "neetomolecules/MenuBar";
+import Scrollable from "neetomolecules/Scrollable";
+import SubHeader from "neetomolecules/SubHeader";
 
 import {
-  Tooltip,
-  Tag,
-  Avatar,
-  Button,
-  Typography,
-  Dropdown,
-} from "components";
-import {
-  Container,
-  Scrollable,
-  MenuBar,
-  Header,
-  SubHeader,
-} from "components/layouts";
+  getTableSource,
+  TABLE_DATA,
+  TABLE_IN_LAYOUT,
+  SIMPLE_TABLE_DATA,
+} from "../constants";
+
+import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
+import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
+import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
+import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
+import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
 export default {
   title: "Components/Table",
@@ -38,11 +35,10 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
+      url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
-  argTypes:{
+  argTypes: {
     rowData: {
       control: false,
     },
@@ -53,10 +49,10 @@ export default {
     handlePageChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "-" }
-      }
+        defaultValue: { summary: "-" },
+      },
     },
-  }
+  },
 };
 
 const fixedColumnWidths = [
@@ -165,18 +161,16 @@ const getColumns = (fixed = false) => [
     dataIndex: "first_name",
     key: "first_name",
     width: 150,
-    render: (firstName, lastName) => {
-      return (
-        <div className="flex flex-row items-center">
-          <Avatar
-            user={{ name: `${firstName} ${lastName}` }}
-            size="small"
-            className="mr-2"
-          />
-          {firstName}
-        </div>
-      );
-    },
+    render: (firstName, lastName) => (
+      <div className="flex flex-row items-center">
+        <Avatar
+          className="mr-2"
+          size="small"
+          user={{ name: `${firstName} ${lastName}` }}
+        />
+        {firstName}
+      </div>
+    ),
   },
   {
     title: "Last Name",
@@ -292,11 +286,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "action",
     key: "action",
     width: 150,
-    render: () => (
-      <>
-        <Tag label="check" />
-      </>
-    ),
+    render: () => <Tag label="check" />,
   },
   {
     title: "Icon Button",
@@ -306,12 +296,13 @@ const getColumns = (fixed = false) => [
     fixed: fixed ? "right" : undefined,
     render: () => {
       const { Menu, MenuItem } = Dropdown;
+
       return (
         <Dropdown
-          icon={MenuHorizontal}
-          buttonStyle="text"
-          strategy="fixed"
           appendTo={fixed ? () => document.body : undefined}
+          buttonStyle="text"
+          icon={MenuHorizontal}
+          strategy="fixed"
         >
           <Menu>
             <MenuItem.Button>Action</MenuItem.Button>
@@ -323,14 +314,15 @@ const getColumns = (fixed = false) => [
   },
 ];
 
-export const Default = (args) => {
+export const Default = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <NeetoTable
       columnData={getColumns()}
-      rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
+      rowData={TABLE_DATA}
       {...args}
     />
   );
@@ -348,45 +340,42 @@ Default.parameters = {
   },
 };
 
-export const TableWithSpecifiedHorizontalScrolling = (args) => {
-  return (
-    <div className="w-2/3 mx-auto mt-10">
-      <NeetoTable
-        scroll={{ x: "100%" }}
-        columnData={fixedColumnWidths}
-        rowData={SIMPLE_TABLE_DATA}
-        {...args}
-      />
-    </div>
-  );
-};
+export const TableWithSpecifiedHorizontalScrolling = args => (
+  <div className="mx-auto mt-10 w-2/3">
+    <NeetoTable
+      columnData={fixedColumnWidths}
+      rowData={SIMPLE_TABLE_DATA}
+      scroll={{ x: "100%" }}
+      {...args}
+    />
+  </div>
+);
 
-TableWithSpecifiedHorizontalScrolling.storyName = "Table with specified width for horizontal scrolling";
+TableWithSpecifiedHorizontalScrolling.storyName =
+  "Table with specified width for horizontal scrolling";
 
-export const TableWithTooltipsOnHeader = (args) => {
-  return (
-    <div className="w-2/3 mx-auto mt-10">
-      <NeetoTable
-        scroll={{ x: "100%" }}
-        columnData={headerTooltips}
-        rowData={SIMPLE_TABLE_DATA}
-        {...args}
-      />
-    </div>
-  );
-};
+export const TableWithTooltipsOnHeader = args => (
+  <div className="mx-auto mt-10 w-2/3">
+    <NeetoTable
+      columnData={headerTooltips}
+      rowData={SIMPLE_TABLE_DATA}
+      scroll={{ x: "100%" }}
+      {...args}
+    />
+  </div>
+);
 
 TableWithTooltipsOnHeader.storyName = "Table with Tooltips on header";
 
-
-export const TableWithFixedRightColumn = (args) => {
+export const TableWithFixedRightColumn = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <NeetoTable
       columnData={getColumns(true)}
-      rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
+      rowData={TABLE_DATA}
       {...args}
     />
   );
@@ -408,13 +397,13 @@ export const TableWithSelectedRowKeys = ({
   return (
     <NeetoTable
       columnData={getColumns()}
-      rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
+      rowData={TABLE_DATA}
       {...args}
-      selectedRowKeys={selectedRowKeys}
-      onRowSelect={(selectedRowKeys) => setSelectedRowKeys(selectedRowKeys)}
       rowSelection
+      selectedRowKeys={selectedRowKeys}
+      onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
     />
   );
 };
@@ -423,6 +412,7 @@ TableWithSelectedRowKeys.args = {
   defaultPageSize: 10,
   selectedRowKeys: [1, 2, 3],
 };
+
 TableWithSelectedRowKeys.parameters = {
   docs: {
     source: {
@@ -431,16 +421,14 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
-export const TableWithSorting = (args) => {
-  return (
-    <NeetoTable
-      columnData={getColumns()}
-      rowData={TABLE_DATA}
-      currentPageNumber={1}
-      {...args}
-    />
-  );
-};
+export const TableWithSorting = args => (
+  <NeetoTable
+    columnData={getColumns()}
+    currentPageNumber={1}
+    rowData={TABLE_DATA}
+    {...args}
+  />
+);
 TableWithSorting.storyName = "Table with sorting";
 TableWithSorting.parameters = {
   docs: {
@@ -450,19 +438,21 @@ TableWithSorting.parameters = {
     },
   },
 };
+
 TableWithSorting.args = {
   defaultPageSize: 10,
 };
 
-export const TableWithFixedHeight = (args) => {
+export const TableWithFixedHeight = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
-    <div style={{height: "600px"}}>
+    <div style={{ height: "600px" }}>
       <NeetoTable
         columnData={getColumns()}
-        rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
         {...args}
       />
     </div>
@@ -473,6 +463,7 @@ TableWithFixedHeight.args = {
   defaultPageSize: 10,
   fixedHeight: true,
 };
+
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
@@ -482,15 +473,16 @@ TableWithFixedHeight.parameters = {
   },
 };
 
-export const TableWithoutCheckbox = (args) => {
+export const TableWithoutCheckbox = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <div className="h-96">
       <NeetoTable
         columnData={getColumns()}
-        rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
         {...args}
       />
     </div>
@@ -500,6 +492,7 @@ TableWithoutCheckbox.storyName = "Table without checkbox";
 TableWithoutCheckbox.args = {
   rowSelection: false,
 };
+
 TableWithoutCheckbox.parameters = {
   docs: {
     description: { story: TableWithoutCheckboxDocs },
@@ -509,10 +502,11 @@ TableWithoutCheckbox.parameters = {
   },
 };
 
-export const TableWithDynamicData = (args) => {
+export const TableWithDynamicData = args => {
   const [pageNumber, setPageNumber] = useState(1);
   const [slice, setSlice] = useState(20);
   const data = TABLE_DATA.slice(0, slice);
+
   return (
     <div className="flex flex-col items-start space-y-3">
       <Button
@@ -521,9 +515,9 @@ export const TableWithDynamicData = (args) => {
       />
       <NeetoTable
         columnData={getColumns()}
-        rowData={data}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={data}
         {...args}
       />
     </div>
@@ -547,8 +541,10 @@ export const TableInLayout = () => {
     timeoutRef.current = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+
     return () => clearTimeout(timeoutRef.current);
   }, []);
+
   return (
     <div className="flex">
       <MenuBar
@@ -559,17 +555,16 @@ export const TableInLayout = () => {
           </div>
         }
       >
-        <MenuBar.Block label="All" count={13} active />
-        <MenuBar.Block label="Users" count={2} />
-        <MenuBar.Block label="Leads" count={7} />
-        <MenuBar.Block label="Visitors" count={4} />
-
+        <MenuBar.Block active count={13} label="All" />
+        <MenuBar.Block count={2} label="Users" />
+        <MenuBar.Block count={7} label="Leads" />
+        <MenuBar.Block count={4} label="Visitors" />
         <MenuBar.SubTitle
           iconProps={[
             {
               icon: () => <Search size={20} />,
               onClick: () =>
-                setIsSearchCollapsed((isSearchCollapsed) => !isSearchCollapsed),
+                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
@@ -586,9 +581,9 @@ export const TableInLayout = () => {
           collapse={isSearchCollapsed}
           onCollapse={() => setIsSearchCollapsed(true)}
         />
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add New Segments" />
         <MenuBar.SubTitle
           iconProps={[
@@ -612,40 +607,35 @@ export const TableInLayout = () => {
             Tags
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add New Tag" />
-
         <MenuBar.Item
-          label="General"
           description="Welcome Message, KB and Labels "
+          label="General"
         />
         <MenuBar.Item
-          label="Styling"
           active
           description="Brand Color, Logo and Widget Position"
+          label="Styling"
         />
         <MenuBar.Item
-          label="Widget Icon"
           description="Position, Icon and Label"
+          label="Widget Icon"
         />
       </MenuBar>
       <Container>
         <Header
+          actionBlock={<Button label="Primary Action" />}
+          menuBarToggle={() => setShowMenu(!showMenu)}
           title={
             <div className="flex items-center">
               <h3>Layout</h3>
             </div>
           }
-          menuBarToggle={() => setShowMenu(!showMenu)}
-          actionBlock={<Button label="Primary Action" />}
         />
         <SubHeader
-          searchProps={{
-            value: searchString,
-            onChange: (e) => setSearchString(e.target.value),
-          }}
           deleteButtonProps={{
             count: 0,
             selectedIDs: [],
@@ -656,16 +646,20 @@ export const TableInLayout = () => {
             selectedIDs: [],
             onClick: () => {},
           }}
+          searchProps={{
+            value: searchString,
+            onChange: e => setSearchString(e.target.value),
+          }}
         />
         <Scrollable className="w-full">
           <NeetoTable
-            loading={isLoading}
-            columnData={getColumns()}
-            rowData={rowData}
-            defaultPageSize={10}
-            currentPageNumber={pageNumber}
-            handlePageChange={(page) => setPageNumber(page)}
             fixedHeight
+            columnData={getColumns()}
+            currentPageNumber={pageNumber}
+            defaultPageSize={10}
+            handlePageChange={page => setPageNumber(page)}
+            loading={isLoading}
+            rowData={rowData}
           />
         </Scrollable>
       </Container>
