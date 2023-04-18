@@ -45,7 +45,6 @@ export const parameters = {
           "Pagination",
           "ColorPicker",
           "Spinner",
-          "PageLoader",
           "DatePicker",
           "TimePicker",
           "Kbd",
