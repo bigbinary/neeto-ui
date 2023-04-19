@@ -15,13 +15,17 @@ Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get 
 @import "@bigbinary/neetoui";
 ```
 
+## Dependencies
+
 **neetoUI** has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
 
 ```
 yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0
 ```
 
-**neetoUI** depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
+### `react-toastify`
+
+neetoUI depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
 
 ```scss
 @import "react-toastify/dist/ReactToastify.min.css";
@@ -42,6 +46,143 @@ const App = () => {
     </>
   );
 };
+```
+
+### Formik
+
+To make form handling easier with neetoUI, we provide Formik binding with neetoUI components.
+
+#### What is Formik?
+
+To know about Formik, ref the [official documentation](https://formik.org/docs/overview).
+
+#### Importing
+
+neetoUI formik exports all its component as named exports. You can individually import necessary components in the following way:
+
+```jsx
+import { Input } from "@bigbinary/neetoui/formik";
+```
+
+Available components in neetoUI formik:
+
+- Input
+- Radio
+- Button
+- Form
+- ActionBlock
+- Select
+- Switch
+- Textarea
+- CheckBox
+- BlockNavigation
+
+You can refer the [formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik) to check for latest Formik components.
+
+In order to use the neetoUI formik components, you need to wrap your form with the `Form` component.
+
+```jsx
+import * as Yup from "yup";
+import { Form } from "@bigbinary/neetoui/formik";
+
+<Form
+  formikProps={{
+    initialValues: {
+      name: "",
+      email: "",
+    },
+    onSubmit: (values, formikBag) => {
+      console.log(values, formikBag);
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+    }),
+  }}
+  className="w-full space-y-6"
+>
+  {(props) => {
+    return (
+      <>
+        <Input {...props} label="Name" name="name" />
+        <Input {...props} label="Email" name="email" />
+        <Button label="Submit" type="submit" style="primary" />
+      </>
+    );
+  }}
+</Form>;
+```
+
+In case, you wish not to pass `children` as a function, you can use the following syntax:
+
+```jsx
+import * as Yup from "yup";
+import { Form } from "@bigbinary/neetoui/formik";
+
+<Form
+  formikProps={{
+    initialValues: {
+      name: "",
+      email: "",
+    },
+    onSubmit: (values, formikbag) => {
+      console.log(values, formikbag);
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+    }),
+  }}
+  className="w-full space-y-6"
+>
+  <>
+    <Input {...props} label="Name" name="name" />
+    <Input {...props} label="Email" name="email" />
+    <Button label="Submit" type="submit" style="primary" />
+  </>
+</Form>;
+```
+
+The `Form` component accepts the following props:
+
+- `formikProps`: Formik props object. You can pass `initialValues`, `validationSchema`, `onSubmit` etc. as props to the `Form` component.
+- `children`: You can pass a function as `children` to the `Form` component. The function will receive the formik props object as an argument. Or you can directly pass the `children` inside the `Form` component.
+- `className`: You can use this prop to provide a custom class to the form.
+- `formProps`: Form props object. You can pass `className`, `style` etc. as props to the `Form` component.
+
+---
+
+## Usage
+
+#### Importing
+
+neetoUI exports all it’s component as named exports. 
+You can individually import necessary components in the following way:
+
+```jsx
+import { Button, Tooltip } from "@bigbinary/neetoui";
+```
+
+If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from neetoUI.
+
+```jsx
+import React from "react";
+import * as NeetoUI from "@bigbinary/neetoui";
+
+export default function index() {
+  const Button = NeetoUI.Button;
+
+  // get a random component
+  const componentName = Math.random() > 0.5 ? "Badge" : "Avatar";
+  const MyDynamicComponent = NeetoUI[componentName];
+
+  return (
+    <div>
+      <Button />
+      <MyDynamicComponent />
+    </div>
+  );
+}
 ```
 
 ## Development
