@@ -58,6 +58,15 @@ export default [
     ],
   },
   {
+    input: "./src/components/layouts/index.js",
+    output: formats.map(format => ({
+      file: getOutputFileName("layouts", format),
+      format,
+      sourcemap: true,
+    })),
+    plugins,
+  },
+  {
     input: "./src/components/formik/index.js",
     output: formats.map(format => ({
       file: getOutputFileName("formik", format),
