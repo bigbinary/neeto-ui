@@ -1,6 +1,9 @@
-[![NPM](https://img.shields.io/npm/v/@bigbinary/neetoui.svg)](https://www.npmjs.com/package/@bigbinary/neetoui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@bigbinary/neetoui.svg)](https://www.npmjs.com/package/@bigbinary/neetoui)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-**neetoUI** is the library that drives the experience in all [neeto products](https://neeto.com/) built at [BigBinary](https://www.bigbinary.com).
+**neetoUI** is the library that drives the experience in all
+[neeto products](https://neeto.com/) built at
+[BigBinary](https://www.bigbinary.com).
 
 ## Installation
 
@@ -8,8 +11,9 @@
 yarn add @bigbinary/neetoui
 ```
 
-This would install `neetoui` package inside your application.
-Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get the styles working, please import the neetoUI stylesheet to your main `scss` entry point.
+This would install `neetoui` package inside your application. Starting `3.0.x`,
+neetoUI stylesheet has been separated from the bundle. To get the styles
+working, please import the neetoUI stylesheet to your main `scss` entry point.
 
 ```scss
 @import "@bigbinary/neetoui";
@@ -17,7 +21,8 @@ Starting `3.0.x`, neetoUI stylesheet has been separated from the bundle. To get 
 
 ## Dependencies
 
-**neetoUI** has few peer dependencies which are required to use neetoUI properly. Install the peer dependencies using the below command:
+**neetoUI** has few peer dependencies which are required to use neetoUI
+properly. Install the peer dependencies using the below command:
 
 ```
 yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0
@@ -25,7 +30,8 @@ yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0
 
 ### `react-toastify`
 
-neetoUI depends on `react-toastify` for Toasters, so the styles for toaster must be imported to your main `scss` entry point.
+neetoUI depends on `react-toastify` for Toasters, so the styles for toaster must
+be imported to your main `scss` entry point.
 
 ```scss
 @import "react-toastify/dist/ReactToastify.min.css";
@@ -48,17 +54,49 @@ const App = () => {
 };
 ```
 
+### `formik`
+
+To make form handling easier with neetoUI, we provide Formik binding with
+neetoUI components. To know about Formik, ref the
+[official documentation](https://formik.org/docs/overview).
+
+## Usage
+
+neetoUI exports all it’s component as named exports. You can individually import
+necessary components in the following way:
+
+```jsx
+import { Button, Tooltip } from "@bigbinary/neetoui";
+```
+
+If you need access to an object that contains references to all the components
+you can do a wildcard import. This way, you can render dynamic components from
+neetoUI.
+
+```jsx
+import React from "react";
+import * as NeetoUI from "@bigbinary/neetoui";
+
+export default function index() {
+  const Button = NeetoUI.Button;
+
+  // get a random component
+  const componentName = Math.random() > 0.5 ? "Badge" : "Avatar";
+  const MyDynamicComponent = NeetoUI[componentName];
+
+  return (
+    <div>
+      <Button />
+      <MyDynamicComponent />
+    </div>
+  );
+}
+```
+
 ### Formik
 
-To make form handling easier with neetoUI, we provide Formik binding with neetoUI components.
-
-#### What is Formik?
-
-To know about Formik, ref the [official documentation](https://formik.org/docs/overview).
-
-#### Importing
-
-neetoUI formik exports all its component as named exports. You can individually import necessary components in the following way:
+neetoUI formik exports all its component as named exports. You can individually
+import necessary components in the following way:
 
 ```jsx
 import { Input } from "@bigbinary/neetoui/formik";
@@ -77,9 +115,12 @@ Available components in neetoUI formik:
 - CheckBox
 - BlockNavigation
 
-You can refer the [formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik) to check for latest Formik components.
+You can refer the
+[formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik)
+to check for latest Formik components.
 
-In order to use the neetoUI formik components, you need to wrap your form with the `Form` component.
+In order to use the neetoUI formik components, you need to wrap your form with
+the `Form` component.
 
 ```jsx
 import * as Yup from "yup";
@@ -101,7 +142,7 @@ import { Form } from "@bigbinary/neetoui/formik";
   }}
   className="w-full space-y-6"
 >
-  {(props) => {
+  {props => {
     return (
       <>
         <Input {...props} label="Name" name="name" />
@@ -113,7 +154,8 @@ import { Form } from "@bigbinary/neetoui/formik";
 </Form>;
 ```
 
-In case, you wish not to pass `children` as a function, you can use the following syntax:
+In case, you wish not to pass `children` as a function, you can use the
+following syntax:
 
 ```jsx
 import * as Yup from "yup";
@@ -145,45 +187,16 @@ import { Form } from "@bigbinary/neetoui/formik";
 
 The `Form` component accepts the following props:
 
-- `formikProps`: Formik props object. You can pass `initialValues`, `validationSchema`, `onSubmit` etc. as props to the `Form` component.
-- `children`: You can pass a function as `children` to the `Form` component. The function will receive the formik props object as an argument. Or you can directly pass the `children` inside the `Form` component.
+- `formikProps`: Formik props object. You can pass `initialValues`,
+  `validationSchema`, `onSubmit` etc. as props to the `Form` component.
+- `children`: You can pass a function as `children` to the `Form` component. The
+  function will receive the formik props object as an argument. Or you can
+  directly pass the `children` inside the `Form` component.
 - `className`: You can use this prop to provide a custom class to the form.
-- `formProps`: Form props object. You can pass `className`, `style` etc. as props to the `Form` component.
+- `formProps`: Form props object. You can pass `className`, `style` etc. as
+  props to the `Form` component.
 
 ---
-
-## Usage
-
-#### Importing
-
-neetoUI exports all it’s component as named exports. 
-You can individually import necessary components in the following way:
-
-```jsx
-import { Button, Tooltip } from "@bigbinary/neetoui";
-```
-
-If you need access to an object that contains references to all the components you can do a wildcard import. This way, you can render dynamic components from neetoUI.
-
-```jsx
-import React from "react";
-import * as NeetoUI from "@bigbinary/neetoui";
-
-export default function index() {
-  const Button = NeetoUI.Button;
-
-  // get a random component
-  const componentName = Math.random() > 0.5 ? "Badge" : "Avatar";
-  const MyDynamicComponent = NeetoUI[componentName];
-
-  return (
-    <div>
-      <Button />
-      <MyDynamicComponent />
-    </div>
-  );
-}
-```
 
 ## Development
 
@@ -193,9 +206,12 @@ Install all the dependencies by executing following command.
 yarn
 ```
 
-You can create new components in `src/components` and export them from `src/index.js`.
+You can create new components in `src/components` and export them from
+`src/index.js`.
 
-Running the `yarn storybook` command starts a storybook app. Use this application to test out changes and see how your component behaves in the storybook for **neetoUI**
+Running the `yarn storybook` command starts a storybook app. Use this
+application to test out changes and see how your component behaves in the
+storybook for **neetoUI**
 
 - To see if tests associated with your components pass run `yarn test`.
 - To see if **neetoUI** gets built and bundled after changes run `yarn bundle`.
@@ -205,19 +221,19 @@ Note that nothing in the `stories` folder will be bundled with **neetoUI**.
 
 # Building and releasing.
 
-The `@bigbinary/neetoui` package gets published to NPM when we
-merge a PR with `patch`, `minor` or `major` label to the `main` branch. The
-`patch` label is used for bug fixes, `minor` label is used for new features and
-`major` label is used for breaking changes. You can checkout the
-`Create and publish releases` workflow in GitHub Actions to get a live update.
+The `@bigbinary/neetoui` package gets published to NPM when we merge a PR with
+`patch`, `minor` or `major` label to the `main` branch. The `patch` label is
+used for bug fixes, `minor` label is used for new features and `major` label is
+used for breaking changes. You can checkout the `Create and publish releases`
+workflow in GitHub Actions to get a live update.
 
 In case if you missed to add the label, you can manually publish the package.
 For that first you need to create a PR to update the version number in the
 `package.json` file and merge it to the `main` branch. After merging the PR, you
 need to create a
-[new github release](https://github.com/bigbinary/neeto-ui/releases/new)
-from main branch. Whenever a new release is created with a new version number,
-the github actions will automatically publish the built package to npm. You can
+[new github release](https://github.com/bigbinary/neeto-ui/releases/new) from
+main branch. Whenever a new release is created with a new version number, the
+github actions will automatically publish the built package to npm. You can
 checkout the `Publish to npm` workflow in GitHub Actions to get a live update.
 
 Please note that before publishing the package, you need to verify the
@@ -233,5 +249,7 @@ https://neeto-ui.neeto.com
 
 ## Other Libraries
 
-- [neetoIcons](https://github.com/bigbinary/neeto-icons): **NeetoIcons** is the official icons library from BigBinary.
-- [neetoEditor](https://github.com/bigbinary/neeto-editor-tiptap): **NeetoEditor** is a prose-mirror based rich-text editor used at BigBinary.
+- [neetoIcons](https://github.com/bigbinary/neeto-icons): **NeetoIcons** is the
+  official icons library from BigBinary.
+- [neetoEditor](https://github.com/bigbinary/neeto-editor-tiptap):
+  **NeetoEditor** is a prose-mirror based rich-text editor used at BigBinary.
