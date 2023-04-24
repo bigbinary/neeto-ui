@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { useState, useEffect, forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
@@ -25,6 +26,7 @@ const Textarea = forwardRef(
       label = "",
       className = "",
       maxLength,
+      unlimitedChars = false,
       labelProps,
       ...otherProps
     },
@@ -40,11 +42,12 @@ const Textarea = forwardRef(
     const textareaRef = useSyncedRef(ref);
 
     const valueLength = value?.toString().length || 0;
-    const isCharacterLimitVisible = valueLength >= maxLength * 0.9;
-    const maxLengthError = !!maxLength && valueLength > maxLength;
+    const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
+    const maxLengthError = unlimitedChars && valueLength > maxLength;
 
     const onChangeInternal = e => setValueInternal(e.target.value);
     const onChange = otherProps.onChange ?? onChangeInternal;
+    const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     useEffect(() => {
       textareaRef.current.style.minHeight = "22px";
@@ -91,6 +94,7 @@ const Textarea = forwardRef(
             disabled={disabled}
             ref={textareaRef}
             rows={rows}
+            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -172,9 +176,13 @@ Textarea.propTypes = {
    */
   nakedTextarea: PropTypes.bool,
   /**
-   * To specify a maximum character limit to the Textarea.
+   * To specify a maximum character limit to the Textarea. Charater limit is visible only if the Textarea value is greater than or equal to 85% of the maximum character limit.
    */
   maxLength: PropTypes.number,
+  /**
+   * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
+   */
+  unlimitedChars: PropTypes.bool,
 };
 
 export default Textarea;

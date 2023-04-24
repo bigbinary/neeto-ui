@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 4.4.27 - 2023-04-24
+
+- Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the behaviour of maxlength prop to the native one.
+
 ## 4.4.26 - 2023-04-14
 
 - Fixed: Dropdown menu scroll issues.
@@ -128,7 +132,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 ## 4.4.1 - 2023-03-03
 - Added feature to display string from custom message key from response , when the noticeCode is custom_message
 ## 4.4.0 - 2023-02-24
-
 - Fixed: Alignment issues in Table headers when sort is enabled.
 - Fixed: Made Table headers popout.
 
@@ -327,7 +330,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.12 - 2022-10-17
 - Added: tooltip to *Avatar* component
 ## 4.0.11 - 2022-10-10
-
 - Fixed false positive type errors
 
 ## 4.0.10 - 2022-10-05

@@ -65,6 +65,15 @@ describe("Input", () => {
       <Input id="input" label="Input label" maxLength={5} />
     );
     userEvent.type(getByLabelText("Input label"), "Testing maxLength");
+    expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
+    expect(getByLabelText("Input label")).toHaveValue("Testi");
+  });
+
+  it("should properly handle maxLength with unlimitedChars", () => {
+    const { getByLabelText, getByText } = render(
+      <Input id="input" label="Input label" maxLength={5} unlimitedChars />
+    );
+    userEvent.type(getByLabelText("Input label"), "Testing maxLength");
     expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Input label")).toHaveValue("Testing maxLength");
   });

@@ -124,8 +124,9 @@ export const InputWithMaxLength = () => {
         placeholder="Input placeholder"
       />
       <Input
-        label="Input with max length"
+        label="Input with max length and unlimited characters"
         maxLength={10}
+        unlimitedChars={true}
         value="Sample Input"
         placeholder="Input placeholder"
       />
