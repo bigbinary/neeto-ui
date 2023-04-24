@@ -1,3 +1,3 @@
-import { manager } from "./erlayManager";
+import { manager } from "./overlayManager";
 
 export { manager };
