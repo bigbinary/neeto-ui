@@ -1,9 +1,7 @@
 /* eslint-disable react/display-name */
-/* eslint-disable react/jsx-filename-extension */
 
 import React, { forwardRef } from "react";
 
-// eslint-disable-next-line @bigbinary/neeto/use-webpack-alias
 import { Help } from "@bigbinary/neeto-icons";
 
 const HelpSection = forwardRef((_, ref) => (

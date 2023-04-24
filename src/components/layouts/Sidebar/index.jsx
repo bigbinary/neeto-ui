@@ -125,36 +125,6 @@ Sidebar.propTypes = {
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     }),
   }),
-
-  /**
-   * The name of the app that is currently active
-   */
-  // eslint-disable-next-line react/no-unused-prop-types
-  appName: PropTypes.string,
-  /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Footer links have been removed from the design._
-   */
-  // eslint-disable-next-line react/no-unused-prop-types
-  footerLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      description: PropTypes.string,
-      to: PropTypes.string,
-      href: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    })
-  ),
-  /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Expanded state of Sidebar have been removed from the design._
-   */
-  // eslint-disable-next-line react/no-unused-prop-types
-  isCollapsed: PropTypes.bool,
 };
 
 export default Sidebar;

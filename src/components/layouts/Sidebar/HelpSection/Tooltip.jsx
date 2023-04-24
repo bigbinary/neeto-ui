@@ -1,6 +1,5 @@
 import React from "react";
 
-// eslint-disable-next-line @bigbinary/neeto/use-webpack-alias
 import { Book, Keyboard, Gift, ChatEmpty } from "@bigbinary/neeto-icons";
 import { values } from "ramda";
 
@@ -41,7 +40,6 @@ const HelpSectionTooltip = ({ helpSectionProps }) => {
     },
   ].filter(Boolean);
 
-  // eslint-disable-next-line react/jsx-filename-extension
   return <HelpLinkSection links={values(helpLinks)} />;
 };
 

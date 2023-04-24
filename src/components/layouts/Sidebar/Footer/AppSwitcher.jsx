@@ -1,6 +1,5 @@
 import React from "react";
 
-// eslint-disable-next-line @bigbinary/neeto/use-webpack-alias
 import { AppSwitcher as AppSwitcherIcon } from "@bigbinary/neeto-icons";
 
 import NavIconWrapper from "../NavIconWrapper";

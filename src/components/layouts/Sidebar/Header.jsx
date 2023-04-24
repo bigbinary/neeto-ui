@@ -1,6 +1,5 @@
 import React from "react";
 
-// eslint-disable-next-line @bigbinary/neeto/use-webpack-alias
 import { Neeto } from "@bigbinary/neeto-icons/logos";
 
 const Header = ({ organizationInfo }) => {

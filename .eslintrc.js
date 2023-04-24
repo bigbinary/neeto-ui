@@ -8,6 +8,7 @@ module.exports = mergeDeepLeft(
       "@bigbinary/neeto/no-blacklisted-imports": "off",
       "@bigbinary/neeto/no-dangling-constants": "off",
       "@bigbinary/neeto/prefix-neeto-ui-import-alias": "off",
+      "@bigbinary/neeto/use-webpack-alias": "off",
     },
   },
   defaultConfig
