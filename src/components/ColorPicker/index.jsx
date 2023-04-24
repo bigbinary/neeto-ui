@@ -74,8 +74,10 @@ const ColorPicker = ({
       const colorResponse = await open();
       const colorHex = tinycolor(colorResponse.sRGBHex).toHexString();
       onColorChange(colorHex);
-    } catch (error) {
-      logger.info(error);
+    } catch {
+      // Ensures component is still mounted
+      // before calling setState
+      // if (!e.canceled) setError(e);
     }
   };
 
