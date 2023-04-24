@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import * as iconset from "@bigbinary/neeto-icons";
+import * as iconset from "neetoicons";
 import { Typography, Input, Toastr } from "components";
 import { ToastContainer } from "react-toastify";
-import { Search } from "@bigbinary/neeto-icons";
+import { Search } from "neetoicons";
 
 const Iconography = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const copyIconName = (iconName) => {
+  const copyIconName = iconName => {
     navigator.clipboard.writeText(iconName);
     Toastr.success("Icon name copied to clipboard");
   };
-  const filteredIconList = Object.keys(iconset).filter((name) =>
+  const filteredIconList = Object.keys(iconset).filter(name =>
     name.toLowerCase().includes(searchTerm.trim().toLowerCase())
   );
   return (
@@ -22,7 +22,7 @@ const Iconography = () => {
             href="https://github.com/bigbinary/neeto-icons"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center space-x-0.5 text-sm font-medium text-gray-600 hover:text-gray-900 mr-8"
+            className="mr-8 flex items-center space-x-0.5 text-sm font-medium text-gray-600 hover:text-gray-900"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,18 +45,18 @@ const Iconography = () => {
             type="search"
             prefix={<Search />}
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
             placeholder="Search icons"
           />
         </div>
         <div className="grid grid-cols-4 gap-3 lg:grid-cols-8">
-          {filteredIconList.map((icon) => {
+          {filteredIconList.map(icon => {
             const Component = iconset[icon];
             return (
               <div
                 key={icon}
                 onClick={() => copyIconName(icon)}
-                className="flex flex-col items-center justify-center p-5 transition-colors rounded-lg cursor-pointer neeto-ui-bg-gray-100"
+                className="neeto-ui-bg-gray-100 flex cursor-pointer flex-col items-center justify-center rounded-lg p-5 transition-colors"
               >
                 <Component />
                 <div className="mt-2 text-xs">{icon}</div>

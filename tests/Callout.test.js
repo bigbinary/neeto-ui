@@ -1,6 +1,6 @@
 import React from "react";
 import { Callout } from "components";
-import { Check } from "@bigbinary/neeto-icons";
+import { Check } from "neetoicons";
 import { render } from "@testing-library/react";
 
 describe("Callout", () => {

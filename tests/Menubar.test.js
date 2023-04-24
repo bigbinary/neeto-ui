@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import { MenuBar } from "components/layouts";
 import { Typography } from "components";
-import { Search } from "@bigbinary/neeto-icons";
+import { Search } from "neetoicons";
 
 describe("Menubar", () => {
   it("should render without errors", () => {

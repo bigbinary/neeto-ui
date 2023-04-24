@@ -1,9 +1,10 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 import Button from "./Button";
-import Typography from "./Typography";
 import Modal from "./Modal";
+import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -24,38 +25,37 @@ const Alert = ({
   cancelButtonLabel = "Cancel",
 }) => (
   <Modal
-    size={size}
-    isOpen={isOpen}
-    onClose={onClose}
-    className={className}
-    closeOnEsc={closeOnEsc}
-    closeButton={closeButton}
     backdropClassName={backdropClassName}
+    className={className}
+    closeButton={closeButton}
+    closeOnEsc={closeOnEsc}
     closeOnOutsideClick={closeOnOutsideClick}
+    isOpen={isOpen}
+    size={size}
+    onClose={onClose}
   >
     <Modal.Header>
-      <Typography style="h2" data-cy="alert-title">
+      <Typography data-cy="alert-title" style="h2">
         {title}
       </Typography>
     </Modal.Header>
     <Modal.Body>
-      <Typography style="body2" lineHeight="normal" data-cy="alert-message">
+      <Typography data-cy="alert-message" lineHeight="normal" style="body2">
         {message}
       </Typography>
     </Modal.Body>
-
     <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
       <Button
-        style="danger"
         data-cy="alert-submit-button"
         label={submitButtonLabel}
-        onClick={onSubmit}
         loading={isSubmitting}
+        style="danger"
+        onClick={onSubmit}
       />
       <Button
-        style="text"
         data-cy="alert-cancel-button"
         label={cancelButtonLabel}
+        style="text"
         onClick={onClose}
       />
     </Modal.Footer>
@@ -119,10 +119,6 @@ Alert.propTypes = {
    * To close on clicking outside the Alert content.
    */
   closeOnOutsideClick: PropTypes.bool,
-  /**
-   * To specify the short description of the Alert.
-   */
-  description: PropTypes.string,
 };
 
 export default Alert;

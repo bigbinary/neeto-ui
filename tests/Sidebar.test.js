@@ -11,7 +11,7 @@ import {
   Gift,
   ChatEmpty,
   Keyboard,
-} from "@bigbinary/neeto-icons";
+} from "neetoicons";
 import userEvent from "@testing-library/user-event";
 
 const sidebarProps = {

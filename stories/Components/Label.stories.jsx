@@ -1,5 +1,5 @@
 import React from "react";
-import { Help } from "@bigbinary/neeto-icons";
+import { Help } from "neetoicons";
 
 import Label from "components/Label";
 import Tooltip from "components/Tooltip";

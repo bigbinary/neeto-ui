@@ -1,6 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import PropTypes from "prop-types";
+
 import Item from "./Item";
 
 const SIZES = { large: "large", small: "small" };
@@ -11,31 +13,29 @@ const Tab = ({
   children,
   className = "",
   ...otherProps
-}) => {
-  return (
-    <div
-      className={classnames(
-        {
-          "neeto-ui-tab__wrapper neeto-ui-flex": true,
-        },
-        {
-          "neeto-ui-tab__wrapper--size-large": size === SIZES.large,
-        },
-        {
-          "neeto-ui-tab__wrapper--size-small": size === SIZES.small,
-        },
-        {
-          "neeto-ui-tab__wrapper--underline-none": noUnderline,
-        },
-        [className]
-      )}
-      data-cy="tab-container"
-      {...otherProps}
-    >
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div
+    data-cy="tab-container"
+    className={classnames(
+      {
+        "neeto-ui-tab__wrapper neeto-ui-flex": true,
+      },
+      {
+        "neeto-ui-tab__wrapper--size-large": size === SIZES.large,
+      },
+      {
+        "neeto-ui-tab__wrapper--size-small": size === SIZES.small,
+      },
+      {
+        "neeto-ui-tab__wrapper--underline-none": noUnderline,
+      },
+      [className]
+    )}
+    {...otherProps}
+  >
+    {children}
+  </div>
+);
 
 Tab.propTypes = {
   /**

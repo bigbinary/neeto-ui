@@ -1,7 +1,8 @@
 import React from "react";
+
 import classnames from "classnames";
+import { Left, Right } from "neetoicons";
 import PropTypes from "prop-types";
-import { Left, Right } from "@bigbinary/neeto-icons";
 
 import { DOTS } from "./constants";
 import { usePagination } from "./utils";
@@ -38,9 +39,10 @@ const Pagination = ({
   const isLastPage = pageNo === lastPage;
 
   return (
-    <nav role="navigation" aria-label="Pagination Navigation">
+    <nav aria-label="Pagination Navigation" role="navigation">
       <ul className={classnames(["neeto-ui-pagination__wrapper", className])}>
         <li
+          data-testid="left-navigate-button"
           tabIndex={0}
           className={classnames({
             "neeto-ui-pagination__item": true,
@@ -48,7 +50,6 @@ const Pagination = ({
             disabled: isFirstPage,
           })}
           onClick={onPrevious}
-          data-testid="left-navigate-button"
         >
           <a>
             <Left size={20} />
@@ -60,9 +61,9 @@ const Pagination = ({
           if (pageNumber === DOTS) {
             return (
               <li
-                key={index}
                 className="neeto-ui-pagination__item neeto-ui-pagination__item--dots"
                 data-testid="dots"
+                key={index}
               >
                 &#8230;
               </li>
@@ -71,24 +72,25 @@ const Pagination = ({
 
           return (
             <li
-              tabIndex={0}
+              aria-current={isActive && true}
               key={index}
-              className={classnames("neeto-ui-pagination__item", {
-                active: isActive,
-              })}
-              onClick={() => navigate(pageNumber)}
+              tabIndex={0}
               aria-label={
                 isActive
                   ? `Current Page, Page ${pageNumber}`
                   : `Goto Page ${pageNumber}`
               }
-              aria-current={isActive && true}
+              className={classnames("neeto-ui-pagination__item", {
+                active: isActive,
+              })}
+              onClick={() => navigate(pageNumber)}
             >
               <a>{pageNumber}</a>
             </li>
           );
         })}
         <li
+          data-testid="right-navigate-button"
           tabIndex={0}
           className={classnames({
             "neeto-ui-pagination__item": true,
@@ -96,7 +98,6 @@ const Pagination = ({
             disabled: isLastPage,
           })}
           onClick={onNext}
-          data-testid="right-navigate-button"
         >
           <a>
             <Right size={20} />

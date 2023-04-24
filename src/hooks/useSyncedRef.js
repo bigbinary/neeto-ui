@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const useSyncedRef = (ref) => {
+const useSyncedRef = ref => {
   const innerRef = useRef();
 
   useEffect(() => {

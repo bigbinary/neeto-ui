@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { MenuHorizontal, Settings, Plus, Search } from "@bigbinary/neeto-icons";
+import { MenuHorizontal, Settings, Plus, Search } from "neetoicons";
 
 import {
   Header,
@@ -226,7 +226,8 @@ export const Page = () => {
           iconProps={[
             {
               icon: Search,
-              onClick: () => setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
+              onClick: () =>
+                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
@@ -297,7 +298,7 @@ export const Page = () => {
         <SubHeader
           searchProps={{
             value: searchString,
-            onChange: (e) => setSearchString(e.target.value),
+            onChange: e => setSearchString(e.target.value),
           }}
           deleteButtonProps={{
             count: 0,
@@ -317,7 +318,7 @@ export const Page = () => {
             rowData={TABLE_DATA}
             defaultPageSize={10}
             currentPageNumber={pageNumber}
-            handlePageChange={(page) => setPageNumber(page)}
+            handlePageChange={page => setPageNumber(page)}
             fixedHeight
           />
         </Scrollable>

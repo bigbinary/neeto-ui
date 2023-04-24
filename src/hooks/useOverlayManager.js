@@ -8,6 +8,7 @@ const useOverlayManager = (ref, isOpen) => {
     if (isOpen) {
       manager.add(ref, elementToFocus);
     }
+
     return () => {
       manager.remove(ref);
     };

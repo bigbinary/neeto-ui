@@ -1,9 +1,13 @@
 import React from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
 const SubHeader = ({ className = "", leftActionBlock, rightActionBlock }) => (
-  <div className={classnames(["neeto-ui-subheader", className])} data-testid="subheader">
+  <div
+    className={classnames(["neeto-ui-subheader", className])}
+    data-testid="subheader"
+  >
     <div className="neeto-ui-subheader__left-wrapper">
       {leftActionBlock && (
         <div className="neeto-ui-subheader__left">{leftActionBlock}</div>

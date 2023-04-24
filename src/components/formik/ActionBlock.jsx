@@ -1,7 +1,8 @@
 import React from "react";
+
 import classnames from "classnames";
-import PropTypes from "prop-types";
 import { useFormikContext } from "formik";
+import PropTypes from "prop-types";
 import { equals } from "ramda";
 
 import Button from "components/Button";
@@ -9,30 +10,26 @@ import Button from "components/Button";
 import SubmitButton from "./Button";
 
 const ActionBlock = ({ className, submitButtonProps, cancelButtonProps }) => {
-  const {
-    handleReset,
-    isSubmitting,
-    values,
-    initialValues,
-  } = useFormikContext();
+  const { handleReset, isSubmitting, values, initialValues } =
+    useFormikContext();
 
   return (
     <div className={classnames(["neeto-ui-action-block__wrapper", className])}>
       <SubmitButton
-        style="primary"
-        label="Save changes"
-        type="submit"
-        data-test-id="save-changes-button"
         data-cy="save-changes-button"
+        data-test-id="save-changes-button"
+        label="Save changes"
+        style="primary"
+        type="submit"
         {...submitButtonProps}
       />
       <Button
-        style="text"
-        label="Cancel"
-        onClick={handleReset}
-        disabled={isSubmitting || equals(values, initialValues)}
-        data-test-id="cancel-button"
         data-cy="cancel-button"
+        data-test-id="cancel-button"
+        disabled={isSubmitting || equals(values, initialValues)}
+        label="Cancel"
+        style="text"
+        onClick={handleReset}
         {...cancelButtonProps}
       />
     </div>

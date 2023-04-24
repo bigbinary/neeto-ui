@@ -1,5 +1,3 @@
-import "../styles/index.scss";
-
 import Accordion from "./Accordion";
 import ActionDropdown from "./ActionDropdown";
 import Alert from "./Alert";
@@ -10,11 +8,11 @@ import Checkbox from "./Checkbox";
 import ColorPicker from "./ColorPicker";
 import DatePicker from "./DatePicker";
 import Dropdown from "./Dropdown";
-import MultiEmailInput from "./MultiEmailInput";
 import Input from "./Input";
 import Kbd from "./Kbd";
 import Label from "./Label";
 import Modal from "./Modal";
+import MultiEmailInput from "./MultiEmailInput";
 import NoData from "./NoData";
 import PageLoader from "./PageLoader";
 import Pagination from "./Pagination";
@@ -22,8 +20,8 @@ import Pane from "./Pane";
 import Popover from "./Popover";
 import Radio from "./Radio";
 import Select from "./Select";
-import Switch from "./Switch";
 import Spinner from "./Spinner";
+import Switch from "./Switch";
 import Tab from "./Tab";
 import Table from "./Table";
 import Tag from "./Tag";
@@ -32,6 +30,8 @@ import TimePicker from "./TimePicker";
 import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
 import Typography from "./Typography";
+
+import "../styles/index.scss";
 
 export {
   Accordion,

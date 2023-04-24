@@ -1,3 +1,5 @@
+import { pluck } from "ramda";
+
 import { EMAIL_REGEX } from "./constants";
 
 export const formatEmailInputOptions = label => ({
@@ -7,8 +9,9 @@ export const formatEmailInputOptions = label => ({
 });
 
 export const pruneDuplicates = inputValues => {
-  const values = inputValues.map(({ value }) => value);
+  const values = pluck("value", inputValues);
   const uniqueValues = [...new Set(values)];
+
   return uniqueValues.map(email => formatEmailInputOptions(email));
 };
 

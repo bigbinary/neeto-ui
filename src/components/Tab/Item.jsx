@@ -1,7 +1,8 @@
 import React from "react";
+
+import classnames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
-import classnames from "classnames";
 
 const Item = ({
   active,
@@ -13,27 +14,27 @@ const Item = ({
   ...otherProps
 }) => {
   const Icon =
-    typeof icon == "string"
+    typeof icon === "string"
       ? () => (
-        <i className={icon} data-cy="tab-item-icon" data-testid="tab-icon" />
-      )
+          <i className={icon} data-cy="tab-item-icon" data-testid="tab-icon" />
+        )
       : icon || React.Fragment;
 
   const Parent = activeClassName ? NavLink : "button";
 
   return (
     <Parent
+      data-cy="tab-item"
       className={classnames(
         [
           "neeto-ui-tab neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-select-none",
           className,
         ],
         {
-          active: active,
+          active,
         }
       )}
       onClick={onClick}
-      data-cy="tab-item"
       {...otherProps}
     >
       {icon && <Icon className="neeto-ui-tab__icon" />}

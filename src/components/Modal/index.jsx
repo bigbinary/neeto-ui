@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
-import { Close } from "@bigbinary/neeto-icons";
+import { Close } from "neetoicons";
+import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 
 import { Portal, Backdrop } from "atoms";
@@ -9,8 +10,8 @@ import Button from "components/Button";
 import { useOverlayManager, useOverlay } from "hooks";
 
 import Body from "./Body";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const SIZES = {
   small: "small",
@@ -58,17 +59,17 @@ const Modal = ({
     <Portal rootId="neeto-ui-portal">
       <CSSTransition
         unmountOnExit
-        in={isOpen}
         appear={isOpen}
-        timeout={300}
         classNames="neeto-ui-modal"
+        in={isOpen}
+        timeout={300}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
       >
         <Backdrop
-          ref={backdropRef}
-          key="modal-backdrop"
           data-testid="backdrop"
+          key="modal-backdrop"
+          ref={backdropRef}
           className={classnames(
             "neeto-ui-modal__backdrop",
             {
@@ -78,10 +79,10 @@ const Modal = ({
           )}
         >
           <div
-            role="dialog"
-            aria-modal={true}
-            ref={modalWrapper}
+            aria-modal
             key="modal-wrapper"
+            ref={modalWrapper}
+            role="dialog"
             className={classnames("neeto-ui-modal__wrapper", {
               "neeto-ui-modal__wrapper--small": size === SIZES.small,
               "neeto-ui-modal__wrapper--medium": size === SIZES.medium,
@@ -94,18 +95,18 @@ const Modal = ({
             {closeButton && (
               <Button
                 aria-label="Close"
-                style="text"
-                icon={Close}
                 className="neeto-ui-modal__close"
-                onClick={handleOverlayClose}
                 data-testid="close-button"
+                icon={Close}
                 size="small"
+                style="text"
+                onClick={handleOverlayClose}
               />
             )}
             {typeof children === "function"
               ? children({
-                setFocusField,
-              })
+                  setFocusField,
+                })
               : children}
           </div>
         </Backdrop>

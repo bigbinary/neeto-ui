@@ -1,5 +1,6 @@
 import React from "react";
-import { Plus } from "@bigbinary/neeto-icons";
+
+import { Plus } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Button from "../../Button";
@@ -7,13 +8,13 @@ import Button from "../../Button";
 const AddNew = ({ label = "", onClick, ...otherProps }) => (
   <div className="neeto-ui-menubar__add-new-wrap" {...otherProps}>
     <Button
-      label={label}
-      style="link"
       icon={Plus}
       iconPosition="left"
       iconSize={16}
-      onClick={onClick}
+      label={label}
       size="small"
+      style="link"
+      onClick={onClick}
     />
   </div>
 );

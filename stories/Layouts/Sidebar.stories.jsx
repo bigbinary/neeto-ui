@@ -4,7 +4,7 @@ import {
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import { Settings, LeftArrow } from "@bigbinary/neeto-icons";
+import { Settings, LeftArrow } from "neetoicons";
 
 import Label from "components/Label";
 import Switch from "components/Switch";
@@ -50,18 +50,18 @@ export default {
 
 const SidebarContent = ({ label }) => {
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex h-full w-full items-center justify-center">
       {label}
     </div>
   );
 };
 
-const Template = (args) => {
+const Template = args => {
   return (
     <Router>
       <div className="flex flex-row items-start justify-start">
         <Sidebar {...args} />
-        <div className="relative flex flex-col flex-grow h-screen overflow-auto">
+        <div className="relative flex h-screen flex-grow flex-col overflow-auto">
           <SwitchComponent>
             {STORYBOOK_NAV_LINKS &&
               STORYBOOK_NAV_LINKS.map(({ label, to }, index) => {
@@ -92,7 +92,7 @@ Default.args = {
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     customContent: (
-      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+      <div className="neeto-ui-border-gray-300 flex items-center justify-center gap-6 border-t py-4">
         <Label>Away</Label>
         <Switch checked />
         <Label>Active</Label>
@@ -116,14 +116,14 @@ Default.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithAppSwitcher = (args) => {
+export const SidebarWithAppSwitcher = args => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
 
   return (
     <Router>
       <Sidebar
         {...args}
-        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen(isOpen => !isOpen)}
       />
       <AppSwitcher
         neetoApps={[]}
@@ -214,7 +214,7 @@ ProfileSectionWithCustomContent.args = {
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     customContent: (
-      <div className="flex items-center justify-center gap-6 py-4 border-t neeto-ui-border-gray-300">
+      <div className="neeto-ui-border-gray-300 flex items-center justify-center gap-6 border-t py-4">
         <Label>Away</Label>
         <Switch checked />
         <Label>Active</Label>

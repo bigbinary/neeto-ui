@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 import Typography from "components/Typography";
 
@@ -19,13 +20,13 @@ const Item = ({
     {...otherProps}
   >
     <Typography
+      className="neeto-ui-menubar__item-header"
       component="h5"
       style="h4"
-      className="neeto-ui-menubar__item-header"
     >
       {label}
     </Typography>
-    <Typography style="body3" className="neeto-ui-menubar__item-desc">
+    <Typography className="neeto-ui-menubar__item-desc" style="body3">
       {description}
     </Typography>
   </button>

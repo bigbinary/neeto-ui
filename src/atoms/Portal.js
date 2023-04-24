@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+
+import { isEmpty } from "ramda";
 import { createPortal } from "react-dom";
 
 const Portal = ({ children, rootId = "root-portal", el = "div" }) => {
@@ -16,7 +18,7 @@ const Portal = ({ children, rootId = "root-portal", el = "div" }) => {
 
     return () => {
       target.current.remove();
-      if (container.childNodes.length === 0) {
+      if (isEmpty(container.childNodes)) {
         container.remove();
       }
     };

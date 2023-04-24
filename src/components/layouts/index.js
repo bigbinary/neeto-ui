@@ -1,10 +1,10 @@
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import SubHeader from "./SubHeader";
-import Container from "./Container";
-import Scrollable from "./Scrollable";
 import AppSwitcher from "./AppSwitcher";
+import Container from "./Container";
+import Header from "./Header";
 import MenuBar from "./MenuBar";
+import Scrollable from "./Scrollable";
+import Sidebar from "./Sidebar";
+import SubHeader from "./SubHeader";
 
 export {
   Sidebar,

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useFormikContext } from "formik";
 import PropTypes from "prop-types";
 
@@ -22,8 +23,8 @@ const BlockNavigation = ({ isDirty = false }) => {
   return (
     <Alert
       isOpen={isBlocked}
-      title="You have unsaved changes!"
       message="Are you sure you want to continue? All of your unsaved changes will be lost."
+      title="You have unsaved changes!"
       onClose={hidePrompt}
       onSubmit={continueAction}
     />

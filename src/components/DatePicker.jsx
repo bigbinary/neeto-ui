@@ -1,10 +1,11 @@
 import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+
 import { useId } from "@reach/auto-id";
-import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 import generatePicker from "antd/lib/date-picker/generatePicker";
-import { Left, Right, Calendar } from "@bigbinary/neeto-icons";
+import classnames from "classnames";
+import { Left, Right, Calendar } from "neetoicons";
+import PropTypes from "prop-types";
+import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 
 import { useSyncedRef } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
@@ -63,11 +64,12 @@ const DatePicker = forwardRef(
       <div className="neeto-ui-input__wrapper">
         {label && <Label {...labelProps}>{label}</Label>}
         <Component
-          ref={datePickerRef}
-          onChange={onChange}
-          onOk={onOk}
+          defaultValue={convertToDayjsObjects(defaultValue)}
           format={format}
           picker={picker}
+          ref={datePickerRef}
+          showTime={showTime && { format: timeFormat }}
+          value={convertToDayjsObjects(value)}
           className={classnames("neeto-ui-date-input", [className], {
             "neeto-ui-date-input--small": size === "small",
             "neeto-ui-date-input--medium": size === "medium",
@@ -80,20 +82,19 @@ const DatePicker = forwardRef(
             dropdownClassName, // Will be removed in the next major version
             popupClassName,
           ])}
-          showTime={showTime && { format: timeFormat }}
-          defaultValue={convertToDayjsObjects(defaultValue)}
-          value={convertToDayjsObjects(value)}
+          onChange={onChange}
+          onOk={onOk}
           {...otherProps}
-          prevIcon={<IconOverride icon={Left} />}
           nextIcon={<IconOverride icon={Right} />}
-          superPrevIcon={<IconOverride icon={Left} />}
-          superNextIcon={<IconOverride icon={Right} />}
+          prevIcon={<IconOverride icon={Left} />}
           suffixIcon={<Calendar size={16} />}
+          superNextIcon={<IconOverride icon={Right} />}
+          superPrevIcon={<IconOverride icon={Left} />}
         />
         {!!error && (
           <p
-            data-cy={`${hyphenize(label)}-input-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
           >
             {error}

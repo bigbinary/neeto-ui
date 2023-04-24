@@ -4,10 +4,10 @@ import Tooltip from "components/Tooltip";
 
 import AppSwitcher from "./AppSwitcher";
 
-import ProfileSection from "../ProfileSection";
-import ProfileSectionTooltip from "../ProfileSection/Tooltip";
 import HelpSection from "../HelpSection";
 import HelpSectionTooltip from "../HelpSection/Tooltip";
+import ProfileSection from "../ProfileSection";
+import ProfileSectionTooltip from "../ProfileSection/Tooltip";
 
 const Footer = ({
   profileInfo,
@@ -22,30 +22,30 @@ const Footer = ({
     <div className="neeto-ui-sidebar__footer">
       {helpLinks && (
         <Tooltip
-          hideOnClick={false}
           interactive
           className="neeto-ui-help-popup-wrapper"
           content={<HelpSectionTooltip helpSectionProps={helpLinks} />}
-          theme="light"
+          hideOnClick={false}
           position="right"
+          theme="light"
         >
           <HelpSection />
         </Tooltip>
       )}
       {showAppSwitcher && (
         <AppSwitcher
-          onAppSwitcherToggle={onAppSwitcherToggle}
           tooltipStyle={tooltipStyle}
+          onAppSwitcherToggle={onAppSwitcherToggle}
         />
       )}
       {profileInfo && (
         <Tooltip
-          position="right"
-          className="neeto-ui-profile-popup-wrapper"
-          theme="light"
-          content={<ProfileSectionTooltip profileInfo={profileInfo} />}
           interactive
+          className="neeto-ui-profile-popup-wrapper"
+          content={<ProfileSectionTooltip profileInfo={profileInfo} />}
           hideOnClick={false}
+          position="right"
+          theme="light"
         >
           <ProfileSection
             profileInfo={profileInfo}

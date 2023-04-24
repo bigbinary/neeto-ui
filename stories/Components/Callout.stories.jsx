@@ -1,11 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import React from "react";
-import {
-  Warning,
-  CloseCircle,
-  CheckCircle,
-  Info,
-} from "@bigbinary/neeto-icons";
+import { Warning, CloseCircle, CheckCircle, Info } from "neetoicons";
 
 import Callout from "components/Callout";
 import { icons } from "../constants";
@@ -29,7 +24,7 @@ export default {
   },
 };
 
-export const Default = (args) => {
+export const Default = args => {
   return <Callout {...args}>This is a Callout!</Callout>;
 };
 

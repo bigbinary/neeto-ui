@@ -14,7 +14,7 @@ import {
   UserCircle,
   Settings,
   Image,
-} from "@bigbinary/neeto-icons";
+} from "neetoicons";
 
 export const icons = {
   Favorite,

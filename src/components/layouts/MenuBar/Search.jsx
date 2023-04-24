@@ -1,5 +1,6 @@
 import React from "react";
-import { Search as SearchIcon, Close } from "@bigbinary/neeto-icons";
+
+import { Search as SearchIcon, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Button from "components/Button";
@@ -9,12 +10,12 @@ const Search = ({ collapse = true, onCollapse, ...props }) =>
   !collapse && (
     <div className="neeto-ui-menubar__search">
       <Input
-        type="search"
         placeholder="Search"
         prefix={<SearchIcon />}
+        type="search"
         {...props}
       />
-      <Button style="text" icon={Close} onClick={onCollapse} />
+      <Button icon={Close} style="text" onClick={onCollapse} />
     </div>
   );
 

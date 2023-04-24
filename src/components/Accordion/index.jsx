@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { isEmpty } from "ramda";
 
 import Item from "./Item";
 
@@ -32,7 +34,8 @@ const Accordion = ({
     >
       {React.Children.map(children, (child, index) => {
         const isSingleOrLastChild =
-          !children.length || index === children.length - 1;
+          isEmpty(children) || index === children.length - 1;
+
         return React.cloneElement(child, {
           id: index,
           key: index,

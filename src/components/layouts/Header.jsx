@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+
 import classnames from "classnames";
-import { Link } from "react-router-dom";
-import { Search, Right, HamburgerMenu } from "@bigbinary/neeto-icons";
+import { Search, Right, HamburgerMenu } from "neetoicons";
 import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
+import { Link } from "react-router-dom";
 
 import Button from "components/Button";
 import Input from "components/Input";
@@ -30,12 +31,12 @@ const Header = ({
       <div className="neeto-ui-header__left">
         {menuBarToggle && (
           <Button
-            onClick={menuBarToggle}
-            style="text"
-            className="neeto-ui-header__toggle-menubar-btn"
-            icon={HamburgerMenu}
-            data-cy="menubar-toggle-button"
             aria-label="Toggle Menubar"
+            className="neeto-ui-header__toggle-menubar-btn"
+            data-cy="menubar-toggle-button"
+            icon={HamburgerMenu}
+            style="text"
+            onClick={menuBarToggle}
           />
         )}
         <div className="neeto-ui-header__left-data-wrap">
@@ -43,37 +44,37 @@ const Header = ({
             <div className="neeto-ui-header__breadcrumbs-wrap">
               {breadcrumbs.map((breadcrumb, index) => {
                 const { text, link } = breadcrumb;
+
                 return (
                   <div className="neeto-ui-header__breadcrumb" key={index}>
                     <Link to={link}>
                       <Typography
+                        className="neeto-ui-text-gray-700 hover:neeto-ui-text-gray-800 neeto-ui-header__breadcrumb-link"
+                        component="span"
+                        data-cy={text}
+                        data-test-id={text}
                         style="body2"
                         weight="normal"
-                        component="span"
-                        className="neeto-ui-text-gray-700 hover:neeto-ui-text-gray-800 neeto-ui-header__breadcrumb-link"
-                        data-test-id={text}
-                        data-cy={text}
                       >
                         {text}
                       </Typography>
                     </Link>
                     <Right
-                      size={16}
                       className="neeto-ui-header__breadcrumb-separator neeto-ui-text-gray-400"
+                      size={16}
                     />
                   </div>
                 );
               })}
             </div>
           )}
-
           <Typography
+            className="neeto-ui-header__page-title"
+            data-cy="main-header"
+            data-test-id="main-header"
             lineHeight="tight"
             style="h2"
             weight="semibold"
-            data-test-id="main-header"
-            data-cy="main-header"
-            className="neeto-ui-header__page-title"
           >
             {title}
           </Typography>
@@ -82,14 +83,14 @@ const Header = ({
       <div className="neeto-ui-gap-3 neeto-ui-header__right">
         {searchProps && (
           <Input
+            placeholder="Search"
+            prefix={<Search />}
             ref={searchRef}
             type="search"
-            placeholder="Search"
             className={classnames([
               "neeto-ui-header__search-input",
               searchProps.className,
             ])}
-            prefix={<Search />}
             {...searchProps}
           />
         )}

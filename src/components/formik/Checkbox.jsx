@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+
 import { Field } from "formik";
 import PropTypes from "prop-types";
 
@@ -17,6 +18,8 @@ const Checkbox = forwardRef(({ name, ...rest }, ref) => (
     )}
   </Field>
 ));
+
+Checkbox.displayName = "Checkbox";
 
 Checkbox.propTypes = {
   /**

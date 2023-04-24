@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
 import Button from "components/Button";
@@ -23,7 +24,8 @@ const NoData = ({
   const hasSecondaryButtonProps = !isEmpty(secondaryButtonProps);
   const hasButtonSeparatorText = !isEmpty(buttonSeparatorText);
 
-  const showButtonSeparator = hasButtonSeparatorText && hasPrimaryButtonProps && hasSecondaryButtonProps;
+  const showButtonSeparator =
+    hasButtonSeparatorText && hasPrimaryButtonProps && hasSecondaryButtonProps;
 
   return (
     <div
@@ -34,50 +36,51 @@ const NoData = ({
       <div className="neeto-ui-no-data__image">{renderImage(image)}</div>
       {title && (
         <Typography
-          style="h3"
-          lineHeight="none"
           className="neeto-ui-text-center"
           data-cy="no-data-title"
+          lineHeight="none"
+          style="h3"
         >
           {title}
         </Typography>
       )}
       {description && (
         <Typography
-          style="body2"
-          lineHeight="normal"
           className="neeto-ui-text-center neeto-ui-mt-2"
           data-cy="no-data-description"
+          lineHeight="normal"
+          style="body2"
         >
           {description}
         </Typography>
       )}
       {helpText && (
         <Typography
-          style="body2"
-          lineHeight="normal"
           className="neeto-ui-mt-2 neeto-ui-text-center"
           data-cy="no-data-help-text"
+          lineHeight="normal"
+          style="body2"
         >
           {helpText}
         </Typography>
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
         <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-gap-2">
-          {hasPrimaryButtonProps &&
+          {hasPrimaryButtonProps && (
+            <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
+          )}
+          {showButtonSeparator && (
+            <Typography lineHeight="normal" style="body2">
+              {buttonSeparatorText}
+            </Typography>
+          )}
+          {hasSecondaryButtonProps && (
             <Button
-              data-cy="no-data-primary-button"
-              {...primaryButtonProps}
-            />
-          }
-          {showButtonSeparator && <Typography style="body2" lineHeight="normal">{buttonSeparatorText}</Typography>}
-          {hasSecondaryButtonProps &&
-            <Button
-              style="secondary"
               data-cy="no-data-secondary-button"
+              style="secondary"
               {...secondaryButtonProps}
             />
-          }
+          )}
         </div>
       )}
     </div>

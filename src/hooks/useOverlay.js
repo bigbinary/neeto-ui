@@ -1,4 +1,5 @@
 import { useRef, useCallback, useEffect } from "react";
+
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { manager } from "managers";
@@ -75,6 +76,7 @@ const useOverlay = ({
   useEffect(() => {
     if (isOpen) {
       if (hasTransitionCompleted) focusRequiredElementInOverlay();
+
       if (shouldHideScrollAndAddMargin) hideScrollAndAddMargin();
     }
 
@@ -83,7 +85,7 @@ const useOverlay = ({
     };
   }, [isOpen, hasTransitionCompleted]);
 
-  const setFocusField = (fieldRef) => {
+  const setFocusField = fieldRef => {
     if (!fieldRef) return;
     initialFocusRef = { current: fieldRef };
     if (hasTransitionCompleted) focusRequiredElementInOverlay();

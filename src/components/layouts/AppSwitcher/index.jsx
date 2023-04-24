@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
-import { CSSTransition } from "react-transition-group";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { useHotkeys } from "react-hotkeys-hook";
+import { CSSTransition } from "react-transition-group";
 
 import { Portal, Backdrop } from "atoms";
 import { useOnClickOutside } from "hooks";
@@ -49,31 +50,31 @@ const AppSwitcher = ({
   return (
     <Portal rootId="neeto-ui-portal">
       <CSSTransition
-        in={isOpen}
         appear
-        timeout={300}
-        classNames="neeto-ui-app-switcher"
         unmountOnExit
+        classNames="neeto-ui-app-switcher"
+        in={isOpen}
+        timeout={300}
       >
         <Backdrop
-          ref={backdropRef}
-          key="switcher-backdrop"
           className="neeto-ui-app-switcher__backdrop"
+          key="switcher-backdrop"
+          ref={backdropRef}
         >
           <div
-            ref={paneWrapper}
-            key="switcher-wrapper"
             data-cy="switcher-wrapper"
+            key="switcher-wrapper"
+            ref={paneWrapper}
             className={classnames("neeto-ui-app-switcher__wrapper", {
               [className]: className,
             })}
             {...otherProps}
           >
             <Body
-              onClose={onClose}
               activeApp={activeApp}
               neetoApps={neetoApps}
               recentApps={recentApps}
+              onClose={onClose}
             />
           </div>
         </Backdrop>
@@ -107,6 +108,7 @@ AppSwitcher.propTypes = {
    * Name of the active application
    */
   activeApp: PropTypes.oneOfType([
+    // eslint-disable-next-line consistent-return
     function (props, propName, componentName) {
       const value = props[propName];
       if (!validateAppName(value)) {
@@ -117,18 +119,17 @@ AppSwitcher.propTypes = {
   /**
    * List of names of enabled neetoApps
    */
-  neetoApps: PropTypes.arrayOf(function (
-    propValue,
-    key,
-    componentName,
-    location,
-    propFullName
-  ) {
-    const value = propValue[key].name;
-    if (!validateAppName(value)) {
-      return new Error(displayErrorMessage(value, propFullName, componentName));
+  neetoApps: PropTypes.arrayOf(
+    // eslint-disable-next-line consistent-return
+    (propValue, key, componentName, propFullName) => {
+      const value = propValue[key].name;
+      if (!validateAppName(value)) {
+        return new Error(
+          displayErrorMessage(value, propFullName, componentName)
+        );
+      }
     }
-  }).isRequired,
+  ).isRequired,
   /**
    * List of names of recently created neetoApps
    */

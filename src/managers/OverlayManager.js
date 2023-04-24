@@ -16,11 +16,12 @@ class OverlayManager {
   }
 
   remove(overlay) {
-    this.overlays = this.overlays.filter((_overlay) => _overlay !== overlay);
+    this.overlays = this.overlays.filter(_overlay => _overlay !== overlay);
   }
 
   isTopOverlay(overlay) {
     const topMostOverlay = this.overlays[this.overlays.length - 1];
+
     return topMostOverlay === overlay;
   }
 

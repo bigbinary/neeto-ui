@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Typography from "components/Typography";
@@ -17,15 +18,16 @@ const Block = ({
   className,
   ...otherProps
 }) => {
-  const handleEdit = (e) => {
+  const handleEdit = e => {
     e.stopPropagation();
     onEdit && onEdit();
   };
 
-  let Parent = url ? Link : (props) => <button {...props} />;
+  const Parent = url ? Link : props => <button {...props} />;
 
   return (
     <Parent
+      data-cy={otherProps["data-cy"] || hyphenize(label)}
       to={url}
       className={classnames("neeto-ui-menubar__block", {
         "neeto-ui-menubar__block--editable": onEdit,
@@ -33,11 +35,10 @@ const Block = ({
         [className]: className,
       })}
       onClick={onClick}
-      data-cy={otherProps["data-cy"] || hyphenize(label)}
     >
       <div className="neeto-ui-menubar__block-label">
         {icon && <i className="neeto-ui-menubar__block-icon">{icon}</i>}
-        <Typography title={label} component="span" style="h5" weight="medium">
+        <Typography component="span" style="h5" title={label} weight="medium">
           {label}
         </Typography>
       </div>

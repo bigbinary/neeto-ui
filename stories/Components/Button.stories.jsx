@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import React from "react";
-import { Favorite } from "@bigbinary/neeto-icons";
+import { Favorite } from "neetoicons";
 
 import Button from "components/Button";
 import { icons } from "../constants";
@@ -17,8 +17,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
     },
   },
   argTypes: {
@@ -29,13 +28,13 @@ export default {
     onClick: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = args => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -64,7 +63,7 @@ export const Sizes = ({}) => {
 export const Styles = ({}) => {
   return (
     <div className="w-full">
-      <div className="flex flex-col w-full gap-3">
+      <div className="flex w-full flex-col gap-3">
         <div className="flex flex-wrap items-center gap-4">
           <Button style="primary" label="Primary" />
           <Button style="secondary" label="Secondary" />
@@ -111,7 +110,7 @@ LoadingState.storyName = "Loading state";
 export const FullWidth = ({}) => {
   return (
     <div className="w-full">
-      <div className="flex flex-wrap items-start gap-4 w-80">
+      <div className="flex w-80 flex-wrap items-start gap-4">
         <Button label="Primary" fullWidth />
         <Button style="secondary" label="Secondary" fullWidth />
         <Button style="text" label="Text" fullWidth />

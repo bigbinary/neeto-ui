@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Settings, Plus, Search } from "@bigbinary/neeto-icons";
+import { Settings, Plus, Search } from "neetoicons";
 
 import { Container, MenuBar } from "components/layouts";
 import { Button, Typography } from "components";
@@ -39,7 +39,8 @@ export const MenuBarStory = () => {
           iconProps={[
             {
               icon: Search,
-              onClick: () => setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
+              onClick: () =>
+                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
@@ -102,7 +103,7 @@ export const MenuBarStory = () => {
         />
       </MenuBar>
       <Container>
-        <div className="flex items-center justify-center w-full h-full">
+        <div className="flex h-full w-full items-center justify-center">
           <Button
             label={`${showMenu ? "Close" : "Open"} Menubar`}
             onClick={() => setShowMenu(!showMenu)}

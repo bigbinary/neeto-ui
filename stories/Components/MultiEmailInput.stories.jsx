@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import * as yup from "yup";
-import { Search } from "@bigbinary/neeto-icons";
+import { Search } from "neetoicons";
 
 import MultiEmailInput from "components/MultiEmailInput";
 import {
@@ -26,8 +26,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
     },
   },
   argTypes: {
@@ -54,7 +53,7 @@ export default {
   },
 };
 
-export const Controlled = (args) => {
+export const Controlled = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
@@ -93,7 +92,7 @@ export const Controlled = (args) => {
         },
       ]}
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -108,7 +107,7 @@ Controlled.args = {
   ],
 };
 
-export const Error = (args) => <MultiEmailInput {...args} />;
+export const Error = args => <MultiEmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
@@ -151,7 +150,7 @@ export const Counter = () => {
     <MultiEmailInput
       counter={{ startsFrom: 3 }}
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -162,7 +161,7 @@ Counter.parameters = {
   },
 };
 
-export const WithPrefixAndSuffix = (args) => {
+export const WithPrefixAndSuffix = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
@@ -171,7 +170,7 @@ export const WithPrefixAndSuffix = (args) => {
       prefix={<Search />}
       suffix={<div className="neeto-ui-text-gray-700">.bigbinary.com</div>}
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -198,7 +197,7 @@ export const FormikEmail = () => {
       .test(
         "are-all-emails-valid",
         "Please make sure all emails are valid.",
-        (emails) => emails.every(({ valid }) => valid)
+        emails => emails.every(({ valid }) => valid)
       )
       .nullable(),
   });

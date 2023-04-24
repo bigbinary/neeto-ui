@@ -1,12 +1,14 @@
 import React from "react";
-import classnames from "classnames";
-import PropTypes from "prop-types";
-import SelectInput, { components } from "react-select";
-import AsyncCreatable from "react-select/async-creatable";
-import Async from "react-select/async";
-import Creatable from "react-select/creatable";
+
 import { useId } from "@reach/auto-id";
-import { Down, Close } from "@bigbinary/neeto-icons";
+import classnames from "classnames";
+import { Down, Close } from "neetoicons";
+import PropTypes from "prop-types";
+import { assoc } from "ramda";
+import SelectInput, { components } from "react-select";
+import Async from "react-select/async";
+import AsyncCreatable from "react-select/async-creatable";
+import Creatable from "react-select/creatable";
 
 import { hyphenize } from "utils";
 
@@ -23,16 +25,16 @@ const STRATEGIES = {
   fixed: "fixed",
 };
 
-const CustomInput = (props) => {
+const CustomInput = props => {
   const { selectProps } = props;
 
   return (
     <components.Input
       {...props}
-      data-testid={selectProps && selectProps["data-testid"]}
       data-cy={selectProps && selectProps["data-cy"]}
+      data-testid={selectProps && selectProps["data-testid"]}
       maxLength={selectProps && selectProps.maxLength}
-    ></components.Input>
+    />
   );
 };
 
@@ -67,81 +69,80 @@ const Select = ({
 
   const portalProps = strategy === STRATEGIES.fixed && {
     menuPortalTarget: document.body,
-    styles: { menuPortal: (base) => ({ ...base, zIndex: 999999 }) },
+    styles: { menuPortal: assoc("zIndex", 999999) },
     menuPosition: "fixed",
   };
 
-  const DropdownIndicator = (props) => {
-    return (
-      <components.DropdownIndicator {...props}>
-        <Down size={16} />
-      </components.DropdownIndicator>
-    );
-  };
+  const DropdownIndicator = props => (
+    <components.DropdownIndicator {...props}>
+      <Down size={16} />
+    </components.DropdownIndicator>
+  );
 
-  const ClearIndicator = (props) => {
-    return (
-      <components.ClearIndicator {...props}>
-        <Close size={16} />
-      </components.ClearIndicator>
-    );
-  };
+  const ClearIndicator = props => (
+    <components.ClearIndicator {...props}>
+      <Close size={16} />
+    </components.ClearIndicator>
+  );
 
-  const MultiValueRemove = (props) => {
-    return (
-      <components.MultiValueRemove {...props}>
-        <Close size={16} />
-      </components.MultiValueRemove>
-    );
-  };
+  const MultiValueRemove = props => (
+    <components.MultiValueRemove {...props}>
+      <Close size={16} />
+    </components.MultiValueRemove>
+  );
 
   const { options, defaultOptions, getOptionValue } = otherProps;
 
-  const getRealOptionValue = (option) => {
+  const getRealOptionValue = option => {
     if (typeof getOptionValue !== "function") {
       return option.value;
     }
+
     return getOptionValue(option);
   };
 
-  const findInOptions = (value) => {
+  const findInOptions = value => {
     if (!value || otherProps.isMulti) {
       return value;
     }
     const currentOptions = options || defaultOptions;
     if (Array.isArray(value)) value = value[0];
+
     return currentOptions?.filter(
-      (opt) => getRealOptionValue(opt) === getRealOptionValue(value)
+      opt => getRealOptionValue(opt) === getRealOptionValue(value)
     );
   };
 
   return (
     <div
-      data-testid="select"
       className={classnames(["neeto-ui-input__wrapper", className])}
       data-cy={`${hyphenize(label)}-select-container-wrapper`}
+      data-testid="select"
     >
       {label && (
         <Label
-          required={required}
-          data-testid="select-label"
           data-cy={`${hyphenize(label)}-input-label`}
+          data-testid="select-label"
           htmlFor={inputId}
+          required={required}
           {...labelProps}
         >
           {label}
         </Label>
       )}
       <Parent
+        classNamePrefix="neeto-ui-react-select"
+        data-cy={`${hyphenize(label)}-select-container`}
+        defaultValue={findInOptions(defaultValue)}
         inputId={inputId}
         ref={innerRef}
+        value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
           "neeto-ui-react-select__container--error": !!error,
           "neeto-ui-react-select__container--small": size === SIZES.small,
           "neeto-ui-react-select__container--medium": size === SIZES.medium,
           "neeto-ui-react-select__container--large": size === SIZES.large,
         })}
-        classNamePrefix="neeto-ui-react-select"
         components={{
           Input: CustomInput,
           DropdownIndicator,
@@ -149,17 +150,14 @@ const Select = ({
           MultiValueRemove,
           ...componentOverrides,
         }}
-        data-cy={`${hyphenize(label)}-select-container`}
-        defaultValue={findInOptions(defaultValue)}
-        value={findInOptions(value)}
         {...portalProps}
         {...otherProps}
       />
       {!!error && (
         <p
           className="neeto-ui-input__error"
-          data-testid="select-error"
           data-cy={`${hyphenize(label)}-select-error`}
+          data-testid="select-error"
         >
           {error}
         </p>
@@ -167,8 +165,8 @@ const Select = ({
       {helpText && (
         <p
           className="neeto-ui-input__help-text"
-          data-testid="select-help-text"
           data-cy={`${hyphenize(label)}-select-help-text`}
+          data-testid="select-help-text"
         >
           {helpText}
         </p>

@@ -1,15 +1,16 @@
 import React from "react";
+
 import classnames from "classnames";
-import { CSSTransition } from "react-transition-group";
 import PropTypes from "prop-types";
+import { CSSTransition } from "react-transition-group";
 
 import Typography from "components/Typography";
 
+import AddNew from "./AddNew";
 import Block from "./Block";
 import Item from "./Item";
-import SubTitle from "./SubTitle";
 import Search from "./Search";
-import AddNew from "./AddNew";
+import SubTitle from "./SubTitle";
 
 const MenuBar = ({
   title = "",
@@ -19,10 +20,10 @@ const MenuBar = ({
   ...otherProps
 }) => (
   <CSSTransition
+    unmountOnExit
+    classNames="neeto-ui-menubar"
     in={showMenu}
     timeout={300}
-    classNames="neeto-ui-menubar"
-    unmountOnExit
   >
     <div
       className={classnames("neeto-ui-menubar__wrapper", {
@@ -32,11 +33,11 @@ const MenuBar = ({
       <div className="neeto-ui-menubar__container">
         {title && (
           <Typography
+            className="neeto-ui-menubar__title"
+            data-cy={otherProps["data-cy"] || "menubar-heading"}
             lineHeight="tight"
             style="h2"
             weight="semibold"
-            data-cy={otherProps["data-cy"] || "menubar-heading"}
-            className="neeto-ui-menubar__title"
           >
             {title}
           </Typography>

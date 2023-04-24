@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import { Settings, Delete, Search } from "@bigbinary/neeto-icons";
+import { Settings, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
@@ -33,8 +33,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
   argTypes: {
@@ -45,14 +44,14 @@ export default {
     onClose: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
     ...DEPRECATED_PROPS,
   },
 };
 
-export const Default = (args) => {
+export const Default = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
   return (
@@ -209,7 +208,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
   const listItems = ["Action", "Another action", "Something else here"];
 
   return (
-    <div className="flex items-start h-80">
+    <div className="flex h-80 items-start">
       <Dropdown label="Dropdown" isMultiLevel>
         <Menu>
           {listItems.map((item, idx) => (
@@ -219,7 +218,7 @@ export const MultiDropdownWithClickTrigger = ({}) => {
           <Dropdown
             position="right-start"
             customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
-            onClick={(e) => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -241,7 +240,7 @@ export const MultiDropdownWithHoverTrigger = () => {
   const listItems = ["Action", "Another action", "Something else here"];
 
   return (
-    <div className="flex items-start h-80">
+    <div className="flex h-80 items-start">
       <Dropdown label="Dropdown" isMultiLevel>
         <Menu>
           {listItems.map((item, idx) => (
@@ -274,7 +273,7 @@ export const ControlledDropdown = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
   return (
-    <div className="flex flex-col items-start space-y-6 h-60">
+    <div className="flex h-60 flex-col items-start space-y-6">
       <div className="flex items-center space-x-4">
         <Button
           label="Open Dropdown"
@@ -331,7 +330,7 @@ export const CustomDropdown = () => {
   return (
     <div className="h-56">
       <Dropdown closeOnSelect={false} label="Custom Dropdown">
-        <div className="flex flex-col gap-y-1 p-2 rounded-md">
+        <div className="flex flex-col gap-y-1 rounded-md p-2">
           <Input prefix={<Search />} placeholder="Search members" />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">

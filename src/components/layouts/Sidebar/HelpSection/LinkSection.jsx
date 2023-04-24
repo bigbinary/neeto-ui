@@ -1,6 +1,6 @@
 import React from "react";
 
-import { noop } from "../../../../utils";
+import { noop } from "utils";
 
 import Typography from "../../../Typography";
 
@@ -9,6 +9,7 @@ const HelpLinkSection = ({ links }) => (
     {links?.map(
       ({ onClick = noop, label = "", icon = null, ...otherProps }, idx) => {
         const IconSVG = icon;
+
         return (
           <li className="neeto-ui-help-sublist__item" key={idx}>
             <button

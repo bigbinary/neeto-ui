@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { MenuHorizontal, Search, Settings, Plus } from "@bigbinary/neeto-icons";
+import { MenuHorizontal, Search, Settings, Plus } from "neetoicons";
 
-import { getTableSource, TABLE_DATA, TABLE_IN_LAYOUT, SIMPLE_TABLE_DATA } from "../constants";
+import {
+  getTableSource,
+  TABLE_DATA,
+  TABLE_IN_LAYOUT,
+  SIMPLE_TABLE_DATA,
+} from "../constants";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
 import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
@@ -10,14 +15,7 @@ import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithou
 
 import NeetoTable from "components/Table";
 
-import {
-  Tooltip,
-  Tag,
-  Avatar,
-  Button,
-  Typography,
-  Dropdown,
-} from "components";
+import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
 import {
   Container,
   Scrollable,
@@ -38,11 +36,10 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
+      url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
-  argTypes:{
+  argTypes: {
     rowData: {
       control: false,
     },
@@ -53,10 +50,10 @@ export default {
     handlePageChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "-" }
-      }
+        defaultValue: { summary: "-" },
+      },
     },
-  }
+  },
 };
 
 const fixedColumnWidths = [
@@ -323,14 +320,14 @@ const getColumns = (fixed = false) => [
   },
 ];
 
-export const Default = (args) => {
+export const Default = args => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
       columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
       {...args}
     />
   );
@@ -348,9 +345,9 @@ Default.parameters = {
   },
 };
 
-export const TableWithSpecifiedHorizontalScrolling = (args) => {
+export const TableWithSpecifiedHorizontalScrolling = args => {
   return (
-    <div className="w-2/3 mx-auto mt-10">
+    <div className="mx-auto mt-10 w-2/3">
       <NeetoTable
         scroll={{ x: "100%" }}
         columnData={fixedColumnWidths}
@@ -361,11 +358,12 @@ export const TableWithSpecifiedHorizontalScrolling = (args) => {
   );
 };
 
-TableWithSpecifiedHorizontalScrolling.storyName = "Table with specified width for horizontal scrolling";
+TableWithSpecifiedHorizontalScrolling.storyName =
+  "Table with specified width for horizontal scrolling";
 
-export const TableWithTooltipsOnHeader = (args) => {
+export const TableWithTooltipsOnHeader = args => {
   return (
-    <div className="w-2/3 mx-auto mt-10">
+    <div className="mx-auto mt-10 w-2/3">
       <NeetoTable
         scroll={{ x: "100%" }}
         columnData={headerTooltips}
@@ -378,15 +376,14 @@ export const TableWithTooltipsOnHeader = (args) => {
 
 TableWithTooltipsOnHeader.storyName = "Table with Tooltips on header";
 
-
-export const TableWithFixedRightColumn = (args) => {
+export const TableWithFixedRightColumn = args => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <NeetoTable
       columnData={getColumns(true)}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
       {...args}
     />
   );
@@ -410,10 +407,10 @@ export const TableWithSelectedRowKeys = ({
       columnData={getColumns()}
       rowData={TABLE_DATA}
       currentPageNumber={pageNumber}
-      handlePageChange={(page) => setPageNumber(page)}
+      handlePageChange={page => setPageNumber(page)}
       {...args}
       selectedRowKeys={selectedRowKeys}
-      onRowSelect={(selectedRowKeys) => setSelectedRowKeys(selectedRowKeys)}
+      onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
       rowSelection
     />
   );
@@ -431,7 +428,7 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
-export const TableWithSorting = (args) => {
+export const TableWithSorting = args => {
   return (
     <NeetoTable
       columnData={getColumns()}
@@ -454,15 +451,15 @@ TableWithSorting.args = {
   defaultPageSize: 10,
 };
 
-export const TableWithFixedHeight = (args) => {
+export const TableWithFixedHeight = args => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
-    <div style={{height: "600px"}}>
+    <div style={{ height: "600px" }}>
       <NeetoTable
         columnData={getColumns()}
         rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
         {...args}
       />
     </div>
@@ -482,7 +479,7 @@ TableWithFixedHeight.parameters = {
   },
 };
 
-export const TableWithoutCheckbox = (args) => {
+export const TableWithoutCheckbox = args => {
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <div className="h-96">
@@ -490,7 +487,7 @@ export const TableWithoutCheckbox = (args) => {
         columnData={getColumns()}
         rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
         {...args}
       />
     </div>
@@ -509,7 +506,7 @@ TableWithoutCheckbox.parameters = {
   },
 };
 
-export const TableWithDynamicData = (args) => {
+export const TableWithDynamicData = args => {
   const [pageNumber, setPageNumber] = useState(1);
   const [slice, setSlice] = useState(20);
   const data = TABLE_DATA.slice(0, slice);
@@ -523,7 +520,7 @@ export const TableWithDynamicData = (args) => {
         columnData={getColumns()}
         rowData={data}
         currentPageNumber={pageNumber}
-        handlePageChange={(page) => setPageNumber(page)}
+        handlePageChange={page => setPageNumber(page)}
         {...args}
       />
     </div>
@@ -569,7 +566,7 @@ export const TableInLayout = () => {
             {
               icon: () => <Search size={20} />,
               onClick: () =>
-                setIsSearchCollapsed((isSearchCollapsed) => !isSearchCollapsed),
+                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
@@ -644,7 +641,7 @@ export const TableInLayout = () => {
         <SubHeader
           searchProps={{
             value: searchString,
-            onChange: (e) => setSearchString(e.target.value),
+            onChange: e => setSearchString(e.target.value),
           }}
           deleteButtonProps={{
             count: 0,
@@ -664,7 +661,7 @@ export const TableInLayout = () => {
             rowData={rowData}
             defaultPageSize={10}
             currentPageNumber={pageNumber}
-            handlePageChange={(page) => setPageNumber(page)}
+            handlePageChange={page => setPageNumber(page)}
             fixedHeight
           />
         </Scrollable>

@@ -1,4 +1,4 @@
-export const validateAppName = (value) =>
+export const validateAppName = value =>
   typeof value === "string" && /^[A-Z]\S*$/.test(value);
 
 export const validateNeetoAppsProp = neetoApps => {
@@ -17,15 +17,6 @@ export const validateActiveAppProp = activeApp => {
   }
 };
 
-export const displayErrorMessage = (value, propFullName, componentName) => {
-  return (
-    "Invalid prop `" +
-    propFullName +
-    " -> " +
-    value +
-    "` supplied to" +
-    " `" +
-    componentName +
-    "`. Validation failed."
-  );
-};
+export const displayErrorMessage = (value, propFullName, componentName) =>
+  `Invalid prop \`${propFullName} -> ${value}\` supplied to` +
+  ` \`${componentName}\`. Validation failed.`;

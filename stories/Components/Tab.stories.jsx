@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import { Favorite, Search, Close } from "@bigbinary/neeto-icons";
+import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
 
@@ -20,7 +20,7 @@ export default {
   },
 };
 
-const Template = (args) => (
+const Template = args => (
   <Tab {...args}>
     <Tab.Item active={true}>Label</Tab.Item>
     <Tab.Item>Label</Tab.Item>
@@ -30,7 +30,7 @@ const Template = (args) => (
 export const Default = Template.bind({});
 
 export const Sizes = ({}) => (
-  <div className="flex flex-col mb-4 space-y-4">
+  <div className="mb-4 flex flex-col space-y-4">
     <Tab>
       <Tab.Item active>Small</Tab.Item>
       <Tab.Item>Small</Tab.Item>

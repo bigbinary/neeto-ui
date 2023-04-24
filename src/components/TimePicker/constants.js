@@ -1,5 +1,5 @@
-import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 import generatePicker from "antd/lib/date-picker/generatePicker";
+import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 
 const AntTimePicker = generatePicker(dayjsGenerateConfig);
 const { RangePicker } = AntTimePicker;

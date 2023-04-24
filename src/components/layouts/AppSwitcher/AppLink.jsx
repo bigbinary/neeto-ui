@@ -1,24 +1,25 @@
 import React from "react";
-import { NeetoIcon } from "@bigbinary/neeto-icons";
+
 import classnames from "classnames";
-import * as AppIcons from "@bigbinary/neeto-icons/app-icons";
+import { NeetoIcon } from "neetoicons";
+import * as AppIcons from "neetoicons/app-icons";
 
 import Typography from "components/Typography";
 
 const AppLink = ({ name, description, url, activeApp }) => {
-  const appName = "Neeto" + name.charAt(0) + name.slice(1).toLowerCase();
+  const appName = `Neeto${name.charAt(0)}${name.slice(1).toLowerCase()}`;
   const AppIcon = AppIcons[appName];
 
   return (
     <a
+      data-cy={`${name}-app-link`}
+      data-test-id={`neetoapp-link-${name}`}
       href={url}
+      rel="noreferrer"
       target="_blank"
       className={classnames("neeto-ui-app-switcher-link", {
         "neeto-ui-app-switcher-link--active": activeApp === name,
       })}
-      rel="noreferrer"
-      data-test-id={`neetoapp-link-${name}`}
-      data-cy={`${name}-app-link`}
     >
       <div
         className={classnames("neeto-ui-app-switcher-link__icon-holder", {
@@ -33,18 +34,14 @@ const AppLink = ({ name, description, url, activeApp }) => {
       </div>
       <div className="neeto-ui-app-switcher-link__content">
         <Typography
-          style="h4"
-          weight="medium"
           component="span"
           lineHeight="relaxed"
+          style="h4"
+          weight="medium"
         >
           {name}
         </Typography>
-        <Typography
-          style="body3"
-          weight="normal"
-          component="span"
-        >
+        <Typography component="span" style="body3" weight="normal">
           {description}
         </Typography>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Field } from "formik";
 import PropTypes from "prop-types";
 
@@ -8,9 +9,9 @@ const FormikSwitch = ({ name, ...rest }) => (
   <Field name={name}>
     {({ field, meta: { error } }) => (
       <Switch
-        name={name}
-        error={error}
         checked={field.value}
+        error={error}
+        name={name}
         {...field}
         {...rest}
       />

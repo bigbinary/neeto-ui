@@ -1,10 +1,10 @@
 import React, { forwardRef, useRef } from "react";
+
 import { useField } from "formik";
 import PropTypes from "prop-types";
+import { prop, either, isNil, isEmpty } from "ramda";
 
 import Select from "components/Select";
-
-import { either, isNil, isEmpty } from "ramda";
 
 const SelectField = forwardRef((props, ref) => {
   const {
@@ -18,52 +18,55 @@ const SelectField = forwardRef((props, ref) => {
 
   const isMenuOpen = useRef(otherProps.defaultMenuIsOpen);
 
-  const getRealOptionValue = (option) => {
+  const getRealOptionValue = option => {
     if (typeof getOptionValue !== "function") {
       return option.value;
     }
+
     return getOptionValue(option);
   };
 
   const buildValueObj = (value, options) => {
     if (typeof value === "object") return value;
 
-    return options.filter((option) => getRealOptionValue(option) === value)[0];
+    return options.filter(option => getRealOptionValue(option) === value)[0];
   };
 
   return (
     <Select
+      error={meta.touched ? meta.error : ""}
+      getOptionValue={getOptionValue || prop("value")}
       innerRef={ref}
-      options={options}
+      isMulti={!!isMulti}
       name={field.name}
+      options={options}
       value={
         either(isNil, isEmpty)(field.value)
           ? null
           : buildValueObj(field.value, options)
       }
-      onChange={(value) => setValue(value)}
       onBlur={() => setTouched(true)}
-      error={meta.touched ? meta.error : ""}
-      getOptionValue={getOptionValue || ((option) => option.value)}
-      isMulti={!!isMulti}
+      onChange={value => setValue(value)}
       {...otherProps}
-      onMenuOpen={() => {
-        isMenuOpen.current = true;
-        otherProps.onMenuOpen?.();
-      }}
-      onMenuClose={() => {
-        isMenuOpen.current = false;
-        otherProps.onMenuClose?.();
-      }}
-      onKeyDown={(event) => {
+      onKeyDown={event => {
         if (event.key === "Enter" && isMenuOpen.current) {
           event.stopPropagation();
         }
         otherProps.onKeyDown?.(event);
       }}
+      onMenuClose={() => {
+        isMenuOpen.current = false;
+        otherProps.onMenuClose?.();
+      }}
+      onMenuOpen={() => {
+        isMenuOpen.current = true;
+        otherProps.onMenuOpen?.();
+      }}
     />
   );
 });
+
+SelectField.displayName = "SelectField";
 
 SelectField.propTypes = {
   /**

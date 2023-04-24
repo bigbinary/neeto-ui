@@ -1,8 +1,9 @@
 import React from "react";
-import { Right } from "@bigbinary/neeto-icons";
-import { motion } from "framer-motion";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import { motion } from "framer-motion";
+import { Right } from "neetoicons";
+import PropTypes from "prop-types";
 
 import Collapse from "./Collapse";
 
@@ -22,26 +23,26 @@ const Item = ({
     })}
   >
     <div
-      tabIndex={0}
-      role="button"
-      onClick={onClick}
-      id={`neeto-ui-accordion-item-${id}`}
+      aria-controls={`neeto-ui-accordion-section-${id}`}
       aria-disabled={isOpen}
       aria-expanded={isOpen}
-      aria-controls={`neeto-ui-accordion-section-${id}`}
+      id={`neeto-ui-accordion-item-${id}`}
+      role="button"
+      tabIndex={0}
       className={classnames(
         "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
         {
           "neeto-ui-accordion__item--open": isOpen,
         }
       )}
-      onKeyDown={(e) => {
+      onClick={onClick}
+      onKeyDown={e => {
         switch (e.key) {
-        case " ":
-        case "Enter":
-          onClick();
-          break;
-        default:
+          case " ":
+          case "Enter":
+            onClick();
+            break;
+          default:
         }
       }}
     >
@@ -57,31 +58,28 @@ const Item = ({
       >
         {title}
       </div>
-      {
-        <motion.div
-          variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
-          animate={isOpen ? "open" : "collapsed"}
-          transition={{ duration: 0.3 }}
-          className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
-        >
-          <Right
-            size={16}
-            className={classnames({
-              "neeto-ui-text-gray-700": !isOpen,
-              "neeto-ui-text-gray-800": isOpen,
-            })}
-            {...iconProps}
-          />
-        </motion.div>
-      }
+      <motion.div
+        animate={isOpen ? "open" : "collapsed"}
+        className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
+        transition={{ duration: 0.3 }}
+        variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
+      >
+        <Right
+          size={16}
+          className={classnames({
+            "neeto-ui-text-gray-700": !isOpen,
+            "neeto-ui-text-gray-800": isOpen,
+          })}
+          {...iconProps}
+        />
+      </motion.div>
     </div>
-
     <Collapse
-      role="region"
-      open={isOpen}
+      aria-labelledby={`neeto-ui-accordion-item-${id}`}
       className="neeto-ui-accordion__drop"
       id={`neeto-ui-accordion-section-${id}`}
-      aria-labelledby={`neeto-ui-accordion-item-${id}`}
+      open={isOpen}
+      role="region"
     >
       {children}
     </Collapse>

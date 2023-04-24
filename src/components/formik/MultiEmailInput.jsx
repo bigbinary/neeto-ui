@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+
 import { useField } from "formik";
 import PropTypes from "prop-types";
 
@@ -9,16 +10,18 @@ const FormikMultiEmailInput = forwardRef(({ name, ...otherProps }, ref) => {
 
   return (
     <EmailInput
-      ref={ref}
-      name={field.name}
-      value={field.value}
-      onChange={(value) => setValue(value)}
-      onBlur={() => setTouched(true)}
       error={meta.touched ? meta.error : ""}
+      name={field.name}
+      ref={ref}
+      value={field.value}
+      onBlur={() => setTouched(true)}
+      onChange={value => setValue(value)}
       {...otherProps}
     />
   );
 });
+
+FormikMultiEmailInput.displayName = "FormikMultiEmailInput";
 
 FormikMultiEmailInput.propTypes = {
   /**

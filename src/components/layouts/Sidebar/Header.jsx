@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Neeto } from "@bigbinary/neeto-icons/logos";
+import { Neeto } from "neetoicons/logos";
 
 const Header = ({ organizationInfo }) => {
   const LogoSVG = organizationInfo?.logo;
@@ -11,7 +11,7 @@ const Header = ({ organizationInfo }) => {
       data-cy="sidebar-info"
     >
       <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-flex-shrink-0 neeto-ui-sidebar__logo">
-        {LogoSVG ? LogoSVG : <Neeto />}
+        {LogoSVG || <Neeto />}
       </div>
     </div>
   );

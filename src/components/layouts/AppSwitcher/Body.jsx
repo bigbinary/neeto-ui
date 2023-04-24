@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Close, Search } from "@bigbinary/neeto-icons";
+
+import { Close, Search } from "neetoicons";
 
 import Button from "components/Button";
 import Input from "components/Input";
@@ -21,19 +22,19 @@ const Body = ({ activeApp, neetoApps, recentApps, onClose }) => {
   const hasRecentApps = recent.length > 0;
   const isSearchTermPresent = searchTerm.length > 0;
 
-  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const handleSearch = e => setSearchTerm(e.target.value);
 
   return (
     <>
       <Button
         className="neeto-ui-app-switcher__close-btn"
-        icon={Close}
-        size="small"
-        style="text"
-        iconPosition="left"
-        onClick={onClose}
         data-cy="app-switcher-back-button"
         data-testid="app-switcher-back-button"
+        icon={Close}
+        iconPosition="left"
+        size="small"
+        style="text"
+        onClick={onClose}
       />
       <div
         className="neeto-ui-app-switcher__header"
@@ -42,33 +43,33 @@ const Body = ({ activeApp, neetoApps, recentApps, onClose }) => {
         <Typography style="h2">Choose your neeto product</Typography>
         <div className="neeto-ui-app-switcher__search-wrapper">
           <Input
-            placeholder="Search products"
-            type="search"
-            prefix={<Search />}
-            onChange={handleSearch}
-            value={searchTerm}
             data-cy="app-switcher-search-input"
+            placeholder="Search products"
+            prefix={<Search />}
+            type="search"
+            value={searchTerm}
+            onChange={handleSearch}
           />
         </div>
       </div>
       {!isSearchTermPresent && hasRecentApps && (
         <div className="neeto-ui-app-switcher__body">
           <Typography
-            style="h5"
-            weight="bold"
-            textTransform="uppercase"
             className="neeto-ui-text-gray-500"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
           >
             Recent
           </Typography>
           <div className="neeto-ui-app-switcher__grid">
             {recent.map(({ name, description, url }) => (
               <AppLink
+                activeApp={activeApp}
+                description={description}
                 key={name}
                 name={name}
-                description={description}
                 url={url}
-                activeApp={activeApp}
               />
             ))}
           </div>
@@ -77,29 +78,28 @@ const Body = ({ activeApp, neetoApps, recentApps, onClose }) => {
       <div className="neeto-ui-app-switcher__body">
         {!isSearchTermPresent && hasRecentApps && (
           <Typography
-            style="h5"
-            weight="bold"
-            textTransform="uppercase"
             className="neeto-ui-text-gray-500"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
           >
             All
           </Typography>
         )}
-
         {filteredApps.length ? (
           <div className="neeto-ui-app-switcher__grid">
             {filteredApps.map(({ name, description, url }) => (
               <AppLink
+                activeApp={activeApp}
+                description={description}
                 key={name}
                 name={name}
-                description={description}
                 url={url}
-                activeApp={activeApp}
               />
             ))}
           </div>
         ) : (
-          <Typography style="body1" className="neeto-ui-text-center">
+          <Typography className="neeto-ui-text-center" style="body1">
             No apps found
           </Typography>
         )}

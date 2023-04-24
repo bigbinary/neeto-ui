@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
-import { Close } from "@bigbinary/neeto-icons";
+import { Close } from "neetoicons";
+import PropTypes from "prop-types";
 
 const SIZES = { small: "small", large: "large" };
 
@@ -29,8 +30,8 @@ const Tag = ({
   children,
   ...otherProps
 }) => {
-  let Icon =
-    typeof icon == "string" ? () => <i className={icon} /> : icon || Fragment;
+  const Icon =
+    typeof icon === "string" ? () => <i className={icon} /> : icon || Fragment;
   const renderLabel = label || children;
 
   return (
@@ -67,20 +68,17 @@ const Tag = ({
           })}
         />
       )}
-
       {icon && (
-        <span data-testid="class-icon" className="neeto-ui-tag__icon">
+        <span className="neeto-ui-tag__icon" data-testid="class-icon">
           <Icon />
         </span>
       )}
-
       {renderLabel}
-
       {onClose && (
         <span
+          className="neeto-ui-tag__close"
           data-testid="tag-close-button"
           onClick={!disabled ? onClose : null}
-          className="neeto-ui-tag__close"
         >
           <Close />
         </span>

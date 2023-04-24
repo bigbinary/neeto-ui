@@ -1,14 +1,16 @@
 import React from "react";
+
 import classnames from "classnames";
-import Typography from "../Typography";
 import PropTypes from "prop-types";
+
+import Typography from "../Typography";
 
 const Header = ({ description = "", children, className }) => (
   <div className={classnames("neeto-ui-modal__header", className)}>
     {children}
     {description && (
       <div className="neeto-ui-modal__header-desc">
-        <Typography style="body2" lineHeight="normal">
+        <Typography lineHeight="normal" style="body2">
           {description}
         </Typography>
       </div>

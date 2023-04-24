@@ -1,10 +1,15 @@
 import React from "react";
+
 import classnames from "classnames";
 
-import { TOOLTIP_STYLES } from "components/layouts/Sidebar";
 import Tooltip from "components/Tooltip";
 
 import FeaturedTooltip from "./FeaturedTooltip";
+
+const TOOLTIP_STYLES = {
+  default: "default",
+  featured: "featured",
+};
 
 const NavIconWrapper = ({
   tooltipStyle,
@@ -19,17 +24,18 @@ const NavIconWrapper = ({
     ) : (
       label
     );
+
   const content = (
     <Tooltip
-      position="right"
-      distance="20rem"
       content={tooltipContent}
+      delay={[400, 40]}
+      distance="20rem"
+      duration={[200, 200]}
+      position="right"
       className={classnames({
         "sidebar-featured-tooltip__content":
           tooltipStyle === TOOLTIP_STYLES.featured,
       })}
-      delay={[400, 40]}
-      duration={[200, 200]}
     >
       {children}
     </Tooltip>

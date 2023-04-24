@@ -1,7 +1,8 @@
 import React, { useState, forwardRef } from "react";
+
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { useId } from "@reach/auto-id";
 
 import { hyphenize } from "utils";
 
@@ -43,8 +44,7 @@ const Input = forwardRef(
     const isCharacterLimitVisible = valueLength >= maxLength * 0.9;
     const maxLengthError = !!maxLength && valueLength > maxLength;
 
-
-    const onChangeInternal = (e) => setValueInternal(e.target.value);
+    const onChangeInternal = e => setValueInternal(e.target.value);
 
     const onChange = otherProps.onChange || onChangeInternal;
 
@@ -53,9 +53,9 @@ const Input = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
-              required={required}
               data-cy={`${hyphenize(label)}-input-label`}
               htmlFor={id}
+              required={required}
               {...labelProps}
             >
               {label}
@@ -63,10 +63,10 @@ const Input = forwardRef(
           )}
           {isCharacterLimitVisible && (
             <Typography
+              style="body2"
               className={classnames("neeto-ui-input__max-length", {
                 "neeto-ui-input__max-length--error": maxLengthError,
               })}
-              style="body2"
             >
               {valueLength}/{maxLength}
             </Typography>
@@ -84,18 +84,18 @@ const Input = forwardRef(
         >
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
-            ref={ref}
-            id={id}
-            type={type}
-            disabled={disabled}
-            size={contentSize}
-            required={required}
             aria-invalid={!!error}
+            data-cy="input-field"
+            disabled={disabled}
+            id={id}
+            ref={ref}
+            required={required}
+            size={contentSize}
+            type={type}
             aria-describedby={classnames({
               [errorId]: !!error,
               [helpTextId]: helpText,
             })}
-            data-cy="input-field"
             {...otherProps}
             value={value}
             onChange={onChange}
@@ -104,20 +104,20 @@ const Input = forwardRef(
         </div>
         {!!error && (
           <Typography
-            style="body3"
-            data-cy={`${hyphenize(label)}-input-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
+            style="body3"
           >
             {error}
           </Typography>
         )}
         {helpText && (
           <Typography
-            style="body3"
             className="neeto-ui-input__help-text"
-            id={helpTextId}
             data-cy={`${hyphenize(label)}-input-help`}
+            id={helpTextId}
+            style="body3"
           >
             {helpText}
           </Typography>
@@ -126,6 +126,8 @@ const Input = forwardRef(
     );
   }
 );
+
+Input.displayName = "Input";
 
 Input.propTypes = {
   /**

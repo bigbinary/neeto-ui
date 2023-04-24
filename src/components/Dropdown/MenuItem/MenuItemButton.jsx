@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import classnames from "classnames";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import MenuItem from "./MenuItem";
 
@@ -39,9 +39,11 @@ const MenuItemButton = ({
       type,
     };
   }
+
   return (
     <MenuItem>
       <Parent
+        disabled={isDisabled}
         className={classnames(
           "neeto-ui-dropdown__popup-menu-item-btn",
           className,
@@ -52,7 +54,6 @@ const MenuItemButton = ({
               style === ITEM_BTN_STYLES.danger,
           }
         )}
-        disabled={isDisabled}
         {...otherProps}
         {...elementSpecificProps}
       >

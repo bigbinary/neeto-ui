@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import React from "react";
-import { Favorite } from "@bigbinary/neeto-icons";
+import { Favorite } from "neetoicons";
 
 import Tag from "components/Tag";
 
