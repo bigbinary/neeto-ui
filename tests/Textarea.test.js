@@ -1,7 +1,9 @@
 import React from "react";
+
 import { render } from "@testing-library/react";
-import { Textarea } from "components";
 import userEvent from "@testing-library/user-event";
+
+import { Textarea } from "components";
 
 describe("Textarea", () => {
   it("should render without error", () => {
@@ -27,14 +29,14 @@ describe("Textarea", () => {
 
   it("should display helpText", () => {
     const { getByText } = render(
-      <Textarea id="text" label="Textarea" helpText="Help text" />
+      <Textarea helpText="Help text" id="text" label="Textarea" />
     );
     expect(getByText("Help text")).toBeInTheDocument();
   });
 
   it("should display error message", () => {
     const { getByText } = render(
-      <Textarea id="text" label="Textarea" error="Error message" />
+      <Textarea error="Error message" id="text" label="Textarea" />
     );
     expect(getByText("Error message")).toBeInTheDocument();
   });
@@ -42,6 +44,15 @@ describe("Textarea", () => {
   it("should properly handle maxLength", () => {
     const { getByLabelText, getByText } = render(
       <Textarea id="text" label="Textarea" maxLength={5} />
+    );
+    userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
+    expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
+    expect(getByLabelText("Textarea")).toHaveValue("Testi");
+  });
+
+  it("should properly handle maxLength", () => {
+    const { getByLabelText, getByText } = render(
+      <Textarea unlimitedChars id="text" label="Textarea" maxLength={5} />
     );
     userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
     expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();

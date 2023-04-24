@@ -14,13 +14,12 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A13",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A13",
     },
   },
 };
 
-const Template = (args) => <Textarea {...args} />;
+const Template = args => <Textarea {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -30,11 +29,12 @@ Default.args = {
 
 export const Controlled = () => {
   const [value, setValue] = useState("BigBinary");
+
   return (
     <Textarea
       label="Controlled input"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={e => setValue(e.target.value)}
     />
   );
 };
@@ -75,10 +75,32 @@ NakedInput.args = {
   nakedTextarea: true,
 };
 
-export const TextareaWithMaxLength = Template.bind({});
+export const TextareaWithMaxLength = () => (
+  <div className="flex flex-col space-y-6">
+    <Textarea
+      label="Textarea with max length"
+      maxLength={10}
+      placeholder="Enter text"
+    />
+    <Textarea
+      label="Textarea with max length"
+      maxLength={10}
+      placeholder="Enter text"
+      value="Sample i"
+    />
+    <Textarea
+      label="Textarea with max length"
+      maxLength={10}
+      placeholder="Enter text"
+      value="Sample in"
+    />
+    <Textarea
+      unlimitedChars
+      label="Textarea with max length and unlimited characters"
+      maxLength={10}
+      placeholder="Enter text"
+      value="Sample Input"
+    />
+  </div>
+);
 TextareaWithMaxLength.storyName = "Textarea with max length";
-TextareaWithMaxLength.args = {
-  label: "Textarea with max length",
-  placeholder: "Enter text",
-  maxLength: 10,
-};

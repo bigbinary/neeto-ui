@@ -283,6 +283,8 @@ export interface InputProps
   contentSize?: number;
   required?: boolean;
   labelProps?: LabelProps;
+  maxLength?: number;
+  unlimitedChars: boolean;
 }
 
 export type LabelProps = {
@@ -412,6 +414,7 @@ export type TextareaProps = {
   className?: string;
   maxLength?: number;
   labelProps?: LabelProps;
+  unlimitedChars: boolean;
 } & React.DetailedHTMLProps<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   HTMLTextAreaElement

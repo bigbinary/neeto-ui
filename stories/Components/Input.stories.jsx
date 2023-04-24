@@ -18,13 +18,12 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
     },
   },
 };
 
-const Template = (args) => <Input {...args} />;
+const Template = args => <Input {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -35,7 +34,7 @@ Default.args = {
 // eslint-disable-next-line no-empty-pattern
 export const Sizes = ({}) => {
   return (
-    <div className="flex flex-col w-full gap-3">
+    <div className="flex w-full flex-col gap-3">
       <Input label="Small" placeholder="Input placeholder" size="small" />
       <Input label="Medium" placeholder="Input placeholder" />
       <Input label="Large" placeholder="Input placeholder" size="large" />
@@ -50,7 +49,7 @@ export const Controlled = () => {
       prefix={<Search />}
       label="Controlled Input"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={e => setValue(e.target.value)}
     />
   );
 };
@@ -125,8 +124,9 @@ export const InputWithMaxLength = () => {
         placeholder="Input placeholder"
       />
       <Input
-        label="Input with max length"
+        label="Input with max length and unlimited characters"
         maxLength={10}
+        unlimitedChars={true}
         value="Sample Input"
         placeholder="Input placeholder"
       />
@@ -144,10 +144,10 @@ export const FormikInputStory = ({}) => {
           validationSchema: yup.object({
             name: yup.string().required("Name is required"),
           }),
-          onSubmit: (values) => window.alert(JSON.stringify(values)),
+          onSubmit: values => window.alert(JSON.stringify(values)),
         }}
       >
-        {(props) => (
+        {props => (
           <div className="space-y-2">
             <FormikInput name="name" label="Name" />
             <FormikInput name="email" type="email" label="Email" />
