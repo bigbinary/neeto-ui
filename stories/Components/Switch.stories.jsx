@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Switch from "components/Switch";
 import ToolTip from "components/Tooltip";
 
-export default {
+const metadata = {
   title: "Components/Switch",
   component: Switch,
   parameters: {
@@ -34,35 +34,36 @@ const Template = args => (
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   checked: false,
 };
 
-export const Checked = Template.bind({});
+const Checked = Template.bind({});
 Checked.args = {
   checked: true,
 };
 
-export const Controlled = ({}) => {
+const Controlled = args => {
   const [isChecked, setIsChecked] = useState(false);
   const onChange = e => {
     setIsChecked(e.target.checked);
   };
 
-  return <Switch checked={isChecked} onChange={onChange} />;
+  return <Switch {...args} checked={isChecked} onChange={onChange} />;
 };
 
-export const Disabled = Template.bind({});
+const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
   checked: true,
 };
 
-export const Label = ({}) => (
+const Label = args => (
   <div className="flex flex-col space-y-6">
-    <Switch label="Switch label example" />
+    <Switch {...args} label="Switch label example" />
     <Switch
+      {...args}
       label={
         <span className="neeto-ui-text-info-500 font-semibold">
           Custom label example
@@ -72,7 +73,7 @@ export const Label = ({}) => (
   </div>
 );
 
-export const TooltipExample = () => {
+const TooltipExample = args => {
   const [isChecked, setIsChecked] = useState(false);
   const onChange = e => {
     setIsChecked(e.target.checked);
@@ -81,8 +82,12 @@ export const TooltipExample = () => {
   return (
     <div className="flex flex-col space-y-6">
       <ToolTip content="This is a tooltip" placement="right">
-        <Switch checked={isChecked} onChange={onChange} />
+        <Switch {...args} checked={isChecked} onChange={onChange} />
       </ToolTip>
     </div>
   );
 };
+
+export { Default, Checked, Controlled, Disabled, Label, TooltipExample };
+
+export default metadata;

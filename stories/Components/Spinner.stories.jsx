@@ -2,7 +2,7 @@ import React from "react";
 
 import Spinner from "components/Spinner";
 
-export default {
+const metadata = {
   title: "Components/Spinner",
   component: Spinner,
   parameters: {
@@ -21,11 +21,15 @@ const Template = args => (
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const LightTheme = () => (
+const LightTheme = args => (
   <div className="neeto-ui-bg-black flex h-20 w-20 items-center justify-center">
-    <Spinner theme="light" />
+    <Spinner {...args} theme="light" />
   </div>
 );
 LightTheme.storyName = "Light theme";
+
+export { Default, LightTheme };
+
+export default metadata;

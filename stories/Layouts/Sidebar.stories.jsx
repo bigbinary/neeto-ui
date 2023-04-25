@@ -25,7 +25,7 @@ const DEPRECATED_PROPS = {
   },
 };
 
-export default {
+const metadata = {
   title: "Layouts/Sidebar",
   component: Sidebar,
   parameters: {
@@ -73,7 +73,7 @@ const Template = args => (
   </Router>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   organizationInfo: {
     name: "neetoUI",
@@ -109,7 +109,7 @@ Default.args = {
   appName: "neetoUI",
 };
 
-export const SidebarWithAppSwitcher = args => {
+const SidebarWithAppSwitcher = args => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(false);
 
   return (
@@ -154,7 +154,7 @@ SidebarWithAppSwitcher.args = {
   appName: "neetoUI",
 };
 
-export const HelpSectionWithChangelog = ({ ...args }) => (
+const HelpSectionWithChangelog = args => (
   <Router>
     <Sidebar {...args} />
   </Router>
@@ -193,7 +193,7 @@ HelpSectionWithChangelog.args = {
   },
 };
 
-export const ProfileSectionWithCustomContent = Template.bind({});
+const ProfileSectionWithCustomContent = Template.bind({});
 ProfileSectionWithCustomContent.storyName =
   "Profile section with custom content";
 
@@ -231,3 +231,12 @@ ProfileSectionWithCustomContent.args = {
   },
   appName: "neetoUI",
 };
+
+export {
+  Default,
+  SidebarWithAppSwitcher,
+  HelpSectionWithChangelog,
+  ProfileSectionWithCustomContent,
+};
+
+export default metadata;

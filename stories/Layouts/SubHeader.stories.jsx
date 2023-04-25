@@ -6,7 +6,7 @@ import Button from "components/Button";
 import SubHeader from "components/layouts/SubHeader";
 import Typography from "components/Typography";
 
-export default {
+const metadata = {
   title: "Layouts/SubHeader",
   component: SubHeader,
   parameters: {
@@ -19,8 +19,9 @@ export default {
   },
 };
 
-export const Default = () => (
+const Default = args => (
   <SubHeader
+    {...args}
     leftActionBlock={
       <Typography component="h4" style="h4">
         118 Contacts
@@ -35,8 +36,9 @@ export const Default = () => (
   />
 );
 
-export const WithLeftActionBlock = () => (
+const WithLeftActionBlock = args => (
   <SubHeader
+    {...args}
     leftActionBlock={
       <Typography component="h4" style="h4">
         118 Contacts
@@ -46,8 +48,9 @@ export const WithLeftActionBlock = () => (
 );
 WithLeftActionBlock.storyName = "With left action block";
 
-export const WithRightActionBlock = () => (
+const WithRightActionBlock = args => (
   <SubHeader
+    {...args}
     rightActionBlock={
       <>
         <Button icon={Delete} label="Delete" style="secondary" />
@@ -57,3 +60,7 @@ export const WithRightActionBlock = () => (
   />
 );
 WithRightActionBlock.storyName = "With right action block";
+
+export { Default, WithLeftActionBlock, WithRightActionBlock };
+
+export default metadata;

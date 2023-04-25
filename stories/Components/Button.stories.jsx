@@ -7,6 +7,35 @@ import Button from "components/Button";
 
 import { icons } from "../constants";
 
+const metadata = {
+  title: "Components/Button",
+  component: Button,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Button } from "@bigbinary/neetoui";`',
+      },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
+    },
+  },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+      mapping: icons,
+    },
+    onClick: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
+};
+
 const Template = args => <Button {...args} />;
 
 const Default = Template.bind({});
@@ -96,31 +125,4 @@ Tooltip.args = {
 
 export { Default, Sizes, Styles, IconButtons, LoadingState, Tooltip };
 
-export default {
-  title: "Components/Button",
-  component: Button,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Button } from "@bigbinary/neetoui";`',
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
-    },
-  },
-  argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
-    onClick: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
-      },
-    },
-  },
-};
+export default metadata;

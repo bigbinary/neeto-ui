@@ -5,7 +5,7 @@ import Input from "components/Input";
 import Modal from "components/Modal";
 import Typography from "components/Typography";
 
-export default {
+const metadata = {
   title: "Overlays/Modal",
   component: Modal,
   subcomponents: {
@@ -35,7 +35,7 @@ export default {
   },
 };
 
-export const Default = () => {
+const Default = args => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -47,7 +47,7 @@ export const Default = () => {
           </div>
         </div>
       </div>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header description="Short description">
           <Typography id="dialog1Title" style="h2">
             They're creepy & they're kooky
@@ -76,7 +76,7 @@ export const Default = () => {
   );
 };
 
-export const Sizes = () => {
+const Sizes = args => {
   const [showModalExtraSmall, setShowModalExtraSmall] = useState(false);
   const [showModalMedium, setShowModalMedium] = useState(false);
   const [showModalLarge, setShowModalLarge] = useState(false);
@@ -101,6 +101,7 @@ export const Sizes = () => {
         </div>
       </div>
       <Modal
+        {...args}
         isOpen={showModalExtraSmall}
         size="small"
         onClose={() => setShowModalExtraSmall(false)}
@@ -127,6 +128,7 @@ export const Sizes = () => {
         </Modal.Footer>
       </Modal>
       <Modal
+        {...args}
         isOpen={showModalMedium}
         size="medium"
         onClose={() => setShowModalMedium(false)}
@@ -150,6 +152,7 @@ export const Sizes = () => {
         </Modal.Footer>
       </Modal>
       <Modal
+        {...args}
         isOpen={showModalLarge}
         size="large"
         onClose={() => setShowModalLarge(false)}
@@ -177,6 +180,7 @@ export const Sizes = () => {
         </Modal.Footer>
       </Modal>
       <Modal
+        {...args}
         isOpen={showModalFullScreen}
         size="fullScreen"
         onClose={() => setShowModalFullScreen(false)}
@@ -210,7 +214,7 @@ export const Sizes = () => {
   );
 };
 
-export const ModalFocusTrapping = () => {
+const ModalFocusTrapping = args => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -222,7 +226,7 @@ export const ModalFocusTrapping = () => {
           </div>
         </div>
       </div>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header
           description="Try pressing tab or shift + tab on your keyboard. You would realise
             that the focus is trapped to within the Modal. This is done
@@ -259,7 +263,7 @@ export const ModalFocusTrapping = () => {
 };
 ModalFocusTrapping.storyName = "Modal focus trapping";
 
-export const NestedModals = () => {
+const NestedModals = args => {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
@@ -272,7 +276,7 @@ export const NestedModals = () => {
           </div>
         </div>
       </div>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header
           description="Try pressing tab or shift + tab on your keyboard. You would realise
             that the focus is trapped to within the Modal. This is done
@@ -304,7 +308,7 @@ export const NestedModals = () => {
           />
         </Modal.Footer>
       </Modal>
-      <Modal isOpen={showModal2} onClose={() => setShowModal2(false)}>
+      <Modal {...args} isOpen={showModal2} onClose={() => setShowModal2(false)}>
         <Modal.Header description="Now, you would notice that the focus is trapped inside of the second Modal.">
           <Typography id="dialog1Title" style="h2">
             They're creepy & they're kooky
@@ -334,7 +338,7 @@ export const NestedModals = () => {
 };
 NestedModals.storyName = "Nested modals";
 
-export const InitialAndFinalFocusRef = () => {
+const InitialAndFinalFocusRef = args => {
   const [showModal, setShowModal] = useState(false);
   const inputRef = React.useRef(null);
   const buttonRef = React.useRef(null);
@@ -354,6 +358,7 @@ export const InitialAndFinalFocusRef = () => {
         </div>
       </div>
       <Modal
+        {...args}
         finalFocusRef={buttonRef}
         initialFocusRef={inputRef}
         isOpen={showModal}
@@ -390,3 +395,13 @@ export const InitialAndFinalFocusRef = () => {
   );
 };
 InitialAndFinalFocusRef.storyName = "Initial and final focus ref";
+
+export {
+  Default,
+  Sizes,
+  ModalFocusTrapping,
+  NestedModals,
+  InitialAndFinalFocusRef,
+};
+
+export default metadata;

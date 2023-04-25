@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import { Button, Typography, Popover } from "components";
 
-export default {
+const metadata = {
   title: "Overlays/Popover",
   component: Popover,
   subcomponents: { "Popover.Title": Popover.Title, Button },
@@ -20,7 +20,7 @@ export default {
   },
 };
 
-export const ShowPopover = args => {
+const ShowPopover = args => {
   const popoverReferenceElement = useRef();
 
   return (
@@ -48,3 +48,7 @@ export const ShowPopover = args => {
 };
 
 ShowPopover.storyName = "Show Popover";
+
+export { ShowPopover };
+
+export default metadata;

@@ -4,7 +4,7 @@ import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
 
-export default {
+const metadata = {
   title: "Components/Tab",
   component: Tab,
   subcomponents: {
@@ -27,11 +27,11 @@ const Template = args => (
   </Tab>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const Sizes = ({}) => (
+const Sizes = args => (
   <div className="mb-4 flex flex-col space-y-4">
-    <Tab>
+    <Tab {...args}>
       <Tab.Item active>Small</Tab.Item>
       <Tab.Item>Small</Tab.Item>
     </Tab>
@@ -42,8 +42,8 @@ export const Sizes = ({}) => (
   </div>
 );
 
-export const WithIcon = ({}) => (
-  <Tab>
+const WithIcon = args => (
+  <Tab {...args}>
     <Tab.Item active icon={Favorite}>
       Label
     </Tab.Item>
@@ -53,17 +53,17 @@ export const WithIcon = ({}) => (
 );
 WithIcon.storyName = "With icon";
 
-export const WithoutUnderline = Template.bind({});
+const WithoutUnderline = Template.bind({});
 WithoutUnderline.args = {
   noUnderline: true,
 };
 WithoutUnderline.storyName = "Without underline";
 
-export const MultipleItems = ({}) => {
+const MultipleItems = args => {
   const [tab, setTab] = useState("label1");
 
   return (
-    <Tab>
+    <Tab {...args}>
       <Tab.Item active={tab === "label1"} onClick={() => setTab("label1")}>
         Label 1
       </Tab.Item>
@@ -77,3 +77,7 @@ export const MultipleItems = ({}) => {
   );
 };
 MultipleItems.storyName = "Multiple items";
+
+export { Default, Sizes, WithIcon, WithoutUnderline, MultipleItems };
+
+export default metadata;

@@ -6,6 +6,37 @@ import ActionDropdown from "components/ActionDropdown";
 
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
+const metadata = {
+  title: "Components/ActionDropdown",
+  component: ActionDropdown,
+  subcomponents: {
+    "ActionDropdown.Menu": ActionDropdown.Menu,
+    "ActionDropdown.MenuItem": ActionDropdown.MenuItem,
+    "ActionDropdown.MenuItem.Button": ActionDropdown.MenuItem.Button,
+    "ActionDropdown.Divider": ActionDropdown.Divider,
+  },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
+      },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+    },
+  },
+  argTypes: {
+    onClick: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
+};
+
 const Template = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
@@ -28,18 +59,19 @@ const Template = args => {
   );
 };
 
-export const Default = Template.bind();
+const Default = Template.bind({});
+
 Default.args = {
   buttonStyle: "primary",
   label: "Primary",
 };
 
-export const Styles = () => {
+const Styles = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40 space-x-6">
-      <ActionDropdown buttonStyle="primary" label="Primary">
+      <ActionDropdown {...args} buttonStyle="primary" label="Primary">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
@@ -82,12 +114,12 @@ export const Styles = () => {
   );
 };
 
-export const Sizes = () => {
+const Sizes = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40 space-x-6">
-      <ActionDropdown buttonSize="small" label="Small">
+      <ActionDropdown {...args} buttonSize="small" label="Small">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
@@ -130,12 +162,13 @@ export const Sizes = () => {
   );
 };
 
-export const CustomIcon = () => {
+const CustomIcon = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40">
       <ActionDropdown
+        {...args}
         dropdownProps={{ icon: MenuHorizontal }}
         label="Custom icon"
       >
@@ -157,36 +190,6 @@ export const CustomIcon = () => {
 
 CustomIcon.storyName = "Custom icon";
 
-export default {
-  title: "Components/ActionDropdown",
-  component: ActionDropdown,
-  subcomponents: {
-    "ActionDropdown.Menu": ActionDropdown.Menu,
-    "ActionDropdown.MenuItem": ActionDropdown.MenuItem,
-    "ActionDropdown.MenuItem.Button": ActionDropdown.MenuItem.Button,
-    "ActionDropdown.Divider": ActionDropdown.Divider,
-  },
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
-      },
-      source: {
-        type: "code",
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
-    },
-  },
-  argTypes: {
-    onClick: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
-      },
-    },
-  },
-};
+export { Default, Styles, Sizes, CustomIcon };
+
+export default metadata;

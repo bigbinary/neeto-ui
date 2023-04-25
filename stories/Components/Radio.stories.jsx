@@ -7,7 +7,7 @@ import { Radio as FormikRadio } from "components/formik";
 import Radio from "components/Radio";
 import Typography from "components/Typography";
 
-export default {
+const metadata = {
   title: "Components/Radio",
   component: Radio,
   subcomponents: {
@@ -27,7 +27,7 @@ export default {
   },
 };
 
-export const Options = args => (
+const Options = args => (
   <Radio {...args}>
     <Radio.Item label="Option 1" name="options" value="Option1" />
     <Radio.Item label="Option 2" name="options" value="Option2" />
@@ -38,7 +38,7 @@ Options.args = {
   label: "Radio options",
 };
 
-export const OptionsStacked = args => (
+const OptionsStacked = args => (
   <Radio {...args}>
     <Radio.Item label="Option 1" name="stackedOptions" value="Option1" />
     <Radio.Item label="Option 2" name="stackedOptions" value="Option2" />
@@ -51,7 +51,7 @@ OptionsStacked.args = {
 };
 OptionsStacked.storyName = "Options stacked";
 
-export const ControlledRadio = args => {
+const ControlledRadio = args => {
   const [value, setValue] = React.useState("");
 
   return (
@@ -65,7 +65,7 @@ export const ControlledRadio = args => {
   );
 };
 
-export const FormikRadioStory = () => {
+const FormikRadioStory = args => {
   const [values, setValues] = useState({});
 
   return (
@@ -74,7 +74,7 @@ export const FormikRadioStory = () => {
       onSubmit={values => setValues(values)}
     >
       <Form className="space-y-4">
-        <FormikRadio name="reaction">
+        <FormikRadio {...args} name="reaction">
           {[
             { label: "Happy", value: "Happy" },
             { label: "Sad", value: "Sad" },
@@ -103,3 +103,7 @@ FormikRadioStory.parameters = {
     },
   },
 };
+
+export { Options, OptionsStacked, ControlledRadio, FormikRadioStory };
+
+export default metadata;

@@ -1,4 +1,3 @@
-/* eslint-disable import/exports-last */
 import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
@@ -7,9 +6,37 @@ import dayjs from "dayjs";
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
 
+// eslint-disable-next-line import/extensions
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
-export const DateInput = args => <DatePicker {...args} />;
+const metadata = {
+  title: "Components/DatePicker",
+  component: DatePicker,
+  parameters: {
+    layout: "padded",
+    docs: { description: { component: DateInputStoriesDocs } },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
+    },
+  },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "-" },
+      },
+    },
+    onOk: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
+};
+
+const DateInput = args => <DatePicker {...args} />;
 
 DateInput.storyName = "DatePicker";
 DateInput.args = {
@@ -19,7 +46,7 @@ DateInput.args = {
   showTime: false,
 };
 
-export const DatePickerWithRef = () => {
+const DatePickerWithRef = args => {
   const ref = React.useRef();
   const [open, setOpen] = React.useState(false);
 
@@ -27,6 +54,7 @@ export const DatePickerWithRef = () => {
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <DatePicker
+        {...args}
         open={open}
         ref={ref}
         onBlur={() => setOpen(false)}
@@ -37,7 +65,7 @@ export const DatePickerWithRef = () => {
 };
 DatePickerWithRef.storyName = "DatePicker with ref";
 
-export const DatePickerInModal = args => {
+const DatePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -63,7 +91,7 @@ export const DatePickerInModal = args => {
 };
 DatePickerInModal.storyName = "DatePicker in modal";
 
-export const DatePickerInPane = args => {
+const DatePickerInPane = args => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -88,7 +116,7 @@ export const DatePickerInPane = args => {
 };
 DatePickerInPane.storyName = "DatePicker in pane";
 
-export const DatePickerWithDefaultValue = args => (
+const DatePickerWithDefaultValue = args => (
   <div className="space-y-3">
     <DatePicker
       defaultValue={isChromatic() ? dayjs(new Date(1999, 7, 16)) : dayjs()}
@@ -96,8 +124,8 @@ export const DatePickerWithDefaultValue = args => (
     />
   </div>
 );
-DatePickerWithDefaultValue.storyName = "DatePicker with default value";
 
+DatePickerWithDefaultValue.storyName = "DatePicker with default value";
 DatePickerWithDefaultValue.parameters = {
   docs: {
     description: {
@@ -107,9 +135,10 @@ DatePickerWithDefaultValue.parameters = {
   },
 };
 
-export const DateRangePicker = () => (
+const DateRangePicker = args => (
   <div className="space-y-3">
     <DatePicker
+      {...args}
       label="Date range"
       type="range"
       defaultValue={
@@ -123,11 +152,13 @@ export const DateRangePicker = () => (
     />
   </div>
 );
+
 DateRangePicker.storyName = "DateRangePicker";
 
-export const DateRangePickerWithPresetRanges = () => (
+const DateRangePickerWithPresetRanges = args => (
   <div className="space-y-3">
     <DatePicker
+      {...args}
       label="Date range"
       type="range"
       defaultValue={
@@ -152,41 +183,24 @@ export const DateRangePickerWithPresetRanges = () => (
     />
   </div>
 );
-DateRangePickerWithPresetRanges.storyName = "DateRangePicker with preset ranges";
 
-export const ShowTime = () => (
-  <DatePicker showTime label="Date" picker="date" type="date" />
+DateRangePickerWithPresetRanges.storyName =
+  "DateRangePicker with preset ranges";
+
+const ShowTime = args => (
+  <DatePicker {...args} showTime label="Date" picker="date" type="date" />
 );
 ShowTime.storyName = "Show time";
 
-export default {
-  title: "Components/DatePicker",
-  component: DatePicker,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: { component: DateInputStoriesDocs },
-      source: {
-        type: "code",
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
-    },
-  },
-  argTypes: {
-    onChange: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "-" },
-      },
-    },
-    onOk: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
-      },
-    },
-  },
+export {
+  DateInput,
+  DatePickerWithRef,
+  DatePickerInModal,
+  DatePickerInPane,
+  DatePickerWithDefaultValue,
+  DateRangePicker,
+  DateRangePickerWithPresetRanges,
+  ShowTime,
 };
+
+export default metadata;

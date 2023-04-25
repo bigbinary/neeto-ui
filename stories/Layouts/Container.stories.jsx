@@ -8,7 +8,7 @@ The container centers your content horizontally by providing a horizontal paddin
 \`import { Container } from "@bigbinary/neetoui/layouts"\`
 `;
 
-export default {
+const metadata = {
   title: "Layouts/Container",
   description: "",
   component: Container,
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const Default = args => (
+const Default = args => (
   <Container {...args}>
     <div className="neeto-ui-bg-gray-100 h-full w-full flex-1" />
   </Container>
@@ -38,7 +38,7 @@ const DummyCard = () => (
   </div>
 );
 
-export const WithHeaderAndScrollable = args => (
+const WithHeaderAndScrollable = args => (
   <Container {...args}>
     <Header title="Header" />
     <Scrollable
@@ -55,3 +55,7 @@ WithHeaderAndScrollable.storyName = "With header and scrollable";
 WithHeaderAndScrollable.args = {
   isHeaderFixed: true,
 };
+
+export { Default, WithHeaderAndScrollable };
+
+export default metadata;

@@ -2,6 +2,23 @@ import React from "react";
 
 import Checkbox from "components/Checkbox";
 
+const metadata = {
+  title: "Components/Checkbox",
+  component: Checkbox,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Checkbox } from "@bigbinary/neetoui";`',
+      },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A4",
+    },
+  },
+};
+
 const Template = args => <Checkbox {...args} />;
 
 const Checked = Template.bind({});
@@ -35,19 +52,4 @@ Error.args = {
 
 export { Checked, Disabled, Required, Error };
 
-export default {
-  title: "Components/Checkbox",
-  component: Checkbox,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Checkbox } from "@bigbinary/neetoui";`',
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A4",
-    },
-  },
-};
+export default metadata;

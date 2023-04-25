@@ -25,7 +25,7 @@ const neetoApps = [
   { name: "Site", description: "Build websites" },
 ];
 
-export default {
+const metadata = {
   title: "Layouts/AppSwitcher",
   component: AppSwitcher,
   parameters: {
@@ -50,7 +50,7 @@ export default {
   },
 };
 
-export const Default = ({ isOpen, ...args }) => {
+const Default = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
 
   useEffect(() => {
@@ -92,7 +92,7 @@ Default.args = {
   activeApp: "Chat",
 };
 
-export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
+const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   const [isAppSwitcherOpen, setIsAppSwitcherOpen] = useState(isOpen);
 
   useEffect(() => {
@@ -127,3 +127,7 @@ AppSwitcherWithRecentApps.args = {
   activeApp: "Chat",
   neetoApps,
 };
+
+export { Default, AppSwitcherWithRecentApps };
+
+export default metadata;

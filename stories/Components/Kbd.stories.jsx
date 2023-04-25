@@ -2,7 +2,7 @@ import React from "react";
 
 import Kbd from "components/Kbd";
 
-export default {
+const metadata = {
   title: "Components/Kbd",
   component: Kbd,
   parameters: {
@@ -15,12 +15,14 @@ export default {
   },
 };
 
-const Template = ({}) => (
+const Template = args => (
   <div className="flex gap-x-1">
-    <Kbd keyName="⌘" />
-    <Kbd keyName="⇧" />
-    <Kbd keyName="B" />
+    <Kbd {...args} keyName="⌘" />
+    <Kbd {...args} keyName="⇧" />
+    <Kbd {...args} keyName="B" />
   </div>
 );
 
 export const Default = Template.bind({});
+
+export default metadata;

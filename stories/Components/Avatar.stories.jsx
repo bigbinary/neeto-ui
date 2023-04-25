@@ -7,6 +7,23 @@ const onClick = () => {
   alert("onClick event!");
 };
 
+const metadata = {
+  title: "Components/Avatar",
+  component: Avatar,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Avatar } from "@bigbinary/neetoui";`',
+      },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
+    },
+  },
+};
+
 const Template = args => <Avatar {...args} />;
 
 const Default = Template.bind({});
@@ -165,19 +182,4 @@ export {
   Variants,
 };
 
-export default {
-  title: "Components/Avatar",
-  component: Avatar,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Avatar } from "@bigbinary/neetoui";`',
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
-    },
-  },
-};
+export default metadata;

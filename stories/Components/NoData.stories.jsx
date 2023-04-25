@@ -3,7 +3,7 @@ import React from "react";
 import Button from "components/Button";
 import NoData from "components/NoData";
 
-export default {
+const metadata = {
   title: "Components/NoData",
   component: NoData,
   parameters: {
@@ -16,9 +16,10 @@ export default {
   },
 };
 
-const Template = () => (
+const Template = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       title="There are no tickets to show"
       primaryButtonProps={{
         label: "Add new ticket",
@@ -27,11 +28,12 @@ const Template = () => (
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const WithDescription = () => (
+const WithDescription = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       description="You can try adding a new ticket"
       title="There are no tickets to show"
       primaryButtonProps={{
@@ -43,9 +45,10 @@ export const WithDescription = () => (
 
 WithDescription.storyName = "No Data with description";
 
-export const WithSecondaryButton = () => (
+const WithSecondaryButton = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       buttonSeparatorText="or"
       description="You can try adding a new suite or importing test cases"
       title="There are no suites to show"
@@ -61,9 +64,10 @@ export const WithSecondaryButton = () => (
 
 WithSecondaryButton.storyName = "No Data with secondary button";
 
-export const WithHelpText = () => (
+const WithHelpText = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       title="There are no tickets to show"
       helpText={
         <>
@@ -80,9 +84,10 @@ export const WithHelpText = () => (
 
 WithHelpText.storyName = "No Data with help text";
 
-export const WithCustomImageAsSVG = () => (
+const WithCustomImageAsSVG = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       title="The page you're looking for can't be found"
       image={
         <svg
@@ -119,9 +124,10 @@ export const WithCustomImageAsSVG = () => (
 
 WithCustomImageAsSVG.storyName = "No Data with custom SVG image";
 
-export const WithCustomImageFromURL = () => (
+const WithCustomImageFromURL = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
+      {...args}
       image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
       title="There are no tickets to show"
       primaryButtonProps={{
@@ -132,3 +138,14 @@ export const WithCustomImageFromURL = () => (
 );
 
 WithCustomImageFromURL.storyName = "No Data with custom image from URL";
+
+export {
+  Default,
+  WithDescription,
+  WithSecondaryButton,
+  WithHelpText,
+  WithCustomImageAsSVG,
+  WithCustomImageFromURL,
+};
+
+export default metadata;

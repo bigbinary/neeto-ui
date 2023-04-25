@@ -19,13 +19,18 @@ import {
   SIMPLE_TABLE_DATA,
 } from "../constants";
 
+// eslint-disable-next-line import/extensions
 import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
+// eslint-disable-next-line import/extensions
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
+// eslint-disable-next-line import/extensions
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
+// eslint-disable-next-line import/extensions
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
+// eslint-disable-next-line import/extensions
 import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
-export default {
+const metadata = {
   title: "Components/Table",
   component: NeetoTable,
   parameters: {
@@ -316,7 +321,7 @@ const getColumns = (fixed = false) => [
   },
 ];
 
-export const Default = args => {
+const Default = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
@@ -342,7 +347,7 @@ Default.parameters = {
   },
 };
 
-export const TableWithSpecifiedHorizontalScrolling = args => (
+const TableWithSpecifiedHorizontalScrolling = args => (
   <div className="mx-auto mt-10 w-2/3">
     <NeetoTable
       columnData={fixedColumnWidths}
@@ -356,7 +361,7 @@ export const TableWithSpecifiedHorizontalScrolling = args => (
 TableWithSpecifiedHorizontalScrolling.storyName =
   "Table with specified width for horizontal scrolling";
 
-export const TableWithTooltipsOnHeader = args => (
+const TableWithTooltipsOnHeader = args => (
   <div className="mx-auto mt-10 w-2/3">
     <NeetoTable
       columnData={headerTooltips}
@@ -369,7 +374,7 @@ export const TableWithTooltipsOnHeader = args => (
 
 TableWithTooltipsOnHeader.storyName = "Table with Tooltips on header";
 
-export const TableWithFixedRightColumn = args => {
+const TableWithFixedRightColumn = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
@@ -385,7 +390,7 @@ export const TableWithFixedRightColumn = args => {
 
 TableWithFixedRightColumn.storyName = "Table with fixed right column";
 
-export const TableWithSelectedRowKeys = ({
+const TableWithSelectedRowKeys = ({
   selectedRowKeys: selectedRowKeysProp,
   ...args
 }) => {
@@ -423,7 +428,7 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
-export const TableWithSorting = args => (
+const TableWithSorting = args => (
   <NeetoTable
     columnData={getColumns()}
     currentPageNumber={1}
@@ -445,7 +450,7 @@ TableWithSorting.args = {
   defaultPageSize: 10,
 };
 
-export const TableWithFixedHeight = args => {
+const TableWithFixedHeight = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
@@ -475,7 +480,7 @@ TableWithFixedHeight.parameters = {
   },
 };
 
-export const TableWithoutCheckbox = args => {
+const TableWithoutCheckbox = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
@@ -504,7 +509,7 @@ TableWithoutCheckbox.parameters = {
   },
 };
 
-export const TableWithDynamicData = args => {
+const TableWithDynamicData = args => {
   const [pageNumber, setPageNumber] = useState(1);
   const [slice, setSlice] = useState(20);
   const data = TABLE_DATA.slice(0, slice);
@@ -530,7 +535,7 @@ TableWithDynamicData.args = {
   defaultPageSize: 10,
 };
 
-export const TableInLayout = () => {
+const TableInLayout = () => {
   const [searchString, setSearchString] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
@@ -676,3 +681,18 @@ TableInLayout.parameters = {
     source: { code: TABLE_IN_LAYOUT },
   },
 };
+
+export {
+  Default,
+  TableWithSpecifiedHorizontalScrolling,
+  TableWithTooltipsOnHeader,
+  TableWithFixedRightColumn,
+  TableWithSelectedRowKeys,
+  TableWithSorting,
+  TableWithFixedHeight,
+  TableWithoutCheckbox,
+  TableWithDynamicData,
+  TableInLayout,
+};
+
+export default metadata;

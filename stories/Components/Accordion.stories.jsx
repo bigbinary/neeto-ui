@@ -2,6 +2,26 @@ import React from "react";
 
 import Accordion from "components/Accordion";
 
+const metadata = {
+  title: "Components/Accordion",
+  component: Accordion,
+  subcomponents: {
+    "Accordion.Item": Accordion.Item,
+  },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { Accordion } from "@bigbinary/neetoui";`',
+      },
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A15",
+    },
+  },
+};
+
 const AccordionStory = args => (
   <Accordion {...args}>
     <Accordion.Item title="Accordion 1">
@@ -145,22 +165,4 @@ export {
   AccordionWithCustomizedIcon,
 };
 
-export default {
-  title: "Components/Accordion",
-  component: Accordion,
-  subcomponents: {
-    "Accordion.Item": Accordion.Item,
-  },
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Accordion } from "@bigbinary/neetoui";`',
-      },
-    },
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A15",
-    },
-  },
-};
+export default metadata;

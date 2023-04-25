@@ -13,9 +13,10 @@ import Typography from "components/Typography";
 
 import { suffixes, prefixes } from "../constants";
 
+// eslint-disable-next-line import/extensions
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
-export default {
+const metadata = {
   title: "Components/Multi email input",
   component: MultiEmailInput,
   parameters: {
@@ -54,7 +55,7 @@ export default {
   },
 };
 
-export const Controlled = args => {
+const Controlled = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
@@ -108,7 +109,7 @@ Controlled.args = {
   ],
 };
 
-export const Error = args => <MultiEmailInput {...args} />;
+const Error = args => <MultiEmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
@@ -121,14 +122,17 @@ Error.args = {
   ],
 };
 
-export const Disabled = () => <MultiEmailInput disabled />;
+const Disabled = args => <MultiEmailInput {...args} disabled />;
 
-export const HelpText = () => (
-  <MultiEmailInput helpText="This is the help text for this component." />
+const HelpText = args => (
+  <MultiEmailInput
+    {...args}
+    helpText="This is the help text for this component."
+  />
 );
 HelpText.storyName = "Help text";
 
-export const Counter = () => {
+const Counter = args => {
   const [emails, setEmails] = useState([
     {
       label: "test@example.com",
@@ -149,6 +153,7 @@ export const Counter = () => {
 
   return (
     <MultiEmailInput
+      {...args}
       counter={{ startsFrom: 3 }}
       value={emails}
       onChange={emails => setEmails(emails)}
@@ -162,7 +167,7 @@ Counter.parameters = {
   },
 };
 
-export const WithPrefixAndSuffix = args => {
+const WithPrefixAndSuffix = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
@@ -187,7 +192,7 @@ WithPrefixAndSuffix.args = {
 };
 WithPrefixAndSuffix.storyName = "With prefix and suffix";
 
-export const FormikEmail = () => {
+const FormikEmail = args => {
   const [emails, setEmails] = useState([]);
 
   const INITIAL_VALUES = { emails: [] };
@@ -218,6 +223,7 @@ export const FormikEmail = () => {
       }}
     >
       <FormikMultiEmailInput
+        {...args}
         counter
         filterInvalidEmails
         label="Email(s)*"
@@ -235,3 +241,15 @@ export const FormikEmail = () => {
 };
 
 FormikEmail.storyName = "Formik email";
+
+export {
+  Controlled,
+  Error,
+  Disabled,
+  HelpText,
+  Counter,
+  WithPrefixAndSuffix,
+  FormikEmail,
+};
+
+export default metadata;

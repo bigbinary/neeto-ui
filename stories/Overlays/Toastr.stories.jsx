@@ -1,14 +1,14 @@
-import React from "react";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 
 import { ToastContainer } from "react-toastify";
 
 import Button from "components/Button";
 import Toastr from "components/Toastr";
 
+// eslint-disable-next-line import/extensions
 import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
-export default {
+const metadata = {
   title: "Overlays/Toastr",
   component: Toastr,
   parameters: {
@@ -26,7 +26,8 @@ export default {
   subcomponents: { Button },
 };
 
-export const Toastrs = () => {
+// eslint-disable-next-line no-empty-pattern
+const Toastrs = ({}) => {
   const showAlert = useCallback(() => alert("Customer blocked successfully!"));
 
   return (
@@ -81,7 +82,8 @@ export const Toastrs = () => {
   );
 };
 
-export const ErrorToastr = () => {
+// eslint-disable-next-line no-empty-pattern
+const ErrorToastr = ({}) => {
   const onStringError = () => {
     Toastr.error("This is a plain text error Toastr!");
   };
@@ -142,7 +144,8 @@ export const ErrorToastr = () => {
   );
 };
 
-export const CustomConfigToastr = () => (
+// eslint-disable-next-line no-empty-pattern
+const CustomConfigToastr = ({}) => (
   <>
     <ToastContainer />
     <div className="space-x-6">
@@ -178,3 +181,7 @@ export const CustomConfigToastr = () => (
 );
 
 CustomConfigToastr.storyName = "Custom config toastr";
+
+export { Toastrs, ErrorToastr, CustomConfigToastr };
+
+export default metadata;

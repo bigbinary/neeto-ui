@@ -11,6 +11,27 @@ const DEFAULT_COLORS = {
   "blue-500": "#276ef1",
 };
 
+const metadata = {
+  title: "Components/ColorPicker",
+  component: ColorPicker,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { ColorPicker } from "@bigbinary/neetoui";`',
+      },
+    },
+  },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
+};
+
 const Default = ({ color, ...args }) => {
   const [currentColor, setCurrentColor] = useState("#4558F9");
 
@@ -199,23 +220,4 @@ export {
   ShowTransparencyControl,
 };
 
-export default {
-  title: "Components/ColorPicker",
-  component: ColorPicker,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { ColorPicker } from "@bigbinary/neetoui";`',
-      },
-    },
-  },
-  argTypes: {
-    onChange: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
-      },
-    },
-  },
-};
+export default metadata;

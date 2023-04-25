@@ -7,7 +7,7 @@ import { Select as FormikSelect } from "components/formik";
 
 import { FORMIK_SELECT } from "../constants";
 
-export default {
+const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
@@ -30,7 +30,7 @@ const Template = args => (
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Select",
   defaultValue: { value: "value3", label: "Value three" },
@@ -48,11 +48,12 @@ Default.args = {
   ],
 };
 
-export const Sizes = ({}) => (
+const Sizes = args => (
   <div className="h-60 w-full">
     <div className="flex flex-col gap-8">
       <div className="w-full">
         <Select
+          {...args}
           label="Small"
           placeholder="Select placeholder"
           size="small"
@@ -67,6 +68,7 @@ export const Sizes = ({}) => (
       </div>
       <div className="w-full">
         <Select
+          {...args}
           label="Medium"
           // size="medium"
           placeholder="Select placeholder"
@@ -81,6 +83,7 @@ export const Sizes = ({}) => (
       </div>
       <div className="w-full">
         <Select
+          {...args}
           label="Large"
           placeholder="Select placeholder"
           size="large"
@@ -97,7 +100,7 @@ export const Sizes = ({}) => (
   </div>
 );
 
-export const MultiSelect = Template.bind({});
+const MultiSelect = Template.bind({});
 MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
   label: "Multi Select",
@@ -118,7 +121,7 @@ MultiSelect.args = {
   ],
 };
 
-export const Grouped = Template.bind({});
+const Grouped = Template.bind({});
 Grouped.args = {
   label: "Grouped Select",
   isMulti: true,
@@ -152,7 +155,7 @@ Grouped.args = {
   ],
 };
 
-export const Creatable = ({}) => {
+const Creatable = args => {
   const [options, setOptions] = useState([
     { value: "value1", label: "Value one" },
     { value: "value2", label: "Value two" },
@@ -164,6 +167,7 @@ export const Creatable = ({}) => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
+        {...args}
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
@@ -179,7 +183,7 @@ export const Creatable = ({}) => {
   );
 };
 
-export const AsyncCreatable = ({}) => {
+const AsyncCreatable = args => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
     { value: "value1", label: "Value one" },
@@ -204,6 +208,7 @@ export const AsyncCreatable = ({}) => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
+        {...args}
         cacheOptions
         isCreateable
         className="w-full"
@@ -226,9 +231,10 @@ export const AsyncCreatable = ({}) => {
 };
 AsyncCreatable.storyName = "Async creatable";
 
-export const Searchable = ({}) => (
+const Searchable = args => (
   <div className="mb-2 h-60 p-4">
     <Select
+      {...args}
       isSearchable
       className="w-full"
       label="Select"
@@ -245,7 +251,7 @@ export const Searchable = ({}) => (
   </div>
 );
 
-export const ExampleWithRef = ({}) => {
+const ExampleWithRef = args => {
   const selectRef = useRef();
 
   return (
@@ -266,6 +272,7 @@ export const ExampleWithRef = ({}) => {
       </div>
       <div className="h-60">
         <Select
+          {...args}
           openMenuOnFocus
           innerRef={selectRef}
           options={[
@@ -280,7 +287,7 @@ export const ExampleWithRef = ({}) => {
 };
 ExampleWithRef.storyName = "Example with ref";
 
-export const SelectInModal = ({}) => {
+const SelectInModal = args => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -292,6 +299,7 @@ export const SelectInModal = ({}) => {
         </Modal.Header>
         <Modal.Body>
           <Select
+            {...args}
             label="Select"
             placeholder="Select placeholder"
             strategy="fixed"
@@ -318,7 +326,7 @@ SelectInModal.parameters = {
   },
 };
 
-export const SelectInPane = ({}) => {
+const SelectInPane = args => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -330,6 +338,7 @@ export const SelectInPane = ({}) => {
         </Pane.Header>
         <Pane.Body className="w-full">
           <Select
+            {...args}
             className="w-full"
             label="Select"
             placeholder="Select placeholder"
@@ -347,7 +356,7 @@ export const SelectInPane = ({}) => {
 };
 SelectInPane.storyName = "Select in pane";
 
-export const FormikSelectStory = ({}) => {
+const FormikSelectStory = args => {
   const [values, setValues] = useState([]);
 
   return (
@@ -370,6 +379,7 @@ export const FormikSelectStory = ({}) => {
                     {values.selects.map((_, index) => (
                       <div className="flex items-end space-x-6" key={index}>
                         <FormikSelect
+                          {...args}
                           label="Select"
                           name={`selects.${index}.formikSelect`}
                           options={[
@@ -418,3 +428,19 @@ FormikSelectStory.parameters = {
     source: { code: FORMIK_SELECT },
   },
 };
+
+export {
+  Default,
+  Sizes,
+  MultiSelect,
+  Grouped,
+  Creatable,
+  AsyncCreatable,
+  Searchable,
+  ExampleWithRef,
+  SelectInModal,
+  SelectInPane,
+  FormikSelectStory,
+};
+
+export default metadata;

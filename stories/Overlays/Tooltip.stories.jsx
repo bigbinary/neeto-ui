@@ -2,9 +2,10 @@ import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "components";
 
+// eslint-disable-next-line import/extensions
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
-export default {
+const metadata = {
   title: "Overlays/Tooltip",
   component: Tooltip,
   subcomponents: { Button },
@@ -22,7 +23,7 @@ export default {
   },
 };
 
-export const FollowCursor = args => (
+const FollowCursor = args => (
   <div className="space-y-8 p-10">
     <Tooltip
       content="Content is string"
@@ -36,7 +37,7 @@ export const FollowCursor = args => (
 );
 FollowCursor.storyName = "Follow cursor";
 
-export const JSXContentInside = args => (
+const JSXContentInside = args => (
   <div className="space-y-8 p-10">
     <Tooltip
       position="top"
@@ -54,88 +55,100 @@ export const JSXContentInside = args => (
 );
 JSXContentInside.storyName = "JSX content inside";
 
-export const positions = () => (
+const Positions = args => (
   <div className="space-y-8 p-10">
     <div className="flex items-center justify-start gap-8">
-      <Tooltip content="Tooltip" position="top">
+      <Tooltip {...args} content="Tooltip" position="top">
         <Button label="top" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="top-start">
+      <Tooltip {...args} content="Tooltip" position="top-start">
         <Button label="top-start" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="top-end">
+      <Tooltip {...args} content="Tooltip" position="top-end">
         <Button label="top-end" style="secondary" />
       </Tooltip>
     </div>
     <div className="flex items-center justify-start gap-8">
-      <Tooltip content="Tooltip" position="right">
+      <Tooltip {...args} content="Tooltip" position="right">
         <Button label="right" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="right-start">
+      <Tooltip {...args} content="Tooltip" position="right-start">
         <Button label="right-start" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="right-end">
+      <Tooltip {...args} content="Tooltip" position="right-end">
         <Button label="right-end" style="secondary" />
       </Tooltip>
     </div>
     <div className="flex items-center justify-start gap-8">
-      <Tooltip content="Tooltip" position="bottom">
+      <Tooltip {...args} content="Tooltip" position="bottom">
         <Button label="bottom" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="bottom-start">
+      <Tooltip {...args} content="Tooltip" position="bottom-start">
         <Button label="bottom-start" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="bottom-end">
+      <Tooltip {...args} content="Tooltip" position="bottom-end">
         <Button label="bottom-end" style="secondary" />
       </Tooltip>
     </div>
     <div className="flex items-center justify-start gap-8">
-      <Tooltip content="Tooltip" position="left">
+      <Tooltip {...args} content="Tooltip" position="left">
         <Button label="left" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="left-start">
+      <Tooltip {...args} content="Tooltip" position="left-start">
         <Button label="left-start" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="left-end">
+      <Tooltip {...args} content="Tooltip" position="left-end">
         <Button label="left-end" style="secondary" />
       </Tooltip>
     </div>
   </div>
 );
 
-export const Themes = () => (
+const Themes = args => (
   <div className="space-y-8 p-10">
     <h2 className="text-xl">Theme</h2>
     <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-      <Tooltip content="Tooltip" position="top" theme="dark" trigger="click">
+      <Tooltip
+        {...args}
+        content="Tooltip"
+        position="top"
+        theme="dark"
+        trigger="click"
+      >
         <Button label="dark" style="secondary" />
       </Tooltip>
-      <Tooltip content="Tooltip" position="top" theme="light" trigger="click">
+      <Tooltip
+        {...args}
+        content="Tooltip"
+        position="top"
+        theme="light"
+        trigger="click"
+      >
         <Button label="light" style="secondary" />
       </Tooltip>
     </div>
   </div>
 );
 
-export const TooltipOnText = () => (
+const TooltipOnText = args => (
   <div className="flex items-center justify-center space-x-6 p-10 ">
-    <Tooltip content="Tooltip" position="top">
+    <Tooltip {...args} content="Tooltip" position="top">
       <Typography>Top</Typography>
     </Tooltip>
-    <Tooltip content="Tooltip" position="bottom">
+    <Tooltip {...args} content="Tooltip" position="bottom">
       <Typography>Bottom</Typography>
     </Tooltip>
-    <Tooltip content="Tooltip" position="left">
+    <Tooltip {...args} content="Tooltip" position="left">
       <Typography>Left</Typography>
     </Tooltip>
-    <Tooltip content="Tooltip" position="right">
+    <Tooltip {...args} content="Tooltip" position="right">
       <Typography>Right</Typography>
     </Tooltip>
   </div>
 );
 TooltipOnText.storyName = "Tooltip on text";
 
-export const TooltipOnCustomComponent = () => {
+const TooltipOnCustomComponent = args => {
   const CustomComponent = forwardRef(({ text }, ref) => (
     <div
       className="neeto-ui-bg-black neeto-ui-text-white cursor-pointer items-center justify-center rounded-md p-10 shadow-lg"
@@ -145,9 +158,11 @@ export const TooltipOnCustomComponent = () => {
     </div>
   ));
 
+  CustomComponent.displayName = "CustomComponent";
+
   return (
     <div className="flex items-center justify-center space-x-6 p-10 ">
-      <Tooltip content="Tooltip" position="top">
+      <Tooltip {...args} content="Tooltip" position="top">
         <CustomComponent text="Custom component" />
       </Tooltip>
     </div>
@@ -155,7 +170,7 @@ export const TooltipOnCustomComponent = () => {
 };
 TooltipOnCustomComponent.storyName = "Tooltip on custom component";
 
-export const AutoHidingTooltip = () => {
+const AutoHidingTooltip = args => {
   const DEFAULT_EMAIL = "oliver@example.";
   const [email, setEmail] = useState(DEFAULT_EMAIL);
 
@@ -166,6 +181,7 @@ export const AutoHidingTooltip = () => {
   return (
     <div className="flex items-center justify-center space-x-6 p-10">
       <Tooltip
+        {...args}
         content="Press esc to reset input after typing"
         hideAfter={3000}
         position="top"
@@ -186,12 +202,13 @@ TooltipOnCustomComponent.parameters = {
   docs: { description: { story: TooltipDocs } },
 };
 
-export const HidingTooltipOnTargetExit = () => (
+const HidingTooltipOnTargetExit = args => (
   <div className="max-h-56 space-y-2 overflow-auto bg-gray-300 p-10">
     {Array.from({ length: 6 }).map((_, key) => (
       <div className="h-6 w-full rounded bg-white shadow-sm" key={key} />
     ))}
     <Tooltip
+      {...args}
       hideOnTargetExit
       content="Press esc to reset input after typing"
       position="top"
@@ -206,3 +223,16 @@ export const HidingTooltipOnTargetExit = () => (
   </div>
 );
 HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
+
+export {
+  FollowCursor,
+  JSXContentInside,
+  Positions,
+  Themes,
+  TooltipOnText,
+  TooltipOnCustomComponent,
+  AutoHidingTooltip,
+  HidingTooltipOnTargetExit,
+};
+
+export default metadata;

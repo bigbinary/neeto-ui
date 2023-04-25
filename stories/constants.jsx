@@ -17,6 +17,157 @@ import {
   Image,
 } from "neetoicons";
 
+const columnData = [
+  {
+    dataIndex: "id",
+    key: "id",
+    sorter: () => {},
+    title: "ID",
+    width: 75,
+  },
+  {
+    dataIndex: "guid",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "guid",
+    title: function noRefCheck() {},
+    width: 150,
+  },
+  {
+    dataIndex: "first_name",
+    key: "first_name",
+    render: function noRefCheck() {},
+    title: "First Name",
+    width: 150,
+  },
+  {
+    dataIndex: "last_name",
+    key: "last_name",
+    title: "Last Name",
+    width: 150,
+  },
+  {
+    dataIndex: "buzzword",
+    key: "buzzword",
+    title: "Buzzword",
+    width: 250,
+  },
+  {
+    dataIndex: "gender",
+    key: "gender",
+    title: "Gender",
+    width: 150,
+  },
+  {
+    dataIndex: "email",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "email",
+    title: "Email",
+    width: 200,
+  },
+  {
+    dataIndex: "company_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "company_name",
+    title: "Company Name",
+    width: 75,
+  },
+  {
+    dataIndex: "ip_address",
+    key: "ip_address",
+    title: "IP Address",
+    width: 150,
+  },
+  {
+    dataIndex: "department",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "department",
+    title: "Department",
+    width: 150,
+  },
+  {
+    dataIndex: "job_title",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "job_title",
+    title: "Job Title",
+    width: 75,
+  },
+  {
+    dataIndex: "currency",
+    key: "currency",
+    title: "Currency",
+    width: 150,
+  },
+  {
+    dataIndex: "credit_card_number",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "credit_card_number",
+    title: "Credit Card Number",
+    width: 250,
+  },
+  {
+    dataIndex: "currency_code",
+    key: "currency_code",
+    title: "Currency Code",
+    width: 150,
+  },
+  {
+    dataIndex: "domain_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    key: "domain_name",
+    title: "Domain Name",
+    width: 200,
+  },
+  {
+    dataIndex: "app_name",
+    key: "app_name",
+    title: "App Name",
+    width: 150,
+  },
+  {
+    dataIndex: "app_version",
+    key: "app_version",
+    title: "App Version",
+    width: 150,
+  },
+  {
+    dataIndex: "shirt_size",
+    key: "shirt_size",
+    title: "Shirt Size",
+    width: 150,
+  },
+  {
+    dataIndex: "action",
+    key: "action",
+    render: function noRefCheck() {},
+    title: "Action",
+    width: 150,
+  },
+  {
+    dataIndex: "icon_button",
+    key: "icon_button",
+    render: function noRefCheck() {},
+    title: "Icon Button",
+    width: 150,
+  },
+];
+
+const columnDataToString = () =>
+  JSON.stringify(columnData, null, 4).replace(/(\{|\}|\])/gi, "\t$1");
+
 export const icons = {
   Favorite,
   Delete,
@@ -1220,157 +1371,6 @@ export const TABLE_DATA = [
   },
 ];
 
-const columnData = [
-  {
-    dataIndex: "id",
-    key: "id",
-    sorter: () => {},
-    title: "ID",
-    width: 75,
-  },
-  {
-    dataIndex: "guid",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "guid",
-    title: function noRefCheck() {},
-    width: 150,
-  },
-  {
-    dataIndex: "first_name",
-    key: "first_name",
-    render: function noRefCheck() {},
-    title: "First Name",
-    width: 150,
-  },
-  {
-    dataIndex: "last_name",
-    key: "last_name",
-    title: "Last Name",
-    width: 150,
-  },
-  {
-    dataIndex: "buzzword",
-    key: "buzzword",
-    title: "Buzzword",
-    width: 250,
-  },
-  {
-    dataIndex: "gender",
-    key: "gender",
-    title: "Gender",
-    width: 150,
-  },
-  {
-    dataIndex: "email",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "email",
-    title: "Email",
-    width: 200,
-  },
-  {
-    dataIndex: "company_name",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "company_name",
-    title: "Company Name",
-    width: 75,
-  },
-  {
-    dataIndex: "ip_address",
-    key: "ip_address",
-    title: "IP Address",
-    width: 150,
-  },
-  {
-    dataIndex: "department",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "department",
-    title: "Department",
-    width: 150,
-  },
-  {
-    dataIndex: "job_title",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "job_title",
-    title: "Job Title",
-    width: 75,
-  },
-  {
-    dataIndex: "currency",
-    key: "currency",
-    title: "Currency",
-    width: 150,
-  },
-  {
-    dataIndex: "credit_card_number",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "credit_card_number",
-    title: "Credit Card Number",
-    width: 250,
-  },
-  {
-    dataIndex: "currency_code",
-    key: "currency_code",
-    title: "Currency Code",
-    width: 150,
-  },
-  {
-    dataIndex: "domain_name",
-    ellipsis: {
-      showTitle: false,
-    },
-    key: "domain_name",
-    title: "Domain Name",
-    width: 200,
-  },
-  {
-    dataIndex: "app_name",
-    key: "app_name",
-    title: "App Name",
-    width: 150,
-  },
-  {
-    dataIndex: "app_version",
-    key: "app_version",
-    title: "App Version",
-    width: 150,
-  },
-  {
-    dataIndex: "shirt_size",
-    key: "shirt_size",
-    title: "Shirt Size",
-    width: 150,
-  },
-  {
-    dataIndex: "action",
-    key: "action",
-    render: function noRefCheck() {},
-    title: "Action",
-    width: 150,
-  },
-  {
-    dataIndex: "icon_button",
-    key: "icon_button",
-    render: function noRefCheck() {},
-    title: "Icon Button",
-    width: 150,
-  },
-];
-
-const columnDataToString = () =>
-  JSON.stringify(columnData, null, 4).replace(/(\{|\}|\])/gi, "\t$1");
-
 export const getTableSource = (extraProps = "") => `<Table
   \tcolumnData={${columnDataToString()}}
     currentPageNumber={1}
@@ -1404,7 +1404,7 @@ export const getTableSource = (extraProps = "") => `<Table
     ]}
     ${extraProps.trim()}
   />
- `;
+`;
 
 export const TABLE_IN_LAYOUT = `
 <div className="flex">
@@ -1535,7 +1535,7 @@ export const TABLE_IN_LAYOUT = `
     />
     <Scrollable className="w-full">
       ${getTableSource()}</Scrollable>
- </Container>
+  </Container>
 </div>
 `;
 

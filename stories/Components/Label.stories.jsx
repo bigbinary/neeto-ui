@@ -5,7 +5,7 @@ import { Help } from "neetoicons";
 import Label from "components/Label";
 import Tooltip from "components/Tooltip";
 
-export default {
+const metadata = {
   title: "Components/Label",
   component: Label,
   parameters: {
@@ -21,18 +21,18 @@ export default {
 
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   children: "This is a default Label",
 };
 
-export const Required = Template.bind({});
+const Required = Template.bind({});
 Required.args = {
   children: "This is a required Label",
   required: true,
 };
 
-export const WithHelpIcon = Template.bind({});
+const WithHelpIcon = Template.bind({});
 WithHelpIcon.args = {
   children: "This is a Label with a help icon",
   required: true,
@@ -46,3 +46,7 @@ WithHelpIcon.args = {
   },
 };
 WithHelpIcon.storyName = "With help icon";
+
+export { Default, Required, WithHelpIcon };
+
+export default metadata;

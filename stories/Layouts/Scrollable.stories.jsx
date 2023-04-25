@@ -11,7 +11,7 @@ Scrollable is used when contents are overflowing the viewport and requires scrol
 \`import { Scrollable } from "@bigbinary/neetoui/layouts"\`
 `;
 
-export default {
+const metadata = {
   title: "Layouts/Scrollable",
   description: "",
   component: Scrollable,
@@ -34,7 +34,7 @@ const DummyCard = () => (
   </div>
 );
 
-export const Default = args => (
+const Default = args => (
   <Scrollable {...args} className="neeto-ui-bg-gray-100 space-y-6 p-6">
     {[...Array(5)].map((_, i) => (
       <DummyCard key={i} />
@@ -42,7 +42,7 @@ export const Default = args => (
   </Scrollable>
 );
 
-export const WithHeader = args => (
+const WithHeader = args => (
   <Container isHeaderFixed>
     <Header title="Header" />
     <Scrollable
@@ -60,7 +60,7 @@ WithHeader.args = {
   size: "large",
 };
 
-export const WithHeaderAndSubHeader = args => (
+const WithHeaderAndSubHeader = args => (
   <Container isHeaderFixed>
     <Header title="Header" />
     <SubHeader
@@ -90,3 +90,7 @@ WithHeaderAndSubHeader.storyName = "With header and subheader";
 WithHeaderAndSubHeader.args = {
   size: "small",
 };
+
+export { Default, WithHeader, WithHeaderAndSubHeader };
+
+export default metadata;

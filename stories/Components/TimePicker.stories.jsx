@@ -7,9 +7,10 @@ import { Modal, Typography, Pane } from "components";
 import Button from "components/Button";
 import TimePicker from "components/TimePicker";
 
+// eslint-disable-next-line import/extensions
 import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
-export default {
+const metadata = {
   title: "Components/TimePicker",
   component: TimePicker,
   parameters: {
@@ -28,14 +29,14 @@ export default {
   },
 };
 
-export const TimeInput = args => <TimePicker {...args} />;
+const TimeInput = args => <TimePicker {...args} />;
 
 TimeInput.storyName = "TimePicker";
 TimeInput.args = {
   type: "time",
 };
 
-export const TimePickerInModal = args => {
+const TimePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -61,7 +62,7 @@ export const TimePickerInModal = args => {
 };
 TimePickerInModal.storyName = "TimePicker in modal";
 
-export const TimePickerInPane = args => {
+const TimePickerInPane = args => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -86,7 +87,7 @@ export const TimePickerInPane = args => {
 };
 TimePickerInPane.storyName = "TimePicker in pane";
 
-export const TimePickerWithRef = () => {
+const TimePickerWithRef = args => {
   const ref = React.useRef();
   const [open, setOpen] = React.useState(false);
 
@@ -94,6 +95,7 @@ export const TimePickerWithRef = () => {
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <TimePicker
+        {...args}
         open={open}
         ref={ref}
         onBlur={() => setOpen(false)}
@@ -105,7 +107,7 @@ export const TimePickerWithRef = () => {
 };
 TimePickerWithRef.storyName = "TimePicker with ref";
 
-export const TimePickerWithDefaultValue = args => (
+const TimePickerWithDefaultValue = args => (
   <div className="space-y-3">
     <TimePicker
       defaultValue={
@@ -124,3 +126,13 @@ TimePickerWithDefaultValue.parameters = {
     },
   },
 };
+
+export {
+  TimeInput,
+  TimePickerInModal,
+  TimePickerInPane,
+  TimePickerWithRef,
+  TimePickerWithDefaultValue,
+};
+
+export default metadata;

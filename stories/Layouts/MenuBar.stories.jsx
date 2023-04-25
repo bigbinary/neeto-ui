@@ -5,7 +5,7 @@ import { Settings, Plus, Search } from "neetoicons";
 import { Button, Typography } from "components";
 import { Container, MenuBar } from "components/layouts";
 
-export default {
+const metadata = {
   title: "Layouts/MenuBar",
   component: MenuBar,
   subcomponents: {
@@ -24,13 +24,13 @@ export default {
   },
 };
 
-export const MenuBarStory = () => {
+const MenuBarStory = args => {
   const [showMenu, setShowMenu] = useState(false);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
     <div className="flex">
-      <MenuBar showMenu={showMenu} title="Contacts">
+      <MenuBar {...args} showMenu={showMenu} title="Contacts">
         <MenuBar.Block active count={13} label="All" />
         <MenuBar.Block count={2} label="Users" />
         <MenuBar.Block count={7} label="Leads" />
@@ -114,3 +114,7 @@ export const MenuBarStory = () => {
 };
 
 MenuBarStory.storyName = "MenuBar";
+
+export { MenuBarStory };
+
+export default metadata;

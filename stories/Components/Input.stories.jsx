@@ -7,7 +7,7 @@ import Button from "components/Button";
 import { Input as FormikInput, Form } from "components/formik";
 import Input from "components/Input";
 
-export default {
+const metadata = {
   title: "Components/Input",
   component: Input,
   parameters: {
@@ -26,25 +26,36 @@ export default {
 
 const Template = args => <Input {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Input label",
   placeholder: "Input placeholder",
 };
 
-export const Sizes = ({}) => (
+const Sizes = args => (
   <div className="flex w-full flex-col gap-3">
-    <Input label="Small" placeholder="Input placeholder" size="small" />
-    <Input label="Medium" placeholder="Input placeholder" />
-    <Input label="Large" placeholder="Input placeholder" size="large" />
+    <Input
+      {...args}
+      label="Small"
+      placeholder="Input placeholder"
+      size="small"
+    />
+    <Input {...args} label="Medium" placeholder="Input placeholder" />
+    <Input
+      {...args}
+      label="Large"
+      placeholder="Input placeholder"
+      size="large"
+    />
   </div>
 );
 
-export const Controlled = () => {
+const Controlled = args => {
   const [value, setValue] = useState("BigBinary");
 
   return (
     <Input
+      {...args}
       label="Controlled Input"
       prefix={<Search />}
       value={value}
@@ -53,22 +64,32 @@ export const Controlled = () => {
   );
 };
 
-export const Required = ({}) => (
-  <Input required label="Required Input" placeholder="Input placeholder" />
+const Required = args => (
+  <Input
+    {...args}
+    required
+    label="Required Input"
+    placeholder="Input placeholder"
+  />
 );
 
-export const Disabled = ({}) => (
-  <Input disabled label="Disabled Input" placeholder="Input placeholder" />
+const Disabled = args => (
+  <Input
+    {...args}
+    disabled
+    label="Disabled Input"
+    placeholder="Input placeholder"
+  />
 );
 
-export const Error = Template.bind({});
+const Error = Template.bind({});
 Error.args = {
   label: "Error",
   error: "Provide valid email",
   placeholder: "Input placeholder",
 };
 
-export const HelpText = Template.bind({});
+const HelpText = Template.bind({});
 HelpText.args = {
   label: "Error",
   helpText: "This is help text.",
@@ -76,14 +97,14 @@ HelpText.args = {
 };
 HelpText.storyName = "Help text";
 
-export const NakedInput = Template.bind({});
+const NakedInput = Template.bind({});
 NakedInput.args = {
   label: "Naked Input field",
   nakedInput: true,
   placeholder: "Input placeholder",
 };
 
-export const SearchInput = Template.bind({});
+const SearchInput = Template.bind({});
 SearchInput.args = {
   label: "Search",
   prefix: <Search />,
@@ -92,26 +113,30 @@ SearchInput.args = {
   placeholder: "Input search text",
 };
 
-export const InputWithMaxLength = () => (
+const InputWithMaxLength = args => (
   <div className="flex flex-col space-y-6">
     <Input
+      {...args}
       label="Input with max length"
       maxLength={10}
       placeholder="Input placeholder"
     />
     <Input
+      {...args}
       label="Input with max length"
       maxLength={10}
       placeholder="Input placeholder"
       value="Sample i"
     />
     <Input
+      {...args}
       label="Input with max length"
       maxLength={10}
       placeholder="Input placeholder"
       value="Sample in"
     />
     <Input
+      {...args}
       unlimitedChars
       label="Input with max length and unlimited characters"
       maxLength={10}
@@ -122,7 +147,7 @@ export const InputWithMaxLength = () => (
 );
 InputWithMaxLength.storyName = "Input with max length";
 
-export const FormikInputStory = ({}) => (
+const FormikInputStory = args => (
   <Form
     formikProps={{
       initialValues: { name: "", email: "" },
@@ -132,10 +157,10 @@ export const FormikInputStory = ({}) => (
       onSubmit: values => window.alert(JSON.stringify(values)),
     }}
   >
-    {props => (
+    {() => (
       <div className="space-y-2">
-        <FormikInput label="Name" name="name" />
-        <FormikInput label="Email" name="email" type="email" />
+        <FormikInput {...args} label="Name" name="name" />
+        <FormikInput {...args} label="Email" name="email" type="email" />
         <Button label="Submit" type="submit" />
       </div>
     )}
@@ -151,3 +176,19 @@ FormikInputStory.parameters = {
     },
   },
 };
+
+export {
+  Default,
+  Sizes,
+  Controlled,
+  Required,
+  Disabled,
+  Error,
+  HelpText,
+  NakedInput,
+  SearchInput,
+  InputWithMaxLength,
+  FormikInputStory,
+};
+
+export default metadata;

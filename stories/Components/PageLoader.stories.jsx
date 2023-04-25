@@ -2,7 +2,7 @@ import React from "react";
 
 import PageLoader from "components/PageLoader";
 
-export default {
+const metadata = {
   title: "Components/PageLoader",
   component: PageLoader,
   parameters: {
@@ -21,11 +21,15 @@ const Template = args => (
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const LoadingText = () => (
+const LoadingText = args => (
   <div className="h-screen w-full">
-    <PageLoader text="Loading..." />
+    <PageLoader {...args} text="Loading..." />
   </div>
 );
 LoadingText.storyName = "Loading text";
+
+export { Default, LoadingText };
+
+export default metadata;

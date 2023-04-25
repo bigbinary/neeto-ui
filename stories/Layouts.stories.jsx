@@ -21,7 +21,7 @@ import {
 
 import { TABLE_DATA } from "./constants";
 
-export default {
+const metadata = {
   title: "Layouts/Page",
 };
 
@@ -321,3 +321,5 @@ export const Page = () => {
     </div>
   );
 };
+
+export default metadata;

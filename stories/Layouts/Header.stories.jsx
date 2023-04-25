@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Button from "components/Button";
 import Header from "components/layouts/Header";
 
-export default {
+const metadata = {
   title: "Layouts/Header",
   component: Header,
   parameters: {
@@ -24,13 +24,13 @@ const Template = args => (
   </Router>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   title: "Layouts",
   actionBlock: <Button label="Primary action" />,
 };
 
-export const WithSearchInput = Template.bind({});
+const WithSearchInput = Template.bind({});
 WithSearchInput.storyName = "With search input";
 WithSearchInput.args = {
   title: "Layouts",
@@ -41,7 +41,7 @@ WithSearchInput.args = {
   actionBlock: <Button label="Primary action" />,
 };
 
-export const WithMenuBarToggle = Template.bind({});
+const WithMenuBarToggle = Template.bind({});
 WithMenuBarToggle.storyName = "With MenuBar toggle";
 WithMenuBarToggle.args = {
   title: "Layouts",
@@ -49,7 +49,7 @@ WithMenuBarToggle.args = {
   actionBlock: <Button label="Primary action" />,
 };
 
-export const WithBreadcrumbs = Template.bind({});
+const WithBreadcrumbs = Template.bind({});
 WithBreadcrumbs.args = {
   title: "Layouts",
   menuBarToggle: () => alert("clicked"),
@@ -60,3 +60,7 @@ WithBreadcrumbs.args = {
   ],
 };
 WithBreadcrumbs.storyName = "With breadcrumbs";
+
+export { Default, WithSearchInput, WithMenuBarToggle, WithBreadcrumbs };
+
+export default metadata;

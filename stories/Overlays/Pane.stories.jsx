@@ -8,7 +8,7 @@ import Pane from "components/Pane";
 import Typography from "components/Typography";
 import { manager as OverlayManager } from "managers";
 
-export default {
+const metadata = {
   title: "Overlays/Pane",
   component: Pane,
   subcomponents: {
@@ -39,7 +39,7 @@ export default {
   },
 };
 
-export const Default = () => {
+const Default = args => {
   const [showPane, setShowPane] = useState(false);
   const inputRef = React.useRef(null);
 
@@ -53,6 +53,7 @@ export const Default = () => {
         </div>
       </div>
       <Pane
+        {...args}
         initialFocusRef={inputRef}
         isOpen={showPane}
         onClose={() => setShowPane(false)}
@@ -88,7 +89,7 @@ export const Default = () => {
   );
 };
 
-export const Sizes = () => {
+const Sizes = args => {
   const [showPaneExtraSmall, setShowPaneExtraSmall] = useState(false);
   const [showPaneLarge, setShowPaneLarge] = useState(false);
 
@@ -103,6 +104,7 @@ export const Sizes = () => {
         </div>
       </div>
       <Pane
+        {...args}
         isOpen={showPaneExtraSmall}
         size="small"
         onClose={() => setShowPaneExtraSmall(false)}
@@ -129,6 +131,7 @@ export const Sizes = () => {
         </Pane.Footer>
       </Pane>
       <Pane
+        {...args}
         isOpen={showPaneLarge}
         size="large"
         onClose={() => setShowPaneLarge(false)}
@@ -159,7 +162,7 @@ export const Sizes = () => {
   );
 };
 
-export const PaneWithLongTitle = () => {
+const PaneWithLongTitle = args => {
   const [showPane, setShowPane] = useState(false);
   const inputRef = React.useRef(null);
 
@@ -173,6 +176,7 @@ export const PaneWithLongTitle = () => {
         </div>
       </div>
       <Pane
+        {...args}
         initialFocusRef={inputRef}
         isOpen={showPane}
         onClose={() => setShowPane(false)}
@@ -209,7 +213,7 @@ export const PaneWithLongTitle = () => {
   );
 };
 
-export const PaneWithModalAndAlert = () => {
+const PaneWithModalAndAlert = args => {
   const [showPane, setShowPane] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -224,7 +228,7 @@ export const PaneWithModalAndAlert = () => {
           </div>
         </div>
       </div>
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
@@ -294,7 +298,7 @@ export const PaneWithModalAndAlert = () => {
 };
 PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
 
-export const MultiplePanes = () => {
+const MultiplePanes = args => {
   const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
   const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -312,6 +316,7 @@ export const MultiplePanes = () => {
         </div>
       </div>
       <Pane
+        {...args}
         isOpen={isFirstPaneVisible}
         onClose={() => setIsFirstPaneVisible(false)}
       >
@@ -349,6 +354,7 @@ export const MultiplePanes = () => {
         </Pane.Footer>
       </Pane>
       <Pane
+        {...args}
         isOpen={isSecondPaneVisible}
         onClose={() => setIsSecondPaneVisible(false)}
       >
@@ -410,7 +416,7 @@ export const MultiplePanes = () => {
 };
 MultiplePanes.storyName = "Nested panes with modals";
 
-export const PaneWithOverlayManager = () => {
+const PaneWithOverlayManager = args => {
   const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
   const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -438,6 +444,7 @@ export const PaneWithOverlayManager = () => {
         </div>
       </div>
       <Pane
+        {...args}
         isOpen={isFirstPaneVisible}
         onClose={() => setIsFirstPaneVisible(false)}
       >
@@ -472,6 +479,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -489,6 +497,7 @@ export const PaneWithOverlayManager = () => {
         </Pane.Footer>
       </Pane>
       <Pane
+        {...args}
         isOpen={isSecondPaneVisible}
         onClose={() => setIsSecondPaneVisible(false)}
       >
@@ -523,6 +532,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -562,6 +572,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -580,7 +591,7 @@ export const PaneWithOverlayManager = () => {
 };
 PaneWithOverlayManager.storyName = "Pane with overlay manager";
 
-export const DynamicFieldFocusInsidePane = () => {
+const DynamicFieldFocusInsidePane = args => {
   const [showPane, setShowPane] = useState(false);
   const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const [inputFields, setInputFields] = useState([]);
@@ -602,7 +613,7 @@ export const DynamicFieldFocusInsidePane = () => {
           </div>
         </div>
       </div>
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         {({ setFocusField }) => (
           <>
             <Pane.Header>
@@ -671,3 +682,15 @@ DynamicFieldFocusInsidePane.parameters = {
   },
 };
 DynamicFieldFocusInsidePane.storyName = "Dynamic field focus inside pane";
+
+export {
+  Default,
+  Sizes,
+  PaneWithLongTitle,
+  PaneWithModalAndAlert,
+  MultiplePanes,
+  PaneWithOverlayManager,
+  DynamicFieldFocusInsidePane,
+};
+
+export default metadata;

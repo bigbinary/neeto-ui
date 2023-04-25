@@ -2,9 +2,10 @@ import React from "react";
 
 import Pagination from "components/Pagination";
 
+// eslint-disable-next-line import/extensions
 import PaginationStoriesDocs from "!raw-loader!./PaginationStories.mdx";
 
-export default {
+const metadata = {
   title: "Components/Pagination",
   component: Pagination,
   parameters: {
@@ -23,7 +24,7 @@ export default {
 
 const Template = args => <Pagination {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   count: 500,
   pageNo: 3,
@@ -32,3 +33,7 @@ Default.args = {
     alert(pageNumber);
   },
 };
+
+export { Default };
+
+export default metadata;
