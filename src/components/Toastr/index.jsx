@@ -127,13 +127,14 @@ const isString = s => typeof s === "string" || s instanceof String;
 const isErrorCodeObject = e =>
   typeof e === "object" && "key" in e && "context" in e;
 
-// eslint-disable-next-line consistent-return
 const errorCodeTranslation = errorCode => {
   if (typeof errorCode === "string") {
     return t(errorCode);
   } else if (isErrorCodeObject(errorCode)) {
     return t(errorCode.key, errorCode.context);
   }
+
+  return undefined;
 };
 
 const getErrorMessage = response => {

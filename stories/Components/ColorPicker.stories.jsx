@@ -1,28 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import { action } from "@storybook/addon-actions";
 
 import ColorPicker from "components/ColorPicker";
-
-export default {
-  title: "Components/ColorPicker",
-  component: ColorPicker,
-  parameters: {
-    layout: "padded",
-    docs: {
-      description: {
-        component: '`import { ColorPicker } from "@bigbinary/neetoui";`',
-      },
-    },
-  },
-  argTypes: {
-    onChange: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
-    },
-  },
-};
 
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
@@ -31,10 +11,10 @@ const DEFAULT_COLORS = {
   "blue-500": "#276ef1",
 };
 
-export const Default = ({ color, ...args }) => {
+const Default = ({ color, ...args }) => {
   const [currentColor, setCurrentColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setCurrentColor(value.hex);
   };
@@ -44,7 +24,7 @@ export const Default = ({ color, ...args }) => {
   }, [color]);
 
   return (
-    <div className="w-40 h-60">
+    <div className="h-60 w-40">
       <ColorPicker color={currentColor} onChange={onChange} {...args} />
     </div>
   );
@@ -54,10 +34,10 @@ Default.args = {
   color: "#4558F9",
 };
 
-export const Sizes = (args) => {
+const Sizes = args => {
   const [color, setColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setColor(value.hex);
   };
@@ -67,7 +47,7 @@ export const Sizes = (args) => {
   }, [args.color]);
 
   return (
-    <div className="flex flex-col w-40 gap-4 h-60">
+    <div className="flex h-60 w-40 flex-col gap-4">
       <div className="flex flex-col gap-2">
         <span>Small</span>
         <ColorPicker color={color} size="small" onChange={onChange} />
@@ -89,22 +69,24 @@ Sizes.args = {
   color: "#4558F9",
 };
 
-export const WithColorPalette = (args) => {
+const WithColorPalette = args => {
   const [color, setColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setColor(value.hex);
   };
 
-  const colorList = Object.keys(DEFAULT_COLORS).map((key) => ({
+  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
     from: key,
     to: key,
   }));
-  const findColorByHex = (hex) => {
+
+  const findColorByHex = hex => {
     const colorClass = Object.keys(DEFAULT_COLORS).find(
-      (key) => hex === DEFAULT_COLORS[key]
+      key => hex === DEFAULT_COLORS[key]
     );
+
     return { from: colorClass, to: colorClass };
   };
 
@@ -121,15 +103,15 @@ export const WithColorPalette = (args) => {
   }, [args.color]);
 
   return (
-    <div className="w-40 h-60">
+    <div className="h-60 w-40">
       <ColorPicker
         color={color}
-        onChange={onChange}
         colorPaletteProps={{
           color: selectedColor,
           colorList,
           onChange: handleColorChange,
         }}
+        onChange={onChange}
       />
     </div>
   );
@@ -139,10 +121,10 @@ WithColorPalette.args = {
   color: "#4558F9",
 };
 
-export const WithEyeDropper = (args) => {
+const WithEyeDropper = args => {
   const [color, setColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setColor(value.hex);
   };
@@ -152,8 +134,8 @@ export const WithEyeDropper = (args) => {
   }, [args.color]);
 
   return (
-    <div className="w-40 h-60">
-      <ColorPicker color={color} onChange={onChange} showEyeDropper />
+    <div className="h-60 w-40">
+      <ColorPicker showEyeDropper color={color} onChange={onChange} />
     </div>
   );
 };
@@ -162,10 +144,10 @@ WithEyeDropper.args = {
   color: "#4558F9",
 };
 
-export const ShowHexValue = (args) => {
+const ShowHexValue = args => {
   const [color, setColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setColor(value.hex);
   };
@@ -175,8 +157,8 @@ export const ShowHexValue = (args) => {
   }, [args.color]);
 
   return (
-    <div className="w-40 h-60">
-      <ColorPicker color={color} onChange={onChange} showHexValue={true} />
+    <div className="h-60 w-40">
+      <ColorPicker showHexValue color={color} onChange={onChange} />
     </div>
   );
 };
@@ -185,10 +167,10 @@ ShowHexValue.args = {
   color: "#4558F9",
 };
 
-export const ShowTransparencyControl = (args) => {
+const ShowTransparencyControl = args => {
   const [color, setColor] = useState("#4558F9");
 
-  const onChange = (value) => {
+  const onChange = value => {
     action("onChange")(value);
     setColor(value.hex);
   };
@@ -198,12 +180,42 @@ export const ShowTransparencyControl = (args) => {
   }, [args.color]);
 
   return (
-    <div className="w-40 h-60">
-      <ColorPicker color={color} onChange={onChange} showTransparencyControl />
+    <div className="h-60 w-40">
+      <ColorPicker showTransparencyControl color={color} onChange={onChange} />
     </div>
   );
 };
 ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = {
   color: "#4558F9c9",
+};
+
+export {
+  Default,
+  Sizes,
+  WithColorPalette,
+  WithEyeDropper,
+  ShowHexValue,
+  ShowTransparencyControl,
+};
+
+export default {
+  title: "Components/ColorPicker",
+  component: ColorPicker,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: '`import { ColorPicker } from "@bigbinary/neetoui";`',
+      },
+    },
+  },
+  argTypes: {
+    onChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
 };

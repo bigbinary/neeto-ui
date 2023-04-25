@@ -108,19 +108,19 @@ AppSwitcher.propTypes = {
    * Name of the active application
    */
   activeApp: PropTypes.oneOfType([
-    // eslint-disable-next-line consistent-return
     function (props, propName, componentName) {
       const value = props[propName];
       if (!validateAppName(value)) {
         return new Error(displayErrorMessage(value, propName, componentName));
       }
+
+      return undefined;
     },
   ]).isRequired,
   /**
    * List of names of enabled neetoApps
    */
   neetoApps: PropTypes.arrayOf(
-    // eslint-disable-next-line consistent-return
     (propValue, key, componentName, propFullName) => {
       const value = propValue[key].name;
       if (!validateAppName(value)) {
@@ -128,6 +128,8 @@ AppSwitcher.propTypes = {
           displayErrorMessage(value, propFullName, componentName)
         );
       }
+
+      return undefined;
     }
   ).isRequired,
   /**

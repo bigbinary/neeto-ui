@@ -1,5 +1,5 @@
-/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
+
 import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
@@ -22,7 +22,7 @@ export default {
 
 const Template = args => (
   <Tab {...args}>
-    <Tab.Item active={true}>Label</Tab.Item>
+    <Tab.Item active>Label</Tab.Item>
     <Tab.Item>Label</Tab.Item>
   </Tab>
 );
@@ -35,7 +35,6 @@ export const Sizes = ({}) => (
       <Tab.Item active>Small</Tab.Item>
       <Tab.Item>Small</Tab.Item>
     </Tab>
-
     <Tab size="large">
       <Tab.Item active>Large</Tab.Item>
       <Tab.Item>Large</Tab.Item>
@@ -43,17 +42,15 @@ export const Sizes = ({}) => (
   </div>
 );
 
-export const WithIcon = ({}) => {
-  return (
-    <Tab>
-      <Tab.Item active icon={Favorite}>
-        Label
-      </Tab.Item>
-      <Tab.Item icon={Search}>Label</Tab.Item>
-      <Tab.Item icon={Close}>Label</Tab.Item>
-    </Tab>
-  );
-};
+export const WithIcon = ({}) => (
+  <Tab>
+    <Tab.Item active icon={Favorite}>
+      Label
+    </Tab.Item>
+    <Tab.Item icon={Search}>Label</Tab.Item>
+    <Tab.Item icon={Close}>Label</Tab.Item>
+  </Tab>
+);
 WithIcon.storyName = "With icon";
 
 export const WithoutUnderline = Template.bind({});
@@ -64,6 +61,7 @@ WithoutUnderline.storyName = "Without underline";
 
 export const MultipleItems = ({}) => {
   const [tab, setTab] = useState("label1");
+
   return (
     <Tab>
       <Tab.Item active={tab === "label1"} onClick={() => setTab("label1")}>

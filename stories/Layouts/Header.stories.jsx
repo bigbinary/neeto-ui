@@ -1,8 +1,9 @@
 import React from "react";
+
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Header from "components/layouts/Header";
 import Button from "components/Button";
+import Header from "components/layouts/Header";
 
 export default {
   title: "Layouts/Header",
@@ -17,7 +18,7 @@ export default {
   },
 };
 
-const Template = (args) => (
+const Template = args => (
   <Router>
     <Header {...args} />
   </Router>

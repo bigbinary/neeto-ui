@@ -7,6 +7,164 @@ const onClick = () => {
   alert("onClick event!");
 };
 
+const Template = args => <Avatar {...args} />;
+
+const Default = Template.bind({});
+Default.args = {
+  user: { name: "neeto UI" },
+};
+
+const Sizes = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+
+  return (
+    <div className="flex flex-col space-y-4 p-2 ">
+      <span className="text-sm">Small</span>
+      <Avatar size="small" user={{ imageUrl }} onClick={onClick} />
+      <span className="text-sm">Medium</span>
+      <Avatar size="medium" user={{ imageUrl }} onClick={onClick} />
+      <span className="text-sm">Large</span>
+      <Avatar size="large" user={{ imageUrl }} onClick={onClick} />
+      <span className="text-sm">X Large</span>
+      <Avatar size="extraLarge" user={{ imageUrl }} onClick={onClick} />
+    </div>
+  );
+};
+
+const WithStatus = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+
+  return (
+    <div className="flex flex-col space-y-4 p-2 ">
+      <span className="text-sm">Offline</span>
+      <Avatar size="large" status="offline" user={{ imageUrl }} />
+      <span className="text-sm">Online</span>
+      <Avatar size="large" status="online" user={{ imageUrl }} />
+      <span className="text-sm">Idle</span>
+      <Avatar size="large" status="idle" user={{ imageUrl }} />
+    </div>
+  );
+};
+WithStatus.storyName = "With status";
+
+const WithTooltip = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+
+  return (
+    <div className="flex space-x-6 ">
+      <Avatar showTooltip size="large" user={{ name: "Neeraj Singh" }} />
+      <Avatar
+        showTooltip
+        size="large"
+        user={{ name: "Amal Dinesh", imageUrl }}
+      />
+    </div>
+  );
+};
+WithTooltip.storyName = "With tooltip";
+
+const WithCustomClassName = Template.bind({});
+WithCustomClassName.storyName = "With custom className";
+WithCustomClassName.args = {
+  onClick,
+  user: { name: "neeto UI" },
+  size: "extraLarge",
+  className: "cursor-pointer",
+};
+WithCustomClassName.storyName = "With custom className";
+
+const Variants = ({}) => {
+  const imageUrl = "https://i.pravatar.cc/300";
+
+  return (
+    <div className="flex space-x-4 p-4">
+      <div className="flex flex-col space-y-4 p-2">
+        <Avatar
+          size="small"
+          user={{ name: "Akkshay Lawrence" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="medium"
+          user={{ name: "Vinay V Chandran" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="large"
+          user={{ name: "Neeraj Singh" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="extraLarge"
+          user={{ name: "Goutham Subramanyam" }}
+          onClick={onClick}
+        />
+      </div>
+      <div className="flex flex-col space-y-4 p-2">
+        <Avatar
+          size="small"
+          status="online"
+          user={{ name: "Akkshay Lawrence" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="medium"
+          status="idle"
+          user={{ name: "Vinay V" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="large"
+          status="offline"
+          user={{ name: "Neeraj Singh" }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="extraLarge"
+          status="online"
+          user={{ name: "Goutham Subramanyam" }}
+          onClick={onClick}
+        />
+      </div>
+      <div className="flex flex-col space-y-4 p-2">
+        <Avatar
+          size="small"
+          status="online"
+          user={{ name: "Akkshay Lawrence", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="medium"
+          status="idle"
+          user={{ name: "Vinay V", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="large"
+          status="offline"
+          user={{ name: "Neeraj Singh", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          size="extraLarge"
+          status="online"
+          user={{ name: "Goutham Subramanyam", imageUrl }}
+          onClick={onClick}
+        />
+      </div>
+    </div>
+  );
+};
+
+export {
+  Default,
+  Sizes,
+  WithStatus,
+  WithTooltip,
+  WithCustomClassName,
+  Variants,
+};
+
 export default {
   title: "Components/Avatar",
   component: Avatar,
@@ -19,156 +177,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
     },
   },
-};
-
-const Template = (args) => <Avatar {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  user: { name: "neeto UI" },
-};
-
-// eslint-disable-next-line no-empty-pattern
-export const Sizes = ({}) => {
-  const imageUrl = "https://i.pravatar.cc/300";
-  return (
-    <div className="flex flex-col p-2 space-y-4 ">
-      <span className="text-sm">Small</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="small" />
-      <span className="text-sm">Medium</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="medium" />
-      <span className="text-sm">Large</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="large" />
-      <span className="text-sm">X Large</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="extraLarge" />
-    </div>
-  );
-};
-
-// eslint-disable-next-line no-empty-pattern
-export const WithStatus = ({}) => {
-  const imageUrl = "https://i.pravatar.cc/300";
-  return (
-    <div className="flex flex-col p-2 space-y-4 ">
-      <span className="text-sm">Offline</span>
-      <Avatar user={{ imageUrl }} status="offline" size="large" />
-      <span className="text-sm">Online</span>
-      <Avatar user={{ imageUrl }} status="online" size="large" />
-      <span className="text-sm">Idle</span>
-      <Avatar user={{ imageUrl }} status="idle" size="large" />
-    </div>
-  );
-};
-WithStatus.storyName = "With status";
-
-// eslint-disable-next-line no-empty-pattern
-export const WithTooltip = ({}) => {
-  const imageUrl = "https://i.pravatar.cc/300";
-  return (
-    <div className="flex space-x-6 ">
-      <Avatar user={{ name: "Neeraj Singh" }} size="large" showTooltip />
-      <Avatar
-        user={{ name: "Amal Dinesh", imageUrl }}
-        size="large"
-        showTooltip
-      />
-    </div>
-  );
-};
-WithTooltip.storyName = "With tooltip";
-
-export const WithCustomClassName = Template.bind({});
-WithCustomClassName.storyName = "With custom className";
-WithCustomClassName.args = {
-  onClick,
-  user: { name: "neeto UI" },
-  size: "extraLarge",
-  className: "cursor-pointer",
-};
-WithCustomClassName.storyName = "With custom className";
-
-export const Variants = ({}) => {
-  const imageUrl = "https://i.pravatar.cc/300";
-  return (
-    <div className="flex p-4 space-x-4">
-      <div className="flex flex-col p-2 space-y-4">
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence" }}
-          size="small"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V Chandran" }}
-          size="medium"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh" }}
-          size="large"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam" }}
-          size="extraLarge"
-        />
-      </div>
-      <div className="flex flex-col p-2 space-y-4">
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence" }}
-          size="small"
-          status="online"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V" }}
-          size="medium"
-          status="idle"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh" }}
-          size="large"
-          status="offline"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam" }}
-          size="extraLarge"
-          status="online"
-        />
-      </div>
-      <div className="flex flex-col p-2 space-y-4">
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence", imageUrl }}
-          status="online"
-          size="small"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V", imageUrl }}
-          status="idle"
-          size="medium"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh", imageUrl }}
-          status="offline"
-          size="large"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam", imageUrl }}
-          status="online"
-          size="extraLarge"
-        />
-      </div>
-    </div>
-  );
 };

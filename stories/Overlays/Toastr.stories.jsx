@@ -1,9 +1,11 @@
 import React from "react";
 import { useCallback } from "react";
+
 import { ToastContainer } from "react-toastify";
 
 import Button from "components/Button";
 import Toastr from "components/Toastr";
+
 import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
 export default {
@@ -18,8 +20,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
     },
   },
   subcomponents: { Button },
@@ -27,11 +28,12 @@ export default {
 
 export const Toastrs = () => {
   const showAlert = useCallback(() => alert("Customer blocked successfully!"));
+
   return (
     <>
       <ToastContainer />
       <div className="space-y-6">
-        <div className="flex flex-row items-center justify-start flex-wrap gap-2">
+        <div className="flex flex-row flex-wrap items-center justify-start gap-2">
           <Button
             label="Info Toastr"
             onClick={() => Toastr.info("This is an info Toastr.")}

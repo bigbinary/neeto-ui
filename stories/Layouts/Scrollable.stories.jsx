@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Delete } from "neetoicons";
 
 import { Button, Typography } from "components";
@@ -33,64 +34,58 @@ const DummyCard = () => (
   </div>
 );
 
-export const Default = args => {
-  return (
-    <Scrollable {...args} className="neeto-ui-bg-gray-100 space-y-6 p-6">
+export const Default = args => (
+  <Scrollable {...args} className="neeto-ui-bg-gray-100 space-y-6 p-6">
+    {[...Array(5)].map((_, i) => (
+      <DummyCard key={i} />
+    ))}
+  </Scrollable>
+);
+
+export const WithHeader = args => (
+  <Container isHeaderFixed>
+    <Header title="Header" />
+    <Scrollable
+      {...args}
+      className="neeto-ui-bg-gray-300 w-full space-y-6 py-6"
+    >
       {[...Array(5)].map((_, i) => (
         <DummyCard key={i} />
       ))}
     </Scrollable>
-  );
-};
-
-export const WithHeader = args => {
-  return (
-    <Container isHeaderFixed>
-      <Header title="Header" />
-      <Scrollable
-        {...args}
-        className="neeto-ui-bg-gray-300 w-full space-y-6 py-6"
-      >
-        {[...Array(5)].map((_, i) => (
-          <DummyCard key={i} />
-        ))}
-      </Scrollable>
-    </Container>
-  );
-};
+  </Container>
+);
 WithHeader.storyName = "With header";
 WithHeader.args = {
   size: "large",
 };
 
-export const WithHeaderAndSubHeader = args => {
-  return (
-    <Container isHeaderFixed>
-      <Header title="Header" />
-      <SubHeader
-        leftActionBlock={
-          <Typography style="h4" component="h4">
-            118 Contacts
-          </Typography>
-        }
-        rightActionBlock={
-          <>
-            <Button label="Delete" style="secondary" icon={Delete} />
-            <Button label="Disable" style="secondary" />
-          </>
-        }
-      />
-      <Scrollable
-        {...args}
-        className="neeto-ui-bg-gray-300 w-full space-y-6 py-6"
-      >
-        {[...Array(6)].map((_, i) => (
-          <DummyCard key={i} />
-        ))}
-      </Scrollable>
-    </Container>
-  );
-};
+export const WithHeaderAndSubHeader = args => (
+  <Container isHeaderFixed>
+    <Header title="Header" />
+    <SubHeader
+      leftActionBlock={
+        <Typography component="h4" style="h4">
+          118 Contacts
+        </Typography>
+      }
+      rightActionBlock={
+        <>
+          <Button icon={Delete} label="Delete" style="secondary" />
+          <Button label="Disable" style="secondary" />
+        </>
+      }
+    />
+    <Scrollable
+      {...args}
+      className="neeto-ui-bg-gray-300 w-full space-y-6 py-6"
+    >
+      {[...Array(6)].map((_, i) => (
+        <DummyCard key={i} />
+      ))}
+    </Scrollable>
+  </Container>
+);
 WithHeaderAndSubHeader.storyName = "With header and subheader";
 WithHeaderAndSubHeader.args = {
   size: "small",

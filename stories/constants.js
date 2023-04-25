@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Favorite,
   Delete,
@@ -1370,8 +1371,7 @@ const columnData = [
 const columnDataToString = () =>
   JSON.stringify(columnData, null, 4).replace(/(\{|\}|\])/gi, "\t$1");
 
-export const getTableSource = (extraProps = "") => {
-  return `<Table
+export const getTableSource = (extraProps = "") => `<Table
   \tcolumnData={${columnDataToString()}}
     currentPageNumber={1}
     defaultPageSize={10}
@@ -1405,7 +1405,6 @@ export const getTableSource = (extraProps = "") => {
     ${extraProps.trim()}
   />
  `;
-};
 
 export const TABLE_IN_LAYOUT = `
 <div className="flex">

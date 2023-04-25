@@ -15,19 +15,17 @@ export default {
   },
 };
 
-const Template = (args) => (
-  <div className="w-full h-screen">
+const Template = args => (
+  <div className="h-screen w-full">
     <PageLoader {...args} />
   </div>
 );
 
 export const Default = Template.bind({});
 
-export const LoadingText = () => {
-  return (
-    <div className="w-full h-screen">
-      <PageLoader text="Loading..." />
-    </div>
-  );
-};
+export const LoadingText = () => (
+  <div className="h-screen w-full">
+    <PageLoader text="Loading..." />
+  </div>
+);
 LoadingText.storyName = "Loading text";

@@ -24,5 +24,3 @@ const Template = ({}) => (
 );
 
 export const Default = Template.bind({});
-
-// eslint-disable-next-line no-empty-pattern

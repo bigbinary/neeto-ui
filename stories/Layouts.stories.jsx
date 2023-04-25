@@ -1,13 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
+
 import { MenuHorizontal, Settings, Plus, Search } from "neetoicons";
 
-import {
-  Header,
-  SubHeader,
-  Container,
-  Scrollable,
-  MenuBar,
-} from "components/layouts";
 import {
   Button,
   Typography,
@@ -17,6 +11,14 @@ import {
   Avatar,
   Tag,
 } from "components";
+import {
+  Header,
+  SubHeader,
+  Container,
+  Scrollable,
+  MenuBar,
+} from "components/layouts";
+
 import { TABLE_DATA } from "./constants";
 
 export default {
@@ -51,18 +53,16 @@ const columns = [
     dataIndex: "first_name",
     key: "first_name",
     width: 150,
-    render: (firstName, lastName) => {
-      return (
-        <div className="flex flex-row items-center">
-          <Avatar
-            user={{ name: `${firstName} ${lastName}` }}
-            size="small"
-            className="mr-2"
-          />
-          {firstName}
-        </div>
-      );
-    },
+    render: (firstName, lastName) => (
+      <div className="flex flex-row items-center">
+        <Avatar
+          className="mr-2"
+          size="small"
+          user={{ name: `${firstName} ${lastName}` }}
+        />
+        {firstName}
+      </div>
+    ),
   },
   {
     title: "Last Name",
@@ -178,11 +178,7 @@ const columns = [
     dataIndex: "action",
     key: "action",
     width: 150,
-    render: () => (
-      <>
-        <Tag label="check" />
-      </>
-    ),
+    render: () => <Tag label="check" />,
   },
   {
     title: "Icon Button",
@@ -190,7 +186,7 @@ const columns = [
     key: "icon_button",
     width: 150,
     render: () => (
-      <Dropdown icon={MenuHorizontal} buttonStyle="text" strategy="fixed">
+      <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
         <li>Option 1</li>
         <li>Option 2</li>
         <li>Option 3</li>
@@ -211,17 +207,17 @@ export const Page = () => {
     timeoutRef.current = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+
     return () => clearTimeout(timeoutRef.current);
   }, []);
 
   return (
     <div className="flex">
       <MenuBar showMenu={showMenu} title="Contacts">
-        <MenuBar.Block label="All" count={13} active />
-        <MenuBar.Block label="Users" count={2} />
-        <MenuBar.Block label="Leads" count={7} />
-        <MenuBar.Block label="Visitors" count={4} />
-
+        <MenuBar.Block active count={13} label="All" />
+        <MenuBar.Block count={2} label="Users" />
+        <MenuBar.Block count={7} label="Leads" />
+        <MenuBar.Block count={4} label="Visitors" />
         <MenuBar.SubTitle
           iconProps={[
             {
@@ -244,9 +240,9 @@ export const Page = () => {
           collapse={isSearchCollapsed}
           onCollapse={() => setIsSearchCollapsed(true)}
         />
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add new segments" />
         <MenuBar.SubTitle
           iconProps={[
@@ -270,36 +266,31 @@ export const Page = () => {
             Tags
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add new tag" />
-
         <MenuBar.Item
-          label="General"
           description="Welcome message, KB and labels "
+          label="General"
         />
         <MenuBar.Item
-          label="Styling"
           active
           description="Brand color, Logo and widget position"
+          label="Styling"
         />
         <MenuBar.Item
-          label="Widget icon"
           description="Position, Icon and label"
+          label="Widget icon"
         />
       </MenuBar>
       <Container>
         <Header
-          title="Layouts"
           actionBlock={<Button label="Primary action" />}
           menuBarToggle={() => setShowMenu(!showMenu)}
+          title="Layouts"
         />
         <SubHeader
-          searchProps={{
-            value: searchString,
-            onChange: e => setSearchString(e.target.value),
-          }}
           deleteButtonProps={{
             count: 0,
             selectedIDs: [],
@@ -310,16 +301,20 @@ export const Page = () => {
             selectedIDs: [],
             onClick: () => {},
           }}
+          searchProps={{
+            value: searchString,
+            onChange: e => setSearchString(e.target.value),
+          }}
         />
         <Scrollable className="w-full">
           <Table
-            isLoading={isLoading}
-            columnData={columns}
-            rowData={TABLE_DATA}
-            defaultPageSize={10}
-            currentPageNumber={pageNumber}
-            handlePageChange={page => setPageNumber(page)}
             fixedHeight
+            columnData={columns}
+            currentPageNumber={pageNumber}
+            defaultPageSize={10}
+            handlePageChange={page => setPageNumber(page)}
+            isLoading={isLoading}
+            rowData={TABLE_DATA}
           />
         </Scrollable>
       </Container>

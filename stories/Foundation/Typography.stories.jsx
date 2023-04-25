@@ -18,7 +18,7 @@ export default {
   },
 };
 
-const Template = (args) => <Typography {...args}>Typography</Typography>;
+const Template = args => <Typography {...args}>Typography</Typography>;
 
 export const Heading1 = Template.bind({});
 Heading1.args = {
@@ -65,93 +65,98 @@ Nano.args = {
   style: "nano",
 };
 
-export const Variants = () => {
-  return (
-    <>
-      <Typography className="mb-4" style="h1">
-        h1. Heading - 32px
+export const Variants = () => (
+  <>
+    <Typography className="mb-4" style="h1">
+      h1. Heading - 32px
+    </Typography>
+    <Typography className="mb-4" style="h2">
+      h2. Heading - 24px
+    </Typography>
+    <Typography className="mb-4" style="h3">
+      h3. Heading - 20px
+    </Typography>
+    <Typography className="mb-4" style="h4">
+      h4. Heading - 16px
+    </Typography>
+    <Typography className="mb-4" style="h5">
+      h5. Heading - 14px
+    </Typography>
+    <Typography className="mb-4" style="h6">
+      h6. Heading - 12px
+    </Typography>
+    <Typography className="mb-4" style="body1">
+      body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur - 16px
+    </Typography>
+    <Typography className="mb-4" style="body2">
+      body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur - 14px
+    </Typography>
+    <Typography className="mb-4" style="body3">
+      body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur - 12px
+    </Typography>
+    <Typography className="mb-4" component="p" style="nano">
+      nano. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur - 10px
+    </Typography>
+    <div className="mb-4">
+      <Typography component="del" style="body3">
+        Represents a range of text that has been deleted from a document.
       </Typography>
-      <Typography className="mb-4" style="h2">
-        h2. Heading - 24px
+    </div>
+    <div className="mb-4">
+      <Typography component="ins" style="body3">
+        Represents a range of text that has been added to a document.
       </Typography>
-      <Typography className="mb-4" style="h3">
-        h3. Heading - 20px
+    </div>
+    <div className="mb-4">
+      <Typography component="u" style="body3">
+        This is rendered by default as a simple solid underline.
       </Typography>
-      <Typography className="mb-4" style="h4">
-        h4. Heading - 16px
+    </div>
+    <div className="mb-4">
+      <Typography component="i" style="body3">
+        Represents a range of text that is set off from the normal text for some
+        reason, such as idiomatic text, technical terms, taxonomical
+        designations, among others.
       </Typography>
-      <Typography className="mb-4" style="h5">
-        h5. Heading - 14px
+    </div>
+    <div className="mb-4">
+      <Typography component="em" style="body3">
+        Marks text that has stress emphasis
       </Typography>
-      <Typography className="mb-4" style="h6">
-        h6. Heading - 12px
+    </div>
+    <div className="mb-4">
+      <Typography component="strong" style="body3">
+        Indicates that its contents have strong importance, seriousness, or
+        urgency.
       </Typography>
-      <Typography className="mb-4" style="body1">
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur - 16px
+    </div>
+    <div className="mb-4">
+      <Typography component="b" style="body3">
+        Used to draw the reader's attention to the element's contents, which are
+        not otherwise granted special importance.
       </Typography>
-      <Typography className="mb-4" style="body2">
-        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur - 14px
+    </div>
+    <div className="mb-4">
+      <Typography component="code" style="h4">
+        Code
       </Typography>
-      <Typography className="mb-4" style="body3">
-        body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur - 12px
-      </Typography>
-      <Typography className="mb-4" style="nano" component="p">
-        nano. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur - 10px
-      </Typography>
-      <div className="mb-4">
-        <Typography style="body3" component="del">
-          Represents a range of text that has been deleted from a document.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="ins">
-          Represents a range of text that has been added to a document.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="u">
-          This is rendered by default as a simple solid underline.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="i">
-          Represents a range of text that is set off from the normal text for
-          some reason, such as idiomatic text, technical terms, taxonomical
-          designations, among others.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="em">
-          Marks text that has stress emphasis
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="strong">
-          Indicates that its contents have strong importance, seriousness, or
-          urgency.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="body3" component="b">
-          Used to draw the reader's attention to the element's contents, which
-          are not otherwise granted special importance.
-        </Typography>
-      </div>
-      <div className="mb-4">
-        <Typography style="h4" component="code">
-          Code
-        </Typography>
-      </div>
-    </>
-  );
-};
+    </div>
+  </>
+);
 
-export const Helpers = () => {
-  return (<div>
-    More typography helpers are documented <a className="underline" href="/?path=/docs/foundation-helpers-font-size--page">here</a>.
-  </div>);
-};
+export const Helpers = () => (
+  <div>
+    More typography helpers are documented{" "}
+    <a
+      className="underline"
+      href="/?path=/docs/foundation-helpers-font-size--page"
+    >
+      here
+    </a>
+    .
+  </div>
+);

@@ -1,5 +1,5 @@
-/* eslint-disable no-empty-pattern */
 import React from "react";
+
 import { Favorite } from "neetoicons";
 
 import Tag from "components/Tag";
@@ -45,89 +45,77 @@ Default.args = {
   label: "Label",
 };
 
-export const Sizes = ({}) => {
-  return (
-    <div className="flex flex-row items-center justify-start space-x-4">
-      <Tag label="Large" size="large" />
-      <Tag label="Small" size="small" />
-    </div>
-  );
-};
+export const Sizes = ({}) => (
+  <div className="flex flex-row items-center justify-start space-x-4">
+    <Tag label="Large" size="large" />
+    <Tag label="Small" size="small" />
+  </div>
+);
 
-export const Styles = ({}) => {
-  return (
-    <div className="flex flex-row items-start justify-start space-x-4">
-      <Tag label="Primary" style="primary" />
-      <Tag label="Secondary" style="secondary" />
-      <Tag label="Info" style="info" />
-      <Tag label="Success" style="success" />
-      <Tag label="Warning" style="warning" />
-      <Tag label="Danger" style="danger" />
-    </div>
-  );
-};
+export const Styles = ({}) => (
+  <div className="flex flex-row items-start justify-start space-x-4">
+    <Tag label="Primary" style="primary" />
+    <Tag label="Secondary" style="secondary" />
+    <Tag label="Info" style="info" />
+    <Tag label="Success" style="success" />
+    <Tag label="Warning" style="warning" />
+    <Tag label="Danger" style="danger" />
+  </div>
+);
 
-export const Types = ({}) => {
-  return (
-    <div className="space-y-4">
-      <div>
-        <h5 className="mb-4 capitalize">Outline</h5>
-        <div className="space-x-3">
-          <Tag type="outline" label="Primary" style="primary" />
-          <Tag type="outline" label="Secondary" style="secondary" />
-          <Tag type="outline" label="Info" style="info" />
-          <Tag type="outline" label="Success" style="success" />
-          <Tag type="outline" label="Warning" style="warning" />
-          <Tag type="outline" label="Danger" style="danger" />
-        </div>
-      </div>
-      <div>
-        <h5 className="mb-4 capitalize">Solid</h5>
-        <div className="space-x-3">
-          <Tag type="solid" label="Primary" style="primary" />
-          <Tag type="solid" label="Secondary" style="secondary" />
-          <Tag type="solid" label="Info" style="info" />
-          <Tag type="solid" label="Success" style="success" />
-          <Tag type="solid" label="Warning" style="warning" />
-          <Tag type="solid" label="Danger" style="danger" />
-        </div>
+export const Types = ({}) => (
+  <div className="space-y-4">
+    <div>
+      <h5 className="mb-4 capitalize">Outline</h5>
+      <div className="space-x-3">
+        <Tag label="Primary" style="primary" type="outline" />
+        <Tag label="Secondary" style="secondary" type="outline" />
+        <Tag label="Info" style="info" type="outline" />
+        <Tag label="Success" style="success" type="outline" />
+        <Tag label="Warning" style="warning" type="outline" />
+        <Tag label="Danger" style="danger" type="outline" />
       </div>
     </div>
-  );
-};
-
-export const WithIndicator = ({}) => {
-  return (
-    <div className="flex flex-row items-start justify-start space-x-4">
-      <Tag label="Primary" indicatorStyle="primary" style="secondary" />
-      <Tag label="Secondary" indicatorStyle="secondary" style="secondary" />
-      <Tag label="Info" indicatorStyle="info" style="secondary" />
-      <Tag label="Success" indicatorStyle="success" style="secondary" />
-      <Tag label="Warning" indicatorStyle="warning" style="secondary" />
-      <Tag label="Danger" indicatorStyle="danger" style="secondary" />
+    <div>
+      <h5 className="mb-4 capitalize">Solid</h5>
+      <div className="space-x-3">
+        <Tag label="Primary" style="primary" type="solid" />
+        <Tag label="Secondary" style="secondary" type="solid" />
+        <Tag label="Info" style="info" type="solid" />
+        <Tag label="Success" style="success" type="solid" />
+        <Tag label="Warning" style="warning" type="solid" />
+        <Tag label="Danger" style="danger" type="solid" />
+      </div>
     </div>
-  );
-};
+  </div>
+);
+
+export const WithIndicator = ({}) => (
+  <div className="flex flex-row items-start justify-start space-x-4">
+    <Tag indicatorStyle="primary" label="Primary" style="secondary" />
+    <Tag indicatorStyle="secondary" label="Secondary" style="secondary" />
+    <Tag indicatorStyle="info" label="Info" style="secondary" />
+    <Tag indicatorStyle="success" label="Success" style="secondary" />
+    <Tag indicatorStyle="warning" label="Warning" style="secondary" />
+    <Tag indicatorStyle="danger" label="Danger" style="secondary" />
+  </div>
+);
 WithIndicator.storyName = "With indicator";
 
-export const WithIcon = ({}) => {
-  return (
-    <div className="flex flex-row items-center justify-start space-x-4">
-      <Tag label="With icon" icon={Favorite} />
-      <Tag label="With icon" icon={Favorite} size="large" />
-    </div>
-  );
-};
+export const WithIcon = ({}) => (
+  <div className="flex flex-row items-center justify-start space-x-4">
+    <Tag icon={Favorite} label="With icon" />
+    <Tag icon={Favorite} label="With icon" size="large" />
+  </div>
+);
 WithIcon.storyName = "With icon";
 
-export const WithOnClose = ({}) => {
-  return (
-    <div className="flex flex-row items-center justify-start space-x-4">
-      <Tag label="With close icon" onClose={() => {}} />
-      <Tag label="With close icon" onClose={() => {}} size="large" />
-    </div>
-  );
-};
+export const WithOnClose = ({}) => (
+  <div className="flex flex-row items-center justify-start space-x-4">
+    <Tag label="With close icon" onClose={() => {}} />
+    <Tag label="With close icon" size="large" onClose={() => {}} />
+  </div>
+);
 WithOnClose.storyName = "With on close";
 
 // export const Variants = () => {

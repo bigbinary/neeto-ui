@@ -1,8 +1,9 @@
 import React from "react";
+
 import { Delete } from "neetoicons";
 
-import SubHeader from "components/layouts/SubHeader";
 import Button from "components/Button";
+import SubHeader from "components/layouts/SubHeader";
 import Typography from "components/Typography";
 
 export default {
@@ -18,47 +19,41 @@ export default {
   },
 };
 
-export const Default = () => {
-  return (
-    <SubHeader
-      leftActionBlock={
-        <Typography style="h4" component="h4">
-          118 Contacts
-        </Typography>
-      }
-      rightActionBlock={
-        <>
-          <Button label="Delete" style="secondary" icon={Delete} />
-          <Button label="Disable" style="secondary" />
-        </>
-      }
-    />
-  );
-};
+export const Default = () => (
+  <SubHeader
+    leftActionBlock={
+      <Typography component="h4" style="h4">
+        118 Contacts
+      </Typography>
+    }
+    rightActionBlock={
+      <>
+        <Button icon={Delete} label="Delete" style="secondary" />
+        <Button label="Disable" style="secondary" />
+      </>
+    }
+  />
+);
 
-export const WithLeftActionBlock = () => {
-  return (
-    <SubHeader
-      leftActionBlock={
-        <Typography style="h4" component="h4">
-          118 Contacts
-        </Typography>
-      }
-    />
-  );
-};
+export const WithLeftActionBlock = () => (
+  <SubHeader
+    leftActionBlock={
+      <Typography component="h4" style="h4">
+        118 Contacts
+      </Typography>
+    }
+  />
+);
 WithLeftActionBlock.storyName = "With left action block";
 
-export const WithRightActionBlock = () => {
-  return (
-    <SubHeader
-      rightActionBlock={
-        <>
-          <Button label="Delete" style="secondary" icon={Delete} />
-          <Button label="Disable" style="secondary" />
-        </>
-      }
-    />
-  );
-};
+export const WithRightActionBlock = () => (
+  <SubHeader
+    rightActionBlock={
+      <>
+        <Button icon={Delete} label="Delete" style="secondary" />
+        <Button label="Disable" style="secondary" />
+      </>
+    }
+  />
+);
 WithRightActionBlock.storyName = "With right action block";

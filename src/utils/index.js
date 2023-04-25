@@ -92,9 +92,8 @@ export const renderFocusOnFocusableElements = (
     }
   });
 
-  if (!shouldFocusFirstFocusableElement) return;
+  if (!shouldFocusFirstFocusableElement) return undefined;
 
-  // eslint-disable-next-line consistent-return
   return firstFocusableElement?.focus();
 };
 

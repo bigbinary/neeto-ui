@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Search } from "neetoicons";
 
-import Input from "components/Input";
+import { Search } from "neetoicons";
+import * as yup from "yup";
+
 import Button from "components/Button";
 import { Input as FormikInput, Form } from "components/formik";
-import * as yup from "yup";
+import Input from "components/Input";
 
 export default {
   title: "Components/Input",
@@ -31,45 +32,33 @@ Default.args = {
   placeholder: "Input placeholder",
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const Sizes = ({}) => {
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <Input label="Small" placeholder="Input placeholder" size="small" />
-      <Input label="Medium" placeholder="Input placeholder" />
-      <Input label="Large" placeholder="Input placeholder" size="large" />
-    </div>
-  );
-};
+export const Sizes = ({}) => (
+  <div className="flex w-full flex-col gap-3">
+    <Input label="Small" placeholder="Input placeholder" size="small" />
+    <Input label="Medium" placeholder="Input placeholder" />
+    <Input label="Large" placeholder="Input placeholder" size="large" />
+  </div>
+);
 
 export const Controlled = () => {
   const [value, setValue] = useState("BigBinary");
+
   return (
     <Input
-      prefix={<Search />}
       label="Controlled Input"
+      prefix={<Search />}
       value={value}
       onChange={e => setValue(e.target.value)}
     />
   );
 };
 
-// eslint-disable-next-line no-empty-pattern
 export const Required = ({}) => (
-  <Input
-    label="Required Input"
-    placeholder="Input placeholder"
-    required={true}
-  />
+  <Input required label="Required Input" placeholder="Input placeholder" />
 );
 
-// eslint-disable-next-line no-empty-pattern
 export const Disabled = ({}) => (
-  <Input
-    label="Disabled Input"
-    placeholder="Input placeholder"
-    disabled={true}
-  />
+  <Input disabled label="Disabled Input" placeholder="Input placeholder" />
 );
 
 export const Error = Template.bind({});
@@ -103,61 +92,55 @@ SearchInput.args = {
   placeholder: "Input search text",
 };
 
-export const InputWithMaxLength = () => {
-  return (
-    <div className="flex flex-col space-y-6">
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        value="Sample i"
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        value="Sample in"
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length and unlimited characters"
-        maxLength={10}
-        unlimitedChars={true}
-        value="Sample Input"
-        placeholder="Input placeholder"
-      />
-    </div>
-  );
-};
+export const InputWithMaxLength = () => (
+  <div className="flex flex-col space-y-6">
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample i"
+    />
+    <Input
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample in"
+    />
+    <Input
+      unlimitedChars
+      label="Input with max length and unlimited characters"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample Input"
+    />
+  </div>
+);
 InputWithMaxLength.storyName = "Input with max length";
 
-export const FormikInputStory = ({}) => {
-  return (
-    <>
-      <Form
-        formikProps={{
-          initialValues: { name: "", email: "" },
-          validationSchema: yup.object({
-            name: yup.string().required("Name is required"),
-          }),
-          onSubmit: values => window.alert(JSON.stringify(values)),
-        }}
-      >
-        {props => (
-          <div className="space-y-2">
-            <FormikInput name="name" label="Name" />
-            <FormikInput name="email" type="email" label="Email" />
-            <Button type="submit" label="Submit" />
-          </div>
-        )}
-      </Form>
-    </>
-  );
-};
+export const FormikInputStory = ({}) => (
+  <Form
+    formikProps={{
+      initialValues: { name: "", email: "" },
+      validationSchema: yup.object({
+        name: yup.string().required("Name is required"),
+      }),
+      onSubmit: values => window.alert(JSON.stringify(values)),
+    }}
+  >
+    {props => (
+      <div className="space-y-2">
+        <FormikInput label="Name" name="name" />
+        <FormikInput label="Email" name="email" type="email" />
+        <Button label="Submit" type="submit" />
+      </div>
+    )}
+  </Form>
+);
 
 FormikInputStory.storyName = "Formik Input";
 FormikInputStory.parameters = {

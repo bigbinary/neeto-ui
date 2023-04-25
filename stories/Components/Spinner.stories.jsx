@@ -15,19 +15,17 @@ export default {
   },
 };
 
-const Template = (args) => (
-  <div className="flex items-center justify-center w-20 h-20">
+const Template = args => (
+  <div className="flex h-20 w-20 items-center justify-center">
     <Spinner {...args} />
   </div>
 );
 
 export const Default = Template.bind({});
 
-export const LightTheme = () => {
-  return (
-    <div className="flex items-center justify-center w-20 h-20 neeto-ui-bg-black">
-      <Spinner theme="light" />
-    </div>
-  );
-};
+export const LightTheme = () => (
+  <div className="neeto-ui-bg-black flex h-20 w-20 items-center justify-center">
+    <Spinner theme="light" />
+  </div>
+);
 LightTheme.storyName = "Light theme";

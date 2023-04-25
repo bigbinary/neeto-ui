@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 
-import * as yup from "yup";
 import { Search } from "neetoicons";
+import * as yup from "yup";
 
-import MultiEmailInput from "components/MultiEmailInput";
+import Button from "components/Button";
 import {
   MultiEmailInput as FormikMultiEmailInput,
   Form,
 } from "components/formik";
-import Button from "components/Button";
+import MultiEmailInput from "components/MultiEmailInput";
 import Typography from "components/Typography";
-import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 import { suffixes, prefixes } from "../constants";
+
+import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 export default {
   title: "Components/Multi email input",
@@ -59,6 +60,7 @@ export const Controlled = args => {
   return (
     <MultiEmailInput
       {...args}
+      value={emails}
       options={[
         {
           label: "Daniel Ferry (daniel.ferry@example.com)",
@@ -91,7 +93,6 @@ export const Controlled = args => {
           valid: true,
         },
       ]}
-      value={emails}
       onChange={emails => setEmails(emails)}
     />
   );
@@ -207,26 +208,26 @@ export const FormikEmail = () => {
 
   return (
     <Form
+      formProps={{
+        className: "space-y-2",
+      }}
       formikProps={{
         initialValues: INITIAL_VALUES,
         validationSchema: VALIDATION_SCHEMA,
         onSubmit: handleSubmit,
       }}
-      formProps={{
-        className: "space-y-2",
-      }}
     >
       <FormikMultiEmailInput
-        label="Email(s)*"
         counter
         filterInvalidEmails
+        label="Email(s)*"
         name="emails"
       />
       <Button
-        type="submit"
+        data-cy="add-member-submit-button"
         label="Save changes"
         style="primary"
-        data-cy="add-member-submit-button"
+        type="submit"
       />
       <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
     </Form>

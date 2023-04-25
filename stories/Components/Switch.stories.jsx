@@ -1,4 +1,3 @@
-/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 
 import Switch from "components/Switch";
@@ -11,26 +10,25 @@ export default {
     layout: "padded",
     docs: {
       description: {
-        component: "`import { Switch } from \"@bigbinary/neetoui\";`"
-      }
+        component: '`import { Switch } from "@bigbinary/neetoui";`',
+      },
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135"
-    }
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
+    },
   },
   argTypes: {
     onChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
-    }
-  }
+        defaultValue: { summary: "(event) => void" },
+      },
+    },
+  },
 };
 
-const Template = (args) => (
+const Template = args => (
   <div className="p-4">
     <Switch {...args} />
   </div>
@@ -38,26 +36,27 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  checked: false
+  checked: false,
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
-  checked: true
+  checked: true,
 };
 
 export const Controlled = ({}) => {
   const [isChecked, setIsChecked] = useState(false);
-  const onChange = (e) => {
+  const onChange = e => {
     setIsChecked(e.target.checked);
   };
-  return <Switch onChange={onChange} checked={isChecked} />;
+
+  return <Switch checked={isChecked} onChange={onChange} />;
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  checked: true
+  checked: true,
 };
 
 export const Label = ({}) => (
@@ -65,7 +64,7 @@ export const Label = ({}) => (
     <Switch label="Switch label example" />
     <Switch
       label={
-        <span className="font-semibold neeto-ui-text-info-500">
+        <span className="neeto-ui-text-info-500 font-semibold">
           Custom label example
         </span>
       }
@@ -75,14 +74,15 @@ export const Label = ({}) => (
 
 export const TooltipExample = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const onChange = (e) => {
+  const onChange = e => {
     setIsChecked(e.target.checked);
   };
+
   return (
     <div className="flex flex-col space-y-6">
-      <ToolTip placement="right" content="This is a tooltip">
-        <Switch onChange={onChange} checked={isChecked} />
+      <ToolTip content="This is a tooltip" placement="right">
+        <Switch checked={isChecked} onChange={onChange} />
       </ToolTip>
-    </div>);
-
+    </div>
+  );
 };

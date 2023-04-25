@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
 import { Settings, Plus, Search } from "neetoicons";
 
-import { Container, MenuBar } from "components/layouts";
 import { Button, Typography } from "components";
+import { Container, MenuBar } from "components/layouts";
 
 export default {
   title: "Layouts/MenuBar",
@@ -30,11 +31,10 @@ export const MenuBarStory = () => {
   return (
     <div className="flex">
       <MenuBar showMenu={showMenu} title="Contacts">
-        <MenuBar.Block label="All" count={13} active />
-        <MenuBar.Block label="Users" count={2} />
-        <MenuBar.Block label="Leads" count={7} />
-        <MenuBar.Block label="Visitors" count={4} />
-
+        <MenuBar.Block active count={13} label="All" />
+        <MenuBar.Block count={2} label="Users" />
+        <MenuBar.Block count={7} label="Leads" />
+        <MenuBar.Block count={4} label="Visitors" />
         <MenuBar.SubTitle
           iconProps={[
             {
@@ -57,9 +57,9 @@ export const MenuBarStory = () => {
           collapse={isSearchCollapsed}
           onCollapse={() => setIsSearchCollapsed(true)}
         />
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add new segments" />
         <MenuBar.SubTitle
           iconProps={[
@@ -83,23 +83,22 @@ export const MenuBarStory = () => {
             Tags
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
+        <MenuBar.Block count={80} label="Europe" />
+        <MenuBar.Block count={60} label="Middle-East" />
+        <MenuBar.Block count={60} label="Asia" />
         <MenuBar.AddNew label="Add new tag" />
-
         <MenuBar.Item
-          label="General"
           description="Welcome message, KB and labels "
+          label="General"
         />
         <MenuBar.Item
-          label="Styling"
           active
           description="Brand color, logo and widget position"
+          label="Styling"
         />
         <MenuBar.Item
-          label="Widget icon"
           description="Position, Icon and label"
+          label="Widget icon"
         />
       </MenuBar>
       <Container>

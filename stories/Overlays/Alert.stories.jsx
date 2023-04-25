@@ -16,28 +16,27 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
     },
   },
   argTypes: {
     onClose: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "() => void" }
-      }
+        defaultValue: { summary: "() => void" },
+      },
     },
     onSubmit: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "() => void" }
-      }
+        defaultValue: { summary: "() => void" },
+      },
     },
     onClick: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
@@ -54,8 +53,8 @@ export const Default = () => {
       />
       <Alert
         isOpen={open}
-        title="Leave page with unsaved changes?"
         message="Leaving this page will delete all unsaved changes."
+        title="Leave page with unsaved changes?"
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
       />
@@ -78,26 +77,26 @@ export const Sizes = () => {
             <Button label="Large" onClick={() => setShowAlertLarge(true)} />
           </div>
           <Alert
-            size="small"
             isOpen={showAlertSmall}
-            title="Leave page with unsaved changes?"
             message="Leaving this page will delete all unsaved changes."
+            size="small"
+            title="Leave page with unsaved changes?"
             onClose={() => setShowAlertSmall(false)}
             onSubmit={() => setShowAlertSmall(false)}
           />
           <Alert
-            size="medium"
             isOpen={showAlertMedium}
-            title="Leave page with unsaved changes?"
             message="Leaving this page will delete all unsaved changes."
+            size="medium"
+            title="Leave page with unsaved changes?"
             onClose={() => setShowAlertMedium(false)}
             onSubmit={() => setShowAlertMedium(false)}
           />
           <Alert
-            size="large"
             isOpen={showAlertLarge}
-            title="Leave page with unsaved changes?"
             message="Leaving this page will delete all unsaved changes."
+            size="large"
+            title="Leave page with unsaved changes?"
             onClose={() => setShowAlertLarge(false)}
             onSubmit={() => setShowAlertLarge(false)}
           />

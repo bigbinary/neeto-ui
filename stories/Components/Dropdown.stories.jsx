@@ -1,10 +1,12 @@
-/* eslint-disable no-empty-pattern */
+/* eslint-disable import/exports-last */
 import React, { useState } from "react";
+
 import { Settings, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
 import { icons } from "../constants";
+
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {
@@ -54,6 +56,7 @@ export default {
 export const Default = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
       <Dropdown label="Dropdown" {...args}>
@@ -74,6 +77,7 @@ export const Default = args => {
 export const TriggerStyles = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
       <div className="flex space-x-3">
@@ -86,7 +90,6 @@ export const TriggerStyles = () => {
             <MenuItem.Button style="danger">Delete</MenuItem.Button>
           </Menu>
         </Dropdown>
-
         <Dropdown buttonStyle="secondary" label="Secondary Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
@@ -96,7 +99,6 @@ export const TriggerStyles = () => {
             <MenuItem.Button style="danger">Delete</MenuItem.Button>
           </Menu>
         </Dropdown>
-
         <Dropdown buttonStyle="text" label="Text Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
@@ -115,6 +117,7 @@ TriggerStyles.storyName = "Trigger styles";
 export const TriggerSizes = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
       <div className="flex items-center space-x-3">
@@ -127,7 +130,6 @@ export const TriggerSizes = () => {
             <MenuItem.Button style="danger">Delete</MenuItem.Button>
           </Menu>
         </Dropdown>
-
         <Dropdown label="Medium">
           <Menu>
             {listItems.map((item, idx) => (
@@ -137,7 +139,6 @@ export const TriggerSizes = () => {
             <MenuItem.Button style="danger">Delete</MenuItem.Button>
           </Menu>
         </Dropdown>
-
         <Dropdown buttonSize="large" label="Large">
           <Menu>
             {listItems.map((item, idx) => (
@@ -156,9 +157,10 @@ TriggerSizes.storyName = "Trigger sizes";
 export const TriggerWithCustomIcon = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
-      <Dropdown label="Dropdown with custom icon" icon={Settings}>
+      <Dropdown icon={Settings} label="Dropdown with custom icon">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -175,6 +177,7 @@ TriggerWithCustomIcon.storyName = "Trigger with custom icon";
 export const WithPrefixAndSuffix = () => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="h-40">
       <Dropdown label="Prefix and suffix" position="bottom-end">
@@ -190,8 +193,8 @@ export const WithPrefixAndSuffix = () => {
           ))}
           <Divider />
           <MenuItem.Button
-            style="danger"
             prefix={<Delete size={20} />}
+            style="danger"
             suffix={<Settings size={20} />}
           >
             Delete
@@ -209,15 +212,15 @@ export const MultiDropdownWithClickTrigger = ({}) => {
 
   return (
     <div className="flex h-80 items-start">
-      <Dropdown label="Dropdown" isMultiLevel>
+      <Dropdown isMultiLevel label="Dropdown">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
           <Divider />
           <Dropdown
-            position="right-start"
             customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            position="right-start"
             onClick={e => e.stopPropagation()}
           >
             <Menu>
@@ -241,16 +244,16 @@ export const MultiDropdownWithHoverTrigger = () => {
 
   return (
     <div className="flex h-80 items-start">
-      <Dropdown label="Dropdown" isMultiLevel>
+      <Dropdown isMultiLevel label="Dropdown">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
           ))}
           <Divider />
           <Dropdown
-            trigger="hover"
-            position="right-start"
             customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            position="right-start"
+            trigger="hover"
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -272,6 +275,7 @@ export const ControlledDropdown = () => {
 
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
+
   return (
     <div className="flex h-60 flex-col items-start space-y-6">
       <div className="flex items-center space-x-4">
@@ -288,8 +292,8 @@ export const ControlledDropdown = () => {
       </div>
       <Dropdown
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
         label="Controlled Dropdown"
+        onClose={() => setIsOpen(false)}
       >
         <Menu>
           {listItems.map((item, idx) => (
@@ -327,11 +331,12 @@ CustomTarget.storyName = "Custom target";
 export const CustomDropdown = () => {
   const { Menu, MenuItem } = Dropdown;
   const members = ["Oliver Smith", "Jack Smith"];
+
   return (
     <div className="h-56">
       <Dropdown closeOnSelect={false} label="Custom Dropdown">
         <div className="flex flex-col gap-y-1 rounded-md p-2">
-          <Input prefix={<Search />} placeholder="Search members" />
+          <Input placeholder="Search members" prefix={<Search />} />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">
             {members.map((item, idx) => (

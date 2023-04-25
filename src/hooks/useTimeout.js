@@ -9,12 +9,11 @@ const useTimeout = (callback, delay) => {
 
   useEffect(() => {
     if (delay === null) {
-      return;
+      return undefined;
     }
 
     const id = setTimeout(() => savedCallback.current(), delay);
 
-    // eslint-disable-next-line consistent-return
     return () => clearTimeout(id);
   }, [delay]);
 };

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Sidebar from "components/layouts/Sidebar";
 import AppSwitcher from "components/layouts/AppSwitcher";
+import Sidebar from "components/layouts/Sidebar";
+
 import { STORYBOOK_NAV_LINKS } from "../constants";
 
 const neetoApps = [
@@ -42,8 +44,8 @@ export default {
     onClose: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
@@ -58,10 +60,9 @@ export const Default = ({ isOpen, ...args }) => {
   return (
     <Router>
       <Sidebar
-        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
-        onAppSwitcherToggle={() => setIsAppSwitcherOpen((open) => !open)}
         showAppSwitcher
         appName="neetoUI"
+        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
@@ -74,6 +75,7 @@ export const Default = ({ isOpen, ...args }) => {
             },
           ],
         }}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen(open => !open)}
       />
       <AppSwitcher
         {...args}
@@ -83,6 +85,7 @@ export const Default = ({ isOpen, ...args }) => {
     </Router>
   );
 };
+
 Default.args = {
   isOpen: true,
   neetoApps,
@@ -99,15 +102,15 @@ export const AppSwitcherWithRecentApps = ({ isOpen, ...args }) => {
   return (
     <Router>
       <Sidebar
-        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
-        onAppSwitcherToggle={() => setIsAppSwitcherOpen((isOpen) => !isOpen)}
         showAppSwitcher
         appName="neetoUI"
+        navLinks={STORYBOOK_NAV_LINKS.slice(3)}
         profileInfo={{
           name: "John Doe",
           email: "john@doe.com",
           topLinks: [{ label: "Logout" }, { label: "Settings" }],
         }}
+        onAppSwitcherToggle={() => setIsAppSwitcherOpen(isOpen => !isOpen)}
       />
       <AppSwitcher
         {...args}

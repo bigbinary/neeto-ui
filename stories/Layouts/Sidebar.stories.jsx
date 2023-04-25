@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+
+import { Settings, LeftArrow } from "neetoicons";
 import {
   BrowserRouter as Router,
   Route,
   Switch as SwitchComponent,
 } from "react-router-dom";
-import { Settings, LeftArrow } from "neetoicons";
 
 import Label from "components/Label";
-import Switch from "components/Switch";
-import Sidebar from "components/layouts/Sidebar";
 import AppSwitcher from "components/layouts/AppSwitcher";
+import Sidebar from "components/layouts/Sidebar";
+import Switch from "components/Switch";
 
 import { STORYBOOK_NAV_LINKS } from "../constants";
 
@@ -48,37 +49,29 @@ export default {
   },
 };
 
-const SidebarContent = ({ label }) => {
-  return (
-    <div className="flex h-full w-full items-center justify-center">
-      {label}
-    </div>
-  );
-};
+const SidebarContent = ({ label }) => (
+  <div className="flex h-full w-full items-center justify-center">{label}</div>
+);
 
-const Template = args => {
-  return (
-    <Router>
-      <div className="flex flex-row items-start justify-start">
-        <Sidebar {...args} />
-        <div className="relative flex h-screen flex-grow flex-col overflow-auto">
-          <SwitchComponent>
-            {STORYBOOK_NAV_LINKS &&
-              STORYBOOK_NAV_LINKS.map(({ label, to }, index) => {
-                return (
-                  <Route
-                    key={index}
-                    path={to}
-                    component={() => <SidebarContent label={label} />}
-                  />
-                );
-              })}
-          </SwitchComponent>
-        </div>
+const Template = args => (
+  <Router>
+    <div className="flex flex-row items-start justify-start">
+      <Sidebar {...args} />
+      <div className="relative flex h-screen flex-grow flex-col overflow-auto">
+        <SwitchComponent>
+          {STORYBOOK_NAV_LINKS &&
+            STORYBOOK_NAV_LINKS.map(({ label, to }, index) => (
+              <Route
+                component={() => <SidebarContent label={label} />}
+                key={index}
+                path={to}
+              />
+            ))}
+        </SwitchComponent>
       </div>
-    </Router>
-  );
-};
+    </div>
+  </Router>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -126,9 +119,9 @@ export const SidebarWithAppSwitcher = args => {
         onAppSwitcherToggle={() => setIsAppSwitcherOpen(isOpen => !isOpen)}
       />
       <AppSwitcher
-        neetoApps={[]}
         activeApp="Chat"
         isOpen={isAppSwitcherOpen}
+        neetoApps={[]}
         onClose={() => setIsAppSwitcherOpen(false)}
       />
     </Router>
@@ -203,6 +196,7 @@ HelpSectionWithChangelog.args = {
 export const ProfileSectionWithCustomContent = Template.bind({});
 ProfileSectionWithCustomContent.storyName =
   "Profile section with custom content";
+
 ProfileSectionWithCustomContent.args = {
   organizationInfo: {
     name: "neetoUI",
