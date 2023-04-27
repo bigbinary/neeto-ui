@@ -6,7 +6,6 @@ import dayjs from "dayjs";
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
 
-// eslint-disable-next-line import/extensions
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
 const metadata = {

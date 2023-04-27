@@ -6,7 +6,6 @@ import { Button, Dropdown, Tag, Input, Typography } from "components";
 
 import { icons } from "../constants";
 
-// eslint-disable-next-line import/extensions
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {

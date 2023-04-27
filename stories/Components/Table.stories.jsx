@@ -19,15 +19,10 @@ import {
   SIMPLE_TABLE_DATA,
 } from "../constants";
 
-// eslint-disable-next-line import/extensions
 import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
-// eslint-disable-next-line import/extensions
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
-// eslint-disable-next-line import/extensions
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
-// eslint-disable-next-line import/extensions
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
-// eslint-disable-next-line import/extensions
 import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
 const metadata = {

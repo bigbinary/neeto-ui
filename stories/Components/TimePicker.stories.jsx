@@ -7,7 +7,6 @@ import { Modal, Typography, Pane } from "components";
 import Button from "components/Button";
 import TimePicker from "components/TimePicker";
 
-// eslint-disable-next-line import/extensions
 import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
 const metadata = {

@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 import Button from "components/Button";
 import Toastr from "components/Toastr";
 
-// eslint-disable-next-line import/extensions
 import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
 const metadata = {

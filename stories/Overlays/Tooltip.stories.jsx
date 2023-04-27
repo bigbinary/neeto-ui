@@ -2,7 +2,6 @@ import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "components";
 
-// eslint-disable-next-line import/extensions
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
 const metadata = {

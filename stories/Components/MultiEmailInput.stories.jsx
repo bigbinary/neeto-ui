@@ -13,7 +13,6 @@ import Typography from "components/Typography";
 
 import { suffixes, prefixes } from "../constants";
 
-// eslint-disable-next-line import/extensions
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 const metadata = {

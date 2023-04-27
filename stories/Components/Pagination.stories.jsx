@@ -2,7 +2,6 @@ import React from "react";
 
 import Pagination from "components/Pagination";
 
-// eslint-disable-next-line import/extensions
 import PaginationStoriesDocs from "!raw-loader!./PaginationStories.mdx";
 
 const metadata = {
