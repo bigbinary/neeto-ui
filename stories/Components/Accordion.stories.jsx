@@ -50,12 +50,11 @@ const Template = args => (
   </Accordion>
 );
 
-// eslint-disable-next-line no-empty-pattern
-const Styles = ({}) => (
+const Styles = args => (
   <div className="flex flex-col space-y-5">
     <div>
       <h4 className="mb-6 capitalize">Primary</h4>
-      <Accordion>
+      <Accordion {...args}>
         <Accordion.Item title="Accordion 1">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -68,7 +67,7 @@ const Styles = ({}) => (
     </div>
     <div>
       <h4 className="mb-6 capitalize">Secondary</h4>
-      <Accordion style="secondary">
+      <Accordion {...args} style="secondary">
         <Accordion.Item title="Accordion 1">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.

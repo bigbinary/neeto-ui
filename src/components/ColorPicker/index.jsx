@@ -56,19 +56,6 @@ const ColorPicker = ({
     onChangeInternal({ hex, rgb });
   };
 
-  // const pickColor = () => {
-  //   open()
-  //     .then(color => {
-  //       const colorHex = tinycolor(color.sRGBHex).toHexString();
-  //       onColorChange(colorHex);
-  //     })
-  //     .catch(() => {
-  //       // Ensures component is still mounted
-  //       // before calling setState
-  //       // if (!e.canceled) setError(e);
-  //     });
-  // };
-
   const pickColor = async () => {
     try {
       const colorResponse = await open();

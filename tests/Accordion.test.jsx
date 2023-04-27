@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from "react";
 
 import { render, waitForElementToBeRemoved } from "@testing-library/react";

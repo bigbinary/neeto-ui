@@ -36,14 +36,12 @@ const useNavPrompt = ({ shouldBlock = true }) => {
     }
   };
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (shouldBlock) {
       unblockRef.current = history.block((transition, action) => {
         setIsBlocked(true);
         navRef.current = { transition, action };
 
-        // handleNavigation(action, transition);
         return false;
       });
 
@@ -53,6 +51,8 @@ const useNavPrompt = ({ shouldBlock = true }) => {
         }
       };
     }
+
+    return undefined;
   }, [shouldBlock]);
 
   return { isBlocked, continueNavigation, hidePrompt };

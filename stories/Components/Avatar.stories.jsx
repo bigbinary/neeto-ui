@@ -1,4 +1,3 @@
-/* eslint-disable no-empty-pattern */
 import React from "react";
 
 import Avatar from "components/Avatar";
@@ -31,46 +30,57 @@ Default.args = {
   user: { name: "neeto UI" },
 };
 
-const Sizes = ({}) => {
+const Sizes = args => {
   const imageUrl = "https://i.pravatar.cc/300";
 
   return (
     <div className="flex flex-col space-y-4 p-2 ">
       <span className="text-sm">Small</span>
-      <Avatar size="small" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...args} size="small" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">Medium</span>
-      <Avatar size="medium" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...args} size="medium" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">Large</span>
-      <Avatar size="large" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...args} size="large" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">X Large</span>
-      <Avatar size="extraLarge" user={{ imageUrl }} onClick={onClick} />
+      <Avatar
+        {...args}
+        size="extraLarge"
+        user={{ imageUrl }}
+        onClick={onClick}
+      />
     </div>
   );
 };
 
-const WithStatus = ({}) => {
+const WithStatus = args => {
   const imageUrl = "https://i.pravatar.cc/300";
 
   return (
     <div className="flex flex-col space-y-4 p-2 ">
       <span className="text-sm">Offline</span>
-      <Avatar size="large" status="offline" user={{ imageUrl }} />
+      <Avatar {...args} size="large" status="offline" user={{ imageUrl }} />
       <span className="text-sm">Online</span>
-      <Avatar size="large" status="online" user={{ imageUrl }} />
+      <Avatar {...args} size="large" status="online" user={{ imageUrl }} />
       <span className="text-sm">Idle</span>
-      <Avatar size="large" status="idle" user={{ imageUrl }} />
+      <Avatar {...args} size="large" status="idle" user={{ imageUrl }} />
     </div>
   );
 };
 WithStatus.storyName = "With status";
 
-const WithTooltip = ({}) => {
+const WithTooltip = args => {
   const imageUrl = "https://i.pravatar.cc/300";
 
   return (
     <div className="flex space-x-6 ">
-      <Avatar showTooltip size="large" user={{ name: "Neeraj Singh" }} />
       <Avatar
+        {...args}
+        showTooltip
+        size="large"
+        user={{ name: "Neeraj Singh" }}
+      />
+      <Avatar
+        {...args}
         showTooltip
         size="large"
         user={{ name: "Amal Dinesh", imageUrl }}
@@ -90,28 +100,32 @@ WithCustomClassName.args = {
 };
 WithCustomClassName.storyName = "With custom className";
 
-const Variants = ({}) => {
+const Variants = args => {
   const imageUrl = "https://i.pravatar.cc/300";
 
   return (
     <div className="flex space-x-4 p-4">
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
+          {...args}
           size="small"
           user={{ name: "Akkshay Lawrence" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="medium"
           user={{ name: "Vinay V Chandran" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="large"
           user={{ name: "Neeraj Singh" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="extraLarge"
           user={{ name: "Goutham Subramanyam" }}
           onClick={onClick}
@@ -119,24 +133,28 @@ const Variants = ({}) => {
       </div>
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
+          {...args}
           size="small"
           status="online"
           user={{ name: "Akkshay Lawrence" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="medium"
           status="idle"
           user={{ name: "Vinay V" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="large"
           status="offline"
           user={{ name: "Neeraj Singh" }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="extraLarge"
           status="online"
           user={{ name: "Goutham Subramanyam" }}
@@ -145,24 +163,28 @@ const Variants = ({}) => {
       </div>
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
+          {...args}
           size="small"
           status="online"
           user={{ name: "Akkshay Lawrence", imageUrl }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="medium"
           status="idle"
           user={{ name: "Vinay V", imageUrl }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="large"
           status="offline"
           user={{ name: "Neeraj Singh", imageUrl }}
           onClick={onClick}
         />
         <Avatar
+          {...args}
           size="extraLarge"
           status="online"
           user={{ name: "Goutham Subramanyam", imageUrl }}
