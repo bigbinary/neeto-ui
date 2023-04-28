@@ -1,10 +1,12 @@
+/* eslint-disable react/display-name */
+
 import React, { forwardRef } from "react";
 
 import { Help } from "@bigbinary/neeto-icons";
 
 const HelpSection = forwardRef((_, ref) => (
   <button
-    className="shadow-none neeto-ui-sidebar__link neeto-ui-sidebar__link--button"
+    className="neeto-ui-sidebar__link neeto-ui-sidebar__link--button shadow-none"
     data-cy="help-button"
     ref={ref}
   >

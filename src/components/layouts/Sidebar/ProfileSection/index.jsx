@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 
 import Avatar from "components/Avatar";
@@ -7,16 +8,16 @@ const ProfileSection = forwardRef(({ profileInfo, onClick }, ref) => {
 
   return (
     <button
-      ref={ref}
       className="neeto-ui-w-full neeto-ui-text-left neeto-ui-sidebar__profile-wrapper"
-      onClick={onClick}
       data-cy={dataCy}
+      ref={ref}
+      onClick={onClick}
     >
       <span className="neeto-ui-flex neeto-ui-items-center neeto-ui-flex-shrink-0 neeto-ui-w-full neeto-ui-sidebar__profile">
         <Avatar
-          user={profileInfo}
-          size="large"
           className="neeto-ui-flex-shrink-0"
+          size="large"
+          user={profileInfo}
         />
       </span>
     </button>

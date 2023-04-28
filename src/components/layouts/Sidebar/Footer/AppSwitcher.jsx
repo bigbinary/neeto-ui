@@ -1,18 +1,19 @@
 import React from "react";
+
 import { AppSwitcher as AppSwitcherIcon } from "@bigbinary/neeto-icons";
 
 import NavIconWrapper from "../NavIconWrapper";
 
 const AppSwitcher = ({ tooltipStyle, onAppSwitcherToggle }) => (
   <NavIconWrapper
+    icon={<AppSwitcherIcon />}
     label="Product switcher"
     tooltipStyle={tooltipStyle}
-    icon={<AppSwitcherIcon />}
   >
     <button
-      onClick={onAppSwitcherToggle}
+      className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-start neeto-ui-w-full neeto-ui-select-none neeto-ui-sidebar__link neeto-ui-sidebar__link--app-switcher neeto-ui-sidebar__link--button shadow-none"
       data-cy="app-switcher-button"
-      className="shadow-none neeto-ui-flex neeto-ui-items-center neeto-ui-justify-start neeto-ui-w-full neeto-ui-select-none neeto-ui-sidebar__link neeto-ui-sidebar__link--app-switcher neeto-ui-sidebar__link--button"
+      onClick={onAppSwitcherToggle}
     >
       <span className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-sidebar__link-icon">
         <AppSwitcherIcon size={24} />

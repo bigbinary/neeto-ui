@@ -1,4 +1,5 @@
 import React from "react";
+
 import { NavLink, useLocation } from "react-router-dom";
 
 import NavIconWrapper from "./NavIconWrapper";
@@ -16,23 +17,23 @@ const Links = ({ navLinks = [], tooltipStyle }) => {
 
           return (
             <NavIconWrapper
-              key={mainIndex}
-              tooltipStyle={tooltipStyle}
-              icon={<IconSVG color="#68737D" />}
               description={description}
+              icon={<IconSVG color="#68737D" />}
+              key={mainIndex}
               label={label}
+              tooltipStyle={tooltipStyle}
             >
               <NavLink
-                to={to}
-                className="neeto-ui-flex neeto-ui-items-center neeto-ui-no-underline neeto-ui-select-none neeto-ui-sidebar__link"
                 activeClassName="active"
+                className="neeto-ui-flex neeto-ui-items-center neeto-ui-no-underline neeto-ui-select-none neeto-ui-sidebar__link"
                 isActive={() => isActive}
+                to={to}
                 {...otherProps}
               >
                 {icon && (
                   <div
-                    data-testid={label}
                     className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-sidebar__link-icon"
+                    data-testid={label}
                   >
                     <IconSVG />
                   </div>

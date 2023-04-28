@@ -1,4 +1,5 @@
 import React from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
@@ -8,6 +9,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Links from "./Links";
 
+// eslint-disable-next-line import/exports-last
 export const TOOLTIP_STYLES = {
   default: "default",
   featured: "featured",
@@ -24,22 +26,20 @@ const Sidebar = ({
 }) => (
   <div
     data-cy="sidebar-wrapper"
+    data-testid="sidebar"
     className={classnames(
       "neeto-ui-sidebar neeto-ui-flex neeto-ui-flex-col neeto-ui-flex-shrink-0 neeto-ui-overflow-y-auto neeto-ui-overflow-x-hidden",
       "neeto-ui-sidebar--collapsed"
     )}
-    data-testid="sidebar"
   >
     <Header organizationInfo={organizationInfo} />
-
     <Links navLinks={navLinks} tooltipStyle={tooltipStyle} />
-
     <Footer
-      profileInfo={profileInfo}
-      tooltipStyle={tooltipStyle}
-      showAppSwitcher={showAppSwitcher}
-      onAppSwitcherToggle={onAppSwitcherToggle}
       helpLinks={helpLinks}
+      profileInfo={profileInfo}
+      showAppSwitcher={showAppSwitcher}
+      tooltipStyle={tooltipStyle}
+      onAppSwitcherToggle={onAppSwitcherToggle}
     />
   </div>
 );
@@ -125,33 +125,6 @@ Sidebar.propTypes = {
       icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     }),
   }),
-
-  /**
-   * The name of the app that is currently active
-   */
-  appName: PropTypes.string,
-  /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Footer links have been removed from the design._
-   */
-  footerLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      description: PropTypes.string,
-      to: PropTypes.string,
-      href: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    })
-  ),
-  /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Expanded state of Sidebar have been removed from the design._
-   */
-  isCollapsed: PropTypes.bool,
 };
 
 export default Sidebar;

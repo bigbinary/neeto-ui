@@ -301,11 +301,6 @@ export type LabelProps = {
   HTMLLabelElement
 > & { [key: string]: any };
 
-export type PageLoaderProps = { text?: string } & React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & { [key: string]: any };
-
 export interface PaginationProps {
   pageSize: number;
   count: number;
@@ -642,7 +637,6 @@ export const Dropdown: React.FC<DropdownProps> & {
 export const MultiEmailInput: React.FC<MultiEmailInputProps>;
 export const Input: React.ForwardRefExoticComponent<InputProps>;
 export const Label: React.FC<LabelProps>;
-export const PageLoader: React.FC<PageLoaderProps>;
 export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
