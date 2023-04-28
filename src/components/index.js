@@ -14,7 +14,6 @@ import Label from "./Label";
 import Modal from "./Modal";
 import MultiEmailInput from "./MultiEmailInput";
 import NoData from "./NoData";
-import PageLoader from "./PageLoader";
 import Pagination from "./Pagination";
 import Pane from "./Pane";
 import Popover from "./Popover";
@@ -50,7 +49,6 @@ export {
   Label,
   Modal,
   NoData,
-  PageLoader,
   Pagination,
   Pane,
   Popover,

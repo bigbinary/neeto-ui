@@ -23,6 +23,20 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.0 - 2023-04-28
+
+Removed following components from `neetoui`:
+
+- `Header`
+- `SubHeader`
+- `MenuBar`
+- `SideBar`
+- `PageLoader`
+- `AppSwitcher`
+- `Container`
+- `Scrollable`
+- `Page`
+
 ## 4.4.27 - 2023-04-24
 
 - Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the behaviour of maxlength prop to the native one.
@@ -134,7 +148,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 ## 4.4.0 - 2023-02-24
 - Fixed: Alignment issues in Table headers when sort is enabled.
 - Fixed: Made Table headers popout.
-
 **Color contrast improvements**
 
 - Updated: `--neeto-ui-black` from `#1b1f23` to `#121212`.
@@ -331,7 +344,6 @@ Changes documentations to sentence case from title casing.
 - Added: tooltip to *Avatar* component
 ## 4.0.11 - 2022-10-10
 - Fixed false positive type errors
-
 ## 4.0.10 - 2022-10-05
 
 - Fixed: issue with week picker in `DatePicker`.

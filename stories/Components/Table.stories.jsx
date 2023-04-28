@@ -3,13 +3,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { MenuHorizontal, Search, Settings, Plus } from "neetoicons";
 
 import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
-import {
-  Container,
-  Scrollable,
-  MenuBar,
-  Header,
-  SubHeader,
-} from "components/layouts";
 import NeetoTable from "components/Table";
 
 import {

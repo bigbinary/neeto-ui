@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+
 import React, { forwardRef } from "react";
 
 import { Help } from "neetoicons";

@@ -1,17 +1,4 @@
-import AppSwitcher from "./AppSwitcher";
-import Container from "./Container";
-import Header from "./Header";
-import MenuBar from "./MenuBar";
-import Scrollable from "./Scrollable";
+//This component is kept to be used in neeto-planner-electron alone.
 import Sidebar from "./Sidebar";
-import SubHeader from "./SubHeader";
 
-export {
-  Sidebar,
-  Header,
-  SubHeader,
-  Container,
-  Scrollable,
-  AppSwitcher,
-  MenuBar,
-};
+export { Sidebar };

@@ -136,7 +136,6 @@ const Table = ({
 
   return (
     <AntTable
-      sticky
       bordered={bordered}
       columns={columnData}
       dataSource={rowData}

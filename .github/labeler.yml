@@ -1,3 +1,0 @@
-skip-ci:
-  - any: ["."]
-  - all: ["!src/**/*", "!package.json"]
