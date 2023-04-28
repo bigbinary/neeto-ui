@@ -1,23 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+/* eslint-disable import/exports-last */
+import React, { useEffect, useState } from "react";
 
-import { MenuHorizontal, Search, Settings, Plus } from "neetoicons";
+import { MenuHorizontal } from "neetoicons";
 
-import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
+import { Tooltip, Tag, Avatar, Button, Dropdown } from "components";
 import NeetoTable from "components/Table";
-import Container from "neetomolecules/Container";
-import Header from "neetomolecules/Header";
-import MenuBar from "neetomolecules/MenuBar";
-import Scrollable from "neetomolecules/Scrollable";
-import SubHeader from "neetomolecules/SubHeader";
 
-import {
-  getTableSource,
-  TABLE_DATA,
-  TABLE_IN_LAYOUT,
-  SIMPLE_TABLE_DATA,
-} from "../constants";
+import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
-import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
@@ -526,151 +516,4 @@ export const TableWithDynamicData = args => {
 TableWithDynamicData.storyName = "Table with dynamic data";
 TableWithDynamicData.args = {
   defaultPageSize: 10,
-};
-
-export const TableInLayout = () => {
-  const [searchString, setSearchString] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [showMenu, setShowMenu] = useState(false);
-  const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
-  const [pageNumber, setPageNumber] = useState(1);
-  const rowData = TABLE_DATA.slice(0, 101);
-  const timeoutRef = useRef(null);
-
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timeoutRef.current);
-  }, []);
-
-  return (
-    <div className="flex">
-      <MenuBar
-        showMenu={showMenu}
-        title={
-          <div className="flex justify-between">
-            <Typography style="h2">Contacts</Typography>
-          </div>
-        }
-      >
-        <MenuBar.Block active count={13} label="All" />
-        <MenuBar.Block count={2} label="Users" />
-        <MenuBar.Block count={7} label="Leads" />
-        <MenuBar.Block count={4} label="Visitors" />
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: () => <Search size={20} />,
-              onClick: () =>
-                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Segments
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Search
-          collapse={isSearchCollapsed}
-          onCollapse={() => setIsSearchCollapsed(true)}
-        />
-        <MenuBar.Block count={80} label="Europe" />
-        <MenuBar.Block count={60} label="Middle-East" />
-        <MenuBar.Block count={60} label="Asia" />
-        <MenuBar.AddNew label="Add New Segments" />
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: () => <Settings size={20} />,
-            },
-            {
-              icon: () => <Plus size={20} />,
-            },
-            {
-              icon: () => <Search size={20} />,
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Tags
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Block count={80} label="Europe" />
-        <MenuBar.Block count={60} label="Middle-East" />
-        <MenuBar.Block count={60} label="Asia" />
-        <MenuBar.AddNew label="Add New Tag" />
-        <MenuBar.Item
-          description="Welcome Message, KB and Labels "
-          label="General"
-        />
-        <MenuBar.Item
-          active
-          description="Brand Color, Logo and Widget Position"
-          label="Styling"
-        />
-        <MenuBar.Item
-          description="Position, Icon and Label"
-          label="Widget Icon"
-        />
-      </MenuBar>
-      <Container>
-        <Header
-          actionBlock={<Button label="Primary Action" />}
-          menuBarToggle={() => setShowMenu(!showMenu)}
-          title={
-            <div className="flex items-center">
-              <h3>Layout</h3>
-            </div>
-          }
-        />
-        <SubHeader
-          deleteButtonProps={{
-            count: 0,
-            selectedIDs: [],
-            onClick: () => {},
-          }}
-          disableButtonProps={{
-            count: 0,
-            selectedIDs: [],
-            onClick: () => {},
-          }}
-          searchProps={{
-            value: searchString,
-            onChange: e => setSearchString(e.target.value),
-          }}
-        />
-        <Scrollable className="w-full">
-          <NeetoTable
-            fixedHeight
-            columnData={getColumns()}
-            currentPageNumber={pageNumber}
-            defaultPageSize={10}
-            handlePageChange={page => setPageNumber(page)}
-            loading={isLoading}
-            rowData={rowData}
-          />
-        </Scrollable>
-      </Container>
-    </div>
-  );
-};
-TableInLayout.storyName = "Table inside layout";
-TableInLayout.parameters = {
-  layout: "fullscreen",
-  docs: {
-    description: { story: LayoutDocs },
-    source: { code: TABLE_IN_LAYOUT },
-  },
 };
