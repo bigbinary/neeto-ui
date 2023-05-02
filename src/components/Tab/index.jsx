@@ -19,14 +19,8 @@ const Tab = ({
     className={classnames(
       {
         "neeto-ui-tab__wrapper neeto-ui-flex": true,
-      },
-      {
         "neeto-ui-tab__wrapper--size-large": size === SIZES.large,
-      },
-      {
         "neeto-ui-tab__wrapper--size-small": size === SIZES.small,
-      },
-      {
         "neeto-ui-tab__wrapper--underline-none": noUnderline,
       },
       [className]

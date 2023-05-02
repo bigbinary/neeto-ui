@@ -92,9 +92,9 @@ export const renderFocusOnFocusableElements = (
     }
   });
 
-  if (!shouldFocusFirstFocusableElement) return undefined;
+  if (!shouldFocusFirstFocusableElement) return;
 
-  return firstFocusableElement?.focus();
+  firstFocusableElement?.focus();
 };
 
 export const hideScrollAndAddMargin = () => {

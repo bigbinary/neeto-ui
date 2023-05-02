@@ -127,6 +127,14 @@ Tooltip.args = {
   },
 };
 
-export { Default, Sizes, Styles, IconButtons, LoadingState, Tooltip };
+export {
+  Default,
+  Sizes,
+  Styles,
+  IconButtons,
+  LoadingState,
+  FullWidth,
+  Tooltip,
+};
 
 export default metadata;

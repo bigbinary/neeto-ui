@@ -143,6 +143,7 @@ const Dropdown = ({
       offset={0}
       placement={position || PLACEMENT.bottomEnd}
       plugins={[hideOnEsc]}
+      popperOptions={{ strategy, modifiers: dropdownModifiers }}
       role="dropdown"
       theme="light"
       trigger={TRIGGERS[trigger]}
@@ -163,18 +164,10 @@ const Dropdown = ({
           </div>
         ) : null
       }
-      popperOptions={{
-        strategy,
-        modifiers: dropdownModifiers,
-      }}
       onClose={onClose}
       onCreate={instance => instance && setInstance(instance)}
-      onHidden={() => {
-        setMounted(false);
-      }}
-      onMount={() => {
-        setMounted(true);
-      }}
+      onHidden={() => setMounted(false)}
+      onMount={() => setMounted(true)}
       {...otherProps}
       {...controlledProps}
     >

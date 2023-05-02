@@ -104,9 +104,7 @@ const Modal = ({
               />
             )}
             {typeof children === "function"
-              ? children({
-                  setFocusField,
-                })
+              ? children({ setFocusField })
               : children}
           </div>
         </Backdrop>
