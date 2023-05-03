@@ -1,75 +1,86 @@
 import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+
 import { useId } from "@reach/auto-id";
-import { Check, Close } from "@bigbinary/neeto-icons";
+import classnames from "classnames";
+import { Check, Close } from "neetoicons";
+import PropTypes from "prop-types";
 
 import { hyphenize, noop } from "utils";
 
 import Label from "./Label";
 
-const Switch = forwardRef(({
-  label = "",
-  required = false,
-  className = "",
-  error = "",
-  onChange = noop,
-  labelProps,
-  children,
-  ...otherProps
-}, ref) => {
-  const id = useId(otherProps.id);
-  const errorId = `error_${id}`;
-  const { checked, disabled } = otherProps;
-  const renderLabel = label || children;
+const Switch = forwardRef(
+  (
+    {
+      label = "",
+      required = false,
+      className = "",
+      error = "",
+      onChange = noop,
+      labelProps,
+      children,
+      ...otherProps
+    },
+    ref
+  ) => {
+    const id = useId(otherProps.id);
+    const errorId = `error_${id}`;
+    const { checked, disabled } = otherProps;
+    const renderLabel = label || children;
 
-  return (
-    <div ref={ref} className={classnames(["neeto-ui-switch__wrapper", className])}>
-      <div className="neeto-ui-switch__container">
-        <label
-          tabIndex={0}
-          className={classnames("neeto-ui-switch__item", {
-            "neeto-ui-switch__item--checked": !!checked,
-            "neeto-ui-switch__item--disabled": disabled,
-          })}
-        >
-          <input type="checkbox" onChange={onChange} {...otherProps} />
-          <span
-            aria-hidden="true"
-            className={classnames("neeto-ui-switch", {
-              "neeto-ui-switch--checked": !!checked,
+    return (
+      <div
+        className={classnames(["neeto-ui-switch__wrapper", className])}
+        ref={ref}
+      >
+        <div className="neeto-ui-switch__container">
+          <label
+            tabIndex={0}
+            className={classnames("neeto-ui-switch__item", {
+              "neeto-ui-switch__item--checked": !!checked,
+              "neeto-ui-switch__item--disabled": disabled,
             })}
           >
-            {checked ? (
-              <Check size="12" strokeWidth={4} data-testid="check-icon" />
-            ) : (
-              <Close size="12" strokeWidth={3} data-testid="close-icon" />
-            )}
-          </span>
-        </label>
-        {renderLabel && (
-          <Label
-            required={required}
-            data-cy={`${hyphenize(renderLabel)}-switch-label`}
-            htmlFor={id}
-            {...labelProps}
+            <input type="checkbox" onChange={onChange} {...otherProps} />
+            <span
+              aria-hidden="true"
+              className={classnames("neeto-ui-switch", {
+                "neeto-ui-switch--checked": !!checked,
+              })}
+            >
+              {checked ? (
+                <Check data-testid="check-icon" size="12" strokeWidth={4} />
+              ) : (
+                <Close data-testid="close-icon" size="12" strokeWidth={3} />
+              )}
+            </span>
+          </label>
+          {renderLabel && (
+            <Label
+              data-cy={`${hyphenize(renderLabel)}-switch-label`}
+              htmlFor={id}
+              required={required}
+              {...labelProps}
+            >
+              {renderLabel}
+            </Label>
+          )}
+        </div>
+        {!!error && (
+          <p
+            className="neeto-ui-input__error"
+            data-cy={`${hyphenize(renderLabel)}-switch-error`}
+            id={errorId}
           >
-            {renderLabel}
-          </Label>
+            {error}
+          </p>
         )}
       </div>
-      {!!error && (
-        <p
-          data-cy={`${hyphenize(renderLabel)}-switch-error`}
-          className="neeto-ui-input__error"
-          id={errorId}
-        >
-          {error}
-        </p>
-      )}
-    </div>
-  );
-});
+    );
+  }
+);
+
+Switch.displayName = "Switch";
 
 Switch.propTypes = {
   /**
@@ -102,7 +113,7 @@ Switch.propTypes = {
   disabled: PropTypes.bool,
   /**
    *  To specify the children label to be rendered inside the Checkbox.
-  */
+   */
   children: PropTypes.string,
 };
 

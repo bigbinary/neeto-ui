@@ -24,4 +24,6 @@ const ProfileSection = forwardRef(({ profileInfo, onClick }, ref) => {
   );
 });
 
+ProfileSection.displayName = "ProfileSection";
+
 export default ProfileSection;

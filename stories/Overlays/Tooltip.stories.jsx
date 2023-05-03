@@ -1,9 +1,10 @@
 import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "components";
+
 import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
 
-export default {
+const metadata = {
   title: "Overlays/Tooltip",
   component: Tooltip,
   subcomponents: { Button },
@@ -16,157 +17,151 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
     },
   },
 };
 
-export const FollowCursor = (args) => {
-  return (
-    <div className="p-10 space-y-8">
-      <Tooltip
-        position="top"
-        followCursor={"horizontal"}
-        content={"Content is string"}
-        {...args}
-      >
-        <Button style="secondary" label="Follow cursor" />
-      </Tooltip>
-    </div>
-  );
-};
+const FollowCursor = args => (
+  <div className="space-y-8 p-10">
+    <Tooltip
+      content="Content is string"
+      followCursor="horizontal"
+      position="top"
+      {...args}
+    >
+      <Button label="Follow cursor" style="secondary" />
+    </Tooltip>
+  </div>
+);
 FollowCursor.storyName = "Follow cursor";
 
-export const JSXContentInside = (args) => {
-  return (
-    <div className="p-10 space-y-8">
-      <Tooltip
-        position="top"
-        trigger={"click"}
-        content={
-          <span>
-            Content is a <b>JSX</b> <u>Element</u>
-          </span>
-        }
-        {...args}
-      >
-        <Button style="secondary" label="On click" />
-      </Tooltip>
-    </div>
-  );
-};
+const JSXContentInside = args => (
+  <div className="space-y-8 p-10">
+    <Tooltip
+      position="top"
+      trigger="click"
+      content={
+        <span>
+          Content is a <b>JSX</b> <u>Element</u>
+        </span>
+      }
+      {...args}
+    >
+      <Button label="On click" style="secondary" />
+    </Tooltip>
+  </div>
+);
 JSXContentInside.storyName = "JSX content inside";
 
-export const positions = () => {
-  return (
-    <div className="p-10 space-y-8">
-      <div className="flex items-center justify-start gap-8">
-        <Tooltip position="top" content="Tooltip">
-          <Button style="secondary" label="top" />
-        </Tooltip>
-        <Tooltip position="top-start" content="Tooltip">
-          <Button style="secondary" label="top-start" />
-        </Tooltip>
-        <Tooltip position="top-end" content="Tooltip">
-          <Button style="secondary" label="top-end" />
-        </Tooltip>
-      </div>
-      <div className="flex items-center justify-start gap-8">
-        <Tooltip position="right" content="Tooltip">
-          <Button style="secondary" label="right" />
-        </Tooltip>
-        <Tooltip position="right-start" content="Tooltip">
-          <Button style="secondary" label="right-start" />
-        </Tooltip>
-        <Tooltip position="right-end" content="Tooltip">
-          <Button style="secondary" label="right-end" />
-        </Tooltip>
-      </div>
-      <div className="flex items-center justify-start gap-8">
-        <Tooltip position="bottom" content="Tooltip">
-          <Button style="secondary" label="bottom" />
-        </Tooltip>
-        <Tooltip position="bottom-start" content="Tooltip">
-          <Button style="secondary" label="bottom-start" />
-        </Tooltip>
-        <Tooltip position="bottom-end" content="Tooltip">
-          <Button style="secondary" label="bottom-end" />
-        </Tooltip>
-      </div>
-      <div className="flex items-center justify-start gap-8">
-        <Tooltip position="left" content="Tooltip">
-          <Button style="secondary" label="left" />
-        </Tooltip>
-        <Tooltip position="left-start" content="Tooltip">
-          <Button style="secondary" label="left-start" />
-        </Tooltip>
-        <Tooltip position="left-end" content="Tooltip">
-          <Button style="secondary" label="left-end" />
-        </Tooltip>
-      </div>
+const Positions = args => (
+  <div className="space-y-8 p-10">
+    <div className="flex items-center justify-start gap-8">
+      <Tooltip {...args} content="Tooltip" position="top">
+        <Button label="top" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="top-start">
+        <Button label="top-start" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="top-end">
+        <Button label="top-end" style="secondary" />
+      </Tooltip>
     </div>
-  );
-};
+    <div className="flex items-center justify-start gap-8">
+      <Tooltip {...args} content="Tooltip" position="right">
+        <Button label="right" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="right-start">
+        <Button label="right-start" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="right-end">
+        <Button label="right-end" style="secondary" />
+      </Tooltip>
+    </div>
+    <div className="flex items-center justify-start gap-8">
+      <Tooltip {...args} content="Tooltip" position="bottom">
+        <Button label="bottom" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="bottom-start">
+        <Button label="bottom-start" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="bottom-end">
+        <Button label="bottom-end" style="secondary" />
+      </Tooltip>
+    </div>
+    <div className="flex items-center justify-start gap-8">
+      <Tooltip {...args} content="Tooltip" position="left">
+        <Button label="left" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="left-start">
+        <Button label="left-start" style="secondary" />
+      </Tooltip>
+      <Tooltip {...args} content="Tooltip" position="left-end">
+        <Button label="left-end" style="secondary" />
+      </Tooltip>
+    </div>
+  </div>
+);
 
-export const Themes = () => {
-  return (
-    <div className="p-10 space-y-8">
-      <h2 className="text-xl">Theme</h2>
-      <div className="flex flex-row flex-wrap items-center justify-start gap-8">
-        <Tooltip
-          position="top"
-          content="Tooltip"
-          theme="dark"
-          trigger={"click"}
-        >
-          <Button style="secondary" label="dark" />
-        </Tooltip>
-        <Tooltip
-          position="top"
-          content="Tooltip"
-          theme="light"
-          trigger={"click"}
-        >
-          <Button style="secondary" label="light" />
-        </Tooltip>
-      </div>
+const Themes = args => (
+  <div className="space-y-8 p-10">
+    <h2 className="text-xl">Theme</h2>
+    <div className="flex flex-row flex-wrap items-center justify-start gap-8">
+      <Tooltip
+        {...args}
+        content="Tooltip"
+        position="top"
+        theme="dark"
+        trigger="click"
+      >
+        <Button label="dark" style="secondary" />
+      </Tooltip>
+      <Tooltip
+        {...args}
+        content="Tooltip"
+        position="top"
+        theme="light"
+        trigger="click"
+      >
+        <Button label="light" style="secondary" />
+      </Tooltip>
     </div>
-  );
-};
+  </div>
+);
 
-export const TooltipOnText = () => {
-  return (
-    <div className="flex items-center justify-center p-10 space-x-6 ">
-      <Tooltip position="top" content="Tooltip">
-        <Typography>Top</Typography>
-      </Tooltip>
-      <Tooltip position="bottom" content="Tooltip">
-        <Typography>Bottom</Typography>
-      </Tooltip>
-      <Tooltip position="left" content="Tooltip">
-        <Typography>Left</Typography>
-      </Tooltip>
-      <Tooltip position="right" content="Tooltip">
-        <Typography>Right</Typography>
-      </Tooltip>
-    </div>
-  );
-};
+const TooltipOnText = args => (
+  <div className="flex items-center justify-center space-x-6 p-10 ">
+    <Tooltip {...args} content="Tooltip" position="top">
+      <Typography>Top</Typography>
+    </Tooltip>
+    <Tooltip {...args} content="Tooltip" position="bottom">
+      <Typography>Bottom</Typography>
+    </Tooltip>
+    <Tooltip {...args} content="Tooltip" position="left">
+      <Typography>Left</Typography>
+    </Tooltip>
+    <Tooltip {...args} content="Tooltip" position="right">
+      <Typography>Right</Typography>
+    </Tooltip>
+  </div>
+);
 TooltipOnText.storyName = "Tooltip on text";
 
-export const TooltipOnCustomComponent = () => {
+const TooltipOnCustomComponent = args => {
   const CustomComponent = forwardRef(({ text }, ref) => (
     <div
+      className="neeto-ui-bg-black neeto-ui-text-white cursor-pointer items-center justify-center rounded-md p-10 shadow-lg"
       ref={ref}
-      className="items-center justify-center p-10 rounded-md shadow-lg cursor-pointer neeto-ui-bg-black neeto-ui-text-white"
     >
       {text}
     </div>
   ));
+
+  CustomComponent.displayName = "CustomComponent";
+
   return (
-    <div className="flex items-center justify-center p-10 space-x-6 ">
-      <Tooltip position="top" content="Tooltip">
+    <div className="flex items-center justify-center space-x-6 p-10 ">
+      <Tooltip {...args} content="Tooltip" position="top">
         <CustomComponent text="Custom component" />
       </Tooltip>
     </div>
@@ -174,7 +169,7 @@ export const TooltipOnCustomComponent = () => {
 };
 TooltipOnCustomComponent.storyName = "Tooltip on custom component";
 
-export const AutoHidingTooltip = () => {
+const AutoHidingTooltip = args => {
   const DEFAULT_EMAIL = "oliver@example.";
   const [email, setEmail] = useState(DEFAULT_EMAIL);
 
@@ -183,15 +178,16 @@ export const AutoHidingTooltip = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-10 space-x-6">
+    <div className="flex items-center justify-center space-x-6 p-10">
       <Tooltip
-        position="top"
+        {...args}
         content="Press esc to reset input after typing"
         hideAfter={3000}
+        position="top"
       >
         <Input
-          label="Enter email"
           className="max-w-max"
+          label="Enter email"
           value={email}
           onChange={({ target: { value } }) => setEmail(value)}
           onKeyDown={handleKeyPress}
@@ -205,25 +201,37 @@ TooltipOnCustomComponent.parameters = {
   docs: { description: { story: TooltipDocs } },
 };
 
-export const HidingTooltipOnTargetExit = () => {
-  return (
-    <div className="p-10 space-y-2 overflow-auto bg-gray-300 max-h-56">
-      {Array.from({ length: 6 }).map((_, key) => (
-        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
-      ))}
-      <Tooltip
-        position="top"
-        content="Press esc to reset input after typing"
-        hideOnTargetExit
-      >
-        <Typography className="w-full h-6 mx-auto text-center bg-white">
-          Hover me and scroll
-        </Typography>
-      </Tooltip>
-      {Array.from({ length: 6 }).map((_, key) => (
-        <div key={key} className="w-full h-6 bg-white rounded shadow-sm" />
-      ))}
-    </div>
-  );
-};
+const HidingTooltipOnTargetExit = args => (
+  <div className="max-h-56 space-y-2 overflow-auto bg-gray-300 p-10">
+    {Array.from({ length: 6 }).map((_, key) => (
+      <div className="h-6 w-full rounded bg-white shadow-sm" key={key} />
+    ))}
+    <Tooltip
+      {...args}
+      hideOnTargetExit
+      content="Press esc to reset input after typing"
+      position="top"
+    >
+      <Typography className="mx-auto h-6 w-full bg-white text-center">
+        Hover me and scroll
+      </Typography>
+    </Tooltip>
+    {Array.from({ length: 6 }).map((_, key) => (
+      <div className="h-6 w-full rounded bg-white shadow-sm" key={key} />
+    ))}
+  </div>
+);
 HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
+
+export {
+  FollowCursor,
+  JSXContentInside,
+  Positions,
+  Themes,
+  TooltipOnText,
+  TooltipOnCustomComponent,
+  AutoHidingTooltip,
+  HidingTooltipOnTargetExit,
+};
+
+export default metadata;

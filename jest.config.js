@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const path = require("path");
 
 module.exports = () => ({
@@ -7,13 +6,17 @@ module.exports = () => ({
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "identity-obj-proxy",
     "^@bigbinary/neetoui/(.*)$": path.resolve(__dirname, "src", "$1"),
-    "@bigbinary/neeto-icons/logos": path.resolve(
+    "neetoicons/logos": path.resolve(
       __dirname,
       "node_modules/@bigbinary/neeto-icons/dist/neeto-logos.js"
     ),
-    "@bigbinary/neeto-icons/app-icons": path.resolve(
+    "neetoicons/app-icons": path.resolve(
       __dirname,
       "node_modules/@bigbinary/neeto-icons/dist/app-icons.js"
+    ),
+    "neetoicons": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/neeto-icons.js"
     ),
     "^atoms/(.*)$": path.resolve(__dirname, "src/atoms", "$1"),
     "^components/(.*)$": path.resolve(__dirname, "src/components", "$1"),

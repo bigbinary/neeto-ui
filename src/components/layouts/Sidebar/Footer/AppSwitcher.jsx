@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AppSwitcher as AppSwitcherIcon } from "@bigbinary/neeto-icons";
+import { AppSwitcher as AppSwitcherIcon } from "neetoicons";
 
 import NavIconWrapper from "../NavIconWrapper";
 

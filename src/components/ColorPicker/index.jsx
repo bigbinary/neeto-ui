@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
-import { Down, Focus } from "@bigbinary/neeto-icons";
-import useEyeDropper from "use-eye-dropper";
+import { Down, Focus } from "neetoicons";
+import PropTypes from "prop-types";
 import {
   HexColorPicker,
   HexColorInput,
   HexAlphaColorPicker,
 } from "react-colorful";
 import tinycolor from "tinycolor2";
+import useEyeDropper from "use-eye-dropper";
 
 import Button from "components/Button";
 import Dropdown from "components/Dropdown";
@@ -49,43 +50,42 @@ const ColorPicker = ({
 
   const onChangeInternal = onChange || setColorInternal;
 
-  const onColorChange = (hex) => {
+  const onColorChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
     onChangeInternal({ hex, rgb });
   };
 
-  const pickColor = () => {
-    open()
-      .then((color) => {
-        const colorHex = tinycolor(color.sRGBHex).toHexString();
-        onColorChange(colorHex);
-      })
-      .catch(() => {
-        // Ensures component is still mounted
-        // before calling setState
-        // if (!e.canceled) setError(e);
-      });
+  const pickColor = async () => {
+    try {
+      const colorResponse = await open();
+      const colorHex = tinycolor(colorResponse.sRGBHex).toHexString();
+      onColorChange(colorHex);
+    } catch {
+      // Ensures component is still mounted
+      // before calling setState
+      // if (!e.canceled) setError(e);
+    }
   };
 
   const Target = ({ size }) => (
     <button
-     type="button"
       data-cy="color-picker-target"
+      data-testid="neeto-color-picker"
+      type="button"
       className={classnames("neeto-ui-colorpicker__target", {
         "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,
         "neeto-ui-colorpicker__target-size--medium":
           size === TARGET_SIZES.medium,
         "neeto-ui-colorpicker__target-size--small": size === TARGET_SIZES.small,
       })}
-      data-testid="neeto-color-picker"
     >
       {showHexValue && (
         <span className="neeto-ui-colorpicker-target__code">{color}</span>
       )}
       <span className="neeto-ui-colorpicker-target__color-wrapper">
         <span
-          className="border neeto-ui-colorpicker-target__color neeto-ui-border-gray-400"
+          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-400 border"
           style={{ backgroundColor: colorValue }}
         />
         <span className="neeto-ui-colorpicker-target__icon">
@@ -97,26 +97,25 @@ const ColorPicker = ({
 
   return (
     <Dropdown
-      label={colorValue}
-      closeOnSelect={false}
-      position="bottom-start"
-      customTarget={<Target size={size} />}
       className="neeto-ui-colorpicker__dropdown"
+      closeOnSelect={false}
+      customTarget={<Target size={size} />}
+      label={colorValue}
+      position="bottom-start"
     >
       <div className="neeto-ui-colorpicker__popover">
         <div className="neeto-ui-colorpicker__pointer">
           <PickerComponent color={colorValue} onChange={onColorChange} />
         </div>
-
         <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
           {showEyeDropper && isSupported() && (
             <Button
-              style="text"
-              icon={Focus}
-              onClick={pickColor}
-              size="small"
               className="neeto-ui-colorpicker__eyedropper-btn"
+              icon={Focus}
+              size="small"
+              style="text"
               type="button"
+              onClick={pickColor}
             />
           )}
           <div className="neeto-ui-input__wrapper">
@@ -125,14 +124,13 @@ const ColorPicker = ({
               data-cy="colorpicker-editable-input"
             >
               <HexColorInput
+                alpha={!!showTransparencyControl}
                 color={colorValue}
                 onChange={onColorChange}
-                alpha={!!showTransparencyControl}
               />
             </div>
           </div>
         </div>
-
         {colorPaletteProps && (
           <div
             className="neeto-ui-colorpicker__palette-wrapper"

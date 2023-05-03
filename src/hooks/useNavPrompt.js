@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import { useHistory } from "react-router-dom";
 
 const useNavPrompt = ({ shouldBlock = true }) => {
@@ -23,15 +24,15 @@ const useNavPrompt = ({ shouldBlock = true }) => {
 
   const handleNavigation = (action, transition) => {
     switch (action) {
-    case "PUSH":
-      history.push(transition);
-      break;
-    case "REPLACE":
-      history.replace(transition);
-      break;
-    case "POP":
-      history.goBack();
-      break;
+      case "PUSH":
+        history.push(transition);
+        break;
+      case "REPLACE":
+        history.replace(transition);
+        break;
+      case "POP":
+        history.goBack();
+        break;
     }
   };
 
@@ -40,15 +41,18 @@ const useNavPrompt = ({ shouldBlock = true }) => {
       unblockRef.current = history.block((transition, action) => {
         setIsBlocked(true);
         navRef.current = { transition, action };
-        // handleNavigation(action, transition);
+
         return false;
       });
+
       return () => {
         if (unblockRef.current) {
           unblockRef.current();
         }
       };
     }
+
+    return undefined;
   }, [shouldBlock]);
 
   return { isBlocked, continueNavigation, hidePrompt };

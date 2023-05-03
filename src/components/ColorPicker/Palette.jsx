@@ -1,4 +1,5 @@
 import React from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
@@ -6,8 +7,8 @@ const Palette = ({ color, colorList = [], onChange }) => (
   <div className="neeto-ui-flex neeto-ui-flex-row neeto-ui-flex-wrap neeto-ui-items-start neeto-ui-justify-start neeto-ui-color-palette">
     {colorList.map((item, index) => (
       <div
-        key={index}
         data-testid="color-palette-item"
+        key={index}
         className={classnames("neeto-ui-color-palette__item", {
           active: color && color.from === item.from && color.to === item.to,
         })}

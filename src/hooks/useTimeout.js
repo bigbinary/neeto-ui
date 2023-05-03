@@ -9,7 +9,7 @@ const useTimeout = (callback, delay) => {
 
   useEffect(() => {
     if (delay === null) {
-      return;
+      return undefined;
     }
 
     const id = setTimeout(() => savedCallback.current(), delay);

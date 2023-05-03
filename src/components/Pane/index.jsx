@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
+
 import classnames from "classnames";
+import { Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { Close } from "@bigbinary/neeto-icons";
 import { CSSTransition } from "react-transition-group";
 
 import { Portal, Backdrop } from "atoms";
@@ -10,8 +11,8 @@ import { useOverlay, useOverlayManager } from "hooks";
 
 import Body from "./Body";
 import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 import { getHeaderHeight } from "./utils";
 
 const SIZES = { small: "small", large: "large" };
@@ -65,26 +66,26 @@ const Pane = ({
     <Portal rootId="neeto-ui-portal">
       <CSSTransition
         unmountOnExit
-        in={isOpen}
         appear={isOpen}
-        timeout={300}
         classNames="neeto-ui-pane"
+        in={isOpen}
+        timeout={300}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
       >
         <Backdrop
-          ref={backdropRef}
-          key="pane-backdrop"
           data-testid="backdrop"
+          key="pane-backdrop"
+          ref={backdropRef}
           className={classnames(
             "neeto-ui-pane__backdrop neeto-ui-flex neeto-ui-justify-end",
             backdropClassName
           )}
         >
           <div
-            ref={paneWrapper}
-            key="pane-wrapper"
             data-cy="pane-wrapper"
+            key="pane-wrapper"
+            ref={paneWrapper}
             className={classnames("neeto-ui-pane__wrapper", {
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,
@@ -95,18 +96,16 @@ const Pane = ({
             {closeButton && (
               <Button
                 aria-label="Close"
-                style="text"
-                icon={Close}
                 className="neeto-ui-pane__close"
-                onClick={handleOverlayClose}
                 data-testid="close-button"
+                icon={Close}
                 size="small"
+                style="text"
+                onClick={handleOverlayClose}
               />
             )}
             {typeof children === "function"
-              ? children({
-                setFocusField,
-              })
+              ? children({ setFocusField })
               : children}
           </div>
         </Backdrop>

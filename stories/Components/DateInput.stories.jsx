@@ -1,47 +1,41 @@
-import dayjs from "dayjs";
 import React from "react";
 
-import { Modal, Typography, Pane, DatePicker } from "components";
 import isChromatic from "chromatic/isChromatic";
+import dayjs from "dayjs";
+
+import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
+
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
-export default {
+const metadata = {
   title: "Components/DatePicker",
   component: DatePicker,
   parameters: {
     layout: "padded",
-    docs: {
-      description: { component: DateInputStoriesDocs },
-      source: {
-        type: "code",
-      },
-    },
+    docs: { description: { component: DateInputStoriesDocs } },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
     },
   },
   argTypes: {
     onChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "-" }
-      }
+        defaultValue: { summary: "-" },
+      },
     },
     onOk: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
 
-export const DateInput = (args) => {
-  return <DatePicker {...args} />;
-};
+const DateInput = args => <DatePicker {...args} />;
 
 DateInput.storyName = "DatePicker";
 DateInput.args = {
@@ -51,25 +45,28 @@ DateInput.args = {
   showTime: false,
 };
 
-export const DatePickerWithRef = () => {
+const DatePickerWithRef = args => {
   const ref = React.useRef();
   const [open, setOpen] = React.useState(false);
+
   return (
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <DatePicker
-        ref={ref}
+        {...args}
         open={open}
-        onFocus={() => setOpen(true)}
+        ref={ref}
         onBlur={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
       />
     </div>
   );
 };
 DatePickerWithRef.storyName = "DatePicker with ref";
 
-export const DatePickerInModal = (args) => {
+const DatePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <>
       <Button label="Open modal" onClick={() => setIsOpen(true)} />
@@ -82,19 +79,20 @@ export const DatePickerInModal = (args) => {
             <Typography>Date</Typography>
             <DatePicker
               {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+              getPopupContainer={triggerNode => triggerNode.parentNode}
             />
           </div>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer />
       </Modal>
     </>
   );
 };
 DatePickerInModal.storyName = "DatePicker in modal";
 
-export const DatePickerInPane = (args) => {
+const DatePickerInPane = args => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <>
       <Button label="Open pane" onClick={() => setIsOpen(true)} />
@@ -107,7 +105,7 @@ export const DatePickerInPane = (args) => {
             <Typography>Date</Typography>
             <DatePicker
               {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+              getPopupContainer={triggerNode => triggerNode.parentNode}
             />
           </div>
         </Pane.Body>
@@ -117,18 +115,16 @@ export const DatePickerInPane = (args) => {
 };
 DatePickerInPane.storyName = "DatePicker in pane";
 
-export const DatePickerWithDefaultValue = (args) => {
-  return (
-    <div className="space-y-3">
-      <DatePicker
-        defaultValue={isChromatic() ? dayjs(new Date(1999, 7, 16)) : dayjs()}
-        {...args}
-      />
-    </div>
-  );
-};
-DatePickerWithDefaultValue.storyName = "DatePicker with default value";
+const DatePickerWithDefaultValue = args => (
+  <div className="space-y-3">
+    <DatePicker
+      defaultValue={isChromatic() ? dayjs(new Date(1999, 7, 16)) : dayjs()}
+      {...args}
+    />
+  </div>
+);
 
+DatePickerWithDefaultValue.storyName = "DatePicker with default value";
 DatePickerWithDefaultValue.parameters = {
   docs: {
     description: {
@@ -138,58 +134,72 @@ DatePickerWithDefaultValue.parameters = {
   },
 };
 
-export const DateRangePicker = () => {
-  return (
-    <div className="space-y-3">
-      <DatePicker
-        label="Date range"
-        type="range"
-        defaultValue={
-          isChromatic()
-            ? [
-                dayjs(new Date(1999, 7, 16)),
-                dayjs(new Date(1999, 7, 16)).add(7, "day"),
-              ]
-            : [dayjs(), dayjs().add(7, "day")]
-        }
-      />
-    </div>
-  );
-};
+const DateRangePicker = args => (
+  <div className="space-y-3">
+    <DatePicker
+      {...args}
+      label="Date range"
+      type="range"
+      defaultValue={
+        isChromatic()
+          ? [
+              dayjs(new Date(1999, 7, 16)),
+              dayjs(new Date(1999, 7, 16)).add(7, "day"),
+            ]
+          : [dayjs(), dayjs().add(7, "day")]
+      }
+    />
+  </div>
+);
+
 DateRangePicker.storyName = "DateRangePicker";
 
-export const DateRangePickerWithPresetRanges = () => {
-  return (
-    <div className="space-y-3">
-      <DatePicker
-        label="Date range"
-        type="range"
-        defaultValue={
-          isChromatic()
-            ? [
-                dayjs(new Date(1999, 7, 16)),
-                dayjs(new Date(1999, 7, 16)).add(7, "day"),
-              ]
-            : [dayjs(), dayjs().add(7, "day")]
-        }
-        ranges={{
-          Today: [dayjs(), dayjs()],
-          Yesterday: [dayjs().subtract(1, "d"), dayjs()],
-          "Last Week": [dayjs().subtract(7, "d"), dayjs()],
-          "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
-          "Last Month": [
-            dayjs().subtract(1, "month").startOf("month"),
-            dayjs().subtract(1, "month").endOf("month"),
-          ],
-          "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
-        }}
-      />
-    </div>
-  );
-};
-DateRangePicker.storyName = "DateRangePicker with preset ranges";
+const DateRangePickerWithPresetRanges = args => (
+  <div className="space-y-3">
+    <DatePicker
+      {...args}
+      label="Date range"
+      type="range"
+      defaultValue={
+        isChromatic()
+          ? [
+              dayjs(new Date(1999, 7, 16)),
+              dayjs(new Date(1999, 7, 16)).add(7, "day"),
+            ]
+          : [dayjs(), dayjs().add(7, "day")]
+      }
+      ranges={{
+        Today: [dayjs(), dayjs()],
+        Yesterday: [dayjs().subtract(1, "d"), dayjs()],
+        "Last Week": [dayjs().subtract(7, "d"), dayjs()],
+        "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
+        "Last Month": [
+          dayjs().subtract(1, "month").startOf("month"),
+          dayjs().subtract(1, "month").endOf("month"),
+        ],
+        "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
+      }}
+    />
+  </div>
+);
 
-export const ShowTime = () => {
-  return <DatePicker showTime label="Date" type="date" picker="date" />;
-};
+DateRangePickerWithPresetRanges.storyName =
+  "DateRangePicker with preset ranges";
+
+const ShowTime = args => (
+  <DatePicker {...args} showTime label="Date" picker="date" type="date" />
+);
 ShowTime.storyName = "Show time";
+
+export {
+  DateInput,
+  DatePickerWithRef,
+  DatePickerInModal,
+  DatePickerInPane,
+  DatePickerWithDefaultValue,
+  DateRangePicker,
+  DateRangePickerWithPresetRanges,
+  ShowTime,
+};
+
+export default metadata;

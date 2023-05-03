@@ -1,7 +1,8 @@
 import React from "react";
+
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { useId } from "@reach/auto-id";
 
 import Label from "components/Label";
 import { hyphenize } from "utils";
@@ -18,10 +19,10 @@ const Item = ({
   return (
     <div className={classnames(["neeto-ui-radio__item", className])}>
       <input
-        id={id}
-        type="radio"
-        name={name}
         className="neeto-ui-radio"
+        id={id}
+        name={name}
+        type="radio"
         {...otherProps}
       />
       {label && (

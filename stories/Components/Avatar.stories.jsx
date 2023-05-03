@@ -1,4 +1,3 @@
-/* eslint-disable no-empty-pattern */
 import React from "react";
 
 import Avatar from "components/Avatar";
@@ -7,7 +6,7 @@ const onClick = () => {
   alert("onClick event!");
 };
 
-export default {
+const metadata = {
   title: "Components/Avatar",
   component: Avatar,
   parameters: {
@@ -19,69 +18,79 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
     },
   },
 };
 
-const Template = (args) => <Avatar {...args} />;
+const Template = args => <Avatar {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   user: { name: "neeto UI" },
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const Sizes = ({}) => {
+const Sizes = args => {
   const imageUrl = "https://i.pravatar.cc/300";
+
   return (
-    <div className="flex flex-col p-2 space-y-4 ">
+    <div className="flex flex-col space-y-4 p-2 ">
       <span className="text-sm">Small</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="small" />
+      <Avatar {...args} size="small" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">Medium</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="medium" />
+      <Avatar {...args} size="medium" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">Large</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="large" />
+      <Avatar {...args} size="large" user={{ imageUrl }} onClick={onClick} />
       <span className="text-sm">X Large</span>
-      <Avatar onClick={onClick} user={{ imageUrl }} size="extraLarge" />
+      <Avatar
+        {...args}
+        size="extraLarge"
+        user={{ imageUrl }}
+        onClick={onClick}
+      />
     </div>
   );
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const WithStatus = ({}) => {
+const WithStatus = args => {
   const imageUrl = "https://i.pravatar.cc/300";
+
   return (
-    <div className="flex flex-col p-2 space-y-4 ">
+    <div className="flex flex-col space-y-4 p-2 ">
       <span className="text-sm">Offline</span>
-      <Avatar user={{ imageUrl }} status="offline" size="large" />
+      <Avatar {...args} size="large" status="offline" user={{ imageUrl }} />
       <span className="text-sm">Online</span>
-      <Avatar user={{ imageUrl }} status="online" size="large" />
+      <Avatar {...args} size="large" status="online" user={{ imageUrl }} />
       <span className="text-sm">Idle</span>
-      <Avatar user={{ imageUrl }} status="idle" size="large" />
+      <Avatar {...args} size="large" status="idle" user={{ imageUrl }} />
     </div>
   );
 };
 WithStatus.storyName = "With status";
 
-// eslint-disable-next-line no-empty-pattern
-export const WithTooltip = ({}) => {
+const WithTooltip = args => {
   const imageUrl = "https://i.pravatar.cc/300";
+
   return (
     <div className="flex space-x-6 ">
-      <Avatar user={{ name: "Neeraj Singh" }} size="large" showTooltip />
       <Avatar
-        user={{ name: "Amal Dinesh", imageUrl }}
-        size="large"
+        {...args}
         showTooltip
+        size="large"
+        user={{ name: "Neeraj Singh" }}
+      />
+      <Avatar
+        {...args}
+        showTooltip
+        size="large"
+        user={{ name: "Amal Dinesh", imageUrl }}
       />
     </div>
   );
 };
 WithTooltip.storyName = "With tooltip";
 
-export const WithCustomClassName = Template.bind({});
+const WithCustomClassName = Template.bind({});
 WithCustomClassName.storyName = "With custom className";
 WithCustomClassName.args = {
   onClick,
@@ -91,84 +100,108 @@ WithCustomClassName.args = {
 };
 WithCustomClassName.storyName = "With custom className";
 
-export const Variants = ({}) => {
+const Variants = args => {
   const imageUrl = "https://i.pravatar.cc/300";
+
   return (
-    <div className="flex p-4 space-x-4">
-      <div className="flex flex-col p-2 space-y-4">
+    <div className="flex space-x-4 p-4">
+      <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence" }}
+          {...args}
           size="small"
+          user={{ name: "Akkshay Lawrence" }}
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
+          {...args}
+          size="medium"
           user={{ name: "Vinay V Chandran" }}
-          size="medium"
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh" }}
+          {...args}
           size="large"
+          user={{ name: "Neeraj Singh" }}
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam" }}
+          {...args}
           size="extraLarge"
+          user={{ name: "Goutham Subramanyam" }}
+          onClick={onClick}
         />
       </div>
-      <div className="flex flex-col p-2 space-y-4">
+      <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          onClick={onClick}
+          {...args}
+          size="small"
+          status="online"
           user={{ name: "Akkshay Lawrence" }}
-          size="small"
-          status="online"
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V" }}
+          {...args}
           size="medium"
           status="idle"
+          user={{ name: "Vinay V" }}
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh" }}
+          {...args}
           size="large"
           status="offline"
+          user={{ name: "Neeraj Singh" }}
+          onClick={onClick}
         />
         <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam" }}
+          {...args}
           size="extraLarge"
           status="online"
+          user={{ name: "Goutham Subramanyam" }}
+          onClick={onClick}
         />
       </div>
-      <div className="flex flex-col p-2 space-y-4">
+      <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          onClick={onClick}
-          user={{ name: "Akkshay Lawrence", imageUrl }}
-          status="online"
+          {...args}
           size="small"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Vinay V", imageUrl }}
-          status="idle"
-          size="medium"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Neeraj Singh", imageUrl }}
-          status="offline"
-          size="large"
-        />
-        <Avatar
-          onClick={onClick}
-          user={{ name: "Goutham Subramanyam", imageUrl }}
           status="online"
+          user={{ name: "Akkshay Lawrence", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          {...args}
+          size="medium"
+          status="idle"
+          user={{ name: "Vinay V", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          {...args}
+          size="large"
+          status="offline"
+          user={{ name: "Neeraj Singh", imageUrl }}
+          onClick={onClick}
+        />
+        <Avatar
+          {...args}
           size="extraLarge"
+          status="online"
+          user={{ name: "Goutham Subramanyam", imageUrl }}
+          onClick={onClick}
         />
       </div>
     </div>
   );
 };
+
+export {
+  Default,
+  Sizes,
+  WithStatus,
+  WithTooltip,
+  WithCustomClassName,
+  Variants,
+};
+
+export default metadata;

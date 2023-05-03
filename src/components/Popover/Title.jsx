@@ -1,22 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 import Typography from "../Typography";
 
 const Title = ({ className, children }) => (
   <Typography
-    style="h5"
-    weight="semibold"
-    lineHeight="snug"
     className={classnames("neeto-ui-mb-1", className)}
     data-testid="popover-title"
+    lineHeight="snug"
+    style="h5"
+    weight="semibold"
   >
     {children}
   </Typography>
 );
-
-export default Title;
 
 Title.propTypes = {
   /**
@@ -28,3 +27,5 @@ Title.propTypes = {
    */
   children: PropTypes.node,
 };
+
+export default Title;

@@ -1,13 +1,13 @@
 import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import { useId } from "@reach/auto-id";
-import { Clock } from "@bigbinary/neeto-icons";
 
-import { useSyncedRef } from "hooks";
-import { convertToDayjsObjects, noop, hyphenize } from "utils";
+import { useId } from "@reach/auto-id";
+import classnames from "classnames";
+import { Clock } from "neetoicons";
+import PropTypes from "prop-types";
 
 import Label from "components/Label";
+import { useSyncedRef } from "hooks";
+import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
 
@@ -48,55 +48,56 @@ const TimePicker = forwardRef(
 
     const errorId = `error_${id}`;
 
-    let showTimeLabels = {};
+    const showTimeLabels = {};
     if (format.includes("s")) {
       showTimeLabels.second = true;
     }
+
     if (format.includes("m")) {
       showTimeLabels.minute = true;
     }
+
     if (format.includes("H") || format.includes("h")) {
       showTimeLabels.hour = true;
     }
 
-    const panelRender = (originalPanel) => {
-      return (
-        <div className="neeto-ui-date-input-custom-panel">
-          <div className="neeto-ui-date-input-custom-panel__header">
-            <ul className="neeto-ui-date-input-custom-panel__header-cols">
-              {showTimeLabels.hour && (
-                <li className="neeto-ui-date-input-custom-panel__header-col">
-                  Hour
-                </li>
-              )}
-              {showTimeLabels.minute && (
-                <li className="neeto-ui-date-input-custom-panel__header-col">
-                  Minutes
-                </li>
-              )}
-              {showTimeLabels.second && (
-                <li className="neeto-ui-date-input-custom-panel__header-col">
-                  Seconds
-                </li>
-              )}
-            </ul>
-          </div>
-          <div className="neeto-ui-date-input-custom-panel__body">
-            {originalPanel}
-          </div>
+    const panelRender = originalPanel => (
+      <div className="neeto-ui-date-input-custom-panel">
+        <div className="neeto-ui-date-input-custom-panel__header">
+          <ul className="neeto-ui-date-input-custom-panel__header-cols">
+            {showTimeLabels.hour && (
+              <li className="neeto-ui-date-input-custom-panel__header-col">
+                Hour
+              </li>
+            )}
+            {showTimeLabels.minute && (
+              <li className="neeto-ui-date-input-custom-panel__header-col">
+                Minutes
+              </li>
+            )}
+            {showTimeLabels.second && (
+              <li className="neeto-ui-date-input-custom-panel__header-col">
+                Seconds
+              </li>
+            )}
+          </ul>
         </div>
-      );
-    };
+        <div className="neeto-ui-date-input-custom-panel__body">
+          {originalPanel}
+        </div>
+      </div>
+    );
 
     return (
       <div className="neeto-ui-input__wrapper">
         {label && <Label {...labelProps}>{label}</Label>}
         <Component
-          ref={timePickerRef}
+          disabled={disabled}
           format={format}
           hourStep={interval.hourStep}
           minuteStep={interval.minuteStep}
-          onChange={onChange}
+          ref={timePickerRef}
+          secondStep={interval.secondStep}
           className={classnames("neeto-ui-time-input", [className], {
             "neeto-ui-time-input--small": size === "small",
             "neeto-ui-time-input--medium": size === "medium",
@@ -109,21 +110,19 @@ const TimePicker = forwardRef(
             dropdownClassName, // Will be removed in the next major version
             popupClassName,
           ])}
-          secondStep={interval.secondStep}
-          disabled={disabled}
+          onChange={onChange}
           {...otherProps}
-          picker="time"
-          mode={undefined}
           defaultValue={convertToDayjsObjects(defaultValue)}
-          value={convertToDayjsObjects(value)}
+          mode={undefined}
           panelRender={panelRender}
+          picker="time"
           suffixIcon={<Clock size={16} />}
+          value={convertToDayjsObjects(value)}
         />
-
         {!!error && (
           <p
-            data-cy={`${hyphenize(label)}-input-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
           >
             {error}

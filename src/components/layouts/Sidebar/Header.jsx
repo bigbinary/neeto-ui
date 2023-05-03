@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Neeto } from "@bigbinary/neeto-icons/logos";
+import { Neeto } from "neetoicons/logos";
 
 const Header = ({ organizationInfo }) => {
   const LogoSVG = organizationInfo?.logo;

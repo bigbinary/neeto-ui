@@ -1,10 +1,10 @@
-/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import { Favorite, Search, Close } from "@bigbinary/neeto-icons";
+
+import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
 
-export default {
+const metadata = {
   title: "Components/Tab",
   component: Tab,
   subcomponents: {
@@ -20,22 +20,21 @@ export default {
   },
 };
 
-const Template = (args) => (
+const Template = args => (
   <Tab {...args}>
-    <Tab.Item active={true}>Label</Tab.Item>
+    <Tab.Item active>Label</Tab.Item>
     <Tab.Item>Label</Tab.Item>
   </Tab>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const Sizes = ({}) => (
-  <div className="flex flex-col mb-4 space-y-4">
-    <Tab>
+const Sizes = args => (
+  <div className="mb-4 flex flex-col space-y-4">
+    <Tab {...args}>
       <Tab.Item active>Small</Tab.Item>
       <Tab.Item>Small</Tab.Item>
     </Tab>
-
     <Tab size="large">
       <Tab.Item active>Large</Tab.Item>
       <Tab.Item>Large</Tab.Item>
@@ -43,29 +42,28 @@ export const Sizes = ({}) => (
   </div>
 );
 
-export const WithIcon = ({}) => {
-  return (
-    <Tab>
-      <Tab.Item active icon={Favorite}>
-        Label
-      </Tab.Item>
-      <Tab.Item icon={Search}>Label</Tab.Item>
-      <Tab.Item icon={Close}>Label</Tab.Item>
-    </Tab>
-  );
-};
+const WithIcon = args => (
+  <Tab {...args}>
+    <Tab.Item active icon={Favorite}>
+      Label
+    </Tab.Item>
+    <Tab.Item icon={Search}>Label</Tab.Item>
+    <Tab.Item icon={Close}>Label</Tab.Item>
+  </Tab>
+);
 WithIcon.storyName = "With icon";
 
-export const WithoutUnderline = Template.bind({});
+const WithoutUnderline = Template.bind({});
 WithoutUnderline.args = {
   noUnderline: true,
 };
 WithoutUnderline.storyName = "Without underline";
 
-export const MultipleItems = ({}) => {
+const MultipleItems = args => {
   const [tab, setTab] = useState("label1");
+
   return (
-    <Tab>
+    <Tab {...args}>
       <Tab.Item active={tab === "label1"} onClick={() => setTab("label1")}>
         Label 1
       </Tab.Item>
@@ -79,3 +77,7 @@ export const MultipleItems = ({}) => {
   );
 };
 MultipleItems.storyName = "Multiple items";
+
+export { Default, Sizes, WithIcon, WithoutUnderline, MultipleItems };
+
+export default metadata;

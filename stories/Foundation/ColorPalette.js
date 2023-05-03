@@ -317,12 +317,13 @@ export const colorPalette = {
   },
 };
 
-export const colorPaletteList = (theme = "light") => Object.values(colorPalette).reduce(
-  (acc, colorItem) => {
-    const newColors = colorItem.colors.map((color) => {
-      return { name: `--${color.name}`, value: color.value[theme], text: color.text };
-    });
+export const colorPaletteList = (theme = "light") =>
+  Object.values(colorPalette).reduce((acc, colorItem) => {
+    const newColors = colorItem.colors.map(color => ({
+      name: `--${color.name}`,
+      value: color.value[theme],
+      text: color.text,
+    }));
+
     return [...acc, ...newColors];
-  },
-  []
-);
+  }, []);

@@ -1,7 +1,8 @@
 import React, { forwardRef } from "react";
+
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { useId } from "@reach/auto-id";
 
 import { hyphenize } from "utils";
 
@@ -28,13 +29,13 @@ const Checkbox = forwardRef(
       <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
         <div className="neeto-ui-checkbox__container">
           <input
+            aria-invalid={!!error}
+            className="neeto-ui-checkbox"
             id={id}
             name={id}
-            type="checkbox"
-            className="neeto-ui-checkbox"
-            required={required}
-            aria-invalid={!!error}
             ref={ref}
+            required={required}
+            type="checkbox"
             {...otherProps}
           />
           {renderLabel && (
@@ -50,8 +51,8 @@ const Checkbox = forwardRef(
         </div>
         {!!error && (
           <p
-            data-cy={`${hyphenize(renderLabel)}-checkbox-error`}
             className="neeto-ui-input__error"
+            data-cy={`${hyphenize(renderLabel)}-checkbox-error`}
             id={errorId}
           >
             {error}
@@ -61,6 +62,8 @@ const Checkbox = forwardRef(
     );
   }
 );
+
+Checkbox.displayName = "Checkbox";
 
 Checkbox.propTypes = {
   /**

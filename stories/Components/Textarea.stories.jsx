@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Textarea from "components/Textarea";
 
-export default {
+const metadata = {
   title: "Components/Textarea",
   component: Textarea,
   parameters: {
@@ -21,17 +21,18 @@ export default {
 
 const Template = args => <Textarea {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Textarea",
   placeholder: "Enter text",
 };
 
-export const Controlled = () => {
+const Controlled = args => {
   const [value, setValue] = useState("BigBinary");
 
   return (
     <Textarea
+      {...args}
       label="Controlled input"
       value={value}
       onChange={e => setValue(e.target.value)}
@@ -39,28 +40,28 @@ export const Controlled = () => {
   );
 };
 
-export const Required = Template.bind({});
+const Required = Template.bind({});
 Required.args = {
   label: "Required Textarea",
   placeholder: "Enter text",
   required: true,
 };
 
-export const Disabled = Template.bind({});
+const Disabled = Template.bind({});
 Disabled.args = {
   label: "Disabled Textarea",
   placeholder: "Enter text",
   disabled: true,
 };
 
-export const Error = Template.bind({});
+const Error = Template.bind({});
 Error.args = {
   label: "Error",
   placeholder: "Enter text",
   error: "Provide valid email",
 };
 
-export const HelpText = Template.bind({});
+const HelpText = Template.bind({});
 HelpText.storyName = "Help text";
 HelpText.args = {
   label: "Name",
@@ -68,33 +69,37 @@ HelpText.args = {
   helpText: "This is help text props to the component",
 };
 
-export const NakedInput = Template.bind({});
+const NakedInput = Template.bind({});
 NakedInput.args = {
   label: "Naked Textarea field",
   placeholder: "Enter text",
   nakedTextarea: true,
 };
 
-export const TextareaWithMaxLength = () => (
+const TextareaWithMaxLength = args => (
   <div className="flex flex-col space-y-6">
     <Textarea
+      {...args}
       label="Textarea with max length"
       maxLength={10}
       placeholder="Enter text"
     />
     <Textarea
+      {...args}
       label="Textarea with max length"
       maxLength={10}
       placeholder="Enter text"
       value="Sample i"
     />
     <Textarea
+      {...args}
       label="Textarea with max length"
       maxLength={10}
       placeholder="Enter text"
       value="Sample in"
     />
     <Textarea
+      {...args}
       unlimitedChars
       label="Textarea with max length and unlimited characters"
       maxLength={10}
@@ -104,3 +109,16 @@ export const TextareaWithMaxLength = () => (
   </div>
 );
 TextareaWithMaxLength.storyName = "Textarea with max length";
+
+export {
+  Default,
+  Controlled,
+  Required,
+  Disabled,
+  Error,
+  HelpText,
+  NakedInput,
+  TextareaWithMaxLength,
+};
+
+export default metadata;

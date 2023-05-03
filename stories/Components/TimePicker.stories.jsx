@@ -2,12 +2,14 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
+
 import { Modal, Typography, Pane } from "components";
 import Button from "components/Button";
 import TimePicker from "components/TimePicker";
+
 import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
-export default {
+const metadata = {
   title: "Components/TimePicker",
   component: TimePicker,
   parameters: {
@@ -20,23 +22,22 @@ export default {
     onChange: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "-" }
-      }
+        defaultValue: { summary: "-" },
+      },
     },
   },
 };
 
-export const TimeInput = (args) => {
-  return <TimePicker {...args} />;
-};
+const TimeInput = args => <TimePicker {...args} />;
 
 TimeInput.storyName = "TimePicker";
 TimeInput.args = {
   type: "time",
 };
 
-export const TimePickerInModal = (args) => {
+const TimePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <>
       <Button label="Open modal" onClick={() => setIsOpen(true)} />
@@ -49,19 +50,20 @@ export const TimePickerInModal = (args) => {
             <Typography>Time</Typography>
             <TimePicker
               {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+              getPopupContainer={triggerNode => triggerNode.parentNode}
             />
           </div>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer />
       </Modal>
     </>
   );
 };
 TimePickerInModal.storyName = "TimePicker in modal";
 
-export const TimePickerInPane = (args) => {
+const TimePickerInPane = args => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <>
       <Button label="Open pane" onClick={() => setIsOpen(true)} />
@@ -74,7 +76,7 @@ export const TimePickerInPane = (args) => {
             <Typography>Time</Typography>
             <TimePicker
               {...args}
-              getPopupContainer={(triggerNode) => triggerNode.parentNode}
+              getPopupContainer={triggerNode => triggerNode.parentNode}
             />
           </div>
         </Pane.Body>
@@ -84,17 +86,19 @@ export const TimePickerInPane = (args) => {
 };
 TimePickerInPane.storyName = "TimePicker in pane";
 
-export const TimePickerWithRef = () => {
+const TimePickerWithRef = args => {
   const ref = React.useRef();
   const [open, setOpen] = React.useState(false);
+
   return (
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <TimePicker
-        ref={ref}
+        {...args}
         open={open}
-        onFocus={() => setOpen(true)}
+        ref={ref}
         onBlur={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
         onOk={() => setOpen(false)}
       />
     </div>
@@ -102,18 +106,16 @@ export const TimePickerWithRef = () => {
 };
 TimePickerWithRef.storyName = "TimePicker with ref";
 
-export const TimePickerWithDefaultValue = (args) => {
-  return (
-    <div className="space-y-3">
-      <TimePicker
-        defaultValue={
-          isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
-        }
-        {...args}
-      />
-    </div>
-  );
-};
+const TimePickerWithDefaultValue = args => (
+  <div className="space-y-3">
+    <TimePicker
+      defaultValue={
+        isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
+      }
+      {...args}
+    />
+  </div>
+);
 TimePickerWithDefaultValue.storyName = "TimePicker with default value";
 TimePickerWithDefaultValue.parameters = {
   docs: {
@@ -123,3 +125,13 @@ TimePickerWithDefaultValue.parameters = {
     },
   },
 };
+
+export {
+  TimeInput,
+  TimePickerInModal,
+  TimePickerInPane,
+  TimePickerWithRef,
+  TimePickerWithDefaultValue,
+};
+
+export default metadata;

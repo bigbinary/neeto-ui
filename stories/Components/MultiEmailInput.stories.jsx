@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
+import { Search } from "neetoicons";
 import * as yup from "yup";
-import { Search } from "@bigbinary/neeto-icons";
 
-import MultiEmailInput from "components/MultiEmailInput";
+import Button from "components/Button";
 import {
   MultiEmailInput as FormikMultiEmailInput,
   Form,
 } from "components/formik";
-import Button from "components/Button";
+import MultiEmailInput from "components/MultiEmailInput";
 import Typography from "components/Typography";
-import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 import { suffixes, prefixes } from "../constants";
 
-export default {
+import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
+
+const metadata = {
   title: "Components/Multi email input",
   component: MultiEmailInput,
   parameters: {
@@ -26,8 +27,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
     },
   },
   argTypes: {
@@ -54,12 +54,13 @@ export default {
   },
 };
 
-export const Controlled = (args) => {
+const Controlled = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
     <MultiEmailInput
       {...args}
+      value={emails}
       options={[
         {
           label: "Daniel Ferry (daniel.ferry@example.com)",
@@ -92,8 +93,7 @@ export const Controlled = (args) => {
           valid: true,
         },
       ]}
-      value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -108,7 +108,7 @@ Controlled.args = {
   ],
 };
 
-export const Error = (args) => <MultiEmailInput {...args} />;
+const Error = args => <MultiEmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
@@ -121,14 +121,17 @@ Error.args = {
   ],
 };
 
-export const Disabled = () => <MultiEmailInput disabled />;
+const Disabled = args => <MultiEmailInput {...args} disabled />;
 
-export const HelpText = () => (
-  <MultiEmailInput helpText="This is the help text for this component." />
+const HelpText = args => (
+  <MultiEmailInput
+    {...args}
+    helpText="This is the help text for this component."
+  />
 );
 HelpText.storyName = "Help text";
 
-export const Counter = () => {
+const Counter = args => {
   const [emails, setEmails] = useState([
     {
       label: "test@example.com",
@@ -149,9 +152,10 @@ export const Counter = () => {
 
   return (
     <MultiEmailInput
+      {...args}
       counter={{ startsFrom: 3 }}
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -162,7 +166,7 @@ Counter.parameters = {
   },
 };
 
-export const WithPrefixAndSuffix = (args) => {
+const WithPrefixAndSuffix = args => {
   const [emails, setEmails] = useState(args.value);
 
   return (
@@ -171,7 +175,7 @@ export const WithPrefixAndSuffix = (args) => {
       prefix={<Search />}
       suffix={<div className="neeto-ui-text-gray-700">.bigbinary.com</div>}
       value={emails}
-      onChange={(emails) => setEmails(emails)}
+      onChange={emails => setEmails(emails)}
     />
   );
 };
@@ -187,7 +191,7 @@ WithPrefixAndSuffix.args = {
 };
 WithPrefixAndSuffix.storyName = "With prefix and suffix";
 
-export const FormikEmail = () => {
+const FormikEmail = args => {
   const [emails, setEmails] = useState([]);
 
   const INITIAL_VALUES = { emails: [] };
@@ -198,7 +202,7 @@ export const FormikEmail = () => {
       .test(
         "are-all-emails-valid",
         "Please make sure all emails are valid.",
-        (emails) => emails.every(({ valid }) => valid)
+        emails => emails.every(({ valid }) => valid)
       )
       .nullable(),
   });
@@ -208,26 +212,27 @@ export const FormikEmail = () => {
 
   return (
     <Form
+      formProps={{
+        className: "space-y-2",
+      }}
       formikProps={{
         initialValues: INITIAL_VALUES,
         validationSchema: VALIDATION_SCHEMA,
         onSubmit: handleSubmit,
       }}
-      formProps={{
-        className: "space-y-2",
-      }}
     >
       <FormikMultiEmailInput
-        label="Email(s)*"
+        {...args}
         counter
         filterInvalidEmails
+        label="Email(s)*"
         name="emails"
       />
       <Button
-        type="submit"
+        data-cy="add-member-submit-button"
         label="Save changes"
         style="primary"
-        data-cy="add-member-submit-button"
+        type="submit"
       />
       <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
     </Form>
@@ -235,3 +240,15 @@ export const FormikEmail = () => {
 };
 
 FormikEmail.storyName = "Formik email";
+
+export {
+  Controlled,
+  Error,
+  Disabled,
+  HelpText,
+  Counter,
+  WithPrefixAndSuffix,
+  FormikEmail,
+};
+
+export default metadata;

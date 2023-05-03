@@ -1,11 +1,12 @@
-/* eslint-disable no-empty-pattern */
 import React from "react";
-import { Favorite } from "@bigbinary/neeto-icons";
+
+import { Favorite } from "neetoicons";
 
 import Button from "components/Button";
+
 import { icons } from "../constants";
 
-export default {
+const metadata = {
   title: "Components/Button",
   component: Button,
   parameters: {
@@ -17,8 +18,7 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
     },
   },
   argTypes: {
@@ -29,99 +29,96 @@ export default {
     onClick: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = args => <Button {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   style: "primary",
   label: "Button",
 };
 
-export const Sizes = ({}) => {
-  return (
-    <div className="w-full">
-      <div className="flex w-full gap-3">
-        <div className="flex flex-wrap items-start gap-4">
-          <Button style="primary" label="Small" size="small" />
-        </div>
-        <div className="flex flex-wrap items-start gap-4">
-          <Button style="primary" label="Medium" size="medium" />
-        </div>
-        <div className="flex flex-wrap items-start gap-4">
-          <Button style="primary" label="Large" size="large" />
-        </div>
+const Sizes = args => (
+  <div className="w-full">
+    <div className="flex w-full gap-3">
+      <div className="flex flex-wrap items-start gap-4">
+        <Button {...args} label="Small" size="small" style="primary" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Button {...args} label="Medium" size="medium" style="primary" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Button {...args} label="Large" size="large" style="primary" />
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-export const Styles = ({}) => {
-  return (
-    <div className="w-full">
-      <div className="flex flex-col w-full gap-3">
-        <div className="flex flex-wrap items-center gap-4">
-          <Button style="primary" label="Primary" />
-          <Button style="secondary" label="Secondary" />
-          <Button style="text" label="Text" />
-          <Button style="link" label="Link" />
+const Styles = args => (
+  <div className="w-full">
+    <div className="flex w-full flex-col gap-3">
+      <div className="flex flex-wrap items-center gap-4">
+        <Button {...args} label="Primary" style="primary" />
+        <Button {...args} label="Secondary" style="secondary" />
+        <Button {...args} label="Text" style="text" />
+        <Button {...args} label="Link" style="link" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Button {...args} label="Danger" style="danger" />
+        <Button {...args} label="Danger Text" style="danger-text" />
+      </div>
+    </div>
+  </div>
+);
+
+const IconButtons = args => (
+  <div className="w-full">
+    <div className="space-y-6">
+      <div className="flex gap-3">
+        <div className="flex flex-wrap items-start gap-4">
+          <Button {...args} icon={Favorite} iconPosition="left" label="Label" />
         </div>
         <div className="flex flex-wrap items-start gap-4">
-          <Button style="danger" label="Danger" />
-          <Button style="danger-text" label="Danger Text" />
+          <Button
+            {...args}
+            icon={Favorite}
+            iconPosition="right"
+            label="Label"
+          />
+        </div>
+        <div className="flex flex-wrap items-start gap-4">
+          <Button {...args} icon={Favorite} />
         </div>
       </div>
     </div>
-  );
-};
-
-export const IconButtons = ({}) => {
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="flex gap-3">
-          <div className="flex flex-wrap items-start gap-4">
-            <Button label="Label" iconPosition="left" icon={Favorite} />
-          </div>
-          <div className="flex flex-wrap items-start gap-4">
-            <Button label="Label" iconPosition="right" icon={Favorite} />
-          </div>
-          <div className="flex flex-wrap items-start gap-4">
-            <Button icon={Favorite} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+  </div>
+);
 IconButtons.storyName = "Icon buttons";
 
-export const LoadingState = Template.bind({});
+const LoadingState = Template.bind({});
 LoadingState.args = {
   loading: true,
   label: "Loading",
 };
 LoadingState.storyName = "Loading state";
 
-export const FullWidth = ({}) => {
-  return (
-    <div className="w-full">
-      <div className="flex flex-wrap items-start gap-4 w-80">
-        <Button label="Primary" fullWidth />
-        <Button style="secondary" label="Secondary" fullWidth />
-        <Button style="text" label="Text" fullWidth />
-      </div>
+const FullWidth = args => (
+  <div className="w-full">
+    <div className="flex w-80 flex-wrap items-start gap-4">
+      <Button {...args} fullWidth label="Primary" />
+      <Button {...args} fullWidth label="Secondary" style="secondary" />
+      <Button {...args} fullWidth label="Text" style="text" />
     </div>
-  );
-};
+  </div>
+);
 FullWidth.storyName = "Full width";
 
-export const Tooltip = Template.bind({});
+const Tooltip = Template.bind({});
 Tooltip.args = {
   label: "Tooltip button",
   tooltipProps: {
@@ -129,3 +126,15 @@ Tooltip.args = {
     position: "top",
   },
 };
+
+export {
+  Default,
+  Sizes,
+  Styles,
+  IconButtons,
+  LoadingState,
+  FullWidth,
+  Tooltip,
+};
+
+export default metadata;

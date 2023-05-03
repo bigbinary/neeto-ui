@@ -1,8 +1,9 @@
 import React, { useState, forwardRef } from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { mergeLeft, isEmpty } from "ramda";
 import CreatableSelect from "react-select/creatable";
-import { isEmpty } from "ramda";
 
 import { noop, hyphenize } from "utils";
 
@@ -20,8 +21,8 @@ import {
   getEmailsCount,
 } from "./utils";
 
-import Typography from "../Typography";
 import Label from "../Label";
+import Typography from "../Typography";
 
 const MultiEmailInput = forwardRef(
   (
@@ -56,54 +57,59 @@ const MultiEmailInput = forwardRef(
       const inputValues = inputValue.match(EMAIL_SEPARATION_REGEX);
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
-      const emails = emailMatches.map((email) =>
-        formatEmailInputOptions(email)
-      );
+
+      const emails = emailMatches.map(email => formatEmailInputOptions(email));
       onChange(pruneDuplicates([...value, ...emails]));
       setInputValue("");
     };
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = event => {
       if (!inputValue) return;
 
       switch (event.key) {
-      case "Enter": {
-        handleEmailChange();
-        !isOptionsPresent && event.preventDefault();
-        event.stopPropagation();
-        return;
-      }
-      case "Tab":
-      case ",":
-      case " ": {
-        handleEmailChange();
-        event.preventDefault();
-        event.stopPropagation();
-      }
+        case "Enter": {
+          handleEmailChange();
+          !isOptionsPresent && event.preventDefault();
+          event.stopPropagation();
+
+          return;
+        }
+        case "Tab":
+        case ",":
+        case " ": {
+          handleEmailChange();
+          event.preventDefault();
+          event.stopPropagation();
+        }
       }
     };
 
-    const onCreateOption = (input) => {
+    const onCreateOption = input => {
       const email = formatEmailInputOptions(input);
       onChange(pruneDuplicates([...value, email]));
       otherProps?.onCreateOption?.(input);
     };
 
-    const handleBlur = (event) =>
+    const handleBlur = event =>
       inputValue ? handleEmailChange() : onBlur(event);
 
     let overrideProps = {};
 
     if (isOptionsPresent) {
       const isValidNewOption = (inputValue, _, selectOptions) => {
-        const isInputEmpty = inputValue.trim().length === 0;
+        const isInputEmpty = isEmpty(inputValue.trim());
         const doesInputContainSeparator =
           inputValue.includes(",") || inputValue.includes(" ");
+
         const isInputPresentInOptions = selectOptions.find(
-          (option) => option.value === inputValue.toLowerCase()
+          option => option.value === inputValue.toLowerCase()
         );
 
-        return !(isInputEmpty || doesInputContainSeparator || isInputPresentInOptions);
+        return !(
+          isInputEmpty ||
+          doesInputContainSeparator ||
+          isInputPresentInOptions
+        );
       };
       overrideProps = { onCreateOption, isValidNewOption };
     }
@@ -122,45 +128,43 @@ const MultiEmailInput = forwardRef(
           )}
           {isCounterVisible && (
             <Typography
-              style="body2"
               className="neeto-ui-email-input__counter"
               data-cy={`${hyphenize(label)}-email-counter`}
+              style="body2"
             >
-              {`${getEmailsCount(value)} ${
-                counter.label
-                  ? counter.label
-                  : renderDefaultText(getEmailsCount(value))
-              }`}
+              {getEmailsCount(value)}{" "}
+              {counter.label
+                ? counter.label
+                : renderDefaultText(getEmailsCount(value))}
             </Typography>
           )}
         </div>
         <CreatableSelect
           isMulti
-          inputValue={inputValue}
-          components={CUSTOM_COMPONENTS}
           classNamePrefix="neeto-ui-react-select"
+          components={CUSTOM_COMPONENTS}
+          inputValue={inputValue}
+          isDisabled={disabled}
+          placeholder={placeholder}
+          ref={ref}
+          value={value}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-email-input__select",
             {
               "neeto-ui-react-select__container--error": !!error,
             }
           )}
-          onChange={onChange}
-          onInputChange={(inputValue) => setInputValue(inputValue)}
-          onKeyDown={handleKeyDown}
-          onBlur={handleBlur}
-          placeholder={placeholder}
-          value={value}
           styles={{
             ...CUSTOM_STYLES,
-            control: (styles) => ({
-              ...styles,
+            control: mergeLeft({
               maxHeight: `${maxHeight}px`,
               overflowY: "auto",
             }),
           }}
-          isDisabled={disabled}
-          ref={ref}
+          onBlur={handleBlur}
+          onChange={onChange}
+          onInputChange={inputValue => setInputValue(inputValue)}
+          onKeyDown={handleKeyDown}
           {...(!isOptionsPresent && { menuIsOpen: false })}
           {...otherProps}
           {...overrideProps}
@@ -168,14 +172,14 @@ const MultiEmailInput = forwardRef(
         <div className="neeto-ui-email-input__bottom-info">
           {!!error && (
             <Typography
-              style="body3"
               className="neeto-ui-input__error"
               data-cy={`${hyphenize(label)}-input-error`}
+              style="body3"
             >
               {error}
               {!!filterInvalidEmails && !isEmpty(value) && (
                 <span
-                  className="cursor-pointer neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold"
+                  className="neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold cursor-pointer"
                   onClick={handleFilterEmails}
                 >
                   &nbsp;
@@ -189,8 +193,8 @@ const MultiEmailInput = forwardRef(
           {!!helpText && (
             <Typography
               className="neeto-ui-input__help-text"
-              style="body3"
               data-cy={`${hyphenize(label)}-input-help`}
+              style="body3"
             >
               {helpText}
             </Typography>
@@ -200,6 +204,8 @@ const MultiEmailInput = forwardRef(
     );
   }
 );
+
+MultiEmailInput.displayName = "MultiEmailInput";
 
 MultiEmailInput.propTypes = {
   /**

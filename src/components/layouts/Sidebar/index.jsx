@@ -9,8 +9,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Links from "./Links";
 
-// eslint-disable-next-line import/exports-last
-export const TOOLTIP_STYLES = {
+const TOOLTIP_STYLES = {
   default: "default",
   featured: "featured",
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 import Spinner from "components/Spinner";
 
-export default {
+const metadata = {
   title: "Components/Spinner",
   component: Spinner,
   parameters: {
@@ -15,19 +15,21 @@ export default {
   },
 };
 
-const Template = (args) => (
-  <div className="flex items-center justify-center w-20 h-20">
+const Template = args => (
+  <div className="flex h-20 w-20 items-center justify-center">
     <Spinner {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
-export const LightTheme = () => {
-  return (
-    <div className="flex items-center justify-center w-20 h-20 neeto-ui-bg-black">
-      <Spinner theme="light" />
-    </div>
-  );
-};
+const LightTheme = args => (
+  <div className="neeto-ui-bg-black flex h-20 w-20 items-center justify-center">
+    <Spinner {...args} theme="light" />
+  </div>
+);
 LightTheme.storyName = "Light theme";
+
+export { Default, LightTheme };
+
+export default metadata;

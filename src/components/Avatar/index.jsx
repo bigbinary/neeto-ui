@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+
+import FallbackAvatar from "boring-avatars";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
 
 import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
-
-import FallbackAvatar from "boring-avatars";
 
 const SIZE = {
   small: 24,
@@ -52,7 +52,7 @@ const Avatar = ({
     hidden: isLoadingFailed,
   });
 
-  const statusClasses = classNames("neeto-ui-avatar__status", `${status}`, {
+  const statusClasses = classNames("neeto-ui-avatar__status", status, {
     "neeto-ui-avatar__status-medium": isMedium,
     "neeto-ui-avatar__status-large": isLarge,
     "neeto-ui-avatar__status-xlarge": isExtraLarge,
@@ -70,37 +70,37 @@ const Avatar = ({
 
   return (
     <Tooltip
-      disabled={!showTooltip}
       content={name}
+      disabled={!showTooltip}
       position="bottom"
       {...tooltipProps}
     >
       <span
-        onClick={onClick}
-        style={imageContainerStyle}
         data-testid="avatar"
+        style={imageContainerStyle}
         className={classNames(
           "neeto-ui-avatar--container neeto-ui-select-none",
           className
         )}
+        onClick={onClick}
         {...otherProps}
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
           <FallbackAvatar
-            size={SIZE[size]}
-            name={name}
-            variant={AVATAR_VARIANT}
-            colors={COLOR_PALLETE}
             className="neeto-ui-avatar__svg"
+            colors={COLOR_PALLETE}
+            name={name}
+            size={SIZE[size]}
+            variant={AVATAR_VARIANT}
           />
         ) : (
           <img
-            className={imageClasses}
-            onError={() => setIsLoadingFailed(true)}
-            src={imageUrl}
             alt={`avatar-${avatarString}`}
+            className={imageClasses}
             data-chromatic="ignore"
+            src={imageUrl}
+            onError={() => setIsLoadingFailed(true)}
           />
         )}
       </span>

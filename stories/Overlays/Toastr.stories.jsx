@@ -1,12 +1,13 @@
-import React from "react";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
+
 import { ToastContainer } from "react-toastify";
 
 import Button from "components/Button";
 import Toastr from "components/Toastr";
+
 import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
 
-export default {
+const metadata = {
   title: "Overlays/Toastr",
   component: Toastr,
   parameters: {
@@ -18,20 +19,21 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
     },
   },
   subcomponents: { Button },
 };
 
-export const Toastrs = () => {
+// eslint-disable-next-line no-empty-pattern
+const Toastrs = ({}) => {
   const showAlert = useCallback(() => alert("Customer blocked successfully!"));
+
   return (
     <>
       <ToastContainer />
       <div className="space-y-6">
-        <div className="flex flex-row items-center justify-start flex-wrap gap-2">
+        <div className="flex flex-row flex-wrap items-center justify-start gap-2">
           <Button
             label="Info Toastr"
             onClick={() => Toastr.info("This is an info Toastr.")}
@@ -79,7 +81,8 @@ export const Toastrs = () => {
   );
 };
 
-export const ErrorToastr = () => {
+// eslint-disable-next-line no-empty-pattern
+const ErrorToastr = ({}) => {
   const onStringError = () => {
     Toastr.error("This is a plain text error Toastr!");
   };
@@ -140,7 +143,8 @@ export const ErrorToastr = () => {
   );
 };
 
-export const CustomConfigToastr = () => (
+// eslint-disable-next-line no-empty-pattern
+const CustomConfigToastr = ({}) => (
   <>
     <ToastContainer />
     <div className="space-x-6">
@@ -176,3 +180,7 @@ export const CustomConfigToastr = () => (
 );
 
 CustomConfigToastr.storyName = "Custom config toastr";
+
+export { Toastrs, ErrorToastr, CustomConfigToastr };
+
+export default metadata;

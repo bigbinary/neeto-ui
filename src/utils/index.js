@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
+import localeData from "dayjs/plugin/localeData";
 import utc from "dayjs/plugin/utc";
 import weekday from "dayjs/plugin/weekday";
-import localeData from "dayjs/plugin/localeData";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import { complement, equals } from "ramda";
 
@@ -10,9 +10,22 @@ dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(utc);
 
+const getScrollbarWidth = () => {
+  const parentDiv = document.createElement("div");
+  parentDiv.style.visibility = "hidden";
+  parentDiv.style.overflow = "scroll";
+  document.body.appendChild(parentDiv);
+  const childDiv = document.createElement("div");
+  parentDiv.appendChild(childDiv);
+  const scrollbarWidth = parentDiv.offsetWidth - childDiv.offsetWidth;
+  parentDiv?.parentNode?.removeChild(parentDiv);
+
+  return scrollbarWidth;
+};
+
 export const noop = () => {};
 
-export const hyphenize = (string) => {
+export const hyphenize = string => {
   const fallbackString = "nui";
 
   if (string && string.replace) {
@@ -21,16 +34,15 @@ export const hyphenize = (string) => {
       .replace(/([a-z])([A-Z])/g, "$1-$2")
       .replace(/-+/g, "-")
       .toLowerCase();
-  } else {
-    return fallbackString;
   }
+
+  return fallbackString;
 };
 
-export const convertToDayjsObjects = (value) => {
-  return value instanceof Array
-    ? value.map((date) => (date ? dayjs(date) : date))
+export const convertToDayjsObjects = value =>
+  value instanceof Array
+    ? value.map(date => (date ? dayjs(date) : date))
     : value && dayjs(value);
-};
 
 export class UniqueArray {
   constructor() {
@@ -40,6 +52,7 @@ export class UniqueArray {
   add(item) {
     if (this.array.some(equals(item))) return false;
     this.array.push(item);
+
     return true;
   }
 
@@ -54,17 +67,18 @@ export const renderFocusOnFocusableElements = (
 ) => {
   const focusableElements =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const firstFocusableElement = ref?.current?.querySelectorAll(
-    focusableElements
-  )[0];
+
+  const firstFocusableElement =
+    ref?.current?.querySelectorAll(focusableElements)[0];
   const focusableContent = ref?.current?.querySelectorAll(focusableElements);
   const lastFocusableElement = focusableContent[focusableContent?.length - 1];
 
-  document.addEventListener("keydown", function (e) {
-    let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+  document.addEventListener("keydown", e => {
+    const isTabPressed = e.key === "Tab" || e.keyCode === 9;
     if (!isTabPressed) {
       return;
     }
+
     if (e.shiftKey) {
       if (document.activeElement === firstFocusableElement) {
         lastFocusableElement.focus();
@@ -80,19 +94,7 @@ export const renderFocusOnFocusableElements = (
 
   if (!shouldFocusFirstFocusableElement) return;
 
-  return firstFocusableElement?.focus();
-};
-
-const getScrollbarWidth = () => {
-  const parentDiv = document.createElement("div");
-  parentDiv.style.visibility = "hidden";
-  parentDiv.style.overflow = "scroll";
-  document.body.appendChild(parentDiv);
-  const childDiv = document.createElement("div");
-  parentDiv.appendChild(childDiv);
-  const scrollbarWidth = parentDiv.offsetWidth - childDiv.offsetWidth;
-  parentDiv?.parentNode?.removeChild(parentDiv);
-  return scrollbarWidth;
+  firstFocusableElement?.focus();
 };
 
 export const hideScrollAndAddMargin = () => {

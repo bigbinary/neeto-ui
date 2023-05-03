@@ -1,4 +1,5 @@
 import React from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
@@ -30,7 +31,7 @@ const Callout = ({
       {...otherProps}
     >
       {icon && (
-        <div data-testid="callout-icon" className="neeto-ui-callout__icon">
+        <div className="neeto-ui-callout__icon" data-testid="callout-icon">
           <Icon size={20} />
         </div>
       )}

@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React, { useState, forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
@@ -130,6 +129,8 @@ const Input = forwardRef(
     );
   }
 );
+
+Input.displayName = "Input";
 
 Input.propTypes = {
   /**

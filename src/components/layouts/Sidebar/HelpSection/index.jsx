@@ -2,7 +2,7 @@
 
 import React, { forwardRef } from "react";
 
-import { Help } from "@bigbinary/neeto-icons";
+import { Help } from "neetoicons";
 
 const HelpSection = forwardRef((_, ref) => (
   <button
@@ -15,5 +15,7 @@ const HelpSection = forwardRef((_, ref) => (
     </span>
   </button>
 ));
+
+HelpSection.displayName = "HelpSection";
 
 export default HelpSection;

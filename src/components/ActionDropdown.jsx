@@ -1,4 +1,5 @@
 import React from "react";
+
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
@@ -31,18 +32,18 @@ const ActionDropdown = ({
 }) => (
   <div className={classnames(["neeto-ui-action-dropdown", className])}>
     <Button
-      style={style ?? buttonStyle}
       data-testid="action-dropdown-btn"
+      disabled={disabled}
       label={label}
       size={size ?? buttonSize}
-      disabled={disabled}
+      style={style ?? buttonStyle}
       onClick={onClick}
       {...buttonProps}
     />
     <Dropdown
+      buttonProps={{ size: size ?? buttonSize }}
       buttonStyle={style ?? buttonStyle}
       disabled={disabled}
-      buttonProps={{ size: size ?? buttonSize }}
       {...dropdownProps}
     >
       {children}

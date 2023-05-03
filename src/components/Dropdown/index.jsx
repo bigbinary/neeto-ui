@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import classnames from "classnames";
+
 import Tippy from "@tippyjs/react";
+import classnames from "classnames";
+import { Down } from "neetoicons";
 import PropTypes from "prop-types";
-import { Down } from "@bigbinary/neeto-icons";
+import { isNil } from "ramda";
 
 import Button from "components/Button";
 import { hyphenize, noop } from "utils";
 
-import MenuItem from "./MenuItem";
 import Divider from "./Divider";
 import Menu from "./Menu";
+import MenuItem from "./MenuItem";
 
 const BTN_STYLES = {
   primary: "primary",
@@ -19,6 +21,7 @@ const BTN_STYLES = {
   text: "text",
   link: "link",
 };
+
 const BTN_SIZES = {
   small: "small",
   medium: "medium",
@@ -63,6 +66,7 @@ const hideOnEsc = {
         hide();
       }
     }
+
     return {
       onShow() {
         document.addEventListener("keydown", onKeyDown);
@@ -100,24 +104,23 @@ const Dropdown = ({
   const [instance, setInstance] = useState(null);
   const [mounted, setMounted] = useState(false);
 
-  const isControlled = !(isOpen === undefined || isOpen === null);
+  const isControlled = !isNil(isOpen);
 
   const controlledProps = isControlled
     ? {
-      visible: isOpen,
-      onClickOutside: onClose,
-    }
+        visible: isOpen,
+        onClickOutside: onClose,
+      }
     : {
-      onClickOutside: () => {
-        onClose();
-        return closeOnOutsideClick;
-      },
-    };
+        onClickOutside: () => {
+          onClose();
 
-  const {
-    classNames: dropdownClassname,
-    ...otherDropdownProps
-  } = dropdownProps;
+          return closeOnOutsideClick;
+        },
+      };
+
+  const { classNames: dropdownClassname, ...otherDropdownProps } =
+    dropdownProps;
 
   // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
   // https://atomiks.github.io/tippyjs/v6/all-props/#hideonclick
@@ -130,41 +133,30 @@ const Dropdown = ({
 
   return (
     <Tippy
-      role="dropdown"
-      onClose={onClose}
-      trigger={TRIGGERS[trigger]}
-      plugins={[hideOnEsc]}
-      hideOnEsc={closeOnEsc}
-      hideOnClick={hideOnClick}
       interactive
-      placement={position || PLACEMENT.bottomEnd}
-      arrow={false}
-      offset={0}
       animation={false}
+      arrow={false}
+      duration={0}
+      hideOnClick={hideOnClick}
+      hideOnEsc={closeOnEsc}
+      maxWidth="none"
+      offset={0}
+      placement={position || PLACEMENT.bottomEnd}
+      plugins={[hideOnEsc]}
+      popperOptions={{ strategy, modifiers: dropdownModifiers }}
+      role="dropdown"
       theme="light"
+      trigger={TRIGGERS[trigger]}
       className={classnames("neeto-ui-dropdown", {
         [className]: className,
       })}
-      duration={0}
-      onCreate={(instance) => instance && setInstance(instance)}
-      popperOptions={{
-        strategy,
-        modifiers: dropdownModifiers,
-      }}
-      maxWidth="none"
-      onMount={() => {
-        setMounted(true);
-      }}
-      onHidden={() => {
-        setMounted(false);
-      }}
       content={
         mounted ? (
           <div
+            data-cy={`${hyphenize(label)}-dropdown-container`}
             className={classnames("neeto-ui-dropdown__popup", {
               [dropdownClassname]: dropdownClassname,
             })}
-            data-cy={`${hyphenize(label)}-dropdown-container`}
             onClick={closeOnSelect ? close : noop}
             {...otherDropdownProps}
           >
@@ -172,6 +164,10 @@ const Dropdown = ({
           </div>
         ) : null
       }
+      onClose={onClose}
+      onCreate={instance => instance && setInstance(instance)}
+      onHidden={() => setMounted(false)}
+      onMount={() => setMounted(true)}
       {...otherProps}
       {...controlledProps}
     >
@@ -181,13 +177,13 @@ const Dropdown = ({
         </span>
       ) : (
         <Button
-          label={label}
-          style={style ?? buttonStyle}
-          size={size ?? buttonSize}
+          data-cy={`${hyphenize(label)}-dropdown-icon`}
+          disabled={disabled || buttonProps?.disabled}
           icon={icon || Down}
           iconPosition="right"
-          disabled={disabled || buttonProps?.disabled}
-          data-cy={`${hyphenize(label)}-dropdown-icon`}
+          label={label}
+          size={size ?? buttonSize}
+          style={style ?? buttonStyle}
           onClick={onClick}
           {...buttonProps}
         />

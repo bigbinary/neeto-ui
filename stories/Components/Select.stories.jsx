@@ -1,12 +1,13 @@
-/* eslint-disable no-empty-pattern */
-import { FieldArray, Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
-import { FORMIK_SELECT } from "../constants";
+
+import { FieldArray, Formik, Form } from "formik";
 
 import { Select, Button, Modal, Pane, Typography } from "components";
 import { Select as FormikSelect } from "components/formik";
 
-export default {
+import { FORMIK_SELECT } from "../constants";
+
+const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
@@ -18,19 +19,18 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
     },
   },
 };
 
-const Template = (args) => (
-  <div className="p-4 mb-2 h-80">
+const Template = args => (
+  <div className="mb-2 h-80 p-4">
     <Select {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Select",
   defaultValue: { value: "value3", label: "Value three" },
@@ -48,58 +48,59 @@ Default.args = {
   ],
 };
 
-export const Sizes = ({}) => {
-  return (
-    <div className="w-full h-60">
-      <div className="flex flex-col gap-8">
-        <div className="w-full">
-          <Select
-            label="Small"
-            size="small"
-            placeholder="Select placeholder"
-            options={[
-              { value: "value1", label: "Value one" },
-              { value: "value2", label: "Value two" },
-              { value: "value3", label: "Value three" },
-              { value: "value4", label: "Value four" },
-              { value: "value5", label: "Value five" },
-            ]}
-          />
-        </div>
-        <div className="w-full">
-          <Select
-            label="Medium"
-            // size="medium"
-            placeholder="Select placeholder"
-            options={[
-              { value: "value1", label: "Value one" },
-              { value: "value2", label: "Value two" },
-              { value: "value3", label: "Value three" },
-              { value: "value4", label: "Value four" },
-              { value: "value5", label: "Value five" },
-            ]}
-          />
-        </div>
-        <div className="w-full">
-          <Select
-            label="Large"
-            size="large"
-            placeholder="Select placeholder"
-            options={[
-              { value: "value1", label: "Value one" },
-              { value: "value2", label: "Value two" },
-              { value: "value3", label: "Value three" },
-              { value: "value4", label: "Value four" },
-              { value: "value5", label: "Value five" },
-            ]}
-          />
-        </div>
+const Sizes = args => (
+  <div className="h-60 w-full">
+    <div className="flex flex-col gap-8">
+      <div className="w-full">
+        <Select
+          {...args}
+          label="Small"
+          placeholder="Select placeholder"
+          size="small"
+          options={[
+            { value: "value1", label: "Value one" },
+            { value: "value2", label: "Value two" },
+            { value: "value3", label: "Value three" },
+            { value: "value4", label: "Value four" },
+            { value: "value5", label: "Value five" },
+          ]}
+        />
+      </div>
+      <div className="w-full">
+        <Select
+          {...args}
+          label="Medium"
+          // size="medium"
+          placeholder="Select placeholder"
+          options={[
+            { value: "value1", label: "Value one" },
+            { value: "value2", label: "Value two" },
+            { value: "value3", label: "Value three" },
+            { value: "value4", label: "Value four" },
+            { value: "value5", label: "Value five" },
+          ]}
+        />
+      </div>
+      <div className="w-full">
+        <Select
+          {...args}
+          label="Large"
+          placeholder="Select placeholder"
+          size="large"
+          options={[
+            { value: "value1", label: "Value one" },
+            { value: "value2", label: "Value two" },
+            { value: "value3", label: "Value three" },
+            { value: "value4", label: "Value four" },
+            { value: "value5", label: "Value five" },
+          ]}
+        />
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-export const MultiSelect = Template.bind({});
+const MultiSelect = Template.bind({});
 MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
   label: "Multi Select",
@@ -120,7 +121,7 @@ MultiSelect.args = {
   ],
 };
 
-export const Grouped = Template.bind({});
+const Grouped = Template.bind({});
 Grouped.args = {
   label: "Grouped Select",
   isMulti: true,
@@ -154,7 +155,7 @@ Grouped.args = {
   ],
 };
 
-export const Creatable = ({}) => {
+const Creatable = args => {
   const [options, setOptions] = useState([
     { value: "value1", label: "Value one" },
     { value: "value2", label: "Value two" },
@@ -164,24 +165,25 @@ export const Creatable = ({}) => {
   ]);
 
   return (
-    <div className="p-4 mb-2 h-60">
+    <div className="mb-2 h-60 p-4">
       <Select
-        label="Grouped Select"
+        {...args}
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
-        placeholder="Select an option"
-        onCreateOption={(inputValue) =>
-          setOptions([...options, { label: inputValue, value: inputValue }])
-        }
+        label="Grouped Select"
         name="ValueList"
         options={options}
+        placeholder="Select an option"
+        onCreateOption={inputValue =>
+          setOptions([...options, { label: inputValue, value: inputValue }])
+        }
       />
     </div>
   );
 };
 
-export const AsyncCreatable = ({}) => {
+const AsyncCreatable = args => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
     { value: "value1", label: "Value one" },
@@ -191,88 +193,88 @@ export const AsyncCreatable = ({}) => {
     { value: "value5", label: "Value five" },
   ]);
 
-  const filterOptions = (inputValue) => {
-    return options.filter((option) =>
+  const filterOptions = inputValue =>
+    options.filter(option =>
       option.label.toLowerCase().includes(inputValue.toLowerCase())
     );
-  };
 
-  const loadOptions = (inputValue) =>
-    new Promise((resolve) => {
+  const loadOptions = inputValue =>
+    new Promise(resolve => {
       setTimeout(() => {
         resolve(filterOptions(inputValue));
       }, 1000);
     });
 
   return (
-    <div className="p-4 mb-2 h-60">
+    <div className="mb-2 h-60 p-4">
       <Select
-        placeholder="Select placeholder"
-        className="w-full"
-        size="small"
-        label="Select"
-        isCreateable
+        {...args}
         cacheOptions
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
+        isCreateable
+        className="w-full"
         defaultOptions={options}
-        onCreateOption={(inputValue) =>
-          setOptions((prevOptions) => [
+        label="Select"
+        loadOptions={loadOptions}
+        placeholder="Select placeholder"
+        size="small"
+        value={value}
+        onChange={newValue => setValue(newValue)}
+        onCreateOption={inputValue =>
+          setOptions(prevOptions => [
             ...prevOptions,
             { label: inputValue, value: inputValue },
           ])
         }
-        loadOptions={loadOptions}
       />
     </div>
   );
 };
 AsyncCreatable.storyName = "Async creatable";
 
-export const Searchable = ({}) => {
-  return (
-    <div className="p-4 mb-2 h-60">
-      <Select
-        placeholder="Select placeholder"
-        className="w-full"
-        size="small"
-        label="Select"
-        isSearchable
-        options={[
-          { value: "value1", label: "Value one" },
-          { value: "value2", label: "Value two" },
-          { value: "value3", label: "Value three" },
-          { value: "value4", label: "Value four" },
-          { value: "value5", label: "Value five" },
-        ]}
-      />
-    </div>
-  );
-};
+const Searchable = args => (
+  <div className="mb-2 h-60 p-4">
+    <Select
+      {...args}
+      isSearchable
+      className="w-full"
+      label="Select"
+      placeholder="Select placeholder"
+      size="small"
+      options={[
+        { value: "value1", label: "Value one" },
+        { value: "value2", label: "Value two" },
+        { value: "value3", label: "Value three" },
+        { value: "value4", label: "Value four" },
+        { value: "value5", label: "Value five" },
+      ]}
+    />
+  </div>
+);
 
-export const ExampleWithRef = ({}) => {
+const ExampleWithRef = args => {
   const selectRef = useRef();
 
   return (
     <>
-      <div className="flex w-full gap-3 mb-4">
+      <div className="mb-4 flex w-full gap-3">
         <Button
+          label="Focus"
           onClick={() => {
             selectRef.current.focus();
           }}
-          label="Focus"
         />
         <Button
+          label="Blur"
           onClick={() => {
             selectRef.current.blur();
           }}
-          label="Blur"
         />
       </div>
       <div className="h-60">
         <Select
-          innerRef={selectRef}
+          {...args}
           openMenuOnFocus
+          innerRef={selectRef}
           options={[
             { value: "value1", label: "Value one" },
             { value: "value2", label: "Value two" },
@@ -285,8 +287,9 @@ export const ExampleWithRef = ({}) => {
 };
 ExampleWithRef.storyName = "Example with ref";
 
-export const SelectInModal = ({}) => {
+const SelectInModal = args => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Button label="Open Modal" onClick={() => setIsOpen(true)} />
@@ -296,8 +299,9 @@ export const SelectInModal = ({}) => {
         </Modal.Header>
         <Modal.Body>
           <Select
-            placeholder="Select placeholder"
+            {...args}
             label="Select"
+            placeholder="Select placeholder"
             strategy="fixed"
             options={[
               { value: "value1", label: "Value one" },
@@ -322,8 +326,9 @@ SelectInModal.parameters = {
   },
 };
 
-export const SelectInPane = ({}) => {
+const SelectInPane = args => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Button label="Open Pane" onClick={() => setIsOpen(true)} />
@@ -333,9 +338,10 @@ export const SelectInPane = ({}) => {
         </Pane.Header>
         <Pane.Body className="w-full">
           <Select
-            placeholder="Select placeholder"
+            {...args}
             className="w-full"
             label="Select"
+            placeholder="Select placeholder"
             strategy="fixed"
             options={[
               { value: "value1", label: "Value one" },
@@ -350,8 +356,9 @@ export const SelectInPane = ({}) => {
 };
 SelectInPane.storyName = "Select in pane";
 
-export const FormikSelectStory = ({}) => {
+const FormikSelectStory = args => {
   const [values, setValues] = useState([]);
+
   return (
     <>
       <Formik
@@ -361,7 +368,7 @@ export const FormikSelectStory = ({}) => {
             { formikSelect: { value: "v1", label: "v1" } },
           ],
         }}
-        onSubmit={(values) => setValues(values)}
+        onSubmit={values => setValues(values)}
       >
         {({ values }) => (
           <Form>
@@ -370,10 +377,11 @@ export const FormikSelectStory = ({}) => {
                 {({ push, remove }) => (
                   <div className="flex flex-col space-y-3">
                     {values.selects.map((_, index) => (
-                      <div key={index} className="flex items-end space-x-6">
+                      <div className="flex items-end space-x-6" key={index}>
                         <FormikSelect
-                          name={`selects.${index}.formikSelect`}
+                          {...args}
                           label="Select"
+                          name={`selects.${index}.formikSelect`}
                           options={[
                             { value: "v1", label: "v1" },
                             { value: "v2", label: "v2" },
@@ -381,8 +389,8 @@ export const FormikSelectStory = ({}) => {
                           ]}
                         />
                         <Button
-                          label="Remove"
                           className="mb-2"
+                          label="Remove"
                           onClick={() => remove(index)}
                         />
                       </div>
@@ -420,3 +428,19 @@ FormikSelectStory.parameters = {
     source: { code: FORMIK_SELECT },
   },
 };
+
+export {
+  Default,
+  Sizes,
+  MultiSelect,
+  Grouped,
+  Creatable,
+  AsyncCreatable,
+  Searchable,
+  ExampleWithRef,
+  SelectInModal,
+  SelectInPane,
+  FormikSelectStory,
+};
+
+export default metadata;

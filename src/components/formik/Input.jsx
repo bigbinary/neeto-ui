@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+
 import { Field } from "formik";
 import PropTypes from "prop-types";
 
@@ -16,6 +17,8 @@ const FormikInput = forwardRef(({ name, ...rest }, ref) => (
     )}
   </Field>
 ));
+
+FormikInput.displayName = "FormikInput";
 
 FormikInput.propTypes = {
   /**

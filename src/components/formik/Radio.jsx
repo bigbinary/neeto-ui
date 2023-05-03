@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useField, useFormikContext } from "formik";
 
 import Radio from "components/Radio";
@@ -9,10 +10,10 @@ const RadioGroup = ({ label, name, className = "", ...props }) => {
 
   return (
     <Radio
-      label={label}
       className={className}
       error={meta.touched && meta.error}
-      onChange={(event) => setFieldValue(name, event.target.value)}
+      label={label}
+      onChange={event => setFieldValue(name, event.target.value)}
       {...field}
       {...props}
     />

@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const SPINNER_THEMES = {
   dark: "dark",
@@ -18,12 +18,16 @@ const Spinner = ({ theme = "dark", className = "" }) => {
       "neeto-ui-bg-white": theme === "light",
     }
   );
+
   return (
-    <span className={classnames("neeto-ui-spinner", [className])} data-testid="spinner">
-      <i className={spinnerItemClassName}></i>
-      <i className={spinnerItemClassName}></i>
-      <i className={spinnerItemClassName}></i>
-      <i className={spinnerItemClassName}></i>
+    <span
+      className={classnames("neeto-ui-spinner", [className])}
+      data-testid="spinner"
+    >
+      <i className={spinnerItemClassName} />
+      <i className={spinnerItemClassName} />
+      <i className={spinnerItemClassName} />
+      <i className={spinnerItemClassName} />
     </span>
   );
 };

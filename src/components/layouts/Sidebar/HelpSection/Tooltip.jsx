@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Book, Keyboard, Gift, ChatEmpty } from "@bigbinary/neeto-icons";
+import { Book, Keyboard, Gift, ChatEmpty } from "neetoicons";
 import { values } from "ramda";
 
 import HelpLinkSection from "./LinkSection";

@@ -1657,15 +1657,23 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bigbinary/babel-preset-neeto@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@bigbinary/babel-preset-neeto/-/babel-preset-neeto-1.0.3.tgz#d8e61a76a83a8fea8c45526de707cef1c97c9502"
+  integrity sha512-Ary+Tke1uKEhsLORfQN+Bv3DdlDq8aM8EuVb3yTcXPBssSY834fxaHGWsPgK7H+jeF5pdvYW49wToO5KBvDuFg==
+  dependencies:
+    "@bigbinary/neeto-commons-frontend" "^2.0.63"
+    ramda "^0.29.0"
+
 "@bigbinary/eslint-plugin-neeto@^1.0.26":
   version "1.0.26"
   resolved "https://registry.yarnpkg.com/@bigbinary/eslint-plugin-neeto/-/eslint-plugin-neeto-1.0.26.tgz#ca4eab1e3bcea70fcad61088aea046fe1e3d39ac"
   integrity sha512-ikBHjL8JS9GaT0m/TxOEbNyHTy3fBjfs0VYaWehwVVRlSbD2tVyIjIThXibKidEm3T1NCtKkoxQgJ9/GERliYg==
 
-"@bigbinary/neeto-commons-frontend@^2.0.42":
-  version "2.0.58"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.58.tgz#a5195dc3a11b76ff7e1d24d06b16850ec96a0e1c"
-  integrity sha512-uRLvCU+VlgXguYwtNSGaeJPe++dOxoeNx7+TSfRYoh1ngvuzuNm/e75glA+zLBy5WBypXePL5kGNaBPHVJgcyA==
+"@bigbinary/neeto-commons-frontend@^2.0.63", "@bigbinary/neeto-commons-frontend@^2.0.70":
+  version "2.0.70"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.70.tgz#c52f0e45b5bcebc7118c93dabc2cb7a35cce6138"
+  integrity sha512-fQS3X8+DKTbqAsehMKfQ3KK5CxWcBZpDl7D0GuumRYUAZLnUGBEwxAKoINXxdZs6Unb1KKsi7a50jNHFLGoRCg==
 
 "@bigbinary/neeto-icons@^1.9.22":
   version "1.9.22"
@@ -12947,6 +12955,11 @@ ramda@^0.28.0:
   version "0.28.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.28.0.tgz#acd785690100337e8b063cab3470019be427cc97"
   integrity sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==
+
+ramda@^0.29.0:
+  version "0.29.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.29.0.tgz#fbbb67a740a754c8a4cbb41e2a6e0eb8507f55fb"
+  integrity sha512-BBea6L67bYLtdbOqfp8f58fPMqEwx0doL+pAi8TZyp2YWz8R9G8z9x75CZI8W+ftqhFHCpEX2cRnUUXK130iKA==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import Button from "components/Button";
-import Pane from "components/Pane";
-import Modal from "components/Modal";
 import Alert from "components/Alert";
-import Typography from "components/Typography";
+import Button from "components/Button";
 import Input from "components/Input";
+import Modal from "components/Modal";
+import Pane from "components/Pane";
+import Typography from "components/Typography";
 import { manager as OverlayManager } from "managers";
 
-export default {
+const metadata = {
   title: "Overlays/Pane",
   component: Pane,
   subcomponents: {
@@ -26,23 +26,23 @@ export default {
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
+      url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
     },
   },
   argTypes: {
     onClose: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
 
-export const Default = () => {
+const Default = args => {
   const [showPane, setShowPane] = useState(false);
   const inputRef = React.useRef(null);
+
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -52,11 +52,11 @@ export const Default = () => {
           </div>
         </div>
       </div>
-
       <Pane
+        {...args}
+        initialFocusRef={inputRef}
         isOpen={showPane}
         onClose={() => setShowPane(false)}
-        initialFocusRef={inputRef}
       >
         <Pane.Header>
           <Typography style="h2" weight="semibold">
@@ -64,130 +64,7 @@ export const Default = () => {
           </Typography>
         </Pane.Header>
         <Pane.Body>
-          <div className="w-full mb-4">
-            <Input label="Input Label" ref={inputRef}/>
-          </div>
-          <Typography style="body2">
-            Somewhere out in space live the Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
-            Gleep, the formless, fearless wonders! With Zandor, their leader,
-            and his wife, Tara, and son, Dorno, they team up to protect their
-            planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're the Herculoids!
-          </Typography>
-        </Pane.Body>
-        <Pane.Footer className="flex items-center space-x-2">
-          <Button label="Continue" onClick={() => setShowPane(false)} />
-          <Button
-            style="text"
-            label="Cancel"
-            onClick={() => setShowPane(false)}
-          />
-        </Pane.Footer>
-      </Pane>
-    </div>
-  );
-};
-
-export const Sizes = () => {
-  const [showPaneExtraSmall, setShowPaneExtraSmall] = useState(false);
-  const [showPaneLarge, setShowPaneLarge] = useState(false);
-
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Small" onClick={() => setShowPaneExtraSmall(true)} />
-            <Button label="Large" onClick={() => setShowPaneLarge(true)} />
-          </div>
-        </div>
-      </div>
-
-      <Pane
-        isOpen={showPaneExtraSmall}
-        onClose={() => setShowPaneExtraSmall(false)}
-        size="small"
-      >
-        <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
-        </Pane.Header>
-        <Pane.Body>
-          <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live the Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
-          </Typography>
-        </Pane.Body>
-        <Pane.Footer className="space-x-2">
-          <Button
-            label="Continue"
-            onClick={() => setShowPaneExtraSmall(false)}
-          />
-          <Button
-            style="text"
-            label="Cancel"
-            onClick={() => setShowPaneExtraSmall(false)}
-          />
-        </Pane.Footer>
-      </Pane>
-
-      <Pane
-        isOpen={showPaneLarge}
-        onClose={() => setShowPaneLarge(false)}
-        size="large"
-      >
-        <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
-        </Pane.Header>
-        <Pane.Body>
-          <Typography style="body2" lineHeight="normal">
-            Somewhere out in space live the Herculoids! Zok, the laser-ray
-            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
-            Gleep, the formless, fearless wonders! With Zandor, their leader,
-            and his wife, Tara, and son, Dorno, they team up to protect their
-            planet from sinister invaders! All-strong! All-brave! All-heroes!
-            They're the Herculoids!
-          </Typography>
-        </Pane.Body>
-        <Pane.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowPaneLarge(false)} />
-          <Button
-            style="text"
-            label="Cancel"
-            onClick={() => setShowPaneLarge(false)}
-          />
-        </Pane.Footer>
-      </Pane>
-    </div>
-  );
-};
-
-export const PaneWithLongTitle = () => {
-  const [showPane, setShowPane] = useState(false);
-  const inputRef = React.useRef(null);
-  return (
-    <div className="w-full">
-      <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Pane" onClick={() => setShowPane(true)} />
-          </div>
-        </div>
-      </div>
-
-      <Pane
-        isOpen={showPane}
-        onClose={() => setShowPane(false)}
-        initialFocusRef={inputRef}
-      >
-        <Pane.Header>
-          <Typography style="h2" weight="semibold">
-            This is a title that will break into two or maybe three lines! But,
-            the footer will stay at the bottom. Yay!
-          </Typography>
-        </Pane.Header>
-        <Pane.Body>
-          <div className="w-full mb-4">
+          <div className="mb-4 w-full">
             <Input label="Input Label" ref={inputRef} />
           </div>
           <Typography style="body2">
@@ -202,8 +79,8 @@ export const PaneWithLongTitle = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setShowPane(false)}
           />
         </Pane.Footer>
@@ -212,7 +89,131 @@ export const PaneWithLongTitle = () => {
   );
 };
 
-export const PaneWithModalAndAlert = () => {
+const Sizes = args => {
+  const [showPaneExtraSmall, setShowPaneExtraSmall] = useState(false);
+  const [showPaneLarge, setShowPaneLarge] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Small" onClick={() => setShowPaneExtraSmall(true)} />
+            <Button label="Large" onClick={() => setShowPaneLarge(true)} />
+          </div>
+        </div>
+      </div>
+      <Pane
+        {...args}
+        isOpen={showPaneExtraSmall}
+        size="small"
+        onClose={() => setShowPaneExtraSmall(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <Typography lineHeight="normal" style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setShowPaneExtraSmall(false)}
+          />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowPaneExtraSmall(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+      <Pane
+        {...args}
+        isOpen={showPaneLarge}
+        size="large"
+        onClose={() => setShowPaneLarge(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <Typography lineHeight="normal" style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowPaneLarge(false)} />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowPaneLarge(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+    </div>
+  );
+};
+
+const PaneWithLongTitle = args => {
+  const [showPane, setShowPane] = useState(false);
+  const inputRef = React.useRef(null);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+          </div>
+        </div>
+      </div>
+      <Pane
+        {...args}
+        initialFocusRef={inputRef}
+        isOpen={showPane}
+        onClose={() => setShowPane(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2" weight="semibold">
+            This is a title that will break into two or maybe three lines! But,
+            the footer will stay at the bottom. Yay!
+          </Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <div className="mb-4 w-full">
+            <Input label="Input Label" ref={inputRef} />
+          </div>
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="flex items-center space-x-2">
+          <Button label="Continue" onClick={() => setShowPane(false)} />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowPane(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+    </div>
+  );
+};
+
+const PaneWithModalAndAlert = args => {
   const [showPane, setShowPane] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -227,8 +228,7 @@ export const PaneWithModalAndAlert = () => {
           </div>
         </div>
       </div>
-
-      <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
+      <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
           <Typography style="h2" weight="semibold">
             Typography
@@ -251,8 +251,8 @@ export const PaneWithModalAndAlert = () => {
         <Pane.Footer className="flex items-center space-x-2">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setShowPane(false)}
           />
         </Pane.Footer>
@@ -273,32 +273,32 @@ export const PaneWithModalAndAlert = () => {
           <Input
             label="Input"
             value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
+            onChange={event => setInputValue(event.target.value)}
           />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setShowModal(false)}
           />
         </Modal.Footer>
       </Modal>
       <Alert
         isOpen={showAlert}
-        onClose={() => setShowAlert(false)}
-        onSubmit={() => setShowAlert(false)}
+        title="You have unsaved changes!"
         message="Are you sure you want to continue? All of your unsaved changes will be
           lost."
-        title="You have unsaved changes!"
+        onClose={() => setShowAlert(false)}
+        onSubmit={() => setShowAlert(false)}
       />
     </div>
   );
 };
 PaneWithModalAndAlert.storyName = "Pane with Modal and Alert";
 
-export const MultiplePanes = () => {
+const MultiplePanes = args => {
   const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
   const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -315,8 +315,8 @@ export const MultiplePanes = () => {
           </div>
         </div>
       </div>
-
       <Pane
+        {...args}
         isOpen={isFirstPaneVisible}
         onClose={() => setIsFirstPaneVisible(false)}
       >
@@ -347,13 +347,14 @@ export const MultiplePanes = () => {
             onClick={() => setIsFirstPaneVisible(false)}
           />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsFirstPaneVisible(false)}
           />
         </Pane.Footer>
       </Pane>
       <Pane
+        {...args}
         isOpen={isSecondPaneVisible}
         onClose={() => setIsSecondPaneVisible(false)}
       >
@@ -384,8 +385,8 @@ export const MultiplePanes = () => {
             onClick={() => setIsSecondPaneVisible(false)}
           />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsSecondPaneVisible(false)}
           />
         </Pane.Footer>
@@ -404,8 +405,8 @@ export const MultiplePanes = () => {
         <Modal.Footer className="space-x-2">
           <Button label="Continue" onClick={() => setIsModalVisible(false)} />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsModalVisible(false)}
           />
         </Modal.Footer>
@@ -415,7 +416,7 @@ export const MultiplePanes = () => {
 };
 MultiplePanes.storyName = "Nested panes with modals";
 
-export const PaneWithOverlayManager = () => {
+const PaneWithOverlayManager = args => {
   const [isFirstPaneVisible, setIsFirstPaneVisible] = useState(false);
   const [isSecondPaneVisible, setIsSecondPaneVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -442,8 +443,8 @@ export const PaneWithOverlayManager = () => {
           </div>
         </div>
       </div>
-
       <Pane
+        {...args}
         isOpen={isFirstPaneVisible}
         onClose={() => setIsFirstPaneVisible(false)}
       >
@@ -478,6 +479,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -488,13 +490,14 @@ export const PaneWithOverlayManager = () => {
             onClick={() => setIsFirstPaneVisible(false)}
           />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsFirstPaneVisible(false)}
           />
         </Pane.Footer>
       </Pane>
       <Pane
+        {...args}
         isOpen={isSecondPaneVisible}
         onClose={() => setIsSecondPaneVisible(false)}
       >
@@ -529,6 +532,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -539,8 +543,8 @@ export const PaneWithOverlayManager = () => {
             onClick={() => setIsSecondPaneVisible(false)}
           />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsSecondPaneVisible(false)}
           />
         </Pane.Footer>
@@ -568,6 +572,7 @@ export const PaneWithOverlayManager = () => {
             />
             <Button
               label="Ref to top overlay"
+              // eslint-disable-next-line no-console
               onClick={() => console.log(OverlayManager.getTopMostOverlay())}
             />
           </div>
@@ -575,8 +580,8 @@ export const PaneWithOverlayManager = () => {
         <Modal.Footer className="space-x-2">
           <Button label="Continue" onClick={() => setIsModalVisible(false)} />
           <Button
-            style="text"
             label="Cancel"
+            style="text"
             onClick={() => setIsModalVisible(false)}
           />
         </Modal.Footer>
@@ -586,7 +591,7 @@ export const PaneWithOverlayManager = () => {
 };
 PaneWithOverlayManager.storyName = "Pane with overlay manager";
 
-export const DynamicFieldFocusInsidePane = () => {
+const DynamicFieldFocusInsidePane = args => {
   const [showPane, setShowPane] = useState(false);
   const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const [inputFields, setInputFields] = useState([]);
@@ -596,20 +601,19 @@ export const DynamicFieldFocusInsidePane = () => {
       <div className="space-y-6">
         <div className="w-1/2 space-y-8">
           <div className="flex flex-row items-center justify-start space-x-6">
-            <Button label="Show Pane" onClick={() => {
-              setShowPane(true);
-              setTimeout(() => {
-                setIsInputFieldVisible(true);
-              }, 2500);
-            }} />
+            <Button
+              label="Show Pane"
+              onClick={() => {
+                setShowPane(true);
+                setTimeout(() => {
+                  setIsInputFieldVisible(true);
+                }, 2500);
+              }}
+            />
           </div>
         </div>
       </div>
-
-      <Pane
-        isOpen={showPane}
-        onClose={() => setShowPane(false)}
-      >
+      <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         {({ setFocusField }) => (
           <>
             <Pane.Header>
@@ -618,37 +622,44 @@ export const DynamicFieldFocusInsidePane = () => {
               </Typography>
             </Pane.Header>
             <Pane.Body>
-              <div className="w-full mb-4 space-y-4">
+              <div className="mb-4 w-full space-y-4">
                 <Input label="Input Label" />
                 {isInputFieldVisible && (
                   <Input label="Dynamic field" ref={setFocusField} />
                 )}
-                <Button label="Add Field" onClick={() => {
-                  setInputFields([
-                    ...inputFields,
-                    {
-                      name: `Dynamic Field ${inputFields.length + 1}`,
-                    }
-                  ]);
-                }} />
+                <Button
+                  label="Add Field"
+                  onClick={() => {
+                    setInputFields([
+                      ...inputFields,
+                      {
+                        name: `Dynamic Field ${inputFields.length + 1}`,
+                      },
+                    ]);
+                  }}
+                />
                 {inputFields.map(field => (
-                  <Input label={field.name} key={field.name} ref={setFocusField} />
+                  <Input
+                    key={field.name}
+                    label={field.name}
+                    ref={setFocusField}
+                  />
                 ))}
               </div>
               <Typography style="body2">
                 Somewhere out in space live the Herculoids! Zok, the laser-ray
-                dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
-                Gleep, the formless, fearless wonders! With Zandor, their leader,
-                and his wife, Tara, and son, Dorno, they team up to protect their
-                planet from sinister invaders! All-strong! All-brave! All-heroes!
-                They're the Herculoids!
+                dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop
+                and Gleep, the formless, fearless wonders! With Zandor, their
+                leader, and his wife, Tara, and son, Dorno, they team up to
+                protect their planet from sinister invaders! All-strong!
+                All-brave! All-heroes! They're the Herculoids!
               </Typography>
             </Pane.Body>
             <Pane.Footer className="flex items-center space-x-2">
               <Button label="Continue" onClick={() => setShowPane(false)} />
               <Button
-                style="text"
                 label="Cancel"
+                style="text"
                 onClick={() => setShowPane(false)}
               />
             </Pane.Footer>
@@ -662,8 +673,7 @@ export const DynamicFieldFocusInsidePane = () => {
 DynamicFieldFocusInsidePane.parameters = {
   docs: {
     description: {
-      story:
-        `To focus on a dynamic focusable component please use render callback approach, in which you will
+      story: `To focus on a dynamic focusable component please use render callback approach, in which you will
         get \`setFocusField\` method in thecallback. This method could be passed to ref of the component
         which you want to focus.
         \nYou can also use this approach to set focus on any field that you later add to the pane.
@@ -672,3 +682,15 @@ DynamicFieldFocusInsidePane.parameters = {
   },
 };
 DynamicFieldFocusInsidePane.storyName = "Dynamic field focus inside pane";
+
+export {
+  Default,
+  Sizes,
+  PaneWithLongTitle,
+  PaneWithModalAndAlert,
+  MultiplePanes,
+  PaneWithOverlayManager,
+  DynamicFieldFocusInsidePane,
+};
+
+export default metadata;

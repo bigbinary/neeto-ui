@@ -1,9 +1,12 @@
 import React from "react";
-import { Settings, Delete, MenuHorizontal } from "@bigbinary/neeto-icons";
+
+import { Settings, Delete, MenuHorizontal } from "neetoicons";
 
 import ActionDropdown from "components/ActionDropdown";
 
-export default {
+const listItems = ["Option 1", "Option 2", "Option 3"];
+
+const metadata = {
   title: "Components/ActionDropdown",
   component: ActionDropdown,
   subcomponents: {
@@ -18,29 +21,23 @@ export default {
       description: {
         component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
       },
-      source: {
-        type: "code",
-      },
     },
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
+      url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
   argTypes: {
     onClick: {
       table: {
         type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" }
-      }
+        defaultValue: { summary: "(event) => void" },
+      },
     },
   },
 };
 
-const listItems = ["Option 1", "Option 2", "Option 3"];
-
-const Template = (args) => {
+const Template = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
@@ -53,7 +50,7 @@ const Template = (args) => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -62,18 +59,19 @@ const Template = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
+
 Default.args = {
   buttonStyle: "primary",
   label: "Primary",
 };
 
-export const Styles = () => {
+const Styles = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40 space-x-6">
-      <ActionDropdown buttonStyle="primary" label="Primary">
+      <ActionDropdown {...args} buttonStyle="primary" label="Primary">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
@@ -81,7 +79,7 @@ export const Styles = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -94,7 +92,7 @@ export const Styles = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -107,7 +105,7 @@ export const Styles = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -116,12 +114,12 @@ export const Styles = () => {
   );
 };
 
-export const Sizes = () => {
+const Sizes = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40 space-x-6">
-      <ActionDropdown buttonSize="small" label="Small">
+      <ActionDropdown {...args} buttonSize="small" label="Small">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
@@ -129,7 +127,7 @@ export const Sizes = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -142,7 +140,7 @@ export const Sizes = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -155,7 +153,7 @@ export const Sizes = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -164,12 +162,13 @@ export const Sizes = () => {
   );
 };
 
-export const CustomIcon = () => {
+const CustomIcon = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
     <div className="h-40">
       <ActionDropdown
+        {...args}
         dropdownProps={{ icon: MenuHorizontal }}
         label="Custom icon"
       >
@@ -180,7 +179,7 @@ export const CustomIcon = () => {
             </MenuItem.Button>
           ))}
           <Divider />
-          <MenuItem.Button style="danger" prefix={<Delete size={20} />}>
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
             Delete
           </MenuItem.Button>
         </Menu>
@@ -188,4 +187,9 @@ export const CustomIcon = () => {
     </div>
   );
 };
+
 CustomIcon.storyName = "Custom icon";
+
+export { Default, Styles, Sizes, CustomIcon };
+
+export default metadata;

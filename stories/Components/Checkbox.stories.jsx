@@ -2,7 +2,7 @@ import React from "react";
 
 import Checkbox from "components/Checkbox";
 
-export default {
+const metadata = {
   title: "Components/Checkbox",
   component: Checkbox,
   parameters: {
@@ -19,9 +19,9 @@ export default {
   },
 };
 
-const Template = (args) => <Checkbox {...args} />;
+const Template = args => <Checkbox {...args} />;
 
-export const Checked = Template.bind({});
+const Checked = Template.bind({});
 Checked.args = {
   id: "checkbox_name",
   label: "This is a checkbox",
@@ -29,23 +29,27 @@ Checked.args = {
   onChange: () => {},
 };
 
-export const Disabled = Template.bind({});
+const Disabled = Template.bind({});
 Disabled.args = {
   id: "checkbox_name_disabled",
   label: "This checkbox is disabled",
   disabled: true,
 };
 
-export const Required = Template.bind({});
+const Required = Template.bind({});
 Required.args = {
   id: "checkbox_name_required",
   label: "This checkbox is required",
   required: true,
 };
 
-export const Error = Template.bind({});
+const Error = Template.bind({});
 Error.args = {
   id: "checkbox_name_error",
   label: "Checkbox with error",
   error: "Error message",
 };
+
+export { Checked, Disabled, Required, Error };
+
+export default metadata;

@@ -1,7 +1,8 @@
 import React from "react";
+
 import classnames from "classnames";
+import { Info } from "neetoicons";
 import PropTypes from "prop-types";
-import { Info } from "@bigbinary/neeto-icons";
 
 import Tooltip from "./Tooltip";
 

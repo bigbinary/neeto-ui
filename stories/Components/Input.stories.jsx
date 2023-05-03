@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Search } from "@bigbinary/neeto-icons";
 
-import Input from "components/Input";
-import Button from "components/Button";
-import { Input as FormikInput, Form } from "components/formik";
+import { Search } from "neetoicons";
 import * as yup from "yup";
 
-export default {
+import Button from "components/Button";
+import { Input as FormikInput, Form } from "components/formik";
+import Input from "components/Input";
+
+const metadata = {
   title: "Components/Input",
   component: Input,
   parameters: {
@@ -25,61 +26,70 @@ export default {
 
 const Template = args => <Input {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Input label",
   placeholder: "Input placeholder",
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const Sizes = ({}) => {
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <Input label="Small" placeholder="Input placeholder" size="small" />
-      <Input label="Medium" placeholder="Input placeholder" />
-      <Input label="Large" placeholder="Input placeholder" size="large" />
-    </div>
-  );
-};
+const Sizes = args => (
+  <div className="flex w-full flex-col gap-3">
+    <Input
+      {...args}
+      label="Small"
+      placeholder="Input placeholder"
+      size="small"
+    />
+    <Input {...args} label="Medium" placeholder="Input placeholder" />
+    <Input
+      {...args}
+      label="Large"
+      placeholder="Input placeholder"
+      size="large"
+    />
+  </div>
+);
 
-export const Controlled = () => {
+const Controlled = args => {
   const [value, setValue] = useState("BigBinary");
+
   return (
     <Input
-      prefix={<Search />}
+      {...args}
       label="Controlled Input"
+      prefix={<Search />}
       value={value}
       onChange={e => setValue(e.target.value)}
     />
   );
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const Required = ({}) => (
+const Required = args => (
   <Input
+    {...args}
+    required
     label="Required Input"
     placeholder="Input placeholder"
-    required={true}
   />
 );
 
-// eslint-disable-next-line no-empty-pattern
-export const Disabled = ({}) => (
+const Disabled = args => (
   <Input
+    {...args}
+    disabled
     label="Disabled Input"
     placeholder="Input placeholder"
-    disabled={true}
   />
 );
 
-export const Error = Template.bind({});
+const Error = Template.bind({});
 Error.args = {
   label: "Error",
   error: "Provide valid email",
   placeholder: "Input placeholder",
 };
 
-export const HelpText = Template.bind({});
+const HelpText = Template.bind({});
 HelpText.args = {
   label: "Error",
   helpText: "This is help text.",
@@ -87,14 +97,14 @@ HelpText.args = {
 };
 HelpText.storyName = "Help text";
 
-export const NakedInput = Template.bind({});
+const NakedInput = Template.bind({});
 NakedInput.args = {
   label: "Naked Input field",
   nakedInput: true,
   placeholder: "Input placeholder",
 };
 
-export const SearchInput = Template.bind({});
+const SearchInput = Template.bind({});
 SearchInput.args = {
   label: "Search",
   prefix: <Search />,
@@ -103,61 +113,59 @@ SearchInput.args = {
   placeholder: "Input search text",
 };
 
-export const InputWithMaxLength = () => {
-  return (
-    <div className="flex flex-col space-y-6">
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        value="Sample i"
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length"
-        maxLength={10}
-        value="Sample in"
-        placeholder="Input placeholder"
-      />
-      <Input
-        label="Input with max length and unlimited characters"
-        maxLength={10}
-        unlimitedChars={true}
-        value="Sample Input"
-        placeholder="Input placeholder"
-      />
-    </div>
-  );
-};
+const InputWithMaxLength = args => (
+  <div className="flex flex-col space-y-6">
+    <Input
+      {...args}
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+    />
+    <Input
+      {...args}
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample i"
+    />
+    <Input
+      {...args}
+      label="Input with max length"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample in"
+    />
+    <Input
+      {...args}
+      unlimitedChars
+      label="Input with max length and unlimited characters"
+      maxLength={10}
+      placeholder="Input placeholder"
+      value="Sample Input"
+    />
+  </div>
+);
 InputWithMaxLength.storyName = "Input with max length";
 
-export const FormikInputStory = ({}) => {
-  return (
-    <>
-      <Form
-        formikProps={{
-          initialValues: { name: "", email: "" },
-          validationSchema: yup.object({
-            name: yup.string().required("Name is required"),
-          }),
-          onSubmit: values => window.alert(JSON.stringify(values)),
-        }}
-      >
-        {props => (
-          <div className="space-y-2">
-            <FormikInput name="name" label="Name" />
-            <FormikInput name="email" type="email" label="Email" />
-            <Button type="submit" label="Submit" />
-          </div>
-        )}
-      </Form>
-    </>
-  );
-};
+const FormikInputStory = args => (
+  <Form
+    formikProps={{
+      initialValues: { name: "", email: "" },
+      validationSchema: yup.object({
+        name: yup.string().required("Name is required"),
+      }),
+      onSubmit: values => window.alert(JSON.stringify(values)),
+    }}
+  >
+    {() => (
+      <div className="space-y-2">
+        <FormikInput {...args} label="Name" name="name" />
+        <FormikInput {...args} label="Email" name="email" type="email" />
+        <Button label="Submit" type="submit" />
+      </div>
+    )}
+  </Form>
+);
 
 FormikInputStory.storyName = "Formik Input";
 FormikInputStory.parameters = {
@@ -168,3 +176,19 @@ FormikInputStory.parameters = {
     },
   },
 };
+
+export {
+  Default,
+  Sizes,
+  Controlled,
+  Required,
+  Disabled,
+  Error,
+  HelpText,
+  NakedInput,
+  SearchInput,
+  InputWithMaxLength,
+  FormikInputStory,
+};
+
+export default metadata;

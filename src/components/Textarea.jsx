@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React, { useState, useEffect, forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
@@ -123,6 +122,8 @@ const Textarea = forwardRef(
     );
   }
 );
+
+Textarea.displayName = "Textarea";
 
 Textarea.propTypes = {
   /**
