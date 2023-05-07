@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
 
-import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
+import { Tooltip, Tag, Avatar, Button, Dropdown } from "components";
 import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
@@ -36,6 +36,12 @@ const metadata = {
       control: false,
     },
     handlePageChange: {
+      table: {
+        type: { summary: "func" },
+        defaultValue: { summary: "-" },
+      },
+    },
+    onColumnUpdate: {
       table: {
         type: { summary: "func" },
         defaultValue: { summary: "-" },
@@ -168,18 +174,6 @@ const getColumns = (fixed = false) => [
     width: 150,
   },
   {
-    title: "Buzzword",
-    dataIndex: "buzzword",
-    key: "buzzword",
-    width: 250,
-  },
-  {
-    title: "Gender",
-    dataIndex: "gender",
-    key: "gender",
-    width: 150,
-  },
-  {
     title: "Email",
     dataIndex: "email",
     key: "email",
@@ -189,37 +183,10 @@ const getColumns = (fixed = false) => [
     },
   },
   {
-    title: "Company Name",
-    dataIndex: "company_name",
-    key: "company_name",
-    ellipsis: {
-      showTitle: false,
-    },
-    width: 75,
-  },
-  {
     title: "IP Address",
     dataIndex: "ip_address",
     key: "ip_address",
     width: 150,
-  },
-  {
-    title: "Department",
-    dataIndex: "department",
-    key: "department",
-    ellipsis: {
-      showTitle: false,
-    },
-    width: 150,
-  },
-  {
-    title: "Job Title",
-    dataIndex: "job_title",
-    key: "job_title",
-    ellipsis: {
-      showTitle: false,
-    },
-    width: 75,
   },
   {
     title: "Currency",
@@ -236,34 +203,6 @@ const getColumns = (fixed = false) => [
       showTitle: false,
     },
   },
-  {
-    title: "Currency Code",
-    dataIndex: "currency_code",
-    key: "currency_code",
-    width: 150,
-  },
-  {
-    title: "Domain Name",
-    dataIndex: "domain_name",
-    key: "domain_name",
-    ellipsis: {
-      showTitle: false,
-    },
-    width: 200,
-  },
-  {
-    title: "App Name",
-    dataIndex: "app_name",
-    key: "app_name",
-    width: 150,
-  },
-  {
-    title: "App Version",
-    dataIndex: "app_version",
-    key: "app_version",
-    width: 150,
-  },
-
   {
     title: "Shirt Size",
     dataIndex: "shirt_size",
@@ -517,6 +456,50 @@ TableWithDynamicData.args = {
   defaultPageSize: 10,
 };
 
+const TableWithResizableColumns = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  return (
+    <div className="h-96">
+      <NeetoTable
+        enableColumnResize
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onColumnUpdate={columns => {}}
+        {...args}
+      />
+    </div>
+  );
+};
+TableWithResizableColumns.storyName = "Table with resizable columns";
+TableWithResizableColumns.args = {
+  defaultPageSize: 10,
+};
+
+const TableWithReordableColumns = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  return (
+    <div className="h-96">
+      <NeetoTable
+        enableColumnReorder
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onColumnUpdate={columns => {}}
+        {...args}
+      />
+    </div>
+  );
+};
+TableWithReordableColumns.storyName = "Table with reorderable columns";
+TableWithReordableColumns.args = {
+  defaultPageSize: 10,
+};
+
 export {
   Default,
   TableWithSpecifiedHorizontalScrolling,
@@ -527,6 +510,8 @@ export {
   TableWithFixedHeight,
   TableWithoutCheckbox,
   TableWithDynamicData,
+  TableWithResizableColumns,
+  TableWithReordableColumns,
 };
 
 export default metadata;

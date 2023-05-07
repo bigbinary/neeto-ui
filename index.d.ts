@@ -372,6 +372,9 @@ export interface TableProps {
   };
   rowSelection?: any;
   shouldDynamicallyRenderRowSize?: boolean;
+  enableColumnResize?: boolean;
+  enableColumnReorder?: boolean;
+  onColumnUpdate?: (columns: any[]) => void;
   [key: string]: any;
 }
 

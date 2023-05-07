@@ -1,15 +1,24 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
+import ReactDragListView from "react-drag-listview";
 
 import { useTimeout } from "hooks";
 import { noop } from "utils";
 
-import Button from "./Button";
-import Typography from "./Typography";
+import {
+  ResizableHeaderCell,
+  ReorderableHeaderCell,
+  HeaderCell,
+} from "./HeaderCell";
+import useReorderColumns from "./useReorderColumns";
+import useResizableColumns from "./useResizableColumns";
+
+import Button from "../Button";
+import Typography from "../Typography";
 
 const TABLE_PAGINATION_HEIGHT = 64;
 const TABLE_DEFAULT_HEADER_HEIGHT = 40;
@@ -17,6 +26,8 @@ const TABLE_ROW_HEIGHT = 52;
 
 const Table = ({
   allowRowClick = true,
+  enableColumnResize = false,
+  enableColumnReorder = false,
   className = "",
   columnData = [],
   currentPageNumber = 1,
@@ -34,10 +45,13 @@ const Table = ({
   rowSelection,
   shouldDynamicallyRenderRowSize = false,
   bordered = true,
+  onColumnUpdate = noop,
+  components = {},
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
+  const [columns, setColumns] = useState(columnData);
 
   const headerRef = useRef();
 
@@ -51,13 +65,6 @@ const Table = ({
     )
   );
 
-  useTimeout(() => {
-    const headerHeight = headerRef.current
-      ? headerRef.current.offsetHeight
-      : TABLE_DEFAULT_HEADER_HEIGHT;
-    setHeaderHeight(headerHeight);
-  }, 0);
-
   const tableRef = useCallback(
     table => {
       if (fixedHeight) {
@@ -70,6 +77,28 @@ const Table = ({
     },
     [resizeObserver.current, fixedHeight]
   );
+
+  useTimeout(() => {
+    const headerHeight = headerRef.current
+      ? headerRef.current.offsetHeight
+      : TABLE_DEFAULT_HEADER_HEIGHT;
+    setHeaderHeight(headerHeight);
+  }, 0);
+
+  const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
+    isEnabled: enableColumnReorder,
+    columns,
+    setColumns,
+    onColumnUpdate,
+    rowSelection,
+  });
+
+  const { columns: curatedColumnsData } = useResizableColumns({
+    isEnabled: enableColumnResize,
+    columns: columnsWithReorderProps,
+    setColumns,
+    onColumnUpdate,
+  });
 
   const locale = {
     emptyText: <Typography style="body2">No Data</Typography>,
@@ -87,6 +116,23 @@ const Table = ({
       selectedRowKeys,
     };
   }
+
+  const reordableHeader = {
+    header: {
+      cell: enableColumnResize
+        ? enableColumnReorder
+          ? HeaderCell
+          : ResizableHeaderCell
+        : enableColumnReorder
+        ? ReorderableHeaderCell
+        : null,
+    },
+  };
+
+  const componentOverrides = {
+    ...components,
+    ...reordableHeader,
+  };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
@@ -134,10 +180,11 @@ const Table = ({
     return pageSizeOptions;
   };
 
-  return (
+  const renderTable = () => (
     <AntTable
       bordered={bordered}
-      columns={columnData}
+      columns={curatedColumnsData}
+      components={componentOverrides}
       dataSource={rowData}
       loading={loading}
       locale={locale}
@@ -170,7 +217,9 @@ const Table = ({
       }}
       onHeaderRow={() => ({
         ref: headerRef,
-        className: "neeto-ui-table__header",
+        className: classnames("neeto-ui-table__header", {
+          "neeto-ui-table-reorderable": enableColumnReorder,
+        }),
         id: "neeto-ui-table__header",
       })}
       onRow={(record, rowIndex) => ({
@@ -180,6 +229,20 @@ const Table = ({
       {...otherProps}
     />
   );
+
+  useEffect(() => {
+    setColumns(columnData);
+  }, [columnData]);
+
+  if (enableColumnReorder) {
+    return (
+      <ReactDragListView.DragColumn {...dragProps}>
+        {renderTable()}
+      </ReactDragListView.DragColumn>
+    );
+  }
+
+  return renderTable();
 };
 
 Table.propTypes = {
@@ -249,7 +312,20 @@ Table.propTypes = {
    * Total number of data items.
    */
   totalCount: PropTypes.number,
-
+  /**
+   * Enables resizing of columns. Accepts boolean values.
+   */
+  enableColumnResize: PropTypes.bool,
+  /**
+   * Enables reordering of columns. Accepts boolean values.
+   */
+  enableColumnReorder: PropTypes.bool,
+  /**
+   * Handles column update events. Accepts a callback with `columns` as parameters.
+   *
+   * `onColumnUpdate={(columns) => {}}`
+   */
+  onColumnUpdate: PropTypes.func,
   /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.
