@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.1 - 2023-05-07
+
+- Added: resize and reorder columns functionality to *Table* component.
+
 ## 5.0.0 - 2023-04-28
 
 Removed following components from `neetoui`:
@@ -149,7 +153,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 - Fixed: Alignment issues in Table headers when sort is enabled.
 - Fixed: Made Table headers popout.
 **Color contrast improvements**
-
 - Updated: `--neeto-ui-black` from `#1b1f23` to `#121212`.
 - Updated: `--neeto-ui-gray-800` from `#2f3941` to `#1f1f1f`.
 - Updated: `--neeto-ui-gray-700` from `#49545c` to `#2f3941`.
@@ -345,7 +348,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.11 - 2022-10-10
 - Fixed false positive type errors
 ## 4.0.10 - 2022-10-05
-
 - Fixed: issue with week picker in `DatePicker`.
 
 ## 4.0.9 - 2022-09-29
