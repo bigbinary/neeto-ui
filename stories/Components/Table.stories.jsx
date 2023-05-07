@@ -1,30 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
-import {
-  getTableSource,
-  TABLE_DATA,
-  TABLE_IN_LAYOUT,
-  SIMPLE_TABLE_DATA,
-} from "../constants";
-import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
-import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
-import LayoutDocs from "!raw-loader!./TableStoriesDocs/LayoutTableDocs.mdx";
-import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
-import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
 
-import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
+import { Tooltip, Tag, Avatar, Button, Dropdown } from "components";
 import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
-import { Tooltip, Tag, Avatar, Button, Typography, Dropdown } from "components";
-import {
-  Container,
-  Scrollable,
-  MenuBar,
-  Header,
-  SubHeader,
-} from "components/layouts";
 
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
@@ -477,15 +458,16 @@ TableWithDynamicData.args = {
 
 const TableWithResizableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <div className="h-96">
       <NeetoTable
         enableColumnResize
-        onColumnUpdate={columns => {}}
         columnData={getColumns()}
-        rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onColumnUpdate={columns => {}}
         {...args}
       />
     </div>
@@ -496,17 +478,18 @@ TableWithResizableColumns.args = {
   defaultPageSize: 10,
 };
 
-export const TableWithReordableColumns = args => {
+const TableWithReordableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <div className="h-96">
       <NeetoTable
         enableColumnReorder
-        onColumnUpdate={columns => {}}
         columnData={getColumns()}
-        rowData={TABLE_DATA}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onColumnUpdate={columns => {}}
         {...args}
       />
     </div>
@@ -528,6 +511,7 @@ export {
   TableWithoutCheckbox,
   TableWithDynamicData,
   TableWithResizableColumns,
+  TableWithReordableColumns,
 };
 
 export default metadata;

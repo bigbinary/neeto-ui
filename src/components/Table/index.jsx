@@ -1,23 +1,24 @@
 import React, { useCallback, useRef, useState, useEffect } from "react";
+
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
+import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { Left, Right, MenuHorizontal } from "@bigbinary/neeto-icons";
+import ReactDragListView from "react-drag-listview";
+
+import { useTimeout } from "hooks";
+import { noop } from "utils";
+
 import {
   ResizableHeaderCell,
   ReorderableHeaderCell,
   HeaderCell,
 } from "./HeaderCell";
-
-import { noop } from "utils";
-
-import Typography from "../Typography";
-import Button from "../Button";
-import { useTimeout } from "hooks";
-
-import useResizableColumns from "./useResizableColumns";
 import useReorderColumns from "./useReorderColumns";
-import ReactDragListView from "react-drag-listview";
+import useResizableColumns from "./useResizableColumns";
+
+import Button from "../Button";
+import Typography from "../Typography";
 
 const TABLE_PAGINATION_HEIGHT = 64;
 const TABLE_DEFAULT_HEADER_HEIGHT = 40;
@@ -55,12 +56,17 @@ const Table = ({
   const headerRef = useRef();
 
   const resizeObserver = useRef(
-    new ResizeObserver(([{ contentRect: { height } }]) =>
-      setContainerHeight(height)
+    new ResizeObserver(
+      ([
+        {
+          contentRect: { height },
+        },
+      ]) => setContainerHeight(height)
     )
   );
+
   const tableRef = useCallback(
-    (table) => {
+    table => {
       if (fixedHeight) {
         if (table !== null) {
           resizeObserver.current.observe(table?.parentNode);
@@ -118,12 +124,12 @@ const Table = ({
           ? HeaderCell
           : ResizableHeaderCell
         : enableColumnReorder
-          ? ReorderableHeaderCell
-          : null,
+        ? ReorderableHeaderCell
+        : null,
     },
   };
 
-  let componentOverrides = {
+  const componentOverrides = {
     ...components,
     ...reordableHeader,
   };
@@ -135,19 +141,19 @@ const Table = ({
 
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
-      return <Button style="text" className="" icon={Left} />;
+      return <Button className="" icon={Left} style="text" />;
     }
 
     if (type === "next") {
-      return <Button style="text" className="" icon={Right} />;
+      return <Button className="" icon={Right} style="text" />;
     }
 
     if (type === "jump-prev") {
-      return <Button style="text" className="" icon={MenuHorizontal} />;
+      return <Button className="" icon={MenuHorizontal} style="text" />;
     }
 
     if (type === "jump-next") {
-      return <Button style="text" className="" icon={MenuHorizontal} />;
+      return <Button className="" icon={MenuHorizontal} style="text" />;
     }
 
     return originalElement;
@@ -158,6 +164,7 @@ const Table = ({
     const rowsPerPage = Math.floor(
       ((viewportHeight - TABLE_PAGINATION_HEIGHT) / TABLE_ROW_HEIGHT) * 3
     );
+
     return Math.ceil(rowsPerPage / 10) * 10;
   };
 
@@ -167,64 +174,61 @@ const Table = ({
       : defaultPageSize;
 
     const pageSizeOptions = [...Array(5).keys()].map(
-      (i) => (i + 1) * rowsPerPage
+      i => (i + 1) * rowsPerPage
     );
 
     return pageSizeOptions;
   };
 
-  const renderTable = () => {
-    return (
-      <AntTable
-        sticky
-        bordered={bordered}
-        ref={tableRef}
-        columns={curatedColumnsData}
-        dataSource={rowData}
-        loading={loading}
-        components={componentOverrides}
-        rowClassName={classnames(
-          "neeto-ui-table--row",
-          { "neeto-ui-table--row_hover": allowRowClick },
-          [className]
-        )}
-        rowSelection={rowSelectionProps}
-        scroll={{
-           x:"max-content",
-          y: calculateTableContainerHeight(),
-          ...scroll,
-        }}
-        showSorterTooltip={false}
-        pagination={{
-          hideOnSinglePage: true,
-          ...paginationProps,
-          showSizeChanger: false,
-          total: totalCount ?? 0,
-          current: currentPageNumber,
-          defaultPageSize: shouldDynamicallyRenderRowSize
-            ? calculateRowsPerPage()
-            : defaultPageSize,
-          pageSizeOptions: calculatePageSizeOptions(),
-          onChange: handlePageChange,
-          itemRender,
-        }}
-        onRow={(record, rowIndex) => ({
-          onClick: (event) =>
-            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
-        })}
-        onHeaderRow={() => ({
-          ref: headerRef,
-          className: classnames("neeto-ui-table__header", {
-            "neeto-ui-table-reorderable": enableColumnReorder,
-          }),
-          id: "neeto-ui-table__header",
-        })}
-        locale={locale}
-        rowKey={"id"}
-        {...otherProps}
-      />
-    );
-  };
+  const renderTable = () => (
+    <AntTable
+      bordered={bordered}
+      columns={curatedColumnsData}
+      components={componentOverrides}
+      dataSource={rowData}
+      loading={loading}
+      locale={locale}
+      ref={tableRef}
+      rowKey="id"
+      rowSelection={rowSelectionProps}
+      showSorterTooltip={false}
+      pagination={{
+        hideOnSinglePage: true,
+        ...paginationProps,
+        showSizeChanger: false,
+        total: totalCount ?? 0,
+        current: currentPageNumber,
+        defaultPageSize: shouldDynamicallyRenderRowSize
+          ? calculateRowsPerPage()
+          : defaultPageSize,
+        pageSizeOptions: calculatePageSizeOptions(),
+        onChange: handlePageChange,
+        itemRender,
+      }}
+      rowClassName={classnames(
+        "neeto-ui-table--row",
+        { "neeto-ui-table--row_hover": allowRowClick },
+        [className]
+      )}
+      scroll={{
+        x: "max-content",
+        y: calculateTableContainerHeight(),
+        ...scroll,
+      }}
+      onHeaderRow={() => ({
+        ref: headerRef,
+        className: classnames("neeto-ui-table__header", {
+          "neeto-ui-table-reorderable": enableColumnReorder,
+        }),
+        id: "neeto-ui-table__header",
+      })}
+      onRow={(record, rowIndex) => ({
+        onClick: event =>
+          allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+      })}
+      {...otherProps}
+    />
+  );
 
   useEffect(() => {
     setColumns(columnData);
