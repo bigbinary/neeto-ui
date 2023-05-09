@@ -38,6 +38,7 @@ const MultiEmailInput = forwardRef(
       counter,
       disabled = false,
       maxHeight = 200,
+      required = false,
       labelProps,
       ...otherProps
     },
@@ -121,6 +122,7 @@ const MultiEmailInput = forwardRef(
             <Label
               className="neeto-ui-email-input__label"
               data-cy={`${hyphenize(label)}-input-label`}
+              required={required}
               {...labelProps}
             >
               {label}

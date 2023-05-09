@@ -225,7 +225,8 @@ const FormikEmail = args => {
         {...args}
         counter
         filterInvalidEmails
-        label="Email(s)*"
+        required
+        label="Email(s)"
         name="emails"
       />
       <Button
