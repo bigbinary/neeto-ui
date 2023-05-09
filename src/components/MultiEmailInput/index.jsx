@@ -239,6 +239,10 @@ MultiEmailInput.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
+   * To specify whether the Input field is required or not.
+   */
+  required: PropTypes.bool,
+  /**
    * To specify the message to be shown besides the error message to filter out the invalid emails.
    */
   filterInvalidEmails: PropTypes.shape({ label: PropTypes.string }),
