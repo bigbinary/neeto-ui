@@ -260,6 +260,7 @@ export interface MultiEmailInputProps {
   filterInvalidEmails?: { label: string };
   counter?: boolean | { label: string; startFrom: number };
   disabled?: boolean;
+  required?: boolean;
   maxHeight?: number;
   labelProps?: LabelProps;
   [key: string]: any;
