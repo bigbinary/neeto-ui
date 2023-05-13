@@ -197,7 +197,7 @@ const MultiEmailInput = forwardRef(
             >
               {!!error && `${error} `}
               {showEmailRequiredError &&
-                `At least one email address is required. `}
+                "At least one email address is required. "}
               {showInvalidEmailsError && (
                 <span
                   className="neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold cursor-pointer"

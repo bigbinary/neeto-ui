@@ -29,6 +29,12 @@ const SAMPLE_EMAILS = [
   },
 ];
 
+const triggerBlurEvent = () => {
+  const emailInput = screen.getByRole("combobox");
+  userEvent.click(emailInput);
+  userEvent.click(document.body);
+};
+
 describe("MultiEmailInput", () => {
   it("should render without error", () => {
     render(<MultiEmailInput />);
@@ -46,7 +52,7 @@ describe("MultiEmailInput", () => {
   });
 
   it("should render asterisk when required is set to true", () => {
-    const { getByText } = render(<MultiEmailInput required/>);
+    const { getByText } = render(<MultiEmailInput required />);
     const asterisk = getByText("*");
     expect(asterisk).toBeInTheDocument();
   });
@@ -83,9 +89,7 @@ describe("MultiEmailInput", () => {
   it("should call onBlur when focus from the input field changes", () => {
     const onBlur = jest.fn();
     render(<MultiEmailInput onBlur={onBlur} />);
-    const emailInput = screen.getByRole("combobox");
-    userEvent.click(emailInput);
-    userEvent.click(document.body);
+    triggerBlurEvent();
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
@@ -157,6 +161,7 @@ describe("MultiEmailInput", () => {
 
   it("should remove all invalid emails on clicking filterInvalidEmails label", () => {
     const onChange = jest.fn();
+    const onBlur = jest.fn();
     render(
       <MultiEmailInput
         error="Invalid email"
@@ -167,9 +172,11 @@ describe("MultiEmailInput", () => {
           { label: "test@example.com", value: "test@example.com", valid: true },
           { label: "invalidEmail", value: "invalidEmail" },
         ]}
+        onBlur={onBlur}
         onChange={onChange}
       />
     );
+    triggerBlurEvent();
     userEvent.click(screen.getByText("Filter invalid emails"));
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
@@ -179,20 +186,32 @@ describe("MultiEmailInput", () => {
 
   it("should display filterInvalidEmails label if no label is provided", () => {
     const onChange = jest.fn();
+    const onBlur = jest.fn();
     render(
       <MultiEmailInput
-        error="Invalid email"
         filterInvalidEmails={{}}
         value={[
           { label: "test@example.com", value: "test@example.com", valid: true },
           { label: "invalidEmail", value: "invalidEmail" },
         ]}
+        onBlur={onBlur}
         onChange={onChange}
       />
     );
 
+    triggerBlurEvent();
     expect(
       screen.getByText("Click here to remove invalid emails.")
+    ).toBeInTheDocument();
+  });
+
+  it("should display required error message if no email is provided", () => {
+    const onBlur = jest.fn();
+    render(<MultiEmailInput required onBlur={onBlur} />);
+
+    triggerBlurEvent();
+    expect(
+      screen.getByText("At least one email address is required.")
     ).toBeInTheDocument();
   });
 
