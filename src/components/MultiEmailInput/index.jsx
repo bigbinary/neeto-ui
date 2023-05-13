@@ -18,7 +18,7 @@ import {
   pruneDuplicates,
   renderValidEmails,
   renderDefaultText,
-  getValidEmailCount,
+  getValidEmailsCount,
 } from "./utils";
 
 import Label from "../Label";
@@ -49,7 +49,7 @@ const MultiEmailInput = forwardRef(
 
     const isCounterVisible =
       !!counter &&
-      (!counter.startsFrom || getValidEmailCount(value) >= counter.startsFrom);
+      (!counter.startsFrom || getValidEmailsCount(value) >= counter.startsFrom);
 
     const isOptionsPresent = !!otherProps.options;
 
@@ -125,7 +125,7 @@ const MultiEmailInput = forwardRef(
     const showInvalidEmailsError =
       !!filterInvalidEmails &&
       validate &&
-      value.length > getValidEmailCount(value);
+      value.length > getValidEmailsCount(value);
 
     const showEmailRequiredError = validate && required && isEmpty(value);
 
@@ -151,10 +151,10 @@ const MultiEmailInput = forwardRef(
               data-cy={`${hyphenize(label)}-email-counter`}
               style="body2"
             >
-              {getValidEmailCount(value)}{" "}
+              {getValidEmailsCount(value)}{" "}
               {counter.label
                 ? counter.label
-                : renderDefaultText(getValidEmailCount(value))}
+                : renderDefaultText(getValidEmailsCount(value))}
             </Typography>
           )}
         </div>

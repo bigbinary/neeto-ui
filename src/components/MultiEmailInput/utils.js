@@ -18,6 +18,6 @@ export const pruneDuplicates = inputValues => {
 export const renderValidEmails = values =>
   values.filter(email => email.valid && email);
 
-export const getValidEmailCount = values => renderValidEmails(values).length;
+export const getValidEmailsCount = values => renderValidEmails(values).length;
 
 export const renderDefaultText = count => (count === 1 ? "email" : "emails");
