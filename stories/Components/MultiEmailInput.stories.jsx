@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Search } from "neetoicons";
+import { prop, pluck } from "ramda";
 import * as yup from "yup";
 
 import Button from "components/Button";
@@ -10,6 +11,7 @@ import {
 } from "components/formik";
 import MultiEmailInput from "components/MultiEmailInput";
 import Typography from "components/Typography";
+import { noop } from "utils";
 
 import { suffixes, prefixes } from "../constants";
 
@@ -202,13 +204,12 @@ const FormikEmail = args => {
       .test(
         "are-all-emails-valid",
         "Please make sure all emails are valid.",
-        emails => emails.every(({ valid }) => valid)
+        emails => emails.every(prop("valid"))
       )
       .nullable(),
   });
 
-  const handleSubmit = ({ emails }) =>
-    setEmails(emails.map(({ value }) => value));
+  const handleSubmit = ({ emails }) => setEmails(pluck("value", emails));
 
   return (
     <Form
@@ -221,21 +222,29 @@ const FormikEmail = args => {
         onSubmit: handleSubmit,
       }}
     >
-      <FormikMultiEmailInput
-        {...args}
-        counter
-        filterInvalidEmails
-        required
-        label="Email(s)"
-        name="emails"
-      />
-      <Button
-        data-cy="add-member-submit-button"
-        label="Save changes"
-        style="primary"
-        type="submit"
-      />
-      <Typography style="body1">Emails: {JSON.stringify(emails)}</Typography>
+      {({ setFieldValue, values }) => (
+        <>
+          <FormikMultiEmailInput
+            {...args}
+            counter
+            filterInvalidEmails
+            required
+            label="Email(s)"
+            name="emails"
+            value={values.emails}
+            onChange={emails => setFieldValue("emails", emails)}
+          />
+          <Button
+            data-cy="add-member-submit-button"
+            label="Save changes"
+            style="primary"
+            type="submit"
+          />
+          <Typography style="body1">
+            Emails: {JSON.stringify(emails)}
+          </Typography>
+        </>
+      )}
     </Form>
   );
 };
