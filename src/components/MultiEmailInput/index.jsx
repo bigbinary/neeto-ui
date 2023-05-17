@@ -18,7 +18,7 @@ import {
   pruneDuplicates,
   renderValidEmails,
   renderDefaultText,
-  getValidEmailsCount,
+  getEmailsCount,
 } from "./utils";
 
 import Label from "../Label";
@@ -45,11 +45,10 @@ const MultiEmailInput = forwardRef(
     ref
   ) => {
     const [inputValue, setInputValue] = useState("");
-    const [validate, setValidate] = useState(false);
 
     const isCounterVisible =
       !!counter &&
-      (!counter.startsFrom || getValidEmailsCount(value) >= counter.startsFrom);
+      (!counter.startsFrom || getEmailsCount(value) >= counter.startsFrom);
 
     const isOptionsPresent = !!otherProps.options;
 
@@ -92,14 +91,8 @@ const MultiEmailInput = forwardRef(
       otherProps?.onCreateOption?.(input);
     };
 
-    const handleBlur = event => {
-      setValidate(true);
-      if (inputValue) {
-        handleEmailChange();
-      } else {
-        onBlur(event);
-      }
-    };
+    const handleBlur = event =>
+      inputValue ? handleEmailChange() : onBlur(event);
 
     let overrideProps = {};
 
@@ -122,16 +115,6 @@ const MultiEmailInput = forwardRef(
       overrideProps = { onCreateOption, isValidNewOption };
     }
 
-    const showInvalidEmailsError =
-      !!filterInvalidEmails &&
-      validate &&
-      value.length > getValidEmailsCount(value);
-
-    const showEmailRequiredError = validate && required && isEmpty(value);
-
-    const showErrorMessage =
-      !!error || showEmailRequiredError || showInvalidEmailsError;
-
     return (
       <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-email-input">
         <div className="neeto-ui-flex neeto-ui-justify-between neeto-ui-email-input__title-row">
@@ -151,10 +134,10 @@ const MultiEmailInput = forwardRef(
               data-cy={`${hyphenize(label)}-email-counter`}
               style="body2"
             >
-              {getValidEmailsCount(value)}{" "}
+              {getEmailsCount(value)}{" "}
               {counter.label
                 ? counter.label
-                : renderDefaultText(getValidEmailsCount(value))}
+                : renderDefaultText(getEmailsCount(value))}
             </Typography>
           )}
         </div>
@@ -189,16 +172,14 @@ const MultiEmailInput = forwardRef(
           {...overrideProps}
         />
         <div className="neeto-ui-email-input__bottom-info">
-          {showErrorMessage && (
+          {!!error && (
             <Typography
               className="neeto-ui-input__error"
               data-cy={`${hyphenize(label)}-input-error`}
               style="body3"
             >
-              {!!error && `${error} `}
-              {showEmailRequiredError &&
-                "At least one email address is required. "}
-              {showInvalidEmailsError && (
+              {error}
+              {!!filterInvalidEmails && !isEmpty(value) && (
                 <span
                   className="neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold cursor-pointer"
                   onClick={handleFilterEmails}
