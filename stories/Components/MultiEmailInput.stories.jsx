@@ -17,7 +17,7 @@ import { suffixes, prefixes } from "../constants";
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 const metadata = {
-  title: "Components/Multi email input",
+  title: "Components/MultiEmailInput",
   component: MultiEmailInput,
   parameters: {
     layout: "padded",
