@@ -18,7 +18,7 @@ import {
   pruneDuplicates,
   renderValidEmails,
   renderDefaultText,
-  getEmailsCount,
+  getValidEmailsCount,
 } from "./utils";
 
 import Label from "../Label";
@@ -47,7 +47,7 @@ const MultiEmailInput = forwardRef(
 
     const isCounterVisible =
       !!counter &&
-      (!counter.startsFrom || getEmailsCount(value) >= counter.startsFrom);
+      (!counter.startsFrom || getValidEmailsCount(value) >= counter.startsFrom);
 
     const isOptionsPresent = !!otherProps.options;
 
@@ -114,6 +114,9 @@ const MultiEmailInput = forwardRef(
       overrideProps = { onCreateOption, isValidNewOption };
     }
 
+    const isFilterEmailsLinkVisible =
+      !!filterInvalidEmails && value.length > getValidEmailsCount(value);
+
     return (
       <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-email-input">
         <div className="neeto-ui-flex neeto-ui-justify-between neeto-ui-email-input__title-row">
@@ -132,10 +135,10 @@ const MultiEmailInput = forwardRef(
               data-cy={`${hyphenize(label)}-email-counter`}
               style="body2"
             >
-              {getEmailsCount(value)}{" "}
+              {getValidEmailsCount(value)}{" "}
               {counter.label
                 ? counter.label
-                : renderDefaultText(getEmailsCount(value))}
+                : renderDefaultText(getValidEmailsCount(value))}
             </Typography>
           )}
         </div>
@@ -177,7 +180,7 @@ const MultiEmailInput = forwardRef(
               style="body3"
             >
               {error}
-              {!!filterInvalidEmails && !isEmpty(value) && (
+              {isFilterEmailsLinkVisible && (
                 <span
                   className="neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold cursor-pointer"
                   onClick={handleFilterEmails}
