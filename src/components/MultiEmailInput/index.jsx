@@ -143,6 +143,7 @@ const MultiEmailInput = forwardRef(
         </div>
         <CreatableSelect
           isMulti
+          required
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
           inputValue={inputValue}
