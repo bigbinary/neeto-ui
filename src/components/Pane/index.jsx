@@ -69,7 +69,7 @@ const Pane = ({
         appear={isOpen}
         classNames="neeto-ui-pane"
         in={isOpen}
-        timeout={210}
+        timeout={250}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
       >
@@ -104,10 +104,13 @@ const Pane = ({
                 onClick={handleOverlayClose}
               />
             )}
-            {hasTransitionCompleted &&
-              (typeof children === "function"
-                ? children({ setFocusField })
-                : children)}
+            {hasTransitionCompleted && (
+              <>
+                {typeof children === "function"
+                  ? children({ setFocusField })
+                  : children}
+              </>
+            )}
           </div>
         </Backdrop>
       </CSSTransition>
