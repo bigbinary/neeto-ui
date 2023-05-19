@@ -51,7 +51,7 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (isOpen) {
+    if (hasTransitionCompleted) {
       const headerHeight = getHeaderHeight(paneWrapper);
       if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
         paneWrapper.current.style.setProperty(
@@ -60,7 +60,7 @@ const Pane = ({
         );
       }
     }
-  }, [isOpen]);
+  }, [hasTransitionCompleted]);
 
   return (
     <Portal rootId="neeto-ui-portal">
