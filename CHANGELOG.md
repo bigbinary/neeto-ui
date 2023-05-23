@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.2 - 2023-05-23
+
+- Added: `required` prop to *MultiEmailInput*.
+
 ## 5.0.1 - 2023-05-07
 
 - Added: resize and reorder columns functionality to *Table* component.
@@ -156,7 +160,6 @@ Fixed empty toastr message when errors or errorCodes are given null values.
 - Updated: `--neeto-ui-black` from `#1b1f23` to `#121212`.
 - Updated: `--neeto-ui-gray-800` from `#2f3941` to `#1f1f1f`.
 - Updated: `--neeto-ui-gray-700` from `#49545c` to `#2f3941`.
-
 <img width="532" alt="Group 2" src="https://user-images.githubusercontent.com/48869249/220600134-0e92558c-4bb5-498b-a09a-63a04725fc0b.png">
 - Updated: `h1`, `h2`, `h3`, `h4`, `h5`, `h6` color to `--neeto-ui-black` (`#121212`).
 <img width="898" alt="Group 3" src="https://user-images.githubusercontent.com/48869249/220602168-ab61369c-5576-4661-aaf4-e532230ad5eb.png">
@@ -349,7 +352,6 @@ Changes documentations to sentence case from title casing.
 - Fixed false positive type errors
 ## 4.0.10 - 2022-10-05
 - Fixed: issue with week picker in `DatePicker`.
-
 ## 4.0.9 - 2022-09-29
 
 - Fixed: warnings in `Tag` and `DatePicker` props.
