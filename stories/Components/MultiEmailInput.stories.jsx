@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Search } from "neetoicons";
+import { pluck, prop } from "ramda";
 import * as yup from "yup";
 
 import Button from "components/Button";
@@ -16,7 +17,7 @@ import { suffixes, prefixes } from "../constants";
 import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
 
 const metadata = {
-  title: "Components/Multi email input",
+  title: "Components/MultiEmailInput",
   component: MultiEmailInput,
   parameters: {
     layout: "padded",
@@ -121,17 +122,14 @@ Error.args = {
   ],
 };
 
-const Disabled = args => <MultiEmailInput {...args} disabled />;
+const Disabled = _args => <MultiEmailInput disabled />;
 
-const HelpText = args => (
-  <MultiEmailInput
-    {...args}
-    helpText="This is the help text for this component."
-  />
+const HelpText = _args => (
+  <MultiEmailInput helpText="This is the help text for this component." />
 );
 HelpText.storyName = "Help text";
 
-const Counter = args => {
+const Counter = _args => {
   const [emails, setEmails] = useState([
     {
       label: "test@example.com",
@@ -152,7 +150,6 @@ const Counter = args => {
 
   return (
     <MultiEmailInput
-      {...args}
       counter={{ startsFrom: 3 }}
       value={emails}
       onChange={emails => setEmails(emails)}
@@ -191,7 +188,7 @@ WithPrefixAndSuffix.args = {
 };
 WithPrefixAndSuffix.storyName = "With prefix and suffix";
 
-const FormikEmail = args => {
+const FormikEmail = _args => {
   const [emails, setEmails] = useState([]);
 
   const INITIAL_VALUES = { emails: [] };
@@ -202,13 +199,12 @@ const FormikEmail = args => {
       .test(
         "are-all-emails-valid",
         "Please make sure all emails are valid.",
-        emails => emails.every(({ valid }) => valid)
+        emails => emails.every(prop("valid"))
       )
       .nullable(),
   });
 
-  const handleSubmit = ({ emails }) =>
-    setEmails(emails.map(({ value }) => value));
+  const handleSubmit = ({ emails }) => setEmails(pluck("value", emails));
 
   return (
     <Form
@@ -222,10 +218,10 @@ const FormikEmail = args => {
       }}
     >
       <FormikMultiEmailInput
-        {...args}
         counter
         filterInvalidEmails
-        label="Email(s)*"
+        required
+        label="Email(s)"
         name="emails"
       />
       <Button

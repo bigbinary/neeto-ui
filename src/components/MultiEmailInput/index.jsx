@@ -38,6 +38,7 @@ const MultiEmailInput = forwardRef(
       counter,
       disabled = false,
       maxHeight = 200,
+      required = false,
       labelProps,
       ...otherProps
     },
@@ -121,6 +122,7 @@ const MultiEmailInput = forwardRef(
             <Label
               className="neeto-ui-email-input__label"
               data-cy={`${hyphenize(label)}-input-label`}
+              required={required}
               {...labelProps}
             >
               {label}
@@ -141,6 +143,7 @@ const MultiEmailInput = forwardRef(
         </div>
         <CreatableSelect
           isMulti
+          required
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
           inputValue={inputValue}
@@ -236,6 +239,10 @@ MultiEmailInput.propTypes = {
    * To specify whether the Input field is disabled or not.
    */
   disabled: PropTypes.bool,
+  /**
+   * To specify whether the Input field is required or not.
+   */
+  required: PropTypes.bool,
   /**
    * To specify the message to be shown besides the error message to filter out the invalid emails.
    */

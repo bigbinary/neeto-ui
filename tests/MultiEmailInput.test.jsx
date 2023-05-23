@@ -45,6 +45,12 @@ describe("MultiEmailInput", () => {
     expect(screen.getByText("Error message")).toBeInTheDocument();
   });
 
+  it("should render asterisk when required is set to true", () => {
+    const { getByText } = render(<MultiEmailInput required/>);
+    const asterisk = getByText("*");
+    expect(asterisk).toBeInTheDocument();
+  });
+
   it("should not render email counter when the email count start from 3 and count is 2", () => {
     render(
       <MultiEmailInput
