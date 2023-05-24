@@ -1,3 +1,5 @@
+/* eslint-disable unused-imports/no-unused-imports */
+/* eslint-disable no-unused-vars */
 import React, { Fragment } from "react";
 
 import classnames from "classnames";
@@ -55,7 +57,7 @@ const Tag = ({
       )}
       {...otherProps}
     >
-      {indicatorStyle && (
+      {/* {indicatorStyle && (
         <span
           data-testid="tag-indicator"
           className={classnames("neeto-ui-tag__indicator", {
@@ -82,7 +84,7 @@ const Tag = ({
         >
           <Close />
         </span>
-      )}
+      )} */}
     </div>
   );
 };
