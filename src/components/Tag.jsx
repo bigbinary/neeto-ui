@@ -57,7 +57,7 @@ const Tag = ({
       )}
       {...otherProps}
     >
-      {/* {indicatorStyle && (
+      {indicatorStyle && (
         <span
           data-testid="tag-indicator"
           className={classnames("neeto-ui-tag__indicator", {
@@ -70,7 +70,7 @@ const Tag = ({
           })}
         />
       )}
-      {icon && (
+      {/* {icon && (
         <span className="neeto-ui-tag__icon" data-testid="class-icon">
           <Icon />
         </span>
