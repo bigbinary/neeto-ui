@@ -57,7 +57,7 @@ const Tag = ({
       )}
       {...otherProps}
     >
-      {/* {indicatorStyle && (
+      {indicatorStyle && (
         <span
           data-testid="tag-indicator"
           className={classnames("neeto-ui-tag__indicator", {
@@ -84,7 +84,7 @@ const Tag = ({
         >
           <Close />
         </span>
-      )} */}
+      )}
     </div>
   );
 };
