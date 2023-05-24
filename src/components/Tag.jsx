@@ -76,7 +76,7 @@ const Tag = ({
       {renderLabel}
       {onClose && (
         <span
-          className="neeto-ui-tag__close bg-black"
+          className="neeto-ui-tag__close bg-white"
           data-testid="tag-close-button"
           onClick={!disabled ? onClose : null}
         >
