@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 
 import { Formik } from "formik";
 import PropTypes from "prop-types";
@@ -6,34 +6,20 @@ import PropTypes from "prop-types";
 import FormWrapper from "./FormWrapper";
 
 const Form = forwardRef(
-  ({ className, children, formikProps, formProps }, ref) => {
-    const [enabledChangeAndBlurValidation, setEnabledChangeAndBlurValidation] =
-      useState(false);
-
-    return (
-      <Formik
-        {...formikProps}
-        validateOnBlur={
-          formikProps?.validateOnBlur && enabledChangeAndBlurValidation
-        }
-        validateOnChange={
-          formikProps?.validateOnChange && enabledChangeAndBlurValidation
-        }
-      >
-        {props => (
-          <FormWrapper
-            className={className}
-            formProps={formProps}
-            ref={ref}
-            setEnableChangeAndBlurValidation={setEnabledChangeAndBlurValidation}
-            onSubmit={formikProps?.onSubmit}
-          >
-            {typeof children === "function" ? children(props) : children}
-          </FormWrapper>
-        )}
-      </Formik>
-    );
-  }
+  ({ className, children, formikProps, formProps }, ref) => (
+    <Formik {...formikProps}>
+      {props => (
+        <FormWrapper
+          className={className}
+          formProps={formProps}
+          ref={ref}
+          onSubmit={formikProps?.onSubmit}
+        >
+          {typeof children === "function" ? children(props) : children}
+        </FormWrapper>
+      )}
+    </Formik>
+  )
 );
 
 Form.displayName = "Form";
