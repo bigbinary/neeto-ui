@@ -34,7 +34,13 @@ const FormWrapper = forwardRef(
           } else {
             onSubmit(values, formikBag);
           }
-        } catch {}
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(
+            "An unhandled error was caught from validateForm()",
+            error
+          );
+        }
       },
       [
         values,
