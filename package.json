@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic",
-    "serve": "http-server storybook-static",
+    "serve": "node .storybook/express",
     "prepare": "husky install",
     "test": "jest"
   },
@@ -128,6 +128,7 @@
     "i18next": "21.7.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.3.1",
+    "json-server": "^0.17.3",
     "lint-staged": "11.0.0",
     "postcss": "^8.4.17",
     "postcss-import": "^15.0.0",
