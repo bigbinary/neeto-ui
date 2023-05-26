@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-imports */
 import React from "react";
 
 import { useId } from "@reach/auto-id";
@@ -119,7 +121,7 @@ const Select = ({
       data-cy={`${hyphenize(label)}-select-container-wrapper`}
       data-testid="select"
     >
-      {label && (
+      {/* {label && (
         <Label
           data-cy={`${hyphenize(label)}-input-label`}
           data-testid="select-label"
@@ -170,7 +172,7 @@ const Select = ({
         >
           {helpText}
         </p>
-      )}
+      )} */}
     </div>
   );
 };
