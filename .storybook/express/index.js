@@ -4,7 +4,7 @@ const jsonServer = require("json-server");
 // const { execSync } = require("child_process");
 
 // const server = express();
-const port = 8080;
+const port = 3000;
 
 const middlewares = jsonServer.defaults({
   static: path.resolve(__dirname, "../../storybook-static"),
@@ -12,6 +12,7 @@ const middlewares = jsonServer.defaults({
 });
 
 const server = jsonServer.create();
+const router = jsonServer.router({});
 
 server.use(middlewares);
 
