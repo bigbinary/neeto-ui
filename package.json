@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic",
-    "serve": "node .storybook/express",
+    "serve": "http-server storybook-static",
     "prepare": "husky install",
     "test": "jest"
   },
