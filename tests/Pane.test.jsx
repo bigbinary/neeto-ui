@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { Pane, Typography, Button } from "components";
 
 describe("Pane", () => {
-  it("should render without error", () => {
+  it("should render without error", async () => {
     const { getByText } = render(
       <Pane isOpen>
         <Pane.Header>
@@ -14,6 +14,7 @@ describe("Pane", () => {
         </Pane.Header>
       </Pane>
     );
+    await new Promise(r => setTimeout(r, 300));
     expect(getByText("Pane header")).toBeInTheDocument();
   });
 
@@ -28,7 +29,7 @@ describe("Pane", () => {
     expect(queryByText("Pane header")).not.toBeInTheDocument();
   });
 
-  it("should render body", () => {
+  it("should render body", async () => {
     const { getByText } = render(
       <Pane isOpen>
         <Pane.Body>
@@ -38,10 +39,12 @@ describe("Pane", () => {
         </Pane.Body>
       </Pane>
     );
+
+    await new Promise(r => setTimeout(r, 300));
     expect(getByText("Pane body")).toBeInTheDocument();
   });
 
-  it("should render footer", () => {
+  it("should render footer", async () => {
     const { getByText } = render(
       <Pane isOpen>
         <Pane.Footer>
@@ -49,6 +52,7 @@ describe("Pane", () => {
         </Pane.Footer>
       </Pane>
     );
+    await new Promise(r => setTimeout(r, 300));
     expect(getByText("Submit")).toBeInTheDocument();
   });
 
