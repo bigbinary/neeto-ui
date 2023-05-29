@@ -63,7 +63,7 @@ const DatePicker = forwardRef(
     const handleOnChange = (date, dateString) => {
       type === "range" && !date
         ? onChange([], dateString)
-        : onChange(value, dateString);
+        : onChange(date, dateString);
     };
 
     return (

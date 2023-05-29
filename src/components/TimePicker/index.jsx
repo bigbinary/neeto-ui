@@ -64,7 +64,7 @@ const TimePicker = forwardRef(
     const handleOnChange = (time, timeString) => {
       type === "range" && !time
         ? onChange([], timeString)
-        : onChange(value, timeString);
+        : onChange(time, timeString);
     };
 
     const panelRender = originalPanel => (
