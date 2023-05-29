@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.4 - 2023-05-29
+
+- Fixed: Overrided `onChange` function to output empty array if value is null in *DatePicker*
+
 ## 5.0.3 - 2023-05-29
 
 - Fixed: the issue of filter invalid emails link for valid emails in *MultiEmailInput* component
@@ -359,7 +363,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.9 - 2022-09-29
 - Fixed: warnings in `Tag` and `DatePicker` props.
 - Added: neetoReview app to `AppSwitcher`.
-
 ## 4.0.8 - 2022-09-28
 
 - Added: *Kbd* component to render keyboard keys.
