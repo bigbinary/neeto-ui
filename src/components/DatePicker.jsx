@@ -60,6 +60,12 @@ const DatePicker = forwardRef(
 
     const errorId = `error_${id}`;
 
+    const handleOnChange = (date, dateString) => {
+      type === "range" && !date
+        ? onChange([], dateString)
+        : onChange(date, dateString);
+    };
+
     return (
       <div className="neeto-ui-input__wrapper">
         {label && <Label {...labelProps}>{label}</Label>}
@@ -82,7 +88,7 @@ const DatePicker = forwardRef(
             dropdownClassName, // Will be removed in the next major version
             popupClassName,
           ])}
-          onChange={onChange}
+          onChange={handleOnChange}
           onOk={onOk}
           {...otherProps}
           nextIcon={<IconOverride icon={Right} />}

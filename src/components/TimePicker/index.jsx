@@ -61,6 +61,12 @@ const TimePicker = forwardRef(
       showTimeLabels.hour = true;
     }
 
+    const handleOnChange = (time, timeString) => {
+      type === "range" && !time
+        ? onChange([], timeString)
+        : onChange(time, timeString);
+    };
+
     const panelRender = originalPanel => (
       <div className="neeto-ui-date-input-custom-panel">
         <div className="neeto-ui-date-input-custom-panel__header">
@@ -110,7 +116,7 @@ const TimePicker = forwardRef(
             dropdownClassName, // Will be removed in the next major version
             popupClassName,
           ])}
-          onChange={onChange}
+          onChange={handleOnChange}
           {...otherProps}
           defaultValue={convertToDayjsObjects(defaultValue)}
           mode={undefined}
