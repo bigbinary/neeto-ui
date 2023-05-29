@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.3 - 2023-05-29
+
+- Fixed: the issue of filter invalid emails link for valid emails in *MultiEmailInput* component
+
 ## 5.0.2 - 2023-05-23
 
 - Added: `required` prop to *MultiEmailInput*.
@@ -353,7 +357,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.10 - 2022-10-05
 - Fixed: issue with week picker in `DatePicker`.
 ## 4.0.9 - 2022-09-29
-
 - Fixed: warnings in `Tag` and `DatePicker` props.
 - Added: neetoReview app to `AppSwitcher`.
 
