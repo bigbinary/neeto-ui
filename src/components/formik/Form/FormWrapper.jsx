@@ -1,32 +1,17 @@
-import React, { useEffect, useCallback, forwardRef } from "react";
+import React, { useCallback, forwardRef } from "react";
 
 import { Form as FormikForm, useFormikContext } from "formik";
 import PropTypes from "prop-types";
 
 const FormWrapper = forwardRef(
-  (
-    {
-      className,
-      formProps,
-      children,
-      onSubmit,
-      setEnableChangeAndBlurValidation,
-    },
-    formRef
-  ) => {
-    const {
-      submitCount,
-      values,
-      validateForm,
-      setErrors,
-      setTouched,
-      ...formikBag
-    } = useFormikContext();
+  ({ className, formProps, children, onSubmit }, formRef) => {
+    const { values, validateForm, setErrors, setTouched, ...formikBag } =
+      useFormikContext();
 
     const { dirty: isFormDirty, isSubmitting } = formikBag;
 
     const handleKeyDown = useCallback(
-      event => {
+      async event => {
         const isEventFromEditorOrTextarea =
           event.target.tagName === "TEXTAREA" || event.target.editor;
 
@@ -36,23 +21,26 @@ const FormWrapper = forwardRef(
 
         event.preventDefault();
 
-        if (event.shiftKey) {
-          return;
-        }
+        if (event.shiftKey) return;
 
         if (!isFormDirty || isSubmitting) return;
 
-        validateForm()
-          .then(errors => {
-            setEnableChangeAndBlurValidation(true);
-            if (Object.keys(errors).length > 0) {
-              setErrors(errors);
-              setTouched(errors);
-            } else {
-              onSubmit(values, formikBag);
-            }
-          })
-          .catch(() => {});
+        try {
+          const errors = await validateForm();
+
+          if (Object.keys(errors).length > 0) {
+            setErrors(errors);
+            setTouched(errors);
+          } else {
+            onSubmit(values, formikBag);
+          }
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(
+            "An unhandled error was caught from validateForm()",
+            error
+          );
+        }
       },
       [
         values,
@@ -64,12 +52,6 @@ const FormWrapper = forwardRef(
         isSubmitting,
       ]
     );
-
-    useEffect(() => {
-      if (submitCount === 1) {
-        setEnableChangeAndBlurValidation(true);
-      }
-    }, [submitCount]);
 
     return (
       <FormikForm
@@ -85,6 +67,8 @@ const FormWrapper = forwardRef(
     );
   }
 );
+
+FormWrapper.displayName = "FormWrapper";
 
 FormWrapper.propTypes = {
   children: PropTypes.node,
