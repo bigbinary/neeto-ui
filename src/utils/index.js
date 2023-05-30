@@ -66,7 +66,7 @@ export const renderFocusOnFocusableElements = (
   shouldFocusFirstFocusableElement = true
 ) => {
   const focusableElements =
-    '[href], input:not([type="checkbox"]), select, textarea, [tabindex]:not([tabindex="-1"])';
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   const firstFocusableElement =
     ref?.current?.querySelectorAll(focusableElements)[0];
