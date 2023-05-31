@@ -46,6 +46,7 @@ const useOverlay = ({
     if (hasTransitionCompleted) {
       if (initialFocusRef?.current) {
         initialFocusRef?.current?.focus();
+        renderFocusOnFocusableElements(overlayWrapper, false);
       } else {
         renderFocusOnFocusableElements(overlayWrapper);
       }
