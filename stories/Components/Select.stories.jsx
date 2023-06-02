@@ -39,6 +39,7 @@ Default.args = {
   isClearable: true,
   isSearchable: true,
   name: "ValueList",
+  optionRemapping: {},
   options: [
     { value: "value1", label: "Value one" },
     { value: "value2", label: "Value two" },

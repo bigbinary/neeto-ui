@@ -16,6 +16,28 @@ const options = [
   },
 ];
 
+const remappedLabelAndValueOptions = [
+  {
+    lab: "Option 1",
+    val: "option-1",
+  },
+  {
+    lab: "Option 2",
+    val: "option-2",
+  },
+];
+
+const remappedLabelOptions = [
+  {
+    lab: "Option 1",
+    value: "option-1",
+  },
+  {
+    lab: "Option 2",
+    value: "option-2",
+  },
+];
+
 describe("Select", () => {
   it("should render without error", () => {
     const { getByText } = render(<Select label="Select" options={options} />);
@@ -95,4 +117,42 @@ describe("Select", () => {
     expect(screen.getByText("Option 2")).toBeInTheDocument();
     expect(screen.queryByText("Option 1")).not.toBeInTheDocument();
   });
+});
+
+it("should show option list on clicking when remapped label and value is provided with optionRemapping", () => {
+  const { getByRole, getByText } = render(
+    <Select
+      label="Select"
+      optionRemapping={{ label: "lab", value: "val" }}
+      options={remappedLabelAndValueOptions}
+    />
+  );
+  const select = getByRole("combobox");
+  userEvent.click(select);
+  expect(getByText("Option 1")).toBeInTheDocument();
+  expect(getByText("Option 2")).toBeInTheDocument();
+});
+
+it("should show option list on clicking when remapped label is provided with optionRemapping", () => {
+  const { getByRole, getByText } = render(
+    <Select
+      label="Select"
+      optionRemapping={{ label: "lab" }}
+      options={remappedLabelOptions}
+    />
+  );
+  const select = getByRole("combobox");
+  userEvent.click(select);
+  expect(getByText("Option 1")).toBeInTheDocument();
+  expect(getByText("Option 2")).toBeInTheDocument();
+});
+
+it("should not show option list on clicking when remapped label is provided without optionRemapping", () => {
+  const { getByRole, getByText, queryByText } = render(
+    <Select label="Select" options={remappedLabelOptions} />
+  );
+  const select = getByRole("combobox");
+  userEvent.click(select);
+  expect(queryByText("Option 1")).toBeNull();
+  expect(queryByText("Option 2")).toBeNull();
 });
