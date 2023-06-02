@@ -148,7 +148,7 @@ it("should show option list on clicking when remapped label is provided with opt
 });
 
 it("should not show option list on clicking when remapped label is provided without optionRemapping", () => {
-  const { getByRole, getByText, queryByText } = render(
+  const { getByRole, queryByText } = render(
     <Select label="Select" options={remappedLabelOptions} />
   );
   const select = getByRole("combobox");

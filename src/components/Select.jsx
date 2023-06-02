@@ -69,11 +69,11 @@ const Select = ({
   }
 
   if (optionRemapping.value) {
-    otherProps.getOptionValue = prop(optionRemapping?.value);
+    otherProps.getOptionValue = prop(optionRemapping.value);
   }
 
   if (optionRemapping.label) {
-    otherProps.getOptionLabel = prop(optionRemapping?.label);
+    otherProps.getOptionLabel = prop(optionRemapping.label);
   }
 
   const portalProps = strategy === STRATEGIES.fixed && {
