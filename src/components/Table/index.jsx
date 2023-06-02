@@ -78,11 +78,18 @@ const Table = ({
     [resizeObserver.current, fixedHeight]
   );
 
+  const handleHeaderClasses = () => {
+    Object.values(headerRef.current?.children).forEach(child => {
+      child.setAttribute("data-text-align", child.style["text-align"]);
+    });
+  };
+
   useTimeout(() => {
     const headerHeight = headerRef.current
       ? headerRef.current.offsetHeight
       : TABLE_DEFAULT_HEADER_HEIGHT;
     setHeaderHeight(headerHeight);
+    handleHeaderClasses();
   }, 0);
 
   const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
@@ -215,6 +222,7 @@ const Table = ({
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
+      onChange={handleHeaderClasses}
       onHeaderRow={() => ({
         ref: headerRef,
         className: classnames("neeto-ui-table__header", {
