@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.5 - 2023-06-05
+
+Added: `optionRemapping` prop to map the label and value properties of `options` prop in *Select* component.
+
 ## 5.0.4 - 2023-05-29
 
 - Fixed: Overrided `onChange` function to output empty array if value is null in *DatePicker*
@@ -364,7 +368,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: warnings in `Tag` and `DatePicker` props.
 - Added: neetoReview app to `AppSwitcher`.
 ## 4.0.8 - 2022-09-28
-
 - Added: *Kbd* component to render keyboard keys.
 
 ## 4.0.7 - 2022-09-22
