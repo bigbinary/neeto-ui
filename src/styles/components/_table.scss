@@ -34,6 +34,17 @@
         }
       }
 
+      [data-text-align="center"] {
+        .ant-table-column-sorters {
+          justify-content: center !important;
+        }
+      }
+      [data-text-align="right"] {
+        .ant-table-column-sorters {
+          justify-content: flex-end !important;
+        }
+      }
+
       th.ant-table-cell.ant-table-column-has-sorters {
         &:hover {
           background-color: rgb(var(--neeto-ui-gray-100));
