@@ -4,7 +4,7 @@ import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc } from "ramda";
+import { prop, assoc } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -53,6 +53,7 @@ const Select = ({
   value,
   defaultValue,
   components: componentOverrides,
+  optionRemapping = {},
   ...otherProps
 }) => {
   const inputId = useId(id);
@@ -65,6 +66,14 @@ const Select = ({
 
   if (otherProps.loadOptions) {
     Parent = isCreateable ? AsyncCreatable : Async;
+  }
+
+  if (optionRemapping.value) {
+    otherProps.getOptionValue = prop(optionRemapping.value);
+  }
+
+  if (optionRemapping.label) {
+    otherProps.getOptionLabel = prop(optionRemapping.label);
   }
 
   const portalProps = strategy === STRATEGIES.fixed && {
@@ -200,6 +209,17 @@ Select.propTypes = {
    * To specify the name for the Select input.
    */
   name: PropTypes.string,
+  /**
+   * The `options` prop expects an array of objects of the format `{ label: "", value: "" }`.
+   *
+   * If your array has different keys, you can specify them using this prop.
+   *
+   * Eg: `{ label: "name", value: "id" }` if `options` is an array of  `{ name: "", id: "" }` objects.
+   */
+  optionRemapping: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
   /**
    * To provide the options for the Select input.
    */
