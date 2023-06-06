@@ -51,7 +51,7 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (isOpen) {
+    if (hasTransitionCompleted) {
       const headerHeight = getHeaderHeight(paneWrapper);
       if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
         paneWrapper.current.style.setProperty(
@@ -60,7 +60,7 @@ const Pane = ({
         );
       }
     }
-  }, [isOpen]);
+  }, [hasTransitionCompleted]);
 
   return (
     <Portal rootId="neeto-ui-portal">
@@ -69,7 +69,7 @@ const Pane = ({
         appear={isOpen}
         classNames="neeto-ui-pane"
         in={isOpen}
-        timeout={300}
+        timeout={230}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
       >
@@ -104,9 +104,13 @@ const Pane = ({
                 onClick={handleOverlayClose}
               />
             )}
-            {typeof children === "function"
-              ? children({ setFocusField })
-              : children}
+            {hasTransitionCompleted && (
+              <>
+                {typeof children === "function"
+                  ? children({ setFocusField })
+                  : children}
+              </>
+            )}
           </div>
         </Backdrop>
       </CSSTransition>
