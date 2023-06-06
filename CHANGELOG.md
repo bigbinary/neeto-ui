@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.6 - 2023-06-06
+
+- Fixes janky animation in *Pane* when form fields have the `autoFocus` prop.
+
 ## 5.0.5 - 2023-06-05
 
 Added: `optionRemapping` prop to map the label and value properties of `options` prop in *Select* component.
@@ -369,7 +373,6 @@ Changes documentations to sentence case from title casing.
 - Added: neetoReview app to `AppSwitcher`.
 ## 4.0.8 - 2022-09-28
 - Added: *Kbd* component to render keyboard keys.
-
 ## 4.0.7 - 2022-09-22
 
 - Fixed: Clicking on neetoQuiz from the app switcher takes the user to the consumer page.
