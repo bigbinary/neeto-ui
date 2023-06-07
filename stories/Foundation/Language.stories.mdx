@@ -180,77 +180,8 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
   <a href="#confirmations">Confirmations</a>
 </h3>
 
-Confirmations are presented for actions that can’t be undone or are difficult to
-undo.
+  <a href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9" target="_blank">Confirmation modal best practices</a>
 
-**Confirmation messages should:**
-
-- Always give users the option to either confirm or cancel their action
-- Be used for a single, primary task
-- Keep body content to one line of text and not use more than two calls to
-  action(CTA)
-
-**Confirmation titles should:**
-
-- Avoid articles (the, a, an) to keep content short and actionable
-- Be one sentence and avoid using punctuation, with the exception of question
-  marks
-- Write in sentence case, capitalize the first word and proper nouns only
-
-<div className="demo-do-dont-wrap flex gap-4">
-  <div className="demo-do-dont__box demo-do-dont__box--do neeto-ui-border-success-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
-    <h4 className="flex items-center gap-3">
-      <Check size={30} className="neeto-ui-text-success-500" /> Do
-    </h4>
-    <ul>
-      <li>Discard unsaved changes?</li>
-      <li>Delete 2 tags?</li>
-      <li>Leave page with unsaved changes?</li>
-    </ul>
-  </div>
-  <div className="demo-do-dont__box demo-do-dont__box--dont neeto-ui-border-error-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
-    <h4 className="flex items-center gap-3">
-      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
-    </h4>
-    <ul>
-      <li>Discard?</li>
-      <li>Are you sure you want to delete?</li>
-      <li>This page has unsaved changes are you sure you want to leave?</li>
-    </ul>
-  </div>
-</div>
-
-**Confirmation body content should:**
-
-- Clearly explain if the action is irreversible or difficult to undo, using
-  plain language
-- Be concise: use only one line of text. Don’t start the sentence with "Are you
-  sure?"
-
-<div className="demo-do-dont-wrap flex gap-4">
-  <div className="demo-do-dont__box demo-do-dont__box--do neeto-ui-border-success-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
-    <h4 className="flex items-center gap-3">
-      <Check size={30} className="neeto-ui-text-success-500" /> Do
-    </h4>
-    <ul>
-      <li>This can’t be undone.</li>
-      <li>Leaving this page will delete all unsaved changes.</li>
-    </ul>
-  </div>
-  <div className="demo-do-dont__box demo-do-dont__box--dont neeto-ui-border-error-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
-    <h4 className="flex items-center gap-3">
-      <Close size={30} className="neeto-ui-text-error-500" /> Don’t
-    </h4>
-    <ul>
-      <li>Are you sure you want to delete this theme?</li>
-      <li>
-        If you leave this page, all unsaved changes will be lost. Are you sure
-        you want to leave this page?
-      </li>
-    </ul>
-  </div>
-</div>
-<br />
 
 <h3 id="no-data-screens">
   <a href="#no-data-screens">No data screens</a>
