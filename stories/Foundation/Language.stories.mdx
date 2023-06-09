@@ -6,6 +6,7 @@ import NoDataTodo from "../assets/images/no-data-do.png";
   title="Foundation/Language"
   parameters={{
     viewMode: "docs",
+    layout: 'fullscreen',
     previewTabs: {
       canvas: { hidden: true },
     },
@@ -14,27 +15,80 @@ import NoDataTodo from "../assets/images/no-data-do.png";
 
 <style>{`
   .story-demo-table tr{
-      background: transparent !important;
+    background: transparent !important;
   }
   .demo-do-dont-wrap{
     display: flex;
     gap: 16px;
     margin: 24px 0;
   }
+  .sbdocs-wrapper{
+    padding: 0 !important;
+  }
+  .sbdocs-content{
+    max-width: 100% !important;
+  }
+  .table-of-content-list{
 
+  }
+  .table-of-content-list a{
+    color: #000 !important;
+    font-size: 15px !important;
+  }
+  .table-of-content-list a:hover,
+  .table-of-content-list a:focus{
+    text-decoration: underline;
+  }
+  .neeto-language-page-wrapper{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
 `}</style>
 
-# Language
+export const data = [
+  { id: "general-language", title: 'General language' },
+  { id: "headings-and-subheadings", title: 'Headings and subheadings' },
+  { id: "buttons", title: 'Buttons' },
+  { id: "links", title: 'Links' },
+  { id: "create-vs-add", title: 'Create vs. add' },
+  { id: "save-vs-done", title: 'Save vs. done' },
+  { id: "cancel-action", title: 'Cancel action' },
+  { id: "confirmations", title: 'Confirmations' },
+  { id: "no-data-screens", title: 'No data screens' },
+  { id: "references", title: 'References' },
+]
 
-<br />
+<div class="flex gap-6 relative p-12 max-w-6xl neeto-language-page-wrapper">
+<div class="flex-grow min-w-0">
 
 <div class="neeto-language-page">
 
-<h3 id="general-language">
+<h2 id="general-language">
   <a href="#general-language">General language</a>
-</h3>
+</h2>
 
-Use the word "neeto products" over "neeto applications" or "neeto apps".
+Products should speak consistently, just as they should act and look consistently.
+
+**Clear and understandable**
+
+- Ensure decisions about grammar and mechanics are research-informed and tested.
+- Avoid language that’s overly opinionated, funny, or trendy.
+
+**Likeable, credible, and accountable**
+
+- Vary sentence style and structure for readability and relatability.
+- Avoid language that’s overly opinionated, funny, or trendy.
+
+**Friendly, honest and responsible**
+
+- Describe only what’s needed, without unnecessary decoration.
+- Avoid creating new concepts and only name things when necessary.
+
+<br />
+
+<h2 id="neeto-products">
+  <a href="#neeto-products">Use the word "neeto products" over "neeto applications" or "neeto apps".</a>
+</h2>
 
 <div className="demo-do-dont-wrap flex gap-4">
   <div className="demo-do-dont__box demo-do-dont__box--do neeto-ui-border-success-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
@@ -57,9 +111,9 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
 </div>
 <br />
 
-<h3 id="headings-and-subheadings">
+<h2 id="headings-and-subheadings">
   <a href="#headings-and-subheadings">Headings and subheadings</a>
-</h3>
+</h2>
 
 - Avoid using punctuation such as periods, commas, or semicolons
 - Write in sentence case, capitalize the first word and proper nouns only
@@ -95,9 +149,9 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
 </div>
 <br />
 
-<h3 id="buttons">
+<h2 id="buttons">
   <a href="#buttons">Buttons</a>
-</h3>
+</h2>
 
 - Avoid unnecessary words and articles such as "the", "an", or "a"
 - Write in sentence case, capitalize the first word and proper nouns only
@@ -132,9 +186,9 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
 </div>
 <br />
 
-<h3 id="links">
+<h2 id="links">
   <a href="#links">Links</a>
-</h3>
+</h2>
 
 - Use the meaningful piece of text into the link itself, rather than filler
   words like "Here" or "Read More"
@@ -175,17 +229,78 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
   </div>
 </div>
 <br />
+<br />
 
-<h3 id="confirmations">
+<h2 id="create-vs-add">
+  <a href="#create-vs-add">Create vs. add</a>
+</h2>
+
+Avoid using the term "Create User." Instead, use "Add User."
+
+The word "Create" is more technical and commonly used by developers. However, in everyday language, people usually say "Add this user" instead of "Create a user."
+
+<br />
+<br />
+
+<h2 id="save-vs-done">
+  <a href="#save-vs-done">Save vs. done</a>
+</h2>
+
+
+**Saving immediately to a database**
+
+Use "Save" as the default for any action that saves immediately to a database.
+
+**Deferred saves**
+
+Sometimes, when users confirm a set of changes inside a modal or sheet, these
+changes are applied as unsaved changes to the current page. In other words, the
+changes made weren’t immediately saved to the database. When this happens, don’t
+use the verb "Save" as the call to action because it would be misleading.
+
+Use the adjective "Done" for deferred saves. When the modal or sheet closes,
+then merchants can save all of the changes they made.
+
+Most deferred saves happen when confirming changes in Add, Edit, Manage, and
+Select modals and sheets.
+<br />
+
+<h2 id="cancel-action">
+  <a href="#cancel-action">Cancel</a>
+</h2>
+
+
+- Use “Cancel” button for users to back out of any changes made on a page,
+  modal, pane etc.
+- "Cancel" button should be enabled always.
+- When the "Cancel" button is pressed, changes automatically get discarded, and
+  it should take the user back to the previous screen/page.
+
+**Edge case**
+
+If there is no logical "previous" page to go back to.
+
+For example, if we are on the home/root page,
+
+- Here "Cancel" button should be disabled initially.
+- If the user changes anything on the form, "Cancel" should be enabled.
+<br />
+<br />
+
+<h2 id="confirmations">
   <a href="#confirmations">Confirmations</a>
-</h3>
+</h2>
 
-  <a href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9" target="_blank">Confirmation modal best practices</a>
+<Confirmations />
 
+<a href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9" target="_blank">Best practices</a>
 
-<h3 id="no-data-screens">
+<br />
+<br />
+
+<h2 id="no-data-screens">
   <a href="#no-data-screens">No data screens</a>
-</h3>
+</h2>
 
 <div className="demo-do-dont-wrap flex gap-4">
   <div className="demo-do-dont__box demo-do-dont__box--do neeto-ui-border-success-500 neeto-ui-shadow-md w-80 rounded border-t-4 p-6">
@@ -240,46 +355,25 @@ Use the word "neeto products" over "neeto applications" or "neeto apps".
   </div>
 </div>
 
-<h3 id="save-vs-done">
-  <a href="#save-vs-done">Save vs done</a>
-</h3>
-<br />
+<h2 id="references">
+  <a href="#references">References</a>
+</h2>
 
-**Saving immediately to a database**
-
-Use "Save" as the default for any action that saves immediately to a database.
-
-**Deferred saves**
-
-Sometimes, when users confirm a set of changes inside a modal or sheet, these
-changes are applied as unsaved changes to the current page. In other words, the
-changes made weren’t immediately saved to the database. When this happens, don’t
-use the verb "Save" as the call to action because it would be misleading.
-
-Use the adjective "Done" for deferred saves. When the modal or sheet closes,
-then merchants can save all of the changes they made.
-
-Most deferred saves happen when confirming changes in Add, Edit, Manage, and
-Select modals and sheets.
-
-<h3 id="cancel-action">
-  <a href="#cancel-action">Cancel</a>
-</h3>
-<br />
-
-- Use “Cancel” button for users to back out of any changes made on a page,
-  modal, pane etc.
-- "Cancel" button should be enabled always.
-- When the "Cancel" button is pressed, changes automatically get discarded, and
-  it should take the user back to the previous screen/page.
-
-Edge case
-
-If there is no logical "previous" page to go back to.
-
-For example, if we are on the home/root page,
-
-- Here "Cancel" button should be disabled initially.
-- If the user changes anything on the form, "Cancel" should be enabled.
+- [Spectrum](https://spectrum.adobe.com/page/voice-and-tone/) from Adobe.
+- [Polaris](https://polaris.shopify.com/content/actionable-language#create-vs--add) from Shopify.
 
 </div>
+</div>
+<div className="flex-shrink-0 w-60 sticky top-0 max-h-screen overflow-y-auto">
+  <h3>Table of contents</h3>
+  <ul className="table-of-content-list">
+    {data.map(item => (
+      <li key={item.id}>
+        <a href={`#${item.id}`} className="text-sm text-black hover:text-blue-800">{item.title}</a>
+      </li>
+    ))}
+  </ul>
+</div>
+</div>
+
+
