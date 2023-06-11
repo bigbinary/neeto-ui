@@ -196,6 +196,7 @@
   .neeto-ui-input__prefix,
   .neeto-ui-input__suffix {
     display: flex;
+    white-space: nowrap !important;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
