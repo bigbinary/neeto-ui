@@ -1,6 +1,8 @@
 import { Meta } from "@storybook/addon-docs";
 import { Check, Close } from "neetoicons";
 import NoDataTodo from "../assets/images/no-data-do.png";
+import ArchiveExample from "../assets/images/archive.png";
+import DeactivateExample from "../assets/images/deactivate.png";
 
 <Meta
   title="Foundation/Language"
@@ -52,6 +54,7 @@ export const data = [
   { id: "links", title: 'Links' },
   { id: "create-vs-add", title: 'Create vs. add' },
   { id: "save-vs-done", title: 'Save vs. done' },
+  { id: "archive-vs-deactivate", title: 'Archive vs. deactivate' },
   { id: "cancel-action", title: 'Cancel action' },
   { id: "confirmations", title: 'Confirmations' },
   { id: "no-data-screens", title: 'No data screens' },
@@ -263,6 +266,31 @@ then merchants can save all of the changes they made.
 
 Most deferred saves happen when confirming changes in Add, Edit, Manage, and
 Select modals and sheets.
+<br />
+
+<h2 id="archive-vs-deactivate">
+  <a href="#archive-vs-deactivate">Archive vs. deactivate</a>
+</h2>
+
+**Archive**
+
+- Use "Archive" for non people or non-human entities. For example, a client is
+  not a person, so we should use the term Archive.
+- When archiving a client, display an alert message that says, "You are
+  archiving a client <b>client_name</b>"
+
+<img src={ArchiveExample} width="400" />
+
+<br />
+
+**Deactivate**
+
+- Use "Deactivate" for people or human entity. For example member is a human
+  entity, so we should use the term Deactivate.
+- When deactivating a team member, display an alert message that says, "You are
+  deactivating the member <b>member_name</b>."
+
+<img src={DeactivateExample} width="400" />
 <br />
 
 <h2 id="cancel-action">
