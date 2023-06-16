@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.8 - 2023-06-16
+
+- Removed: CSS font smoothing.
+- Updated: neeto language page - added rule for "Archive vs. deactivate"
+
 ## 5.0.7 - 2023-06-11
 
 - Fixed: Misalignment between input and prefix for large screens. Line break in prefix when hyphens are added.
@@ -379,7 +384,6 @@ Changes documentations to sentence case from title casing.
 - Added: *Kbd* component to render keyboard keys.
 ## 4.0.7 - 2022-09-22
 - Fixed: Clicking on neetoQuiz from the app switcher takes the user to the consumer page.
-
 ## 4.0.6 - 2022-09-20
 
 - Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
