@@ -10,7 +10,7 @@ const FormikButton = forwardRef(({ disabled, ...otherProps }, ref) => {
     useFormikContext();
 
   const isDisabled =
-    disabled ?? (isSubmitting || !isValid || equals(values, initialValues));
+    disabled ?? (isSubmitting || equals(values, initialValues));
 
   return (
     <Button
