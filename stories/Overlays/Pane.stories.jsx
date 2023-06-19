@@ -287,9 +287,9 @@ const PaneWithModalAndAlert = args => {
       </Modal>
       <Alert
         isOpen={showAlert}
-        title="You have unsaved changes!"
-        message="Are you sure you want to continue? All of your unsaved changes will be
-          lost."
+        message="All of your unsaved changes will be lost. This can't be undone."
+        submitButtonLabel="Discard changes"
+        title="You have unsaved changes"
         onClose={() => setShowAlert(false)}
         onSubmit={() => setShowAlert(false)}
       />

@@ -23,16 +23,15 @@ const BlockNavigation = ({ isDirty = false }) => {
   return (
     <Alert
       isOpen={isBlocked}
-      message="Are you sure you want to continue? All of your unsaved changes will be lost."
-      title="You have unsaved changes!"
+      message="All of your unsaved changes will be lost. This can't be undone."
+      submitButtonLabel="Discard changes"
+      title="You have unsaved changes"
       onClose={hidePrompt}
       onSubmit={continueAction}
     />
   );
 };
 
-BlockNavigation.propTypes = {
-  isDirty: PropTypes.bool,
-};
+BlockNavigation.propTypes = { isDirty: PropTypes.bool };
 
 export default BlockNavigation;

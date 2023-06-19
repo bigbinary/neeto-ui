@@ -53,8 +53,9 @@ export const Default = () => {
       />
       <Alert
         isOpen={open}
-        message="Leaving this page will delete all unsaved changes."
-        title="Leave page with unsaved changes?"
+        message="All of your unsaved changes will be lost. This can't be undone."
+        submitButtonLabel="Discard changes"
+        title="You have unsaved changes"
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
       />
@@ -78,25 +79,28 @@ export const Sizes = () => {
           </div>
           <Alert
             isOpen={showAlertSmall}
-            message="Leaving this page will delete all unsaved changes."
+            message="All of your unsaved changes will be lost. This can't be undone"
             size="small"
-            title="Leave page with unsaved changes?"
+            submitButtonLabel="Discard changes"
+            title="You have unsaved changes"
             onClose={() => setShowAlertSmall(false)}
             onSubmit={() => setShowAlertSmall(false)}
           />
           <Alert
             isOpen={showAlertMedium}
-            message="Leaving this page will delete all unsaved changes."
+            message="All of your unsaved changes will be lost. This can't be undone"
             size="medium"
-            title="Leave page with unsaved changes?"
+            submitButtonLabel="Discard changes"
+            title="You have unsaved changes"
             onClose={() => setShowAlertMedium(false)}
             onSubmit={() => setShowAlertMedium(false)}
           />
           <Alert
             isOpen={showAlertLarge}
-            message="Leaving this page will delete all unsaved changes."
+            message="All of your unsaved changes will be lost. This can't be undone"
             size="large"
-            title="Leave page with unsaved changes?"
+            submitButtonLabel="Discard changes"
+            title="You have unsaved changes"
             onClose={() => setShowAlertLarge(false)}
             onSubmit={() => setShowAlertLarge(false)}
           />
