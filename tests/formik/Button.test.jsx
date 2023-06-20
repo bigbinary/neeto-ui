@@ -71,11 +71,11 @@ describe("formik/Button", () => {
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 
-  it("Should be disabled if form contains errors", async () => {
+  it("Should not be disabled if form contains errors but should not submit form", async () => {
     const { input, button, onSubmit } = renderTestComponent();
     userEvent.type(input, "{selectall}{backspace}"); // clear everything
-    // error: name is required; button disabled
-    await waitFor(() => expect(button).toBeDisabled());
+    // error: name is required;
+    await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
