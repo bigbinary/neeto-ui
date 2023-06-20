@@ -86,7 +86,7 @@ Alert.propTypes = {
   /**
    * To provide description to the Alert.
    */
-  message: PropTypes.string,
+  message: PropTypes.node,
   /**
    * To add loading state to submit button
    */

@@ -116,7 +116,7 @@ export interface AlertProps {
   onClose?: () => void;
   onSubmit?: () => void;
   title?: string;
-  message?: string;
+  message?: React.ReactNode;
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
 }
