@@ -24,8 +24,9 @@ export interface BlockNavigationProps {
 export interface Form {
   className?: string;
   children: React.ReactNode | ((props: FormikProps<any>) => React.ReactNode);
-  formikProps: {[key: string]: any};
-  formProps?: {[key: string]: any};
+  formikProps: { [key: string]: any };
+  formProps?: { [key: string]: any };
+  scrollToErrorField?: boolean;
 }
 
 export const ActionBlock: React.FC<ActionBlockProps>;
