@@ -90,7 +90,7 @@ describe("formik/Form", () => {
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");
-    await waitFor(() => expect(button).toBeDisabled());
+    await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });

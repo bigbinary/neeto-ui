@@ -1665,15 +1665,20 @@
     "@bigbinary/neeto-commons-frontend" "^2.0.63"
     ramda "^0.29.0"
 
-"@bigbinary/eslint-plugin-neeto@^1.0.26":
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/@bigbinary/eslint-plugin-neeto/-/eslint-plugin-neeto-1.0.26.tgz#ca4eab1e3bcea70fcad61088aea046fe1e3d39ac"
-  integrity sha512-ikBHjL8JS9GaT0m/TxOEbNyHTy3fBjfs0VYaWehwVVRlSbD2tVyIjIThXibKidEm3T1NCtKkoxQgJ9/GERliYg==
+"@bigbinary/eslint-plugin-neeto@^1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@bigbinary/eslint-plugin-neeto/-/eslint-plugin-neeto-1.0.54.tgz#5b6096321cb56fdb974b5dc94145ffd792bfca26"
+  integrity sha512-tuOBXLYjCNJJy/wUFcUyQ2fKpX0CDP2a2OyZnJ0h+X8mtJTc1tkskKGl62hhss1Ppq9gXIHu03RfQ8TB6yB/Fw==
 
-"@bigbinary/neeto-commons-frontend@^2.0.63", "@bigbinary/neeto-commons-frontend@^2.0.70":
+"@bigbinary/neeto-commons-frontend@^2.0.63":
   version "2.0.70"
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.70.tgz#c52f0e45b5bcebc7118c93dabc2cb7a35cce6138"
   integrity sha512-fQS3X8+DKTbqAsehMKfQ3KK5CxWcBZpDl7D0GuumRYUAZLnUGBEwxAKoINXxdZs6Unb1KKsi7a50jNHFLGoRCg==
+
+"@bigbinary/neeto-commons-frontend@^2.0.87":
+  version "2.0.87"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.87.tgz#77815150db120f7c67d0ecb26e19757f188ef062"
+  integrity sha512-QXPB4zntnJFIZsF62/OSpN5zvpTvPJbScWnCfnceHBy03JQuelJbJXozivFDkEdD+vL5PwRQj16Lk4+J7byv5A==
 
 "@bigbinary/neeto-icons@^1.9.22":
   version "1.9.22"
