@@ -14,11 +14,7 @@ const TestComponent = () => <div>test page</div>;
 const TestForm = ({ isDirty }) => (
   <>
     <Link to="/test">Navigate</Link>
-    <Form
-      formikProps={{
-        initialValues: { formikInput: "test" },
-      }}
-    >
+    <Form formikProps={{ initialValues: { formikInput: "test" } }}>
       <BlockNavigation isDirty={isDirty} />
       <Field name="formikInput">
         {({ field }) => (
@@ -82,7 +78,7 @@ describe("formik/BlockNavigation", () => {
     userEvent.click(screen.getByRole("link"));
     expect(screen.getByText(/You have unsaved changes/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Continue" })
+      screen.getByRole("button", { name: "Discard changes" })
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Cancel" })).toBeInTheDocument();
   });
@@ -106,7 +102,9 @@ describe("formik/BlockNavigation", () => {
 
     userEvent.click(screen.getByRole("link"));
 
-    const continueButton = screen.getByRole("button", { name: "Continue" });
+    const continueButton = screen.getByRole("button", {
+      name: "Discard changes",
+    });
     userEvent.click(continueButton);
 
     await waitFor(() => expect(continueButton).not.toBeInTheDocument());
