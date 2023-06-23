@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.10 - 2023-06-20
+
+- Removed: condition to disable *FormikButton* when the form is invalid.
+
 ## 5.0.9 - 2023-06-17
 
 - Updated `ramda` version to `^0.29.0` in devDependencies.
@@ -393,7 +397,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: Clicking on neetoQuiz from the app switcher takes the user to the consumer page.
 ## 4.0.6 - 2022-09-20
 - Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
-
 ## 4.0.5 - 2022-09-20
 
 - Added: type support for data-cy props in all components that are forward referenced to HTML native elements.
