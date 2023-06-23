@@ -14,12 +14,14 @@ const ScrollToErrorField = ({ formRef }) => {
 
   useEffect(() => {
     if (!formRef.current || isValidatedReference.current || isValid) return;
-
     isValidatedReference.current = true;
-    const fieldErrorNames = getErrorFieldName(errors);
-    if (!fieldErrorNames) return;
 
-    const errorFormElement = formRef.current.elements[fieldErrorNames];
+    const fieldErrorName = getErrorFieldName(errors);
+    if (!fieldErrorName) return;
+
+    const errorFormElement = formRef.current.querySelector(
+      `[name=${fieldErrorName}]`
+    );
 
     errorFormElement?.scrollIntoView({
       behavior: "smooth",
