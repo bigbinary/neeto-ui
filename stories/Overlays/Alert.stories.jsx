@@ -79,7 +79,7 @@ export const Sizes = () => {
           </div>
           <Alert
             isOpen={showAlertSmall}
-            message="All of your unsaved changes will be lost. This can't be undone"
+            message="All of your unsaved changes will be lost. This can't be undone."
             size="small"
             submitButtonLabel="Discard changes"
             title="You have unsaved changes"
@@ -88,7 +88,7 @@ export const Sizes = () => {
           />
           <Alert
             isOpen={showAlertMedium}
-            message="All of your unsaved changes will be lost. This can't be undone"
+            message="All of your unsaved changes will be lost. This can't be undone."
             size="medium"
             submitButtonLabel="Discard changes"
             title="You have unsaved changes"
@@ -97,7 +97,7 @@ export const Sizes = () => {
           />
           <Alert
             isOpen={showAlertLarge}
-            message="All of your unsaved changes will be lost. This can't be undone"
+            message="All of your unsaved changes will be lost. This can't be undone."
             size="large"
             submitButtonLabel="Discard changes"
             title="You have unsaved changes"
