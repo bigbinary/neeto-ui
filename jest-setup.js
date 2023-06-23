@@ -6,17 +6,19 @@ if (!SVGElement.prototype.getTotalLength) {
 }
 
 //Fixes ReferenceError: ResizeObserver is not defined
-global.ResizeObserver = require('resize-observer-polyfill')
+global.ResizeObserver = require("resize-observer-polyfill");
 
 //Fixes TypeError: window.matchMedia is not a function
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(), // Deprecated
-      removeListener: jest.fn(), // Deprecated
-    }
-  )),
+  value: jest.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // Deprecated
+    removeListener: jest.fn(), // Deprecated
+  })),
 });
+
+//Fixes TypeError: errorFormElement?.scrollIntoView is not a function
+Element.prototype.scrollIntoView = jest.fn();
