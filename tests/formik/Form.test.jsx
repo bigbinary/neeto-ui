@@ -10,7 +10,7 @@ const FormikForm = ({
   onSubmit,
   validateOnBlur,
   validateOnChange,
-  scrollToErrorField,
+  hasScrollToErrorField,
 }) => {
   const handleSubmit = values => {
     onSubmit(values);
@@ -19,7 +19,7 @@ const FormikForm = ({
   return (
     <Form
       className="nui-form-wrapper"
-      scrollToErrorField={scrollToErrorField}
+      hasScrollToErrorField={hasScrollToErrorField}
       formikProps={{
         initialValues: { name: "Oliver Smith" },
         validationSchema: yup.object().shape({
@@ -109,11 +109,11 @@ describe("formik/Form", () => {
     });
   });
 
-  it("should not call scrollIntoView function if form is invalid but scrollToErrorField prop is false", async () => {
+  it("should not call scrollIntoView function if form is invalid but hasScrollToErrorField prop is false", async () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    render(<FormikForm scrollToErrorField={false} onSubmit={onSubmit} />);
+    render(<FormikForm hasScrollToErrorField={false} onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");

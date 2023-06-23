@@ -7,7 +7,7 @@ import ScrollToErrorField from "./ScrollToErrorField";
 
 const FormWrapper = forwardRef(
   (
-    { className, formProps, children, onSubmit, scrollToErrorField },
+    { className, formProps, children, onSubmit, hasScrollToErrorField },
     formRef
   ) => {
     const { values, validateForm, setErrors, setTouched, ...formikBag } =
@@ -69,7 +69,7 @@ const FormWrapper = forwardRef(
         onKeyDown={handleKeyDown}
         {...formProps}
       >
-        {scrollToErrorField && (
+        {hasScrollToErrorField && (
           <ScrollToErrorField
             formRef={formRef || formRefForScrollToErrorFiled}
           />
@@ -86,7 +86,7 @@ FormWrapper.propTypes = {
   children: PropTypes.node,
   formProps: PropTypes.object,
   onSubmit: PropTypes.func,
-  scrollToErrorField: PropTypes.bool,
+  hasScrollToErrorField: PropTypes.bool,
 };
 
 export default FormWrapper;

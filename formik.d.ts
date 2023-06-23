@@ -26,7 +26,7 @@ export interface Form {
   children: React.ReactNode | ((props: FormikProps<any>) => React.ReactNode);
   formikProps: { [key: string]: any };
   formProps?: { [key: string]: any };
-  scrollToErrorField?: boolean;
+  hasScrollToErrorField?: boolean;
 }
 
 export const ActionBlock: React.FC<ActionBlockProps>;
