@@ -56,7 +56,7 @@ Form.propTypes = {
    **/
   formProps: PropTypes.object,
   /**
-   * Props to be passed for scrolling to error filed on submit button click.
+   * Props to be passed for scrolling to error field on submit button click.
    **/
   hasScrollToErrorField: PropTypes.bool,
 };
