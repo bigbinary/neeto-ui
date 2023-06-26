@@ -195,7 +195,7 @@ The `Form` component accepts the following props:
 - `className`: You can use this prop to provide a custom class to the form.
 - `formProps`: Form props object. You can pass `className`, `style` etc. as
   props to the `Form` component.
-- `hasScrollToErrorField`: To specify whether scroll to error field on clicking
+- `scrollToErrorField`: To specify whether scroll to error field on clicking
   submit button is enabled or not. Default value is true.
 
 ---
