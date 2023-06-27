@@ -6,7 +6,12 @@ import * as yup from "yup";
 
 import { Button, Input, Form, Textarea } from "components/formik";
 
-const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {
+const FormikForm = ({
+  onSubmit,
+  validateOnBlur,
+  validateOnChange,
+  scrollToErrorField,
+}) => {
   const handleSubmit = values => {
     onSubmit(values);
   };
@@ -14,6 +19,7 @@ const FormikForm = ({ onSubmit, validateOnBlur, validateOnChange }) => {
   return (
     <Form
       className="nui-form-wrapper"
+      scrollToErrorField={scrollToErrorField}
       formikProps={{
         initialValues: { name: "Oliver Smith" },
         validationSchema: yup.object().shape({
@@ -86,13 +92,37 @@ describe("formik/Form", () => {
 
   it("should not submit form if validation fails", async () => {
     const onSubmit = jest.fn();
+    const scrollIntoView = jest.fn();
+    Element.prototype.scrollIntoView = scrollIntoView;
     render(<FormikForm onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
-    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
+    await waitFor(() => {
+      expect(scrollIntoView).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "center",
+      });
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+  });
+
+  it("should not call scrollIntoView function if form is invalid but hasScrollToErrorField prop is false", async () => {
+    const onSubmit = jest.fn();
+    const scrollIntoView = jest.fn();
+    Element.prototype.scrollIntoView = scrollIntoView;
+    render(<FormikForm scrollToErrorField={false} onSubmit={onSubmit} />);
+    const input = screen.getByLabelText("First Name");
+    const button = screen.getByRole("button");
+    userEvent.type(input, "{selectall}{backspace}");
+    await waitFor(() => expect(button).not.toBeDisabled());
+    userEvent.click(button);
+    await waitFor(() => {
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
   });
 
   it("should not validate the form until form is dirty", async () => {

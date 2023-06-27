@@ -6,13 +6,17 @@ import PropTypes from "prop-types";
 import FormWrapper from "./FormWrapper";
 
 const Form = forwardRef(
-  ({ className, children, formikProps, formProps }, ref) => (
+  (
+    { className, children, formikProps, formProps, scrollToErrorField = true },
+    ref
+  ) => (
     <Formik {...formikProps}>
       {props => (
         <FormWrapper
           className={className}
           formProps={formProps}
           ref={ref}
+          scrollToErrorField={scrollToErrorField}
           onSubmit={formikProps?.onSubmit}
         >
           {typeof children === "function" ? children(props) : children}
@@ -45,6 +49,10 @@ Form.propTypes = {
    * https://formik.org/docs/api/form
    **/
   formProps: PropTypes.object,
+  /**
+   * Props to be passed for scrolling to error field on submit button click.
+   **/
+  scrollToErrorField: PropTypes.bool,
 };
 
 export default Form;
