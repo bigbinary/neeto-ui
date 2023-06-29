@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.12 - 2023-06-29
+
+- Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
+
 ## 5.0.11 - 2023-06-27
 
 - Added: `hasScrollToErrorField` prop to formik *Form* component.
@@ -403,7 +407,6 @@ Changes documentations to sentence case from title casing.
 - Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
 ## 4.0.5 - 2022-09-20
 - Added: type support for data-cy props in all components that are forward referenced to HTML native elements.
-
 ## 4.0.4 - 2022-09-16
 
 - Changed: Allowed `hideOnSinglePage` override in *Table* `paginationProps`
