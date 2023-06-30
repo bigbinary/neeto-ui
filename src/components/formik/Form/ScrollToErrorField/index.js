@@ -19,9 +19,9 @@ const ScrollToErrorField = ({ formRef }) => {
     const fieldErrorName = getErrorFieldName(errors);
     if (!fieldErrorName) return;
 
-    const errorFormElement = formRef.current.querySelector(
-      `[name=${fieldErrorName}]`
-    );
+    const errorFormElement = [
+      ...formRef.current.querySelectorAll("[name]"),
+    ].find(element => element.name === fieldErrorName);
 
     errorFormElement?.scrollIntoView({
       behavior: "smooth",
