@@ -101,26 +101,26 @@ describe("formik/Form", () => {
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => {
-      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(scrollIntoView).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "center",
+      });
       expect(onSubmit).not.toHaveBeenCalled();
     });
   });
 
-  it("should call scrollIntoView function if form is invalid but hasScrollToErrorField prop is true", async () => {
+  it("should call scrollIntoView function if form is invalid but hasScrollToErrorField prop is false", async () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    render(<FormikForm scrollToErrorField onSubmit={onSubmit} />);
+    render(<FormikForm scrollToErrorField={false} onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => {
-      expect(scrollIntoView).toHaveBeenCalledWith({
-        behavior: "smooth",
-        block: "center",
-      });
+      expect(scrollIntoView).not.toHaveBeenCalled();
       expect(onSubmit).not.toHaveBeenCalled();
     });
   });
