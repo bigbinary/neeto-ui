@@ -59,7 +59,7 @@ describe("TimePicker", () => {
   });
 
   it("should not break component even if onChange is not provided", () => {
-    render(<TimePicker open />);
+    render(<TimePicker format="HH:mm" open />);
     userEvent.paste(getByRole("textbox"), "11:01");
     fireEvent.click(getByText("OK"));
     expect(getByRole("textbox")).toHaveValue("11:01");

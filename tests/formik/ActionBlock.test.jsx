@@ -120,7 +120,9 @@ describe("formik/ActionBlock", () => {
 
   it("Cancel button should be disabled when submitting", async () => {
     const onSubmit = jest.fn();
-    render(<TestActionBlock input="Oliver" onSubmit={new Promise(() => {})} />);
+    render(
+      <TestActionBlock input="Oliver" onSubmit={() => new Promise(() => {})} />
+    );
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
     const submitButton = screen.getByRole("button", { name: /Save changes/i });

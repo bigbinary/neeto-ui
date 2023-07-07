@@ -11,7 +11,7 @@ const RadioGroup = ({ label, name, className = "", ...props }) => {
   return (
     <Radio
       className={className}
-      error={meta.touched && meta.error}
+      error={meta.touched ? meta.error : ""}
       label={label}
       onChange={event => setFieldValue(name, event.target.value)}
       {...field}

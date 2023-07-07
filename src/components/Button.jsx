@@ -121,14 +121,11 @@ const Button = React.forwardRef(
               /* When Icon is not present, animate the margin from 0 to the needed value*/
               loading && (
                 <motion.div
+                  animate={{ width: "auto", scale: 1 }}
                   className="neeto-ui-btn__spinner-wrapper"
                   exit={{ width: 0, scale: 0 }}
                   initial={{ width: 0, scale: 0 }}
                   transition={{ bounce: false }}
-                  animate={{
-                    width: "auto",
-                    scale: 1,
-                  }}
                 >
                   <Spinner
                     aria-hidden="true"
@@ -180,7 +177,11 @@ Button.propTypes = {
   /**
    * To set the icon to be shown in the Button.
    */
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]),
   /**
    * To specify the action to be triggered on clicking the Button.
    */

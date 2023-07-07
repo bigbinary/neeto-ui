@@ -11,7 +11,7 @@ const Checkbox = forwardRef(({ name, ...rest }, ref) => (
       <CheckboxField
         checked={field.value}
         {...field}
-        error={meta.touched && meta.error}
+        error={meta.touched ? meta.error : ""}
         ref={ref}
         {...rest}
       />
