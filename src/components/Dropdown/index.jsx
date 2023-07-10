@@ -50,10 +50,10 @@ const PLACEMENT = {
 
 const TRIGGERS = { click: "click", hover: "mouseenter focus" };
 
-const hideOnEsc = onClose => ({
+const hideOnEsc = {
   name: "hideOnEsc",
   defaultValue: true,
-  fn({ hide, props: { hideOnEsc } }) {
+  fn({ hide, props: { hideOnEsc, onClose } }) {
     function onKeyDown(event) {
       if (event.key?.toLowerCase() === "escape" && hideOnEsc) {
         onClose();
@@ -70,7 +70,9 @@ const hideOnEsc = onClose => ({
       },
     };
   },
-});
+};
+
+const plugins = [hideOnEsc, { name: "onClose", fn: () => ({}) }];
 
 const Dropdown = ({
   icon,
@@ -131,7 +133,7 @@ const Dropdown = ({
       maxWidth="none"
       offset={0}
       placement={position || PLACEMENT.bottomEnd}
-      plugins={[hideOnEsc(onClose)]}
+      plugins={plugins}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
       role="dropdown"
       theme="light"
@@ -153,6 +155,7 @@ const Dropdown = ({
           </div>
         ) : null
       }
+      onClose={onClose}
       onCreate={instance => instance && setInstance(instance)}
       onHidden={() => setMounted(false)}
       onMount={() => setMounted(true)}

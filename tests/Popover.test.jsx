@@ -11,15 +11,19 @@ describe("Popover", () => {
 
     return (
       <div>
-        <Button
-          label="Show Popover"
-          ref={popoverReferenceElement}
-          style="secondary"
-        />
-        <Popover reference={popoverReferenceElement} {...popoverProps}>
-          <Popover.Title>Popover Title</Popover.Title>
-          {children}
-        </Popover>
+        <div>
+          <Button
+            label="Show Popover"
+            ref={popoverReferenceElement}
+            style="secondary"
+          />
+        </div>
+        <div>
+          <Popover reference={popoverReferenceElement} {...popoverProps}>
+            <Popover.Title>Popover Title</Popover.Title>
+            {children}
+          </Popover>
+        </div>
       </div>
     );
   };

@@ -40,26 +40,24 @@ const Tooltip = ({
   }, [instance, hideOnTargetExit]);
 
   return (
-    <div>
-      <Tippy
-        animation="scale-subtle"
-        arrow={ARROW}
-        content={content}
-        disabled={disabled}
-        duration={[100, 200]}
-        interactive={interactive}
-        placement={position}
-        plugins={[followCursor]}
-        role="tooltip"
-        theme={theme}
-        zIndex={100001}
-        onCreate={setInstance}
-        {...localProps}
-        {...otherProps}
-      >
-        {React.isValidElement(children) ? children : <span>{children}</span>}
-      </Tippy>
-    </div>
+    <Tippy
+      animation="scale-subtle"
+      arrow={ARROW}
+      content={content}
+      disabled={disabled}
+      duration={[100, 200]}
+      interactive={interactive}
+      placement={position}
+      plugins={[followCursor]}
+      role="tooltip"
+      theme={theme}
+      zIndex={100001}
+      onCreate={setInstance}
+      {...localProps}
+      {...otherProps}
+    >
+      {React.isValidElement(children) ? children : <span>{children}</span>}
+    </Tippy>
   );
 };
 
