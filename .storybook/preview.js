@@ -60,6 +60,9 @@ export const parameters = {
           "Popover"
         ],
         "Layouts",
+        [
+          "Sidebar"
+        ],
         "Customize",
         "Migration-Guide",
       ],
