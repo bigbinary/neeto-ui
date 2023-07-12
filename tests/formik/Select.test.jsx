@@ -70,7 +70,7 @@ describe("formik/Select", () => {
   it("should show available options when clicked", () => {
     render(
       <Form
-        formProps={{
+        formikProps={{
           initialValues: {},
           onSubmit: () => {},
         }}
@@ -93,7 +93,7 @@ describe("formik/Select", () => {
   it("should should show no options if the input deosn't match any options", () => {
     render(
       <Form
-        formProps={{
+        formikProps={{
           initialValues: {},
           onSubmit: () => {},
         }}

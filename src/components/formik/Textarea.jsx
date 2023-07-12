@@ -9,7 +9,7 @@ const FormikTextarea = forwardRef(({ name, ...rest }, ref) => (
   <Field name={name}>
     {({ field, meta }) => (
       <Textarea
-        error={meta.touched && meta.error}
+        error={meta.touched ? meta.error : ""}
         ref={ref}
         {...field}
         {...rest}

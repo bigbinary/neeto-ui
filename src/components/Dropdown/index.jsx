@@ -28,10 +28,7 @@ const BTN_SIZES = {
   large: "large",
 };
 
-const STRATEGY = {
-  absolute: "absolute",
-  fixed: "fixed",
-};
+const STRATEGY = { absolute: "absolute", fixed: "fixed" };
 
 const PLACEMENT = {
   auto: "auto",
@@ -51,10 +48,7 @@ const PLACEMENT = {
   leftEnd: "left-end",
 };
 
-const TRIGGERS = {
-  click: "click",
-  hover: "mouseenter focus",
-};
+const TRIGGERS = { click: "click", hover: "mouseenter focus" };
 
 const hideOnEsc = {
   name: "hideOnEsc",
@@ -77,6 +71,8 @@ const hideOnEsc = {
     };
   },
 };
+
+const plugins = [hideOnEsc, { name: "onClose", fn: () => ({}) }];
 
 const Dropdown = ({
   icon,
@@ -107,10 +103,7 @@ const Dropdown = ({
   const isControlled = !isNil(isOpen);
 
   const controlledProps = isControlled
-    ? {
-        visible: isOpen,
-        onClickOutside: onClose,
-      }
+    ? { visible: isOpen, onClickOutside: onClose }
     : {
         onClickOutside: () => {
           onClose();
@@ -121,10 +114,6 @@ const Dropdown = ({
 
   const { classNames: dropdownClassname, ...otherDropdownProps } =
     dropdownProps;
-
-  // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
-  // https://atomiks.github.io/tippyjs/v6/all-props/#hideonclick
-  const hideOnClick = isControlled ? false : closeOnOutsideClick || "toggle";
 
   const close = () => {
     instance.hide();
@@ -137,16 +126,18 @@ const Dropdown = ({
       animation={false}
       arrow={false}
       duration={0}
-      hideOnClick={hideOnClick}
+      // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
+      // https://atomiks.github.io/tippyjs/v6/all-props/#hideonclick
+      hideOnClick={isControlled ? undefined : closeOnOutsideClick || "toggle"}
       hideOnEsc={closeOnEsc}
       maxWidth="none"
       offset={0}
       placement={position || PLACEMENT.bottomEnd}
-      plugins={[hideOnEsc]}
+      plugins={plugins}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
       role="dropdown"
       theme="light"
-      trigger={TRIGGERS[trigger]}
+      trigger={isControlled ? undefined : TRIGGERS[trigger]}
       className={classnames("neeto-ui-dropdown", {
         [className]: className,
       })}

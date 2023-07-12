@@ -6,10 +6,7 @@ import Tooltip from "components/Tooltip";
 
 import FeaturedTooltip from "./FeaturedTooltip";
 
-const TOOLTIP_STYLES = {
-  default: "default",
-  featured: "featured",
-};
+const TOOLTIP_STYLES = { default: "default", featured: "featured" };
 
 const NavIconWrapper = ({
   tooltipStyle,
@@ -29,7 +26,6 @@ const NavIconWrapper = ({
     <Tooltip
       content={tooltipContent}
       delay={[400, 40]}
-      distance="20rem"
       duration={[200, 200]}
       position="right"
       className={classnames({

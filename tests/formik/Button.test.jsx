@@ -42,7 +42,7 @@ describe("formik/Button", () => {
       <Form
         formikProps={{
           initialValues: {},
-          onSubmit: () => {},
+          onSubmit: () => Promise.resolve(),
         }}
       >
         <Button label="Submit" type="submit" />
@@ -81,7 +81,7 @@ describe("formik/Button", () => {
   });
 
   it("Should be disabled during submission", async () => {
-    render(<TestButtonForm onSubmit={new Promise(() => {})} />); // will be submitting forever
+    render(<TestButtonForm onSubmit={() => new Promise(() => {})} />); // will be submitting forever
     const input = screen.getByRole("textbox");
     const button = screen.getByRole("button");
     userEvent.type(input, " Smith");

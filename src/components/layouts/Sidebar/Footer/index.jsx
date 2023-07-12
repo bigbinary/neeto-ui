@@ -21,16 +21,18 @@ const Footer = ({
   return (
     <div className="neeto-ui-sidebar__footer">
       {helpLinks && (
-        <Tooltip
-          interactive
-          className="neeto-ui-help-popup-wrapper"
-          content={<HelpSectionTooltip helpSectionProps={helpLinks} />}
-          hideOnClick={false}
-          position="right"
-          theme="light"
-        >
-          <HelpSection />
-        </Tooltip>
+        <div>
+          <Tooltip
+            interactive
+            className="neeto-ui-help-popup-wrapper"
+            content={<HelpSectionTooltip helpSectionProps={helpLinks} />}
+            hideOnClick={false}
+            position="right"
+            theme="light"
+          >
+            <HelpSection />
+          </Tooltip>
+        </div>
       )}
       {showAppSwitcher && (
         <AppSwitcher
@@ -39,21 +41,23 @@ const Footer = ({
         />
       )}
       {profileInfo && (
-        <Tooltip
-          interactive
-          className="neeto-ui-profile-popup-wrapper"
-          content={<ProfileSectionTooltip profileInfo={profileInfo} />}
-          hideOnClick={false}
-          position="right"
-          theme="light"
-        >
-          <ProfileSection
-            profileInfo={profileInfo}
-            onClick={() => {
-              setIsProfileDropdownOpen(!isProfileDropdownOpen);
-            }}
-          />
-        </Tooltip>
+        <div>
+          <Tooltip
+            interactive
+            className="neeto-ui-profile-popup-wrapper"
+            content={<ProfileSectionTooltip profileInfo={profileInfo} />}
+            hideOnClick={false}
+            position="right"
+            theme="light"
+          >
+            <ProfileSection
+              profileInfo={profileInfo}
+              onClick={() => {
+                setIsProfileDropdownOpen(!isProfileDropdownOpen);
+              }}
+            />
+          </Tooltip>
+        </div>
       )}
     </div>
   );
