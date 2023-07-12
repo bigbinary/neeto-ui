@@ -59,10 +59,6 @@ export const parameters = {
           "Tooltip",
           "Popover"
         ],
-        "Layouts",
-        [
-          "Sidebar"
-        ],
         "Customize",
         "Migration-Guide",
       ],
