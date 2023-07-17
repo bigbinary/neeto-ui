@@ -33,7 +33,9 @@ const NoData = ({
       data-cy="no-data-container"
       {...otherProps}
     >
-      <div className="neeto-ui-no-data__image">{renderImage(image)}</div>
+      {image && (
+        <div className="neeto-ui-no-data__image">{renderImage(image)}</div>
+      )}
       {title && (
         <Typography
           className="neeto-ui-text-center"
