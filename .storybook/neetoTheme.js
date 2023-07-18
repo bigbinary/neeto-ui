@@ -5,8 +5,8 @@ import neetoLogo from './neetoLogo.svg';
 export default create({
   base: 'dark',
 
-  colorPrimary: '#0048fd',
-  colorSecondary: '#0048fd',
+  colorPrimary: '#0043ac',
+  colorSecondary: '#0043ac',
 
   // UI
   appBg: '#1b1b1b',
