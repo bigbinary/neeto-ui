@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.15 - 2023-07-18
+
+- Removed: default empty box image from NoData component.
+
 ## 5.0.14 - 2023-07-12
 
 Fixed warnings in jest tests.
@@ -418,7 +422,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.4 - 2022-09-16
 - Changed: Allowed `hideOnSinglePage` override in *Table* `paginationProps`
 ## 4.0.3 - 2022-09-13
-
 - Added: Storybook addon that lets users toggle between dark and light mode
 - Fixed: date/time input color in darkmode
 - Fixed: overlapping issue with *Dropdown* in *Table*
