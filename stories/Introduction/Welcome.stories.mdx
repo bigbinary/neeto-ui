@@ -14,6 +14,11 @@ import Team from "../assets/images/team.svg";
 
 <style>{`
 
+  .sbdocs-wrapper{
+    background: rgb(0, 67, 172) url("static/media/stories/assets/images/bluebg.svg");
+    background-size:cover;
+  }
+
   .sbdocs .sbdocs-hero-banner{
     display:flex;
     align-items:center;
@@ -28,11 +33,21 @@ import Team from "../assets/images/team.svg";
     line-height:1.1;
   }
 
+  .sbdocs .sbdocs-p.sbdocs-hero-banner__desc{
+    color:#fff !important;
+    font-weight: 500;
+  }
+
+  .sbdocs .sbdocs-hero-banner__desc .sbdocs-a{
+    color:#fff !important;
+    text-decoration: underline;
+  }
+
   .sbdocs .sbdocs-hero-banner__title strong {
     font-size: 150%;
     font-weight: bold;
     user-select:none;
-    color:#0048fd;
+    color:#fff;
     margin-right:10px;
   }
 
@@ -58,7 +73,9 @@ import Team from "../assets/images/team.svg";
     width: 100%;
     border-radius: 12px;
     padding: 30px;
-    background:rgb(248, 248, 248);
+    background: rgba( 0, 0, 0, 0.2 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
     display:flex;
     flex-direction:column;
     position: relative;
@@ -96,12 +113,17 @@ import Team from "../assets/images/team.svg";
   .sbdocs-featured__item h4{
     font-size: 22px !important;
     position: relative;
+    color:#fff !important;
+  }
+
+  .sbdocs-featured__item .sbdocs-p{
+    color:#fff !important;
   }
 
   .sbdocs-featured__item-link{
     margin-top:auto;
     display: inline-flex;
-    color:#0048fd;
+    color:#fff;
     font-weight:500;
   }
 
@@ -122,7 +144,8 @@ import Team from "../assets/images/team.svg";
   .sbdocs-cover-design-credit-link{
     font-size: 11px !important;
     display: inline-block;
-    opacity:0.5;
+    opacity:0.4;
+    color:#fff !important;
   }
 
 `}</style>
