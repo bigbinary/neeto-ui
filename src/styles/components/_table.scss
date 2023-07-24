@@ -704,3 +704,9 @@ td.ant-table-column-sort {
   .drag-handler:not(.ant-table-cell-fix-sticky):hover {
   cursor: move;
 }
+
+.ant-table-tbody > tr > td {
+  .neeto-ui-btn--style-link{
+    line-height: inherit;
+  }
+}
