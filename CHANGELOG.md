@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.17 - 2023-07-31
+
+Changed: Disabled auto close for error toasters.
+
 ## 5.0.15 - 2023-07-18
 
 - Removed: default empty box image from NoData component.
@@ -425,7 +429,6 @@ Changes documentations to sentence case from title casing.
 - Added: Storybook addon that lets users toggle between dark and light mode
 - Fixed: date/time input color in darkmode
 - Fixed: overlapping issue with *Dropdown* in *Table*
-
 ## 4.0.2 - 2022-09-12
 
 - Fixed: navigation issue in *BlockNavigation* component
