@@ -24,6 +24,7 @@ const renderToastrButton = (
 
 const renderCustomConfigToastrButton = type => {
   const customConfig = {
+    autoClose: 7000,
     hideProgressBar: false,
     role: "custom-role",
   };

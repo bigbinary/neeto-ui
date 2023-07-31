@@ -181,7 +181,7 @@ const withParsedErrorMsg =
       buttonLabel,
       onClick,
       role: "alert",
-      autoClose: 7000,
+      autoClose: false,
       ...customConfig,
     });
   };
