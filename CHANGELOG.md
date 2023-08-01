@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.0.18 - 2023-08-01
+
+- Fixed: error value output in color picker when the initial value is undefined
+
 ## 5.0.17 - 2023-07-31
 
 Changed: Disabled auto close for error toasters.
@@ -430,7 +434,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: date/time input color in darkmode
 - Fixed: overlapping issue with *Dropdown* in *Table*
 ## 4.0.2 - 2022-09-12
-
 - Fixed: navigation issue in *BlockNavigation* component
 
 ## 4.0.1 - 2022-09-12
