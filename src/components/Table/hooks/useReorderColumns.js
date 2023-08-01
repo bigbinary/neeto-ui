@@ -9,7 +9,7 @@ const useReorderColumns = ({
 }) => {
   if (!isEnabled) return { dragProps: {}, columns };
 
-  const isColumnFixed = (column) => !!column.fixed;
+  const isColumnFixed = column => !!column.fixed;
 
   const dragProps = {
     onDragEnd: (fromIndex, toIndex) => {
@@ -19,6 +19,7 @@ const useReorderColumns = ({
         from = fromIndex - 1;
         to = toIndex - 1;
       }
+
       if (isColumnFixed(columns[from]) || isColumnFixed(columns[to])) return;
       const newColumns = move(from, to, columns);
       setColumns(newColumns);

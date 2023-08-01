@@ -4,18 +4,22 @@ import { Table as AntTable } from "antd";
 import classnames from "classnames";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
+import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
 import { useTimeout } from "hooks";
 import { noop } from "utils";
 
+import { TABLE_SORT_ORDERS } from "./constants";
 import {
   ResizableHeaderCell,
   ReorderableHeaderCell,
   HeaderCell,
 } from "./HeaderCell";
-import useReorderColumns from "./useReorderColumns";
-import useResizableColumns from "./useResizableColumns";
+import useReorderColumns from "./hooks/useReorderColumns";
+import useResizableColumns from "./hooks/useResizableColumns";
+import useTableSort from "./hooks/useTableSort";
+import { getQueryParams, modifyBy, snakeToCamelCase } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -107,6 +111,17 @@ const Table = ({
     onColumnUpdate,
   });
 
+  const { handleTableChange } = useTableSort();
+
+  const queryParams = getQueryParams();
+
+  const setSortFromURL = columnData =>
+    modifyBy(
+      { dataIndex: snakeToCamelCase(queryParams.sort_by ?? "") },
+      assoc("sortOrder", TABLE_SORT_ORDERS[queryParams.order_by]),
+      columnData
+    );
+
   const locale = {
     emptyText: <Typography style="body2">No Data</Typography>,
   };
@@ -136,10 +151,7 @@ const Table = ({
     },
   };
 
-  const componentOverrides = {
-    ...components,
-    ...reordableHeader,
-  };
+  const componentOverrides = { ...components, ...reordableHeader };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
@@ -190,7 +202,7 @@ const Table = ({
   const renderTable = () => (
     <AntTable
       bordered={bordered}
-      columns={curatedColumnsData}
+      columns={setSortFromURL(curatedColumnsData)}
       components={componentOverrides}
       dataSource={rowData}
       loading={loading}
@@ -222,7 +234,10 @@ const Table = ({
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
-      onChange={handleHeaderClasses}
+      onChange={(pagination, _, sorter) => {
+        handleHeaderClasses();
+        handleTableChange(pagination, sorter);
+      }}
       onHeaderRow={() => ({
         ref: headerRef,
         className: classnames("neeto-ui-table__header", {
