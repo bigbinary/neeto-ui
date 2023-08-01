@@ -53,12 +53,9 @@ const TRIGGERS = { click: "click", hover: "mouseenter focus" };
 const hideOnEsc = {
   name: "hideOnEsc",
   defaultValue: true,
-  fn({ hide, props: { hideOnEsc, onClose } }) {
+  fn({ hide, props: { hideOnEsc } }) {
     function onKeyDown(event) {
-      if (event.key?.toLowerCase() === "escape" && hideOnEsc) {
-        onClose();
-        hide();
-      }
+      if (event.key?.toLowerCase() === "escape" && hideOnEsc) hide();
     }
 
     return {
@@ -72,7 +69,7 @@ const hideOnEsc = {
   },
 };
 
-const plugins = [hideOnEsc, { name: "onClose", fn: () => ({}) }];
+const plugins = [hideOnEsc];
 
 const Dropdown = ({
   icon,
@@ -103,22 +100,15 @@ const Dropdown = ({
   const isControlled = !isNil(isOpen);
 
   const controlledProps = isControlled
-    ? { visible: isOpen, onClickOutside: onClose }
+    ? { visible: isOpen }
     : {
-        onClickOutside: () => {
-          onClose();
-
-          return closeOnOutsideClick;
-        },
+        onClickOutside: () => closeOnOutsideClick,
       };
 
   const { classNames: dropdownClassname, ...otherDropdownProps } =
     dropdownProps;
 
-  const close = () => {
-    instance.hide();
-    onClose();
-  };
+  const close = () => instance.hide();
 
   return (
     <Tippy
@@ -155,10 +145,12 @@ const Dropdown = ({
           </div>
         ) : null
       }
-      onClose={onClose}
       onCreate={instance => instance && setInstance(instance)}
-      onHidden={() => setMounted(false)}
       onMount={() => setMounted(true)}
+      onHidden={() => {
+        onClose();
+        setMounted(false);
+      }}
       {...otherProps}
       {...controlledProps}
     >
