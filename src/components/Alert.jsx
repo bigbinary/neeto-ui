@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import PropTypes from "prop-types";
 
@@ -23,6 +23,7 @@ const Alert = ({
   message = "",
   submitButtonLabel = "Continue",
   cancelButtonLabel = "Cancel",
+<<<<<<< HEAD
 }) => (
   <Modal
     backdropClassName={backdropClassName}
@@ -62,6 +63,53 @@ const Alert = ({
     </Modal.Footer>
   </Modal>
 );
+=======
+  initialFocusRef,
+}) => {
+  const submitButtonRef = useRef(null);
+
+  return (
+    <Modal
+      backdropClassName={backdropClassName}
+      className={className}
+      closeButton={closeButton}
+      closeOnEsc={closeOnEsc}
+      closeOnOutsideClick={closeOnOutsideClick}
+      initialFocusRef={initialFocusRef || submitButtonRef}
+      isOpen={isOpen}
+      size={size}
+      onClose={onClose}
+    >
+      <Modal.Header>
+        <Typography data-cy="alert-title" style="h2">
+          {title}
+        </Typography>
+      </Modal.Header>
+      <Modal.Body>
+        <Typography data-cy="alert-message" lineHeight="normal" style="body2">
+          {message}
+        </Typography>
+      </Modal.Body>
+      <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
+        <Button
+          data-cy="alert-submit-button"
+          label={submitButtonLabel}
+          loading={isSubmitting}
+          ref={submitButtonRef}
+          style="danger"
+          onClick={onSubmit}
+        />
+        <Button
+          data-cy="alert-cancel-button"
+          label={cancelButtonLabel}
+          style="text"
+          onClick={onClose}
+        />
+      </Modal.Footer>
+    </Modal>
+  );
+};
+>>>>>>> 5d4b8ff5 (Specified the first focusable item in Alert)
 
 Alert.propTypes = {
   /**
@@ -120,6 +168,11 @@ Alert.propTypes = {
    * To close on clicking outside the Alert content.
    */
   closeOnOutsideClick: PropTypes.bool,
+  /**
+   * To specify the ref of the element which will receive focus when the Alert is opened.
+   * If not specified, the focus will be set to the submit button inside the Alert.
+   * */
+  initialFocusRef: PropTypes.object,
 };
 
 export default Alert;
