@@ -213,8 +213,8 @@ describe("Table", () => {
     expect(queryParams).toEqual({
       page: "1",
       page_size: "2",
-      sort: "last_name",
-      order: "asc",
+      sort_by: "last_name",
+      order_by: "asc",
     });
   });
 });

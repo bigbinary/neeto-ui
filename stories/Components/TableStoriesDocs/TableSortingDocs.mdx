@@ -32,3 +32,13 @@ const columns = [
   }
 />
 ```
+
+- By default, the `onChange` function is utilized to set the pagination and sorting configuration like
+  current page, page size, sort column and sort order in the URL query parameters with the following keys:
+  - `sort_by`: The `dataIndex` of the particular column in `snake_case`.
+  - `order_by`: The sort order, whether `ascend`, `descend` or `undefined`.
+  - `page`: The current page number.
+  - `page_size`: The page size specified by the product.
+
+  If this functionality is not required simply override the `onChange` prop with the required function or
+  noop if no functionality is needed.
