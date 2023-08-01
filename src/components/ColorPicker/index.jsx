@@ -53,7 +53,8 @@ const ColorPicker = ({
   const onColorChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
-    onChangeInternal({ hex, rgb });
+    const hexValue = color.toHexString();
+    onChangeInternal({ hex: hexValue, rgb });
   };
 
   const pickColor = async () => {
