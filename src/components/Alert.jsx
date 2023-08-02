@@ -28,47 +28,6 @@ const Alert = ({
   message = "",
   submitButtonLabel = "Continue",
   cancelButtonLabel = "Cancel",
-<<<<<<< HEAD
-}) => (
-  <Modal
-    backdropClassName={backdropClassName}
-    className={className}
-    closeButton={closeButton}
-    closeOnEsc={closeOnEsc}
-    closeOnOutsideClick={closeOnOutsideClick}
-    isOpen={isOpen}
-    size={size}
-    onClose={onClose}
-  >
-    <Modal.Header>
-      <Typography data-cy="alert-title" style="h2">
-        {title}
-      </Typography>
-    </Modal.Header>
-    <Modal.Body>
-      <Typography data-cy="alert-message" lineHeight="normal" style="body2">
-        {message}
-      </Typography>
-    </Modal.Body>
-    <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
-      <Button
-        data-cy="alert-submit-button"
-        disabled={!isOpen}
-        label={submitButtonLabel}
-        loading={isSubmitting}
-        style="danger"
-        onClick={onSubmit}
-      />
-      <Button
-        data-cy="alert-cancel-button"
-        label={cancelButtonLabel}
-        style="text"
-        onClick={onClose}
-      />
-    </Modal.Footer>
-  </Modal>
-);
-=======
   initialFocusRef,
   initialFocusElement,
 }) => {
@@ -130,7 +89,6 @@ const Alert = ({
     </Modal>
   );
 };
->>>>>>> 5d4b8ff5 (Specified the first focusable item in Alert)
 
 Alert.propTypes = {
   /**
