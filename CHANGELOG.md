@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.3 - 2023-08-02
+
+- Fixed: Disabled click in selected option close button if select is disabled.
+
 ## 5.1.2 - 2023-08-02
 
 - FIxed: Updated deprecated CSS property `color-adjust`
@@ -456,7 +460,6 @@ Changes documentations to sentence case from title casing.
 - Updated select styles of antd table pagination
 - Fixed Menuhorizontal button size in Table
 ## 4.0.0 - 2022-09-02
-
 - Updated: Color palette
 - Added: CSS variables support
 - Added: Custom theming support
