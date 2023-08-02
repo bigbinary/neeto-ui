@@ -8,6 +8,11 @@ import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
+const FOCUSABLE_ELEMENTS = {
+  submit: "submit",
+  cancel: "cancel",
+};
+
 const Alert = ({
   size = SIZES.medium,
   isOpen = false,
@@ -65,8 +70,21 @@ const Alert = ({
 );
 =======
   initialFocusRef,
+  initialFocusElement,
 }) => {
   const submitButtonRef = useRef(null);
+  const cancelButtonRef = useRef(null);
+
+  const FOCUSABLE_ELEMENTS = {
+    submitButton: submitButtonRef,
+    cancelButton: cancelButtonRef,
+  };
+
+  const hasCustomFocusableElement = !!initialFocusRef || initialFocusElement;
+  const initialFocusElementRef =
+    initialFocusElement === FOCUSABLE_ELEMENTS.submit
+      ? submitButtonRef
+      : cancelButtonRef;
 
   return (
     <Modal
@@ -75,10 +93,12 @@ const Alert = ({
       closeButton={closeButton}
       closeOnEsc={closeOnEsc}
       closeOnOutsideClick={closeOnOutsideClick}
-      initialFocusRef={initialFocusRef || submitButtonRef}
       isOpen={isOpen}
       size={size}
       onClose={onClose}
+      {...(hasCustomFocusableElement && {
+        initialFocusRef: initialFocusRef || initialFocusElementRef,
+      })}
     >
       <Modal.Header>
         <Typography data-cy="alert-title" style="h2">
@@ -102,6 +122,7 @@ const Alert = ({
         <Button
           data-cy="alert-cancel-button"
           label={cancelButtonLabel}
+          ref={cancelButtonRef}
           style="text"
           onClick={onClose}
         />
@@ -173,6 +194,10 @@ Alert.propTypes = {
    * If not specified, the focus will be set to the submit button inside the Alert.
    * */
   initialFocusRef: PropTypes.object,
+  /**
+   * To specify the element which will receive focus when the Alert is opened.
+   */
+  initialFocusElement: PropTypes.oneOf(Object.values(FOCUSABLE_ELEMENTS)),
 };
 
 export default Alert;
