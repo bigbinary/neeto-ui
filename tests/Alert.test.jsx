@@ -125,4 +125,21 @@ describe("Alert", () => {
     userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
+
+  it("should not call onSubmit while alert is closing", () => {
+    const onSubmit = jest.fn();
+
+    const { getByText, rerender } = render(
+      <Alert isOpen submitButtonLabel="Submit" onSubmit={onSubmit} />
+    );
+    userEvent.click(getByText("Submit"));
+
+    rerender(
+      <Alert isOpen={false} submitButtonLabel="Submit" onSubmit={onSubmit} />
+    );
+
+    userEvent.click(getByText("Submit"));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
 });
