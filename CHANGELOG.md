@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.2 - 2023-08-02
+
+- FIxed: Updated deprecated CSS property `color-adjust`
+
 ## 5.1.1 - 2023-08-02
 
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
@@ -451,7 +455,6 @@ Changes documentations to sentence case from title casing.
 - Fixed alignment issues in Dropdown `sizing` Story
 - Updated select styles of antd table pagination
 - Fixed Menuhorizontal button size in Table
-
 ## 4.0.0 - 2022-09-02
 
 - Updated: Color palette
