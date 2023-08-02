@@ -7,7 +7,7 @@ import FormWrapper from "./FormWrapper";
 
 const Form = forwardRef(
   (
-    { className, children, formikProps, formProps, scrollToErrorField = false },
+    { className, children, formikProps, formProps, scrollToErrorField = true },
     ref
   ) => (
     <Formik {...formikProps}>
