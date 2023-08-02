@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.1 - 2023-08-02
+
+- Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
+
 ## 5.1.0 - 2023-08-02
 
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
@@ -440,7 +444,6 @@ Changes documentations to sentence case from title casing.
 ## 4.0.2 - 2022-09-12
 - Fixed: navigation issue in *BlockNavigation* component
 ## 4.0.1 - 2022-09-12
-
 - Added: `secondary` style variant
 - Added: `info` style variant
 - Removed: `inactive` style variant
