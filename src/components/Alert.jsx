@@ -72,6 +72,7 @@ const Alert = ({
       <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
         <Button
           data-cy="alert-submit-button"
+          disabled={!isOpen}
           label={submitButtonLabel}
           loading={isSubmitting}
           ref={submitButtonRef}
