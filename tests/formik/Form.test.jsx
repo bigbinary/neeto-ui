@@ -106,7 +106,7 @@ describe("formik/Form", () => {
     });
   });
 
-  it("should not call scrollIntoView function if form is invalid but hasScrollToErrorField prop is false", async () => {
+  it("should call scrollIntoView function if form is invalid but hasScrollToErrorField prop is true", async () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
