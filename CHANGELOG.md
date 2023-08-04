@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.4 - 2023-08-04
+
+- Fixed: Handled dot paths in *ScrollToErrorField*.
+
 ## 5.1.3 - 2023-08-02
 
 - Fixed: Disabled click in selected option close button if select is disabled.
@@ -469,7 +473,6 @@ Changes documentations to sentence case from title casing.
 - Changed: bundle type to `CJS`
 - Fixed: delay while opening overlays
 - Removed: `framer-motion` from dependencies.
-
 ### Color palette 🎨
 
 - Updated color naming convention
