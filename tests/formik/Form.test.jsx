@@ -101,10 +101,7 @@ describe("formik/Form", () => {
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => {
-      expect(scrollIntoView).toHaveBeenCalledWith({
-        behavior: "smooth",
-        block: "center",
-      });
+      expect(scrollIntoView).not.toHaveBeenCalled();
       expect(onSubmit).not.toHaveBeenCalled();
     });
   });
@@ -113,14 +110,17 @@ describe("formik/Form", () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    render(<FormikForm scrollToErrorField={false} onSubmit={onSubmit} />);
+    render(<FormikForm scrollToErrorField onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     userEvent.type(input, "{selectall}{backspace}");
     await waitFor(() => expect(button).not.toBeDisabled());
     userEvent.click(button);
     await waitFor(() => {
-      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(scrollIntoView).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "center",
+      });
       expect(onSubmit).not.toHaveBeenCalled();
     });
   });

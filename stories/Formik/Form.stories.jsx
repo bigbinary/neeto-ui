@@ -43,6 +43,7 @@ const FormikStory = args => (
 );
 
 FormikStory.storyName = "Form";
+FormikStory.args = { scrollToErrorField: true };
 
 export { FormikStory };
 
