@@ -20,7 +20,7 @@ const ScrollToErrorField = ({ formRef }) => {
     if (!fieldErrorName) return;
 
     const errorFormElement = formRef.current.querySelector(
-      `[name=${fieldErrorName}]`
+      `[name="${fieldErrorName}"]`
     );
 
     errorFormElement?.scrollIntoView({

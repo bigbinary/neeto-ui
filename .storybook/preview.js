@@ -22,6 +22,8 @@ export const parameters = {
         "Older versions",
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers", "Language"],
+        "Formik",
+        ["Form"],
         "Components",
         [
           "Button",
