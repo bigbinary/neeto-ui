@@ -57,7 +57,6 @@ export const data = [
   { id: "archive-vs-deactivate", title: 'Archive vs. deactivate' },
   { id: "cancel-action", title: 'Cancel action' },
   { id: "confirmations", title: 'Confirmations' },
-  { id: "alert-vs-modal", title: 'Alert vs. Modal' },
   { id: "error-text", title: 'Error text' },
   { id: "help-text", title: 'Help text' },
   { id: "toastr-messages", title: 'Toastr messages' },
@@ -330,35 +329,18 @@ For example, if we are on the home/root page,
 <br />
 <br />
 
-<h2 id="alert-vs-modal">
-  <a href="#alert-vs-modal">Alert vs. Modal</a>
-</h2>
-
-Use an Alert:
-
-- An immediate response is required from the user.
-- Confirm a user decision.
-
-Use a Modal:
-
-- The action being done is reversible.
-
-<br />
-<br />
-
 <h2 id="error-text">
   <a href="#error-text">Error text</a>
 </h2>
 
 When creating error messages, be specific, helpful, and polite.
 
-- Instead of saying "This field is required," specify the field name. For example, you could say "Phone number is a required field."
+- Instead of saying "This field is required." specify the field name. For example, you could say "Phone number is a required field."
 - Always add periods to sentences.
-- Use the same language throughout your product.
-- Be pleasant and polite to the user. Avoid using negative language or blaming the user. For example, instead of saying "You did not enter your phone number," you could say "Please enter your phone number."
-- Help the user get out of the situation. If possible, provide a way for the user to correct the error. For example, you could provide a link to a knowledge base article or a way to reset the form.
+- Be pleasant and polite to the user. Avoid using negative language or blaming the user. For example, instead of saying "You did not enter your phone number." you could say "Please enter your phone number."
+- Help the user to get out of the situation. If possible, provide a way for the user to correct the error. For example, you could provide a link to a knowledge base article or a way to reset the form.
 - Be specific about the error. The message "Something went wrong" is not very helpful. Try to provide as specific of an error message as possible. This will help the user understand what they did wrong and how to fix it.
-- Do not validate fields on blur. This can be annoying for the user. Instead, validate fields on submit. This will allow the user to play around with the form until they are ready to submit it.
+- Validate fields on blur with caution. This can be annoying for the user. Instead, validate fields on submit. This will allow the user to play around with the form until they are ready to submit it.
 - Speak human language. Do not use technical terms or jargon that the user may not understand. For example, instead of saying "Error 401," you could say "You are not authorized to delete this agent. Please contact your organization admin for permission."
 
 <br />
