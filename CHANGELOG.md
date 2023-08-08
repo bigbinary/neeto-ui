@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.5 - 2023-08-08
+
+- Added: `initialFocusRef` prop to *Alert*
+
 ## 5.1.4 - 2023-08-04
 
 - Fixed: Handled dot paths in *ScrollToErrorField*.
@@ -474,7 +478,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: delay while opening overlays
 - Removed: `framer-motion` from dependencies.
 ### Color palette 🎨
-
 - Updated color naming convention
 - Added CSS variables support for colors
 - Implemented dynamic color palette to support default dark mode
