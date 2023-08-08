@@ -34,11 +34,6 @@ const Alert = ({
   const submitButtonRef = useRef(null);
   const cancelButtonRef = useRef(null);
 
-  const FOCUSABLE_ELEMENTS = {
-    submitButton: submitButtonRef,
-    cancelButton: cancelButtonRef,
-  };
-
   const hasCustomFocusableElement = !!initialFocusRef || initialFocusElement;
   const initialFocusElementRef =
     initialFocusElement === FOCUSABLE_ELEMENTS.submit
