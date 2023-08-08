@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import PropTypes from "prop-types";
 
@@ -7,6 +7,11 @@ import Modal from "./Modal";
 import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
+
+const FOCUSABLE_ELEMENTS = {
+  submit: "submit",
+  cancel: "cancel",
+};
 
 const Alert = ({
   size = SIZES.medium,
@@ -23,45 +28,63 @@ const Alert = ({
   message = "",
   submitButtonLabel = "Continue",
   cancelButtonLabel = "Cancel",
-}) => (
-  <Modal
-    backdropClassName={backdropClassName}
-    className={className}
-    closeButton={closeButton}
-    closeOnEsc={closeOnEsc}
-    closeOnOutsideClick={closeOnOutsideClick}
-    isOpen={isOpen}
-    size={size}
-    onClose={onClose}
-  >
-    <Modal.Header>
-      <Typography data-cy="alert-title" style="h2">
-        {title}
-      </Typography>
-    </Modal.Header>
-    <Modal.Body>
-      <Typography data-cy="alert-message" lineHeight="normal" style="body2">
-        {message}
-      </Typography>
-    </Modal.Body>
-    <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
-      <Button
-        data-cy="alert-submit-button"
-        disabled={!isOpen}
-        label={submitButtonLabel}
-        loading={isSubmitting}
-        style="danger"
-        onClick={onSubmit}
-      />
-      <Button
-        data-cy="alert-cancel-button"
-        label={cancelButtonLabel}
-        style="text"
-        onClick={onClose}
-      />
-    </Modal.Footer>
-  </Modal>
-);
+  initialFocusRef,
+  initialFocusElement,
+}) => {
+  const submitButtonRef = useRef(null);
+  const cancelButtonRef = useRef(null);
+
+  const hasCustomFocusableElement = !!initialFocusRef || initialFocusElement;
+  const initialFocusElementRef =
+    initialFocusElement === FOCUSABLE_ELEMENTS.submit
+      ? submitButtonRef
+      : cancelButtonRef;
+
+  return (
+    <Modal
+      backdropClassName={backdropClassName}
+      className={className}
+      closeButton={closeButton}
+      closeOnEsc={closeOnEsc}
+      closeOnOutsideClick={closeOnOutsideClick}
+      isOpen={isOpen}
+      size={size}
+      onClose={onClose}
+      {...(hasCustomFocusableElement && {
+        initialFocusRef: initialFocusRef || initialFocusElementRef,
+      })}
+    >
+      <Modal.Header>
+        <Typography data-cy="alert-title" style="h2">
+          {title}
+        </Typography>
+      </Modal.Header>
+      <Modal.Body>
+        <Typography data-cy="alert-message" lineHeight="normal" style="body2">
+          {message}
+        </Typography>
+      </Modal.Body>
+      <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
+        <Button
+          data-cy="alert-submit-button"
+          disabled={!isOpen}
+          label={submitButtonLabel}
+          loading={isSubmitting}
+          ref={submitButtonRef}
+          style="danger"
+          onClick={onSubmit}
+        />
+        <Button
+          data-cy="alert-cancel-button"
+          label={cancelButtonLabel}
+          ref={cancelButtonRef}
+          style="text"
+          onClick={onClose}
+        />
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
 Alert.propTypes = {
   /**
@@ -120,6 +143,15 @@ Alert.propTypes = {
    * To close on clicking outside the Alert content.
    */
   closeOnOutsideClick: PropTypes.bool,
+  /**
+   * To specify the ref of the element which will receive focus when the Alert is opened.
+   * If not specified, the focus will be set to the submit button inside the Alert.
+   * */
+  initialFocusRef: PropTypes.object,
+  /**
+   * To specify the element which will receive focus when the Alert is opened.
+   */
+  initialFocusElement: PropTypes.oneOf(Object.values(FOCUSABLE_ELEMENTS)),
 };
 
 export default Alert;

@@ -119,6 +119,7 @@ export interface AlertProps {
   message?: React.ReactNode;
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
+  initialFocusElement?: "cancel" | "submit";
 }
 
 export type AvatarProps = {
@@ -324,7 +325,7 @@ export type SelectProps = {
   id?: string;
   loadOptions?: boolean;
   labelProps?: LabelProps;
-  optionRemapping?: { label?: string, value?: string }
+  optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
 };
 
