@@ -179,7 +179,7 @@ describe("Table", () => {
     render(
       <BrowserRouter>
         <Table
-          shouldSetTableConfig
+          preserveTableStateInQuery
           columnData={columnData}
           defaultPageSize={2}
           handlePageChange={handlePageChange}
@@ -200,7 +200,7 @@ describe("Table", () => {
     render(
       <BrowserRouter>
         <Table
-          shouldSetTableConfig
+          preserveTableStateInQuery
           columnData={columnData}
           defaultPageSize={2}
           rowData={rowData}

@@ -51,7 +51,7 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
-  shouldSetTableConfig = false,
+  preserveTableStateInQuery = false,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -123,7 +123,7 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = shouldSetTableConfig
+  const sortedColumns = preserveTableStateInQuery
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
@@ -241,7 +241,7 @@ const Table = ({
       }}
       onChange={(pagination, _, sorter) => {
         handleHeaderClasses();
-        shouldSetTableConfig && handleTableChange(pagination, sorter);
+        preserveTableStateInQuery && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
         ref: headerRef,
@@ -362,7 +362,7 @@ Table.propTypes = {
   /**
    * This prop decides whether the pagination and sorting parameters should be added to the URL query parameters.
    */
-  shouldSetTableConfig: PropTypes.bool,
+  preserveTableStateInQuery: PropTypes.bool,
 };
 
 export default Table;
