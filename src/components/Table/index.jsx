@@ -51,6 +51,7 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
+  shouldSetTableConfig = false,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -121,6 +122,10 @@ const Table = ({
       assoc("sortOrder", TABLE_SORT_ORDERS[queryParams.order_by]),
       columnData
     );
+
+  const sortedColumns = shouldSetTableConfig
+    ? setSortFromURL(curatedColumnsData)
+    : curatedColumnsData;
 
   const locale = {
     emptyText: <Typography style="body2">No Data</Typography>,
@@ -202,7 +207,7 @@ const Table = ({
   const renderTable = () => (
     <AntTable
       bordered={bordered}
-      columns={setSortFromURL(curatedColumnsData)}
+      columns={sortedColumns}
       components={componentOverrides}
       dataSource={rowData}
       loading={loading}
@@ -236,7 +241,7 @@ const Table = ({
       }}
       onChange={(pagination, _, sorter) => {
         handleHeaderClasses();
-        handleTableChange(pagination, sorter);
+        shouldSetTableConfig && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
         ref: headerRef,
@@ -354,6 +359,10 @@ Table.propTypes = {
    * Make sure to pass `id` in `rowData` for this to work.
    */
   rowSelection: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  /**
+   * This prop decides whether the pagination and sorting parameters should be added to the URL query parameters.
+   */
+  shouldSetTableConfig: PropTypes.bool,
 };
 
 export default Table;
