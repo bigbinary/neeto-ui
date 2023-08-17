@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.6 - 2023-08-17
+
+- Added: Mechanism to set the pagination and sorting config in URL query parameters for `Table`.
+
 ## 5.1.5 - 2023-08-08
 
 - Added: `initialFocusRef` prop to *Alert*
@@ -499,7 +503,6 @@ Changes documentations to sentence case from title casing.
 - Renamed `neeto-ui-pastel-green` to `neeto-ui-success-100`
 - Renamed `neeto-ui-pastel-yellow` to `neeto-ui-warning-100`
 - Renamed `neeto-ui-pastel-red` to `neeto-ui-error-100`
-
 ### Cosmetic changes 👁
 
 #### Button
