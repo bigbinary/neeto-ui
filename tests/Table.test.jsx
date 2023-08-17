@@ -2,8 +2,10 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 import { Table } from "components";
+import { getQueryParams } from "components/Table/utils";
 
 const columnData = [
   {
@@ -22,6 +24,7 @@ const columnData = [
     title: "Last Name",
     dataIndex: "last_name",
     key: "last_name",
+    sorter: true,
     width: 150,
   },
 ];
@@ -156,16 +159,64 @@ describe("Table", () => {
   it("should call handlePageChange when page is changed ", () => {
     const handlePageChange = jest.fn();
     render(
-      <Table
-        columnData={columnData}
-        defaultPageSize={2}
-        handlePageChange={handlePageChange}
-        rowData={rowData}
-        shouldDynamicallyRenderRowSize={false}
-      />
+      <BrowserRouter>
+        <Table
+          columnData={columnData}
+          defaultPageSize={2}
+          handlePageChange={handlePageChange}
+          rowData={rowData}
+          shouldDynamicallyRenderRowSize={false}
+        />
+      </BrowserRouter>
     );
     const pages = screen.getAllByRole("listitem");
     userEvent.click(pages[2]);
     expect(handlePageChange).toBeCalledTimes(1);
+  });
+
+  it("should set pagination URL query parameters when page is changed", () => {
+    const handlePageChange = jest.fn();
+    render(
+      <BrowserRouter>
+        <Table
+          preserveTableStateInQuery
+          columnData={columnData}
+          defaultPageSize={2}
+          handlePageChange={handlePageChange}
+          rowData={rowData}
+          shouldDynamicallyRenderRowSize={false}
+        />
+      </BrowserRouter>
+    );
+    const pages = screen.getAllByRole("listitem");
+    userEvent.click(pages[2]);
+    const queryParams = getQueryParams();
+
+    expect(queryParams).toEqual({ page: "2", page_size: "2" });
+    expect(handlePageChange).toBeCalledTimes(1);
+  });
+
+  it("should set sorting URL query parameters when column title is clicked", () => {
+    render(
+      <BrowserRouter>
+        <Table
+          preserveTableStateInQuery
+          columnData={columnData}
+          defaultPageSize={2}
+          rowData={rowData}
+          shouldDynamicallyRenderRowSize={false}
+        />
+      </BrowserRouter>
+    );
+    const column = screen.getByText("Last Name");
+    userEvent.click(column);
+    const queryParams = getQueryParams();
+
+    expect(queryParams).toEqual({
+      page: "1",
+      page_size: "2",
+      sort_by: "last_name",
+      order_by: "asc",
+    });
   });
 });
