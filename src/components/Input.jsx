@@ -30,7 +30,7 @@ const Input = forwardRef(
       maxLength,
       unlimitedChars = false,
       labelProps,
-      rejectedCharacters = /^\s+$/,
+      rejectCharsRegex = /^\s+$/,
       ...otherProps
     },
     ref
@@ -53,7 +53,7 @@ const Input = forwardRef(
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     const handleChange = e =>
-      !test(rejectedCharacters, e.target.value) && onChange(e);
+      !test(rejectCharsRegex, e.target.value) && onChange(e);
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -206,7 +206,7 @@ Input.propTypes = {
    * To specify a regex to be matched against the user input. If it matches, the `onChange` prop will not be triggered.
    * By default, it will reject strings containing only whitespace characters.
    */
-  rejectedCharacters: PropTypes.instanceOf(RegExp),
+  rejectCharsRegex: PropTypes.instanceOf(RegExp),
 };
 
 export default Input;
