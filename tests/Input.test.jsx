@@ -27,22 +27,17 @@ describe("Input", () => {
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
-  it("should not call onChange when input value is only whitespace", () => {
-    const onChange = jest.fn();
+  it("should not show matched regex value", () => {
     const { getByLabelText } = render(
-      <Input id="input" label="Input Label" onChange={onChange} />
+      <Input id="input" label="Input Label" rejectCharsRegex={/[0-9]+/} />
     );
-    userEvent.type(getByLabelText("Input Label"), "    ");
-    expect(onChange).not.toHaveBeenCalled();
-  });
+    const inputField = getByLabelText("Input Label");
+    userEvent.type(inputField, "12345");
+    expect(inputField).not.toHaveValue("12345");
 
-  it("should call onChange when input value contains whitespace and other characters", () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = render(
-      <Input id="input" label="Input Label" onChange={onChange} />
-    );
-    userEvent.type(getByLabelText("Input Label"), "1 2");
-    expect(onChange).toHaveBeenCalled();
+    userEvent.type(inputField, "abc123");
+    expect(inputField).toHaveValue("abc");
+    expect(inputField).not.toHaveValue("123");
   });
 
   it("should display error message", () => {

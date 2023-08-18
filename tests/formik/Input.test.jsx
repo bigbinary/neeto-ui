@@ -32,7 +32,11 @@ const TestForm = ({ onSubmit }) => {
           onSubmit: handleSubmit,
         }}
       >
-        <Input label="First Name" name="firstName" />
+        <Input
+          label="First Name"
+          name="firstName"
+          rejectCharsRegex={/[0-9]+/}
+        />
         <Input label="Last Name" name="lastName" />
         <Input label="Email" name="email" type="email" />
         <button type="submit">Submit</button>
@@ -82,10 +86,10 @@ describe("formik/Input", () => {
     );
   });
 
-  it("should display validation error when string containing only whitespace is provided", async () => {
+  it("should display validation error when string having only rejected characters is provided", async () => {
     const onSubmit = jest.fn();
     render(<TestForm onSubmit={onSubmit} />);
-    userEvent.type(screen.getByLabelText("First Name"), "    ");
+    userEvent.type(screen.getByLabelText("First Name"), "123");
     userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(screen.getByText("First name is required")).toBeInTheDocument()

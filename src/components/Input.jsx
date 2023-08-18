@@ -3,7 +3,7 @@ import React, { useState, forwardRef } from "react";
 import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { test } from "ramda";
+import { assocPath, replace } from "ramda";
 
 import { hyphenize } from "utils";
 
@@ -30,7 +30,7 @@ const Input = forwardRef(
       maxLength,
       unlimitedChars = false,
       labelProps,
-      rejectCharsRegex = /^\s+$/,
+      rejectCharsRegex,
       ...otherProps
     },
     ref
@@ -52,8 +52,17 @@ const Input = forwardRef(
     const onChange = otherProps.onChange || onChangeInternal;
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleChange = e =>
-      !test(rejectCharsRegex, e.target.value) && onChange(e);
+    const handleRegexChange = e => {
+      const globalRegex = new RegExp(rejectCharsRegex, "g");
+      const newEvent = assocPath(
+        ["target", "value"],
+        replace(globalRegex, "", e.target.value),
+        e
+      );
+      onChange(newEvent);
+    };
+
+    const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -203,8 +212,8 @@ Input.propTypes = {
    */
   required: PropTypes.bool,
   /**
-   * To specify a regex to be matched against the user input. If it matches, the `onChange` prop will not be triggered.
-   * By default, it will reject strings containing only whitespace characters.
+   * To specify a regex to be matched against the user input. Any character that matches it
+   * cannot be input by the user. It will also prevent such characters from being pasted into the input.
    */
   rejectCharsRegex: PropTypes.instanceOf(RegExp),
 };
