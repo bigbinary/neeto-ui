@@ -3,6 +3,7 @@ import React, { useState, forwardRef } from "react";
 import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { test } from "ramda";
 
 import { hyphenize } from "utils";
 
@@ -29,6 +30,7 @@ const Input = forwardRef(
       maxLength,
       unlimitedChars = false,
       labelProps,
+      rejectedCharacters = /^\s+$/,
       ...otherProps
     },
     ref
@@ -49,6 +51,9 @@ const Input = forwardRef(
 
     const onChange = otherProps.onChange || onChangeInternal;
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
+
+    const handleChange = e =>
+      !test(rejectedCharacters, e.target.value) && onChange(e);
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -101,7 +106,7 @@ const Input = forwardRef(
             {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
-            onChange={onChange}
+            onChange={handleChange}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
@@ -197,6 +202,11 @@ Input.propTypes = {
    * To specify whether the Input field is required or not.
    */
   required: PropTypes.bool,
+  /**
+   * To specify a regex to be matched against the user input. If it matches, the `onChange` prop will not be triggered.
+   * By default, it will reject strings containing only whitespace characters.
+   */
+  rejectedCharacters: PropTypes.instanceOf(RegExp),
 };
 
 export default Input;

@@ -81,4 +81,14 @@ describe("formik/Input", () => {
       expect(screen.getByText("Invalid email address")).toBeInTheDocument()
     );
   });
+
+  it("should display validation error when string containing only whitespace is provided", async () => {
+    const onSubmit = jest.fn();
+    render(<TestForm onSubmit={onSubmit} />);
+    userEvent.type(screen.getByLabelText("First Name"), "    ");
+    userEvent.click(screen.getByText("Submit"));
+    await waitFor(() =>
+      expect(screen.getByText("First name is required")).toBeInTheDocument()
+    );
+  });
 });

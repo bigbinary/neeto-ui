@@ -27,6 +27,24 @@ describe("Input", () => {
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
+  it("should not call onChange when input value is only whitespace", () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input id="input" label="Input Label" onChange={onChange} />
+    );
+    userEvent.type(getByLabelText("Input Label"), "    ");
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("should call onChange when input value contains whitespace and other characters", () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input id="input" label="Input Label" onChange={onChange} />
+    );
+    userEvent.type(getByLabelText("Input Label"), "1 2");
+    expect(onChange).toHaveBeenCalled();
+  });
+
   it("should display error message", () => {
     const { getByText } = render(<Input error="Error message" label="input" />);
     expect(getByText("Error message")).toBeInTheDocument();
