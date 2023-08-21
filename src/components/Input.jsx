@@ -3,7 +3,7 @@ import React, { useState, forwardRef } from "react";
 import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { assocPath, replace } from "ramda";
+import { replace } from "ramda";
 
 import { hyphenize } from "utils";
 
@@ -54,12 +54,8 @@ const Input = forwardRef(
 
     const handleRegexChange = e => {
       const globalRegex = new RegExp(rejectCharsRegex, "g");
-      const newEvent = assocPath(
-        ["target", "value"],
-        replace(globalRegex, "", e.target.value),
-        e
-      );
-      onChange(newEvent);
+      e.target.value = replace(globalRegex, "", e.target.value);
+      onChange(e);
     };
 
     const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
