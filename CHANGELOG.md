@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.7 - 2023-08-21
+
+Added: `rejectCharsRegex` prop to *Input* component.
+
 ## 5.1.6 - 2023-08-17
 
 - Added: Mechanism to set the pagination and sorting config in URL query parameters for `Table`.
@@ -504,7 +508,6 @@ Changes documentations to sentence case from title casing.
 - Renamed `neeto-ui-pastel-yellow` to `neeto-ui-warning-100`
 - Renamed `neeto-ui-pastel-red` to `neeto-ui-error-100`
 ### Cosmetic changes 👁
-
 #### Button
 
 - Updated primary button color to `neeto-ui-primary-500`
