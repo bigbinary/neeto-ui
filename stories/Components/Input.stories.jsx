@@ -22,6 +22,7 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
     },
   },
+  argTypes: { rejectCharsRegex: { control: "text" } },
 };
 
 const Template = args => <Input {...args} />;
@@ -177,6 +178,20 @@ FormikInputStory.parameters = {
   },
 };
 
+const RejectCharsInputStory = args => (
+  <Input {...args} label="No numbers" rejectCharsRegex={/[0-9]+/} />
+);
+
+RejectCharsInputStory.storyName = "Reject specific characters";
+RejectCharsInputStory.parameters = {
+  docs: {
+    description: {
+      story: `The prop \`rejectCharsRegex\` will accept a regex and any character that matches it
+      cannot be input by the user. It will also prevent such characters from being pasted into the input.`,
+    },
+  },
+};
+
 export {
   Default,
   Sizes,
@@ -189,6 +204,7 @@ export {
   SearchInput,
   InputWithMaxLength,
   FormikInputStory,
+  RejectCharsInputStory,
 };
 
 export default metadata;

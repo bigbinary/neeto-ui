@@ -27,6 +27,19 @@ describe("Input", () => {
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
+  it("should not show matched regex value", () => {
+    const { getByLabelText } = render(
+      <Input id="input" label="Input Label" rejectCharsRegex={/[0-9]+/} />
+    );
+    const inputField = getByLabelText("Input Label");
+    userEvent.type(inputField, "12345");
+    expect(inputField).not.toHaveValue("12345");
+
+    userEvent.type(inputField, "abc123");
+    expect(inputField).toHaveValue("abc");
+    expect(inputField).not.toHaveValue("123");
+  });
+
   it("should display error message", () => {
     const { getByText } = render(<Input error="Error message" label="input" />);
     expect(getByText("Error message")).toBeInTheDocument();

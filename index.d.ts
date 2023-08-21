@@ -287,6 +287,7 @@ export interface InputProps
   labelProps?: LabelProps;
   maxLength?: number;
   unlimitedChars: boolean;
+  rejectCharsRegex?: RegExp;
 }
 
 export type LabelProps = {
