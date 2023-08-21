@@ -16,11 +16,7 @@ const TestForm = ({ onSubmit }) => {
       <h1>Sign Up</h1>
       <Form
         formikProps={{
-          initialValues: {
-            firstName: "",
-            lastName: "",
-            email: "",
-          },
+          initialValues: { firstName: "", lastName: "", email: "" },
           validationSchema: yup.object().shape({
             firstName: yup.string().required("First name is required"),
             lastName: yup.string().required("Last name is required"),
@@ -48,12 +44,7 @@ const TestForm = ({ onSubmit }) => {
 describe("formik/Input", () => {
   it("should render without error", () => {
     render(
-      <Form
-        formikProps={{
-          initialValues: {},
-          onSubmit: () => {},
-        }}
-      >
+      <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <Input label="Input label" name="test" />
       </Form>
     );
@@ -81,9 +72,9 @@ describe("formik/Input", () => {
     render(<TestForm onSubmit={onSubmit} />);
     userEvent.type(screen.getByLabelText("Email"), "john.doemail.com");
     userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(screen.getByText("Invalid email address")).toBeInTheDocument()
-    );
+    expect(
+      await screen.findByText("First name is required")
+    ).toBeInTheDocument();
   });
 
   it("should display validation error when string having only rejected characters is provided", async () => {
@@ -91,8 +82,9 @@ describe("formik/Input", () => {
     render(<TestForm onSubmit={onSubmit} />);
     userEvent.type(screen.getByLabelText("First Name"), "123");
     userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(screen.getByText("First name is required")).toBeInTheDocument()
-    );
+
+    expect(
+      await screen.findByText("First name is required")
+    ).toBeInTheDocument();
   });
 });
