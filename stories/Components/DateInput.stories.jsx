@@ -154,6 +154,19 @@ const DateRangePicker = args => (
 
 DateRangePicker.storyName = "DateRangePicker";
 
+DateRangePicker.parameters = {
+  docs: {
+    source: {
+      code: `
+<DatePicker
+  label="Date range"
+  type="range"
+  defaultValue={[dayjs(), dayjs().add(7, "day")]}
+/>`,
+    },
+  },
+};
+
 const DateRangePickerWithPresetRanges = args => (
   <div className="space-y-3">
     <DatePicker
@@ -185,6 +198,30 @@ const DateRangePickerWithPresetRanges = args => (
 
 DateRangePickerWithPresetRanges.storyName =
   "DateRangePicker with preset ranges";
+
+DateRangePickerWithPresetRanges.parameters = {
+  docs: {
+    source: {
+      code: `
+<DatePicker
+  label="Date range"
+  type="range"
+  defaultValue={[dayjs(), dayjs().add(7, "day")]}
+  ranges={{
+    Today: [dayjs(), dayjs()],
+    Yesterday: [dayjs().subtract(1, "d"), dayjs()],
+    "Last Week": [dayjs().subtract(7, "d"), dayjs()],
+    "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
+    "Last Month": [
+      dayjs().subtract(1, "month").startOf("month"),
+      dayjs().subtract(1, "month").endOf("month"),
+    ],
+    "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
+  }}
+/>`,
+    },
+  },
+};
 
 const ShowTime = args => (
   <DatePicker {...args} showTime label="Date" picker="date" type="date" />
