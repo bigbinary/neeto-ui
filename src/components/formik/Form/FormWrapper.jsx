@@ -4,18 +4,18 @@ import { Form as FormikForm, useFormikContext } from "formik";
 import PropTypes from "prop-types";
 
 import ScrollToErrorField from "./ScrollToErrorField";
+import { scrollToError } from "./ScrollToErrorField/utils";
 
 const FormWrapper = forwardRef(
-  (
-    { className, formProps, children, onSubmit, scrollToErrorField },
-    formRef
-  ) => {
+  ({ className, formProps, children, onSubmit, scrollToErrorField }, ref) => {
     const { values, validateForm, setErrors, setTouched, ...formikBag } =
       useFormikContext();
 
     const { dirty: isFormDirty, isSubmitting } = formikBag;
 
-    const formRefForScrollToErrorFiled = useRef();
+    const formRefForScrollToErrorField = useRef();
+
+    const formRef = ref || formRefForScrollToErrorField;
 
     const handleKeyDown = useCallback(
       async event => {
@@ -38,6 +38,7 @@ const FormWrapper = forwardRef(
           if (Object.keys(errors).length > 0) {
             setErrors(errors);
             setTouched(errors);
+            scrollToErrorField && scrollToError(formRef, errors);
           } else {
             onSubmit(values, formikBag);
           }
@@ -65,15 +66,11 @@ const FormWrapper = forwardRef(
         noValidate
         className={className}
         data-testid="neeto-ui-form-wrapper"
-        ref={formRef || formRefForScrollToErrorFiled}
+        ref={formRef}
         onKeyDown={handleKeyDown}
         {...formProps}
       >
-        {scrollToErrorField && (
-          <ScrollToErrorField
-            formRef={formRef || formRefForScrollToErrorFiled}
-          />
-        )}
+        {scrollToErrorField && <ScrollToErrorField formRef={formRef} />}
         {children}
       </FormikForm>
     );
