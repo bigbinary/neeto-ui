@@ -21,6 +21,7 @@ const Item = ({
       : icon || React.Fragment;
 
   const Parent = activeClassName ? NavLink : "button";
+  const buttonAttributes = activeClassName ? {} : { type: "button" };
 
   return (
     <Parent
@@ -30,12 +31,10 @@ const Item = ({
           "neeto-ui-tab neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-select-none",
           className,
         ],
-        {
-          active,
-        }
+        { active }
       )}
       onClick={onClick}
-      {...otherProps}
+      {...{ ...otherProps, ...buttonAttributes }}
     >
       {icon && <Icon className="neeto-ui-tab__icon" />}
       {children}
