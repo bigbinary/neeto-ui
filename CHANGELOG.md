@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.8 - 2023-08-24
+
+Added `type = "button"` attribute to *Tab.Item* component
+
 ## 5.1.7 - 2023-08-21
 
 Added: `rejectCharsRegex` prop to *Input* component.
@@ -509,7 +513,6 @@ Changes documentations to sentence case from title casing.
 - Renamed `neeto-ui-pastel-red` to `neeto-ui-error-100`
 ### Cosmetic changes 👁
 #### Button
-
 - Updated primary button color to `neeto-ui-primary-500`
 - Added `:focus` rings to buttons for accessibility
 - Updated `:focus-visible` styles to match the new design
