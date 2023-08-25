@@ -2,6 +2,7 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
+import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
@@ -154,6 +155,10 @@ const DateRangePicker = args => (
 
 DateRangePicker.storyName = "DateRangePicker";
 
+DateRangePicker.parameters = {
+  docs: { source: { code: DATE_PICKER_CODE } },
+};
+
 const DateRangePickerWithPresetRanges = args => (
   <div className="space-y-3">
     <DatePicker
@@ -185,6 +190,10 @@ const DateRangePickerWithPresetRanges = args => (
 
 DateRangePickerWithPresetRanges.storyName =
   "DateRangePicker with preset ranges";
+
+DateRangePickerWithPresetRanges.parameters = {
+  docs: { source: { code: DATE_RANGE_PICKER_CODE } },
+};
 
 const ShowTime = args => (
   <DatePicker {...args} showTime label="Date" picker="date" type="date" />
