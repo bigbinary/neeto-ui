@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.9 - 2023-08-25
+
+Fixed: scroll to error is not triggered on submitting form with enter key.
+
 ## 5.1.8 - 2023-08-24
 
 Added `type = "button"` attribute to *Tab.Item* component
@@ -520,7 +524,6 @@ Changes documentations to sentence case from title casing.
 - Updated CSS transition from `all .3s ease-in-out` to `all .3s linear`
 - Deprecated variants story in Storybook doc
 - Created independent stories for `Styles`, `Sizes`, `Icon only` etc
-
 #### Checkbox
 
 - Replaced checked state icon with neetoIcon
