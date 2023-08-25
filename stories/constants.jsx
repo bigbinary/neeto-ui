@@ -27,9 +27,7 @@ const columnData = [
   },
   {
     dataIndex: "guid",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "guid",
     title: function noRefCheck() {},
     width: 150,
@@ -53,26 +51,17 @@ const columnData = [
     title: "Buzzword",
     width: 250,
   },
-  {
-    dataIndex: "gender",
-    key: "gender",
-    title: "Gender",
-    width: 150,
-  },
+  { dataIndex: "gender", key: "gender", title: "Gender", width: 150 },
   {
     dataIndex: "email",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "email",
     title: "Email",
     width: 200,
   },
   {
     dataIndex: "company_name",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "company_name",
     title: "Company Name",
     width: 75,
@@ -85,18 +74,14 @@ const columnData = [
   },
   {
     dataIndex: "department",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "department",
     title: "Department",
     width: 150,
   },
   {
     dataIndex: "job_title",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "job_title",
     title: "Job Title",
     width: 75,
@@ -109,9 +94,7 @@ const columnData = [
   },
   {
     dataIndex: "credit_card_number",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "credit_card_number",
     title: "Credit Card Number",
     width: 250,
@@ -124,9 +107,7 @@ const columnData = [
   },
   {
     dataIndex: "domain_name",
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
     key: "domain_name",
     title: "Domain Name",
     width: 200,
@@ -1628,3 +1609,28 @@ export const STORYBOOK_NAV_LINKS = [
     icon: UserCircle,
   },
 ];
+
+export const DATE_PICKER_CODE = `
+<DatePicker
+  label="Date range"
+  type="range"
+  defaultValue={[dayjs(), dayjs().add(7, "day")]}
+/>`;
+
+export const DATE_RANGE_PICKER_CODE = `
+<DatePicker
+  label="Date range"
+  type="range"
+  defaultValue={[dayjs(), dayjs().add(7, "day")]}
+  ranges={{
+    Today: [dayjs(), dayjs()],
+    Yesterday: [dayjs().subtract(1, "d"), dayjs()],
+    "Last Week": [dayjs().subtract(7, "d"), dayjs()],
+    "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
+    "Last Month": [
+      dayjs().subtract(1, "month").startOf("month"),
+      dayjs().subtract(1, "month").endOf("month"),
+    ],
+    "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
+  }}
+/>`;

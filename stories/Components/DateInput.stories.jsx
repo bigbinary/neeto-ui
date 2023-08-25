@@ -2,6 +2,7 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
+import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "stories/constants";
 
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
@@ -155,16 +156,7 @@ const DateRangePicker = args => (
 DateRangePicker.storyName = "DateRangePicker";
 
 DateRangePicker.parameters = {
-  docs: {
-    source: {
-      code: `
-<DatePicker
-  label="Date range"
-  type="range"
-  defaultValue={[dayjs(), dayjs().add(7, "day")]}
-/>`,
-    },
-  },
+  docs: { source: { code: DATE_PICKER_CODE } },
 };
 
 const DateRangePickerWithPresetRanges = args => (
@@ -200,27 +192,7 @@ DateRangePickerWithPresetRanges.storyName =
   "DateRangePicker with preset ranges";
 
 DateRangePickerWithPresetRanges.parameters = {
-  docs: {
-    source: {
-      code: `
-<DatePicker
-  label="Date range"
-  type="range"
-  defaultValue={[dayjs(), dayjs().add(7, "day")]}
-  ranges={{
-    Today: [dayjs(), dayjs()],
-    Yesterday: [dayjs().subtract(1, "d"), dayjs()],
-    "Last Week": [dayjs().subtract(7, "d"), dayjs()],
-    "This Month": [dayjs().startOf("month"), dayjs().endOf("month")],
-    "Last Month": [
-      dayjs().subtract(1, "month").startOf("month"),
-      dayjs().subtract(1, "month").endOf("month"),
-    ],
-    "This Year": [dayjs().startOf("year"), dayjs().endOf("year")],
-  }}
-/>`,
-    },
-  },
+  docs: { source: { code: DATE_RANGE_PICKER_CODE } },
 };
 
 const ShowTime = args => (
