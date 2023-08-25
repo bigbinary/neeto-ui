@@ -17,5 +17,19 @@ const transformObjectToDotNotation = (object, prefix = "") => {
   return result;
 };
 
-export const getErrorFieldName = formikErrors =>
+const getErrorFieldName = formikErrors =>
   transformObjectToDotNotation(formikErrors)?.[0];
+
+export const scrollToError = (formRef, errors) => {
+  const fieldErrorName = getErrorFieldName(errors);
+  if (!fieldErrorName) return;
+
+  const errorFormElement = formRef.current.querySelector(
+    `[name="${fieldErrorName}"]`
+  );
+
+  errorFormElement?.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+};
