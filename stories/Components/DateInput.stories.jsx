@@ -2,7 +2,7 @@ import React from "react";
 
 import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
-import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "stories/constants";
+import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
