@@ -45,6 +45,7 @@ const MultiEmailInput = forwardRef(
     ref
   ) => {
     const [inputValue, setInputValue] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
 
     const isCounterVisible =
       !!counter &&
@@ -91,8 +92,10 @@ const MultiEmailInput = forwardRef(
       otherProps?.onCreateOption?.(input);
     };
 
-    const handleBlur = event =>
+    const handleBlur = event => {
       inputValue ? handleEmailChange() : onBlur(event);
+      setIsFocused(false);
+    };
 
     let overrideProps = {};
 
@@ -151,14 +154,13 @@ const MultiEmailInput = forwardRef(
           components={CUSTOM_COMPONENTS}
           inputValue={inputValue}
           isDisabled={disabled}
+          isFocused={isFocused}
           placeholder={placeholder}
           ref={ref}
           value={value}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-email-input__select",
-            {
-              "neeto-ui-react-select__container--error": !!error,
-            }
+            { "neeto-ui-react-select__container--error": !!error }
           )}
           styles={{
             ...CUSTOM_STYLES,
@@ -169,6 +171,7 @@ const MultiEmailInput = forwardRef(
           }}
           onBlur={handleBlur}
           onChange={onChange}
+          onFocus={() => setIsFocused(true)}
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
           {...(!isOptionsPresent && { menuIsOpen: false })}
