@@ -6,7 +6,11 @@ import userEvent from "@testing-library/user-event";
 import { MultiEmailInput } from "components";
 
 const SAMPLE_EMAILS = [
-  { label: "test@example.com", value: "test@example.com", valid: true },
+  {
+    label: "test@example.com",
+    value: "test@example.com",
+    valid: true
+  },
   {
     label: "test2@example.com",
     value: "test2@example.com",
@@ -207,4 +211,32 @@ describe("MultiEmailInput", () => {
       { label: "john@example.com", valid: true, value: "john@example.com" },
     ]);
   });
+
+  it("Should display within the specified visible count", () => {
+    const VISIBLE_ELEMENT_COUNT = 3
+    
+    render(
+      <MultiEmailInput counter value={SAMPLE_EMAILS} visibleEmailsCount={VISIBLE_ELEMENT_COUNT}/>
+    );
+    // Check that the total visible email count matches the specified visibleEmailsCount
+    const visibleEmailElements = screen.queryAllByText(/@example\.com/);
+    expect(visibleEmailElements.length).toBe(VISIBLE_ELEMENT_COUNT);
+  
+    // Check if the "more" counter is displayed if there are hidden emails
+    if (SAMPLE_EMAILS.length > VISIBLE_ELEMENT_COUNT) {
+      const hiddenEmailsCount = SAMPLE_EMAILS.length - VISIBLE_ELEMENT_COUNT;
+      expect(screen.getByText(`${hiddenEmailsCount} more`)).toBeInTheDocument();
+    }})
+
+  it("Should display all emails when input is in focus", () => {
+    render(
+      <MultiEmailInput counter value={SAMPLE_EMAILS} />
+    );
+    const emailInput = screen.getByRole("combobox");
+    userEvent.click(emailInput);
+
+    SAMPLE_EMAILS.forEach(email => {
+      expect(screen.getByText(email.label)).toBeInTheDocument();
+    });
+  })
 });

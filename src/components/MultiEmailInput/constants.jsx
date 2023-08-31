@@ -4,6 +4,8 @@ import { Close } from "neetoicons";
 import { assoc } from "ramda";
 import { components } from "react-select";
 
+import Tag from "components/Tag";
+
 const STYLES = {
   border: {
     default: "1px solid rgb(var(--neeto-ui-gray-400))",
@@ -42,6 +44,30 @@ const MultiValueRemove = props => (
   </components.MultiValueRemove>
 );
 
+const CustomValueContainer = ({ children, ...props }) => {
+  const {
+    getValue,
+    selectProps: { isFocused, visibleEmailsCount },
+  } = props;
+  const value = getValue();
+  const [firstChild, ...rest] = children;
+
+  const shouldCollapse = !isFocused && value.length > visibleEmailsCount;
+
+  return (
+    <components.ValueContainer {...props}>
+      {shouldCollapse ? firstChild.slice(0, visibleEmailsCount) : firstChild}
+      {shouldCollapse && (
+        <Tag
+          label={`${value.length - visibleEmailsCount} more`}
+          style="secondary"
+        />
+      )}
+      {rest}
+    </components.ValueContainer>
+  );
+};
+
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
   "i"
@@ -66,4 +92,5 @@ export const CUSTOM_COMPONENTS = {
   ClearIndicator: null,
   Control: CustomControl,
   MultiValueRemove,
+  ValueContainer: CustomValueContainer,
 };

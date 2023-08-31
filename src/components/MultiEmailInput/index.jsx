@@ -40,11 +40,13 @@ const MultiEmailInput = forwardRef(
       maxHeight = 200,
       required = false,
       labelProps,
+      visibleEmailsCount = 3,
       ...otherProps
     },
     ref
   ) => {
     const [inputValue, setInputValue] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
 
     const isCounterVisible =
       !!counter &&
@@ -91,8 +93,10 @@ const MultiEmailInput = forwardRef(
       otherProps?.onCreateOption?.(input);
     };
 
-    const handleBlur = event =>
+    const handleBlur = event => {
       inputValue ? handleEmailChange() : onBlur(event);
+      setIsFocused(false);
+    };
 
     let overrideProps = {};
 
@@ -151,14 +155,14 @@ const MultiEmailInput = forwardRef(
           components={CUSTOM_COMPONENTS}
           inputValue={inputValue}
           isDisabled={disabled}
+          isFocused={isFocused}
           placeholder={placeholder}
           ref={ref}
           value={value}
+          visibleEmailsCount={visibleEmailsCount}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-email-input__select",
-            {
-              "neeto-ui-react-select__container--error": !!error,
-            }
+            { "neeto-ui-react-select__container--error": !!error }
           )}
           styles={{
             ...CUSTOM_STYLES,
@@ -169,6 +173,7 @@ const MultiEmailInput = forwardRef(
           }}
           onBlur={handleBlur}
           onChange={onChange}
+          onFocus={() => setIsFocused(true)}
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
           {...(!isOptionsPresent && { menuIsOpen: false })}
@@ -280,6 +285,10 @@ MultiEmailInput.propTypes = {
    * To specify the content to be added at the beginning of the Input field.
    */
   prefix: PropTypes.node,
+  /**
+   * To specify the number of email to be displayed in the input field when not in focus.
+   */
+  visibleEmailsCount: PropTypes.number,
 };
 
 export default MultiEmailInput;
