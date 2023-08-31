@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.11 - 2023-08-31
+
+Added truncating feature when more than 3 emails are shown on the MultiEmail input.
+
 ## 5.1.9 - 2023-08-25
 
 Fixed: scroll to error is not triggered on submitting form with enter key.
@@ -525,7 +529,6 @@ Changes documentations to sentence case from title casing.
 - Deprecated variants story in Storybook doc
 - Created independent stories for `Styles`, `Sizes`, `Icon only` etc
 #### Checkbox
-
 - Replaced checked state icon with neetoIcon
 - Updated checked state color to `neeto-ui-primary-500`
 - Changed default state border color from `grey 300` to `grey 400`
