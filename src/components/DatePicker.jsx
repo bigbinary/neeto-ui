@@ -17,10 +17,7 @@ const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 const AntDatePicker = generatePicker(dayjsGenerateConfig);
 const { RangePicker } = AntDatePicker;
 
-const datePickerTypes = {
-  range: RangePicker,
-  date: AntDatePicker,
-};
+const datePickerTypes = { range: RangePicker, date: AntDatePicker };
 
 const IconOverride = ({ icon: Icon }) => (
   <span className="neeto-ui-btn neeto-ui-btn--style-text neeto-ui-btn--size-medium neeto-ui-btn--icon-only">
@@ -70,6 +67,7 @@ const DatePicker = forwardRef(
       <div className="neeto-ui-input__wrapper">
         {label && <Label {...labelProps}>{label}</Label>}
         <Component
+          data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
           defaultValue={convertToDayjsObjects(defaultValue)}
           format={format}
           picker={picker}
