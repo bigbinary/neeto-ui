@@ -40,6 +40,7 @@ const MultiEmailInput = forwardRef(
       maxHeight = 200,
       required = false,
       labelProps,
+      visibleEmailsCount = 3,
       ...otherProps
     },
     ref
@@ -158,6 +159,7 @@ const MultiEmailInput = forwardRef(
           placeholder={placeholder}
           ref={ref}
           value={value}
+          visibleEmailsCount={visibleEmailsCount}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-email-input__select",
             { "neeto-ui-react-select__container--error": !!error }
@@ -283,6 +285,10 @@ MultiEmailInput.propTypes = {
    * To specify the content to be added at the beginning of the Input field.
    */
   prefix: PropTypes.node,
+  /**
+   * To specify the number of email to be displayed in the input field when not in focus.
+   */
+  visibleEmailsCount: PropTypes.number,
 };
 
 export default MultiEmailInput;

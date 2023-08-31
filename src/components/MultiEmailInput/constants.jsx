@@ -6,8 +6,6 @@ import { components } from "react-select";
 
 import Tag from "components/Tag";
 
-const MAX_EMAILS_DISPLAY = 3;
-
 const STYLES = {
   border: {
     default: "1px solid rgb(var(--neeto-ui-gray-400))",
@@ -49,29 +47,23 @@ const MultiValueRemove = props => (
 const CustomValueContainer = ({ children, ...props }) => {
   const {
     getValue,
-    selectProps: { isFocused },
+    selectProps: { isFocused, visibleEmailsCount },
   } = props;
   const value = getValue();
-  const newChildren = [...children];
+  const [firstChild, ...rest] = children;
 
-  if (!isFocused && value.length > MAX_EMAILS_DISPLAY) {
-    newChildren[0] = children[0].map((ele, i) => {
-      if (i < 3) return ele;
-
-      return null;
-    });
-
-    newChildren[0].push(
-      <Tag
-        label={`${value.length - MAX_EMAILS_DISPLAY} more`}
-        style="secondary"
-      />
-    );
-  }
+  const shouldCollapse = !isFocused && value.length > visibleEmailsCount;
 
   return (
     <components.ValueContainer {...props}>
-      {newChildren}
+      {shouldCollapse ? firstChild.slice(0, visibleEmailsCount) : firstChild}
+      {shouldCollapse && (
+        <Tag
+          label={`${value.length - visibleEmailsCount} more`}
+          style="secondary"
+        />
+      )}
+      {rest}
     </components.ValueContainer>
   );
 };
