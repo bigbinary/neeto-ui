@@ -14,29 +14,9 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 
-const SIZES = {
-  small: "small",
-  medium: "medium",
-  large: "large",
-};
+const SIZES = { small: "small", medium: "medium", large: "large" };
 
-const STRATEGIES = {
-  default: "default",
-  fixed: "fixed",
-};
-
-const CustomInput = props => {
-  const { selectProps } = props;
-
-  return (
-    <components.Input
-      {...props}
-      data-cy={selectProps && selectProps["data-cy"]}
-      data-testid={selectProps && selectProps["data-testid"]}
-      maxLength={selectProps && selectProps.maxLength}
-    />
-  );
-};
+const STRATEGIES = { default: "default", fixed: "fixed" };
 
 const Select = ({
   size = SIZES.medium,
@@ -100,6 +80,62 @@ const Select = ({
     </components.MultiValueRemove>
   );
 
+  const CustomInput = props => {
+    const { selectProps } = props;
+
+    return (
+      <components.Input
+        {...props}
+        data-testid={selectProps && selectProps["data-testid"]}
+        maxLength={selectProps && selectProps.maxLength}
+        data-cy={
+          (selectProps && selectProps["data-cy"]) ??
+          `${hyphenize(label)}-select-input`
+        }
+      />
+    );
+  };
+
+  const CustomOption = props => (
+    <components.Option
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": `${hyphenize(props.label)}-select-option`,
+      }}
+    />
+  );
+
+  const Placeholder = props => (
+    <components.Placeholder
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": `${hyphenize(label)}-select-placeholder`,
+      }}
+    />
+  );
+
+  const Menu = props => (
+    <components.Menu
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": `${hyphenize(label)}-select-menu`,
+      }}
+    />
+  );
+
+  const ValueContainer = props => (
+    <components.ValueContainer
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": `${hyphenize(label)}-select-value-container`,
+      }}
+    />
+  );
+
   const { options, defaultOptions, getOptionValue } = otherProps;
 
   const getRealOptionValue = option => {
@@ -154,9 +190,13 @@ const Select = ({
         })}
         components={{
           Input: CustomInput,
+          Option: CustomOption,
           DropdownIndicator,
           ClearIndicator,
           MultiValueRemove,
+          Placeholder,
+          Menu,
+          ValueContainer,
           ...componentOverrides,
         }}
         {...portalProps}
