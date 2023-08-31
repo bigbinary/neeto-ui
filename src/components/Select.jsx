@@ -89,8 +89,9 @@ const Select = ({
         data-testid={selectProps && selectProps["data-testid"]}
         maxLength={selectProps && selectProps.maxLength}
         data-cy={
-          (selectProps && selectProps["data-cy"]) ??
-          `${hyphenize(label)}-select-input`
+          selectProps
+            ? selectProps["data-cy"]
+            : `${hyphenize(label)}-select-input`
         }
       />
     );
