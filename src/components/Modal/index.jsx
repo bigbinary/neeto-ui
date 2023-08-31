@@ -96,6 +96,7 @@ const Modal = ({
               <Button
                 aria-label="Close"
                 className="neeto-ui-modal__close"
+                data-cy="modal-close-button"
                 data-testid="close-button"
                 icon={Close}
                 size="small"

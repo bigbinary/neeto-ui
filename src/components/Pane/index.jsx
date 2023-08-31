@@ -97,6 +97,7 @@ const Pane = ({
               <Button
                 aria-label="Close"
                 className="neeto-ui-pane__close"
+                data-cy="pane-close-button"
                 data-testid="close-button"
                 icon={Close}
                 size="small"

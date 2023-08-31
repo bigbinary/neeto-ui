@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 const Body = ({ children, className, hasFooter = true }) => (
   <div
+    data-cy="pane-body"
     className={classnames(
       "neeto-ui-pane__body neeto-ui-flex neeto-ui-flex-col neeto-ui-items-start neeto-ui-justify-start",
       {

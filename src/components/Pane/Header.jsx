@@ -4,7 +4,10 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 const Header = ({ children, className }) => (
-  <div className={classnames("neeto-ui-pane__header", className)}>
+  <div
+    className={classnames("neeto-ui-pane__header", className)}
+    data-cy="pane-header"
+  >
     {children}
   </div>
 );

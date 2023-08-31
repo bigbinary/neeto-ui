@@ -8,10 +8,7 @@ import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
-const FOCUSABLE_ELEMENTS = {
-  submit: "submit",
-  cancel: "cancel",
-};
+const FOCUSABLE_ELEMENTS = { submit: "submit", cancel: "cancel" };
 
 const Alert = ({
   size = SIZES.medium,
@@ -47,6 +44,7 @@ const Alert = ({
       closeButton={closeButton}
       closeOnEsc={closeOnEsc}
       closeOnOutsideClick={closeOnOutsideClick}
+      data-cy="alert-box"
       isOpen={isOpen}
       size={size}
       onClose={onClose}
