@@ -706,7 +706,15 @@ td.ant-table-column-sort {
 }
 
 .ant-table-tbody > tr > td {
-  .neeto-ui-btn--style-link{
+  .neeto-ui-btn--style-link {
     line-height: inherit;
   }
+}
+
+.ant-table-thead > tr > th {
+  transition: none;
+}
+
+.ant-table-thead th.ant-table-column-has-sorters {
+  transition: none;
 }
