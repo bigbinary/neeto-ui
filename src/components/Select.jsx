@@ -4,7 +4,7 @@ import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc, curry } from "ramda";
+import { prop, assoc } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -36,22 +36,18 @@ const MultiValueRemove = props => (
   </components.MultiValueRemove>
 );
 
-const CustomInput = curry((label, props) => {
+const CustomInput = props => {
   const { selectProps } = props;
 
   return (
     <components.Input
       {...props}
+      data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
       data-testid={selectProps && selectProps["data-testid"]}
       maxLength={selectProps && selectProps.maxLength}
-      data-cy={
-        selectProps
-          ? selectProps["data-cy"]
-          : `${hyphenize(label)}-select-input`
-      }
     />
   );
-});
+};
 
 const CustomOption = props => (
   <components.Option
@@ -63,35 +59,53 @@ const CustomOption = props => (
   />
 );
 
-const Placeholder = curry((label, props) => (
-  <components.Placeholder
-    {...props}
-    innerProps={{
-      ...props.innerProps,
-      "data-cy": `${hyphenize(label)}-select-placeholder`,
-    }}
-  />
-));
+const Placeholder = props => {
+  const { selectProps } = props;
 
-const Menu = curry((label, props) => (
-  <components.Menu
-    {...props}
-    innerProps={{
-      ...props.innerProps,
-      "data-cy": `${hyphenize(label)}-select-menu`,
-    }}
-  />
-));
+  return (
+    <components.Placeholder
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-placeholder`
+          : "select-placeholder",
+      }}
+    />
+  );
+};
 
-const ValueContainer = curry((label, props) => (
-  <components.ValueContainer
-    {...props}
-    innerProps={{
-      ...props.innerProps,
-      "data-cy": `${hyphenize(label)}-select-value-container`,
-    }}
-  />
-));
+const Menu = props => {
+  const { selectProps } = props;
+
+  return (
+    <components.Menu
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-menu`
+          : "select-menu",
+      }}
+    />
+  );
+};
+
+const ValueContainer = props => {
+  const { selectProps } = props;
+
+  return (
+    <components.ValueContainer
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-value-container`
+          : "select-value-container",
+      }}
+    />
+  );
+};
 
 const Select = ({
   size = SIZES.medium,
@@ -181,6 +195,7 @@ const Select = ({
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         inputId={inputId}
+        label={label}
         ref={innerRef}
         value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
@@ -190,14 +205,14 @@ const Select = ({
           "neeto-ui-react-select__container--large": size === SIZES.large,
         })}
         components={{
-          Input: CustomInput(label),
+          Input: CustomInput,
           Option: CustomOption,
           DropdownIndicator,
           ClearIndicator,
           MultiValueRemove,
-          Placeholder: Placeholder(label),
-          Menu: Menu(label),
-          ValueContainer: ValueContainer(label),
+          Placeholder,
+          Menu,
+          ValueContainer,
           ...componentOverrides,
         }}
         {...portalProps}
