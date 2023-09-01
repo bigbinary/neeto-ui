@@ -44,6 +44,7 @@ const Switch = forwardRef(
             <input type="checkbox" onChange={onChange} {...otherProps} />
             <span
               aria-hidden="true"
+              data-cy={`${hyphenize(renderLabel)}-switch`}
               className={classnames("neeto-ui-switch", {
                 "neeto-ui-switch--checked": !!checked,
               })}

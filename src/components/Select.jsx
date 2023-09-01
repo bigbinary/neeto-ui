@@ -14,16 +14,27 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 
-const SIZES = {
-  small: "small",
-  medium: "medium",
-  large: "large",
-};
+const SIZES = { small: "small", medium: "medium", large: "large" };
 
-const STRATEGIES = {
-  default: "default",
-  fixed: "fixed",
-};
+const STRATEGIES = { default: "default", fixed: "fixed" };
+
+const DropdownIndicator = props => (
+  <components.DropdownIndicator {...props}>
+    <Down size={16} />
+  </components.DropdownIndicator>
+);
+
+const ClearIndicator = props => (
+  <components.ClearIndicator {...props}>
+    <Close size={16} />
+  </components.ClearIndicator>
+);
+
+const MultiValueRemove = props => (
+  <components.MultiValueRemove {...props}>
+    <Close size={16} />
+  </components.MultiValueRemove>
+);
 
 const CustomInput = props => {
   const { selectProps } = props;
@@ -31,9 +42,67 @@ const CustomInput = props => {
   return (
     <components.Input
       {...props}
-      data-cy={selectProps && selectProps["data-cy"]}
+      data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
       data-testid={selectProps && selectProps["data-testid"]}
       maxLength={selectProps && selectProps.maxLength}
+    />
+  );
+};
+
+const CustomOption = props => (
+  <components.Option
+    {...props}
+    innerProps={{
+      ...props.innerProps,
+      "data-cy": `${hyphenize(props.label)}-select-option`,
+    }}
+  />
+);
+
+const Placeholder = props => {
+  const { selectProps } = props;
+
+  return (
+    <components.Placeholder
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-placeholder`
+          : "select-placeholder",
+      }}
+    />
+  );
+};
+
+const Menu = props => {
+  const { selectProps } = props;
+
+  return (
+    <components.Menu
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-menu`
+          : "select-menu",
+      }}
+    />
+  );
+};
+
+const ValueContainer = props => {
+  const { selectProps } = props;
+
+  return (
+    <components.ValueContainer
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": selectProps
+          ? `${hyphenize(selectProps.label)}-select-value-container`
+          : "select-value-container",
+      }}
     />
   );
 };
@@ -82,24 +151,6 @@ const Select = ({
     menuPosition: "fixed",
   };
 
-  const DropdownIndicator = props => (
-    <components.DropdownIndicator {...props}>
-      <Down size={16} />
-    </components.DropdownIndicator>
-  );
-
-  const ClearIndicator = props => (
-    <components.ClearIndicator {...props}>
-      <Close size={16} />
-    </components.ClearIndicator>
-  );
-
-  const MultiValueRemove = props => (
-    <components.MultiValueRemove {...props}>
-      <Close size={16} />
-    </components.MultiValueRemove>
-  );
-
   const { options, defaultOptions, getOptionValue } = otherProps;
 
   const getRealOptionValue = option => {
@@ -144,6 +195,7 @@ const Select = ({
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         inputId={inputId}
+        label={label}
         ref={innerRef}
         value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
@@ -154,9 +206,13 @@ const Select = ({
         })}
         components={{
           Input: CustomInput,
+          Option: CustomOption,
           DropdownIndicator,
           ClearIndicator,
           MultiValueRemove,
+          Placeholder,
+          Menu,
+          ValueContainer,
           ...componentOverrides,
         }}
         {...portalProps}

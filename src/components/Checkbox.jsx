@@ -31,6 +31,7 @@ const Checkbox = forwardRef(
           <input
             aria-invalid={!!error}
             className="neeto-ui-checkbox"
+            data-cy={`${hyphenize(renderLabel)}-checkbox-input`}
             id={id}
             name={id}
             ref={ref}

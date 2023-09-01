@@ -52,7 +52,13 @@ const Tooltip = ({
       role="tooltip"
       theme={theme}
       zIndex={100001}
-      onCreate={setInstance}
+      onCreate={instance => {
+        setInstance(instance);
+        instance.popper.firstElementChild?.setAttribute(
+          "data-cy",
+          "tooltip-box"
+        );
+      }}
       {...localProps}
       {...otherProps}
     >
