@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.13 - 2023-09-01
+
+- Updated the delay for calculating the height of the table header. This is to ensure that the height of the table is not affected by the flaky animation within the header during render process.
+
 ## 5.1.11 - 2023-08-31
 
 Added truncating feature when more than 3 emails are shown on the MultiEmail input.
@@ -536,7 +540,6 @@ Changes documentations to sentence case from title casing.
 - Updated `:focus-visible` border color to `neeto-ui-primary-500`
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Improved spacing in component
-
 #### Radio
 
 - Replaced checked state icon with neetoIcon
