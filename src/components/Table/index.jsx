@@ -95,7 +95,7 @@ const Table = ({
       : TABLE_DEFAULT_HEADER_HEIGHT;
     setHeaderHeight(headerHeight);
     handleHeaderClasses();
-  }, 0);
+  }, 10);
 
   const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
     isEnabled: enableColumnReorder,
