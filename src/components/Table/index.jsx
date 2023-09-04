@@ -84,9 +84,11 @@ const Table = ({
   );
 
   const handleHeaderClasses = () => {
-    Object.values(headerRef.current?.children).forEach(child => {
-      child.setAttribute("data-text-align", child.style["text-align"]);
-    });
+    if (headerRef?.current?.children) {
+      Object.values(headerRef.current.children).forEach(child => {
+        child.setAttribute("data-text-align", child.style["text-align"]);
+      });
+    }
   };
 
   useTimeout(() => {
