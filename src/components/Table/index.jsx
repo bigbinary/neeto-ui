@@ -83,20 +83,11 @@ const Table = ({
     [resizeObserver.current, fixedHeight]
   );
 
-  const handleHeaderClasses = () => {
-    if (headerRef?.current?.children) {
-      Object.values(headerRef.current.children).forEach(child => {
-        child.setAttribute("data-text-align", child.style["text-align"]);
-      });
-    }
-  };
-
   useTimeout(() => {
     const headerHeight = headerRef.current
       ? headerRef.current.offsetHeight
       : TABLE_DEFAULT_HEADER_HEIGHT;
     setHeaderHeight(headerHeight);
-    handleHeaderClasses();
   }, 10);
 
   const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
@@ -132,6 +123,15 @@ const Table = ({
   const locale = {
     emptyText: <Typography style="body2">No Data</Typography>,
   };
+
+  const sortedColumnsWithAlignment = sortedColumns.map(sortedColumn => ({
+    ...sortedColumn,
+    onHeaderCell: column => {
+      const col = column.onHeaderCell?.(sortedColumn);
+
+      return { ...col, "data-text-align": column.align };
+    },
+  }));
 
   const isPaginationVisible = rowData.length > defaultPageSize;
 
@@ -209,7 +209,7 @@ const Table = ({
   const renderTable = () => (
     <AntTable
       bordered={bordered}
-      columns={sortedColumns}
+      columns={sortedColumnsWithAlignment}
       components={componentOverrides}
       dataSource={rowData}
       loading={loading}
@@ -242,7 +242,6 @@ const Table = ({
         ...scroll,
       }}
       onChange={(pagination, _, sorter) => {
-        handleHeaderClasses();
         preserveTableStateInQuery && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
