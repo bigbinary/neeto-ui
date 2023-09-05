@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, forwardRef } from "react";
 
 import classnames from "classnames";
 import { Close } from "neetoicons";
@@ -17,75 +17,85 @@ const STYLES = {
   danger: "danger",
 };
 
-const Tag = ({
-  style = STYLES.primary,
-  indicatorStyle,
-  label = "",
-  icon = null,
-  className = "",
-  onClose = null,
-  disabled = false,
-  size = SIZES.small,
-  type = TYPES.outline,
-  children,
-  ...otherProps
-}) => {
-  const Icon =
-    typeof icon === "string" ? () => <i className={icon} /> : icon || Fragment;
-  const renderLabel = label || children;
+const Tag = forwardRef(
+  (
+    {
+      style = STYLES.primary,
+      indicatorStyle,
+      label = "",
+      icon = null,
+      className = "",
+      onClose = null,
+      disabled = false,
+      size = SIZES.small,
+      type = TYPES.outline,
+      children,
+      ...otherProps
+    },
+    ref
+  ) => {
+    const Icon =
+      typeof icon === "string"
+        ? () => <i className={icon} />
+        : icon || Fragment;
+    const renderLabel = label || children;
 
-  return (
-    <div
-      data-testid="tag-container"
-      className={classnames(
-        "neeto-ui-tag",
-        {
-          "neeto-ui-tag--size-large": size === SIZES.large,
-          "neeto-ui-tag--size-small": size === SIZES.small,
-          "neeto-ui-tag--type-outline": type === TYPES.outline,
-          "neeto-ui-tag--type-solid": type === TYPES.solid,
-          "neeto-ui-tag--style-primary": style === STYLES.primary,
-          "neeto-ui-tag--style-secondary": style === STYLES.secondary,
-          "neeto-ui-tag--style-success": style === STYLES.success,
-          "neeto-ui-tag--style-info": style === STYLES.info,
-          "neeto-ui-tag--style-warning": style === STYLES.warning,
-          "neeto-ui-tag--style-danger": style === STYLES.danger,
-        },
-        className
-      )}
-      {...otherProps}
-    >
-      {indicatorStyle && (
-        <span
-          data-testid="tag-indicator"
-          className={classnames("neeto-ui-tag__indicator", {
-            "neeto-ui-bg-error-500": indicatorStyle === STYLES.danger,
-            "neeto-ui-bg-info-500": indicatorStyle === STYLES.info,
-            "neeto-ui-bg-warning-500": indicatorStyle === STYLES.warning,
-            "neeto-ui-bg-success-500": indicatorStyle === STYLES.success,
-            "neeto-ui-bg-primary-500": indicatorStyle === STYLES.primary,
-            "neeto-ui-bg-gray-500": indicatorStyle === STYLES.secondary,
-          })}
-        />
-      )}
-      {icon && (
-        <span className="neeto-ui-tag__icon" data-testid="class-icon">
-          <Icon />
-        </span>
-      )}
-      {renderLabel}
-      {onClose && (
-        <span
-          className="neeto-ui-tag__close"
-          data-testid="tag-close-button"
-          onClick={!disabled ? onClose : null}
-        >
-          <Close />
-        </span>
-      )}
-    </div>
-  );
-};
+    return (
+      <div
+        data-testid="tag-container"
+        ref={ref}
+        className={classnames(
+          "neeto-ui-tag",
+          {
+            "neeto-ui-tag--size-large": size === SIZES.large,
+            "neeto-ui-tag--size-small": size === SIZES.small,
+            "neeto-ui-tag--type-outline": type === TYPES.outline,
+            "neeto-ui-tag--type-solid": type === TYPES.solid,
+            "neeto-ui-tag--style-primary": style === STYLES.primary,
+            "neeto-ui-tag--style-secondary": style === STYLES.secondary,
+            "neeto-ui-tag--style-success": style === STYLES.success,
+            "neeto-ui-tag--style-info": style === STYLES.info,
+            "neeto-ui-tag--style-warning": style === STYLES.warning,
+            "neeto-ui-tag--style-danger": style === STYLES.danger,
+          },
+          className
+        )}
+        {...otherProps}
+      >
+        {indicatorStyle && (
+          <span
+            data-testid="tag-indicator"
+            className={classnames("neeto-ui-tag__indicator", {
+              "neeto-ui-bg-error-500": indicatorStyle === STYLES.danger,
+              "neeto-ui-bg-info-500": indicatorStyle === STYLES.info,
+              "neeto-ui-bg-warning-500": indicatorStyle === STYLES.warning,
+              "neeto-ui-bg-success-500": indicatorStyle === STYLES.success,
+              "neeto-ui-bg-primary-500": indicatorStyle === STYLES.primary,
+              "neeto-ui-bg-gray-500": indicatorStyle === STYLES.secondary,
+            })}
+          />
+        )}
+        {icon && (
+          <span className="neeto-ui-tag__icon" data-testid="class-icon">
+            <Icon />
+          </span>
+        )}
+        {renderLabel}
+        {onClose && (
+          <span
+            className="neeto-ui-tag__close"
+            data-testid="tag-close-button"
+            onClick={!disabled ? onClose : null}
+          >
+            <Close />
+          </span>
+        )}
+      </div>
+    );
+  }
+);
+
+Tag.displayName = "Tag";
 
 Tag.propTypes = {
   /**
