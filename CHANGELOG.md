@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.14 - 2023-09-05
+
+- Added: forwardRef to `Tag` component.
+
 ## 5.1.13 - 2023-09-01
 
 - Updated the delay for calculating the height of the table header. This is to ensure that the height of the table is not affected by the flaky animation within the header during render process.
@@ -541,7 +545,6 @@ Changes documentations to sentence case from title casing.
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Improved spacing in component
 #### Radio
-
 - Replaced checked state icon with neetoIcon
 - Updated checked state color to `neeto-ui-primary-500`
 - Changed default state border color from `grey 300` to `grey 400`
