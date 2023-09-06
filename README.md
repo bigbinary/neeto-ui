@@ -28,12 +28,6 @@ properly. Install the peer dependencies using the below command:
 yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0 @bigbinary/neeto-icons antd@4.24.3 i18next@21.7.0
 ```
 
-Additionally, you can install `@emotion/is-prop-valid` if you want to detect whether a prop is valid or not for HTML and SVG elements:
-
-```
-yarn add @emotion/is-prop-valid
-```
-
 ### `react-toastify`
 
 neetoUI depends on `react-toastify` for Toasters, so the styles for toaster must
