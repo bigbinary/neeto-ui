@@ -127,7 +127,7 @@ const Table = ({
   const sortedColumnsWithAlignment = sortedColumns.map(sortedColumn => ({
     ...sortedColumn,
     onHeaderCell: column => {
-      const col = column.onHeaderCell?.(sortedColumn);
+      const col = sortedColumn.onHeaderCell?.(column);
 
       return { ...col, "data-text-align": column.align };
     },
