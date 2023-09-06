@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.15 - 2023-09-06
+
+- Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the `handleHeaderClasses` function.
+- Achieved the same behavior of center aligning table header content for sortable columns, without depending on `headerRef` to do so.
+
 ## 5.1.14 - 2023-09-05
 
 - Added: forwardRef to `Tag` component.
@@ -552,7 +557,6 @@ Changes documentations to sentence case from title casing.
 - Updated `:focus-visible` border color to `neeto-ui-primary-500`
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Improved spacing in component
-
 #### Input
 
 - Updated border-radius to `5px`
