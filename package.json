@@ -166,7 +166,6 @@
     "yup": "0.32.11"
   },
   "peerDependencies": {
-    "@bigbinary/neeto-commons-frontend": "latest",
     "@bigbinary/neeto-icons": "latest",
     "antd": "4.24.3",
     "formik": "2.2.0",
