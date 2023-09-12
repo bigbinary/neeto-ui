@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.16 - 2023-09-12
+
+- Changed: onChange function of `ColorPicker` to output hex-alpha value if the transparency option is turned on
+
 ## 5.1.15 - 2023-09-06
 
 - Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the `handleHeaderClasses` function.
@@ -558,7 +562,6 @@ Changes documentations to sentence case from title casing.
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Improved spacing in component
 #### Input
-
 - Updated border-radius to `5px`
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Fixed unwanted spacing in maxLength label
