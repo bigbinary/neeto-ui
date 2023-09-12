@@ -53,7 +53,9 @@ const ColorPicker = ({
   const onColorChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
-    const hexValue = color.toHexString();
+    const hexValue = showTransparencyControl
+      ? color.toHex8String()
+      : color.toHexString();
     onChangeInternal({ hex: hexValue, rgb });
   };
 
