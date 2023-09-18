@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import classnames from "classnames";
 import { Down, Focus } from "neetoicons";
@@ -33,6 +33,7 @@ const ColorPicker = ({
   showTransparencyControl = false,
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
+  const isInputChanged = useRef(false);
   const { open, isSupported } = useEyeDropper({
     pickRadius: 3,
     // cursorActive: CSS Cursors,
@@ -53,6 +54,7 @@ const ColorPicker = ({
   const onColorInputChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
+    isInputChanged.current = true;
 
     onChangeInternal({ hex, rgb });
   };
@@ -67,6 +69,9 @@ const ColorPicker = ({
   };
 
   const onBlur = () => {
+    // If input is not changed, don't call onChange on blur
+    if (!isInputChanged.current) return;
+    isInputChanged.current = false;
     const color = tinycolor(colorValue);
     const rgb = color.toRgb();
     onChangeInternal({
