@@ -39,6 +39,7 @@
           justify-content: center !important;
         }
       }
+
       [data-text-align="right"] {
         .ant-table-column-sorters {
           justify-content: flex-end !important;
@@ -53,6 +54,9 @@
 
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
+            position: absolute;
+            right: 8px;
+
             .ant-table-column-sorter-inner {
               .ant-table-column-sorter-up {
                 color: rgb(var(--neeto-ui-gray-300));
@@ -68,6 +72,10 @@
             }
           }
         }
+      }
+
+      th.ant-table-cell.ant-table-column-has-sorters[data-text-align="center"] {
+        padding: 10px 24px;
       }
     }
   }
