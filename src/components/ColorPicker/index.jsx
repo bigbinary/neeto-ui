@@ -31,6 +31,7 @@ const ColorPicker = ({
   showEyeDropper = false,
   showHexValue = false,
   showTransparencyControl = false,
+  showPicker = false,
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
@@ -125,38 +126,45 @@ const ColorPicker = ({
       position="bottom-start"
     >
       <div className="neeto-ui-colorpicker__popover">
-        <div className="neeto-ui-colorpicker__pointer">
-          <PickerComponent color={colorValue} onChange={onPickerChange} />
-        </div>
-        <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
-          {showEyeDropper && isSupported() && (
-            <Button
-              className="neeto-ui-colorpicker__eyedropper-btn"
-              icon={Focus}
-              size="small"
-              style="text"
-              type="button"
-              onClick={pickColor}
-            />
-          )}
-          <div className="neeto-ui-input__wrapper">
-            <div
-              className="neeto-ui-colorpicker__input neeto-ui-input neeto-ui-input--small"
-              data-cy="colorpicker-editable-input"
-            >
-              <HexColorInput
-                alpha={!!showTransparencyControl}
-                color={colorValue}
-                onBlur={onBlur}
-                onChange={onColorInputChange}
-              />
+        {showPicker && (
+          <>
+            <div className="neeto-ui-colorpicker__pointer">
+              <PickerComponent color={colorValue} onChange={onPickerChange} />
             </div>
-          </div>
-        </div>
+            <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
+              {showEyeDropper && isSupported() && (
+                <Button
+                  className="neeto-ui-colorpicker__eyedropper-btn"
+                  icon={Focus}
+                  size="small"
+                  style="text"
+                  type="button"
+                  onClick={pickColor}
+                />
+              )}
+              <div className="neeto-ui-input__wrapper">
+                <div
+                  className="neeto-ui-colorpicker__input neeto-ui-input neeto-ui-input--small"
+                  data-cy="colorpicker-editable-input"
+                >
+                  <HexColorInput
+                    alpha={!!showTransparencyControl}
+                    color={colorValue}
+                    onBlur={onBlur}
+                    onChange={onColorInputChange}
+                  />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
         {colorPaletteProps && (
           <div
-            className="neeto-ui-colorpicker__palette-wrapper"
             data-testid="color-palette"
+            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                !showPicker,
+            })}
           >
             <Palette {...colorPaletteProps} />
           </div>
