@@ -51,9 +51,7 @@ const Default = ({ color, ...args }) => {
   );
 };
 
-Default.args = {
-  color: "#4558F9",
-};
+Default.args = { color: "#4558F9" };
 
 const Sizes = args => {
   const [color, setColor] = useState("#4558F9");
@@ -86,9 +84,7 @@ const Sizes = args => {
 };
 
 Sizes.storyName = "Sizes";
-Sizes.args = {
-  color: "#4558F9",
-};
+Sizes.args = { color: "#4558F9" };
 
 const WithColorPalette = args => {
   const [color, setColor] = useState("#4558F9");
@@ -138,9 +134,7 @@ const WithColorPalette = args => {
   );
 };
 WithColorPalette.storyName = "With color palette";
-WithColorPalette.args = {
-  color: "#4558F9",
-};
+WithColorPalette.args = { color: "#4558F9" };
 
 const WithEyeDropper = args => {
   const [color, setColor] = useState("#4558F9");
@@ -161,9 +155,7 @@ const WithEyeDropper = args => {
   );
 };
 WithEyeDropper.storyName = "With eye dropper";
-WithEyeDropper.args = {
-  color: "#4558F9",
-};
+WithEyeDropper.args = { color: "#4558F9" };
 
 const ShowHexValue = args => {
   const [color, setColor] = useState("#4558F9");
@@ -184,9 +176,7 @@ const ShowHexValue = args => {
   );
 };
 ShowHexValue.storyName = "Show hex value";
-ShowHexValue.args = {
-  color: "#4558F9",
-};
+ShowHexValue.args = { color: "#4558F9" };
 
 const ShowTransparencyControl = args => {
   const [color, setColor] = useState("#4558F9");
@@ -207,9 +197,7 @@ const ShowTransparencyControl = args => {
   );
 };
 ShowTransparencyControl.storyName = "Show transparency control";
-ShowTransparencyControl.args = {
-  color: "#4558F9c9",
-};
+ShowTransparencyControl.args = { color: "#4558F9c9" };
 
 export {
   Default,

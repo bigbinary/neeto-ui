@@ -50,7 +50,14 @@ const ColorPicker = ({
 
   const onChangeInternal = onChange || setColorInternal;
 
-  const onColorChange = hex => {
+  const onColorInputChange = hex => {
+    const color = tinycolor(hex);
+    const rgb = color.toRgb();
+
+    onChangeInternal({ hex, rgb });
+  };
+
+  const onPickerChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
     const hexValue = showTransparencyControl
@@ -59,11 +66,20 @@ const ColorPicker = ({
     onChangeInternal({ hex: hexValue, rgb });
   };
 
+  const onBlur = () => {
+    const color = tinycolor(colorValue);
+    const rgb = color.toRgb();
+    onChangeInternal({
+      rgb,
+      hex: showTransparencyControl ? color.toHex8String() : color.toHexString(),
+    });
+  };
+
   const pickColor = async () => {
     try {
       const colorResponse = await open();
       const colorHex = tinycolor(colorResponse.sRGBHex).toHexString();
-      onColorChange(colorHex);
+      onPickerChange(colorHex);
     } catch {
       // Ensures component is still mounted
       // before calling setState
@@ -108,7 +124,7 @@ const ColorPicker = ({
     >
       <div className="neeto-ui-colorpicker__popover">
         <div className="neeto-ui-colorpicker__pointer">
-          <PickerComponent color={colorValue} onChange={onColorChange} />
+          <PickerComponent color={colorValue} onChange={onPickerChange} />
         </div>
         <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
           {showEyeDropper && isSupported() && (
@@ -129,7 +145,8 @@ const ColorPicker = ({
               <HexColorInput
                 alpha={!!showTransparencyControl}
                 color={colorValue}
-                onChange={onColorChange}
+                onBlur={onBlur}
+                onChange={onColorInputChange}
               />
             </div>
           </div>
