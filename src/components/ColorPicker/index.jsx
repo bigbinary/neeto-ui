@@ -51,6 +51,15 @@ const ColorPicker = ({
 
   const onChangeInternal = onChange || setColorInternal;
 
+  const getColor = colorValue => {
+    const color = tinycolor(colorValue);
+
+    return {
+      hex: showTransparencyControl ? color.toHex8String() : color.toHexString(),
+      rgb: color.toRgb(),
+    };
+  };
+
   const onColorInputChange = hex => {
     const color = tinycolor(hex);
     const rgb = color.toRgb();
@@ -59,25 +68,13 @@ const ColorPicker = ({
     onChangeInternal({ hex, rgb });
   };
 
-  const onPickerChange = hex => {
-    const color = tinycolor(hex);
-    const rgb = color.toRgb();
-    const hexValue = showTransparencyControl
-      ? color.toHex8String()
-      : color.toHexString();
-    onChangeInternal({ hex: hexValue, rgb });
-  };
+  const onPickerChange = hex => onChangeInternal(getColor(hex));
 
   const onBlur = () => {
     // If input is not changed, don't call onChange on blur
     if (!isInputChanged.current) return;
     isInputChanged.current = false;
-    const color = tinycolor(colorValue);
-    const rgb = color.toRgb();
-    onChangeInternal({
-      rgb,
-      hex: showTransparencyControl ? color.toHex8String() : color.toHexString(),
-    });
+    onChangeInternal(getColor(colorValue));
   };
 
   const pickColor = async () => {
