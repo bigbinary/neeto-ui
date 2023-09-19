@@ -31,7 +31,7 @@ const ColorPicker = ({
   showEyeDropper = false,
   showHexValue = false,
   showTransparencyControl = false,
-  showPicker = false,
+  showPicker = true,
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
@@ -219,6 +219,10 @@ ColorPicker.propTypes = {
    * To show transparency control. By default it will be hidden.
    */
   showTransparencyControl: PropTypes.bool,
+  /**
+   * To show the picker. By default it will be hidden.
+   */
+  showPicker: PropTypes.bool,
 };
 
 export default ColorPicker;

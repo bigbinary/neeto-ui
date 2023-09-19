@@ -199,6 +199,39 @@ const ShowTransparencyControl = args => {
 ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = { color: "#4558F9c9" };
 
+const OnlyPalettePicker = args => {
+  const [color, setColor] = useState("#4558F9");
+
+  useEffect(() => {
+    setColor(args.color || "#4558F9c9");
+  }, [args.color]);
+
+  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
+    from: key,
+    to: key,
+  }));
+
+  const handleColorChange = (fromValue, toValue) => {
+    action("colorPaletteProps.onChange")(fromValue, toValue);
+    const fromColor = DEFAULT_COLORS[fromValue];
+    setColor(fromColor);
+  };
+
+  return (
+    <div className="h-60 w-40">
+      <ColorPicker
+        showTransparencyControl
+        color={color}
+        colorPaletteProps={{ color, colorList, onChange: handleColorChange }}
+        showPicker={false}
+      />
+    </div>
+  );
+};
+
+OnlyPalettePicker.storyName = "Show only palette picker";
+OnlyPalettePicker.args = { color: "#4558F9c9" };
+
 export {
   Default,
   Sizes,
@@ -206,6 +239,7 @@ export {
   WithEyeDropper,
   ShowHexValue,
   ShowTransparencyControl,
+  OnlyPalettePicker,
 };
 
 export default metadata;
