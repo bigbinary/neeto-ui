@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.17 - 2023-09-19
+
+- Fixed: Short hex code filling up the input in `ColorPicker`
+
 ## 5.1.16 - 2023-09-12
 
 - Changed: onChange function of `ColorPicker` to output hex-alpha value if the transparency option is turned on
@@ -569,7 +573,6 @@ Changes documentations to sentence case from title casing.
 - Fixed spacing inconsistencies in error test and helper text - used same margin value for both
 - Fixed alignment issues in naked inputs
 - Deprecate `variants` story in Storybook and created individual stories for `Input sizing`
-
 #### Textarea
 
 - Updated border-radius to `5px`
