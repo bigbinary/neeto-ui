@@ -220,7 +220,7 @@ ColorPicker.propTypes = {
    */
   showTransparencyControl: PropTypes.bool,
   /**
-   * To show the picker. By default it will be hidden.
+   * To show the color picker. Used to hide the picker in cases where only palette is required. By default it will be true.
    */
   showPicker: PropTypes.bool,
 };
