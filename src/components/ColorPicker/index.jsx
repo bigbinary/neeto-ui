@@ -128,7 +128,10 @@ const ColorPicker = ({
       <div className="neeto-ui-colorpicker__popover">
         {showPicker && (
           <>
-            <div className="neeto-ui-colorpicker__pointer">
+            <div
+              className="neeto-ui-colorpicker__pointer"
+              data-testid="neeto-color-picker-section"
+            >
               <PickerComponent color={colorValue} onChange={onPickerChange} />
             </div>
             <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">

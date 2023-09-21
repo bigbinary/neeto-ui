@@ -51,10 +51,7 @@ describe("ColorPicker", () => {
       <ColorPicker
         color={selectedColor}
         colorPaletteProps={{
-          color: {
-            from: "red-500",
-            to: "red-500",
-          },
+          color: { from: "red-500", to: "red-500" },
           colorList: Object.keys(DEFAULT_COLORS).map(key => ({
             from: key,
             to: key,
@@ -102,5 +99,12 @@ describe("ColorPicker", () => {
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should hide picker when showPicker is false", () => {
+    render(<ColorPicker showPicker={false} />);
+    expect(
+      screen.queryByTestId("neeto-color-picker-section")
+    ).not.toBeInTheDocument();
   });
 });
