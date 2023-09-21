@@ -4,6 +4,8 @@ import { action } from "@storybook/addon-actions";
 
 import ColorPicker from "components/ColorPicker";
 
+import { PALETTE_PICKER_CODE } from "./constants";
+
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
   "yellow-500": "#f57c00",
@@ -252,6 +254,9 @@ const OnlyPalettePicker = args => {
 
 OnlyPalettePicker.storyName = "Show only palette picker";
 OnlyPalettePicker.args = { color: "#4558F9c9" };
+OnlyPalettePicker.parameters = {
+  docs: { source: { code: PALETTE_PICKER_CODE } },
+};
 
 export {
   Default,
