@@ -9,6 +9,14 @@ const DEFAULT_COLORS = {
   "yellow-500": "#f57c00",
   "green-500": "#00ba88",
   "blue-500": "#276ef1",
+  "indigo-500": "#4c6ef5",
+  "purple-500": "#7c3aed",
+  "pink-500": "#f22d9e",
+  "gray-500": "#6b7280",
+  "gray-600": "#4b5563",
+  "gray-700": "#374151",
+  "gray-800": "#1f2937",
+  "gray-900": "#111827",
 };
 
 const metadata = {
@@ -211,6 +219,16 @@ const OnlyPalettePicker = args => {
     to: key,
   }));
 
+  const findColorByHex = hex => {
+    const colorClass = Object.keys(DEFAULT_COLORS).find(
+      key => hex === DEFAULT_COLORS[key]
+    );
+
+    return { from: colorClass, to: colorClass };
+  };
+
+  const selectedColor = findColorByHex(color);
+
   const handleColorChange = (fromValue, toValue) => {
     action("colorPaletteProps.onChange")(fromValue, toValue);
     const fromColor = DEFAULT_COLORS[fromValue];
@@ -222,8 +240,12 @@ const OnlyPalettePicker = args => {
       <ColorPicker
         showTransparencyControl
         color={color}
-        colorPaletteProps={{ color, colorList, onChange: handleColorChange }}
         showPicker={false}
+        colorPaletteProps={{
+          color: selectedColor,
+          colorList,
+          onChange: handleColorChange,
+        }}
       />
     </div>
   );

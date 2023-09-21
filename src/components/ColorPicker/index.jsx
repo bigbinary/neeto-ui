@@ -27,7 +27,7 @@ const ColorPicker = ({
   color = "",
   size = TARGET_SIZES.large,
   onChange = noop,
-  colorPaletteProps = null,
+  colorPaletteProps,
   showEyeDropper = false,
   showHexValue = false,
   showTransparencyControl = false,
