@@ -238,7 +238,6 @@ const OnlyPalettePicker = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        showTransparencyControl
         color={color}
         showPicker={false}
         colorPaletteProps={{
