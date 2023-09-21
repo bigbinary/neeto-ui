@@ -4,11 +4,21 @@ import { action } from "@storybook/addon-actions";
 
 import ColorPicker from "components/ColorPicker";
 
+import { PALETTE_PICKER_CODE } from "./constants";
+
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
   "yellow-500": "#f57c00",
   "green-500": "#00ba88",
   "blue-500": "#276ef1",
+  "indigo-500": "#4c6ef5",
+  "purple-500": "#7c3aed",
+  "pink-500": "#f22d9e",
+  "gray-500": "#6b7280",
+  "gray-600": "#4b5563",
+  "gray-700": "#374151",
+  "gray-800": "#1f2937",
+  "gray-900": "#111827",
 };
 
 const metadata = {
@@ -199,6 +209,55 @@ const ShowTransparencyControl = args => {
 ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = { color: "#4558F9c9" };
 
+const OnlyPalettePicker = args => {
+  const [color, setColor] = useState("#4558F9");
+
+  useEffect(() => {
+    setColor(args.color || "#4558F9c9");
+  }, [args.color]);
+
+  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
+    from: key,
+    to: key,
+  }));
+
+  const findColorByHex = hex => {
+    const colorClass = Object.keys(DEFAULT_COLORS).find(
+      key => hex === DEFAULT_COLORS[key]
+    );
+
+    return { from: colorClass, to: colorClass };
+  };
+
+  const selectedColor = findColorByHex(color);
+
+  const handleColorChange = (fromValue, toValue) => {
+    action("colorPaletteProps.onChange")(fromValue, toValue);
+    const fromColor = DEFAULT_COLORS[fromValue];
+    setColor(fromColor);
+  };
+
+  return (
+    <div className="h-60 w-40">
+      <ColorPicker
+        color={color}
+        showPicker={false}
+        colorPaletteProps={{
+          color: selectedColor,
+          colorList,
+          onChange: handleColorChange,
+        }}
+      />
+    </div>
+  );
+};
+
+OnlyPalettePicker.storyName = "Show only palette picker";
+OnlyPalettePicker.args = { color: "#4558F9c9" };
+OnlyPalettePicker.parameters = {
+  docs: { source: { code: PALETTE_PICKER_CODE } },
+};
+
 export {
   Default,
   Sizes,
@@ -206,6 +265,7 @@ export {
   WithEyeDropper,
   ShowHexValue,
   ShowTransparencyControl,
+  OnlyPalettePicker,
 };
 
 export default metadata;
