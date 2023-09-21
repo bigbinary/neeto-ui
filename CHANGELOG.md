@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.18 - 2023-09-21
+
+- Added: Support for showing only the palette in `ColorPicker`
+
 ## 5.1.17 - 2023-09-19
 
 - Fixed: Short hex code filling up the input in `ColorPicker`
@@ -574,7 +578,6 @@ Changes documentations to sentence case from title casing.
 - Fixed alignment issues in naked inputs
 - Deprecate `variants` story in Storybook and created individual stories for `Input sizing`
 #### Textarea
-
 - Updated border-radius to `5px`
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Fixed unwanted spacing in the maxLength label
