@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
-import generatePicker from "antd/lib/date-picker/generatePicker";
+import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
 import { Left, Right, Calendar } from "neetoicons";
 import PropTypes from "prop-types";
-import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 
 import { useSyncedRef } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
@@ -14,7 +13,6 @@ import Label from "./Label";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
-const AntDatePicker = generatePicker(dayjsGenerateConfig);
 const { RangePicker } = AntDatePicker;
 
 const datePickerTypes = { range: RangePicker, date: AntDatePicker };
