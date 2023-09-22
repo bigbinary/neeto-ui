@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Pane, Typography, Button } from "components";
@@ -14,7 +14,6 @@ describe("Pane", () => {
         </Pane.Header>
       </Pane>
     );
-    await new Promise(r => setTimeout(r, 300));
     expect(await screen.findByText("Pane header")).toBeInTheDocument();
   });
 
@@ -30,7 +29,7 @@ describe("Pane", () => {
   });
 
   it("should render body", async () => {
-    const { getByText } = render(
+    render(
       <Pane isOpen>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -40,20 +39,18 @@ describe("Pane", () => {
       </Pane>
     );
 
-    await new Promise(r => setTimeout(r, 300));
-    expect(getByText("Pane body")).toBeInTheDocument();
+    expect(await screen.findByText("Pane body")).toBeInTheDocument();
   });
 
   it("should render footer", async () => {
-    const { getByText } = render(
+    render(
       <Pane isOpen>
         <Pane.Footer>
           <Button label="Submit" />
         </Pane.Footer>
       </Pane>
     );
-    await new Promise(r => setTimeout(r, 300));
-    expect(getByText("Submit")).toBeInTheDocument();
+    expect(await screen.findByText("Submit")).toBeInTheDocument();
   });
 
   it("should not show close button when closeButton is false", () => {
@@ -109,22 +106,21 @@ describe("Pane", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should focus on the close button when the pane is opened", () => {
-    // wait for pane animation to be completed and then check if the close button is focused
-    const { getByTestId } = render(
+  it("should focus on the close button when the pane is opened", async () => {
+    render(
       <Pane isOpen>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
 
-    setTimeout(() => {
-      expect(getByTestId("close-button")).toHaveFocus();
-    }, 500);
+    await waitFor(async () =>
+      expect(await screen.findByTestId("close-button")).toHaveFocus()
+    );
   });
 
-  it("should focus on input box when initialFocusRef is passed to it", () => {
+  it("should focus on input box when initialFocusRef is passed to it", async () => {
     const inputRef = React.createRef(null);
-    const { getByTestId } = render(
+    render(
       <Pane isOpen initialFocusRef={inputRef}>
         <Pane.Body>
           <input data-testid="input" ref={inputRef} />
@@ -132,9 +128,7 @@ describe("Pane", () => {
       </Pane>
     );
 
-    setTimeout(() => {
-      expect(getByTestId("input")).toHaveFocus();
-    }, 500);
+    expect(await screen.findByTestId("input")).toHaveFocus();
   });
 
   it("should not close pane on clicking outside when closeOnOutsideClick is false", () => {
