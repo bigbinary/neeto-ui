@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import Alert from "components/Alert";
 import { useNavPrompt } from "hooks";
 
-const BlockNavigation = ({ isDirty = false }) => {
+const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
   const formikContext = useFormikContext();
   const shouldBlock =
     isDirty || (Boolean(formikContext) && Boolean(formikContext.dirty));
@@ -28,10 +28,16 @@ const BlockNavigation = ({ isDirty = false }) => {
       title="You have unsaved changes"
       onClose={hidePrompt}
       onSubmit={continueAction}
+      {...otherProps}
     />
   );
 };
 
-BlockNavigation.propTypes = { isDirty: PropTypes.bool };
+BlockNavigation.propTypes = {
+  isDirty: PropTypes.bool,
+  message: PropTypes.string,
+  title: PropTypes.string,
+  submitButtonLabel: PropTypes.string,
+};
 
 export default BlockNavigation;
