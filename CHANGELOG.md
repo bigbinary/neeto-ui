@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.1.19 - 2023-09-22
+
+- Added: Support for overriding props to `Alert` in `BlockNavigation`
+
 ## 5.1.18 - 2023-09-21
 
 - Added: Support for showing only the palette in `ColorPicker`
@@ -585,7 +589,6 @@ Changes documentations to sentence case from title casing.
 - Fix spacing inconsistencies in error test and helper text - used the same margin value for both
 - Fixed alignment issues in naked inputs
 - Added size prop to Textarea
-
 #### Select
 
 - Updated border-radius to `5px`
