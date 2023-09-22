@@ -10,6 +10,7 @@ import {
   MultiEmailInput as PlainMultiEmailInput,
   Button as PlainButton,
   ButtonProps,
+  AlertProps,
 } from "./index";
 
 export interface ActionBlockProps {
@@ -30,7 +31,7 @@ export interface Form {
 }
 
 export const ActionBlock: React.FC<ActionBlockProps>;
-export const BlockNavigation: React.FC<BlockNavigationProps>;
+export const BlockNavigation: React.FC<BlockNavigationProps & Partial<AlertProps>>;
 
 export const Input: typeof PlainInput;
 export const Radio: typeof PlainRadio;
