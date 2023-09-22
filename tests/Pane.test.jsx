@@ -1,13 +1,13 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Pane, Typography, Button } from "components";
 
 describe("Pane", () => {
   it("should render without error", async () => {
-    const { getByText } = render(
+    render(
       <Pane isOpen>
         <Pane.Header>
           <Typography style="h2">Pane header</Typography>
@@ -15,7 +15,7 @@ describe("Pane", () => {
       </Pane>
     );
     await new Promise(r => setTimeout(r, 300));
-    expect(getByText("Pane header")).toBeInTheDocument();
+    expect(await screen.findByText("Pane header")).toBeInTheDocument();
   });
 
   it("should not display content when isOpen is false", () => {
