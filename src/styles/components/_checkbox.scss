@@ -55,12 +55,16 @@
 // ant design checkbox override
 
 .ant-checkbox{
+  width: 16px;
+  height: 16px;
+
   [type="checkbox"] {
     width: 16px;
     height: 16px;
     color: rgb(var(--neeto-ui-primary-500));
     border: 2px solid rgb(var(--neeto-ui-gray-400));
     border-radius: var(--neeto-ui-rounded-sm);
+    opacity: 1;
 
     &:not(:disabled) {
       cursor: pointer;
