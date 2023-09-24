@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.0 - 2023-09-24
+
+- Updated: `antd` and `dayjs` version.
+
 ## 5.1.19 - 2023-09-22
 
 - Added: Support for overriding props to `Alert` in `BlockNavigation`
@@ -590,7 +594,6 @@ Changes documentations to sentence case from title casing.
 - Fixed alignment issues in naked inputs
 - Added size prop to Textarea
 #### Select
-
 - Updated border-radius to `5px`
 - Updated focus ring styles to match `neeto-ui-primary` color
 - Replaced the default dropdown icons with neetoIcons
