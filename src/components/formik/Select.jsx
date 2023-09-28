@@ -14,7 +14,7 @@ const SelectField = forwardRef((props, ref) => {
     isMulti = false,
     ...otherProps
   } = props;
-  const [field, meta, { setValue, setTouched }] = useField(name);
+  const [field, meta, { setValue }] = useField(name);
 
   const isMenuOpen = useRef(otherProps.defaultMenuIsOpen);
 
@@ -45,7 +45,6 @@ const SelectField = forwardRef((props, ref) => {
           ? null
           : buildValueObj(field.value, options)
       }
-      onBlur={() => setTouched(true)}
       onChange={value => setValue(value)}
       {...otherProps}
       onKeyDown={event => {
