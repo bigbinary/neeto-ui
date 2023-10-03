@@ -18,6 +18,13 @@
     background-color: rgb(var(--neeto-ui-white)) !important;
   }
 
+  // To prevent antD `a` color override
+  .neeto-ui-btn--style-link {
+    &:hover {
+      color: rgb(var(--neeto-ui-primary-800));
+    }
+  }
+
   thead.ant-table-thead {
     tr {
       th {
