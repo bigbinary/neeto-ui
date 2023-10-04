@@ -89,7 +89,6 @@ export const CUSTOM_STYLES = {
 
 export const CUSTOM_COMPONENTS = {
   DropdownIndicator: CustomDropdownIndicator,
-  ClearIndicator: null,
   Control: CustomControl,
   MultiValueRemove,
   ValueContainer: CustomValueContainer,
