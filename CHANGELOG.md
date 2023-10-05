@@ -23,6 +23,11 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.2 - 2023-10-05
+
+- The bug was due to a layout shift that happens when the formik error message is rendered. Details in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
+- The issue is fixed when we prevent the default behavior on mouseDown events for the cancel button, as suggesed by Sreerag in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
+
 ## 5.2.0 - 2023-09-24
 
 - Updated: `antd` and `dayjs` version.
@@ -602,7 +607,6 @@ Changes documentations to sentence case from title casing.
 - Replaced multivalue remove icon with neetoIcon
 - Updated multivalue error styles
 - Increased Story heights for better view
-
 #### Email input
 
 - Updated border radius to `5px`
