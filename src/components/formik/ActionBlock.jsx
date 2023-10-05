@@ -30,6 +30,7 @@ const ActionBlock = ({ className, submitButtonProps, cancelButtonProps }) => {
         label="Cancel"
         style="text"
         onClick={handleReset}
+        onMouseDown={e => e.preventDefault()}
         {...cancelButtonProps}
       />
     </div>
