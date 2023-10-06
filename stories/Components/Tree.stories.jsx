@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Tree from "components/Tree";
+
+import { TREE_DATA } from "./constants";
+import { handleOnDrop } from "./utils";
 
 const metadata = {
   title: "Components/Tree",
@@ -17,47 +20,20 @@ const metadata = {
 
 const Default = args => <Tree {...args} />;
 
-Default.args = {
-  height: 200,
-  checkable: true,
-  treeData: [
-    {
-      title: "Animals",
-      key: "animals",
-      children: [
-        {
-          title: "Dogs",
-          key: "dogs",
-          children: [
-            { title: "Golden Retriever", key: "goldenRetriever" },
-            { title: "Beagle", key: "beagle" },
-            { title: "Dalmatian", key: "dalmatian" },
-          ],
-        },
-        {
-          title: "Cats",
-          key: "cats",
-          children: [
-            { title: "Siamese", key: "siamese" },
-            { title: "Persian", key: "persian" },
-            { title: "Sphynx", key: "Sphynx" },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Cars",
-      key: "cars",
-      children: [
-        { title: "XUV", key: "XUV" },
-        { title: "Hatchack", key: "Hatchack" },
-        { title: "Sedan", key: "Sedan" },
-      ],
-    },
-  ],
-};
+Default.args = { height: 200, treeData: TREE_DATA };
 
 Default.storyName = "Tree";
 
-export { Default };
+const DraggableTree = () => {
+  const [treeData, setTreeData] = useState(TREE_DATA);
+  const onDrop = info => handleOnDrop({ info, treeData, setTreeData });
+
+  return <Tree blockNode draggable treeData={treeData} onDrop={onDrop} />;
+};
+
+DraggableTree.args = {};
+
+DraggableTree.storyName = "Draggable tree";
+
+export { Default, DraggableTree };
 export default metadata;

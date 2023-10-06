@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
 import { Tree as TreeComponent } from "antd";
 import { Down, Up } from "neetoicons";
@@ -9,35 +9,32 @@ import { noop } from "utils";
 const SwitcherIcon = ({ expanded }) =>
   expanded ? <Up size={20} /> : <Down size={20} />;
 
-const Tree = forwardRef(
-  (
-    {
-      defaultCheckedKeys = [],
-      defaultExpandedKeys = [],
-      defaultSelectedKeys = [],
-      onCheck = noop,
-      treeData = [],
-      onSelect = noop,
-      showLine = true,
-      checkable = false,
-      ...otherProps
-    },
-    ref
-  ) => (
-    <TreeComponent
-      checkable={checkable}
-      defaultCheckedKeys={defaultCheckedKeys}
-      defaultExpandedKeys={defaultExpandedKeys}
-      defaultSelectedKeys={defaultSelectedKeys}
-      ref={ref}
-      showLine={showLine}
-      switcherIcon={SwitcherIcon}
-      treeData={treeData}
-      onCheck={onCheck}
-      onSelect={onSelect}
-      {...otherProps}
-    />
-  )
+const Tree = ({
+  defaultCheckedKeys = [],
+  defaultExpandedKeys = [],
+  defaultSelectedKeys = [],
+  onCheck = noop,
+  treeData = [],
+  onSelect = noop,
+  showLine = true,
+  checkable = false,
+  draggable = false,
+  ...otherProps
+}) => (
+  <TreeComponent
+    checkable={checkable}
+    className="draggable-tree"
+    defaultCheckedKeys={defaultCheckedKeys}
+    defaultExpandedKeys={defaultExpandedKeys}
+    defaultSelectedKeys={defaultSelectedKeys}
+    draggable={draggable}
+    showLine={showLine}
+    switcherIcon={SwitcherIcon}
+    treeData={treeData}
+    onCheck={onCheck}
+    onSelect={onSelect}
+    {...otherProps}
+  />
 );
 
 Tree.displayName = "Tree";
@@ -79,6 +76,34 @@ Tree.propTypes = {
    * Config virtual scroll height. Will not support horizontal scroll when enable this.
    */
   height: PropTypes.number,
+  /**
+   * Specifies whether this Tree or the node is draggable.
+   */
+  draggable: PropTypes.bool,
+  /**
+   * Callback function for when the onDragEnter event occurs
+   */
+  onDragEnter: PropTypes.func,
+  /**
+   * Callback function for when the onDragStart event occurs
+   */
+  onDragStart: PropTypes.func,
+  /**
+   * Callback function for when the onDragEnter event occurs
+   */
+  onDragEnd: PropTypes.func,
+  /**
+   * Callback function for when the onDragLeave event occurs
+   */
+  onDragLeave: PropTypes.func,
+  /**
+   * Callback function for when the onDragOver event occurs
+   */
+  onDragOver: PropTypes.func,
+  /**
+   * Callback function for when the onDrop event occurs
+   */
+  onDrop: PropTypes.func,
 };
 
 export default Tree;
