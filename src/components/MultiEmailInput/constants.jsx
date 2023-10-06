@@ -68,6 +68,12 @@ const CustomValueContainer = ({ children, ...props }) => {
   );
 };
 
+const CustomClearIndicator = prop => (
+  <components.ClearIndicator {...prop}>
+    <Close className="cursor-pointer" size={16} />
+  </components.ClearIndicator>
+);
+
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
   "i"
@@ -92,4 +98,5 @@ export const CUSTOM_COMPONENTS = {
   Control: CustomControl,
   MultiValueRemove,
   ValueContainer: CustomValueContainer,
+  ClearIndicator: CustomClearIndicator,
 };
