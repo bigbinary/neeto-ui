@@ -23,7 +23,7 @@ const Tree = ({
 }) => (
   <TreeComponent
     checkable={checkable}
-    className="draggable-tree"
+    className="neeto-ui-tree draggable-tree"
     defaultCheckedKeys={defaultCheckedKeys}
     defaultExpandedKeys={defaultExpandedKeys}
     defaultSelectedKeys={defaultSelectedKeys}
