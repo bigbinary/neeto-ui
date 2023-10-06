@@ -2,4 +2,32 @@
   .site-tree-search-value {
     color: #f50;
   }
+
+  .ant-tree-checkbox {
+    .ant-tree-checkbox-inner {
+      width: 16px;
+      height: 16px;
+      color: rgb(var(--neeto-ui-primary-500));
+      border: 2px solid rgb(var(--neeto-ui-gray-400));
+      border-radius: var(--neeto-ui-rounded-sm);
+    }
+
+    &:hover {
+      .ant-tree-checkbox-inner {
+        border-color: rgb(var(--neeto-ui-gray-500)) !important;
+      }
+    }
+  }
+
+  .ant-tree-checkbox-checked {
+    .ant-tree-checkbox-inner {
+      border-color: rgb(var(--neeto-ui-primary-500)) !important;
+      background-color: rgb(var(--neeto-ui-primary-500)) !important;
+    }
+    &:hover {
+      .ant-tree-checkbox-inner {
+        border-color: rgb(var(--neeto-ui-primary-500)) !important;
+      }
+    }
+  }
 }
