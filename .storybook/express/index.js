@@ -8,7 +8,10 @@ const port = 3000;
 const commitHash = execSync("git rev-parse HEAD").toString().trim();
 
 const generateUrlWithHash = req => {
-  const parsedUrl = new URL(req.originalUrl, `http://${req.headers.host}`);
+  const parsedUrl = new URL(
+    req.originalUrl,
+    `${req.protocol}://${req.headers.host}`
+  );
   parsedUrl.searchParams.set("hash", commitHash);
 
   return parsedUrl.toString();
