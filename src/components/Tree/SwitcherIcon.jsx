@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Down, Up } from "neetoicons";
+import { Down, Right } from "neetoicons";
 
 const SwitcherIcon = ({ expanded }) =>
-  expanded ? <Up size={20} /> : <Down size={20} />;
+  expanded ? <Down size={20} /> : <Right size={20} />;
 
 export default SwitcherIcon;
