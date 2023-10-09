@@ -1,13 +1,11 @@
 import React from "react";
 
 import { Tree as TreeComponent } from "antd";
-import { Down, Up } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { noop } from "utils";
 
-const SwitcherIcon = ({ expanded }) =>
-  expanded ? <Up size={20} /> : <Down size={20} />;
+import SwitcherIcon from "./SwitcherIcon";
 
 const Tree = ({
   defaultCheckedKeys = [],
