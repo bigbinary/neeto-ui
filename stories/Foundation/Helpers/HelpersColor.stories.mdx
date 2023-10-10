@@ -1,8 +1,10 @@
 import { Meta } from "@storybook/addon-docs";
 import { Figma } from "storybook-addon-designs/blocks";
 import { useDarkMode } from "storybook-dark-mode";
-import { colorPaletteList } from "../ColorPalette.js";
+import { colorPaletteList, getColorPaletteList } from "../ColorPalette.js";
 import InlineComponent from "./InlineComponent";
+import tinycolor from "tinycolor2";
+import classnames from "classnames";
 
 <Meta
   title="Foundation/Helpers/Color"
@@ -24,6 +26,19 @@ import InlineComponent from "./InlineComponent";
 `}</style>
 
 # Colors
+
+Colors play a crucial role in creating visually appealing and consistent user interfaces.
+
+
+<h2 id="color-palette">Color palette</h2>
+
+The neetoUI color palette is carefully curated to provide a harmonious and visually appealing experience. It consists of primary, gray, status and pastel colors.
+<br />
+
+<h3 id="primary-color">Primary</h3>
+
+The primary color is the most dominant color in our brand identity.
+
 <InlineComponent>
   {() => {
     const isDarkMode = useDarkMode();
@@ -33,14 +48,14 @@ import InlineComponent from "./InlineComponent";
         <thead>
         <tr>
           <td style={{ width: "75px" }}></td>
-          <td>RGB code</td>
-          <td>CSS Variable name</td>
-          <td>Text color class</td>
-          <td>Background color class</td>
+          <td>Color</td>
+          <td>Use for</td>
         </tr>
         </thead>
         <tbody>
-        {colorPaletteList(theme).map((color) => {
+        {getColorPaletteList("PRIMARY", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
           return (
             <tr key={color.name}>
               <td>
@@ -52,7 +67,270 @@ import InlineComponent from "./InlineComponent";
                 ></div>
               </td>
               <td>
-                <code>{color.value}</code>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+
+<h3 id="gray-color">Gray</h3>
+
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td style={{ width: "75px" }}></td>
+          <td>Color</td>
+          <td>Use/Used for</td>
+        </tr>
+        </thead>
+        <tbody>
+        {getColorPaletteList("GRAY", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                <div
+                  className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+                    "--neeto-ui",
+                    "neeto-ui-bg"
+                  )}`}
+                ></div>
+              </td>
+              <td>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+
+
+<h3 id="semantic-colors">Semantic colors</h3>
+
+These are the colors that communicate purpose. They help users convey messages.
+
+<h4 id="semantic-colors">Success</h4>
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td style={{ width: "75px" }}></td>
+          <td>Color</td>
+          <td>Use/Used to</td>
+        </tr>
+        </thead>
+        <tbody>
+        {getColorPaletteList("SUCCESS", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                <div
+                  className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+                    "--neeto-ui",
+                    "neeto-ui-bg"
+                  )}`}
+                ></div>
+              </td>
+              <td>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+
+<h4 id="semantic-colors">Errors</h4>
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td style={{ width: "75px" }}></td>
+          <td>Color</td>
+          <td>Use/Used to</td>
+        </tr>
+        </thead>
+        <tbody>
+        {getColorPaletteList("ERROR", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                <div
+                  className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+                    "--neeto-ui",
+                    "neeto-ui-bg"
+                  )}`}
+                ></div>
+              </td>
+              <td>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+
+
+<h4 id="semantic-colors">Warnings</h4>
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td style={{ width: "75px" }}></td>
+          <td>Color</td>
+          <td>Use/Used to</td>
+        </tr>
+        </thead>
+        <tbody>
+        {getColorPaletteList("WARNING", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                <div
+                  className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+                    "--neeto-ui",
+                    "neeto-ui-bg"
+                  )}`}
+                ></div>
+              </td>
+              <td>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+
+<h4 id="semantic-colors">Information</h4>
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td style={{ width: "75px" }}></td>
+          <td>Color</td>
+          <td>Use/Used to</td>
+        </tr>
+        </thead>
+        <tbody>
+        {getColorPaletteList("INFO", theme)
+        .filter((color) => color.usage !== undefined)
+        .map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                <div
+                  className={`w-12 h-12 cursor-pointer rounded-full shadow-xl ${color.name.replace(
+                    "--neeto-ui",
+                    "neeto-ui-bg"
+                  )}`}
+                ></div>
+              </td>
+              <td>
+                <code>{`${color.name}`}</code>
+              </td>
+              <td>
+                {`${color.usage}`}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+    );
+  }}
+</InlineComponent>
+<br/>
+
+<h2 id="neeto-ui-colors-cheatsheet">Colors cheatsheet</h2>
+<br/>
+
+<InlineComponent>
+  {() => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? "dark" : "light";
+    return (
+      <table className="story-demo-table">
+        <thead>
+        <tr>
+          <td>RGB code</td>
+          <td>Hex code</td>
+          <td>CSS Variable name</td>
+          <td>Text color class</td>
+          <td>Background color class</td>
+        </tr>
+        </thead>
+        <tbody>
+        {colorPaletteList(theme).map((color) => {
+          return (
+            <tr key={color.name}>
+              <td>
+                 <code>{color.value}</code>
+              </td>
+              <td>
+                  <code>#{tinycolor(`rgb(${color.value})`).toHex()}</code>
               </td>
               <td>
                 <code>{`${color.name}`}</code>
@@ -73,8 +351,21 @@ import InlineComponent from "./InlineComponent";
                   </b>
                 </div>
               </td>
-              <td className={`${color.name.replace("--neeto-ui", "neeto-ui-bg")}`}>
-                <code>{`${color.name.replace("--neeto-ui", "neeto-ui-bg")}`}</code>
+              <td
+                className={classnames(
+                  color.name.replace("--neeto-ui", "neeto-ui-bg"),
+                )}
+              >
+                <div
+                  className={classnames(`neeto-ui-text-sm`,
+                    {
+                      "neeto-ui-text-black": color.text === "black",
+                      "neeto-ui-text-white": color.text !== "black",
+                    }
+                  )}
+                >
+                  {`${color.name.replace("--neeto-ui", "neeto-ui-bg")}`}
+                </div>
               </td>
             </tr>
           );
@@ -84,7 +375,9 @@ import InlineComponent from "./InlineComponent";
     );
   }}
 </InlineComponent>
+<br />
 
-# Design
 
-<Figma url="https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A2" />
+<h2 id="neeto-ui-design-system">Design</h2>
+
+https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A2

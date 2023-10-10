@@ -4,17 +4,13 @@ export const colorPalette = {
       {
         name: "neeto-ui-white",
         text: "black",
-        value: {
-          light: "255, 255, 255",
-          dark: "18, 18, 18",
-        },
+        value: { light: "255, 255, 255", dark: "18, 18, 18" },
+        usage: "Default background",
       },
       {
         name: "neeto-ui-black",
-        value: {
-          light: "18, 18, 18",
-          dark: "224, 224, 224",
-        },
+        value: { light: "18, 18, 18", dark: "224, 224, 224" },
+        usage: "Headings",
       },
     ],
     title: "BASE",
@@ -23,63 +19,47 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-gray-800",
-        value: {
-          light: "31, 31, 31",
-          dark: "200, 200, 200",
-        },
+        value: { light: "31, 31, 31", dark: "200, 200, 200" },
+        usage: "Default text",
       },
       {
         name: "neeto-ui-gray-700",
-        value: {
-          light: "47, 57, 65",
-          dark: "162, 162, 162",
-        },
+        value: { light: "47, 57, 65", dark: "162, 162, 162" },
+        usage: "Secondary text",
       },
       {
         name: "neeto-ui-gray-600",
-        value: {
-          light: "104, 115, 125",
-          dark: "124, 124, 124",
-        },
+        value: { light: "104, 115, 125", dark: "124, 124, 124" },
+        usage: "Default icons",
       },
       {
         name: "neeto-ui-gray-500",
-        value: {
-          light: "135, 146, 157",
-          dark: "92, 92, 92",
-        },
+        value: { light: "135, 146, 157", dark: "92, 92, 92" },
+        usage: "Disabled state of input",
       },
       {
         name: "neeto-ui-gray-400",
         text: "black",
-        value: {
-          light: "194, 200, 204",
-          dark: "73, 73, 73",
-        },
+        value: { light: "194, 200, 204", dark: "73, 73, 73" },
+        usage: "Strong border",
       },
       {
         name: "neeto-ui-gray-300",
         text: "black",
-        value: {
-          light: "216, 220, 222",
-          dark: "57, 57, 57",
-        },
+        value: { light: "216, 220, 222", dark: "57, 57, 57" },
+        usage: "Default border",
       },
       {
         name: "neeto-ui-gray-200",
         text: "black",
-        value: {
-          light: "233, 235, 237",
-          dark: "44, 44, 44",
-        },
+        value: { light: "233, 235, 237", dark: "44, 44, 44" },
+        usage: "Secondary button background",
       },
       {
         name: "neeto-ui-gray-100",
         text: "black",
-        value: {
-          light: "248, 249, 249",
-          dark: "27, 27, 27",
-        },
+        value: { light: "248, 249, 249", dark: "27, 27, 27" },
+        usage: "Sidebar background, Table header",
       },
     ],
     title: "GRAY",
@@ -88,32 +68,23 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-primary-800",
-        value: {
-          light: "45, 54, 212",
-          dark: "209, 213, 254",
-        },
+        value: { light: "45, 54, 212", dark: "209, 213, 254" },
+        usage: "Link buttons",
       },
       {
         name: "neeto-ui-primary-600",
-        value: {
-          light: "54, 66, 223",
-          dark: "166, 170, 254",
-        },
+        value: { light: "54, 66, 223", dark: "166, 170, 254" },
+        usage: "Primary button hover",
       },
       {
         name: "neeto-ui-primary-500",
-        value: {
-          light: "69, 88, 249",
-          dark: "137, 147, 254",
-        },
+        value: { light: "69, 88, 249", dark: "137, 147, 254" },
+        usage: "Primary actions or brand elements",
       },
       {
         name: "neeto-ui-primary-100",
         text: "black",
-        value: {
-          light: "235, 236, 254",
-          dark: "27, 28, 37",
-        },
+        value: { light: "235, 236, 254", dark: "27, 28, 37" },
       },
     ],
     title: "PRIMARY",
@@ -122,32 +93,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: {
-          light: "16, 113, 84",
-          dark: "57, 185, 144",
-        },
+        value: { light: "16, 113, 84", dark: "57, 185, 144" },
       },
       {
         name: "neeto-ui-success-600",
-        value: {
-          light: "18, 128, 92",
-          dark: "51, 171, 132",
-        },
+        value: { light: "18, 128, 92", dark: "51, 171, 132" },
       },
       {
         name: "neeto-ui-success-500",
-        value: {
-          light: "38, 142, 108",
-          dark: "45, 157, 120",
-        },
+        value: { light: "38, 142, 108", dark: "45, 157, 120" },
+        usage: "Emphasize positive messages",
       },
       {
         name: "neeto-ui-success-100",
         text: "black",
-        value: {
-          light: "225, 243, 238",
-          dark: "23, 85, 65",
-        },
+        value: { light: "225, 243, 238", dark: "23, 85, 65" },
       },
     ],
     title: "SUCCESS",
@@ -156,32 +116,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-error-800",
-        value: {
-          light: "187, 18, 26",
-          dark: "247, 109, 116",
-        },
+        value: { light: "187, 18, 26", dark: "247, 109, 116" },
       },
       {
         name: "neeto-ui-error-600",
-        value: {
-          light: "201, 37, 45",
-          dark: "236, 91, 98",
-        },
+        value: { light: "201, 37, 45", dark: "236, 91, 98" },
       },
       {
         name: "neeto-ui-error-500",
-        value: {
-          light: "215, 55, 63",
-          dark: "227, 72, 80",
-        },
+        value: { light: "215, 55, 63", dark: "227, 72, 80" },
+        usage: "Emphasize error messages",
       },
       {
         name: "neeto-ui-error-100",
         text: "black",
-        value: {
-          light: "254, 236, 240",
-          dark: "129, 33, 38",
-        },
+        value: { light: "254, 236, 240", dark: "129, 33, 38" },
       },
     ],
     title: "ERROR",
@@ -190,32 +139,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-warning-800",
-        value: {
-          light: "189, 100, 13",
-          dark: "249, 164, 63",
-        },
+        value: { light: "189, 100, 13", dark: "249, 164, 63" },
       },
       {
         name: "neeto-ui-warning-600",
-        value: {
-          light: "203, 111, 16",
-          dark: "242, 148, 35",
-        },
+        value: { light: "203, 111, 16", dark: "242, 148, 35" },
       },
       {
         name: "neeto-ui-warning-500",
-        value: {
-          light: "218, 123, 17",
-          dark: "230, 134, 25",
-        },
+        value: { light: "218, 123, 17", dark: "230, 134, 25" },
+        usage: "Highlight  elements that require user attention",
       },
       {
         name: "neeto-ui-warning-100",
         text: "black",
-        value: {
-          light: "251, 242, 225",
-          dark: "131, 74, 11",
-        },
+        value: { light: "251, 242, 225", dark: "131, 74, 11" },
       },
     ],
     title: "WARNING",
@@ -224,32 +162,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-info-800",
-        value: {
-          light: "9, 90, 186",
-          dark: "75, 156, 245",
-        },
+        value: { light: "9, 90, 186", dark: "75, 156, 245" },
       },
       {
         name: "neeto-ui-info-600",
-        value: {
-          light: "13, 102, 208",
-          dark: "55, 142, 240",
-        },
+        value: { light: "13, 102, 208", dark: "55, 142, 240" },
       },
       {
         name: "neeto-ui-info-500",
-        value: {
-          light: "20, 115, 230",
-          dark: "38, 128, 235",
-        },
+        value: { light: "20, 115, 230", dark: "38, 128, 235" },
+        usage: "Information",
       },
       {
         name: "neeto-ui-info-100",
         text: "black",
-        value: {
-          light: "226, 242, 255",
-          dark: "11, 69, 137",
-        },
+        value: { light: "226, 242, 255", dark: "11, 69, 137" },
       },
     ],
     title: "INFO",
@@ -259,58 +186,37 @@ export const colorPalette = {
       {
         name: "neeto-ui-pastel-silver",
         text: "black",
-        value: {
-          light: "232, 233, 237",
-          dark: "104, 104, 106",
-        },
+        value: { light: "232, 233, 237", dark: "104, 104, 106" },
       },
       {
         name: "neeto-ui-pastel-red",
         text: "black",
-        value: {
-          light: "255, 229, 229",
-          dark: "137, 0, 0",
-        },
+        value: { light: "255, 229, 229", dark: "137, 0, 0" },
       },
       {
         name: "neeto-ui-pastel-yellow",
         text: "black",
-        value: {
-          light: "254, 243, 197",
-          dark: "234, 110, 33",
-        },
+        value: { light: "254, 243, 197", dark: "234, 110, 33" },
       },
       {
         name: "neeto-ui-pastel-green",
         text: "black",
-        value: {
-          light: "211, 249, 232",
-          dark: "41, 145, 103",
-        },
+        value: { light: "211, 249, 232", dark: "41, 145, 103" },
       },
       {
         name: "neeto-ui-pastel-blue",
         text: "black",
-        value: {
-          light: "236, 244, 255",
-          dark: "108, 79, 169",
-        },
+        value: { light: "236, 244, 255", dark: "108, 79, 169" },
       },
       {
         name: "neeto-ui-pastel-purple",
         text: "black",
-        value: {
-          light: "238, 235, 255",
-          dark: "0, 61, 187",
-        },
+        value: { light: "238, 235, 255", dark: "0, 61, 187" },
       },
       {
         name: "neeto-ui-pastel-pink",
         text: "black",
-        value: {
-          light: "253, 226, 241",
-          dark: "126, 4, 93",
-        },
+        value: { light: "253, 226, 241", dark: "126, 4, 93" },
       },
     ],
     title: "PASTEL",
@@ -327,3 +233,18 @@ export const colorPaletteList = (theme = "light") =>
 
     return [...acc, ...newColors];
   }, []);
+
+export const getColorPaletteList = (colorItemName, theme = "light") => {
+  const colorItem = colorPalette[colorItemName];
+
+  if (!colorItem) {
+    throw new Error(`Color item '${colorItemName}' not found in colorPalette.`);
+  }
+
+  return colorItem.colors.map(color => ({
+    name: `--${color.name}`,
+    value: color.value[theme],
+    text: color.text,
+    usage: color.usage,
+  }));
+};
