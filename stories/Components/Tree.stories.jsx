@@ -5,7 +5,12 @@ import { Search } from "neetoicons";
 import Input from "components/Input";
 import Tree from "components/Tree";
 
-import { TREE_DATA, TREE_DATA_LIST } from "./constants";
+import {
+  TREE_DATA,
+  TREE_DATA_LIST,
+  DRAGGABLE_TREE_CODE,
+  SEARCHABLE_TREE_CODE,
+} from "./constants";
 import { handleOnDrop } from "./utils";
 
 const metadata = {
@@ -37,6 +42,10 @@ const DraggableTree = () => {
 DraggableTree.args = {};
 
 DraggableTree.storyName = "Draggable tree";
+
+DraggableTree.parameters = {
+  docs: { source: { code: DRAGGABLE_TREE_CODE } },
+};
 
 const getParentKey = (key, tree) => {
   let parentKey;
@@ -130,6 +139,9 @@ const SearchableTree = () => {
 };
 
 SearchableTree.storyName = "Searchable tree";
+SearchableTree.parameters = {
+  docs: { source: { code: SEARCHABLE_TREE_CODE } },
+};
 
 export { Default, DraggableTree, SearchableTree };
 export default metadata;
