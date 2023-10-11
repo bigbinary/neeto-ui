@@ -97,7 +97,7 @@ const Input = forwardRef(
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
             aria-invalid={!!error}
-            data-cy="input-field"
+            data-cy={`${hyphenize(label)}-input-field`}
             disabled={disabled}
             id={id}
             ref={ref}
