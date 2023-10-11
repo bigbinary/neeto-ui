@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/addon-docs";
+import StorybookDarkMode from "../assets/images/storybook-darkmode.gif";
 
 <Meta
   title="Customize/CSS Variables"
@@ -17,7 +18,7 @@ neetoUI supports CSS variables for real-time customization and easier theming. A
 
 <br />
 
-### Root variables
+## Root variables
 
 Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our \_root.scss file and included in our compiled CSS file.
 
@@ -157,9 +158,26 @@ a {
 }
 ```
 
-### Theming
+## Theming
 
-#### Custom branding
+neetoUI supports dark mode.
+
+### Toggling dark mode in product
+To enable the dark mode for the product, apply the <code>neeto-ui-theme--dark</code> class to the <code> body </code> tag.
+
+
+### Toggling dark mode in Storybook
+
+`storybook-dark-mode` addon is used to toggle between dark and light mode in Storybook.
+
+<br/>
+
+<img src={StorybookDarkMode} className="border-2 border-solid neeto-ui-rounded-lg p-1"/>
+
+<br/>
+<br/>
+
+### Custom branding
 
 <Story name="Custom branding">
   <div className="h-screen">
@@ -179,7 +197,9 @@ a {
   </div>
 </Story>
 
-#### Dark theme [Experimental]
+<br/>
+
+### Dark theme [Experimental]
 
 <Story name="Dark theme">
   <div className="h-screen">
