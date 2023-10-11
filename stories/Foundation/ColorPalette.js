@@ -235,7 +235,7 @@ export const colorPaletteList = (theme = "light") =>
     return [...acc, ...newColors];
   }, []);
 
-export const getColorPaletteList = (colorItemNames, theme = "light") => {
+export const getColorPaletteList = colorItemNames => {
   const colorItems = colorItemNames.map(colorItemName => {
     const colorItem = colorPalette[colorItemName];
     if (!colorItem) {
