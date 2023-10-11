@@ -12,9 +12,8 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # CSS variables
 
-neetoUI incorporates many CSS custom properties (variables) in its compiled CSS for real-time customization without the need to recompile Sass. These offer easy access to commonly used values like our theme colors, font sizes, box shadows etc.
+neetoUI supports CSS variables for real-time customization and easier theming. All the CSS variables are prefixed with neeto-ui to avoid conflicts with third-party CSS.
 
-All our custom properties are prefixed with `neeto-ui` to avoid conflicts with third party CSS.
 
 <br />
 
@@ -142,11 +141,19 @@ a {
 }
 ```
 
-Adding transparency in color
+#### Adding transparency in color
 
 ```
 a {
   color: rgba(var(--neeto-ui-primary-600), 0.5);
+}
+```
+
+#### Using other CSS variables
+
+```
+a {
+   border-radius: var(--neeto-ui-rounded);
 }
 ```
 
