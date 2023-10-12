@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState, useEffect } from "react";
 
-import { Table as AntTable } from "antd";
+import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
@@ -206,57 +206,105 @@ const Table = ({
     return pageSizeOptions;
   };
 
+  const neetoUIWhite = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--neeto-ui-white");
+
+  const neetoUIPrimary500 = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--neeto-ui-primary-500");
+
+  const neetoUIGray100 = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--neeto-ui-gray-100");
+
+  const neetoUIGray800 = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--neeto-ui-gray-800");
+
+  const neetoUITextSM = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--neeto-ui-text-sm"
+    ),
+    10
+  );
+
   const renderTable = () => (
-    <AntTable
-      bordered={bordered}
-      columns={sortedColumnsWithAlignment}
-      components={componentOverrides}
-      dataSource={rowData}
-      loading={loading}
-      locale={locale}
-      ref={tableRef}
-      rowKey="id"
-      rowSelection={rowSelectionProps}
-      showSorterTooltip={false}
-      pagination={{
-        hideOnSinglePage: true,
-        ...paginationProps,
-        showSizeChanger: false,
-        total: totalCount ?? 0,
-        current: currentPageNumber,
-        defaultPageSize: shouldDynamicallyRenderRowSize
-          ? calculateRowsPerPage()
-          : defaultPageSize,
-        pageSizeOptions: calculatePageSizeOptions(),
-        onChange: handlePageChange,
-        itemRender,
+    <ConfigProvider
+      theme={{
+        token: {
+          // Seed Token
+          colorPrimary: `rgb(${neetoUIPrimary500})`,
+          colorText: `rgb(${neetoUIGray800})`,
+        },
+        components: {
+          Pagination: {
+            colorBgContainer: `rgb(${neetoUIPrimary500})`,
+            colorPrimary: `rgb(${neetoUIWhite})`,
+            colorPrimaryHover: `rgb(${neetoUIWhite})`,
+            colorBgTextHover: `rgb(${neetoUIGray100})`,
+            borderRadius: 6,
+          },
+          Table: {
+            headerBg: `rgb(${neetoUIGray100})`,
+            headerBorderRadius: 0,
+            paddingContentVerticalLG: 10,
+            fontSize: neetoUITextSM,
+          },
+        },
       }}
-      rowClassName={classnames(
-        "neeto-ui-table--row",
-        { "neeto-ui-table--row_hover": allowRowClick },
-        [className]
-      )}
-      scroll={{
-        x: "max-content",
-        y: calculateTableContainerHeight(),
-        ...scroll,
-      }}
-      onChange={(pagination, _, sorter) => {
-        preserveTableStateInQuery && handleTableChange(pagination, sorter);
-      }}
-      onHeaderRow={() => ({
-        ref: headerRef,
-        className: classnames("neeto-ui-table__header", {
-          "neeto-ui-table-reorderable": enableColumnReorder,
-        }),
-        id: "neeto-ui-table__header",
-      })}
-      onRow={(record, rowIndex) => ({
-        onClick: event =>
-          allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
-      })}
-      {...otherProps}
-    />
+    >
+      <AntTable
+        bordered={bordered}
+        columns={sortedColumnsWithAlignment}
+        components={componentOverrides}
+        dataSource={rowData}
+        loading={loading}
+        locale={locale}
+        ref={tableRef}
+        rowKey="id"
+        rowSelection={rowSelectionProps}
+        showSorterTooltip={false}
+        pagination={{
+          hideOnSinglePage: true,
+          ...paginationProps,
+          showSizeChanger: false,
+          total: totalCount ?? 0,
+          current: currentPageNumber,
+          defaultPageSize: shouldDynamicallyRenderRowSize
+            ? calculateRowsPerPage()
+            : defaultPageSize,
+          pageSizeOptions: calculatePageSizeOptions(),
+          onChange: handlePageChange,
+          itemRender,
+        }}
+        rowClassName={classnames(
+          "neeto-ui-table--row",
+          { "neeto-ui-table--row_hover": allowRowClick },
+          [className]
+        )}
+        scroll={{
+          x: "max-content",
+          y: calculateTableContainerHeight(),
+          ...scroll,
+        }}
+        onChange={(pagination, _, sorter) => {
+          preserveTableStateInQuery && handleTableChange(pagination, sorter);
+        }}
+        onHeaderRow={() => ({
+          ref: headerRef,
+          className: classnames("neeto-ui-table__header", {
+            "neeto-ui-table-reorderable": enableColumnReorder,
+          }),
+          id: "neeto-ui-table__header",
+        })}
+        onRow={(record, rowIndex) => ({
+          onClick: event =>
+            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+        })}
+        {...otherProps}
+      />
+    </ConfigProvider>
   );
 
   useEffect(() => {
