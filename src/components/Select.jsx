@@ -191,6 +191,7 @@ const Select = ({
         </Label>
       )}
       <Parent
+        blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
