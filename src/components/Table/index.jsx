@@ -213,27 +213,81 @@ const Table = ({
     10
   );
 
+  const neetoUIFontBold = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--neeto-ui-font-bold"
+    ),
+    10
+  );
+
   const renderTable = () => (
     <ConfigProvider
       theme={{
         token: {
-          // Seed Token
+          colorBgContainer: "rgb(var(--neeto-ui-white))",
+          colorBorderSecondary: "rgb(var(--neeto-ui-gray-200))",
+          colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
+          colorFillContent: "rgb(var(--neeto-ui-gray-100))",
+          colorFillSecondary: "rgb(var(--neeto-ui-gray-100))",
+          colorIcon: "rgb(var(--neeto-ui-gray-700))",
+          colorIconHover: "rgb(var(--neeto-ui-gray-800))",
+          colorLink: "rgb(var(--neeto-ui-primary-500))",
+          colorLinkActive: "rgb(var(--neeto-ui-primary-800))",
+          colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
           colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+          colorSplit: "rgb(var(--neeto-ui-gray-100))",
           colorText: "rgb(var(--neeto-ui-gray-800))",
+          colorTextDescription: "rgb(var(--neeto-ui-gray-700))",
+          colorTextDisabled: "rgb(var(--neeto-ui-gray-600))",
+          colorTextHeading: "rgb(var(--neeto-ui-black))",
+          colorTextPlaceholder: "rgb(var(--neeto-ui-gray-500))",
+          controlItemBgActive: "rgb(var(--neeto-ui-primary-100))",
+          controlItemBgActiveHover: "rgb(var(--neeto-ui-pastel-purple))",
+          controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
         },
         components: {
           Pagination: {
+            itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
+            itemActiveBgDisabled: "rgb(var(--neeto-ui-gray-100))",
+            itemActiveColorDisabled: "rgb(var(--neeto-ui-gray-300))",
+            itemBg: "rgb(var(--neeto-ui-white))",
+            itemInputBg: "rgb(var(--neeto-ui-white))",
+            itemLinkBg: "rgb(var(--neeto-ui-white))",
+
+            // Global overrides
             colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
             colorPrimary: "rgb(var(--neeto-ui-white))",
             colorPrimaryHover: "rgb(var(--neeto-ui-white))",
-            colorBgTextHover: "rgb(var(--neeto-ui-gray-100))",
+            colorBgTextHover: "rgb(var(--neeto-ui-gray-200))",
             borderRadius: 6,
           },
           Table: {
-            headerBg: "rgb(var(--neeto-ui-gray-100))",
             headerBorderRadius: 0,
-            paddingContentVerticalLG: 10,
+            bodySortBg: "rgb(var(--neeto-ui-gray-100))",
+            borderColor: "rgb(var(--neeto-ui-gray-200))",
+            expandIconBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
+            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            footerBg: "rgb(var(--neeto-ui-gray-100))",
+            footerColor: "rgb(var(--neeto-ui-gray-800))",
+            headerBg: "rgb(var(--neeto-ui-gray-100))",
+            headerColor: "rgb(var(--neeto-ui-gray-700))",
+            headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSplitColor: "rgb(var(--neeto-ui-gray-200))",
+            rowExpandedBg: "rgb(var(--neeto-ui-gray-200))",
+            rowHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            rowSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+            rowSelectedHoverBg: "rgb(var(--neeto-ui-pastel-purple))",
+            stickyScrollBarBg: "rgb(var(--neeto-ui-primary-100))",
+
+            // Global overrides
+            colorPrimary: "rgb(var(--neeto-ui-primary-500))",
             fontSize: neetoUITextSM,
+            fontWeightStrong: neetoUIFontBold,
+            paddingContentVerticalLG: 10,
           },
         },
       }}
