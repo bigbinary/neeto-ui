@@ -1,13 +1,18 @@
 import React, { forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
-import { DatePicker as AntDatePicker } from "antd";
+import { DatePicker as AntDatePicker, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Left, Right, Calendar } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { useSyncedRef } from "hooks";
-import { convertToDayjsObjects, noop, hyphenize } from "utils";
+import {
+  convertToDayjsObjects,
+  noop,
+  hyphenize,
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+} from "utils";
 
 import Label from "./Label";
 
@@ -62,47 +67,58 @@ const DatePicker = forwardRef(
     };
 
     return (
-      <div className="neeto-ui-input__wrapper">
-        {label && <Label {...labelProps}>{label}</Label>}
-        <Component
-          data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
-          defaultValue={convertToDayjsObjects(defaultValue)}
-          format={format}
-          picker={picker}
-          ref={datePickerRef}
-          showTime={showTime && { format: timeFormat }}
-          value={convertToDayjsObjects(value)}
-          className={classnames("neeto-ui-date-input", [className], {
-            "neeto-ui-date-input--small": size === "small",
-            "neeto-ui-date-input--medium": size === "medium",
-            "neeto-ui-date-input--large": size === "large",
-            "neeto-ui-date-input--disabled": otherProps.disabled,
-            "neeto-ui-date-input--naked": nakedInput,
-            "neeto-ui-date-input--error": !!error,
-          })}
-          popupClassName={classnames("neeto-ui-date-time-dropdown", [
-            dropdownClassName, // Will be removed in the next major version
-            popupClassName,
-          ])}
-          onChange={handleOnChange}
-          onOk={onOk}
-          {...otherProps}
-          nextIcon={<IconOverride icon={Right} />}
-          prevIcon={<IconOverride icon={Left} />}
-          suffixIcon={<Calendar size={16} />}
-          superNextIcon={<IconOverride icon={Right} />}
-          superPrevIcon={<IconOverride icon={Left} />}
-        />
-        {!!error && (
-          <p
-            className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
-            id={errorId}
-          >
-            {error}
-          </p>
-        )}
-      </div>
+      <ConfigProvider
+        theme={{
+          token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+          components: {
+            DatePicker: {
+              colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+            },
+          },
+        }}
+      >
+        <div className="neeto-ui-input__wrapper">
+          {label && <Label {...labelProps}>{label}</Label>}
+          <Component
+            data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            defaultValue={convertToDayjsObjects(defaultValue)}
+            format={format}
+            picker={picker}
+            ref={datePickerRef}
+            showTime={showTime && { format: timeFormat }}
+            value={convertToDayjsObjects(value)}
+            className={classnames("neeto-ui-date-input", [className], {
+              "neeto-ui-date-input--small": size === "small",
+              "neeto-ui-date-input--medium": size === "medium",
+              "neeto-ui-date-input--large": size === "large",
+              "neeto-ui-date-input--disabled": otherProps.disabled,
+              "neeto-ui-date-input--naked": nakedInput,
+              "neeto-ui-date-input--error": !!error,
+            })}
+            popupClassName={classnames("neeto-ui-date-time-dropdown", [
+              dropdownClassName, // Will be removed in the next major version
+              popupClassName,
+            ])}
+            onChange={handleOnChange}
+            onOk={onOk}
+            {...otherProps}
+            nextIcon={<IconOverride icon={Right} />}
+            prevIcon={<IconOverride icon={Left} />}
+            suffixIcon={<Calendar size={16} />}
+            superNextIcon={<IconOverride icon={Right} />}
+            superPrevIcon={<IconOverride icon={Left} />}
+          />
+          {!!error && (
+            <p
+              className="neeto-ui-input__error"
+              data-cy={`${hyphenize(label)}-input-error`}
+              id={errorId}
+            >
+              {error}
+            </p>
+          )}
+        </div>
+      </ConfigProvider>
     );
   }
 );
