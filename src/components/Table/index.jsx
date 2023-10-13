@@ -206,22 +206,6 @@ const Table = ({
     return pageSizeOptions;
   };
 
-  const neetoUIWhite = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--neeto-ui-white");
-
-  const neetoUIPrimary500 = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--neeto-ui-primary-500");
-
-  const neetoUIGray100 = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--neeto-ui-gray-100");
-
-  const neetoUIGray800 = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--neeto-ui-gray-800");
-
   const neetoUITextSM = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue(
       "--neeto-ui-text-sm"
@@ -234,19 +218,19 @@ const Table = ({
       theme={{
         token: {
           // Seed Token
-          colorPrimary: `rgb(${neetoUIPrimary500})`,
-          colorText: `rgb(${neetoUIGray800})`,
+          colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+          colorText: "rgb(var(--neeto-ui-gray-800))",
         },
         components: {
           Pagination: {
-            colorBgContainer: `rgb(${neetoUIPrimary500})`,
-            colorPrimary: `rgb(${neetoUIWhite})`,
-            colorPrimaryHover: `rgb(${neetoUIWhite})`,
-            colorBgTextHover: `rgb(${neetoUIGray100})`,
+            colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
+            colorPrimary: "rgb(var(--neeto-ui-white))",
+            colorPrimaryHover: "rgb(var(--neeto-ui-white))",
+            colorBgTextHover: "rgb(var(--neeto-ui-gray-100))",
             borderRadius: 6,
           },
           Table: {
-            headerBg: `rgb(${neetoUIGray100})`,
+            headerBg: "rgb(var(--neeto-ui-gray-100))",
             headerBorderRadius: 0,
             paddingContentVerticalLG: 10,
             fontSize: neetoUITextSM,
