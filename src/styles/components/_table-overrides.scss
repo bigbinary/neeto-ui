@@ -1,0 +1,15 @@
+table {
+  thead {
+    tr {
+      th {
+        font-size: var(--neeto-ui-text-xs);
+        text-transform: uppercase;
+        border-bottom-width: 2px !important;
+
+        .ant-table-column-sorter {
+          color: rgb(var(--neeto-ui-gray-400)) !important;
+        }
+      }
+    }
+  }
+}
