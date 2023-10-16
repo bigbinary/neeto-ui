@@ -8,7 +8,7 @@ import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
 import { useTimeout } from "hooks";
-import { noop } from "utils";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import {
@@ -223,28 +223,7 @@ const Table = ({
   const renderTable = () => (
     <ConfigProvider
       theme={{
-        token: {
-          colorBgContainer: "rgb(var(--neeto-ui-white))",
-          colorBorderSecondary: "rgb(var(--neeto-ui-gray-200))",
-          colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
-          colorFillContent: "rgb(var(--neeto-ui-gray-100))",
-          colorFillSecondary: "rgb(var(--neeto-ui-gray-100))",
-          colorIcon: "rgb(var(--neeto-ui-gray-700))",
-          colorIconHover: "rgb(var(--neeto-ui-gray-800))",
-          colorLink: "rgb(var(--neeto-ui-primary-500))",
-          colorLinkActive: "rgb(var(--neeto-ui-primary-800))",
-          colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
-          colorPrimary: "rgb(var(--neeto-ui-primary-500))",
-          colorSplit: "rgb(var(--neeto-ui-gray-100))",
-          colorText: "rgb(var(--neeto-ui-gray-800))",
-          colorTextDescription: "rgb(var(--neeto-ui-gray-700))",
-          colorTextDisabled: "rgb(var(--neeto-ui-gray-600))",
-          colorTextHeading: "rgb(var(--neeto-ui-black))",
-          colorTextPlaceholder: "rgb(var(--neeto-ui-gray-500))",
-          controlItemBgActive: "rgb(var(--neeto-ui-primary-100))",
-          controlItemBgActiveHover: "rgb(var(--neeto-ui-pastel-purple))",
-          controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
-        },
+        token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
         components: {
           Pagination: {
             itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
