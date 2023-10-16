@@ -5,6 +5,7 @@ import { assoc } from "ramda";
 import { components } from "react-select";
 
 import Tag from "components/Tag";
+import { hyphenize } from "utils";
 
 const STYLES = {
   border: {
@@ -39,7 +40,13 @@ const CustomDropdownIndicator = props => {
 };
 
 const MultiValueRemove = props => (
-  <components.MultiValueRemove {...props}>
+  <components.MultiValueRemove
+    {...props}
+    innerProps={{
+      ...props.innerProps,
+      ["data-cy"]: `${hyphenize(props.data.label)}_remove_icon`,
+    }}
+  >
     <Close size={16} />
   </components.MultiValueRemove>
 );
@@ -55,7 +62,13 @@ const CustomValueContainer = ({ children, ...props }) => {
   const shouldCollapse = !isFocused && value.length > visibleEmailsCount;
 
   return (
-    <components.ValueContainer {...props}>
+    <components.ValueContainer
+      {...props}
+      innerProps={{
+        ...props.innerProps,
+        ["data-cy"]: "multi-email-input-container",
+      }}
+    >
       {shouldCollapse ? firstChild.slice(0, visibleEmailsCount) : firstChild}
       {shouldCollapse && (
         <Tag
@@ -68,12 +81,26 @@ const CustomValueContainer = ({ children, ...props }) => {
   );
 };
 
-const CustomClearIndicator = prop => (
-  <components.ClearIndicator {...prop}>
+const CustomClearIndicator = props => (
+  <components.ClearIndicator
+    {...props}
+    innerProps={{ ...props.innerProps, ["data-cy"]: "clear-all-button" }}
+  >
     <Close className="cursor-pointer" size={16} />
   </components.ClearIndicator>
 );
 
+const SelectContainer = props => (
+  <components.SelectContainer
+    {...props}
+    innerProps={{
+      ...props.innerProps,
+      ["data-cy"]: "multi-email-container",
+    }}
+  >
+    {props.children}
+  </components.SelectContainer>
+);
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
   "i"
@@ -99,4 +126,5 @@ export const CUSTOM_COMPONENTS = {
   MultiValueRemove,
   ValueContainer: CustomValueContainer,
   ClearIndicator: CustomClearIndicator,
+  SelectContainer,
 };
