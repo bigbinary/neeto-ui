@@ -97,9 +97,7 @@ const SelectContainer = props => (
       ...props.innerProps,
       ["data-cy"]: "multi-email-select-container",
     }}
-  >
-    {props.children}
-  </components.SelectContainer>
+  />
 );
 
 const Input = props => (
