@@ -101,9 +101,7 @@ const Dropdown = ({
 
   const controlledProps = isControlled
     ? { visible: isOpen }
-    : {
-        onClickOutside: () => closeOnOutsideClick,
-      };
+    : { onClickOutside: () => closeOnOutsideClick };
 
   const { classNames: dropdownClassname, ...otherDropdownProps } =
     dropdownProps;
@@ -128,6 +126,7 @@ const Dropdown = ({
       role="dropdown"
       theme="light"
       trigger={isControlled ? undefined : TRIGGERS[trigger]}
+      zIndex={99999}
       className={classnames("neeto-ui-dropdown", {
         [className]: className,
       })}
