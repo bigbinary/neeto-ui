@@ -44,7 +44,7 @@ const MultiValueRemove = props => (
     {...props}
     innerProps={{
       ...props.innerProps,
-      ["data-cy"]: `${hyphenize(props.data.label)}_remove_icon`,
+      ["data-cy"]: `${hyphenize(props.data.label)}-remove-icon`,
     }}
   >
     <Close size={16} />
@@ -103,7 +103,7 @@ const SelectContainer = props => (
 );
 
 const Input = props => (
-  <components.Input {...props} data-cy="react-select-input-container" />
+  <components.Input {...props} data-cy="email-select-input-field" />
 );
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
