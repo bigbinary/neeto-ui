@@ -95,11 +95,15 @@ const SelectContainer = props => (
     {...props}
     innerProps={{
       ...props.innerProps,
-      ["data-cy"]: "multi-email-container",
+      ["data-cy"]: "multi-email-select-container",
     }}
   >
     {props.children}
   </components.SelectContainer>
+);
+
+const Input = props => (
+  <components.Input {...props} data-cy="react-select-input-container" />
 );
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
@@ -127,4 +131,5 @@ export const CUSTOM_COMPONENTS = {
   ValueContainer: CustomValueContainer,
   ClearIndicator: CustomClearIndicator,
   SelectContainer,
+  Input,
 };
