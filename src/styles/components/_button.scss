@@ -1,16 +1,44 @@
+$neeto-ui-btn-padding-x: 8px;
+$neeto-ui-btn-padding-y: 6px;
+$neeto-ui-btn-font-size: var(--neeto-ui-text-sm);
+$neeto-ui-btn-font-weight: var(--neeto-ui-font-medium);
+$neeto-ui-btn-line-height: 16px;
+$neeto-ui-btn-color: rgb(var(--neeto-ui-black));
+$neeto-ui-btn-border-width: 0;
+$neeto-ui-btn-border-radius: var(--neeto-ui-rounded);
+$neeto-ui-btn-gap: 4px;
+$neeto-ui-btn-icon-size: 16px;
+
+:root {
+  --#{$prefix}btn-padding-x: #{$neeto-ui-btn-padding-x};
+  --#{$prefix}btn-padding-y: #{$neeto-ui-btn-padding-y};
+  --#{$prefix}btn-font-family: #{$neeto-ui-font-family};
+  @include rfs($neeto-ui-btn-font-size, --#{$prefix}btn-font-size);
+  --#{$prefix}btn-font-weight: #{$neeto-ui-btn-font-weight};
+  --#{$prefix}btn-line-height: #{$neeto-ui-btn-line-height};
+  --#{$prefix}btn-color: $neeto-ui-btn-color;
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-width: #{$neeto-ui-btn-border-width};
+  --#{$prefix}btn-border-color: transparent;
+  --#{$prefix}btn-border-radius: #{$neeto-ui-btn-border-radius};
+  --#{$prefix}btn-gap: #{$neeto-ui-btn-gap};
+  --#{$prefix}btn-icon-size: #{$neeto-ui-btn-icon-size};
+}
+
 .neeto-ui-btn {
   position: relative;
   display: inline-flex !important;
   align-items: center;
-  padding: 6px 8px;
-  gap: 4px;
+  padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+  gap: var(--#{$prefix}btn-gap);
 
-  font-size: var(--neeto-ui-text-sm);
-  font-weight: var(--neeto-ui-font-medium);
-  line-height: 16px;
+  font-size: var(--#{$prefix}btn-font-size);
+  font-weight: var(--#{$prefix}btn-font-weight);
+  line-height: var(--#{$prefix}btn-line-height);
   transition: var(--neeto-ui-transition);
-  border-radius: var(--neeto-ui-rounded);
-  border: none;
+  border-width: var(--#{$prefix}btn-border-width);
+  border-color: var(--#{$prefix}btn-border-color);
+  border-radius: var(--#{$prefix}btn-border-radius);
 
   outline: none;
   user-select: none;
@@ -18,45 +46,32 @@
   cursor: pointer;
 
   &.neeto-ui-btn--icon-only {
-    padding: 6px;
+    --neeto-ui-btn-padding-x: 6px;
+    --neeto-ui-btn-padding-y: 6px;
 
     .neeto-ui-btn__icon,
     .neeto-ui-btn__spinner svg {
       pointer-events: none;
-      width: 16px !important;
-      height: 16px !important;
+      width: var(--#{$prefix}btn-icon-size) !important;
+      height: var(--#{$prefix}btn-icon-size) !important;
     }
   }
 
   // size - medium - 32px
   &--size-medium {
-    font-size: var(--neeto-ui-text-sm);
-    padding: 8px 16px;
-    gap: 8px;
-
-    &.neeto-ui-btn--icon-only {
-      .neeto-ui-btn__icon,
-      .neeto-ui-btn__spinner svg {
-        pointer-events: none;
-        width: 20px !important;
-        height: 20px !important;
-      }
-    }
+    --neeto-ui-btn-padding-x: 16px;
+    --neeto-ui-btn-padding-y: 8px;
+    --neeto-ui-btn-gap: 8px;
+    --neeto-ui-btn-icon-size: 20px;
   }
+
   // size - large - 40px
   &--size-large {
-    font-size: var(--neeto-ui-text-base);
-    padding: 12px 20px;
-    gap: 10px;
-
-    &.neeto-ui-btn--icon-only {
-      padding: 8px;
-      .neeto-ui-btn__icon,
-      .neeto-ui-btn__spinner svg {
-        width: 24px !important;
-        height: 24px !important;
-      }
-    }
+    --neeto-ui-btn-font-size: var(--neeto-ui-text-base);
+    --neeto-ui-btn-padding-x: 20px;
+    --neeto-ui-btn-padding-y: 12px;
+    --neeto-ui-btn-gap: 10px;
+    --neeto-ui-btn-icon-size: 24px;
   }
 
   &:focus,
