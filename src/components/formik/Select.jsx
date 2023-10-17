@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, startTransition } from "react";
 
 import { useField } from "formik";
 import PropTypes from "prop-types";
@@ -14,7 +14,7 @@ const SelectField = forwardRef((props, ref) => {
     isMulti = false,
     ...otherProps
   } = props;
-  const [field, meta, { setValue }] = useField(name);
+  const [field, meta, { setValue, setTouched }] = useField(name);
 
   const isMenuOpen = useRef(otherProps.defaultMenuIsOpen);
 
@@ -46,6 +46,11 @@ const SelectField = forwardRef((props, ref) => {
           : buildValueObj(field.value, options)
       }
       onChange={value => setValue(value)}
+      onBlur={() =>
+        startTransition(() => {
+          setTouched(true);
+        })
+      }
       {...otherProps}
       onKeyDown={event => {
         if (event.key === "Enter" && isMenuOpen.current) {
