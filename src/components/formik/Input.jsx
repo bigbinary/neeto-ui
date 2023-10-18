@@ -1,29 +1,22 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 
 import { Field } from "formik";
 import PropTypes from "prop-types";
 
 import Input from "components/Input";
 
-const FormikInput = forwardRef(({ name, ...rest }, ref) => {
-  const [isFormikInputFocused, setIsFormikInputFocused] = useState(false);
-
-  return (
-    <Field name={name}>
-      {({ field, meta }) => (
-        <Input
-          ref={ref}
-          {...field}
-          error={meta.touched ? meta.error : ""}
-          isFormikInputFocused={isFormikInputFocused}
-          {...rest}
-          onBlur={() => setIsFormikInputFocused(false)}
-          onFocus={() => setIsFormikInputFocused(true)}
-        />
-      )}
-    </Field>
-  );
-});
+const FormikInput = forwardRef(({ name, ...rest }, ref) => (
+  <Field name={name}>
+    {({ field, meta }) => (
+      <Input
+        ref={ref}
+        {...field}
+        error={meta.touched ? meta.error : ""}
+        {...rest}
+      />
+    )}
+  </Field>
+));
 
 FormikInput.displayName = "FormikInput";
 

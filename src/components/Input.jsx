@@ -31,7 +31,6 @@ const Input = forwardRef(
       unlimitedChars = false,
       labelProps,
       rejectCharsRegex,
-      isFormikInputFocused,
       ...otherProps
     },
     ref
@@ -100,12 +99,18 @@ const Input = forwardRef(
               [errorId]: !!error,
               [helpTextId]: helpText,
             })}
-            onBlur={() => setIsInputFocused(false)}
-            onFocus={() => setIsInputFocused(true)}
             {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
             onChange={handleChange}
+            onBlur={event => {
+              otherProps.onBlur?.(event);
+              setIsInputFocused(false);
+            }}
+            onFocus={event => {
+              otherProps.onFocus?.(event);
+              setIsInputFocused(true);
+            }}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
@@ -130,7 +135,7 @@ const Input = forwardRef(
               {helpText}
             </Typography>
           )}
-          {(isInputFocused || isFormikInputFocused) && isCharacterLimitVisible && (
+          {isInputFocused && isCharacterLimitVisible && (
             <Typography
               style="body2"
               className={classnames("neeto-ui-input__max-length", {
