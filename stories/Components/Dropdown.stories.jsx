@@ -301,7 +301,7 @@ ControlledDropdown.parameters = {
   docs: {
     description: {
       story:
-        "When using the `Dropdown` as a controlled component, you can utilize the `onClickOutside` prop to reset the `isOpen` state, which will effectively close the dropdown.",
+        "When you're using the `Dropdown` as a controlled component, you have the option to use the `onClickOutside` prop. This prop allows you to reset the `isOpen` state when clicked outside the component, which will effectively close the dropdown",
     },
   },
 };
