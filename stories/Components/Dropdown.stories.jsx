@@ -9,10 +9,7 @@ import { icons } from "../constants";
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {
-  ulProps: {
-    control: false,
-    table: { type: { summary: null } },
-  },
+  ulProps: { control: false, table: { type: { summary: null } } },
 };
 
 const metadata = {
@@ -33,10 +30,7 @@ const metadata = {
     },
   },
   argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
+    icon: { options: Object.keys(icons), mapping: icons },
     onClose: {
       table: {
         type: { summary: "func" },
@@ -288,6 +282,7 @@ const ControlledDropdown = args => {
         {...args}
         isOpen={isOpen}
         label="Controlled Dropdown"
+        onClickOutside={() => setIsOpen(false)}
         onClose={() => setIsOpen(false)}
       >
         <Menu>
@@ -300,6 +295,15 @@ const ControlledDropdown = args => {
       </Dropdown>
     </div>
   );
+};
+
+ControlledDropdown.parameters = {
+  docs: {
+    description: {
+      story:
+        "When using the `Dropdown` as a controlled component, you can utilize the `onClickOutside` prop to reset the `isOpen` state, which will effectively close the dropdown.",
+    },
+  },
 };
 ControlledDropdown.storyName = "Controlled Dropdown";
 
@@ -333,7 +337,7 @@ const CustomDropdown = args => {
   return (
     <div className="h-56">
       <Dropdown {...args} closeOnSelect={false} label="Custom Dropdown">
-        <div className="flex flex-col gap-y-1 rounded-md p-2">
+        <div className="neeto-ui-rounded-md flex flex-col gap-y-1 p-2">
           <Input placeholder="Search members" prefix={<Search />} />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">
