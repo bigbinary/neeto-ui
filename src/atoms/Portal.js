@@ -1,3 +1,4 @@
+/* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
 import { useEffect, useRef } from "react";
 
 import { isEmpty } from "ramda";

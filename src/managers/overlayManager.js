@@ -15,8 +15,11 @@ class OverlayManager {
     this.previouslyFocusedElements.push(elementToFocus);
   }
 
-  remove(overlay) {
+  remove(overlay, elementToFocus) {
     this.overlays = this.overlays.filter(_overlay => _overlay !== overlay);
+    this.previouslyFocusedElements = this.previouslyFocusedElements.filter(
+      _elementToFocus => _elementToFocus !== elementToFocus
+    );
   }
 
   isTopOverlay(overlay) {

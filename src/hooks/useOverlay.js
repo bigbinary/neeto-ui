@@ -1,13 +1,14 @@
-import { useRef, useCallback, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { manager } from "managers";
 import {
-  renderFocusOnFocusableElements,
   noop,
   hideScrollAndAddMargin,
   showScrollAndRemoveMargin,
+  focusFirstFocusableElement,
+  trapFocusOnFocusableElements,
 } from "utils";
 
 import useOnClickOutside from "./useOnClickOutside";
@@ -46,9 +47,8 @@ const useOverlay = ({
     if (hasTransitionCompleted) {
       if (initialFocusRef?.current) {
         initialFocusRef?.current?.focus();
-        renderFocusOnFocusableElements(overlayWrapper, false);
       } else {
-        renderFocusOnFocusableElements(overlayWrapper);
+        focusFirstFocusableElement(overlayWrapper);
       }
     }
   };
@@ -74,14 +74,19 @@ const useOverlay = ({
   );
 
   useEffect(() => {
+    let cleanUp = noop;
     if (isOpen) {
-      if (hasTransitionCompleted) focusRequiredElementInOverlay();
+      if (hasTransitionCompleted) {
+        focusRequiredElementInOverlay();
+        cleanUp = trapFocusOnFocusableElements(overlayWrapper);
+      }
 
       if (shouldHideScrollAndAddMargin) hideScrollAndAddMargin();
     }
 
     return () => {
       if (!manager.hasOverlays()) showScrollAndRemoveMargin();
+      cleanUp();
     };
   }, [isOpen, hasTransitionCompleted]);
 
@@ -91,10 +96,7 @@ const useOverlay = ({
     if (hasTransitionCompleted) focusRequiredElementInOverlay();
   };
 
-  return {
-    handleOverlayClose,
-    setFocusField,
-  };
+  return { handleOverlayClose, setFocusField };
 };
 
 export default useOverlay;
