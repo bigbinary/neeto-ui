@@ -5,11 +5,14 @@
 
   .ant-tree-checkbox {
     .ant-tree-checkbox-inner {
-      width: 16px;
-      height: 16px;
       color: rgb(var(--neeto-ui-primary-500));
-      border: 2px solid rgb(var(--neeto-ui-gray-400));
+      border-color: rgb(var(--neeto-ui-gray-300));
       border-radius: var(--neeto-ui-rounded-sm);
+
+      &::after {
+        top: 47.5%;
+        inset-inline-start: 18.5%;
+      }
     }
 
     &:hover {
@@ -29,5 +32,15 @@
         border-color: rgb(var(--neeto-ui-primary-500)) !important;
       }
     }
+  }
+
+  .ant-tree-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ant-tree-draggable-icon {
+    opacity: 0.4 !important;
   }
 }

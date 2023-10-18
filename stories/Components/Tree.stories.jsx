@@ -118,9 +118,8 @@ const SearchableTree = () => {
   }, [searchValue]);
 
   return (
-    <div>
+    <div className="space-y-3">
       <Input
-        className="my-3"
         label="Search"
         placeholder="Input search text"
         prefix={<Search />}
