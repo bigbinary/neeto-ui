@@ -15,16 +15,18 @@
       flex-grow: 1;
       overflow-wrap: break-word;
     }
+  }
+  .neeto-ui-input__max-length {
+    color: rgb(var(--neeto-ui-gray-700));
+    line-height: 1;
+    margin-bottom: 8px;
+    margin-left: auto !important;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 8px 3px 0 0;
 
-    .neeto-ui-input__max-length {
-      color: rgb(var(--neeto-ui-gray-700));
-      line-height: 1;
-      margin-bottom: 8px;
-      margin-left: auto;
-
-      &.neeto-ui-input__max-length--error {
-        color: rgb(var(--neeto-ui-error-800));
-      }
+    &.neeto-ui-input__max-length--error {
+      color: rgb(var(--neeto-ui-error-800));
     }
   }
 

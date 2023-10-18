@@ -75,16 +75,6 @@ const Input = forwardRef(
               {label}
             </Label>
           )}
-          {(isInputFocused || isFormikInputFocused) && isCharacterLimitVisible && (
-            <Typography
-              style="body2"
-              className={classnames("neeto-ui-input__max-length", {
-                "neeto-ui-input__max-length--error": maxLengthError,
-              })}
-            >
-              {valueLength}/{maxLength}
-            </Typography>
-          )}
         </div>
         <div
           className={classnames("neeto-ui-input", {
@@ -129,16 +119,28 @@ const Input = forwardRef(
             {error}
           </Typography>
         )}
-        {helpText && (
-          <Typography
-            className="neeto-ui-input__help-text"
-            data-cy={`${hyphenize(label)}-input-help`}
-            id={helpTextId}
-            style="body3"
-          >
-            {helpText}
-          </Typography>
-        )}
+        <div className="flex w-full justify-between space-x-1">
+          {helpText && (
+            <Typography
+              className="neeto-ui-input__help-text"
+              data-cy={`${hyphenize(label)}-input-help`}
+              id={helpTextId}
+              style="body3"
+            >
+              {helpText}
+            </Typography>
+          )}
+          {(isInputFocused || isFormikInputFocused) && isCharacterLimitVisible && (
+            <Typography
+              style="body2"
+              className={classnames("neeto-ui-input__max-length", {
+                "neeto-ui-input__max-length--error": maxLengthError,
+              })}
+            >
+              {valueLength}/{maxLength}
+            </Typography>
+          )}
+        </div>
       </div>
     );
   }
