@@ -20,8 +20,11 @@
   --#{$prefix}checkbox-focus-visible-outline-offset: 1px;
   --#{$prefix}checkbox-focus-visible-box-shadow: none;
 
-    // Checked
+  // Checked
   --#{$prefix}checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Margin
+  --#{$prefix}checkbox-label-margin: 8px;
 }
 
 .neeto-ui-checkbox__wrapper {
@@ -38,7 +41,7 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 8px;
+      margin-left: var(--#{$prefix}checkbox-label-margin);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
