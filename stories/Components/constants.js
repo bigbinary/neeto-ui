@@ -42,18 +42,19 @@ export const EVENT_BUBBLING_CAPTURING = `const EventBubblingAndCapturing = () =>
   const listItems = ["Action", "Another action", "Something else here"];
 
   return (
-    <div className="h-40" onClick={event => event.stopPropagation()}>
-      <Dropdown label="Dropdown">
+    <div
+    className="neeto-ui-rounded neeto-ui-shadow-md h-40 w-1/2 cursor-pointer border-2 border-solid p-5"
+    onClick={() => alert("Clicked on the card")}
+  >
+    <div className="w-10" onClick={event => event.stopPropagation()}>
+      <Dropdown label="Dropdown" {...args}>
         <Menu>
-          {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
-          ))}
           <MenuItem.Button isActive>Active</MenuItem.Button>
-          <MenuItem.Button isDisabled>Disabled</MenuItem.Button>
-          <Divider />
+          <MenuItem.Button>Disabled</MenuItem.Button>
           <MenuItem.Button style="danger">Delete</MenuItem.Button>
         </Menu>
       </Dropdown>
     </div>
+  </div>
   );
 };`;
