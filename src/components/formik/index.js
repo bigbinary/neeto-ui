@@ -9,6 +9,7 @@ import Radio from "./Radio";
 import Select from "./Select";
 import Switch from "./Switch";
 import Textarea from "./Textarea";
+import TreeSelect from "./TreeSelect";
 
 export {
   ActionBlock,
@@ -22,4 +23,5 @@ export {
   Switch,
   Textarea,
   MultiEmailInput,
+  TreeSelect,
 };
