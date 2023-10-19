@@ -20,7 +20,7 @@ const TreeSelect = forwardRef(
       onChange,
       placeholder = "",
       required = false,
-      showSearch = true,
+      showSearch = false,
       size = "middle",
       suffixIcon,
       switcherIcon,
@@ -52,7 +52,7 @@ const TreeSelect = forwardRef(
           treeData={treeData}
           treeDataSimpleMode={treeDataSimpleMode}
           treeNodeFilterProp={fieldNames?.label ?? "label"}
-          value={value}
+          value={value || undefined}
           className={classnames("neeto-ui-tree-select__wrapper", className, {
             "neeto-ui-tree-select__error": error,
           })}
