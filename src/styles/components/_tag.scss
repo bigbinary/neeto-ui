@@ -120,31 +120,37 @@
     &.neeto-ui-tag--style-primary {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-primary-100));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-secondary {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-200));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-danger {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-error-100));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-info {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-info-100));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-success {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-success-100));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-warning {
       --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-warning-100));
       --neeto-ui-tag-border-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
   }
 }
