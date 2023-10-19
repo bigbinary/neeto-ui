@@ -36,3 +36,24 @@ export const PALETTE_PICKER_CODE = `const OnlyPalettePicker = () => {
     </div>
   );
 };`;
+
+export const EVENT_BUBBLING_CAPTURING = `const EventBubblingAndCapturing = () => {
+  const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
+
+  return (
+    <div className="h-40" onClick={event => event.stopPropagation()}>
+      <Dropdown label="Dropdown">
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <MenuItem.Button isActive>Active</MenuItem.Button>
+          <MenuItem.Button isDisabled>Disabled</MenuItem.Button>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
+    </div>
+  );
+};`;
