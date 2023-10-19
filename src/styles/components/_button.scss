@@ -86,6 +86,11 @@
     --neeto-ui-btn-padding-y: 12px;
     --neeto-ui-btn-gap: 10px;
     --neeto-ui-btn-icon-size: 24px;
+
+    &.neeto-ui-btn--icon-only {
+      --neeto-ui-btn-padding-x: 8px;
+      --neeto-ui-btn-padding-y: 8px;
+    }
   }
 
   &:focus,
