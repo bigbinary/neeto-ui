@@ -126,7 +126,6 @@ const Dropdown = ({
       role="dropdown"
       theme="light"
       trigger={isControlled ? undefined : TRIGGERS[trigger]}
-      zIndex={99999}
       className={classnames("neeto-ui-dropdown", {
         [className]: className,
       })}
