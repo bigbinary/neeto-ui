@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.8 - 2023-10-19
+
+- Fixed:  Button click-ability when disabled
+
 ## 5.2.2 - 2023-10-05
 
 - The bug was due to a layout shift that happens when the formik error message is rendered. Details in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
@@ -608,7 +612,6 @@ Changes documentations to sentence case from title casing.
 - Updated multivalue error styles
 - Increased Story heights for better view
 #### Email input
-
 - Updated border radius to `5px`
 - Updated selected values styles to match Tag styles
 - Fixed prefix and suffix spacing
