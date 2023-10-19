@@ -2,7 +2,7 @@ class OverlayManager {
   constructor() {
     this.overlays = [];
     this.previouslyFocusedElements = [];
-    this.subscribers = [];
+    this.subscribers = new Set();
     this.add = this.add.bind(this);
     this.remove = this.remove.bind(this);
     this.isTopOverlay = this.isTopOverlay.bind(this);
@@ -13,9 +13,9 @@ class OverlayManager {
   }
 
   subscribe(callback) {
-    this.subscribers.push(callback);
+    this.subscribers.add(callback);
 
-    return () => this.subscribers.filter(subscriber => subscriber !== callback);
+    return () => this.subscribers.delete(callback);
   }
 
   add(overlay, elementToFocus) {
@@ -46,7 +46,7 @@ class OverlayManager {
 
   getFinalFocusInOverlay() {
     const finalFocus = this.previouslyFocusedElements.pop();
-    this.subscribers.forEach(subscriber => subscriber(this));
+    this.subscribers.forEach(subscriber => subscriber());
 
     return finalFocus;
   }
