@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useSyncExternalStore } from "react";
 
 import { useHotkeys } from "react-hotkeys-hook";
 
@@ -65,6 +65,10 @@ const useOverlay = ({
     closeOnOutsideClick ? handleOverlayClose : noop
   );
 
+  const isTopOverlay = useSyncExternalStore(manager.subscribe, () =>
+    manager.isTopOverlay(overlayWrapper)
+  );
+
   useHotkeys(
     "esc",
     () => {
@@ -76,8 +80,9 @@ const useOverlay = ({
   useEffect(() => {
     let cleanUp = noop;
     if (isOpen) {
-      if (hasTransitionCompleted) {
+      if (hasTransitionCompleted && isTopOverlay) {
         focusRequiredElementInOverlay();
+        // Enable focus trap only for the topmost overlay
         cleanUp = trapFocusOnFocusableElements(overlayWrapper);
       }
 
@@ -88,7 +93,7 @@ const useOverlay = ({
       if (!manager.hasOverlays()) showScrollAndRemoveMargin();
       cleanUp();
     };
-  }, [isOpen, hasTransitionCompleted]);
+  }, [isOpen, hasTransitionCompleted, isTopOverlay]);
 
   const setFocusField = fieldRef => {
     if (!fieldRef) return;
