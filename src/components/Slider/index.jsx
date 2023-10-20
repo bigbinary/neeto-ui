@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Slider as AntSlider } from "antd";
+import { Slider as AntdSlider } from "antd";
 import PropTypes from "prop-types";
 
 import { noop } from "utils";
@@ -15,7 +15,8 @@ const Slider = ({
   value = undefined,
   ...otherProps
 }) => (
-  <AntSlider
+  <AntdSlider
+    className="w-full"
     handleStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}
     tooltip={{ formatter: null }}
     trackStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}

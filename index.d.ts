@@ -566,6 +566,14 @@ export type KbdProps = {
   tooltipProps?: TooltipProps;
 };
 
+export type SliderProps = {
+  min?: number;
+  max?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  value?: number | number[];
+};
+
 export type NoDataProps = {
   title?: string;
   description?: string;

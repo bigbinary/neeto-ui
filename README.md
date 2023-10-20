@@ -114,6 +114,7 @@ Available components in neetoUI formik:
 - Textarea
 - CheckBox
 - BlockNavigation
+- Slider
 
 You can refer the
 [formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik)
