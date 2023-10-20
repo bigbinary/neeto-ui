@@ -716,6 +716,7 @@ export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;
 export const Tag: React.FC<TagProps>;
 export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
