@@ -588,7 +588,7 @@ type TreeItem = {
   value: string;
   disabled: Boolean;
   pId: string;
-}
+};
 
 export type TreeSelectProps = {
   allowClear?: Boolean;
@@ -608,7 +608,9 @@ export type TreeSelectProps = {
   switcherIcon?: React.ReactNode;
   treeDataSimpleMode?: Boolean;
   value: string;
-  treeData: Array<TreeItemNested> | Array<TreeItem> ;
+  treeData: Array<TreeItemNested> | Array<TreeItem>;
+};
+
 export type TreeProps = {
   className?: string;
   allowDrop?: boolean;

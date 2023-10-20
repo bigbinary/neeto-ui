@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { DownArrow } from "neetoicons";
 
 import { TreeSelect } from "components";
-import { DownArrow } from "neetoicons";
 
 const treeData = [
   { id: 1, value: 1, label: "Category 1", pId: null },
@@ -55,12 +55,19 @@ describe("TreeSelect", () => {
     };
     render(<SelectComponent />);
 
+    const selectionItemBefore = document.querySelector(
+      ".ant-select-selection-item"
+    );
+    expect(selectionItemBefore).toBeNull();
+
     const select = screen.getByRole("combobox");
     userEvent.click(select);
     userEvent.click(screen.getByText("Category 2"));
 
-    const selectionItem = document.querySelector(".ant-select-selection-item");
-    expect(selectionItem).toHaveTextContent("Category 2");
+    const selectionItemAfter = document.querySelector(
+      ".ant-select-selection-item"
+    );
+    expect(selectionItemAfter).toHaveTextContent("Category 2");
   });
 
   it("should not render label if label is not provided", () => {
@@ -88,7 +95,7 @@ describe("TreeSelect", () => {
     expect(screen.queryByText("Category 1-1")).not.toBeInTheDocument();
   });
 
-  it("should show option list when fieldNames are provided", () => {
+  it("should show option list and be searchable when fieldNames are provided", () => {
     const remappedTreeData = [
       { id: 1, value: 1, newLabel: "Category 1", pId: null },
       { id: 2, value: 2, newLabel: "Category 2", pId: null },
@@ -99,6 +106,7 @@ describe("TreeSelect", () => {
 
     render(
       <TreeSelect
+        showSearch
         fieldNames={{ label: "newLabel" }}
         treeData={remappedTreeData}
       />
@@ -107,6 +115,12 @@ describe("TreeSelect", () => {
     userEvent.click(select);
     expect(screen.getByText("Category 1")).toBeInTheDocument();
     expect(screen.getByText("Category 2")).toBeInTheDocument();
+
+    userEvent.type(select, "Category 2");
+    expect(screen.getByText("Category 2")).toBeInTheDocument();
+    expect(screen.getByText("Category 2-1")).toBeInTheDocument();
+    expect(screen.queryByText("Category 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Category 1-1")).not.toBeInTheDocument();
   });
 
   it("should override custom suffix and switcher icons", () => {
@@ -123,5 +137,25 @@ describe("TreeSelect", () => {
     userEvent.click(select);
     expect(screen.getAllByTestId("custom-switcher")[0]).toBeInTheDocument();
     expect(screen.getByText("Category 1")).toBeInTheDocument();
+  });
+
+  it("should show child options when switcher icon is clicked", () => {
+    render(
+      <TreeSelect
+        switcherIcon={() => <DownArrow data-testid="custom-switcher" />}
+        treeData={treeData}
+      />
+    );
+
+    const select = screen.getByRole("combobox");
+    userEvent.click(select);
+    expect(screen.getByText("Category 1")).toBeInTheDocument();
+    expect(screen.getByText("Category 2")).toBeInTheDocument();
+    expect(screen.queryByText("Category 1-1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Category 2-1")).not.toBeInTheDocument();
+
+    const switcher = screen.getAllByTestId("custom-switcher")[0];
+    userEvent.click(switcher);
+    expect(screen.getByText("Category 1-1")).toBeInTheDocument();
   });
 });

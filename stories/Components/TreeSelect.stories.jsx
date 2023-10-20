@@ -7,16 +7,17 @@ import Button from "components/Button";
 import { TreeSelect as FormikTreeSelect, Form } from "components/formik";
 import TreeSelect from "components/TreeSelect";
 
+const description = `\`import { TreeSelect } from "@bigbinary/neetoui";\`
+\nWe use antd TreeSelect under the hood. For more customization options,
+see [TreeSelect](https://ant.design/components/tree-select).
+`;
+
 const metadata = {
   title: "Components/TreeSelect",
   component: TreeSelect,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { TreeSelect } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: description } },
   },
 };
 
