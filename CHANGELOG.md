@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.11 - 2023-10-20
+
+- Fixed: Memory leaks in overlay manager
+
 ## 5.2.10 - 2023-10-20
 
 - Added: Tooltip to `Kbd` component
@@ -626,7 +630,6 @@ Changes documentations to sentence case from title casing.
 - Fixed spacing inconsistencies in error test and helper text - used same margin for both
 - Updated error styles of multivalue select
 #### Label
-
 - Updated label bottom margin to 8px
 - Removed letter-spacing in label text
 
