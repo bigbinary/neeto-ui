@@ -563,6 +563,7 @@ export type TypographyProps = {
 export type KbdProps = {
   keyName?: string;
   className?: string;
+  tooltipProps?: TooltipProps;
 };
 
 export type NoDataProps = {
