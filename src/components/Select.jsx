@@ -99,6 +99,7 @@ const ValueContainer = props => {
       {...props}
       innerProps={{
         ...props.innerProps,
+        name: selectProps.name,
         "data-cy": selectProps
           ? `${hyphenize(selectProps.label)}-select-value-container`
           : "select-value-container",
