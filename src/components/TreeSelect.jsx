@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 
-import { TreeSelect as AntdTree } from "antd";
+import { TreeSelect as AntdTreeSelect } from "antd";
 import classnames from "classnames";
 import { Down } from "neetoicons";
 import PropTypes from "prop-types";
@@ -42,7 +42,7 @@ const TreeSelect = forwardRef(
             {label}
           </Label>
         )}
-        <AntdTree
+        <AntdTreeSelect
           allowClear={allowClear}
           data-cy="neeto-ui-tree-select-wrapper"
           disabled={disabled}
