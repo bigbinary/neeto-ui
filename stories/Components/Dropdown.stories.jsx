@@ -4,6 +4,8 @@ import { Settings, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
+import { EVENT_BUBBLING_CAPTURING } from "./constants";
+
 import { icons } from "../constants";
 
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
@@ -353,6 +355,38 @@ const CustomDropdown = args => {
 
 CustomDropdown.storyName = "Custom Dropdown";
 
+const EventBubblingAndCapturing = args => {
+  const { Menu, MenuItem } = Dropdown;
+
+  return (
+    <div
+      className="neeto-ui-rounded neeto-ui-shadow-md h-40 w-1/2 cursor-pointer border-2 border-solid p-5"
+      onClick={() => alert("Clicked on the card")}
+    >
+      <div className="w-10" onClick={event => event.stopPropagation()}>
+        <Dropdown label="Dropdown" {...args}>
+          <Menu>
+            <MenuItem.Button isActive>Active</MenuItem.Button>
+            <MenuItem.Button>Disabled</MenuItem.Button>
+            <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+      </div>
+    </div>
+  );
+};
+
+EventBubblingAndCapturing.storyName = "Event bubbling and capturing";
+EventBubblingAndCapturing.parameters = {
+  docs: {
+    source: { code: EVENT_BUBBLING_CAPTURING },
+    description: {
+      story:
+        "To stop event bubbling in the `Dropdown` component, you can wrap the `Dropdown` component inside a `div` or another suitable container and add an `onClick` handler to stop the event propagation.",
+    },
+  },
+};
+
 export {
   Default,
   TriggerStyles,
@@ -364,6 +398,7 @@ export {
   ControlledDropdown,
   CustomTarget,
   CustomDropdown,
+  EventBubblingAndCapturing,
 };
 
 export default metadata;

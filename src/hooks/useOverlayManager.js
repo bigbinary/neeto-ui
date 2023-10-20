@@ -10,7 +10,7 @@ const useOverlayManager = (ref, isOpen) => {
     }
 
     return () => {
-      manager.remove(ref);
+      manager.remove(ref, elementToFocus);
     };
   }, [isOpen, ref]);
 };
