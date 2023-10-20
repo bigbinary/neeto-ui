@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/addon-docs";
+import StorybookDarkMode from "../assets/images/storybook-darkmode.gif";
 
 <Meta
   title="Customize/CSS Variables"
@@ -12,13 +13,12 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # CSS variables
 
-neetoUI incorporates many CSS custom properties (variables) in its compiled CSS for real-time customization without the need to recompile Sass. These offer easy access to commonly used values like our theme colors, font sizes, box shadows etc.
+neetoUI supports CSS variables for real-time customization and easier theming. All the CSS variables are prefixed with neeto-ui to avoid conflicts with third-party CSS.
 
-All our custom properties are prefixed with `neeto-ui` to avoid conflicts with third party CSS.
 
 <br />
 
-### Root variables
+## Root variables
 
 Here are the variables we include that are accessible from any location where neetoUI's CSS is loaded. They’re located in our \_root.scss file and included in our compiled CSS file.
 
@@ -142,7 +142,7 @@ a {
 }
 ```
 
-Adding transparency in color
+#### Adding transparency in color
 
 ```
 a {
@@ -150,11 +150,24 @@ a {
 }
 ```
 
-### Theming
+#### Using other CSS variables
 
-#### Custom branding
+```
+a {
+   border-radius: var(--neeto-ui-rounded);
+}
+```
 
-<Story name="Custom branding">
+## Theming
+
+### Customize neetoUI
+By default, all neetoUI components inherit values from the default theme. You may need to customise the theme to match your brand identity or visual style.
+
+<p>
+  <a href="/docs/components-button--default"> neetoUI provides three predefined solid button variants</a>. However, you have the flexibility to create custom-colored buttons using CSS variables. To do so, apply a custom class to your button component and override the CSS variables.
+</p>
+
+<Story name="Customize neetoUI">
   <div className="h-screen">
     <iframe
       src="https://codesandbox.io/embed/branding-54hfvm?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
@@ -172,9 +185,11 @@ a {
   </div>
 </Story>
 
-#### Dark theme [Experimental]
+<br/>
 
-<Story name="Dark theme">
+### Dark mode
+
+<Story name="Dark mode">
   <div className="h-screen">
     <iframe
       src="https://codesandbox.io/embed/dark-theme-2dhsl0?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark&view=preview"
@@ -191,3 +206,22 @@ a {
     ></iframe>
   </div>
 </Story>
+
+<br/>
+<br/>
+
+neetoUI supports dark mode.
+
+#### Toggling dark mode in product
+To enable the dark mode for the product, apply the <code>neeto-ui-theme--dark</code> class to the <code> body </code> tag.
+
+
+#### Toggling dark mode in Storybook
+
+`storybook-dark-mode` addon is used to toggle between dark and light mode in Storybook.
+
+<br/>
+
+<img src={StorybookDarkMode} className="border-2 border-solid neeto-ui-rounded-lg p-1"/>
+
+

@@ -61,10 +61,7 @@ export class UniqueArray {
   }
 }
 
-export const renderFocusOnFocusableElements = (
-  ref,
-  shouldFocusFirstFocusableElement = true
-) => {
+export const trapFocusOnFocusableElements = ref => {
   const focusableElements =
     'button,[href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
@@ -73,7 +70,7 @@ export const renderFocusOnFocusableElements = (
   const focusableContent = ref?.current?.querySelectorAll(focusableElements);
   const lastFocusableElement = focusableContent[focusableContent?.length - 1];
 
-  document.addEventListener("keydown", e => {
+  const onKeyDown = e => {
     const isTabPressed = e.key === "Tab" || e.keyCode === 9;
     if (!isTabPressed) {
       return;
@@ -90,9 +87,19 @@ export const renderFocusOnFocusableElements = (
         e.preventDefault();
       }
     }
-  });
+  };
 
-  if (!shouldFocusFirstFocusableElement) return;
+  document.addEventListener("keydown", onKeyDown);
+
+  return () => document.removeEventListener("keydown", onKeyDown);
+};
+
+export const focusFirstFocusableElement = ref => {
+  const focusableElements =
+    'button,[href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  const firstFocusableElement =
+    ref?.current?.querySelectorAll(focusableElements)[0];
 
   firstFocusableElement?.focus();
 };

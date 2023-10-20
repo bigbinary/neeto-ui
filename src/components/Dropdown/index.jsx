@@ -101,9 +101,7 @@ const Dropdown = ({
 
   const controlledProps = isControlled
     ? { visible: isOpen }
-    : {
-        onClickOutside: () => closeOnOutsideClick,
-      };
+    : { onClickOutside: () => closeOnOutsideClick };
 
   const { classNames: dropdownClassname, ...otherDropdownProps } =
     dropdownProps;
@@ -277,6 +275,10 @@ Dropdown.propTypes = {
    *
    */
   ulProps: PropTypes.object,
+  /**
+   * To specify the action that should be triggered when clicking outside of the controlled dropdown component.
+   */
+  onClickOutside: PropTypes.func,
 };
 
 export default Dropdown;
