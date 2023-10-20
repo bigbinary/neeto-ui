@@ -1,7 +1,6 @@
 :root {
   --#{$prefix}btn-padding-x: 8px;
   --#{$prefix}btn-padding-y: 6px;
-  --#{$prefix}btn-font-family: #{$neeto-ui-font-family};
   @include rfs(var(--neeto-ui-text-sm), --#{$prefix}btn-font-size);
   --#{$prefix}btn-font-weight: var(--neeto-ui-font-medium);
   --#{$prefix}btn-line-height: 16px;
@@ -47,7 +46,6 @@
   background-color: var(--#{$prefix}btn-bg-color);
   font-size: var(--#{$prefix}btn-font-size);
   font-weight: var(--#{$prefix}btn-font-weight);
-  font-family: var(--#{$prefix}btn-font-family);
   line-height: var(--#{$prefix}btn-line-height);
   transition: var(--neeto-ui-transition);
   border-width: var(--#{$prefix}btn-border-width);
