@@ -1,12 +1,16 @@
 `import { Form } from "@bigbinary/neetoui/formik";`
 
-The neetoUI `Form` component has a built-in mechanism to scroll to the element that gave
-an error when the form is submitted. This is handled by the `ScrollToErrorField` component within it.
-It can be turned on by passing the prop `scrollToErrorField`.
+The neetoUI `Form` component serves as an abstraction layer for the `Formik` and
+`Form` components in the `formik` library.
 
-Please note that the `name` prop of input components must be in dot notation. For example:
-`name="firstName"` or `name="addJob.name"` are both valid. While `name="addJob[name]"` is valid
-for the form to work, such a name cannot be parsed by the `ScrollToErrorField` component.
+It has a built-in mechanism to scroll to the element that gave an error when the
+form is submitted. This is handled by the `ScrollToErrorField` component within
+it. It can be turned on by passing the prop `scrollToErrorField`.
 
-In the below story, scroll down to see the submit button and click on it. This will trigger
-the validations and scroll to the field which gave the error.
+Please note that the `name` prop of input components must be in dot notation.
+For example: `name="firstName"` or `name="addJob.name"` are both valid. While
+`name="addJob[name]"` is valid for the form to work, such a name cannot be
+parsed by the `ScrollToErrorField` component.
+
+In the below story, scroll down to see the submit button and click on it. This
+will trigger the validations and scroll to the field which gave the error.
