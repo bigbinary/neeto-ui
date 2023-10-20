@@ -1,3 +1,32 @@
+:root {
+  --#{$prefix}checkbox-size: 16px;
+  --#{$prefix}checkbox-color: rgb(var(--neeto-ui-primary-500));
+  --#{$prefix}checkbox-border-width: 2px;
+  --#{$prefix}checkbox-border-color: rgb(var(--neeto-ui-gray-400));
+  --#{$prefix}checkbox-border-radius: var(--neeto-ui-rounded-sm);
+
+  // Disabled
+  --#{$prefix}checkbox-disabled-opacity: 0.5;
+
+  // Hover
+  --#{$prefix}checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+  // Focus
+  --#{$prefix}checkbox-focus-outline: transparent;
+  --#{$prefix}checkbox-focus-outline-offset: 0px;
+
+  // Focus Visible
+  --#{$prefix}checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --#{$prefix}checkbox-focus-visible-outline-offset: 1px;
+  --#{$prefix}checkbox-focus-visible-box-shadow: none;
+
+  // Checked
+  --#{$prefix}checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Margin
+  --#{$prefix}checkbox-label-margin: 8px;
+}
+
 .neeto-ui-checkbox__wrapper {
   display: flex;
   flex-direction: column;
@@ -12,41 +41,43 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 8px;
+      margin-left: var(--#{$prefix}checkbox-label-margin);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      color: rgb(var(--neeto-ui-primary-500));
-      border: 2px solid rgb(var(--neeto-ui-gray-400));
-      border-radius: var(--neeto-ui-rounded-sm);
+      width: var(--#{$prefix}checkbox-size);
+      height: var(--#{$prefix}checkbox-size);
+      color: var(--#{$prefix}checkbox-color);
+      border: var(--#{$prefix}checkbox-border-width) solid var(--#{$prefix}checkbox-border-color);
+      border-radius: var(--#{$prefix}checkbox-border-radius);
 
       &:not(:disabled) {
         cursor: pointer;
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: rgb(var(--neeto-ui-gray-500));
+        border-color: var(--#{$prefix}checkbox-hover-border-color);
       }
 
       &:checked {
-        border: none !important;
+        border-color: var(--#{$prefix}checkbox-checked-border-color);
+        background-size: calc(var(--#{$prefix}checkbox-size) * 0.6875) calc(var(--#{$prefix}checkbox-size) / 2);
       }
 
       &:disabled {
-        opacity: 0.5;
+        opacity: var(--#{$prefix}checkbox-disabled-opacity);
         cursor: not-allowed;
       }
 
       &:focus {
-        outline: transparent;
+        outline: var(--#{$prefix}checkbox-focus-outline);
+        outline-offset: var(--#{$prefix}checkbox-focus-outline-offset);
       }
 
       &:focus-visible {
-        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-        outline-offset: 1px;
-        box-shadow: none;
+        outline: var(--#{$prefix}checkbox-focus-visible-outline);
+        outline-offset: var(--#{$prefix}checkbox-focus-visible-outline-offset);
+        box-shadow: var(--#{$prefix}checkbox-focus-visible-box-shadow);
       }
     }
   }
@@ -54,16 +85,16 @@
 
 // ant design checkbox override
 
-.ant-checkbox{
-  width: 16px;
-  height: 16px;
+.ant-checkbox {
+  width: var(--#{$prefix}checkbox-size);
+  height: var(--#{$prefix}checkbox-size);
 
   [type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    color: rgb(var(--neeto-ui-primary-500));
-    border: 2px solid rgb(var(--neeto-ui-gray-400));
-    border-radius: var(--neeto-ui-rounded-sm);
+    width: var(--#{$prefix}checkbox-size);
+    height: var(--#{$prefix}checkbox-size);
+    color: var(--#{$prefix}checkbox-color);
+    border: var(--#{$prefix}checkbox-border-width) solid var(--#{$prefix}checkbox-border-color);
+    border-radius: var(--#{$prefix}checkbox-border-radius);
     opacity: 1;
 
     &:not(:disabled) {
@@ -71,32 +102,32 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: rgb(var(--neeto-ui-gray-500));
+      border-color: var(--#{$prefix}checkbox-hover-border-color);
     }
 
     &:checked {
-      border: none !important;
+      border-color: var(--#{$prefix}checkbox-checked-border-color);
+      background-size: calc(var(--#{$prefix}checkbox-size) * 0.6875);
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: var(--#{$prefix}checkbox-disabled-opacity);
       cursor: not-allowed;
     }
 
     &:focus {
-      outline: transparent;
+      outline: var(--#{$prefix}checkbox-focus-outline);
+      outline-offset: var(--#{$prefix}checkbox-focus-outline-offset);
     }
 
     &:focus-visible {
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
+      outline: var(--#{$prefix}checkbox-focus-visible-outline);
+      outline-offset: var(--#{$prefix}checkbox-focus-visible-outline-offset);
+      box-shadow: var(--#{$prefix}checkbox-focus-visible-box-shadow);
     }
   }
-  .ant-checkbox-inner{
+
+  .ant-checkbox-inner {
     display: none;
   }
 }
-
-
-
