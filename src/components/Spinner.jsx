@@ -3,34 +3,26 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const SPINNER_THEMES = {
-  dark: "dark",
-  light: "light",
-};
+const SPINNER_THEMES = { dark: "dark", light: "light" };
 
-const Spinner = ({ theme = "dark", className = "" }) => {
-  const spinnerItemClassName = classnames(
-    "neeto-ui-spinner__item",
-    {
-      "neeto-ui-bg-gray-800": theme === "dark",
-    },
-    {
-      "neeto-ui-bg-white": theme === "light",
-    }
-  );
-
-  return (
-    <span
-      className={classnames("neeto-ui-spinner", [className])}
-      data-testid="spinner"
-    >
-      <i className={spinnerItemClassName} />
-      <i className={spinnerItemClassName} />
-      <i className={spinnerItemClassName} />
-      <i className={spinnerItemClassName} />
-    </span>
-  );
-};
+const Spinner = ({ theme = "dark", className = "" }) => (
+  <span
+    data-testid="spinner"
+    className={classnames(
+      "neeto-ui-spinner",
+      {
+        "neeto-ui-spinner--dark": theme === "dark",
+        "neeto-ui-spinner--light": theme === "light",
+      },
+      [className]
+    )}
+  >
+    <i className="neeto-ui-spinner__item" />
+    <i className="neeto-ui-spinner__item" />
+    <i className="neeto-ui-spinner__item" />
+    <i className="neeto-ui-spinner__item" />
+  </span>
+);
 
 Spinner.propTypes = {
   /**
