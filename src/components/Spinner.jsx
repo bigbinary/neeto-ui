@@ -5,9 +5,10 @@ import PropTypes from "prop-types";
 
 const SPINNER_THEMES = { dark: "dark", light: "light" };
 
-const Spinner = ({ theme = "dark", className = "" }) => (
+const Spinner = ({ theme = "dark", size = 20, className = "" }) => (
   <span
     data-testid="spinner"
+    style={{ "--neeto-ui-spinner-size": `${size}px` }}
     className={classnames(
       "neeto-ui-spinner",
       {
@@ -29,6 +30,10 @@ Spinner.propTypes = {
    * To specify the theme of the Spinner.
    */
   theme: PropTypes.oneOf(Object.values(SPINNER_THEMES)),
+  /**
+   * To override the size of the spinner
+   */
+  size: PropTypes.number,
   /**
    * Provide external classnames to Spinner component.
    */
