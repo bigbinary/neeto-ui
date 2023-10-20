@@ -102,7 +102,7 @@ WithCustomSuffixAndSwitcherIcon.args = {
   switcherIcon: DownArrow,
 };
 
-const FormikTreeSelectStory = args => (
+const FormikTreeSelectStory = _ => (
   <Form
     formikProps={{
       initialValues: { category: "" },
@@ -111,13 +111,10 @@ const FormikTreeSelectStory = args => (
       }),
       onSubmit: values => window.alert(JSON.stringify(values)),
     }}
+    className="space-y-2"
   >
-    {() => (
-      <div className="space-y-2">
-        <FormikTreeSelect {...args} label="Category" name="category" />
-        <Button label="Submit" type="submit" />
-      </div>
-    )}
+    <FormikTreeSelect {...commonProps} name="category" />
+    <Button label="Submit" type="submit" />
   </Form>
 );
 

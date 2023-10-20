@@ -37,9 +37,14 @@ const TreeSelect = forwardRef(
 
     return (
       <div className="neeto-ui-input__wrapper">
-        {label && <Label {...{ required }}>{label}</Label>}
+        {label && (
+          <Label data-testid="treeselect-label" {...{ required }}>
+            {label}
+          </Label>
+        )}
         <AntdTree
           allowClear={allowClear}
+          data-cy="neeto-ui-tree-select-wrapper"
           disabled={disabled}
           dropdownStyle={{ zIndex: 100000 }}
           fieldNames={fieldNames}
@@ -65,7 +70,11 @@ const TreeSelect = forwardRef(
           {...otherProps}
         />
         {error && (
-          <Typography className="neeto-ui-input__error" style="body3">
+          <Typography
+            className="neeto-ui-input__error"
+            data-testid="treeselect-error"
+            style="body3"
+          >
             {error}
           </Typography>
         )}
