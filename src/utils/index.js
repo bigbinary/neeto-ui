@@ -114,3 +114,26 @@ export const showScrollAndRemoveMargin = () => {
   document.body.style.overflow = "auto";
   document.body.style.marginRight = "0px";
 };
+
+export const ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES = {
+  colorBgContainer: "rgb(var(--neeto-ui-white))",
+  colorBorderSecondary: "rgb(var(--neeto-ui-gray-200))",
+  colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
+  colorFillContent: "rgb(var(--neeto-ui-gray-100))",
+  colorFillSecondary: "rgb(var(--neeto-ui-gray-100))",
+  colorIcon: "rgb(var(--neeto-ui-gray-700))",
+  colorIconHover: "rgb(var(--neeto-ui-gray-800))",
+  colorLink: "rgb(var(--neeto-ui-primary-500))",
+  colorLinkActive: "rgb(var(--neeto-ui-primary-800))",
+  colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
+  colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+  colorSplit: "rgb(var(--neeto-ui-gray-100))",
+  colorText: "rgb(var(--neeto-ui-gray-800))",
+  colorTextDescription: "rgb(var(--neeto-ui-gray-700))",
+  colorTextDisabled: "rgb(var(--neeto-ui-gray-600))",
+  colorTextHeading: "rgb(var(--neeto-ui-black))",
+  colorTextPlaceholder: "rgb(var(--neeto-ui-gray-500))",
+  controlItemBgActive: "rgb(var(--neeto-ui-primary-100))",
+  controlItemBgActiveHover: "rgb(var(--neeto-ui-pastel-purple))",
+  controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
+};

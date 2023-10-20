@@ -1,0 +1,46 @@
+.neeto-ui-tree {
+  .site-tree-search-value {
+    color: #f50;
+  }
+
+  .ant-tree-checkbox {
+    .ant-tree-checkbox-inner {
+      color: rgb(var(--neeto-ui-primary-500));
+      border-color: rgb(var(--neeto-ui-gray-300));
+      border-radius: var(--neeto-ui-rounded-sm);
+
+      &::after {
+        top: 47.5%;
+        inset-inline-start: 18.5%;
+      }
+    }
+
+    &:hover {
+      .ant-tree-checkbox-inner {
+        border-color: rgb(var(--neeto-ui-gray-500)) !important;
+      }
+    }
+  }
+
+  .ant-tree-checkbox-checked {
+    .ant-tree-checkbox-inner {
+      border-color: rgb(var(--neeto-ui-primary-500)) !important;
+      background-color: rgb(var(--neeto-ui-primary-500)) !important;
+    }
+    &:hover {
+      .ant-tree-checkbox-inner {
+        border-color: rgb(var(--neeto-ui-primary-500)) !important;
+      }
+    }
+  }
+
+  .ant-tree-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ant-tree-draggable-icon {
+    opacity: 0.4 !important;
+  }
+}
