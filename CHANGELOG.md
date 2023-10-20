@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.13 - 2023-10-20
+
+Fixed: scrollToErrorField not working for Select component.
+
 ## 5.2.11 - 2023-10-20
 
 - Fixed: Memory leaks in overlay manager
@@ -632,7 +636,6 @@ Changes documentations to sentence case from title casing.
 #### Label
 - Updated label bottom margin to 8px
 - Removed letter-spacing in label text
-
 #### Dropdown & Action Dropdown
 
 - Updated border-radius to `5px`
