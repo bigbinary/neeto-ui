@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { useId } from "@reach/auto-id";
 import classnames from "classnames";
@@ -10,9 +10,11 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
+import useScroll from "hooks/useScroll";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
+import Spinner from "./Spinner";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -105,6 +107,32 @@ const ValueContainer = props => {
           : "select-value-container",
       }}
     />
+  );
+};
+
+const MenuList = props => {
+  const { fetchMore, hasMore } = props.selectProps;
+  const ref = useRef();
+
+  useScroll(
+    ref,
+    { endThreshold: 120 },
+    { onEndReached: () => hasMore && fetchMore() }
+  );
+
+  return (
+    <components.MenuList
+      {...props}
+      innerProps={{ ...props.innerProps }}
+      innerRef={ref}
+    >
+      {props.children}
+      {hasMore && (
+        <div className="flex w-full items-center justify-center py-3">
+          <Spinner />
+        </div>
+      )}
+    </components.MenuList>
   );
 };
 
@@ -215,6 +243,7 @@ const Select = ({
           Placeholder,
           Menu,
           ValueContainer,
+          MenuList,
           ...componentOverrides,
         }}
         {...portalProps}
@@ -322,6 +351,10 @@ Select.propTypes = {
    * To specify the ref to the Select component.
    */
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  /**
+   * Callback to load more options
+   */
+  loadMoreOptions: PropTypes.func,
 };
 
 export default Select;
