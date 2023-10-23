@@ -1,7 +1,6 @@
 :root {
   --#{$prefix}tag-padding-x: 8px;
   --#{$prefix}tag-padding-y: 3px;
-  --#{$prefix}tag-font-family: #{$neeto-ui-font-family};
   @include rfs(var(--neeto-ui-text-xs), --#{$prefix}tag-font-size);
   --#{$prefix}tag-font-weight: var(--neeto-ui-font-normal);
   --#{$prefix}tag-line-height: 12px;
@@ -28,7 +27,6 @@
   font-size: var(--#{$prefix}tag-font-size);
   line-height: var(--#{$prefix}tag-line-height);
   font-weight: var(--#{$prefix}tag-font-weight);
-  font-family: var(--#{$prefix}tag-font-family);
   gap: var(--#{$prefix}tag-gap);
   padding: var(--#{$prefix}tag-padding-y) var(--#{$prefix}tag-padding-x);
   border-radius: var(--#{$prefix}tag-border-radius);
