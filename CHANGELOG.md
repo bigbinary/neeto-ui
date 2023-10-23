@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.15 - 2023-10-23
+
+Add onBlur handler to `Input` component to trim leading and trailing spaces
+
 ## 5.2.13 - 2023-10-20
 
 Fixed: scrollToErrorField not working for Select component.
@@ -637,7 +641,6 @@ Changes documentations to sentence case from title casing.
 - Updated label bottom margin to 8px
 - Removed letter-spacing in label text
 #### Dropdown & Action Dropdown
-
 - Updated border-radius to `5px`
 - Reduced the height of Dropdown options to `32px`
 - Created Storybook examples with semantic markup for easy keyboard win
