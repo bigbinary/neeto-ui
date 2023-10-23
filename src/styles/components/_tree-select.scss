@@ -3,7 +3,6 @@
 
   .ant-select-arrow {
     width: 16px !important;
-    height: 16px !important;
     color: rgb(var(--neeto-ui-gray-800));
   }
 
@@ -17,6 +16,10 @@
     &:focus-within {
       border-color: rgb(var(--neeto-ui-primary-500)) !important;
       box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%) !important;
+    }
+
+    .ant-select-selection-placeholder {
+      color: rgb(var(--neeto-ui-gray-400));
     }
   }
 
@@ -68,7 +71,6 @@
   }
 
   .ant-select-tree-node-selected {
-    background-color: rgb(var(--neeto-ui-primary-500)) !important;
     color: rgb(var(--neeto-ui-white)) !important;
   }
 

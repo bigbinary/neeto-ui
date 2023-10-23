@@ -1,9 +1,11 @@
 import React, { forwardRef } from "react";
 
-import { TreeSelect as AntdTreeSelect } from "antd";
+import { TreeSelect as AntdTreeSelect, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Down } from "neetoicons";
 import PropTypes from "prop-types";
+
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import Label from "./Label";
 import Typography from "./Typography";
@@ -36,49 +38,64 @@ const TreeSelect = forwardRef(
     const SwitcherIcon = switcherIcon ?? Down;
 
     return (
-      <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label data-testid="treeselect-label" {...{ required }}>
-            {label}
-          </Label>
-        )}
-        <AntdTreeSelect
-          allowClear={allowClear}
-          data-cy="neeto-ui-tree-select-wrapper"
-          disabled={disabled}
-          dropdownStyle={{ zIndex: 100000 }}
-          fieldNames={fieldNames}
-          placeholder={placeholder}
-          popupClassName="neeto-ui-tree-select-dropdown"
-          ref={ref}
-          showSearch={showSearch}
-          size={size}
-          suffixIcon={<SuffixIcon />}
-          treeData={treeData}
-          treeDataSimpleMode={treeDataSimpleMode}
-          treeNodeFilterProp={fieldNames?.label ?? "label"}
-          value={value || undefined}
-          className={classnames("neeto-ui-tree-select__wrapper", className, {
-            "neeto-ui-tree-select__error": error,
-          })}
-          switcherIcon={props => (
-            <div {...props}>
-              <SwitcherIcon />
-            </div>
+      <ConfigProvider
+        theme={{
+          token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+          components: {
+            TreeSelect: {
+              nodeHoverBg: "rgb(var(--neeto-ui-gray-100))",
+              nodeSelectedBg: "rgb(var(--neeto-ui-primary-500))",
+
+              // Global overrides
+              colorBgElevated: "rgb(var(--neeto-ui-white))",
+            },
+          },
+        }}
+      >
+        <div className="neeto-ui-input__wrapper">
+          {label && (
+            <Label data-testid="treeselect-label" {...{ required }}>
+              {label}
+            </Label>
           )}
-          onChange={onChange}
-          {...otherProps}
-        />
-        {error && (
-          <Typography
-            className="neeto-ui-input__error"
-            data-testid="treeselect-error"
-            style="body3"
-          >
-            {error}
-          </Typography>
-        )}
-      </div>
+          <AntdTreeSelect
+            allowClear={allowClear}
+            data-cy="neeto-ui-tree-select-wrapper"
+            disabled={disabled}
+            dropdownStyle={{ zIndex: 100000 }}
+            fieldNames={fieldNames}
+            placeholder={placeholder}
+            popupClassName="neeto-ui-tree-select-dropdown"
+            ref={ref}
+            showSearch={showSearch}
+            size={size}
+            suffixIcon={<SuffixIcon />}
+            treeData={treeData}
+            treeDataSimpleMode={treeDataSimpleMode}
+            treeNodeFilterProp={fieldNames?.label ?? "label"}
+            value={value || undefined}
+            className={classnames("neeto-ui-tree-select__wrapper", className, {
+              "neeto-ui-tree-select__error": error,
+            })}
+            switcherIcon={props => (
+              <div {...props}>
+                <SwitcherIcon />
+              </div>
+            )}
+            onChange={onChange}
+            {...otherProps}
+          />
+          {error && (
+            <Typography
+              className="neeto-ui-input__error"
+              data-testid="treeselect-error"
+              style="body3"
+            >
+              {error}
+            </Typography>
+          )}
+        </div>
+      </ConfigProvider>
     );
   }
 );
