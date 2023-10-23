@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 
 import { FieldArray, Formik, Form } from "formik";
+import { times } from "ramda";
+import * as yup from "yup";
 
 import { Select, Button, Modal, Pane, Typography } from "components";
 import { Select as FormikSelect } from "components/formik";
@@ -429,6 +431,51 @@ FormikSelectStory.parameters = {
     source: { code: FORMIK_SELECT },
   },
 };
+
+const options = times(
+  index => ({ value: `v${index + 1}`, label: `v${index + 1}` }),
+  10
+);
+
+export const FormikSelectWithValidation = () => (
+  <Formik
+    initialValues={{ select1: null, select2: null }}
+    validationSchema={yup.object().shape({
+      select1: yup
+        .object()
+        .shape({
+          value: yup.string().required(),
+          label: yup.string().required(),
+        })
+        .nullable()
+        .required("Select a value"),
+      select2: yup
+        .object()
+        .shape({
+          value: yup.string().required(),
+          label: yup.string().required(),
+        })
+        .nullable()
+        .required("Select a value"),
+    })}
+  >
+    <Form className="flex space-x-2">
+      <FormikSelect
+        isClearable
+        label="Select 1"
+        name="select1"
+        options={options}
+      />
+      <FormikSelect
+        isClearable
+        label="Select 2"
+        name="select2"
+        options={options}
+      />
+      <Button className="mt-4 self-end" label="Submit" type="submit" />
+    </Form>
+  </Formik>
+);
 
 export {
   Default,

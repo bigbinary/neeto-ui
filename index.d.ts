@@ -563,6 +563,7 @@ export type TypographyProps = {
 export type KbdProps = {
   keyName?: string;
   className?: string;
+  tooltipProps?: TooltipProps;
 };
 
 export type NoDataProps = {
@@ -572,6 +573,63 @@ export type NoDataProps = {
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   className?: string;
+};
+
+export type TreeProps = {
+  className?: string;
+  allowDrop?: boolean;
+  autoExpandParent?: boolean;
+  blockNode: boolean;
+  checkable: boolean;
+  checkedKeys: string[] | { checked: string[]; halfChecked: string[] };
+  checkStrictly: boolean;
+  defaultCheckedKeys: string[];
+  defaultExpandAll: boolean;
+  defaultExpandedKeys: string[];
+  defaultExpandParent: boolean;
+  defaultSelectedKeys: string[];
+  disabled: boolean;
+  draggable:
+    | boolean
+    | ((node: DataNode) => boolean)
+    | {
+        icon?: React.ReactNode | false;
+        nodeDraggable?: (node: DataNode) => boolean;
+      };
+  expandedKeys: string[];
+  fieldNames: object;
+  filterTreeNode: Function;
+  height: number;
+  icon: ReactNode;
+  loadData: Function;
+  loadedKeys: string[];
+  multiple: boolean;
+  selectable: boolean;
+  selectedKeys: string[];
+  showIcon: boolean;
+  showLine:
+    | boolean
+    | {
+        showLeafIcon:
+          | boolean
+          | ReactNode
+          | ((props: AntTreeNodeProps) => ReactNode);
+      };
+  switcherIcon: ReactNode | ((props: AntTreeNodeProps) => ReactNode);
+  titleRender: Function;
+  treeData: array<{ key; title; children; [disabled, selectable] }>;
+  virtual: boolean;
+  onCheck: Function;
+  onDragEnd: Function;
+  onDragEnter: Function;
+  onDragLeave: Function;
+  onDragOver: Function;
+  onDragStart: Function;
+  onDrop: Function;
+  onExpand: Function;
+  onLoad: Function;
+  onRightClick: Function;
+  onSelect: Function;
 };
 
 // components
@@ -659,3 +717,4 @@ export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
 export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
 export const Kbd: React.FC<KbdProps>;
 export const NoData: React.FC<NoDataProps>;
+export const Tree: React.FC<TreeProps>;

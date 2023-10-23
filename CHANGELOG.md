@@ -23,6 +23,22 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.13 - 2023-10-20
+
+Fixed: scrollToErrorField not working for Select component.
+
+## 5.2.11 - 2023-10-20
+
+- Fixed: Memory leaks in overlay manager
+
+## 5.2.10 - 2023-10-20
+
+- Added: Tooltip to `Kbd` component
+
+## 5.2.8 - 2023-10-19
+
+- Fixed:  Button click-ability when disabled
+
 ## 5.2.2 - 2023-10-05
 
 - The bug was due to a layout shift that happens when the formik error message is rendered. Details in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
@@ -608,7 +624,6 @@ Changes documentations to sentence case from title casing.
 - Updated multivalue error styles
 - Increased Story heights for better view
 #### Email input
-
 - Updated border radius to `5px`
 - Updated selected values styles to match Tag styles
 - Fixed prefix and suffix spacing
@@ -618,12 +633,9 @@ Changes documentations to sentence case from title casing.
 - Fixed alignment issues in label row
 - Fixed spacing inconsistencies in error test and helper text - used same margin for both
 - Updated error styles of multivalue select
-
 #### Label
-
 - Updated label bottom margin to 8px
 - Removed letter-spacing in label text
-
 #### Dropdown & Action Dropdown
 
 - Updated border-radius to `5px`
