@@ -86,7 +86,7 @@ Slider.propTypes = {
   /**
    * Callback function that is fired when the user changes the slider's value.
    */
-  onChange: PropTypes.number,
+  onChange: PropTypes.func,
   /**
    * The value of slider. When `range` is false, use number, otherwise, use [number, number]
    */

@@ -12,10 +12,8 @@ describe("Slider", () => {
   });
 
   it("should render with error text", () => {
-    it("renders with default props", () => {
-      render(<Slider error="Error" label="slider" />);
+    render(<Slider error="Error" label="slider" />);
 
-      expect(screen.getByText("Error")).toBeInTheDocument();
-    });
+    expect(screen.getByText("Error")).toBeInTheDocument();
   });
 });
