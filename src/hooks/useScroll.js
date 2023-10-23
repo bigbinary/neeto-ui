@@ -19,32 +19,35 @@ const defaultConfig = {
   endThreshold: 0,
 };
 
-function useScroll(ref, configArg, callbacksArg = {}) {
+const useScroll = (ref, configArg, callbacksArg = {}) => {
   const lastScrollTopRef = useRef(0);
   const callbacksRef = useRef();
 
   const config = mergeLeft(configArg, defaultConfig);
   callbacksRef.current = callbacksArg;
 
-  function handleScrollDown(event) {
-    const scrollTop = event.target.scrollTop;
-    const scrollHeight = event.target.scrollHeight;
-    const clientHeight = event.target.clientHeight;
+  const handleScrollDown = event => {
+    const {
+      target: { scrollTop, scrollHeight, clientHeight },
+    } = event;
+
     const callbacks = callbacksRef.current;
 
     callbacks.onScrollDown?.(event);
     if (scrollTop + clientHeight >= scrollHeight - config.endThreshold) {
       callbacks.onEndReached?.(event);
     }
-  }
+  };
 
-  function handleScrollUp(event) {
+  const handleScrollUp = event => {
     const scrollTop = event.target.scrollTop;
     const callbacks = callbacksRef.current;
 
     callbacks.onScrollUp?.(event);
-    if (scrollTop <= config.startThreshold) callbacks.onStartReached?.(event);
-  }
+    if (scrollTop <= config.startThreshold) {
+      callbacks.onStartReached?.(event);
+    }
+  };
 
   const debouncedHandleScroll = useFuncDebounce(event => {
     const scrollTop = event.target.scrollTop;
@@ -56,10 +59,13 @@ function useScroll(ref, configArg, callbacksArg = {}) {
 
     callbacks.onScroll?.(event);
 
-    // scrolling down
-    if (scrollTop > lastScrollTop) handleScrollDown(event);
-    // scrolling up
-    else handleScrollUp(event);
+    if (scrollTop > lastScrollTop) {
+      // scrolling down
+      handleScrollDown(event);
+    } else {
+      // scrolling up
+      handleScrollUp(event);
+    }
   }, config.debounceDelay);
 
   const handleScroll = useCallback(
@@ -68,15 +74,17 @@ function useScroll(ref, configArg, callbacksArg = {}) {
   );
 
   useEffect(() => {
-    const elem = ref.current;
-    if (!elem) return undefined;
-
-    elem.addEventListener("scroll", handleScroll, { passive: config.passive });
+    const element = ref?.current;
+    if (element) {
+      element.addEventListener("scroll", handleScroll, {
+        passive: config.passive,
+      });
+    }
 
     return () => {
-      elem.removeEventListener("scroll", handleScroll);
+      element.removeEventListener("scroll", handleScroll);
     };
   }, [ref, config.passive, handleScroll]);
-}
+};
 
 export default useScroll;

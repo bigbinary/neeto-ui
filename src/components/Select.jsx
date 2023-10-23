@@ -354,7 +354,11 @@ Select.propTypes = {
   /**
    * Callback to load more options
    */
-  loadMoreOptions: PropTypes.func,
+  fetchMore: PropTypes.func,
+  /**
+   *  To specify if there are more options to fetch.
+   */
+  hasMore: PropTypes.bool,
 };
 
 export default Select;

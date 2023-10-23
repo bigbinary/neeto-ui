@@ -329,6 +329,8 @@ export type SelectProps = {
   labelProps?: LabelProps;
   optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
+  fetchMore?: () => void;
+  hasMore?: boolean;
 };
 
 export type SpinnerProps = {
