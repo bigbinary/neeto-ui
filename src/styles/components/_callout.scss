@@ -1,46 +1,65 @@
+:root {
+  --#{$prefix}callout-padding-x: 12px;
+  --#{$prefix}callout-padding-y: 9px;
+  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}callout-font-size);
+  --#{$prefix}callout-font-weight: var(--neeto-ui-font-medium);
+  --#{$prefix}callout-line-height: 16px;
+  --#{$prefix}callout-color: rgb(var(--neeto-ui-gray-800));
+  --#{$prefix}callout-bg-color: transparent;
+  --#{$prefix}callout-border-width: 1px;
+  --#{$prefix}callout-border-color: transparent;
+  --#{$prefix}callout-border-radius: var(--neeto-ui-rounded-md);
+  --#{$prefix}callout-gap: 12px;
+  --#{$prefix}callout-icon-size: 20px;
+  --#{$prefix}callout-icon-color: rgb(var(--neeto-ui-gray-800));
+}
+
 .neeto-ui-callout {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-radius: var(--neeto-ui-rounded-md);
-  padding: 9px 12px;
-  font-size: var(--neeto-ui-text-sm);
-  line-height: 16px;
-  font-weight: var(--neeto-ui-font-medium);
-  color: rgb(var(--neeto-ui-gray-800));
-  gap: 12px;
+  border: var(--#{$prefix}callout-border-width) solid var(--#{$prefix}callout-border-color);
+  border-radius: var(--#{$prefix}callout-border-radius);
+  padding: var(--#{$prefix}callout-padding-y) var(--#{$prefix}callout-padding-x);
+  font-size: var(--#{$prefix}callout-font-size);
+  line-height: var(--#{$prefix}callout-line-height);
+  font-weight: var(--#{$prefix}callout-font-weight);
+  color: var(--#{$prefix}callout-color);
+  background-color: var(--#{$prefix}callout-bg-color);
+  gap: var(--#{$prefix}callout-gap);
 
   .neeto-ui-callout__icon {
     flex-shrink: 0;
+
+    svg {
+      color: var(--#{$prefix}callout-icon-color);
+      width: var(--#{$prefix}callout-icon-size);
+      height: var(--#{$prefix}callout-icon-size);
+    }
   }
 
   &.neeto-ui-callout--info {
-    background-color: rgb(var(--neeto-ui-info-100));
-    border: 1px solid rgb(var(--neeto-ui-info-500));
-    .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-info-500));
-    }
+    --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-info-100));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-info-500));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-info-500));
   }
+
   &.neeto-ui-callout--warning {
-    background-color: rgb(var(--neeto-ui-warning-100));
-    border: 1px solid rgb(var(--neeto-ui-warning-500));
-    .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-warning-500));
-    } 
+    --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-warning-100));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-warning-500));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-warning-500));
   }
+
   &.neeto-ui-callout--danger {
-    background-color: rgb(var(--neeto-ui-error-100));
-    border: 1px solid rgb(var(--neeto-ui-error-500));
-    .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-error-500));
-    }
+    --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-error-100));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-error-500));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-error-500));
   }
+
   &.neeto-ui-callout--success {
-    background-color: rgb(var(--neeto-ui-success-100));
-    border: 1px solid rgb(var(--neeto-ui-success-500));
-    .neeto-ui-callout__icon{
-      color: rgb(var(--neeto-ui-success-500));
-    } 
+    --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-500));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
   }
 }
