@@ -1,6 +1,8 @@
 :root {
   // Container
   --#{$prefix}avatar-container-border-radius: var(--neeto-ui-rounded);
+  --#{$prefix}avatar-container-width: 24px;
+  --#{$prefix}avatar-container-height: 24px;
 
   // Avatar
   --#{$prefix}avatar-width: 1.5rem;
@@ -17,16 +19,29 @@
   --#{$prefix}avatar-status-transform: translateX(-40%);
 }
 
-.neeto-ui-avatar--container {
+.neeto-ui-avatar__container {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--#{$prefix}avatar-container-border-radius);
   position: relative;
   flex-shrink: 0;
+  width: var(--#{$prefix}avatar-container-width);
+  height: var(--#{$prefix}avatar-container-height);
 
-  &.neeto-ui-avatar--container-round {
-    --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded-full);
+  &--medium {
+    --neeto-ui-avatar-container-width: 32px;
+    --neeto-ui-avatar-container-height: 32px;
+  }
+
+  &--large {
+    --neeto-ui-avatar-container-width: 40px;
+    --neeto-ui-avatar-container-height: 40px;
+  }
+
+  &--xlarge {
+    --neeto-ui-avatar-container-width: 64px;
+    --neeto-ui-avatar-container-height: 64px;
   }
 
   .neeto-ui-avatar__status {
