@@ -1,6 +1,10 @@
 `import { Table } from "@bigbinary/neetoui";`
 
-We use Ant Design's `Table` component under the hood. For extra customization, refer [AntD Table](https://ant.design/components/table/).
+`Table` is an arrangement of rows and columns used to display data in a
+structured and readable format.
+
+We use Ant Design's `Table` component under the hood. For extra customization,
+refer [AntD Table](https://ant.design/components/table/).
 
 ```jsx
 const columnData = [
@@ -12,7 +16,7 @@ const columnData = [
     sorter: (a, b) => a.id - b.id,
   },
   // Other column defenitions
-  ]
+];
 
 const rowData = [
   {
@@ -22,17 +26,12 @@ const rowData = [
   {
     id: 2,
     // Data for other columns
-  }
+  },
 
   // Other rows
-
 ];
 
-
-<Table
-  columnData={columnData}
-  rowData={rowData}
-  />
+<Table columnData={columnData} rowData={rowData} />;
 ```
 
 ##### columnData <a id="column_data" />
@@ -71,26 +70,40 @@ const columnData = [
 ```
 
 Keys for a column definition:
-- `title` : The title of a column. Accepts a valid React Node(string | number | JSX) or a callback that returns a React Node. A hash with `sortOrder`, `sortColumn` and `filters` as keys are available as a parameter to the callback.
-- `dataIndex` : The unique key over which, the row data is mapped over for the particular column. Accepts a string or an array of strings.
+
+- `title` : The title of a column. Accepts a valid React Node(string | number |
+  JSX) or a callback that returns a React Node. A hash with `sortOrder`,
+  `sortColumn` and `filters` as keys are available as a parameter to the
+  callback.
+- `dataIndex` : The unique key over which, the row data is mapped over for the
+  particular column. Accepts a string or an array of strings.
 - `key` : Unique identifier of a column. Accepts a string.
-- `render` : Defines how data should be rendered within the column. Accepts a callback that returns a React Node.
-- `width` : Width of a column. Accepts a string or a number. Default value is `auto`.
+- `render` : Defines how data should be rendered within the column. Accepts a
+  callback that returns a React Node.
+- `width` : Width of a column. Accepts a string or a number. Default value is
+  `auto`.
 
-Refer [column docs](https://ant.design/components/table/#Column) from AntD for more customizations.
-
+Refer [column docs](https://ant.design/components/table/#Column) from AntD for
+more customizations.
 
 #### Using dropdown inside the Table
 
-While using `Dropdown` inside the Table, it is recommended to pass the `strategy` prop as `fixed` for the `Dropdown` component, in order to avoid the dropdown getting hidden by the Table container overflow. Especially for tables with very few rows of data.
+While using `Dropdown` inside the Table, it is recommended to pass the
+`strategy` prop as `fixed` for the `Dropdown` component, in order to avoid the
+dropdown getting hidden by the Table container overflow. Especially for tables
+with very few rows of data.
 
 ##### With fixed columns
 
-While using a `Dropdown` inside fixed columns, to avoid clipping or `z-index` issues, please use `appendTo={() => document.body}` along with the `strategy="fixed"` props for the `Dropdown`.
+While using a `Dropdown` inside fixed columns, to avoid clipping or `z-index`
+issues, please use `appendTo={() => document.body}` along with the
+`strategy="fixed"` props for the `Dropdown`.
 
 #### Better support and performance on horizontal scroll
 
-To support cross browser horizontal scroll and improve performance, we recommend to provide a width to the columns to the `Table`. Having a width on the columns will also prevent the `ResizeObserver - limit exceeded` error.
+To support cross browser horizontal scroll and improve performance, we recommend
+to provide a width to the columns to the `Table`. Having a width on the columns
+will also prevent the `ResizeObserver - limit exceeded` error.
 
 ```jsx
 const columns = [

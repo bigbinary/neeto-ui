@@ -12,7 +12,8 @@ const metadata = {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Tooltip } from "@bigbinary/neetoui";`',
+        component:
+          '`import { Tooltip } from "@bigbinary/neetoui";` \n\n `Tooltip` is a small, informational pop-up that appears when users hover their cursor over an element.',
       },
     },
     design: {
@@ -150,7 +151,7 @@ TooltipOnText.storyName = "Tooltip on text";
 const TooltipOnCustomComponent = args => {
   const CustomComponent = forwardRef(({ text }, ref) => (
     <div
-      className="neeto-ui-bg-black neeto-ui-text-white cursor-pointer items-center justify-center rounded-md p-10 shadow-lg"
+      className="neeto-ui-bg-black neeto-ui-text-white neeto-ui-rounded-md neeto-ui-shadow-lg cursor-pointer items-center justify-center p-10"
       ref={ref}
     >
       {text}
@@ -202,9 +203,12 @@ TooltipOnCustomComponent.parameters = {
 };
 
 const HidingTooltipOnTargetExit = args => (
-  <div className="max-h-56 space-y-2 overflow-auto bg-gray-300 p-10">
+  <div className="neeto-ui-bg-gray-300 max-h-56 space-y-2 overflow-auto p-10">
     {Array.from({ length: 6 }).map((_, key) => (
-      <div className="h-6 w-full rounded bg-white shadow-sm" key={key} />
+      <div
+        className="neeto-ui-rounded neeto-ui-bg-white neeto-ui-shadow-sm h-6 w-full"
+        key={key}
+      />
     ))}
     <Tooltip
       {...args}
@@ -212,12 +216,15 @@ const HidingTooltipOnTargetExit = args => (
       content="Press esc to reset input after typing"
       position="top"
     >
-      <Typography className="mx-auto h-6 w-full bg-white text-center">
+      <Typography className="neeto-ui-bg-white mx-auto h-6 w-full text-center">
         Hover me and scroll
       </Typography>
     </Tooltip>
     {Array.from({ length: 6 }).map((_, key) => (
-      <div className="h-6 w-full rounded bg-white shadow-sm" key={key} />
+      <div
+        className="neeto-ui-rounded neeto-ui-bg-white neeto-ui-shadow-sm h-6 w-full"
+        key={key}
+      />
     ))}
   </div>
 );

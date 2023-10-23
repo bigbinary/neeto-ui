@@ -2,16 +2,14 @@ import React, { useState } from "react";
 
 import Textarea from "components/Textarea";
 
+import TextareaStoriesDocs from "!raw-loader!./TextareaStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Textarea",
   component: Textarea,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Textarea } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: TextareaStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A13",
@@ -22,10 +20,7 @@ const metadata = {
 const Template = args => <Textarea {...args} />;
 
 const Default = Template.bind({});
-Default.args = {
-  label: "Textarea",
-  placeholder: "Enter text",
-};
+Default.args = { label: "Textarea", placeholder: "Enter text" };
 
 const Controlled = args => {
   const [value, setValue] = useState("BigBinary");

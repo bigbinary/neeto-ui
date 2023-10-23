@@ -14,32 +14,23 @@ import Typography from "components/Typography";
 
 import { suffixes, prefixes } from "../constants";
 
-import EmailInputDocs from "!raw-loader!./MultiEmailInputDocs.mdx";
+import EmailInputCounterDocs from "!raw-loader!./MultiEmailInputCounterDocs.mdx";
+import EmailInputStoriesDocs from "!raw-loader!./MultiEmailInputStoriesDocs.mdx";
 
 const metadata = {
   title: "Components/MultiEmailInput",
   component: MultiEmailInput,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { MultiEmailInput } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: EmailInputStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
     },
   },
   argTypes: {
-    prefix: {
-      options: Object.keys(prefixes),
-      mapping: prefixes,
-    },
-    suffix: {
-      options: Object.keys(suffixes),
-      mapping: suffixes,
-    },
+    prefix: { options: Object.keys(prefixes), mapping: prefixes },
+    suffix: { options: Object.keys(suffixes), mapping: suffixes },
     onChange: {
       table: {
         type: { summary: "func" },
@@ -113,13 +104,7 @@ const Error = args => <MultiEmailInput {...args} />;
 
 Error.args = {
   error: "Please make sure all emails are valid.",
-  value: [
-    {
-      label: "test",
-      value: "test",
-      valid: false,
-    },
-  ],
+  value: [{ label: "test", value: "test", valid: false }],
 };
 
 const Disabled = _args => <MultiEmailInput disabled />;
@@ -158,9 +143,7 @@ const Counter = _args => {
 };
 
 Counter.parameters = {
-  docs: {
-    description: { story: EmailInputDocs },
-  },
+  docs: { description: { story: EmailInputCounterDocs } },
 };
 
 const WithPrefixAndSuffix = args => {
@@ -208,9 +191,7 @@ const FormikEmail = _args => {
 
   return (
     <Form
-      formProps={{
-        className: "space-y-2",
-      }}
+      formProps={{ className: "space-y-2" }}
       formikProps={{
         initialValues: INITIAL_VALUES,
         validationSchema: VALIDATION_SCHEMA,

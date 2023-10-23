@@ -5,6 +5,8 @@ import Input from "components/Input";
 import Modal from "components/Modal";
 import Typography from "components/Typography";
 
+import ModalStoriesDocs from "!raw-loader!./ModalStoriesDocs.mdx";
+
 const metadata = {
   title: "Overlays/Modal",
   component: Modal,
@@ -15,11 +17,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Modal } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: ModalStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A20",

@@ -4,6 +4,8 @@ import { Settings, Delete, MenuHorizontal } from "neetoicons";
 
 import ActionDropdown from "components/ActionDropdown";
 
+import ActionDropdownStoriesDocs from "!raw-loader!./ActionDropdownStoriesDocs.mdx";
+
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
 const metadata = {
@@ -17,11 +19,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { ActionDropdown } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: ActionDropdownStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
@@ -61,10 +59,7 @@ const Template = args => {
 
 const Default = Template.bind({});
 
-Default.args = {
-  buttonStyle: "primary",
-  label: "Primary",
-};
+Default.args = { buttonStyle: "primary", label: "Primary" };
 
 const Styles = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;

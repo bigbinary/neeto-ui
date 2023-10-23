@@ -2,6 +2,8 @@ import React from "react";
 
 import Avatar from "components/Avatar";
 
+import AvatarStoriesDocs from "!raw-loader!./AvatarStoriesDocs.mdx";
+
 const onClick = () => {
   alert("onClick event!");
 };
@@ -11,11 +13,7 @@ const metadata = {
   component: Avatar,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Avatar } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: AvatarStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
@@ -26,9 +24,7 @@ const metadata = {
 const Template = args => <Avatar {...args} />;
 
 const Default = Template.bind({});
-Default.args = {
-  user: { name: "neeto UI" },
-};
+Default.args = { user: { name: "neeto UI" } };
 
 const Sizes = args => {
   const imageUrl = "https://i.pravatar.cc/300";

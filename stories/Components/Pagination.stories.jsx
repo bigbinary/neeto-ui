@@ -2,18 +2,14 @@ import React from "react";
 
 import Pagination from "components/Pagination";
 
-import PaginationStoriesDocs from "!raw-loader!./PaginationStories.mdx";
+import PaginationStoriesDocs from "!raw-loader!./PaginationStoriesDocs.mdx";
 
 const metadata = {
   title: "Components/Pagination",
   component: Pagination,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: PaginationStoriesDocs,
-      },
-    },
+    docs: { description: { component: PaginationStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1070%3A3918",

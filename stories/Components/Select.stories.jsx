@@ -9,16 +9,14 @@ import { Select as FormikSelect } from "components/formik";
 
 import { FORMIK_SELECT } from "../constants";
 
+import SelectStoriesDocs from "!raw-loader!./SelectStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Select } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: SelectStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
