@@ -1,13 +1,21 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
-import { Slider } from "components/formik";
+import Slider from "components/Slider";
 
 describe("Slider", () => {
   it("renders with default props", () => {
-    const { container } = render(<Slider />);
-    const slider = container.querySelector(".ant-slider");
-    expect(slider).toBeInTheDocument();
+    render(<Slider label="slider" />);
+
+    expect(screen.getByText("slider")).toBeInTheDocument();
+  });
+
+  it("should render with error text", () => {
+    it("renders with default props", () => {
+      render(<Slider error="Error" label="slider" />);
+
+      expect(screen.getByText("Error")).toBeInTheDocument();
+    });
   });
 });

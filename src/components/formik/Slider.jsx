@@ -10,8 +10,7 @@ const FormikSlider = forwardRef(({ name, ...otherProps }) => {
   return (
     <Slider
       error={meta.error || ""}
-      name={field.name}
-      value={field.value}
+      {...field}
       onChange={value => setValue(value)}
       {...otherProps}
     />

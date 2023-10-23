@@ -15,7 +15,7 @@ const metadata = {
 
 const Default = args => <Slider {...args} />;
 
-Default.args = { min: 0, max: 100, defaultValue: 20 };
+Default.args = { min: 0, max: 100, defaultValue: 20, label: "Slider" };
 
 export { Default };
 

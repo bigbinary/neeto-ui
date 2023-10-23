@@ -1,11 +1,11 @@
-.neeto-ui-input__wrapper {
+.neeto-ui-input__wrapper, .neeto-ui-slider__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
 
-  .neeto-ui-input__label-wrapper {
+  .neeto-ui-input__label-wrapper, .neeto-ui-slider__label-wrapper {
     display: flex;
     gap: 8px;
     justify-content: space-between;
