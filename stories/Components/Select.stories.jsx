@@ -477,6 +477,50 @@ export const FormikSelectWithValidation = () => (
   </Formik>
 );
 
+const WithLazyLoadMenuList = args => {
+  const TotalValues = 15;
+  const [options, setOptions] = useState([
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
+    { value: "value6", label: "Value six" },
+    { value: "value7", label: "Value seven" },
+    { value: "value8", label: "Value eight" },
+    { value: "value9", label: "Value nine" },
+    { value: "value10", label: "Value ten" },
+  ]);
+
+  const handleFetchMore = () => {
+    setTimeout(() => {
+      setOptions(options => [
+        ...options,
+        { value: "value11", label: "Value eleven" },
+        { value: "value12", label: "Value twelve" },
+        { value: "value13", label: "Value thirteen" },
+        { value: "value14", label: "Value fourteen" },
+        { value: "value15", label: "Value fifteen" },
+      ]);
+    }, 1500);
+  };
+
+  return (
+    <div className="mb-2 h-80 p-4">
+      <Select
+        {...args}
+        fetchMore={handleFetchMore}
+        hasMore={TotalValues > options.length}
+        options={options}
+      />
+    </div>
+  );
+};
+
+WithLazyLoadMenuList.storyName = "Lazy load MenuList options";
+
+WithLazyLoadMenuList.args = {};
+
 export {
   Default,
   Sizes,
@@ -489,6 +533,7 @@ export {
   SelectInModal,
   SelectInPane,
   FormikSelectStory,
+  WithLazyLoadMenuList,
 };
 
 export default metadata;
