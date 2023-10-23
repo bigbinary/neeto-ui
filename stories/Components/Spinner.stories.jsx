@@ -33,10 +33,10 @@ LightTheme.storyName = "Light theme";
 const SizeCutomization = args => (
   <div className="flex items-center gap-8">
     <div className="flex h-20 w-20 items-center justify-center">
-      <Spinner {...args} />
+      <Spinner {...args} size="small" />
     </div>
     <div className="flex h-20 w-20 items-center justify-center">
-      <Spinner {...args} size={32} />
+      <Spinner {...args} size="medium" />
     </div>
   </div>
 );

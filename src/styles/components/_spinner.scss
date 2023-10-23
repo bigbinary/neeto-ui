@@ -13,6 +13,10 @@
   &--light {
     --neeto-ui-spinner-color: rgb(var(--neeto-ui-white));
   }
+
+  &--size-small {
+    --neeto-ui-spinner-size: 14px;
+  }
 }
 
 .neeto-ui-spinner__item {
