@@ -28,11 +28,7 @@ const metadata = {
   },
 };
 
-const Template = args => (
-  <div className="p-4">
-    <Switch {...args} />
-  </div>
-);
+const Template = args => <Switch {...args} />;
 
 const Default = Template.bind({});
 Default.args = {
