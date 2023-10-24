@@ -102,7 +102,7 @@ const TriggerStyles = args => {
     </div>
   );
 };
-TriggerStyles.storyName = "Trigger styles";
+TriggerStyles.storyName = "Styles";
 
 const TriggerSizes = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -142,7 +142,7 @@ const TriggerSizes = args => {
     </div>
   );
 };
-TriggerSizes.storyName = "Trigger sizes";
+TriggerSizes.storyName = "Sizes";
 
 const TriggerWithCustomIcon = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -226,7 +226,18 @@ const MultiDropdownWithClickTrigger = args => {
     </div>
   );
 };
-MultiDropdownWithClickTrigger.storyName = "Multi Dropdown with click trigger";
+
+MultiDropdownWithClickTrigger.storyName =
+  "Multilevel Dropdown with click trigger";
+
+MultiDropdownWithClickTrigger.parameters = {
+  docs: {
+    description: {
+      story:
+        "Multilevel `Dropdown` with click trigger displays multiple nested dropdown menus, triggered by a click event, allowing for hierarchical navigation through selectable options.",
+    },
+  },
+};
 
 const MultiDropdownWithHoverTrigger = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -258,7 +269,18 @@ const MultiDropdownWithHoverTrigger = args => {
     </div>
   );
 };
-MultiDropdownWithHoverTrigger.storyName = "Multi Dropdown with hover trigger";
+
+MultiDropdownWithHoverTrigger.storyName =
+  "Multilevel Dropdown with hover trigger";
+
+MultiDropdownWithHoverTrigger.parameters = {
+  docs: {
+    description: {
+      story:
+        "Multilevel `Dropdown` with hover trigger displays multiple nested dropdown menus when a user hovers over a trigger element, enabling hierarchical navigation through selectable options.",
+    },
+  },
+};
 
 const ControlledDropdown = args => {
   const [isOpen, setIsOpen] = useState(false);
@@ -354,6 +376,14 @@ const CustomDropdown = args => {
 };
 
 CustomDropdown.storyName = "Custom Dropdown";
+CustomDropdown.parameters = {
+  docs: {
+    description: {
+      story:
+        "Custom `Dropdown` provides flexibility for displaying various components, such as input fields and text, within its selectable options, allowing for diverse content and interactions in the dropdown menu.",
+    },
+  },
+};
 
 const EventBubblingAndCapturing = args => {
   const { Menu, MenuItem } = Dropdown;

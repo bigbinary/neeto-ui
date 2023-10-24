@@ -77,9 +77,6 @@ const Styles = args => (
   </div>
 );
 
-const MultipleAccordionStory = Template.bind({});
-MultipleAccordionStory.storyName = "Multiple accordions";
-
 const DefaultActiveKeyStory = Template.bind({});
 DefaultActiveKeyStory.storyName = "Accordion with defaultActiveKey";
 DefaultActiveKeyStory.args = { defaultActiveKey: 1 };
@@ -128,7 +125,6 @@ AccordionWithCustomizedIcon.parameters = { layout: "default" };
 export {
   AccordionStory,
   Styles,
-  MultipleAccordionStory,
   DefaultActiveKeyStory,
   AccordionWithPadding,
   AccordionWithCustomizedIcon,

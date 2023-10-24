@@ -184,6 +184,15 @@ const Creatable = args => {
   );
 };
 
+Creatable.parameters = {
+  docs: {
+    description: {
+      story:
+        "Creatable `Select` component allows users to create new options on the fly as they type. It is suitable for scenarios where the list of options is relatively small and known in advance.",
+    },
+  },
+};
+
 const AsyncCreatable = args => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
@@ -231,6 +240,14 @@ const AsyncCreatable = args => {
   );
 };
 AsyncCreatable.storyName = "Async creatable";
+AsyncCreatable.parameters = {
+  docs: {
+    description: {
+      story:
+        "In addition to creating new options, async creatable `Select` allows asynchronous loading of option data from a remote source. It is suitable for scenarios where the list of options is large, dynamic, or fetched from a server.",
+    },
+  },
+};
 
 const Searchable = args => (
   <div className="mb-2 h-60 p-4">
@@ -322,7 +339,7 @@ SelectInModal.parameters = {
   docs: {
     description: {
       story:
-        "To properly render Select inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+        "To properly render `Select` inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };

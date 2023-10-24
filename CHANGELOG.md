@@ -15,14 +15,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-Each change is prefixed with one of these keywords::
+Prefix the change with one of these keywords:
 
-- _Added_: Describes new features.
-- _Changed_: Highlights modifications to existing functionality.
-- _Deprecated_: Marks features that will be removed in the future.
-- _Removed_: Indicates features that have been taken out.
-- _Fixed_: Denotes bug fixes.
-- _Security_: Pertains to actions taken in response to vulnerabilities.
+- _Added_: for new features.
+- _Changed_: for changes in existing functionality.
+- _Deprecated_: for soon-to-be removed features.
+- _Removed_: for now removed features.
+- _Fixed_: for any bug fixes.
+- _Security_: in case of vulnerabilities.
 
 ## 5.2.11 - 2023-10-20
 
