@@ -23,6 +23,10 @@ Prefix the change with one of these keywords:
 - *Fixed*: for any bug fixes.
 - *Security*: in case of vulnerabilities.
 
+## 5.2.17 - 2023-10-24
+
+Added: New *TreeSelect* component.
+
 ## 5.2.15 - 2023-10-23
 
 Add onBlur handler to `Input` component to trim leading and trailing spaces
@@ -646,7 +650,6 @@ Changes documentations to sentence case from title casing.
 - Created Storybook examples with semantic markup for easy keyboard win
 - Separated Delete/Remove actions with a border
 - Updated `box-shadow`
-
 #### Date Time picker
 
 - Replaced default icons with neetoIcons
