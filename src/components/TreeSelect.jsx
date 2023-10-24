@@ -77,6 +77,12 @@ const TreeSelect = forwardRef(
             className={classnames("neeto-ui-tree-select__wrapper", className, {
               "neeto-ui-tree-select__error": error,
             })}
+            notFoundContent={
+              // eslint-disable-next-line @bigbinary/neeto/hard-coded-strings-should-be-localized
+              <div className="neeto-ui-text-center neeto-ui-p-1">
+                No options
+              </div>
+            }
             switcherIcon={props => (
               <div {...props}>
                 <SwitcherIcon />
