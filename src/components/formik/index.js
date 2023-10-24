@@ -10,6 +10,7 @@ import Select from "./Select";
 import Slider from "./Slider";
 import Switch from "./Switch";
 import Textarea from "./Textarea";
+import TreeSelect from "./TreeSelect";
 
 export {
   ActionBlock,
@@ -23,5 +24,6 @@ export {
   Switch,
   Textarea,
   MultiEmailInput,
+  TreeSelect,
   Slider,
 };

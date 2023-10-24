@@ -114,6 +114,7 @@ Available components in neetoUI formik:
 - Textarea
 - CheckBox
 - BlockNavigation
+- TreeSelect
 - Slider
 
 You can refer the

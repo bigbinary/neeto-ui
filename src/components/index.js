@@ -29,6 +29,7 @@ import Textarea from "./Textarea";
 import TimePicker from "./TimePicker";
 import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
+import TreeSelect from "./TreeSelect";
 import Typography from "./Typography";
 
 import "../styles/index.scss";
@@ -64,6 +65,7 @@ export {
   TimePicker,
   Toastr,
   Tooltip,
+  TreeSelect,
   Typography,
   Slider,
 };
