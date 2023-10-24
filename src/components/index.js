@@ -19,6 +19,7 @@ import Pane from "./Pane";
 import Popover from "./Popover";
 import Radio from "./Radio";
 import Select from "./Select";
+import Slider from "./Slider";
 import Spinner from "./Spinner";
 import Switch from "./Switch";
 import Tab from "./Tab";
@@ -66,4 +67,5 @@ export {
   Tooltip,
   TreeSelect,
   Typography,
+  Slider,
 };

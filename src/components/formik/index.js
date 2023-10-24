@@ -7,6 +7,7 @@ import Input from "./Input";
 import MultiEmailInput from "./MultiEmailInput";
 import Radio from "./Radio";
 import Select from "./Select";
+import Slider from "./Slider";
 import Switch from "./Switch";
 import Textarea from "./Textarea";
 import TreeSelect from "./TreeSelect";
@@ -24,4 +25,5 @@ export {
   Textarea,
   MultiEmailInput,
   TreeSelect,
+  Slider,
 };

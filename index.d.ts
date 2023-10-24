@@ -566,6 +566,14 @@ export type KbdProps = {
   tooltipProps?: TooltipProps;
 };
 
+export type SliderProps = {
+  min?: number;
+  max?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  value?: number | number[];
+};
+
 export type NoDataProps = {
   title?: string;
   description?: string;
@@ -744,6 +752,7 @@ export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;
 export const Tag: React.FC<TagProps>;
 export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;

@@ -1,0 +1,15 @@
+.ant-slider {
+  &:hover {
+    .ant-slider-handle {
+      &:after {
+        box-shadow: 0 0 0 2px rgb(var(--neeto-ui-primary-600));
+      }
+
+      &:focus {
+        &:after {
+          box-shadow: 0 0 0 4px rgb(var(--neeto-ui-primary-500));
+        }
+      }
+    }
+  }
+}
