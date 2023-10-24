@@ -42,6 +42,14 @@
   &.ant-select-disabled .ant-select-selector {
     background: rgb(var(--neeto-ui-gray-100)) !important;
   }
+
+  &.ant-select-sm {
+    height: 28px !important;
+
+    .ant-select-selector {
+      height: 28px !important;
+    }
+  }
 }
 
 .neeto-ui-tree-select-dropdown {
