@@ -33,6 +33,13 @@ Default.args = {
   placeholder: "Input placeholder",
 };
 
+const Email = Template.bind({});
+Email.args = {
+  label: "Email",
+  placeholder: "oliver@example.com",
+  type: 'email'
+};
+
 const Sizes = args => (
   <div className="flex w-full flex-col gap-3">
     <Input
@@ -194,6 +201,7 @@ RejectCharsInputStory.parameters = {
 
 export {
   Default,
+  Email,
   Sizes,
   Controlled,
   Required,

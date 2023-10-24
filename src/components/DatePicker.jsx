@@ -48,6 +48,7 @@ const DatePicker = forwardRef(
       defaultValue,
       value,
       labelProps,
+      required = false,
       ...otherProps
     },
     ref
@@ -122,7 +123,11 @@ const DatePicker = forwardRef(
         }}
       >
         <div className="neeto-ui-input__wrapper">
-          {label && <Label {...labelProps}>{label}</Label>}
+          {label && (
+            <Label required={required} {...labelProps}>
+              {label}
+            </Label>
+          )}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
             defaultValue={convertToDayjsObjects(defaultValue)}
@@ -239,6 +244,10 @@ DatePicker.propTypes = {
    * To specify the default values to be displayed inside the DatePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  /**
+   * To specify whether the Date picker is required or not.
+   */
+  required: PropTypes.bool,
 };
 
 export default DatePicker;

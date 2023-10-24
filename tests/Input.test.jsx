@@ -101,4 +101,19 @@ describe("Input", () => {
     userEvent.type(getByLabelText("Input label"), "m");
     expect(getByText(/9(.*)\/(.*)10/)).toBeInTheDocument();
   });
+
+  it("should trim leading and trailing white spaces onBlur", () => {
+    const { getByLabelText } = render(<Input  label="label" />);
+    userEvent.type(getByLabelText("label"), "   Test   ");
+    userEvent.tab(); // go out of focus
+    expect(getByLabelText("label")).toHaveValue("Test");
+  });
+
+  it("should properly handle disableTrimOnBlur", () => {
+    const { getByLabelText } = render(<Input  label="label" disableTrimOnBlur/>);
+    userEvent.type(getByLabelText("label"), "   Test   ");
+    userEvent.tab();
+    expect(getByLabelText("label")).toHaveValue("   Test   ");
+  });
+
 });

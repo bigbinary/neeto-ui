@@ -31,6 +31,8 @@ const Input = forwardRef(
       unlimitedChars = false,
       labelProps,
       rejectCharsRegex,
+      onBlur,
+      disableTrimOnBlur = false,
       ...otherProps
     },
     ref
@@ -59,6 +61,14 @@ const Input = forwardRef(
     };
 
     const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
+
+    const handleOnBlur = e => {
+      if (!disableTrimOnBlur) {
+        e.target.value = value.trim();
+        handleChange(e);
+      }
+      onBlur?.(e);
+    };
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -111,6 +121,7 @@ const Input = forwardRef(
             {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
             {...otherProps}
             value={value}
+            onBlur={handleOnBlur}
             onChange={handleChange}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
@@ -212,6 +223,10 @@ Input.propTypes = {
    * cannot be input by the user. It will also prevent such characters from being pasted into the input.
    */
   rejectCharsRegex: PropTypes.instanceOf(RegExp),
+  /**
+   * To disable leading and trailing white spaces onBlur.
+   */
+  disableTrimOnBlur: PropTypes.bool,
 };
 
 export default Input;

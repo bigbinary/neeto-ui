@@ -117,6 +117,7 @@ export const showScrollAndRemoveMargin = () => {
 
 export const ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES = {
   colorBgContainer: "rgb(var(--neeto-ui-white))",
+  colorBorder: "rgb(var(--neeto-ui-gray-300))",
   colorBorderSecondary: "rgb(var(--neeto-ui-gray-200))",
   colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
   colorFillContent: "rgb(var(--neeto-ui-gray-100))",

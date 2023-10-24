@@ -566,6 +566,14 @@ export type KbdProps = {
   tooltipProps?: TooltipProps;
 };
 
+export type SliderProps = {
+  min?: number;
+  max?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  value?: number | number[];
+};
+
 export type NoDataProps = {
   title?: string;
   description?: string;
@@ -573,6 +581,42 @@ export type NoDataProps = {
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   className?: string;
+};
+
+type TreeItemNested = {
+  label: string;
+  value: string;
+  disabled: Boolean;
+  children: Array<TreeItemNested>;
+};
+
+type TreeItem = {
+  id: string;
+  label: string;
+  value: string;
+  disabled: Boolean;
+  pId: string;
+};
+
+export type TreeSelectProps = {
+  allowClear?: Boolean;
+  className?: string;
+  disabled?: Boolean;
+  error?: string,
+  fieldNames?: { label?: string, value?: string };
+  label?: string,
+  onChange: (value: string) => void;
+  onSearch?: (searchValue: string) => void;
+  placeholder?: string;
+  required?: Boolean;
+  searchValue?: string;
+  showSearch?: Boolean;
+  size?: "small" | "middle" | "large";
+  suffixIcon?: React.ReactNode;
+  switcherIcon?: React.ReactNode;
+  treeDataSimpleMode?: Boolean;
+  value: string;
+  treeData: Array<TreeItemNested> | Array<TreeItem>;
 };
 
 export type TreeProps = {
@@ -708,6 +752,7 @@ export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;
 export const Tag: React.FC<TagProps>;
 export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
@@ -717,4 +762,5 @@ export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
 export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
 export const Kbd: React.FC<KbdProps>;
 export const NoData: React.FC<NoDataProps>;
+export const TreeSelect: React.FC<TreeSelectProps>;
 export const Tree: React.FC<TreeProps>;

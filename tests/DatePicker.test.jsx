@@ -109,4 +109,10 @@ describe("DatePicker", () => {
     expect(dateInputBox[0]).toHaveValue("11/04/2022");
     expect(dateInputBox[1]).toHaveValue("16/05/2022");
   });
+
+  it("should render asterisk when required is set to true", () => {
+    const { getByText } = render(<DatePicker required label="Input" />);
+    const asterisk = getByText("*");
+    expect(asterisk).toBeInTheDocument();
+  });
 });
