@@ -124,10 +124,12 @@ const MenuList = props => {
       { root: null, rootMargin: "0px", threshold: 0.1 }
     );
 
-    if (loaderRef.current) observer.observe(loaderRef.current);
+    if (loaderRef.current && isAsyncLoadOptionEnabled) {
+      observer.observe(loaderRef.current);
+    }
 
     return () => {
-      if (loaderRef.current) {
+      if (loaderRef.current && isAsyncLoadOptionEnabled) {
         observer.unobserve(loaderRef.current);
       }
     };
