@@ -110,27 +110,28 @@ const ValueContainer = props => {
 };
 
 const MenuList = props => {
-  const { fetchMore, totalOptionsCount, isAsyncLoadOptionEnabled } =
+  const { fetchMore, totalOptionsCount, isAsyncLoadOptionEnabled, options } =
     props.selectProps;
 
   const hasMore =
-    isAsyncLoadOptionEnabled && totalOptionsCount > props.children.length;
+    isAsyncLoadOptionEnabled && totalOptionsCount > options.length;
 
   const loaderRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => entries[0].isIntersecting && fetchMore(),
-      { root: null, rootMargin: "0px", threshold: 0.1 }
-    );
+    let observer = null;
 
     if (loaderRef.current && isAsyncLoadOptionEnabled) {
+      observer = new IntersectionObserver(
+        entries => entries[0].isIntersecting && fetchMore(),
+        { root: null, rootMargin: "0px", threshold: 0.1 }
+      );
       observer.observe(loaderRef.current);
     }
 
     return () => {
       if (loaderRef.current && isAsyncLoadOptionEnabled) {
-        observer.unobserve(loaderRef.current);
+        observer?.unobserve(loaderRef.current);
       }
     };
   }, [hasMore]);
