@@ -437,7 +437,7 @@ const options = times(
   10
 );
 
-export const FormikSelectWithValidation = () => (
+const FormikSelectWithValidation = () => (
   <Formik
     initialValues={{ select1: null, select2: null }}
     validationSchema={yup.object().shape({
@@ -509,9 +509,10 @@ const WithLazyLoadMenuList = args => {
     <div className="mb-2 h-80 p-4">
       <Select
         {...args}
+        isAsyncLoadOptionEnabled
         fetchMore={handleFetchMore}
-        hasMore={TotalValues > options.length}
         options={options}
+        totalOptionsCount={TotalValues}
       />
     </div>
   );
@@ -534,6 +535,7 @@ export {
   SelectInPane,
   FormikSelectStory,
   WithLazyLoadMenuList,
+  FormikSelectWithValidation,
 };
 
 export default metadata;

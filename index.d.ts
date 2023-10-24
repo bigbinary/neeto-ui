@@ -330,7 +330,8 @@ export type SelectProps = {
   optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
   fetchMore?: () => void;
-  hasMore?: boolean;
+  totalOptionsCount?: number;
+  isAsyncLoadOptionEnabled?: boolean;
 };
 
 export type SpinnerProps = {
