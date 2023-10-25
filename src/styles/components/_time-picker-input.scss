@@ -1,0 +1,50 @@
+.neeto-ui-time-picker {
+  .react-time-picker {
+    display: inline-flex;
+    position: relative;
+  }
+
+  .react-time-picker--disabled {
+    background-color: #f0f0f0;
+    color: #6d6d6d;
+  }
+
+  .react-time-picker__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--neeto-ui-text-sm);
+    transition: var(--neeto-ui-transition);
+    border-radius: var(--neeto-ui-rounded);
+    border: thin solid rgb(var(--neeto-ui-gray-400));
+    background-color: rgb(var(--neeto-ui-white));
+    color: rgb(var(--neeto-ui-gray-800));
+  }
+
+  .react-time-picker__inputGroup {
+    padding: 5px 8px;
+    min-height: 30px;
+  }
+
+  .react-time-picker__inputGroup__divider {
+    padding: 1px;
+  }
+
+  .react-time-picker__inputGroup__input {
+    outline: none;
+    padding: px;
+    border: 0;
+    background: none;
+    font: inherit;
+    box-sizing: content-box;
+  }
+
+  .react-time-picker__inputGroup__input::-webkit-outer-spin-button,
+  .react-time-picker__inputGroup__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}

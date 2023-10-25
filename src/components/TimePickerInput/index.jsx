@@ -1,29 +1,36 @@
 import React from "react";
 
+import classnames from "classnames";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
+import { noop } from "utils";
 
 const TimePickerInput = ({
+  label,
+  labelProps,
   format = "hh:mm:ss a",
   maxDetail = "second",
   hourPlaceholder = "hh",
   minutePlaceholder = "mm",
   secondPlaceholder = "ss",
-  label,
-  labelProps,
+  value = "",
+  onChange = noop,
   ...otherProps
 }) => (
-  <div className="neeto-ui-input__wrapper">
+  <div className="neeto-ui-input__wrapper neeto-ui-time-picker">
     {label && <Label {...labelProps}>{label}</Label>}
     <TimePicker
+      className={classnames("neeto-ui-tree", otherProps.className)}
       {...{
+        value,
+        format,
+        onChange,
         maxDetail,
         hourPlaceholder,
         minutePlaceholder,
         secondPlaceholder,
-        format,
       }}
       disableClock
       clearIcon={null}
