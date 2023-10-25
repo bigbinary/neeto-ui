@@ -6,37 +6,24 @@ import userEvent from "@testing-library/user-event";
 import { Select } from "components";
 
 const options = [
-  {
-    label: "Option 1",
-    value: "option-1",
-  },
-  {
-    label: "Option 2",
-    value: "option-2",
-  },
+  { label: "Option 1", value: "option-1" },
+  { label: "Option 2", value: "option-2" },
 ];
 
 const remappedLabelAndValueOptions = [
-  {
-    lab: "Option 1",
-    val: "option-1",
-  },
-  {
-    lab: "Option 2",
-    val: "option-2",
-  },
+  { lab: "Option 1", val: "option-1" },
+  { lab: "Option 2", val: "option-2" },
 ];
 
 const remappedLabelOptions = [
-  {
-    lab: "Option 1",
-    value: "option-1",
-  },
-  {
-    lab: "Option 2",
-    value: "option-2",
-  },
+  { lab: "Option 1", value: "option-1" },
+  { lab: "Option 2", value: "option-2" },
 ];
+
+const intersectionObserverMock = () => ({ observe: () => null });
+window.IntersectionObserver = jest
+  .fn()
+  .mockImplementation(intersectionObserverMock);
 
 describe("Select", () => {
   it("should render without error", () => {
@@ -116,6 +103,48 @@ describe("Select", () => {
     userEvent.type(select, "option 2");
     expect(screen.getByText("Option 2")).toBeInTheDocument();
     expect(screen.queryByText("Option 1")).not.toBeInTheDocument();
+  });
+
+  test("should lazy load options when enabled", async () => {
+    const handleFetchMore = jest.fn();
+    const totalValues = 10;
+
+    const { getByRole } = render(
+      <Select
+        isAsyncLoadOptionEnabled
+        fetchMore={handleFetchMore}
+        options={options}
+        totalOptionsCount={totalValues}
+      />
+    );
+
+    const select = getByRole("combobox");
+    userEvent.click(select);
+
+    const menuList = screen.getByTestId("menu-list");
+    menuList.scrollTop = menuList.scrollHeight;
+    const loader = screen.getByTestId("loader");
+    expect(loader).toBeInTheDocument();
+  });
+
+  test("should not lazy load options when isAsyncLoadOptionEnabled is disabled", () => {
+    const handleFetchMore = jest.fn();
+    const totalValues = 10;
+
+    const { getByRole } = render(
+      <Select
+        fetchMore={handleFetchMore}
+        options={options}
+        totalOptionsCount={totalValues}
+      />
+    );
+
+    const select = getByRole("combobox");
+    userEvent.click(select);
+    const menuList = screen.getByTestId("menu-list");
+    menuList.scrollTop = menuList.scrollHeight;
+    const loader = screen.queryByTestId("loader");
+    expect(loader).toBeNull();
   });
 });
 
