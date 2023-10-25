@@ -6,6 +6,8 @@ import ColorPicker from "components/ColorPicker";
 
 import { PALETTE_PICKER_CODE } from "./constants";
 
+import ColorPickerStoriesDocs from "!raw-loader!./ColorPickerStoriesDocs.mdx";
+
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
   "yellow-500": "#f57c00",
@@ -26,11 +28,7 @@ const metadata = {
   component: ColorPicker,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { ColorPicker } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: ColorPickerStoriesDocs } },
   },
   argTypes: {
     onChange: {

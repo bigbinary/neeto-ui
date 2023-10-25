@@ -2,16 +2,14 @@ import React from "react";
 
 import Spinner from "components/Spinner";
 
+import SpinnerStoriesDocs from "!raw-loader!./SpinnerStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Spinner",
   component: Spinner,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Spinner } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: SpinnerStoriesDocs } },
   },
 };
 

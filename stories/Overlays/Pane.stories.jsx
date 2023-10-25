@@ -8,6 +8,8 @@ import Pane from "components/Pane";
 import Typography from "components/Typography";
 import { manager as OverlayManager } from "managers";
 
+import PaneStoriesDocs from "!raw-loader!./PaneStoriesDocs.mdx";
+
 const metadata = {
   title: "Overlays/Pane",
   component: Pane,
@@ -19,11 +21,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Pane } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: PaneStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",

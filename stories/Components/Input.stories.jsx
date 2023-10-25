@@ -14,7 +14,8 @@ const metadata = {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Input } from "@bigbinary/neetoui";`',
+        component:
+          '`import { Input } from "@bigbinary/neetoui";` \n\n `Input` is a component for capturing user inputs, commonly utilized in forms, search bars, and other data entry scenarios.',
       },
     },
     design: {

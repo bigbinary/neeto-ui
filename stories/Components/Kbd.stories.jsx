@@ -2,16 +2,14 @@ import React from "react";
 
 import Kbd from "components/Kbd";
 
+import KbdStoriesDocs from "!raw-loader!./KbdStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Kbd",
   component: Kbd,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Kbd } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: KbdStoriesDocs } },
   },
 };
 

@@ -3,16 +3,14 @@ import React, { useState } from "react";
 import Switch from "components/Switch";
 import ToolTip from "components/Tooltip";
 
+import SwitchStoriesDocs from "!raw-loader!./SwitchStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Switch",
   component: Switch,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Switch } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: SwitchStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
@@ -35,14 +33,10 @@ const Template = args => (
 );
 
 const Default = Template.bind({});
-Default.args = {
-  checked: false,
-};
+Default.args = { checked: false };
 
 const Checked = Template.bind({});
-Checked.args = {
-  checked: true,
-};
+Checked.args = { checked: true };
 
 const Controlled = args => {
   const [isChecked, setIsChecked] = useState(false);
@@ -54,10 +48,7 @@ const Controlled = args => {
 };
 
 const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  checked: true,
-};
+Disabled.args = { disabled: true, checked: true };
 
 const Label = args => (
   <div className="flex flex-col space-y-6">

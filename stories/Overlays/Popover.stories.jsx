@@ -2,17 +2,15 @@ import React, { useRef } from "react";
 
 import { Button, Typography, Popover } from "components";
 
+import PopoverStoriesDocs from "!raw-loader!./PopoverStoriesDocs.mdx";
+
 const metadata = {
   title: "Overlays/Popover",
   component: Popover,
   subcomponents: { "Popover.Title": Popover.Title, Button },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Popover } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: PopoverStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",

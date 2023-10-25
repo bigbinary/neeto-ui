@@ -121,7 +121,7 @@ TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {
       story:
-        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+        "`defaultValue` prop is used to set the default value of the input. It accepts a [dayjs](https://www.npmjs.com/package/dayjs) object.",
     },
   },
 };
