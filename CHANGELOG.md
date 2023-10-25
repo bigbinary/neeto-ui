@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.19 - 2023-10-25
+
+Fixed: Trim issue in number inputs
+
 ## 5.2.18 - 2023-10-25
 
 Added: Support for lazy loading for the `Select` component
@@ -659,7 +663,6 @@ Changes documentations to sentence case from title casing.
 - Updated selection color to `neeto-ui-primary`
 - Added border to date and time dropdown
 - Updated box shadow of dropdown
-
 #### Accordion
 
 - Updated font weight of Accordion title to `500`
