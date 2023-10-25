@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useId } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -20,13 +19,13 @@ const TimePickerInput = ({
   hourPlaceholder = "hh",
   minutePlaceholder = "mm",
   secondPlaceholder = "ss",
+  required = false,
   value,
   onChange,
   error = "",
   ...otherProps
 }) => {
-  const id = useId(otherProps.id);
-
+  const id = useId();
   const errorId = `error_${id}`;
 
   const handleChange = value => {
@@ -36,7 +35,11 @@ const TimePickerInput = ({
 
   return (
     <div className="neeto-ui-input__wrapper neeto-ui-time-picker">
-      {label && <Label {...labelProps}>{label}</Label>}
+      {label && (
+        <Label required={required} {...labelProps}>
+          {label}
+        </Label>
+      )}
       <TimePicker
         className={classnames("neeto-ui-tree", otherProps.className)}
         {...{
@@ -125,6 +128,10 @@ TimePickerInput.propTypes = {
    * To specify the error message to be shown in the TimePicker.
    */
   error: PropTypes.string,
+  /**
+   * To specify whether the Date picker is required or not.
+   */
+  required: PropTypes.bool,
 };
 
 export default TimePickerInput;

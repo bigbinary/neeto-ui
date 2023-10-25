@@ -688,6 +688,7 @@ export type TimePickerInputProps = {
   labelProps?: object;
   className?: string;
   error?: string;
+  required?: boolean;
 };
 
 // components
