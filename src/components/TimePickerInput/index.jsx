@@ -1,11 +1,16 @@
 import React from "react";
 
+import { useId } from "@reach/auto-id";
 import classnames from "classnames";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
-import { noop } from "utils";
+import { convertToDayjsObjects, hyphenize } from "utils";
+
+dayjs.extend(customParseFormat);
 
 const TimePickerInput = ({
   label,
@@ -15,29 +20,51 @@ const TimePickerInput = ({
   hourPlaceholder = "hh",
   minutePlaceholder = "mm",
   secondPlaceholder = "ss",
-  value = "",
-  onChange = noop,
+  value,
+  onChange,
+  error = "",
   ...otherProps
-}) => (
-  <div className="neeto-ui-input__wrapper neeto-ui-time-picker">
-    {label && <Label {...labelProps}>{label}</Label>}
-    <TimePicker
-      className={classnames("neeto-ui-tree", otherProps.className)}
-      {...{
-        value,
-        format,
-        onChange,
-        maxDetail,
-        hourPlaceholder,
-        minutePlaceholder,
-        secondPlaceholder,
-      }}
-      disableClock
-      clearIcon={null}
-      {...otherProps}
-    />
-  </div>
-);
+}) => {
+  const id = useId(otherProps.id);
+
+  const errorId = `error_${id}`;
+
+  const handleChange = value => {
+    const date = dayjs(value, "HH:mm:ss");
+    onChange(date, value);
+  };
+
+  return (
+    <div className="neeto-ui-input__wrapper neeto-ui-time-picker">
+      {label && <Label {...labelProps}>{label}</Label>}
+      <TimePicker
+        className={classnames("neeto-ui-tree", otherProps.className)}
+        {...{
+          value,
+          format,
+          maxDetail,
+          hourPlaceholder,
+          minutePlaceholder,
+          secondPlaceholder,
+        }}
+        disableClock
+        clearIcon={null}
+        value={convertToDayjsObjects(value)?.toDate()}
+        onChange={handleChange}
+        {...otherProps}
+      />
+      {!!error && (
+        <p
+          className="neeto-ui-input__error"
+          data-cy={`${hyphenize(label)}-input-error`}
+          id={errorId}
+        >
+          {error}
+        </p>
+      )}
+    </div>
+  );
+};
 
 TimePickerInput.displayName = "TimePicker";
 
@@ -94,6 +121,10 @@ TimePickerInput.propTypes = {
    * To specify whether the TimePicker is disabled or not.
    */
   disabled: PropTypes.bool,
+  /**
+   * To specify the error message to be shown in the TimePicker.
+   */
+  error: PropTypes.string,
 };
 
 export default TimePickerInput;

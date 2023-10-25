@@ -19,7 +19,7 @@ const Default = args => <TimePickerInput {...args} />;
 
 Default.args = { label: "Time picker" };
 
-Default.storyName = "Tree";
+Default.storyName = "Time Picker Input";
 
 export { Default };
 export default metadata;

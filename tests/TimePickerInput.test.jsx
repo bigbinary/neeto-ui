@@ -2,7 +2,7 @@ import React from "react";
 
 import { screen, render } from "@testing-library/react";
 
-import TimePickerInput from "components/TimePickerInput";
+import { TimePickerInput } from "components";
 
 const { getByText } = screen;
 
