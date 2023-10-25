@@ -77,7 +77,7 @@ TimePickerInput.propTypes = {
   /**
    * The callback function that will be triggered when value changes.
    */
-  onChange: PropTypes.string,
+  onChange: PropTypes.func,
   /**
    * To provide external classnames to TimePicker target wrapper.
    */
