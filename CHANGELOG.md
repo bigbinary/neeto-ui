@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.18 - 2023-10-25
+
+Added: Support for lazy loading for the `Select` component
+
 ## 5.2.17 - 2023-10-24
 
 Added: New *TreeSelect* component.
@@ -651,7 +655,6 @@ Changes documentations to sentence case from title casing.
 - Separated Delete/Remove actions with a border
 - Updated `box-shadow`
 #### Date Time picker
-
 - Replaced default icons with neetoIcons
 - Updated selection color to `neeto-ui-primary`
 - Added border to date and time dropdown
