@@ -64,7 +64,7 @@ const Input = forwardRef(
 
     const handleOnBlur = e => {
       if (!disableTrimOnBlur) {
-        e.target.value = value.trim();
+        e.target.value = value?.trim();
         handleChange(e);
       }
       onBlur?.(e);
