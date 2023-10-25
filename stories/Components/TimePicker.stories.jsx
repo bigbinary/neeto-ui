@@ -14,9 +14,7 @@ const metadata = {
   component: TimePicker,
   parameters: {
     layout: "padded",
-    docs: {
-      description: { component: TimePickerStoriesDocs },
-    },
+    docs: { description: { component: TimePickerStoriesDocs } },
   },
   argTypes: {
     onChange: {
@@ -31,9 +29,7 @@ const metadata = {
 const TimeInput = args => <TimePicker {...args} />;
 
 TimeInput.storyName = "TimePicker";
-TimeInput.args = {
-  type: "time",
-};
+TimeInput.args = { type: "time" };
 
 const TimePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -126,12 +122,23 @@ TimePickerWithDefaultValue.parameters = {
   },
 };
 
+const RequiredTimePicker = args => <TimePicker {...args} />;
+
+RequiredTimePicker.storyName = "Required TimePicker";
+
+RequiredTimePicker.args = {
+  type: "time",
+  required: true,
+  label: "Required Picker",
+};
+
 export {
   TimeInput,
   TimePickerInModal,
   TimePickerInPane,
   TimePickerWithRef,
   TimePickerWithDefaultValue,
+  RequiredTimePicker,
 };
 
 export default metadata;

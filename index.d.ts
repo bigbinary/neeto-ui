@@ -446,6 +446,7 @@ export type TimePickerProps = {
   value?: any;
   id?: string;
   labelProps?: LabelProps;
+  required: boolean;
   [key: string]: any;
 };
 
@@ -605,9 +606,9 @@ export type TreeSelectProps = {
   allowClear?: Boolean;
   className?: string;
   disabled?: Boolean;
-  error?: string,
-  fieldNames?: { label?: string, value?: string };
-  label?: string,
+  error?: string;
+  fieldNames?: { label?: string; value?: string };
+  label?: string;
   onChange: (value: string) => void;
   onSearch?: (searchValue: string) => void;
   placeholder?: string;
