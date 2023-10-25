@@ -1,9 +1,43 @@
+:root {
+  // Wrapper
+  --#{$prefix}switch-wrapper-width: fit-content;
+
+  // Switch Item
+  --#{$prefix}switch-item-width: 44px;
+  --#{$prefix}switch-item-height: 24px;
+  --#{$prefix}switch-item-border-width: 2px;
+  --#{$prefix}switch-item-border-color: transparent;
+  --#{$prefix}switch-item-border-radius: 20px;
+  --#{$prefix}switch-item-bg-color: rgb(var(--neeto-ui-gray-300));
+  --#{$prefix}switch-item-opacity: 1;
+
+  // Switch
+  --#{$prefix}switch-width: 20px;
+  --#{$prefix}switch-height: 20px;
+  --#{$prefix}switch-color: rgb(var(--neeto-ui-gray-400));
+  --#{$prefix}switch-bg-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}switch-transform: translateX(0);
+  --#{$prefix}switch-border-radius: 16px;
+  --#{$prefix}switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+
+  // Margin
+  --#{$prefix}switch-label-margin: 12px;
+
+  // Focus Within
+  --#{$prefix}switch-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+
+  // Focus Visible
+  --#{$prefix}switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --#{$prefix}switch-focus-visible-outline-offset: 1px;
+  --#{$prefix}switch-focus-visible-box-shadow: none;
+}
+
 .neeto-ui-switch__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: fit-content;
+  width: var(--#{$prefix}switch-wrapper-width);
 
   .neeto-ui-switch__container {
     display: flex;
@@ -12,22 +46,23 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 12px;
+      margin-left: var(--#{$prefix}switch-label-margin);
     }
 
     .neeto-ui-switch__item {
-      width: 44px;
-      height: 24px;
-      border: 2px solid transparent;
-      border-radius: 20px;
+      width: var(--#{$prefix}switch-item-width);
+      height: var(--#{$prefix}switch-item-height);
+      border: var(--#{$prefix}switch-item-border-width) solid var(--#{$prefix}switch-item-border-color);
+      border-radius: var(--#{$prefix}switch-item-border-radius);
       transition: var(--neeto-ui-transition);
-      background-color: rgb(var(--neeto-ui-gray-300));
+      background-color: var(--#{$prefix}switch-item-bg-color);
       cursor: pointer;
       display: inline-flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       flex-shrink: 0;
+      opacity: var(--#{$prefix}switch-item-opacity);
 
       input[type="checkbox"] {
         width: 0;
@@ -37,12 +72,12 @@
       }
 
       &.neeto-ui-switch__item--disabled {
-        opacity: 0.7;
+        --neeto-ui-switch-item-opacity: 0.7;
         cursor: not-allowed;
       }
 
       &.neeto-ui-switch__item--checked {
-        background-color: rgb(var(--neeto-ui-success-500));
+        --neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-success-500));
       }
 
       .neeto-ui-switch {
@@ -50,29 +85,29 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        height: 20px;
-        transition: all 0.3s ease-in-out;
-        transform: translateX(0);
-        color: rgb(var(--neeto-ui-gray-400));
-        background-color: rgb(var(--neeto-ui-white));
-        border-radius: 16px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+        width: var(--#{$prefix}switch-width);
+        height: var(--#{$prefix}switch-height);
+        transition: var(--neeto-ui-transition);
+        transform: var(--#{$prefix}switch-transform);
+        color: var(--#{$prefix}switch-color);
+        background-color: var(--#{$prefix}switch-bg-color);
+        border-radius: var(--#{$prefix}switch-border-radius);
+        box-shadow: var(--#{$prefix}switch-box-shadow);
 
-        &--checked{
-          transform: translateX(20px);
-          color: rgb(var(--neeto-ui-success-500));
+        &--checked {
+          --neeto-ui-switch-transform: translateX(20px);
+          --neeto-ui-switch-color: rgb(var(--neeto-ui-success-500));
         }
       }
 
       &:focus-within {
-        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+        box-shadow: var(--#{$prefix}switch-focus-within-box-shadow);
       }
 
-      &:focus-visible{
-        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-        outline-offset: 1px;
-        box-shadow: none;
+      &:focus-visible {
+        outline: var(--#{$prefix}switch-focus-visible-outline);
+        outline-offset: var(--#{$prefix}switch-focus-visible-outline-offset);
+        box-shadow: var(--#{$prefix}switch-focus-visible-box-shadow);
       }
     }
   }
