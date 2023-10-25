@@ -25,7 +25,8 @@ const TimePickerInput = ({
   error = "",
   ...otherProps
 }) => {
-  const id = useId();
+  const _id = useId();
+  const id = otherProps.id || _id;
   const errorId = `error_${id}`;
 
   const handleChange = value => {
@@ -49,6 +50,7 @@ const TimePickerInput = ({
           hourPlaceholder,
           minutePlaceholder,
           secondPlaceholder,
+          id,
         }}
         disableClock
         clearIcon={null}
