@@ -205,7 +205,7 @@ TimePicker.propTypes = {
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   /**
-   * To specify whether the Date picker is required or not.
+   * To specify whether the Time picker is required or not.
    */
   required: PropTypes.bool,
 };
