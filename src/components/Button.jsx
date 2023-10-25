@@ -100,7 +100,7 @@ const Button = React.forwardRef(
           {...otherProps}
         >
           {renderLabel && <span>{renderLabel}</span>}
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {icon ? (
               /* When Icon is present, animate between the icon and the spinner*/
               loading ? (

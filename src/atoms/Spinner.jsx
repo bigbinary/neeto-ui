@@ -15,7 +15,7 @@ const Spinner = ({ color, className, size }) => (
       exit={{ opacity: 0 }}
       animate={{
         rotate: [0, 360],
-        transition: { repeat: Infinity },
+        transition: { repeat: Infinity, duration: 0.7 },
       }}
     >
       <motion.svg
