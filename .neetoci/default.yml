@@ -1,0 +1,21 @@
+version: v1.0
+
+plan: standard-2
+
+global_job_config:
+  setup:
+    - checkout
+    - neetoci-version node 18.12.0
+    - cache restore
+    - yarn install
+    - cache store
+  jobs:
+    - name: CiChecks
+      commands:
+        - .scripts/run_eslint_on_modified_files.sh
+        - yarn test
+
+triggers:
+  - event: branch
+    branch_name: main
+  - event: pull_request
