@@ -7,7 +7,6 @@ const Spinner = ({ color, className, size }) => (
   <motion.div
     animate={{ opacity: 1, transition: { bounce: 0 } }}
     className={className}
-    data-chromatic="ignore"
     exit={{ opacity: 0 }}
     initial={{ opacity: 0 }}
   >
@@ -15,7 +14,7 @@ const Spinner = ({ color, className, size }) => (
       exit={{ opacity: 0 }}
       animate={{
         rotate: [0, 360],
-        transition: { repeat: Infinity },
+        transition: { repeat: Infinity, duration: 0.7 },
       }}
     >
       <motion.svg
