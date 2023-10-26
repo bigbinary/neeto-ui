@@ -7,7 +7,6 @@ const Spinner = ({ color, className, size }) => (
   <motion.div
     animate={{ opacity: 1, transition: { bounce: 0 } }}
     className={className}
-    data-chromatic="ignore"
     exit={{ opacity: 0 }}
     initial={{ opacity: 0 }}
   >

@@ -12,7 +12,6 @@
     "build": "NODE_ENV=production build-storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic",
     "serve": "node .storybook/express",
     "prepare": "husky install",
     "test": "jest"
@@ -101,7 +100,6 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-typescript": "^7.0.0-alpha.19",
     "boring-avatars": "^1.7.0",
-    "chromatic": "6.5.1",
     "classnames": "2.2.6",
     "css-loader": "4.3.0",
     "cssnano": "4.1.11",

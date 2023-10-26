@@ -1,6 +1,5 @@
 import React from "react";
 
-import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
 
 import { Modal, Typography, Pane } from "components";
@@ -108,12 +107,7 @@ TimePickerWithRef.storyName = "TimePicker with ref";
 
 const TimePickerWithDefaultValue = args => (
   <div className="space-y-3">
-    <TimePicker
-      defaultValue={
-        isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
-      }
-      {...args}
-    />
+    <TimePicker defaultValue={dayjs()} {...args} />
   </div>
 );
 TimePickerWithDefaultValue.storyName = "TimePicker with default value";
