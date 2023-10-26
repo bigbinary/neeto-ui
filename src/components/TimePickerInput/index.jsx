@@ -11,9 +11,14 @@ import { convertToDayjsObjects, hyphenize } from "utils";
 
 dayjs.extend(customParseFormat);
 
+const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
+
 const TimePickerInput = ({
+  className = "",
   label,
   labelProps,
+  size = INPUT_SIZES.medium,
+  nakedInput = false,
   format = "hh:mm:ss a",
   maxDetail = "second",
   hourPlaceholder = "hh",
@@ -35,14 +40,21 @@ const TimePickerInput = ({
   };
 
   return (
-    <div className="neeto-ui-input__wrapper neeto-ui-time-picker">
+    <div className="neeto-ui-input__wrapper">
       {label && (
         <Label required={required} {...labelProps}>
           {label}
         </Label>
       )}
       <TimePicker
-        className={classnames("neeto-ui-tree", otherProps.className)}
+        className={classnames("neeto-ui-time-picker", [className], {
+          "neeto-ui-time-picker--small": size === "small",
+          "neeto-ui-time-picker--medium": size === "medium",
+          "neeto-ui-time-picker--large": size === "large",
+          "neeto-ui-time-picker--disabled": otherProps.disabled,
+          "neeto-ui-time-picker--naked": nakedInput,
+          "neeto-ui-time-picker--error": !!error,
+        })}
         {...{
           value,
           format,
@@ -102,6 +114,14 @@ TimePickerInput.propTypes = {
    * To specify the label props to be passed to the Label component.
    */
   labelProps: PropTypes.object,
+  /**
+   * To set the size of the DatePicker.
+   */
+  size: PropTypes.oneOf(Object.values(INPUT_SIZES)),
+  /**
+   * To set the DatePicker as naked Input field.
+   */
+  nakedInput: PropTypes.bool,
   /**
    * To specify the values to be displayed inside the TimePicker.
    */

@@ -1,13 +1,4 @@
 .neeto-ui-time-picker {
-  .react-time-picker {
-    display: inline-flex;
-    position: relative;
-  }
-
-  .react-time-picker--disabled {
-    background-color: #f0f0f0;
-    color: #6d6d6d;
-  }
 
   .react-time-picker__wrapper {
     display: flex;
@@ -22,9 +13,61 @@
     color: rgb(var(--neeto-ui-gray-800));
   }
 
-  .react-time-picker__inputGroup {
-    padding: 5px 8px;
-    min-height: 30px;
+  &:focus-within:not(.neeto-ui-time-picker--naked, .neeto-ui-time-picker--error) {
+    .react-time-picker__wrapper{
+      border-color: rgb(var(--neeto-ui-primary-500));
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    }
+  }
+
+  &--error {
+    .react-time-picker__wrapper{
+      border-color: rgb(var(--neeto-ui-error-500));
+    }
+    &:focus-within:not(.neeto-ui-time-picker--naked) {
+      .react-time-picker__wrapper{
+        border-color: rgb(var(--neeto-ui-error-500));
+        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+      }
+    }
+  }
+
+  &--disabled {
+    .react-time-picker__wrapper{
+      background-color: rgb(var(--neeto-ui-gray-100));
+      cursor: not-allowed;
+
+      *{
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &--large {
+    .react-time-picker__wrapper {
+      padding: 8px 12px;
+      min-height: 40px;
+    }
+  }
+
+  &--medium {
+    .react-time-picker__wrapper {
+      padding: 4px 8px;
+      min-height: 32px;
+    }
+  }
+
+  &--small {
+    .react-time-picker__wrapper {
+      padding: 2px 8px;
+      min-height: 28px;
+    }
+  }
+
+  &--naked{
+    .react-time-picker__wrapper {
+      border: none;
+    }
   }
 
   .react-time-picker__inputGroup__divider {
@@ -33,7 +76,6 @@
 
   .react-time-picker__inputGroup__input {
     outline: none;
-    padding: px;
     border: 0;
     background: none;
     font: inherit;
