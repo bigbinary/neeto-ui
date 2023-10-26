@@ -19,11 +19,6 @@ const TimePickerInput = ({
   labelProps,
   size = INPUT_SIZES.medium,
   nakedInput = false,
-  format = "hh:mm:ss a",
-  maxDetail = "second",
-  hourPlaceholder = "hh",
-  minutePlaceholder = "mm",
-  secondPlaceholder = "ss",
   required = false,
   value,
   onChange,
@@ -55,15 +50,7 @@ const TimePickerInput = ({
           "neeto-ui-time-picker--naked": nakedInput,
           "neeto-ui-time-picker--error": !!error,
         })}
-        {...{
-          value,
-          format,
-          maxDetail,
-          hourPlaceholder,
-          minutePlaceholder,
-          secondPlaceholder,
-          id,
-        }}
+        {...{ value, id }}
         disableClock
         clearIcon={null}
         value={convertToDayjsObjects(value)?.toDate()}
@@ -90,26 +77,6 @@ TimePickerInput.propTypes = {
    * To set the text to be displayed above the TimePicker.
    */
   label: PropTypes.string,
-  /**
-   * Input format based on Unicode Technical Standard #35. Supported values are: H, HH, h, hh, m, mm, s, ss, a.
-   */
-  format: PropTypes.string,
-  /**
-   * The level of detail in selecting time can be from 'hour', 'minute' or 'second'
-   */
-  maxDetail: PropTypes.oneOf(["hour", "minute", "second"]),
-  /**
-   * placeholder for the hour input.
-   */
-  hourPlaceholder: PropTypes.string,
-  /**
-   * placeholder for the minute input.
-   */
-  minutePlaceholder: PropTypes.string,
-  /**
-   * placeholder for the second input.
-   */
-  secondPlaceholder: PropTypes.string,
   /**
    * To specify the label props to be passed to the Label component.
    */

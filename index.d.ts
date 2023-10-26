@@ -678,13 +678,8 @@ export type TreeProps = {
 
 export type TimePickerInputProps = {
   label?: string;
-  format?: string;
-  maxDetail?: "hour" | "minute" | "second";
   value?: string | Date;
   onChange?: (date: any, value: string) => void;
-  hourPlaceholder?: string;
-  minutePlaceholder?: string;
-  secondPlaceholder?: string;
   labelProps?: object;
   className?: string;
   error?: string;
