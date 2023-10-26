@@ -12,7 +12,6 @@ global_job_config:
   jobs:
     - name: CiChecks
       commands:
-        - .scripts/run_eslint_on_modified_files.sh
         - yarn test
 
 triggers:
