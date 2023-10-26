@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import Tippy from "@tippyjs/react";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useClick,
+  useInteractions,
+  FloatingPortal,
+} from "@floating-ui/react";
 import PropTypes from "prop-types";
-import { followCursor } from "tippy.js";
 
 import { ARROW } from "./constants";
 
@@ -11,59 +22,59 @@ const Tooltip = ({
   children,
   theme = "dark",
   disabled = false,
-  position = "auto",
+  position = "top",
   interactive = false,
   hideAfter = -1,
   hideOnTargetExit = false,
-  ...otherProps
+  trigger = "hover",
 }) => {
-  const [instance, setInstance] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const localProps = {};
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement: position,
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(5),
+      flip({ fallbackAxisSideDirection: "start" }),
+      shift(),
+    ],
+  });
 
-  if (hideAfter > 0) {
-    localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
-  }
+  const hover = useHover(context, {
+    move: false,
+    enabled: trigger !== "click",
+  });
+  const focus = useFocus(context, { enabled: trigger !== "click" });
+  const dismiss = useDismiss(context);
+  const click = useClick(context, { enabled: trigger === "click" });
 
-  useEffect(() => {
-    if (hideOnTargetExit) {
-      const intersectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => !entry.isIntersecting && instance?.hide());
-      });
-      instance?.reference && intersectionObserver.observe(instance?.reference);
-
-      return () => intersectionObserver.disconnect();
-    }
-
-    return undefined;
-  }, [instance, hideOnTargetExit]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    click,
+  ]);
 
   return (
-    <Tippy
-      animation="scale-subtle"
-      arrow={ARROW}
-      content={content}
-      disabled={disabled}
-      duration={[100, 200]}
-      interactive={interactive}
-      placement={position}
-      plugins={[followCursor]}
-      role="tooltip"
-      theme={theme}
-      zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
-      }}
-      {...localProps}
-      {...otherProps}
-    >
-      {React.isValidElement(children) ? children : <span>{children}</span>}
-    </Tippy>
+    <>
+      <div ref={refs.setReference} {...getReferenceProps()}>
+        {children}
+      </div>
+      <FloatingPortal>
+        {isOpen && (
+          <div
+            className="neeto-ui-bg-black neeto-ui-text-white"
+            ref={refs.setFloating}
+            style={floatingStyles}
+            {...getFloatingProps()}
+          >
+            {content}
+          </div>
+        )}
+      </FloatingPortal>
+    </>
   );
 };
 

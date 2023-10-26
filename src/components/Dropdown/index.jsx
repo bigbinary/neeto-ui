@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 
-import Tippy from "@tippyjs/react";
-import classnames from "classnames";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useClick,
+  useInteractions,
+  FloatingPortal,
+} from "@floating-ui/react";
 import { Down } from "neetoicons";
 import PropTypes from "prop-types";
-import { isNil } from "ramda";
 
 import Button from "components/Button";
 import { hyphenize, noop } from "utils";
@@ -48,128 +58,84 @@ const PLACEMENT = {
   leftEnd: "left-end",
 };
 
-const TRIGGERS = { click: "click", hover: "mouseenter focus" };
-
-const hideOnEsc = {
-  name: "hideOnEsc",
-  defaultValue: true,
-  fn({ hide, props: { hideOnEsc } }) {
-    function onKeyDown(event) {
-      if (event.key?.toLowerCase() === "escape" && hideOnEsc) hide();
-    }
-
-    return {
-      onShow() {
-        document.addEventListener("keydown", onKeyDown);
-      },
-      onHide() {
-        document.removeEventListener("keydown", onKeyDown);
-      },
-    };
-  },
-};
-
-const plugins = [hideOnEsc];
-
 const Dropdown = ({
   icon,
   label,
-  isOpen,
-  onClose = noop,
-  dropdownProps = {},
-  position = PLACEMENT.bottomEnd,
+  position = "bottom",
   children,
-  className,
   buttonStyle = BTN_STYLES.primary,
   buttonSize = BTN_SIZES.medium,
-  buttonProps: { style, size, ...buttonProps } = {},
   customTarget,
-  disabled = false,
-  closeOnEsc = true,
+  closeOnOutsideClick = false,
   closeOnSelect = true,
-  closeOnOutsideClick = true,
-  dropdownModifiers = [],
-  trigger = TRIGGERS.click,
-  strategy = STRATEGY.absolute,
-  onClick,
-  ...otherProps
+  closeOnEsc = false,
+  trigger = "click",
 }) => {
-  const [instance, setInstance] = useState(null);
-  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const isControlled = !isNil(isOpen);
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement: position,
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(5),
+      flip({ fallbackAxisSideDirection: "start" }),
+      shift(),
+    ],
+  });
 
-  const controlledProps = isControlled
-    ? { visible: isOpen }
-    : { onClickOutside: () => closeOnOutsideClick };
+  const hover = useHover(context, {
+    move: false,
+    enabled: trigger !== "click",
+  });
+  const focus = useFocus(context, { enabled: trigger !== "click" });
+  const dismiss = useDismiss(context, {
+    escapeKey: closeOnEsc,
+    outsidePress: closeOnOutsideClick,
+  });
+  const click = useClick(context, { enabled: trigger === "click" });
 
-  const { classNames: dropdownClassname, ...otherDropdownProps } =
-    dropdownProps;
-
-  const close = () => instance.hide();
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    click,
+  ]);
 
   return (
-    <Tippy
-      interactive
-      animation={false}
-      arrow={false}
-      duration={0}
-      // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
-      // https://atomiks.github.io/tippyjs/v6/all-props/#hideonclick
-      hideOnClick={isControlled ? undefined : closeOnOutsideClick || "toggle"}
-      hideOnEsc={closeOnEsc}
-      maxWidth="none"
-      offset={0}
-      placement={position || PLACEMENT.bottomEnd}
-      plugins={plugins}
-      popperOptions={{ strategy, modifiers: dropdownModifiers }}
-      role="dropdown"
-      theme="light"
-      trigger={isControlled ? undefined : TRIGGERS[trigger]}
-      className={classnames("neeto-ui-dropdown", {
-        [className]: className,
-      })}
-      content={
-        mounted ? (
-          <div
-            data-cy={`${hyphenize(label)}-dropdown-container`}
-            className={classnames("neeto-ui-dropdown__popup", {
-              [dropdownClassname]: dropdownClassname,
-            })}
-            onClick={closeOnSelect ? close : noop}
-            {...otherDropdownProps}
-          >
-            {children}
-          </div>
-        ) : null
-      }
-      onCreate={instance => instance && setInstance(instance)}
-      onMount={() => setMounted(true)}
-      onHidden={() => {
-        onClose();
-        setMounted(false);
-      }}
-      {...otherProps}
-      {...controlledProps}
-    >
+    <>
       {customTarget ? (
-        <span onClick={onClick}>
+        <span ref={refs.setReference} {...getReferenceProps()}>
           {typeof customTarget === "function" ? customTarget() : customTarget}
         </span>
       ) : (
         <Button
+          className="neeto-ui-dropdown"
+          ref={refs.setReference}
+          {...getReferenceProps()}
           data-cy={`${hyphenize(label)}-dropdown-icon`}
-          disabled={disabled || buttonProps?.disabled}
           icon={icon || Down}
           iconPosition="right"
           label={label}
-          size={size ?? buttonSize}
-          style={style ?? buttonStyle}
-          onClick={onClick}
-          {...buttonProps}
+          size={buttonSize}
+          style={buttonStyle}
         />
       )}
-    </Tippy>
+      <FloatingPortal>
+        {isOpen && (
+          <div
+            className="neeto-ui-dropdown__popup"
+            ref={refs.setFloating}
+            style={floatingStyles}
+            onClick={closeOnSelect ? () => setIsOpen(false) : () => {}}
+            {...getFloatingProps()}
+          >
+            {children}
+          </div>
+        )}
+      </FloatingPortal>
+    </>
   );
 };
 
@@ -197,7 +163,7 @@ Dropdown.propTypes = {
   /**
    * To specify the triggering action for Dropdown.
    */
-  trigger: PropTypes.oneOf(Object.keys(TRIGGERS)),
+  trigger: PropTypes.oneOf(["click", "hover"]),
   /**
    * To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown.
    *
