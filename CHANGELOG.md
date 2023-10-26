@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.20 - 2023-10-26
+
+Changed: Upgraded `framer-motion` and removed some unused packages.
+Added: neetoCI config for CI checks
+
 ## 5.2.19 - 2023-10-25
 
 Fixed: Trim issue in number inputs
@@ -664,7 +669,6 @@ Changes documentations to sentence case from title casing.
 - Added border to date and time dropdown
 - Updated box shadow of dropdown
 #### Accordion
-
 - Updated font weight of Accordion title to `500`
 - Updated `border-radius` to `8px`
 
