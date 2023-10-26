@@ -168,7 +168,7 @@ const FormikInputStory = args => (
   >
     {() => (
       <div className="space-y-2">
-        <FormikInput {...args} label="Name" name="name" />
+        <FormikInput {...args} required label="Name" name="name" />
         <FormikInput {...args} label="Email" name="email" type="email" />
         <Button label="Submit" type="submit" />
       </div>

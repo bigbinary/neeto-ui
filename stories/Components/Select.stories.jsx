@@ -477,12 +477,14 @@ const FormikSelectWithValidation = () => (
     <Form className="flex space-x-2">
       <FormikSelect
         isClearable
+        required
         label="Select 1"
         name="select1"
         options={options}
       />
       <FormikSelect
         isClearable
+        required
         label="Select 2"
         name="select2"
         options={options}

@@ -105,6 +105,7 @@ WithCustomSuffixAndSwitcherIcon.args = {
 
 const FormikTreeSelectStory = _ => (
   <Form
+    className="space-y-2"
     formikProps={{
       initialValues: { category: "" },
       validationSchema: yup.object({
@@ -112,9 +113,8 @@ const FormikTreeSelectStory = _ => (
       }),
       onSubmit: values => window.alert(JSON.stringify(values)),
     }}
-    className="space-y-2"
   >
-    <FormikTreeSelect {...commonProps} name="category" />
+    <FormikTreeSelect required {...commonProps} name="category" />
     <Button label="Submit" type="submit" />
   </Form>
 );
