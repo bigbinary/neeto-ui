@@ -47,8 +47,8 @@ const FormikStory = args => (
           >
             <BlockNavigation />
             <div className="space-y-4">
-              <Input label="First name" name="firstName" />
-              <Input label="Last name" name="lastName" />
+              <Input required label="First name" name="firstName" />
+              <Input required label="Last name" name="lastName" />
               <div className="flex justify-center">
                 <Button label="Submit" type="submit" />
               </div>
