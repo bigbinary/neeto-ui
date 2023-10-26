@@ -1,10 +1,10 @@
 //Abstracts
+@import "~rfs/scss";
 @import "./abstracts/mixins";
 @import "./abstracts/normalize";
 @import "./abstracts/variables";
 @import "./abstracts/root";
 @import "./abstracts/theme";
-@import "~rfs/scss";
 
 //Base
 @import "./base/base";
