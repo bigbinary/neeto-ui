@@ -14,14 +14,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-Prefix the change with one of these keywords:
+Each change is prefixed with one of these keywords::
 
-- *Added*: for new features.
-- *Changed*: for changes in existing functionality.
-- *Deprecated*: for soon-to-be removed features.
-- *Removed*: for now removed features.
-- *Fixed*: for any bug fixes.
-- *Security*: in case of vulnerabilities.
+- *Added*: Describes new features.
+- *Changed*: Highlights modifications to existing functionality.
+- *Deprecated*: Marks features that will be removed in the future.
+- *Removed*: Indicates features that have been taken out.
+- *Fixed*: Denotes bug fixes.
+- *Security*: Pertains to actions taken in response to vulnerabilities.
+
+## 5.2.20 - 2023-10-26
+
+Changed: Upgraded `framer-motion` and removed some unused packages.
+Added: neetoCI config for CI checks
+
+## 5.2.19 - 2023-10-25
+
+Fixed: Trim issue in number inputs
+
+## 5.2.18 - 2023-10-25
+
+Added: Support for lazy loading for the `Select` component
 
 ## 5.2.17 - 2023-10-24
 
@@ -651,14 +664,11 @@ Changes documentations to sentence case from title casing.
 - Separated Delete/Remove actions with a border
 - Updated `box-shadow`
 #### Date Time picker
-
 - Replaced default icons with neetoIcons
 - Updated selection color to `neeto-ui-primary`
 - Added border to date and time dropdown
 - Updated box shadow of dropdown
-
 #### Accordion
-
 - Updated font weight of Accordion title to `500`
 - Updated `border-radius` to `8px`
 

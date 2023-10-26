@@ -9,18 +9,9 @@ import Tooltip from "components/Tooltip";
 
 import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
 
-const SIZE = {
-  small: 24,
-  medium: 32,
-  large: 40,
-  extraLarge: 64,
-};
+const SIZE = { small: 24, medium: 32, large: 40, extraLarge: 64 };
 
-const STATUS = {
-  online: "online",
-  idle: "idle",
-  offline: "offline",
-};
+const STATUS = { online: "online", idle: "idle", offline: "offline" };
 
 const Avatar = ({
   size = "medium",
@@ -98,7 +89,6 @@ const Avatar = ({
           <img
             alt={`avatar-${avatarString}`}
             className={imageClasses}
-            data-chromatic="ignore"
             src={imageUrl}
             onError={() => setIsLoadingFailed(true)}
           />

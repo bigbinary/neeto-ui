@@ -1,6 +1,5 @@
 import React from "react";
 
-import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
 
 import { Modal, Typography, Pane } from "components";
@@ -14,9 +13,7 @@ const metadata = {
   component: TimePicker,
   parameters: {
     layout: "padded",
-    docs: {
-      description: { component: TimePickerStoriesDocs },
-    },
+    docs: { description: { component: TimePickerStoriesDocs } },
   },
   argTypes: {
     onChange: {
@@ -31,9 +28,7 @@ const metadata = {
 const TimeInput = args => <TimePicker {...args} />;
 
 TimeInput.storyName = "TimePicker";
-TimeInput.args = {
-  type: "time",
-};
+TimeInput.args = { type: "time" };
 
 const TimePickerInModal = args => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -108,12 +103,7 @@ TimePickerWithRef.storyName = "TimePicker with ref";
 
 const TimePickerWithDefaultValue = args => (
   <div className="space-y-3">
-    <TimePicker
-      defaultValue={
-        isChromatic() ? dayjs(new Date(1999, 7, 16, 5, 32)) : dayjs()
-      }
-      {...args}
-    />
+    <TimePicker defaultValue={dayjs()} {...args} />
   </div>
 );
 TimePickerWithDefaultValue.storyName = "TimePicker with default value";
@@ -121,9 +111,19 @@ TimePickerWithDefaultValue.parameters = {
   docs: {
     description: {
       story:
-        "`defaultValue` prop is used to set the default value of the input. It accepts a `dayjs` object.",
+        "`defaultValue` prop is used to set the default value of the input. It accepts a [dayjs](https://www.npmjs.com/package/dayjs) object.",
     },
   },
+};
+
+const RequiredTimePicker = args => <TimePicker {...args} />;
+
+RequiredTimePicker.storyName = "Required TimePicker";
+
+RequiredTimePicker.args = {
+  type: "time",
+  required: true,
+  label: "Required Picker",
 };
 
 export {
@@ -132,6 +132,7 @@ export {
   TimePickerInPane,
   TimePickerWithRef,
   TimePickerWithDefaultValue,
+  RequiredTimePicker,
 };
 
 export default metadata;

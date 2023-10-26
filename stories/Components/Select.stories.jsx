@@ -9,16 +9,14 @@ import { Select as FormikSelect } from "components/formik";
 
 import { FORMIK_SELECT } from "../constants";
 
+import SelectStoriesDocs from "!raw-loader!./SelectStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Select } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: SelectStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
@@ -186,6 +184,15 @@ const Creatable = args => {
   );
 };
 
+Creatable.parameters = {
+  docs: {
+    description: {
+      story:
+        "Creatable `Select` component allows users to create new options on the fly as they type. It is suitable for scenarios where the list of options is relatively small and known in advance.",
+    },
+  },
+};
+
 const AsyncCreatable = args => {
   const [value, setValue] = useState(null);
   const [options, setOptions] = useState([
@@ -233,6 +240,14 @@ const AsyncCreatable = args => {
   );
 };
 AsyncCreatable.storyName = "Async creatable";
+AsyncCreatable.parameters = {
+  docs: {
+    description: {
+      story:
+        "In addition to creating new options, async creatable `Select` allows asynchronous loading of option data from a remote source. It is suitable for scenarios where the list of options is large, dynamic, or fetched from a server.",
+    },
+  },
+};
 
 const Searchable = args => (
   <div className="mb-2 h-60 p-4">
@@ -324,7 +339,7 @@ SelectInModal.parameters = {
   docs: {
     description: {
       story:
-        "To properly render Select inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
+        "To properly render `Select` inside a modal or pane, you need to pass `strategy` prop as `fixed` which will attach the menu to the document body node instead of the parent.",
     },
   },
 };
@@ -437,7 +452,7 @@ const options = times(
   10
 );
 
-export const FormikSelectWithValidation = () => (
+const FormikSelectWithValidation = () => (
   <Formik
     initialValues={{ select1: null, select2: null }}
     validationSchema={yup.object().shape({
@@ -462,12 +477,14 @@ export const FormikSelectWithValidation = () => (
     <Form className="flex space-x-2">
       <FormikSelect
         isClearable
+        required
         label="Select 1"
         name="select1"
         options={options}
       />
       <FormikSelect
         isClearable
+        required
         label="Select 2"
         name="select2"
         options={options}
@@ -476,6 +493,51 @@ export const FormikSelectWithValidation = () => (
     </Form>
   </Formik>
 );
+
+const WithLazyLoadMenuList = args => {
+  const TotalValues = 15;
+  const [options, setOptions] = useState([
+    { value: "value1", label: "Value one" },
+    { value: "value2", label: "Value two" },
+    { value: "value3", label: "Value three" },
+    { value: "value4", label: "Value four" },
+    { value: "value5", label: "Value five" },
+    { value: "value6", label: "Value six" },
+    { value: "value7", label: "Value seven" },
+    { value: "value8", label: "Value eight" },
+    { value: "value9", label: "Value nine" },
+    { value: "value10", label: "Value ten" },
+  ]);
+
+  const handleFetchMore = () => {
+    setTimeout(() => {
+      setOptions(options => [
+        ...options,
+        { value: "value11", label: "Value eleven" },
+        { value: "value12", label: "Value twelve" },
+        { value: "value13", label: "Value thirteen" },
+        { value: "value14", label: "Value fourteen" },
+        { value: "value15", label: "Value fifteen" },
+      ]);
+    }, 1500);
+  };
+
+  return (
+    <div className="mb-2 h-80 p-4">
+      <Select
+        {...args}
+        isAsyncLoadOptionEnabled
+        fetchMore={handleFetchMore}
+        options={options}
+        totalOptionsCount={TotalValues}
+      />
+    </div>
+  );
+};
+
+WithLazyLoadMenuList.storyName = "Lazy load MenuList options";
+
+WithLazyLoadMenuList.args = {};
 
 export {
   Default,
@@ -489,6 +551,8 @@ export {
   SelectInModal,
   SelectInPane,
   FormikSelectStory,
+  WithLazyLoadMenuList,
+  FormikSelectWithValidation,
 };
 
 export default metadata;

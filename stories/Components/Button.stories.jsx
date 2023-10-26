@@ -6,26 +6,21 @@ import Button from "components/Button";
 
 import { icons } from "../constants";
 
+import ButtonStoriesDocs from "!raw-loader!./ButtonStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Button",
   component: Button,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Button } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: ButtonStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
     },
   },
   argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
+    icon: { options: Object.keys(icons), mapping: icons },
     onClick: {
       table: {
         type: { summary: "func" },
@@ -38,10 +33,7 @@ const metadata = {
 const Template = args => <Button {...args} />;
 
 const Default = Template.bind({});
-Default.args = {
-  style: "primary",
-  label: "Button",
-};
+Default.args = { style: "primary", label: "Button" };
 
 const Sizes = args => (
   <div className="w-full">
@@ -101,10 +93,7 @@ const IconButtons = args => (
 IconButtons.storyName = "Icon buttons";
 
 const LoadingState = Template.bind({});
-LoadingState.args = {
-  loading: true,
-  label: "Loading",
-};
+LoadingState.args = { loading: true, label: "Loading" };
 LoadingState.storyName = "Loading state";
 
 const FullWidth = args => (
@@ -121,10 +110,7 @@ FullWidth.storyName = "Full width";
 const Tooltip = Template.bind({});
 Tooltip.args = {
   label: "Tooltip button",
-  tooltipProps: {
-    content: "Top",
-    position: "top",
-  },
+  tooltipProps: { content: "Top", position: "top" },
 };
 
 export {

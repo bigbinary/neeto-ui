@@ -329,6 +329,9 @@ export type SelectProps = {
   labelProps?: LabelProps;
   optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
+  fetchMore?: () => void;
+  totalOptionsCount?: number;
+  isAsyncLoadOptionEnabled?: boolean;
 };
 
 export type SpinnerProps = {
@@ -443,6 +446,7 @@ export type TimePickerProps = {
   value?: any;
   id?: string;
   labelProps?: LabelProps;
+  required: boolean;
   [key: string]: any;
 };
 

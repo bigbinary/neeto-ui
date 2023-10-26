@@ -3,17 +3,15 @@ import React, { useState } from "react";
 import Alert from "components/Alert";
 import Button from "components/Button";
 
+import AlertStoriesDocs from "!raw-loader!./AlertStoriesDocs.mdx";
+
 export default {
   title: "Overlays/Alert",
   component: Alert,
   subcomponents: { Button },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Alert } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: AlertStoriesDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
