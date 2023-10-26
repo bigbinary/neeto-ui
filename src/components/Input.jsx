@@ -8,7 +8,6 @@ import { replace } from "ramda";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
-import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -74,14 +73,13 @@ const Input = forwardRef(
             </Label>
           )}
           {isCharacterLimitVisible && (
-            <Typography
-              style="body2"
+            <p
               className={classnames("neeto-ui-input__max-length", {
                 "neeto-ui-input__max-length--error": maxLengthError,
               })}
             >
               {valueLength}/{maxLength}
-            </Typography>
+            </p>
           )}
         </div>
         <div
@@ -116,24 +114,22 @@ const Input = forwardRef(
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
         {!!error && (
-          <Typography
+          <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
-            style="body3"
           >
             {error}
-          </Typography>
+          </p>
         )}
         {helpText && (
-          <Typography
+          <p
             className="neeto-ui-input__help-text"
             data-cy={`${hyphenize(label)}-input-help`}
             id={helpTextId}
-            style="body3"
           >
             {helpText}
-          </Typography>
+          </p>
         )}
       </div>
     );
