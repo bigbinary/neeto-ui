@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
 import Button from "components/Button";
-import Typography from "components/Typography";
 
 import { renderImage } from "./utils";
 
@@ -37,44 +36,32 @@ const NoData = ({
         <div className="neeto-ui-no-data__image">{renderImage(image)}</div>
       ) : null}
       {title && (
-        <Typography
-          className="neeto-ui-text-center"
-          data-cy="no-data-title"
-          lineHeight="none"
-          style="h3"
-        >
+        <h3 className="neeto-ui-no-data__title" data-cy="no-data-title">
           {title}
-        </Typography>
+        </h3>
       )}
       {description && (
-        <Typography
-          className="neeto-ui-text-center neeto-ui-mt-2"
+        <p
+          className="neeto-ui-no-data__description"
           data-cy="no-data-description"
-          lineHeight="normal"
-          style="body2"
         >
           {description}
-        </Typography>
+        </p>
       )}
       {helpText && (
-        <Typography
-          className="neeto-ui-mt-2 neeto-ui-text-center"
-          data-cy="no-data-help-text"
-          lineHeight="normal"
-          style="body2"
-        >
+        <p className="neeto-ui-no-data__help-text" data-cy="no-data-help-text">
           {helpText}
-        </Typography>
+        </p>
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
-        <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-gap-2">
+        <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
           {hasPrimaryButtonProps && (
             <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
           )}
           {showButtonSeparator && (
-            <Typography lineHeight="normal" style="body2">
+            <p className="neeto-ui-no-data__btn-separator">
               {buttonSeparatorText}
-            </Typography>
+            </p>
           )}
           {hasSecondaryButtonProps && (
             <Button
