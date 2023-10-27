@@ -31,12 +31,17 @@ const Avatar = ({
   const isLarge = size === "large";
   const isExtraLarge = size === "extraLarge";
 
-  const imageContainerStyle = {
-    height: SIZE[size],
-    width: SIZE[size],
-  };
+  const containerClasses = classNames(
+    "neeto-ui-avatar__container neeto-ui-select-none",
+    {
+      "neeto-ui-avatar__container--medium": isMedium,
+      "neeto-ui-avatar__container--large": isLarge,
+      "neeto-ui-avatar__container--xlarge": isExtraLarge,
+    },
+    [className]
+  );
 
-  const imageClasses = classNames("neeto-ui-avatar ", {
+  const imageClasses = classNames("neeto-ui-avatar", {
     "neeto-ui-avatar--medium": isMedium,
     "neeto-ui-avatar--large": isLarge,
     "neeto-ui-avatar--xlarge": isExtraLarge,
@@ -67,12 +72,8 @@ const Avatar = ({
       {...tooltipProps}
     >
       <span
+        className={containerClasses}
         data-testid="avatar"
-        style={imageContainerStyle}
-        className={classNames(
-          "neeto-ui-avatar--container neeto-ui-select-none",
-          className
-        )}
         onClick={onClick}
         {...otherProps}
       >

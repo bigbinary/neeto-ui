@@ -14,7 +14,7 @@
 
   // Font sizes
   @each $size, $value in $neeto-ui-font-sizes {
-    --neeto-ui-text-#{$size}: #{$value};
+    @include rfs($value, --neeto-ui-text-#{$size});
   }
 
   // Font weights

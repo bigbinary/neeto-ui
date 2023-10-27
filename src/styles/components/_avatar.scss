@@ -1,81 +1,94 @@
-.neeto-ui-avatar--container {
+:root {
+  // Container
+  --#{$prefix}avatar-container-border-radius: var(--neeto-ui-rounded);
+  --#{$prefix}avatar-container-width: 24px;
+  --#{$prefix}avatar-container-height: 24px;
+
+  // Avatar
+  --#{$prefix}avatar-width: 1.5rem;
+  --#{$prefix}avatar-height: 1.5rem;
+  --#{$prefix}avatar-border-radius: var(--neeto-ui-rounded-full);
+
+  // Status
+  --#{$prefix}avatar-status-width: 0.4rem;
+  --#{$prefix}avatar-status-height: 0.4rem;
+  --#{$prefix}avatar-status-bg-color: var(--neeto-ui-white);
+  --#{$prefix}avatar-status-border-width: 0.5px;
+  --#{$prefix}avatar-status-border-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}avatar-status-border-radius: var(--neeto-ui-rounded-full);
+  --#{$prefix}avatar-status-transform: translateX(-40%);
+}
+
+.neeto-ui-avatar__container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--neeto-ui-rounded);
+  border-radius: var(--#{$prefix}avatar-container-border-radius);
   position: relative;
   flex-shrink: 0;
+  width: var(--#{$prefix}avatar-container-width);
+  height: var(--#{$prefix}avatar-container-height);
 
-  &.neeto-ui-avatar--container-round {
-    border-radius: var(--neeto-ui-rounded-full);
+  &--medium {
+    --neeto-ui-avatar-container-width: 32px;
+    --neeto-ui-avatar-container-height: 32px;
   }
 
-  .neeto-ui-avatar__text {
-    font-weight: var(--neeto-ui-font-semibold);
-    text-align: center;
-    text-transform: capitalize;
-    font-size: var(--neeto-ui-text-xxs);
-    color: rgb(47, 57, 65);
-    line-height: 1;
+  &--large {
+    --neeto-ui-avatar-container-width: 40px;
+    --neeto-ui-avatar-container-height: 40px;
+  }
 
-    &.neeto-ui-avatar__text-medium {
-      font-size: var(--neeto-ui-text-xs);
-    }
-
-    &.neeto-ui-avatar__text-large {
-      font-size: var(--neeto-ui-text-sm);
-    }
-
-    &.neeto-ui-avatar__text-xlarge {
-      font-size: var(--neeto-ui-text-2xl);
-    }
+  &--xlarge {
+    --neeto-ui-avatar-container-width: 64px;
+    --neeto-ui-avatar-container-height: 64px;
   }
 
   .neeto-ui-avatar__status {
     position: absolute;
     right: 0;
     top: 0;
-    width: 0.4rem;
-    height: 0.4rem;
-    background-color: white;
-    border: 0.5px solid white;
-    border-radius: var(--neeto-ui-rounded-full);
-    transform: translateX(-40%);
+    width: var(--#{$prefix}avatar-status-width);
+    height: var(--#{$prefix}avatar-status-width);
+    background-color: var(--#{$prefix}avatar-status-bg-color);
+    border: var(--#{$prefix}avatar-status-border-width) solid var(--#{$prefix}avatar-status-border-color);
+    border-radius: var(--#{$prefix}avatar-status-border-radius);
+    transform: var(--#{$prefix}avatar-status-transform);
 
     &.neeto-ui-avatar__status-medium {
-      width: 0.465rem;
-      height: 0.465rem;
+      --neeto-ui-avatar-status-width: 0.465rem;
+      --neeto-ui-avatar-status-height: 0.465rem;
     }
 
     &.neeto-ui-avatar__status-large {
-      width: 0.563rem;
-      height: 0.563rem;
+      --neeto-ui-avatar-status-width: 0.563rem;
+      --neeto-ui-avatar-status-height: 0.563rem;
     }
 
     &.neeto-ui-avatar__status-xlarge {
-      width: 0.75rem;
-      height: 0.75rem;
-      transform: translateX(-65%);
+      --neeto-ui-avatar-status-width: 0.75rem;
+      --neeto-ui-avatar-status-height: 0.75rem;
+      --neeto-ui-avatar-status-transform: translateX(-65%);
     }
 
     &.online {
-      background-color: rgb(var(--neeto-ui-success-500));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-success-500));
     }
 
     &.idle {
-      background-color: rgb(var(--neeto-ui-warning-500));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-warning-500));
     }
 
     &.offline {
-      background-color: rgb(var(--neeto-ui-gray-300));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-gray-300));
     }
   }
 
   .neeto-ui-avatar {
     display: inline-block;
-    border-radius: var(--neeto-ui-rounded-full);
-    height: 1.5rem;
-    width: 1.5rem;
+    border-radius: var(--#{$prefix}avatar-border-radius);
+    width: var(--#{$prefix}avatar-width);
+    height: var(--#{$prefix}avatar-height);
     object-fit: cover;
 
     &.hidden {
@@ -83,46 +96,18 @@
     }
 
     &.neeto-ui-avatar--medium {
-      height: 2rem;
-      width: 2rem;
+      --neeto-ui-avatar-width: 2rem;
+      --neeto-ui-avatar-height: 2rem;
     }
 
     &.neeto-ui-avatar--large {
-      height: 2.5rem;
-      width: 2.5rem;
+      --neeto-ui-avatar-width: 2.5rem;
+      --neeto-ui-avatar-height: 2.5rem;
     }
 
     &.neeto-ui-avatar--xlarge {
-      height: 4rem;
-      width: 4rem;
+      --neeto-ui-avatar-width: 4rem;
+      --neeto-ui-avatar-height: 4rem;
     }
   }
-}
-
-.neeto-ui-avatar--container-bg-1 {
-  background-color: rgb(var(--neeto-ui-pastel-silver));
-}
-
-.neeto-ui-avatar--container-bg-2 {
-  background-color: rgb(var(--neeto-ui-pastel-red));
-}
-
-.neeto-ui-avatar--container-bg-3 {
-  background-color: rgb(var(--neeto-ui-pastel-yellow));
-}
-
-.neeto-ui-avatar--container-bg-4 {
-  background-color: rgb(var(--neeto-ui-pastel-green));
-}
-
-.neeto-ui-avatar--container-bg-5 {
-  background-color: rgb(var(--neeto-ui-pastel-blue));
-}
-
-.neeto-ui-avatar--container-bg-6 {
-  background-color: rgb(var(--neeto-ui-pastel-purple));
-}
-
-.neeto-ui-avatar--container-bg-7 {
-  background-color: rgb(var(--neeto-ui-pastel-pink));
 }

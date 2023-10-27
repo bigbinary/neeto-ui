@@ -1,22 +1,45 @@
+:root {
+  --#{$prefix}tag-padding-x: 8px;
+  --#{$prefix}tag-padding-y: 3px;
+  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}tag-font-size);
+  --#{$prefix}tag-font-weight: var(--neeto-ui-font-normal);
+  --#{$prefix}tag-line-height: 12px;
+  --#{$prefix}tag-color: rgb(var(--neeto-ui-black));
+  --#{$prefix}tag-bg-color: transparent;
+  --#{$prefix}tag-border-width: 1px;
+  --#{$prefix}tag-border-color: transparent;
+  --#{$prefix}tag-border-radius: var(--neeto-ui-rounded-full);
+  --#{$prefix}tag-gap: 4px;
+  --#{$prefix}tag-icon-size: 12px;
+
+  // Indicator
+  --#{$prefix}tag-indicator-size: 8px;
+  --#{$prefix}tag-indicator-border-radius: var(--neeto-ui-rounded-full);
+
+  // Hover
+  --#{$prefix}tag-icon-hover-opacity: 0.8;
+}
+
 .neeto-ui-tag {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--neeto-ui-text-xs);
-  line-height: 12px;
-  font-weight: var(--neeto-ui-font-normal);
-  gap: 4px;
-  padding: 3px 8px;
-  border-radius: 100px;
-  color: rgb(var(--neeto-ui-black));
-  border-width: 1px;
-  border-style: solid;
+  font-size: var(--#{$prefix}tag-font-size);
+  line-height: var(--#{$prefix}tag-line-height);
+  font-weight: var(--#{$prefix}tag-font-weight);
+  gap: var(--#{$prefix}tag-gap);
+  padding: var(--#{$prefix}tag-padding-y) var(--#{$prefix}tag-padding-x);
+  border-radius: var(--#{$prefix}tag-border-radius);
+  color: var(--#{$prefix}tag-color);
+  background-color: var(--#{$prefix}tag-bg-color);
+  border-width: var(--#{$prefix}tag-border-width);
+  border-color: var(--#{$prefix}tag-border-color);
   user-select: none;
 
   &__indicator {
-    border-radius: var(--neeto-ui-rounded-full);
-    height: 8px;
-    width: 8px;
+    border-radius: var(--#{$prefix}tag-indicator-border-radius);
+    height: var(--#{$prefix}tag-indicator-size);
+    width: var(--#{$prefix}tag-indicator-size);
   }
 
   &__icon {
@@ -25,8 +48,8 @@
     align-items: center;
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: var(--#{$prefix}tag-icon-size);
+      height: var(--#{$prefix}tag-icon-size);
     }
   }
 
@@ -35,97 +58,97 @@
     cursor: pointer;
 
     &:hover {
-      opacity: 0.8;
+      opacity: var(--#{$prefix}tag-icon-hover-opacity);
     }
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: var(--#{$prefix}tag-icon-size);
+      height: var(--#{$prefix}tag-icon-size);
     }
   }
 
   &--size-large {
-    padding: 3px 12px;
-    gap: 6px;
-    font-size: var(--neeto-ui-text-sm);
-    line-height: 16px;
-
-    .neeto-ui-tag__icon,
-    .neeto-ui-tag__close {
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
+    --neeto-ui-tag-padding-x: 12px;
+    --neeto-ui-tag-padding-y: 3px;
+    --neeto-ui-tag-gap: 6px;
+    --neeto-ui-tag-font-size: var(--neeto-ui-text-sm);
+    --neeto-ui-tag-line-height: 16px;
+    --neeto-ui-tag-icon-size: 16px;
   }
 
   &--type-outline {
     &.neeto-ui-tag--style-primary {
-      background-color: rgb(var(--neeto-ui-primary-100));
-      border-color: rgb(var(--neeto-ui-primary-500));
-      color: rgb(var(--neeto-ui-primary-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-primary-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-primary-800));
     }
 
     &.neeto-ui-tag--style-secondary {
-      border-color: rgb(var(--neeto-ui-gray-400));
-      background-color: rgb(var(--neeto-ui-white));
-      color: rgb(var(--neeto-ui-black));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-white));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-400));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-danger {
-      background-color: rgb(var(--neeto-ui-error-100));
-      border-color: rgb(var(--neeto-ui-error-500));
-      color: rgb(var(--neeto-ui-error-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-error-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-error-800));
     }
 
     &.neeto-ui-tag--style-info {
-      background-color: rgb(var(--neeto-ui-info-100));
-      border-color: rgb(var(--neeto-ui-info-500));
-      color: rgb(var(--neeto-ui-info-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-info-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-info-800));
     }
 
     &.neeto-ui-tag--style-success {
-      background-color: rgb(var(--neeto-ui-success-100));
-      border-color: rgb(var(--neeto-ui-success-500));
-      color: rgb(var(--neeto-ui-success-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-success-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-success-800));
     }
 
     &.neeto-ui-tag--style-warning {
-      background-color: rgb(var(--neeto-ui-warning-100));
-      border-color: rgb(var(--neeto-ui-warning-500));
-      color: rgb(var(--neeto-ui-warning-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-warning-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-warning-800));
     }
   }
 
   &--type-solid {
     &.neeto-ui-tag--style-primary {
-      background-color: rgb(var(--neeto-ui-primary-100));
-      border-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-secondary {
-      background-color: rgb(var(--neeto-ui-gray-200));
-      border-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-danger {
-      background-color: rgb(var(--neeto-ui-error-100));
-      border-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-info {
-      background-color: rgb(var(--neeto-ui-info-100));
-      border-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-success {
-      background-color: rgb(var(--neeto-ui-success-100));
-      border-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-warning {
-      background-color: rgb(var(--neeto-ui-warning-100));
-      border-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
   }
 }

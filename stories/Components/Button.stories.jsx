@@ -84,7 +84,9 @@ const IconButtons = args => (
           />
         </div>
         <div className="flex flex-wrap items-start gap-4">
-          <Button {...args} icon={Favorite} />
+          <Button {...args} size="small" icon={Favorite} />
+          <Button {...args} size="medium" icon={Favorite} />
+          <Button {...args} size="large" icon={Favorite} />
         </div>
       </div>
     </div>

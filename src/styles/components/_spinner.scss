@@ -1,44 +1,64 @@
+:root {
+  --#{$prefix}spinner-size: 20px;
+  --#{$prefix}spinner-color: rgb(var(--neeto-ui-gray-800));
+}
+
 .neeto-ui-spinner {
   position: relative;
   display: inline-block;
-  font-size: 20px;
-  width: 1em;
-  height: 1em;
+  font-size: var(--#{$prefix}spinner-size);
+  width: var(--#{$prefix}spinner-size);
+  height: var(--#{$prefix}spinner-size);
+
+  &--light {
+    --neeto-ui-spinner-color: rgb(var(--neeto-ui-white));
+  }
+
+  &--size-small {
+    --neeto-ui-spinner-size: 14px;
+  }
 }
+
 .neeto-ui-spinner__item {
   position: absolute;
   display: block;
-  width: 9px;
-  height: 9px;
+  width: calc(var(--#{$prefix}spinner-size) * 0.45);
+  height: calc(var(--#{$prefix}spinner-size) * 0.45);
   border-radius: 100%;
   transform: scale(0.75);
   transform-origin: 50% 50%;
   opacity: 0.3;
   -webkit-animation: neetoUISpinnerMove 1s infinite linear alternate;
   animation: neetoUISpinnerMove 1s infinite linear alternate;
+  background-color: var(--#{$prefix}spinner-color);
 }
+
 .neeto-ui-spinner__item:nth-child(1) {
   top: 0;
   left: 0;
 }
+
 .neeto-ui-spinner__item:nth-child(2) {
   top: 0;
   right: 0;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
+
 .neeto-ui-spinner__item:nth-child(3) {
   right: 0;
   bottom: 0;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
+
 .neeto-ui-spinner__item:nth-child(4) {
   bottom: 0;
   left: 0;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
+
 .neeto-ui-spinner {
   transform: rotate(45deg);
   -webkit-animation: neetoUISpinnerRotate 1.2s infinite linear;
@@ -50,16 +70,19 @@
     opacity: 1;
   }
 }
+
 @keyframes neetoUISpinnerMove {
   to {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes neetoUISpinnerRotate {
   to {
     transform: rotate(405deg);
   }
 }
+
 @keyframes neetoUISpinnerRotate {
   to {
     transform: rotate(405deg);

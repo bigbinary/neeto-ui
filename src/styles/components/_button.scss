@@ -1,61 +1,94 @@
+:root {
+  --#{$prefix}btn-padding-x: 8px;
+  --#{$prefix}btn-padding-y: 6px;
+  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}btn-font-size);
+  --#{$prefix}btn-font-weight: var(--neeto-ui-font-medium);
+  --#{$prefix}btn-line-height: 16px;
+  --#{$prefix}btn-color: rgb(var(--neeto-ui-black));
+  --#{$prefix}btn-bg-color: transparent;
+  --#{$prefix}btn-border-width: 0;
+  --#{$prefix}btn-border-color: transparent;
+  --#{$prefix}btn-border-radius: var(--neeto-ui-rounded);
+  --#{$prefix}btn-gap: 4px;
+  --#{$prefix}btn-icon-size: 16px;
+  --#{$prefix}btn-box-shadow: none;
+  --#{$prefix}btn-outline: none;
+
+  // Disabled
+  --#{$prefix}btn-disabled-opacity: 0.5;
+
+  // Hover
+  --#{$prefix}btn-hover-color: rgb(var(--neeto-ui-black));
+  --#{$prefix}btn-hover-bg-color: transparent;
+  --#{$prefix}btn-hover-box-shadow: none;
+  --#{$prefix}btn-hover-opacity: 1;
+
+  // Focus
+  --#{$prefix}btn-focus-color: rgb(var(--neeto-ui-black));
+  --#{$prefix}btn-focus-box-shadow: none;
+  --#{$prefix}btn-focus-opacity: 1;
+
+  // Focus Visible
+  --#{$prefix}btn-focus-visible-color: rgb(var(--neeto-ui-black));
+  --#{$prefix}btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --#{$prefix}btn-focus-visible-outline-offset: 1px;
+  --#{$prefix}btn-focus-visible-box-shadow: none;
+}
+
 .neeto-ui-btn {
   position: relative;
   display: inline-flex !important;
   align-items: center;
-  padding: 6px 8px;
-  gap: 4px;
+  padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+  gap: var(--#{$prefix}btn-gap);
 
-  font-size: var(--neeto-ui-text-sm);
-  font-weight: var(--neeto-ui-font-medium);
-  line-height: 16px;
+  color: var(--#{$prefix}btn-color);
+  background-color: var(--#{$prefix}btn-bg-color);
+  font-size: var(--#{$prefix}btn-font-size);
+  font-weight: var(--#{$prefix}btn-font-weight);
+  line-height: var(--#{$prefix}btn-line-height);
   transition: var(--neeto-ui-transition);
-  border-radius: var(--neeto-ui-rounded);
-  border: none;
+  border-width: var(--#{$prefix}btn-border-width);
+  border-color: var(--#{$prefix}btn-border-color);
+  border-radius: var(--#{$prefix}btn-border-radius);
+  box-shadow: var(--#{$prefix}btn-box-shadow);
+  outline: var(--#{$prefix}btn-outline);
 
-  outline: none;
   user-select: none;
   min-width: 0;
   cursor: pointer;
 
   &.neeto-ui-btn--icon-only {
-    padding: 6px;
+    --neeto-ui-btn-padding-x: 6px;
+    --neeto-ui-btn-padding-y: 6px;
 
     .neeto-ui-btn__icon,
     .neeto-ui-btn__spinner svg {
       pointer-events: none;
-      width: 16px !important;
-      height: 16px !important;
+      width: var(--#{$prefix}btn-icon-size) !important;
+      height: var(--#{$prefix}btn-icon-size) !important;
     }
   }
 
   // size - medium - 32px
   &--size-medium {
-    font-size: var(--neeto-ui-text-sm);
-    padding: 8px 16px;
-    gap: 8px;
-
-    &.neeto-ui-btn--icon-only {
-      .neeto-ui-btn__icon,
-      .neeto-ui-btn__spinner svg {
-        pointer-events: none;
-        width: 20px !important;
-        height: 20px !important;
-      }
-    }
+    --neeto-ui-btn-padding-x: 16px;
+    --neeto-ui-btn-padding-y: 8px;
+    --neeto-ui-btn-gap: 8px;
+    --neeto-ui-btn-icon-size: 20px;
   }
+
   // size - large - 40px
   &--size-large {
-    font-size: var(--neeto-ui-text-base);
-    padding: 12px 20px;
-    gap: 10px;
+    --neeto-ui-btn-font-size: var(--neeto-ui-text-base);
+    --neeto-ui-btn-padding-x: 20px;
+    --neeto-ui-btn-padding-y: 12px;
+    --neeto-ui-btn-gap: 10px;
+    --neeto-ui-btn-icon-size: 24px;
 
     &.neeto-ui-btn--icon-only {
-      padding: 8px;
-      .neeto-ui-btn__icon,
-      .neeto-ui-btn__spinner svg {
-        width: 24px !important;
-        height: 24px !important;
-      }
+      --neeto-ui-btn-padding-x: 8px;
+      --neeto-ui-btn-padding-y: 8px;
     }
   }
 
@@ -68,9 +101,28 @@
     text-decoration: none;
   }
 
+  &:hover:not(:disabled),
+  &:active {
+    color: var(--#{$prefix}btn-hover-color);
+    background-color: var(--#{$prefix}btn-hover-bg-color);
+  }
+
+  &:focus {
+    color: var(--#{$prefix}btn-focus-color);
+    box-shadow: var(--#{$prefix}btn-focus-box-shadow);
+  }
+
+  &:focus-visible {
+    color: var(--#{$prefix}btn-focus-visible-color);
+
+    outline: var(--#{$prefix}btn-focus-visible-outline);
+    outline-offset: var(--#{$prefix}btn-focus-visible-outline-offset);
+    box-shadow: var(--#{$prefix}btn-focus-visible-box-shadow);
+  }
+
   &.disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: var(--#{$prefix}btn-disabled-opacity);
   }
 }
 
@@ -97,141 +149,61 @@
 // styles
 .neeto-ui-btn--style {
   &-primary {
-    color: rgb(var(--neeto-ui-white));
-    background-color: rgb(var(--neeto-ui-primary-500));
-
-    &:hover:not(:disabled),
-    &:active {
-      color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-primary-600));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-    }
-
-    &:focus-visible {
-      color: rgb(var(--neeto-ui-white));
-
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-bg-color: rgb(var(--neeto-ui-primary-500));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-primary-600));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
   }
 
   &-secondary {
-    color: rgb(var(--neeto-ui-black));
-    background-color: rgb(var(--neeto-ui-gray-200));
-
-    &:hover:not(:disabled),
-    &:active {
-      color: rgb(var(--neeto-ui-black));
-      background-color: rgb(var(--neeto-ui-gray-300));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-black));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
-    }
-
-    &:focus-visible {
-      color: rgb(var(--neeto-ui-black));
-
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-bg-color: rgb(var(--neeto-ui-gray-200));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-300));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
   }
 
   &-text {
-    color: rgb(var(--neeto-ui-gray-800));
-
-    &:hover:not(:disabled),
-    &:active {
-      color: rgb(var(--neeto-ui-gray-800));
-      background-color: rgb(var(--neeto-ui-gray-200));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-gray-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
-    }
-
-    &:focus-visible {
-      color: rgb(var(--neeto-ui-gray-800));
-
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-gray-800));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-gray-800));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-gray-800));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-gray-800));
   }
 
   &-link {
-    color: rgb(var(--neeto-ui-primary-800));
-    padding: 0;
-
-    &:hover:not(:disabled),
-    &:active,
-    &:focus {
-      opacity: 0.8;
-    }
-
-    &:focus {
-      opacity: 0.8;
-    }
-
-    &:focus-visible {
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-padding-x: 0px;
+    --neeto-ui-btn-padding-y: 0px;
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-primary-800));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-primary-800));
+    --neeto-ui-btn-hover-opacity: 0.8;
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-primary-800));
+    --neeto-ui-btn-focus-opacity: 0.8;
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-800));;
   }
 
   &-danger {
-    color: rgb(var(--neeto-ui-white));
-    background-color: rgb(var(--neeto-ui-error-500));
-
-    &:hover:not(:disabled),
-    &:active {
-      color: rgb(var(--neeto-ui-white));
-      background-color: rgb(var(--neeto-ui-error-600));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-white));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
-    }
-
-    &:focus-visible {
-      color: rgb(var(--neeto-ui-white));
-
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-bg-color: rgb(var(--neeto-ui-error-500));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-error-600));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
   }
 
   &-danger-text {
-    color: rgb(var(--neeto-ui-error-800));
-
-    &:hover:not(:disabled),
-    &:active {
-      color: rgb(var(--neeto-ui-error-800));
-      background-color: rgb(var(--neeto-ui-error-100));
-    }
-
-    &:focus {
-      color: rgb(var(--neeto-ui-error-800));
-      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
-    }
-
-    &:focus-visible {
-      color: rgb(var(--neeto-ui-error-800));
-
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
-    }
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-error-800));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-error-800));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-error-100));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-error-800));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-error-800));
   }
 }

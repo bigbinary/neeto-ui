@@ -31,9 +31,7 @@ const Item = ({
       tabIndex={0}
       className={classnames(
         "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
-        {
-          "neeto-ui-accordion__item--open": isOpen,
-        }
+        { "neeto-ui-accordion__item--open": isOpen }
       )}
       onClick={onClick}
       onKeyDown={e => {
@@ -48,13 +46,7 @@ const Item = ({
     >
       <div
         {...titleProps}
-        className={classnames(
-          "neeto-ui-accordion__item-handle neeto-ui-flex neeto-ui-flex-grow neeto-ui-items-center neeto-ui-break-words",
-          {
-            "neeto-ui-text-gray-700": !isOpen,
-            "neeto-ui-text-gray-800": isOpen,
-          }
-        )}
+        className="neeto-ui-accordion__item-handle neeto-ui-flex neeto-ui-flex-grow neeto-ui-items-center neeto-ui-break-words"
       >
         {title}
       </div>
@@ -64,14 +56,7 @@ const Item = ({
         transition={{ duration: 0.3 }}
         variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
       >
-        <Right
-          size={16}
-          className={classnames({
-            "neeto-ui-text-gray-700": !isOpen,
-            "neeto-ui-text-gray-800": isOpen,
-          })}
-          {...iconProps}
-        />
+        <Right size={16} {...iconProps} />
       </motion.div>
     </div>
     <Collapse
