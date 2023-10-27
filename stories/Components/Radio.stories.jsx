@@ -10,14 +10,13 @@ import Typography from "components/Typography";
 const metadata = {
   title: "Components/Radio",
   component: Radio,
-  subcomponents: {
-    "Radio.Item": Radio.Item,
-  },
+  subcomponents: { "Radio.Item": Radio.Item },
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Radio } from "@bigbinary/neetoui";`',
+        component:
+          '`import { Radio } from "@bigbinary/neetoui";` \n\n `Radio` button allows users to select one option from a set of mutually exclusive choices.',
       },
     },
     design: {
@@ -34,9 +33,7 @@ const Options = args => (
   </Radio>
 );
 
-Options.args = {
-  label: "Radio options",
-};
+Options.args = { label: "Radio options" };
 
 const OptionsStacked = args => (
   <Radio {...args}>

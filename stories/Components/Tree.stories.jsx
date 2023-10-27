@@ -13,16 +13,14 @@ import {
 } from "./constants";
 import { handleOnDrop } from "./utils";
 
+import TreeStoriesDocs from "!raw-loader!./TreeStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Tree",
   component: Tree,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Tree } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: TreeStoriesDocs } },
   },
 };
 

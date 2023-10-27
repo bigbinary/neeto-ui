@@ -329,6 +329,9 @@ export type SelectProps = {
   labelProps?: LabelProps;
   optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
+  fetchMore?: () => void;
+  totalOptionsCount?: number;
+  isAsyncLoadOptionEnabled?: boolean;
 };
 
 export type SpinnerProps = {
@@ -443,6 +446,7 @@ export type TimePickerProps = {
   value?: any;
   id?: string;
   labelProps?: LabelProps;
+  required: boolean;
   [key: string]: any;
 };
 
@@ -602,9 +606,9 @@ export type TreeSelectProps = {
   allowClear?: Boolean;
   className?: string;
   disabled?: Boolean;
-  error?: string,
-  fieldNames?: { label?: string, value?: string };
-  label?: string,
+  error?: string;
+  fieldNames?: { label?: string; value?: string };
+  label?: string;
   onChange: (value: string) => void;
   onSearch?: (searchValue: string) => void;
   placeholder?: string;
@@ -674,6 +678,16 @@ export type TreeProps = {
   onLoad: Function;
   onRightClick: Function;
   onSelect: Function;
+};
+
+export type TimePickerInputProps = {
+  label?: string;
+  value?: string | Date;
+  onChange?: (date: any, value: string) => void;
+  labelProps?: object;
+  className?: string;
+  error?: string;
+  required?: boolean;
 };
 
 // components
@@ -764,3 +778,4 @@ export const Kbd: React.FC<KbdProps>;
 export const NoData: React.FC<NoDataProps>;
 export const TreeSelect: React.FC<TreeSelectProps>;
 export const Tree: React.FC<TreeProps>;
+export const TimePickerInput: React.FC<TimePickerInputProps>;

@@ -1,0 +1,92 @@
+.neeto-ui-time-picker {
+
+  .react-time-picker__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--neeto-ui-text-sm);
+    transition: var(--neeto-ui-transition);
+    border-radius: var(--neeto-ui-rounded);
+    border: thin solid rgb(var(--neeto-ui-gray-400));
+    background-color: rgb(var(--neeto-ui-white));
+    color: rgb(var(--neeto-ui-gray-800));
+  }
+
+  &:focus-within:not(.neeto-ui-time-picker--naked, .neeto-ui-time-picker--error) {
+    .react-time-picker__wrapper{
+      border-color: rgb(var(--neeto-ui-primary-500));
+      box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    }
+  }
+
+  &--error {
+    .react-time-picker__wrapper{
+      border-color: rgb(var(--neeto-ui-error-500));
+    }
+    &:focus-within:not(.neeto-ui-time-picker--naked) {
+      .react-time-picker__wrapper{
+        border-color: rgb(var(--neeto-ui-error-500));
+        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+      }
+    }
+  }
+
+  &--disabled {
+    .react-time-picker__wrapper{
+      background-color: rgb(var(--neeto-ui-gray-100));
+      cursor: not-allowed;
+
+      *{
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &--large {
+    .react-time-picker__wrapper {
+      padding: 8px 12px;
+      min-height: 40px;
+    }
+  }
+
+  &--medium {
+    .react-time-picker__wrapper {
+      padding: 4px 8px;
+      min-height: 32px;
+    }
+  }
+
+  &--small {
+    .react-time-picker__wrapper {
+      padding: 2px 8px;
+      min-height: 28px;
+    }
+  }
+
+  &--naked{
+    .react-time-picker__wrapper {
+      border: none;
+    }
+  }
+
+  .react-time-picker__inputGroup__divider {
+    padding: 1px;
+  }
+
+  .react-time-picker__inputGroup__input {
+    outline: none;
+    border: 0;
+    background: none;
+    font: inherit;
+    box-sizing: content-box;
+  }
+
+  .react-time-picker__inputGroup__input::-webkit-outer-spin-button,
+  .react-time-picker__inputGroup__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}

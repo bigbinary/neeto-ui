@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { useId } from "@reach/auto-id";
 import classnames from "classnames";
@@ -13,6 +13,7 @@ import Creatable from "react-select/creatable";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
+import Spinner from "./Spinner";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -105,6 +106,52 @@ const ValueContainer = props => {
           : "select-value-container",
       }}
     />
+  );
+};
+
+const MenuList = props => {
+  const { fetchMore, totalOptionsCount, isAsyncLoadOptionEnabled, options } =
+    props.selectProps;
+
+  const hasMore =
+    isAsyncLoadOptionEnabled && totalOptionsCount > options.length;
+
+  const loaderRef = useRef();
+
+  useEffect(() => {
+    let observer = null;
+
+    if (loaderRef.current && isAsyncLoadOptionEnabled) {
+      observer = new IntersectionObserver(
+        entries => entries[0].isIntersecting && fetchMore(),
+        { root: null, rootMargin: "0px", threshold: 0.1 }
+      );
+      observer.observe(loaderRef.current);
+    }
+
+    return () => {
+      if (loaderRef.current && isAsyncLoadOptionEnabled) {
+        observer?.unobserve(loaderRef.current);
+      }
+    };
+  }, [hasMore]);
+
+  return (
+    <components.MenuList
+      {...props}
+      innerProps={{ ...props.innerProps, ["data-testid"]: "menu-list" }}
+    >
+      {props.children}
+      {hasMore && (
+        <div
+          className="flex w-full items-center justify-center py-3"
+          data-testid="loader"
+          ref={loaderRef}
+        >
+          <Spinner />
+        </div>
+      )}
+    </components.MenuList>
   );
 };
 
@@ -215,6 +262,7 @@ const Select = ({
           Placeholder,
           Menu,
           ValueContainer,
+          MenuList,
           ...componentOverrides,
         }}
         {...portalProps}
@@ -322,6 +370,18 @@ Select.propTypes = {
    * To specify the ref to the Select component.
    */
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  /**
+   * Callback to load more options
+   */
+  fetchMore: PropTypes.func,
+  /**
+   *  To specify if the total number of option available when lazy option load is enabled.
+   */
+  totalOptionsCount: PropTypes.number,
+  /**
+   * To specify if async options loading is enabled
+   */
+  isAsyncLoadOptionEnabled: PropTypes.bool,
 };
 
 export default Select;

@@ -6,11 +6,10 @@ import Tag from "components/Tag";
 
 import { icons } from "../constants";
 
+import TagStoriesDocs from "!raw-loader!./TagStoriesDocs.mdx";
+
 const DEPRECATED_PROPS = {
-  color: {
-    table: { type: { summary: null } },
-    control: false,
-  },
+  color: { table: { type: { summary: null } }, control: false },
 
   indicatorColor: {
     table: { type: { summary: null } },
@@ -23,17 +22,10 @@ const metadata = {
   component: Tag,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Tag } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: TagStoriesDocs } },
   },
   argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
+    icon: { options: Object.keys(icons), mapping: icons },
     ...DEPRECATED_PROPS,
   },
 };
@@ -41,9 +33,7 @@ const metadata = {
 const Template = args => <Tag {...args} />;
 
 const Default = Template.bind({});
-Default.args = {
-  label: "Label",
-};
+Default.args = { label: "Label" };
 
 const Sizes = args => (
   <div className="flex flex-row items-center justify-start space-x-4">

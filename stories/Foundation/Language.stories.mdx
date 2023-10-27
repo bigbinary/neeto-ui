@@ -8,7 +8,7 @@ import DeactivateExample from "../assets/images/deactivate.png";
   title="Foundation/Language"
   parameters={{
     viewMode: "docs",
-    layout: 'fullscreen',
+    layout: "fullscreen",
     previewTabs: {
       canvas: { hidden: true },
     },
@@ -48,21 +48,21 @@ import DeactivateExample from "../assets/images/deactivate.png";
 `}</style>
 
 export const data = [
-  { id: "general-language", title: 'General language' },
-  { id: "headings-and-subheadings", title: 'Headings and subheadings' },
-  { id: "buttons", title: 'Buttons' },
-  { id: "links", title: 'Links' },
-  { id: "create-vs-add", title: 'Create vs. add' },
-  { id: "save-vs-done", title: 'Save vs. done' },
-  { id: "archive-vs-deactivate", title: 'Archive vs. deactivate' },
-  { id: "cancel-action", title: 'Cancel action' },
-  { id: "confirmations", title: 'Confirmations' },
-  { id: "error-text", title: 'Error text' },
-  { id: "help-text", title: 'Help text' },
-  { id: "toastr-messages", title: 'Toastr messages' },
-  { id: "no-data-screens", title: 'No data screens' },
-  { id: "references", title: 'References' },
-]
+  { id: "general-language", title: "General language" },
+  { id: "headings-and-subheadings", title: "Headings and subheadings" },
+  { id: "buttons", title: "Buttons" },
+  { id: "links", title: "Links" },
+  { id: "create-vs-add", title: "Create vs. add" },
+  { id: "save-vs-done", title: "Save vs. done" },
+  { id: "archive-vs-deactivate", title: "Archive vs. deactivate" },
+  { id: "cancel-action", title: "Cancel action" },
+  { id: "confirmations", title: "Confirmations" },
+  { id: "error-text", title: "Error text" },
+  { id: "help-text", title: "Help text" },
+  { id: "toastr-messages", title: "Toastr messages" },
+  { id: "no-data-screens", title: "No data screens" },
+  { id: "references", title: "References" },
+];
 
 <div class="flex gap-6 relative p-12 max-w-6xl neeto-language-page-wrapper">
 <div class="flex-grow min-w-0">
@@ -73,7 +73,8 @@ export const data = [
   <a href="#general-language">General language</a>
 </h2>
 
-Products should speak consistently, just as they should act and look consistently.
+Products should speak consistently, just as they should act and look
+consistently.
 
 **Clear and understandable**
 
@@ -93,7 +94,9 @@ Products should speak consistently, just as they should act and look consistentl
 <br />
 
 <h2 id="neeto-products">
-  <a href="#neeto-products">Use the word "neeto products" over "neeto applications" or "neeto apps".</a>
+  <a href="#neeto-products">
+    Use the word "neeto products" over "neeto applications" or "neeto apps".
+  </a>
 </h2>
 
 <div className="demo-do-dont-wrap flex gap-4">
@@ -243,7 +246,9 @@ Products should speak consistently, just as they should act and look consistentl
 
 Avoid using the term "Create User." Instead, use "Add User."
 
-The word "Create" is more technical and commonly used by developers. However, in everyday language, people usually say "Add this user" instead of "Create a user."
+The word "Create" is more technical and commonly used by developers. However, in
+everyday language, people usually say "Add this user" instead of "Create a
+user."
 
 <br />
 <br />
@@ -251,7 +256,6 @@ The word "Create" is more technical and commonly used by developers. However, in
 <h2 id="save-vs-done">
   <a href="#save-vs-done">Save vs. done</a>
 </h2>
-
 
 **Saving immediately to a database**
 
@@ -269,6 +273,7 @@ then merchants can save all of the changes they made.
 
 Most deferred saves happen when confirming changes in Add, Edit, Manage, and
 Select modals and sheets.
+
 <br />
 
 <h2 id="archive-vs-deactivate">
@@ -300,7 +305,6 @@ Select modals and sheets.
   <a href="#cancel-action">Cancel</a>
 </h2>
 
-
 - Use “Cancel” button for users to back out of any changes made on a page,
   modal, pane etc.
 - "Cancel" button should be enabled always.
@@ -315,8 +319,8 @@ For example, if we are on the home/root page,
 
 - Here "Cancel" button should be disabled initially.
 - If the user changes anything on the form, "Cancel" should be enabled.
-<br />
-<br />
+  <br />
+  <br />
 
 <h2 id="confirmations">
   <a href="#confirmations">Confirmations</a>
@@ -324,7 +328,12 @@ For example, if we are on the home/root page,
 
 <Confirmations />
 
-<a href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9" target="_blank">Best practices</a>
+<a
+  href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9"
+  target="_blank"
+>
+  Best practices
+</a>
 
 <br />
 <br />
@@ -335,13 +344,24 @@ For example, if we are on the home/root page,
 
 When creating error messages, be specific, helpful, and polite.
 
-- Instead of saying "This field is required." specify the field name. For example, you could say "Phone number is a required field."
+- Instead of saying "This field is required." specify the field name. For
+  example, you could say "Phone number is a required field."
 - Always add periods to sentences.
-- Be pleasant and polite to the user. Avoid using negative language or blaming the user. For example, instead of saying "You did not enter your phone number." you could say "Please enter your phone number."
-- Help the user to get out of the situation. If possible, provide a way for the user to correct the error. For example, you could provide a link to a knowledge base article or a way to reset the form.
-- Be specific about the error. The message "Something went wrong" is not very helpful. Try to provide as specific of an error message as possible. This will help the user understand what they did wrong and how to fix it.
-- Validate fields on blur with caution. This can be annoying for the user. Instead, validate fields on submit. This will allow the user to play around with the form until they are ready to submit it.
-- Speak human language. Do not use technical terms or jargon that the user may not understand. For example, instead of saying "Error 401," you could say "You are not authorized to delete this agent. Please contact your organization admin for permission."
+- Be pleasant and polite to the user. Avoid using negative language or blaming
+  the user. For example, instead of saying "You did not enter your phone
+  number." you could say "Please enter your phone number."
+- Help the user to get out of the situation. If possible, provide a way for the
+  user to correct the error. For example, you could provide a link to a
+  knowledge base article or a way to reset the form.
+- Be specific about the error. The message "Something went wrong" is not very
+  helpful. Try to provide as specific of an error message as possible. This will
+  help the user understand what they did wrong and how to fix it.
+- Implement eager validations to validate fields upon blur. This will enable
+  users to interact with the form freely until they are prepared to submit it.
+- Speak human language. Do not use technical terms or jargon that the user may
+  not understand. For example, instead of saying "Error 401," you could say "You
+  are not authorized to delete this agent. Please contact your organization
+  admin for permission."
 
 <br />
 <br />
@@ -350,15 +370,22 @@ When creating error messages, be specific, helpful, and polite.
   <a href="#help-text">Help text</a>
 </h2>
 
-When guiding users through complex operations, use help text to be precise, informative, and humble.
+When guiding users through complex operations, use help text to be precise,
+informative, and humble.
 
-- Be precise. The help text should be clear and concise, and it should tell the user exactly what they need to do.
+- Be precise. The help text should be clear and concise, and it should tell the
+  user exactly what they need to do.
 
-- Be informative. The help text should provide enough information for the user to complete the operation. For example, if you are guiding the user through the process of creating a new account, you could provide information about the required fields and the steps involved in the process.
+- Be informative. The help text should provide enough information for the user
+  to complete the operation. For example, if you are guiding the user through
+  the process of creating a new account, you could provide information about the
+  required fields and the steps involved in the process.
 
 - Be humble. Use positive language and do not blame the user.
 
-- Link to a KB article. If the help text is not enough to help the user, you could link to a knowledge base article that provides more detailed information.
+- Link to a KB article. If the help text is not enough to help the user, you
+  could link to a knowledge base article that provides more detailed
+  information.
 
 <br />
 <br />
@@ -367,17 +394,28 @@ When guiding users through complex operations, use help text to be precise, info
   <a href="#toastr-messages">Toastr messages</a>
 </h2>
 
-- Use the appropriate Toastr type. There are four types of Toastr messages: error, warning, success and info. Use the appropriate type for the message you are trying to convey. For example, use an error Toastr for critical errors that need to be fixed immediately, a warning Toastr for errors that can be ignored, and an info Toastr for informational messages.
+- Use the appropriate Toastr type. There are four types of Toastr messages:
+  error, warning, success and info. Use the appropriate type for the message you
+  are trying to convey. For example, use an error Toastr for critical errors
+  that need to be fixed immediately, a warning Toastr for errors that can be
+  ignored, and an info Toastr for informational messages.
 
-- Keep Toastr messages brief. Toastr messages are short-lived and user dismiss-able. Avoid lengthy messages that may disrupt the user experience.
+- Keep Toastr messages brief. Toastr messages are short-lived and user
+  dismiss-able. Avoid lengthy messages that may disrupt the user experience.
 
-- Use clear and concise language. The user should be able to understand the message without having to read it multiple times.
+- Use clear and concise language. The user should be able to understand the
+  message without having to read it multiple times.
 
-- Be specific about the error. If the message indicates an error, provide users with as much information as possible about what went wrong. This will help them to diagnose and address the issue more effectively.
+- Be specific about the error. If the message indicates an error, provide users
+  with as much information as possible about what went wrong. This will help
+  them to diagnose and address the issue more effectively.
 
-- Avoid autoclosing error Toastrs. Allow users to take their time in handling critical issues.
+- Avoid autoclosing error Toastrs. Allow users to take their time in handling
+  critical issues.
 
-- Link to a knowledge base article or a video tutorial if the user needs more help. If the user is unable to fix the error themselves, provide them with a link to a knowledge base article or a video tutorial that can help them.
+- Link to a knowledge base article or a video tutorial if the user needs more
+  help. If the user is unable to fix the error themselves, provide them with a
+  link to a knowledge base article or a video tutorial that can help them.
 
 <br />
 <br />
@@ -439,13 +477,13 @@ When guiding users through complex operations, use help text to be precise, info
   </div>
 </div>
 
-
 <h2 id="references">
   <a href="#references">References</a>
 </h2>
 
 - [Spectrum](https://spectrum.adobe.com/page/voice-and-tone/) from Adobe.
-- [Polaris](https://polaris.shopify.com/content/actionable-language#create-vs--add) from Shopify.
+- [Polaris](https://polaris.shopify.com/content/actionable-language#create-vs--add)
+  from Shopify.
 
 </div>
 </div>
@@ -460,5 +498,3 @@ When guiding users through complex operations, use help text to be precise, info
   </ul>
 </div>
 </div>
-
-

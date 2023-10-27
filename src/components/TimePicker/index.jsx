@@ -43,6 +43,7 @@ const TimePicker = forwardRef(
       defaultValue,
       value,
       labelProps,
+      required = false,
       ...otherProps
     },
     ref
@@ -124,7 +125,11 @@ const TimePicker = forwardRef(
         }}
       >
         <div className="neeto-ui-input__wrapper">
-          {label && <Label {...labelProps}>{label}</Label>}
+          {label && (
+            <Label required={required} {...labelProps}>
+              {label}
+            </Label>
+          )}
           <Component
             disabled={disabled}
             format={format}
@@ -228,6 +233,10 @@ TimePicker.propTypes = {
    * To specify the default values to be displayed inside the TimePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  /**
+   * To specify whether the Time picker is required or not.
+   */
+  required: PropTypes.bool,
 };
 
 export default TimePicker;
