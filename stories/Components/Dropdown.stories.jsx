@@ -4,15 +4,14 @@ import { Settings, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
+import { EVENT_BUBBLING_CAPTURING } from "./constants";
+
 import { icons } from "../constants";
 
 import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
 
 const DEPRECATED_PROPS = {
-  ulProps: {
-    control: false,
-    table: { type: { summary: null } },
-  },
+  ulProps: { control: false, table: { type: { summary: null } } },
 };
 
 const metadata = {
@@ -33,10 +32,7 @@ const metadata = {
     },
   },
   argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
+    icon: { options: Object.keys(icons), mapping: icons },
     onClose: {
       table: {
         type: { summary: "func" },
@@ -106,7 +102,7 @@ const TriggerStyles = args => {
     </div>
   );
 };
-TriggerStyles.storyName = "Trigger styles";
+TriggerStyles.storyName = "Styles";
 
 const TriggerSizes = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -146,7 +142,7 @@ const TriggerSizes = args => {
     </div>
   );
 };
-TriggerSizes.storyName = "Trigger sizes";
+TriggerSizes.storyName = "Sizes";
 
 const TriggerWithCustomIcon = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -230,7 +226,18 @@ const MultiDropdownWithClickTrigger = args => {
     </div>
   );
 };
-MultiDropdownWithClickTrigger.storyName = "Multi Dropdown with click trigger";
+
+MultiDropdownWithClickTrigger.storyName =
+  "Multilevel Dropdown with click trigger";
+
+MultiDropdownWithClickTrigger.parameters = {
+  docs: {
+    description: {
+      story:
+        "Multilevel `Dropdown` with click trigger displays multiple nested dropdown menus, triggered by a click event, allowing for hierarchical navigation through selectable options.",
+    },
+  },
+};
 
 const MultiDropdownWithHoverTrigger = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
@@ -262,7 +269,18 @@ const MultiDropdownWithHoverTrigger = args => {
     </div>
   );
 };
-MultiDropdownWithHoverTrigger.storyName = "Multi Dropdown with hover trigger";
+
+MultiDropdownWithHoverTrigger.storyName =
+  "Multilevel Dropdown with hover trigger";
+
+MultiDropdownWithHoverTrigger.parameters = {
+  docs: {
+    description: {
+      story:
+        "Multilevel `Dropdown` with hover trigger displays multiple nested dropdown menus when a user hovers over a trigger element, enabling hierarchical navigation through selectable options.",
+    },
+  },
+};
 
 const ControlledDropdown = args => {
   const [isOpen, setIsOpen] = useState(false);
@@ -288,6 +306,7 @@ const ControlledDropdown = args => {
         {...args}
         isOpen={isOpen}
         label="Controlled Dropdown"
+        onClickOutside={() => setIsOpen(false)}
         onClose={() => setIsOpen(false)}
       >
         <Menu>
@@ -300,6 +319,15 @@ const ControlledDropdown = args => {
       </Dropdown>
     </div>
   );
+};
+
+ControlledDropdown.parameters = {
+  docs: {
+    description: {
+      story:
+        "When you're using the `Dropdown` as a controlled component, you have the option to use the `onClickOutside` prop. This prop allows you to reset the `isOpen` state when clicked outside the component, which will effectively close the dropdown",
+    },
+  },
 };
 ControlledDropdown.storyName = "Controlled Dropdown";
 
@@ -333,7 +361,7 @@ const CustomDropdown = args => {
   return (
     <div className="h-56">
       <Dropdown {...args} closeOnSelect={false} label="Custom Dropdown">
-        <div className="flex flex-col gap-y-1 rounded-md p-2">
+        <div className="neeto-ui-rounded-md flex flex-col gap-y-1 p-2">
           <Input placeholder="Search members" prefix={<Search />} />
           <Typography style="body3">Results</Typography>
           <Menu className="flex flex-col gap-y-1">
@@ -348,6 +376,46 @@ const CustomDropdown = args => {
 };
 
 CustomDropdown.storyName = "Custom Dropdown";
+CustomDropdown.parameters = {
+  docs: {
+    description: {
+      story:
+        "Custom `Dropdown` provides flexibility for displaying various components, such as input fields and text, within its selectable options, allowing for diverse content and interactions in the dropdown menu.",
+    },
+  },
+};
+
+const EventBubblingAndCapturing = args => {
+  const { Menu, MenuItem } = Dropdown;
+
+  return (
+    <div
+      className="neeto-ui-rounded neeto-ui-shadow-md h-40 w-1/2 cursor-pointer border-2 border-solid p-5"
+      onClick={() => alert("Clicked on the card")}
+    >
+      <div className="w-10" onClick={event => event.stopPropagation()}>
+        <Dropdown label="Dropdown" {...args}>
+          <Menu>
+            <MenuItem.Button isActive>Active</MenuItem.Button>
+            <MenuItem.Button>Disabled</MenuItem.Button>
+            <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          </Menu>
+        </Dropdown>
+      </div>
+    </div>
+  );
+};
+
+EventBubblingAndCapturing.storyName = "Event bubbling and capturing";
+EventBubblingAndCapturing.parameters = {
+  docs: {
+    source: { code: EVENT_BUBBLING_CAPTURING },
+    description: {
+      story:
+        "To stop event bubbling in the `Dropdown` component, you can wrap the `Dropdown` component inside a `div` or another suitable container and add an `onClick` handler to stop the event propagation.",
+    },
+  },
+};
 
 export {
   Default,
@@ -360,6 +428,7 @@ export {
   ControlledDropdown,
   CustomTarget,
   CustomDropdown,
+  EventBubblingAndCapturing,
 };
 
 export default metadata;

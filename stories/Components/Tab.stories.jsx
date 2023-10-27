@@ -4,19 +4,15 @@ import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
 
+import TabStoriesDocs from "!raw-loader!./TabStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Tab",
   component: Tab,
-  subcomponents: {
-    "Tab.Item": Tab.Item,
-  },
+  subcomponents: { "Tab.Item": Tab.Item },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Tab } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: TabStoriesDocs } },
   },
 };
 
@@ -54,9 +50,7 @@ const WithIcon = args => (
 WithIcon.storyName = "With icon";
 
 const WithoutUnderline = Template.bind({});
-WithoutUnderline.args = {
-  noUnderline: true,
-};
+WithoutUnderline.args = { noUnderline: true };
 WithoutUnderline.storyName = "Without underline";
 
 const MultipleItems = args => {

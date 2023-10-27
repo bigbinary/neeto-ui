@@ -12,11 +12,7 @@ const metadata = {
   component: Toastr,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: ToastrStory,
-      },
-    },
+    docs: { description: { component: ToastrStory } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
@@ -69,10 +65,7 @@ const Toastrs = ({}) => {
           <Button
             label="👍"
             onClick={() =>
-              Toastr.success("", {
-                icon: "👍",
-                className: "w-20",
-              })
+              Toastr.success("", { icon: "👍", className: "w-20" })
             }
           />
         </div>
@@ -92,15 +85,8 @@ const ErrorToastr = ({}) => {
       // Dummy axios error object
       const axiosError = {
         isAxiosError: true,
-        config: {
-          url: "https://api.github.com/users/org",
-        },
-        response: {
-          data: {
-            error: "Not found",
-          },
-          status: 404,
-        },
+        config: { url: "https://api.github.com/users/org" },
+        response: { data: { error: "Not found" }, status: 404 },
       };
       throw axiosError;
     } catch (e) {
@@ -113,13 +99,9 @@ const ErrorToastr = ({}) => {
       // Dummy axios error object
       const axiosError = {
         isAxiosError: true,
-        config: {
-          url: "https://api.github.com/users/org",
-        },
+        config: { url: "https://api.github.com/users/org" },
         response: {
-          data: {
-            errors: ["A is required", "B is required"],
-          },
+          data: { errors: ["A is required", "B is required"] },
         },
       };
       throw axiosError;
@@ -150,10 +132,7 @@ const CustomConfigToastr = ({}) => (
           "This toastr has a custom configuration along with buttonLabel and onClick callback as separate arguments",
           "Okay",
           () => {},
-          {
-            hideProgressBar: false,
-            autoClose: 5000,
-          }
+          { hideProgressBar: false, autoClose: 5000 }
         )
       }
     />
@@ -162,11 +141,7 @@ const CustomConfigToastr = ({}) => (
       onClick={() =>
         Toastr.show(
           "This toastr has a custom configuration passed which includes buttonLabel and onClick in the same config object",
-          {
-            buttonLabel: "Okay",
-            onClick: () => {},
-            autoClose: 3000,
-          }
+          { buttonLabel: "Okay", onClick: () => {}, autoClose: 3000 }
         )
       }
     />

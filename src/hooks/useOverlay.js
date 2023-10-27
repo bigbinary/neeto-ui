@@ -1,13 +1,14 @@
-import { useRef, useCallback, useEffect } from "react";
+import { useRef, useEffect, useCallback, useSyncExternalStore } from "react";
 
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { manager } from "managers";
 import {
-  renderFocusOnFocusableElements,
   noop,
   hideScrollAndAddMargin,
   showScrollAndRemoveMargin,
+  focusFirstFocusableElement,
+  trapFocusOnFocusableElements,
 } from "utils";
 
 import useOnClickOutside from "./useOnClickOutside";
@@ -46,9 +47,8 @@ const useOverlay = ({
     if (hasTransitionCompleted) {
       if (initialFocusRef?.current) {
         initialFocusRef?.current?.focus();
-        renderFocusOnFocusableElements(overlayWrapper, false);
       } else {
-        renderFocusOnFocusableElements(overlayWrapper);
+        focusFirstFocusableElement(overlayWrapper);
       }
     }
   };
@@ -65,6 +65,10 @@ const useOverlay = ({
     closeOnOutsideClick ? handleOverlayClose : noop
   );
 
+  const isTopOverlay = useSyncExternalStore(manager.subscribe, () =>
+    manager.isTopOverlay(overlayWrapper)
+  );
+
   useHotkeys(
     "esc",
     () => {
@@ -74,16 +78,22 @@ const useOverlay = ({
   );
 
   useEffect(() => {
+    let cleanUp = noop;
     if (isOpen) {
-      if (hasTransitionCompleted) focusRequiredElementInOverlay();
+      if (hasTransitionCompleted && isTopOverlay) {
+        focusRequiredElementInOverlay();
+        // Enable focus trap only for the topmost overlay
+        cleanUp = trapFocusOnFocusableElements(overlayWrapper);
+      }
 
       if (shouldHideScrollAndAddMargin) hideScrollAndAddMargin();
     }
 
     return () => {
       if (!manager.hasOverlays()) showScrollAndRemoveMargin();
+      cleanUp();
     };
-  }, [isOpen, hasTransitionCompleted]);
+  }, [isOpen, hasTransitionCompleted, isTopOverlay]);
 
   const setFocusField = fieldRef => {
     if (!fieldRef) return;
@@ -91,10 +101,7 @@ const useOverlay = ({
     if (hasTransitionCompleted) focusRequiredElementInOverlay();
   };
 
-  return {
-    handleOverlayClose,
-    setFocusField,
-  };
+  return { handleOverlayClose, setFocusField };
 };
 
 export default useOverlay;

@@ -5,16 +5,14 @@ import { Help } from "neetoicons";
 import Label from "components/Label";
 import Tooltip from "components/Tooltip";
 
+import LabelStoriesDocs from "!raw-loader!./LabelStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Label",
   component: Label,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Label } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: LabelStoriesDocs } },
   },
   subcomponents: { Tooltip },
 };
@@ -22,9 +20,7 @@ const metadata = {
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
 
 const Default = Template.bind({});
-Default.args = {
-  children: "This is a default Label",
-};
+Default.args = { children: "This is a default Label" };
 
 const Required = Template.bind({});
 Required.args = {
@@ -39,10 +35,7 @@ WithHelpIcon.args = {
   helpIconProps: {
     onClick: () => window.open("https://neetoui.onrender.com"),
     icon: Help,
-    tooltipProps: {
-      content: "Help icon tooltip",
-      position: "auto",
-    },
+    tooltipProps: { content: "Help icon tooltip", position: "auto" },
   },
 };
 WithHelpIcon.storyName = "With help icon";

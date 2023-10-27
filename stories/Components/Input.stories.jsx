@@ -14,7 +14,8 @@ const metadata = {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { Input } from "@bigbinary/neetoui";`',
+        component:
+          '`import { Input } from "@bigbinary/neetoui";` \n\n `Input` is a component for capturing user inputs, commonly utilized in forms, search bars, and other data entry scenarios.',
       },
     },
     design: {
@@ -31,6 +32,13 @@ const Default = Template.bind({});
 Default.args = {
   label: "Input label",
   placeholder: "Input placeholder",
+};
+
+const Email = Template.bind({});
+Email.args = {
+  label: "Email",
+  placeholder: "oliver@example.com",
+  type: 'email'
 };
 
 const Sizes = args => (
@@ -160,7 +168,7 @@ const FormikInputStory = args => (
   >
     {() => (
       <div className="space-y-2">
-        <FormikInput {...args} label="Name" name="name" />
+        <FormikInput {...args} required label="Name" name="name" />
         <FormikInput {...args} label="Email" name="email" type="email" />
         <Button label="Submit" type="submit" />
       </div>
@@ -194,6 +202,7 @@ RejectCharsInputStory.parameters = {
 
 export {
   Default,
+  Email,
   Sizes,
   Controlled,
   Required,

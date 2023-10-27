@@ -8,6 +8,8 @@ import {
   Checkbox as PlainCheckbox,
   Select as PlainSelect,
   MultiEmailInput as PlainMultiEmailInput,
+  TreeSelect as PlainTreeSelect,
+  Slider as PlainSlider,
   Button as PlainButton,
   ButtonProps,
   AlertProps,
@@ -31,7 +33,9 @@ export interface Form {
 }
 
 export const ActionBlock: React.FC<ActionBlockProps>;
-export const BlockNavigation: React.FC<BlockNavigationProps & Partial<AlertProps>>;
+export const BlockNavigation: React.FC<
+  BlockNavigationProps & Partial<AlertProps>
+>;
 
 export const Input: typeof PlainInput;
 export const Radio: typeof PlainRadio;
@@ -41,4 +45,7 @@ export const Checkbox: typeof PlainCheckbox;
 export const Select: typeof PlainSelect;
 export const MultiEmailInput: typeof PlainMultiEmailInput;
 export const Button: typeof PlainButton;
+export const TreeSelect: typeof PlainTreeSelect;
+export const Slider: typeof PlainSlider;
+
 export const Form: React.FC<Form>;

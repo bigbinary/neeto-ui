@@ -44,18 +44,19 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    let Parent, elementSpecificProps;
+    let Parent = motion.button;
+    let elementSpecificProps = { type };
+
     const renderLabel = label || children;
 
-    if (to) {
-      Parent = Link;
-      elementSpecificProps = { to };
-    } else if (href) {
-      Parent = motion.a;
-      elementSpecificProps = { href };
-    } else {
-      Parent = motion.button;
-      elementSpecificProps = { type };
+    if (!disabled) {
+      if (to) {
+        Parent = Link;
+        elementSpecificProps = { to };
+      } else if (href) {
+        Parent = motion.a;
+        elementSpecificProps = { href };
+      }
     }
 
     const handleClick = e => {
@@ -99,7 +100,7 @@ const Button = React.forwardRef(
           {...otherProps}
         >
           {renderLabel && <span>{renderLabel}</span>}
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {icon ? (
               /* When Icon is present, animate between the icon and the spinner*/
               loading ? (

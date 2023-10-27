@@ -329,6 +329,9 @@ export type SelectProps = {
   labelProps?: LabelProps;
   optionRemapping?: { label?: string; value?: string };
   [key: string]: any;
+  fetchMore?: () => void;
+  totalOptionsCount?: number;
+  isAsyncLoadOptionEnabled?: boolean;
 };
 
 export type SpinnerProps = {
@@ -443,6 +446,7 @@ export type TimePickerProps = {
   value?: any;
   id?: string;
   labelProps?: LabelProps;
+  required: boolean;
   [key: string]: any;
 };
 
@@ -563,6 +567,15 @@ export type TypographyProps = {
 export type KbdProps = {
   keyName?: string;
   className?: string;
+  tooltipProps?: TooltipProps;
+};
+
+export type SliderProps = {
+  min?: number;
+  max?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  value?: number | number[];
 };
 
 export type NoDataProps = {
@@ -572,6 +585,109 @@ export type NoDataProps = {
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   className?: string;
+};
+
+type TreeItemNested = {
+  label: string;
+  value: string;
+  disabled: Boolean;
+  children: Array<TreeItemNested>;
+};
+
+type TreeItem = {
+  id: string;
+  label: string;
+  value: string;
+  disabled: Boolean;
+  pId: string;
+};
+
+export type TreeSelectProps = {
+  allowClear?: Boolean;
+  className?: string;
+  disabled?: Boolean;
+  error?: string;
+  fieldNames?: { label?: string; value?: string };
+  label?: string;
+  onChange: (value: string) => void;
+  onSearch?: (searchValue: string) => void;
+  placeholder?: string;
+  required?: Boolean;
+  searchValue?: string;
+  showSearch?: Boolean;
+  size?: "small" | "middle" | "large";
+  suffixIcon?: React.ReactNode;
+  switcherIcon?: React.ReactNode;
+  treeDataSimpleMode?: Boolean;
+  value: string;
+  treeData: Array<TreeItemNested> | Array<TreeItem>;
+};
+
+export type TreeProps = {
+  className?: string;
+  allowDrop?: boolean;
+  autoExpandParent?: boolean;
+  blockNode: boolean;
+  checkable: boolean;
+  checkedKeys: string[] | { checked: string[]; halfChecked: string[] };
+  checkStrictly: boolean;
+  defaultCheckedKeys: string[];
+  defaultExpandAll: boolean;
+  defaultExpandedKeys: string[];
+  defaultExpandParent: boolean;
+  defaultSelectedKeys: string[];
+  disabled: boolean;
+  draggable:
+    | boolean
+    | ((node: DataNode) => boolean)
+    | {
+        icon?: React.ReactNode | false;
+        nodeDraggable?: (node: DataNode) => boolean;
+      };
+  expandedKeys: string[];
+  fieldNames: object;
+  filterTreeNode: Function;
+  height: number;
+  icon: ReactNode;
+  loadData: Function;
+  loadedKeys: string[];
+  multiple: boolean;
+  selectable: boolean;
+  selectedKeys: string[];
+  showIcon: boolean;
+  showLine:
+    | boolean
+    | {
+        showLeafIcon:
+          | boolean
+          | ReactNode
+          | ((props: AntTreeNodeProps) => ReactNode);
+      };
+  switcherIcon: ReactNode | ((props: AntTreeNodeProps) => ReactNode);
+  titleRender: Function;
+  treeData: array<{ key; title; children; [disabled, selectable] }>;
+  virtual: boolean;
+  onCheck: Function;
+  onDragEnd: Function;
+  onDragEnter: Function;
+  onDragLeave: Function;
+  onDragOver: Function;
+  onDragStart: Function;
+  onDrop: Function;
+  onExpand: Function;
+  onLoad: Function;
+  onRightClick: Function;
+  onSelect: Function;
+};
+
+export type TimePickerInputProps = {
+  label?: string;
+  value?: string | Date;
+  onChange?: (date: any, value: string) => void;
+  labelProps?: object;
+  className?: string;
+  error?: string;
+  required?: boolean;
 };
 
 // components
@@ -650,6 +766,7 @@ export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;
 export const Tag: React.FC<TagProps>;
 export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
@@ -659,3 +776,6 @@ export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
 export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
 export const Kbd: React.FC<KbdProps>;
 export const NoData: React.FC<NoDataProps>;
+export const TreeSelect: React.FC<TreeSelectProps>;
+export const Tree: React.FC<TreeProps>;
+export const TimePickerInput: React.FC<TimePickerInputProps>;

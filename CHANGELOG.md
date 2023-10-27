@@ -14,14 +14,55 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-Prefix the change with one of these keywords:
+Each change is prefixed with one of these keywords::
 
-- *Added*: for new features.
-- *Changed*: for changes in existing functionality.
-- *Deprecated*: for soon-to-be removed features.
-- *Removed*: for now removed features.
-- *Fixed*: for any bug fixes.
-- *Security*: in case of vulnerabilities.
+- *Added*: Describes new features.
+- *Changed*: Highlights modifications to existing functionality.
+- *Deprecated*: Marks features that will be removed in the future.
+- *Removed*: Indicates features that have been taken out.
+- *Fixed*: Denotes bug fixes.
+- *Security*: Pertains to actions taken in response to vulnerabilities.
+
+## 5.2.21 - 2023-10-27
+
+Added: `TimePickerInput` component
+
+## 5.2.20 - 2023-10-26
+
+Changed: Upgraded `framer-motion` and removed some unused packages.
+Added: neetoCI config for CI checks
+
+## 5.2.19 - 2023-10-25
+
+Fixed: Trim issue in number inputs
+
+## 5.2.18 - 2023-10-25
+
+Added: Support for lazy loading for the `Select` component
+
+## 5.2.17 - 2023-10-24
+
+Added: New *TreeSelect* component.
+
+## 5.2.15 - 2023-10-23
+
+Add onBlur handler to `Input` component to trim leading and trailing spaces
+
+## 5.2.13 - 2023-10-20
+
+Fixed: scrollToErrorField not working for Select component.
+
+## 5.2.11 - 2023-10-20
+
+- Fixed: Memory leaks in overlay manager
+
+## 5.2.10 - 2023-10-20
+
+- Added: Tooltip to `Kbd` component
+
+## 5.2.8 - 2023-10-19
+
+- Fixed:  Button click-ability when disabled
 
 ## 5.2.2 - 2023-10-05
 
@@ -608,7 +649,6 @@ Changes documentations to sentence case from title casing.
 - Updated multivalue error styles
 - Increased Story heights for better view
 #### Email input
-
 - Updated border radius to `5px`
 - Updated selected values styles to match Tag styles
 - Fixed prefix and suffix spacing
@@ -618,32 +658,23 @@ Changes documentations to sentence case from title casing.
 - Fixed alignment issues in label row
 - Fixed spacing inconsistencies in error test and helper text - used same margin for both
 - Updated error styles of multivalue select
-
 #### Label
-
 - Updated label bottom margin to 8px
 - Removed letter-spacing in label text
-
 #### Dropdown & Action Dropdown
-
 - Updated border-radius to `5px`
 - Reduced the height of Dropdown options to `32px`
 - Created Storybook examples with semantic markup for easy keyboard win
 - Separated Delete/Remove actions with a border
 - Updated `box-shadow`
-
 #### Date Time picker
-
 - Replaced default icons with neetoIcons
 - Updated selection color to `neeto-ui-primary`
 - Added border to date and time dropdown
 - Updated box shadow of dropdown
-
 #### Accordion
-
 - Updated font weight of Accordion title to `500`
 - Updated `border-radius` to `8px`
-
 #### Avatar
 
 - Updated background colors to new pastel colors

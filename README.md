@@ -1,4 +1,5 @@
 [![NPM](https://img.shields.io/npm/v/@bigbinary/neetoui.svg)](https://www.npmjs.com/package/@bigbinary/neetoui)
+[![BuildStatus](https://neeto-engineering.neetoci.com/badges/neeto-ui/workflows/default.svg)](https://neeto-engineering.neetoci.com/projects/neeto-ui)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 **neetoUI** is the library that drives the experience in all
@@ -114,6 +115,8 @@ Available components in neetoUI formik:
 - Textarea
 - CheckBox
 - BlockNavigation
+- TreeSelect
+- Slider
 
 You can refer the
 [formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik)

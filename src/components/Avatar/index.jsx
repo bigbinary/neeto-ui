@@ -90,7 +90,6 @@ const Avatar = ({
           <img
             alt={`avatar-${avatarString}`}
             className={imageClasses}
-            data-chromatic="ignore"
             src={imageUrl}
             onError={() => setIsLoadingFailed(true)}
           />

@@ -3,10 +3,14 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Kbd = ({ keyName, className, ...otherProps }) => (
-  <span className={classnames(["neeto-ui-kbd", className])} {...otherProps}>
-    {keyName}
-  </span>
+import Tooltip from "./Tooltip";
+
+const Kbd = ({ keyName, className, tooltipProps, ...otherProps }) => (
+  <Tooltip disabled={!tooltipProps} {...tooltipProps}>
+    <span className={classnames(["neeto-ui-kbd", className])} {...otherProps}>
+      {keyName}
+    </span>
+  </Tooltip>
 );
 
 Kbd.propTypes = {
@@ -18,6 +22,10 @@ Kbd.propTypes = {
    * To provide additional class names to the Kbd.
    */
   className: PropTypes.string,
+  /**
+   * To specify the props to be passed to the tooltip.
+   */
+  tooltipProps: PropTypes.object,
 };
 
 export default Kbd;

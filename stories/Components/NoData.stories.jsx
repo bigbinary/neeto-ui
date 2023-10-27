@@ -3,6 +3,8 @@ import React from "react";
 import Button from "components/Button";
 import NoData from "components/NoData";
 
+import NoDataStoriesDocs from "!raw-loader!./NoDataStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/NoData",
   component: NoData,
@@ -10,7 +12,7 @@ const metadata = {
     layout: "padded",
     docs: {
       description: {
-        component: '`import { NoData } from "@bigbinary/neetoui";`',
+        component: NoDataStoriesDocs,
       },
     },
   },

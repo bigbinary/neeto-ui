@@ -6,23 +6,16 @@ import Callout from "components/Callout";
 
 import { icons } from "../constants";
 
+import CalloutStoriesDocs from "!raw-loader!./CalloutStoriesDocs.mdx";
+
 const metadata = {
   title: "Components/Callout",
   component: Callout,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: '`import { Callout } from "@bigbinary/neetoui";`',
-      },
-    },
+    docs: { description: { component: CalloutStoriesDocs } },
   },
-  argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-    },
-  },
+  argTypes: { icon: { options: Object.keys(icons), mapping: icons } },
 };
 
 const Default = args => <Callout {...args}>This is a Callout!</Callout>;

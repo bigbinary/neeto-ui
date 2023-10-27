@@ -1,11 +1,11 @@
 import React from "react";
 
-import isChromatic from "chromatic/isChromatic";
 import dayjs from "dayjs";
-import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
+
+import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
 
@@ -45,6 +45,16 @@ DateInput.args = {
   picker: "date",
   showTime: false,
 };
+
+const RequiredDatePicker = args => <DatePicker {...args} />;
+DateInput.args = {
+  label: "Required Date",
+  type: "date",
+  picker: "date",
+  showTime: false,
+  required: true,
+};
+DateInput.storyName = "Required Date";
 
 const DatePickerWithRef = args => {
   const ref = React.useRef();
@@ -118,10 +128,7 @@ DatePickerInPane.storyName = "DatePicker in pane";
 
 const DatePickerWithDefaultValue = args => (
   <div className="space-y-3">
-    <DatePicker
-      defaultValue={isChromatic() ? dayjs(new Date(1999, 7, 16)) : dayjs()}
-      {...args}
-    />
+    <DatePicker defaultValue={dayjs()} {...args} />
   </div>
 );
 
@@ -139,16 +146,9 @@ const DateRangePicker = args => (
   <div className="space-y-3">
     <DatePicker
       {...args}
+      defaultValue={[dayjs(), dayjs().add(7, "day")]}
       label="Date range"
       type="range"
-      defaultValue={
-        isChromatic()
-          ? [
-              dayjs(new Date(1999, 7, 16)),
-              dayjs(new Date(1999, 7, 16)).add(7, "day"),
-            ]
-          : [dayjs(), dayjs().add(7, "day")]
-      }
     />
   </div>
 );
@@ -163,16 +163,9 @@ const DateRangePickerWithPresetRanges = args => (
   <div className="space-y-3">
     <DatePicker
       {...args}
+      defaultValue={[dayjs(), dayjs().add(7, "day")]}
       label="Date range"
       type="range"
-      defaultValue={
-        isChromatic()
-          ? [
-              dayjs(new Date(1999, 7, 16)),
-              dayjs(new Date(1999, 7, 16)).add(7, "day"),
-            ]
-          : [dayjs(), dayjs().add(7, "day")]
-      }
       ranges={{
         Today: [dayjs(), dayjs()],
         Yesterday: [dayjs().subtract(1, "d"), dayjs()],
@@ -209,6 +202,7 @@ export {
   DateRangePicker,
   DateRangePickerWithPresetRanges,
   ShowTime,
+  RequiredDatePicker,
 };
 
 export default metadata;

@@ -61,10 +61,7 @@ export class UniqueArray {
   }
 }
 
-export const renderFocusOnFocusableElements = (
-  ref,
-  shouldFocusFirstFocusableElement = true
-) => {
+export const trapFocusOnFocusableElements = ref => {
   const focusableElements =
     'button,[href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
@@ -73,7 +70,7 @@ export const renderFocusOnFocusableElements = (
   const focusableContent = ref?.current?.querySelectorAll(focusableElements);
   const lastFocusableElement = focusableContent[focusableContent?.length - 1];
 
-  document.addEventListener("keydown", e => {
+  const onKeyDown = e => {
     const isTabPressed = e.key === "Tab" || e.keyCode === 9;
     if (!isTabPressed) {
       return;
@@ -90,9 +87,19 @@ export const renderFocusOnFocusableElements = (
         e.preventDefault();
       }
     }
-  });
+  };
 
-  if (!shouldFocusFirstFocusableElement) return;
+  document.addEventListener("keydown", onKeyDown);
+
+  return () => document.removeEventListener("keydown", onKeyDown);
+};
+
+export const focusFirstFocusableElement = ref => {
+  const focusableElements =
+    'button,[href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  const firstFocusableElement =
+    ref?.current?.querySelectorAll(focusableElements)[0];
 
   firstFocusableElement?.focus();
 };
@@ -106,4 +113,28 @@ export const hideScrollAndAddMargin = () => {
 export const showScrollAndRemoveMargin = () => {
   document.body.style.overflow = "auto";
   document.body.style.marginRight = "0px";
+};
+
+export const ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES = {
+  colorBgContainer: "rgb(var(--neeto-ui-white))",
+  colorBorder: "rgb(var(--neeto-ui-gray-300))",
+  colorBorderSecondary: "rgb(var(--neeto-ui-gray-200))",
+  colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
+  colorFillContent: "rgb(var(--neeto-ui-gray-100))",
+  colorFillSecondary: "rgb(var(--neeto-ui-gray-100))",
+  colorIcon: "rgb(var(--neeto-ui-gray-700))",
+  colorIconHover: "rgb(var(--neeto-ui-gray-800))",
+  colorLink: "rgb(var(--neeto-ui-primary-500))",
+  colorLinkActive: "rgb(var(--neeto-ui-primary-800))",
+  colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
+  colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+  colorSplit: "rgb(var(--neeto-ui-gray-100))",
+  colorText: "rgb(var(--neeto-ui-gray-800))",
+  colorTextDescription: "rgb(var(--neeto-ui-gray-700))",
+  colorTextDisabled: "rgb(var(--neeto-ui-gray-600))",
+  colorTextHeading: "rgb(var(--neeto-ui-black))",
+  colorTextPlaceholder: "rgb(var(--neeto-ui-gray-500))",
+  controlItemBgActive: "rgb(var(--neeto-ui-primary-100))",
+  controlItemBgActiveHover: "rgb(var(--neeto-ui-pastel-purple))",
+  controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
 };
