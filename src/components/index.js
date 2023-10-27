@@ -27,6 +27,7 @@ import Table from "./Table";
 import Tag from "./Tag";
 import Textarea from "./Textarea";
 import TimePicker from "./TimePicker";
+import TimePickerInput from "./TimePickerInput";
 import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
 import TreeSelect from "./TreeSelect";
@@ -68,4 +69,5 @@ export {
   TreeSelect,
   Typography,
   Slider,
+  TimePickerInput,
 };

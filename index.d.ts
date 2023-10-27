@@ -680,6 +680,16 @@ export type TreeProps = {
   onSelect: Function;
 };
 
+export type TimePickerInputProps = {
+  label?: string;
+  value?: string | Date;
+  onChange?: (date: any, value: string) => void;
+  labelProps?: object;
+  className?: string;
+  error?: string;
+  required?: boolean;
+};
+
 // components
 
 export const Accordion: React.FC<AccordionProps> & {
@@ -768,3 +778,4 @@ export const Kbd: React.FC<KbdProps>;
 export const NoData: React.FC<NoDataProps>;
 export const TreeSelect: React.FC<TreeSelectProps>;
 export const Tree: React.FC<TreeProps>;
+export const TimePickerInput: React.FC<TimePickerInputProps>;
