@@ -206,13 +206,6 @@ const Table = ({
     return pageSizeOptions;
   };
 
-  const neetoUITextSM = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--neeto-ui-text-sm"
-    ),
-    10
-  );
-
   const neetoUIFontBold = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue(
       "--neeto-ui-font-bold"
@@ -264,7 +257,7 @@ const Table = ({
 
             // Global overrides
             colorPrimary: "rgb(var(--neeto-ui-primary-500))",
-            fontSize: neetoUITextSM,
+            fontSize: 14,
             fontWeightStrong: neetoUIFontBold,
             paddingContentVerticalLG: 10,
           },
