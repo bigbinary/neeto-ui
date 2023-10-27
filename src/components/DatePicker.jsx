@@ -1,13 +1,18 @@
 import React, { forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
-import { DatePicker as AntDatePicker } from "antd";
+import { DatePicker as AntDatePicker, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Left, Right, Calendar } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { useSyncedRef } from "hooks";
-import { convertToDayjsObjects, noop, hyphenize } from "utils";
+import {
+  convertToDayjsObjects,
+  noop,
+  hyphenize,
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+} from "utils";
 
 import Label from "./Label";
 
@@ -63,51 +68,106 @@ const DatePicker = forwardRef(
     };
 
     return (
-      <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
-        <Component
-          data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
-          defaultValue={convertToDayjsObjects(defaultValue)}
-          format={format}
-          picker={picker}
-          ref={datePickerRef}
-          showTime={showTime && { format: timeFormat }}
-          value={convertToDayjsObjects(value)}
-          className={classnames("neeto-ui-date-input", [className], {
-            "neeto-ui-date-input--small": size === "small",
-            "neeto-ui-date-input--medium": size === "medium",
-            "neeto-ui-date-input--large": size === "large",
-            "neeto-ui-date-input--disabled": otherProps.disabled,
-            "neeto-ui-date-input--naked": nakedInput,
-            "neeto-ui-date-input--error": !!error,
-          })}
-          popupClassName={classnames("neeto-ui-date-time-dropdown", [
-            dropdownClassName, // Will be removed in the next major version
-            popupClassName,
-          ])}
-          onChange={handleOnChange}
-          onOk={onOk}
-          {...otherProps}
-          nextIcon={<IconOverride icon={Right} />}
-          prevIcon={<IconOverride icon={Left} />}
-          suffixIcon={<Calendar size={16} />}
-          superNextIcon={<IconOverride icon={Right} />}
-          superPrevIcon={<IconOverride icon={Left} />}
-        />
-        {!!error && (
-          <p
-            className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
-            id={errorId}
-          >
-            {error}
-          </p>
-        )}
-      </div>
+      <ConfigProvider
+        theme={{
+          token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+          components: {
+            DatePicker: {
+              activeBg: "rgb(var(--neeto-ui-white))",
+              activeBorderColor: "rgb(var(--neeto-ui-primary-500))",
+              addonBg: "rgb(var(--neeto-ui-gray-100))",
+              cellActiveWithRangeBg: "rgb(var(--neeto-ui-primary-100))",
+              cellBgDisabled: "rgb(var(--neeto-ui-gray-100))",
+              cellHoverBg: "rgb(var(--neeto-ui-gray-200))",
+              cellHoverWithRangeBg: "rgb(var(--neeto-ui-primary-100))",
+              cellRangeBorderColor: "rgb(var(--neeto-ui-primary-100))",
+              hoverBg: "rgb(var(--neeto-ui-white))",
+              hoverBorderColor: "rgb(var(--neeto-ui-primary-500))",
+
+              // Global overrides
+              colorBgContainer: "rgb(var(--neeto-ui-white))",
+              colorBgElevated: "rgb(var(--neeto-ui-white))",
+              colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+              colorPrimaryBorder: "rgb(var(--neeto-ui-primary-100))",
+              colorPrimaryHover: "rgb(var(--neeto-ui-primary-600))",
+              colorBorder: "rgb(var(--neeto-ui-gray-300))",
+              colorError: "rgb(var(--neeto-ui-error-500))",
+              colorErrorHover: "rgb(var(--neeto-ui-error-600))",
+              colorErrorOutline: "rgb(var(--neeto-ui-error-100))",
+              colorFillAlter: "rgb(var(--neeto-ui-gray-100))",
+              colorIcon: "rgb(var(--neeto-ui-gray-700))",
+              colorIconHover: "rgb(var(--neeto-ui-gray-800))",
+              colorLink: "rgb(var(--neeto-ui-primary-500))",
+              colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
+              colorLinkActive: "rgb(var(--neeto-ui-primary-800))",
+              colorSplit: "rgb(var(--neeto-ui-gray-200))",
+              colorText: "rgb(var(--neeto-ui-gray-800))",
+              colorTextDescription: "rgb(var(--neeto-ui-gray-700))",
+              colorTextDisabled: "rgb(var(--neeto-ui-gray-500))",
+              colorTextHeading: "rgb(var(--neeto-ui-black))",
+              colorTextLightSolid: "rgb(var(--neeto-ui-white))",
+              colorTextPlaceholder: "rgb(var(--neeto-ui-gray-400))",
+              colorTextQuaternary: "rgb(var(--neeto-ui-gray-400))",
+              colorWarning: "rgb(var(--neeto-ui-warning-500))",
+              colorWarningHover: "rgb(var(--neeto-ui-warning-600))",
+              colorWarningOutline: "rgb(var(--neeto-ui-warning-100))",
+              controlItemBgActive: "rgb(var(--neeto-ui-pastel-purple))",
+              controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
+              controlOutline: "rgb(var(--neeto-ui-gray-300))",
+
+              // Sizes
+              cellHeight: 32,
+              padding: 22,
+            },
+          },
+        }}
+      >
+        <div className="neeto-ui-input__wrapper">
+          {label && (
+            <Label required={required} {...labelProps}>
+              {label}
+            </Label>
+          )}
+          <Component
+            data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            defaultValue={convertToDayjsObjects(defaultValue)}
+            format={format}
+            picker={picker}
+            ref={datePickerRef}
+            showTime={showTime && { format: timeFormat }}
+            value={convertToDayjsObjects(value)}
+            className={classnames("neeto-ui-date-input", [className], {
+              "neeto-ui-date-input--small": size === "small",
+              "neeto-ui-date-input--medium": size === "medium",
+              "neeto-ui-date-input--large": size === "large",
+              "neeto-ui-date-input--disabled": otherProps.disabled,
+              "neeto-ui-date-input--naked": nakedInput,
+              "neeto-ui-date-input--error": !!error,
+            })}
+            popupClassName={classnames("neeto-ui-date-time-dropdown", [
+              dropdownClassName, // Will be removed in the next major version
+              popupClassName,
+            ])}
+            onChange={handleOnChange}
+            onOk={onOk}
+            {...otherProps}
+            nextIcon={<IconOverride icon={Right} />}
+            prevIcon={<IconOverride icon={Left} />}
+            suffixIcon={<Calendar size={16} />}
+            superNextIcon={<IconOverride icon={Right} />}
+            superPrevIcon={<IconOverride icon={Left} />}
+          />
+          {!!error && (
+            <p
+              className="neeto-ui-input__error"
+              data-cy={`${hyphenize(label)}-input-error`}
+              id={errorId}
+            >
+              {error}
+            </p>
+          )}
+        </div>
+      </ConfigProvider>
     );
   }
 );

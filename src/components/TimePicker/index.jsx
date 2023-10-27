@@ -1,13 +1,19 @@
 import React, { forwardRef } from "react";
 
 import { useId } from "@reach/auto-id";
+import { ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
 import { useSyncedRef } from "hooks";
-import { convertToDayjsObjects, noop, hyphenize } from "utils";
+import {
+  convertToDayjsObjects,
+  noop,
+  hyphenize,
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+} from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
 
@@ -96,50 +102,73 @@ const TimePicker = forwardRef(
     );
 
     return (
-      <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
-        <Component
-          disabled={disabled}
-          format={format}
-          hourStep={interval.hourStep}
-          minuteStep={interval.minuteStep}
-          ref={timePickerRef}
-          secondStep={interval.secondStep}
-          className={classnames("neeto-ui-time-input", [className], {
-            "neeto-ui-time-input--small": size === "small",
-            "neeto-ui-time-input--medium": size === "medium",
-            "neeto-ui-time-input--large": size === "large",
-            "neeto-ui-time-input--disabled": disabled,
-            "neeto-ui-time-input--naked": nakedInput,
-            "neeto-ui-time-input--error": error,
-          })}
-          popupClassName={classnames("neeto-ui-date-time-dropdown", [
-            dropdownClassName, // Will be removed in the next major version
-            popupClassName,
-          ])}
-          onChange={handleOnChange}
-          {...otherProps}
-          defaultValue={convertToDayjsObjects(defaultValue)}
-          mode={undefined}
-          panelRender={panelRender}
-          picker="time"
-          suffixIcon={<Clock size={16} />}
-          value={convertToDayjsObjects(value)}
-        />
-        {!!error && (
-          <p
-            className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
-            id={errorId}
-          >
-            {error}
-          </p>
-        )}
-      </div>
+      <ConfigProvider
+        theme={{
+          token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+          components: {
+            DatePicker: {
+              // Global overrides
+              colorBgElevated: "rgb(var(--neeto-ui-white))",
+              colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+              colorPrimaryHover: "rgb(var(--neeto-ui-primary-600))",
+              colorBorder: "rgb(var(--neeto-ui-gray-300))",
+              colorLink: "rgb(var(--neeto-ui-primary-500))",
+              colorLinkHover: "rgb(var(--neeto-ui-primary-600))",
+              colorText: "rgb(var(--neeto-ui-gray-800))",
+              colorTextDisabled: "rgb(var(--neeto-ui-gray-500))",
+              colorTextPlaceholder: "rgb(var(--neeto-ui-gray-400))",
+              controlItemBgActive: "rgb(var(--neeto-ui-primary-800))",
+              controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
+              controlOutline: "rgb(var(--neeto-ui-gray-300))",
+            },
+          },
+        }}
+      >
+        <div className="neeto-ui-input__wrapper">
+          {label && (
+            <Label required={required} {...labelProps}>
+              {label}
+            </Label>
+          )}
+          <Component
+            disabled={disabled}
+            format={format}
+            hourStep={interval.hourStep}
+            minuteStep={interval.minuteStep}
+            ref={timePickerRef}
+            secondStep={interval.secondStep}
+            className={classnames("neeto-ui-time-input", [className], {
+              "neeto-ui-time-input--small": size === "small",
+              "neeto-ui-time-input--medium": size === "medium",
+              "neeto-ui-time-input--large": size === "large",
+              "neeto-ui-time-input--disabled": disabled,
+              "neeto-ui-time-input--naked": nakedInput,
+              "neeto-ui-time-input--error": error,
+            })}
+            popupClassName={classnames("neeto-ui-date-time-dropdown", [
+              dropdownClassName, // Will be removed in the next major version
+              popupClassName,
+            ])}
+            onChange={handleOnChange}
+            {...otherProps}
+            defaultValue={convertToDayjsObjects(defaultValue)}
+            mode={undefined}
+            panelRender={panelRender}
+            picker="time"
+            suffixIcon={<Clock size={16} />}
+            value={convertToDayjsObjects(value)}
+          />
+          {!!error && (
+            <p
+              className="neeto-ui-input__error"
+              data-cy={`${hyphenize(label)}-input-error`}
+              id={errorId}
+            >
+              {error}
+            </p>
+          )}
+        </div>
+      </ConfigProvider>
     );
   }
 );

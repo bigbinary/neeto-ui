@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState, useEffect } from "react";
 
-import { Table as AntTable } from "antd";
+import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
@@ -8,7 +8,7 @@ import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
 import { useTimeout } from "hooks";
-import { noop } from "utils";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import {
@@ -206,57 +206,122 @@ const Table = ({
     return pageSizeOptions;
   };
 
+  const neetoUITextSM = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--neeto-ui-text-sm"
+    ),
+    10
+  );
+
+  const neetoUIFontBold = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--neeto-ui-font-bold"
+    ),
+    10
+  );
+
   const renderTable = () => (
-    <AntTable
-      bordered={bordered}
-      columns={sortedColumnsWithAlignment}
-      components={componentOverrides}
-      dataSource={rowData}
-      loading={loading}
-      locale={locale}
-      ref={tableRef}
-      rowKey="id"
-      rowSelection={rowSelectionProps}
-      showSorterTooltip={false}
-      pagination={{
-        hideOnSinglePage: true,
-        ...paginationProps,
-        showSizeChanger: false,
-        total: totalCount ?? 0,
-        current: currentPageNumber,
-        defaultPageSize: shouldDynamicallyRenderRowSize
-          ? calculateRowsPerPage()
-          : defaultPageSize,
-        pageSizeOptions: calculatePageSizeOptions(),
-        onChange: handlePageChange,
-        itemRender,
+    <ConfigProvider
+      theme={{
+        token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+        components: {
+          Pagination: {
+            itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
+            itemActiveBgDisabled: "rgb(var(--neeto-ui-gray-100))",
+            itemActiveColorDisabled: "rgb(var(--neeto-ui-gray-300))",
+            itemBg: "rgb(var(--neeto-ui-white))",
+            itemInputBg: "rgb(var(--neeto-ui-white))",
+            itemLinkBg: "rgb(var(--neeto-ui-white))",
+
+            // Global overrides
+            colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
+            colorPrimary: "rgb(var(--neeto-ui-white))",
+            colorPrimaryHover: "rgb(var(--neeto-ui-white))",
+            colorBgTextHover: "rgb(var(--neeto-ui-gray-200))",
+            borderRadius: 6,
+          },
+          Table: {
+            headerBorderRadius: 0,
+            bodySortBg: "rgb(var(--neeto-ui-gray-100))",
+            borderColor: "rgb(var(--neeto-ui-gray-200))",
+            expandIconBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
+            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            footerBg: "rgb(var(--neeto-ui-gray-100))",
+            footerColor: "rgb(var(--neeto-ui-gray-800))",
+            headerBg: "rgb(var(--neeto-ui-gray-100))",
+            headerColor: "rgb(var(--neeto-ui-gray-700))",
+            headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSplitColor: "rgb(var(--neeto-ui-gray-200))",
+            rowExpandedBg: "rgb(var(--neeto-ui-gray-200))",
+            rowHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            rowSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+            rowSelectedHoverBg: "rgb(var(--neeto-ui-pastel-purple))",
+            stickyScrollBarBg: "rgb(var(--neeto-ui-primary-100))",
+
+            // Global overrides
+            colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+            fontSize: neetoUITextSM,
+            fontWeightStrong: neetoUIFontBold,
+            paddingContentVerticalLG: 10,
+          },
+        },
       }}
-      rowClassName={classnames(
-        "neeto-ui-table--row",
-        { "neeto-ui-table--row_hover": allowRowClick },
-        [className]
-      )}
-      scroll={{
-        x: "max-content",
-        y: calculateTableContainerHeight(),
-        ...scroll,
-      }}
-      onChange={(pagination, _, sorter) => {
-        preserveTableStateInQuery && handleTableChange(pagination, sorter);
-      }}
-      onHeaderRow={() => ({
-        ref: headerRef,
-        className: classnames("neeto-ui-table__header", {
-          "neeto-ui-table-reorderable": enableColumnReorder,
-        }),
-        id: "neeto-ui-table__header",
-      })}
-      onRow={(record, rowIndex) => ({
-        onClick: event =>
-          allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
-      })}
-      {...otherProps}
-    />
+    >
+      <AntTable
+        bordered={bordered}
+        columns={sortedColumnsWithAlignment}
+        components={componentOverrides}
+        dataSource={rowData}
+        loading={loading}
+        locale={locale}
+        ref={tableRef}
+        rowKey="id"
+        rowSelection={rowSelectionProps}
+        showSorterTooltip={false}
+        pagination={{
+          hideOnSinglePage: true,
+          ...paginationProps,
+          showSizeChanger: false,
+          total: totalCount ?? 0,
+          current: currentPageNumber,
+          defaultPageSize: shouldDynamicallyRenderRowSize
+            ? calculateRowsPerPage()
+            : defaultPageSize,
+          pageSizeOptions: calculatePageSizeOptions(),
+          onChange: handlePageChange,
+          itemRender,
+        }}
+        rowClassName={classnames(
+          "neeto-ui-table--row",
+          { "neeto-ui-table--row_hover": allowRowClick },
+          [className]
+        )}
+        scroll={{
+          x: "max-content",
+          y: calculateTableContainerHeight(),
+          ...scroll,
+        }}
+        onChange={(pagination, _, sorter) => {
+          preserveTableStateInQuery && handleTableChange(pagination, sorter);
+        }}
+        onHeaderRow={() => ({
+          ref: headerRef,
+          className: classnames("neeto-ui-table__header", {
+            "neeto-ui-table-reorderable": enableColumnReorder,
+          }),
+          id: "neeto-ui-table__header",
+        })}
+        onRow={(record, rowIndex) => ({
+          onClick: event =>
+            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+        })}
+        {...otherProps}
+      />
+    </ConfigProvider>
   );
 
   useEffect(() => {

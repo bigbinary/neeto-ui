@@ -116,7 +116,6 @@
 
 .neeto-ui-time-input {
   color: rgb(var(--neeto-ui-gray-800));
-  background-color: rgb(var(--neeto-ui-white));
   border: thin solid rgb(var(--neeto-ui-gray-400));
   border-radius: var(--neeto-ui-rounded);
   line-height: 1.2;
@@ -373,7 +372,6 @@
     /* Elevation/S */
     box-shadow: var(--neeto-ui-shadow-lg);
     border-radius: var(--neeto-ui-rounded-xl);
-    background-color: rgb(var(--neeto-ui-white));
   }
 
   .ant-picker-panel-container .ant-picker-panel {
@@ -429,11 +427,6 @@
     color: rgb(var(--neeto-ui-gray-800));
   }
 
-  .ant-picker-date-panel .ant-picker-body {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
   .ant-picker-date-panel {
     width: 320px;
   }
@@ -453,9 +446,6 @@
   }
 
   .ant-picker-cell .ant-picker-cell-inner {
-    min-width: 32px;
-    height: 32px;
-    line-height: 32px;
     user-select: none;
     font-size: 14px;
     border-radius: 3px;
