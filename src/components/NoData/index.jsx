@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
 import Button from "components/Button";
+import Typography from "components/Typography";
 
 import { renderImage } from "./utils";
 
@@ -36,22 +37,34 @@ const NoData = ({
         <div className="neeto-ui-no-data__image">{renderImage(image)}</div>
       ) : null}
       {title && (
-        <h3 className="neeto-ui-no-data__title" data-cy="no-data-title">
+        <Typography
+          className="neeto-ui-text-center"
+          data-cy="no-data-title"
+          lineHeight="none"
+          style="h3"
+        >
           {title}
-        </h3>
+        </Typography>
       )}
       {description && (
-        <p
-          className="neeto-ui-no-data__description"
+        <Typography
+          className="neeto-ui-text-center neeto-ui-no-data__description"
           data-cy="no-data-description"
+          lineHeight="normal"
+          style="body2"
         >
           {description}
-        </p>
+        </Typography>
       )}
       {helpText && (
-        <p className="neeto-ui-no-data__help-text" data-cy="no-data-help-text">
+        <Typography
+          className="neeto-ui-text-center neeto-ui-no-data__help-text"
+          data-cy="no-data-help-text"
+          lineHeight="normal"
+          style="body2"
+        >
           {helpText}
-        </p>
+        </Typography>
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
         <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
@@ -59,9 +72,9 @@ const NoData = ({
             <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
           )}
           {showButtonSeparator && (
-            <p className="neeto-ui-no-data__btn-separator">
+            <Typography lineHeight="normal" style="body2">
               {buttonSeparatorText}
-            </p>
+            </Typography>
           )}
           {hasSecondaryButtonProps && (
             <Button
