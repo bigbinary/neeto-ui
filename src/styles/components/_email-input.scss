@@ -1,35 +1,48 @@
-.neeto-ui-email-input {
-  .neeto-ui-label {
-    margin-bottom: 8px;
-  }
-  .neeto-ui-email-input__title-row {
-    gap: 8px;
-    justify-content: space-between;
+:root {
+  // Label Wrapper
+  --#{$prefix}multi-email-input-label-wrapper-gap: 8px;
+  --#{$prefix}multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
+  --#{$prefix}multi-email-input-counter-line-height: 1;
+  --#{$prefix}multi-email-input-counter-margin-bottom: 8px;
+
+  // Prefx & Suffix
+  --#{$prefix}multi-email-input-prefix-suffix-icon-size: 16px;
+  --#{$prefix}multi-email-input-prefix-margin-left: 12px;
+}
+
+.neeto-ui-email-input__wrapper {
+  .neeto-ui-email-input__label-wrapper {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--#{$prefix}multi-email-input-label-wrapper-gap);
+
     .neeto-ui-label {
       flex-grow: 1;
       overflow-wrap: break-word;
     }
 
     .neeto-ui-email-input__counter {
-      color: rgb(var(--neeto-ui-gray-700));
-      line-height: 1;
-      margin-bottom: 8px;
+      color: var(--#{$prefix}multi-email-input-counter-color);
+      line-height: var(--#{$prefix}multi-email-input-counter-line-height);
+      margin-bottom: var(--#{$prefix}multi-email-input-counter-margin-bottom);
       margin-left: auto;
     }
   }
 
   .neeto-ui-email-input__prefix {
-    margin-left: 12px;
+    margin-left: var(--#{$prefix}multi-email-input-prefix-margin-left);
+
     svg {
-      width: 16px;
-      height: 16px;
+      width: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
+      height: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
     }
   }
+
   .neeto-ui-email-input__suffix {
     svg {
-      width: 16px;
-      height: 16px;
+      width: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
+      height: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
     }
   }
 }
