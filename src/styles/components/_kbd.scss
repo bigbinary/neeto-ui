@@ -1,12 +1,24 @@
+:root {
+  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}kbd-font-size);
+  --#{$prefix}kbd-font-weight: var(--neeto-ui-font-semibold);
+  --#{$prefix}kbd-color: rgb(var(--neeto-ui-gray-700));
+  --#{$prefix}kbd-bg-color: rgb(var(--neeto-ui-gray-200));
+  --#{$prefix}kbd-border-radius: var(--neeto-ui-rounded);
+  --#{$prefix}kbd-min-width: 24px;
+  --#{$prefix}kbd-height: 24px;
+  --#{$prefix}kbd-padding: 4px;
+}
+
 .neeto-ui-kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  height: 24px;
-  min-width: 24px;
-  color: rgb(var(--neeto-ui-gray-700));
-  font-weight: var(--neeto-ui-font-semibold);
-  background-color: rgb(var(--neeto-ui-gray-200));
-  border-radius: var(--neeto-ui-rounded);
+  padding: var(--#{$prefix}kbd-padding);
+  height: var(--#{$prefix}kbd-height);
+  min-width: var(--#{$prefix}kbd-min-width);
+  color: var(--#{$prefix}kbd-color);
+  font-size: var(--#{$prefix}kbd-font-size);
+  font-weight: var(--#{$prefix}kbd-font-weight);
+  background-color: var(--#{$prefix}kbd-bg-color);
+  border-radius: var(--#{$prefix}kbd-border-radius);
 }

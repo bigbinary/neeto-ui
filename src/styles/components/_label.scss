@@ -1,0 +1,20 @@
+:root {
+  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}label-font-size);
+  --#{$prefix}label-font-weight: var(--neeto-ui-font-medium);
+  --#{$prefix}label-line-height: 1;
+  --#{$prefix}label-color: rgb(var(--neeto-ui-black));
+
+  // Icon
+  --#{$prefix}label-icon-margin-left: 4px;
+}
+
+.neeto-ui-label {
+  font-size: var(--#{$prefix}label-font-size);
+  line-height: var(--#{$prefix}label-line-height);
+  color: var(--#{$prefix}label-color);
+  font-weight: var(--#{$prefix}label-font-weight);
+
+  &__help-icon-wrap {
+    margin-left: var(--#{$prefix}label-icon-margin-left);
+  }
+}
