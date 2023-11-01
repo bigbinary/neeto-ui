@@ -1,19 +1,45 @@
+:root {
+  // Description
+  --#{$prefix}no-data-description-margin-top: 0.5rem;
+
+  // Help Text
+  --#{$prefix}no-data-help-text-margin-top: 0.5rem;
+
+  // Image
+  --#{$prefix}no-data-image-margin-bottom: 1.5rem;
+  --#{$prefix}no-data-image-max-width: 11.5rem;
+  --#{$prefix}no-data-image-height: auto;
+
+  // Action Block
+  --#{$prefix}no-data-action-block-margin-top: 1.5rem;
+  --#{$prefix}no-data-action-block-gap: 0.5rem;
+}
+
 .neeto-ui-no-data {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .neeto-ui-no-data__image {
-    margin-bottom: 1.5rem;
+  &__description {
+    margin-top: var(--#{$prefix}no-data-description-margin-top);
+  }
+
+  &__help-text {
+    margin-top: var(--#{$prefix}no-data-help-text-margin-top);
+  }
+
+  &__image {
+    margin-bottom: var(--#{$prefix}no-data-image-margin-bottom);
 
     img {
-      max-width: 11.5rem;
-      height: auto;
+      max-width: var(--#{$prefix}no-data-image-max-width);
+      height: var(--#{$prefix}no-data-image-height);
     }
   }
 
-  .neeto-ui-no-data__action-block {
-    margin-top: 1.5rem;
+  &__action-block {
+    margin-top: var(--#{$prefix}no-data-action-block-margin-top);
+    gap: var(--#{$prefix}no-data-action-block-gap);
   }
 }
