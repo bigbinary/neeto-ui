@@ -46,7 +46,7 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    transition: var(--neeto-ui-transition);
+    transition: all 0.3s;
     background-color: var(--#{$prefix}pane-backdrop-bg-color);
     backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
@@ -58,7 +58,7 @@
     background-color: var(--#{$prefix}pane-wrapper-bg-color);
     backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
     transform: translateX(100%);
-    transition: var(--neeto-ui-transition);
+    transition: all 0.3s;
 
     &--small {
       --neeto-ui-pane-wrapper-width: 480px;
@@ -137,7 +137,7 @@
   }
   .neeto-ui-pane__wrapper {
     transform: translateX(0);
-    backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
+    backdrop-filter: blur(0px)
   }
 }
 .neeto-ui-pane-exit {
