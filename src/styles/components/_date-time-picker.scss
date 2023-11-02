@@ -227,7 +227,7 @@
   }
 
   .ant-picker-time-panel-column
-    > li.ant-picker-time-panel-cell:not(.ant-picker-time-panel-cell-selected)
+    > li.ant-picker-time-panel-cell:not(.ant-picker-time-panel-cell-selected, .ant-picker-time-panel-cell-disabled)
     .ant-picker-time-panel-cell-inner {
     color: rgb(var(--neeto-ui-gray-800));
 

@@ -270,3 +270,17 @@ export const EVENT_BUBBLING_CAPTURING = `const EventBubblingAndCapturing = () =>
   );
 };`;
 
+export const range = (start, end) => {
+  const result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+
+  return result;
+};
+
+export const disabledDateTime = () => ({
+  disabledHours: () => range(0, 24).splice(4, 20),
+  disabledMinutes: () => range(30, 60),
+  disabledSeconds: () => [55, 56],
+});
