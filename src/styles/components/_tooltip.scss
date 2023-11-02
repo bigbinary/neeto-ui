@@ -1,20 +1,49 @@
-// tippy core
+:root {
+  --#{$prefix}tooltip-max-width: calc(100vw - 10px);
+  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}tooltip-font-size);
+  --#{$prefix}tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
+  --#{$prefix}tooltip-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}tooltip-border-radius: var(--neeto-ui-rounded);
+  --#{$prefix}tooltip-line-height: 1.4;
+  --#{$prefix}tooltip-word-wrap: break-word;
+  --#{$prefix}tooltip-padding-x: 8px;
+  --#{$prefix}tooltip-padding-y: 4px;
+  --#{$prefix}tooltip-z-index: 1;
+
+  // Arrow
+  --#{$prefix}tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
+
+  // Light theme
+  --#{$prefix}tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
+  --#{$prefix}tooltip-light-theme-box-shadow: var(--neeto-ui-shadow-sm);
+  --#{$prefix}tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
+
+  // Light theme arrow
+  --#{$prefix}tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}tooltip-light-theme-arrow-border-color: rgb(var(--neeto-ui-white));
+
+}
+
 .tippy-box[data-animation="fade"][data-state="hidden"] {
   opacity: 0;
 }
+
 [data-tippy-root] {
-  max-width: calc(100vw - 10px);
+  max-width: var(--#{$prefix}tooltip-max-width);
 }
+
 .tippy-box {
   position: relative;
-  background-color: rgb(var(--neeto-ui-gray-800));
-  color: rgb(var(--neeto-ui-white));
-  border-radius: var(--neeto-ui-rounded);
-  font-size: var(--neeto-ui-text-xs);
-  line-height: 1.4;
+  background-color: var(--#{$prefix}tooltip-bg-color);
+  color: var(--#{$prefix}tooltip-color);
+  border-radius: var(--#{$prefix}tooltip-border-radius);
+  font-size: var(--#{$prefix}tooltip-font-size);
+  line-height: var(--#{$prefix}tooltip-line-height);
   outline: 0;
   transition-property: transform, visibility, opacity;
-  word-wrap: break-word;
+  word-wrap: var(--#{$prefix}tooltip-word-wrap);
+
   h1,
   h2,
   h3,
@@ -30,9 +59,11 @@
     color: inherit;
   }
 }
+
 .tippy-box[data-placement^="top"] > .tippy-arrow {
   bottom: 0;
 }
+
 .tippy-box[data-placement^="top"] > .tippy-arrow:before {
   bottom: -7px;
   left: 0;
@@ -40,9 +71,11 @@
   border-top-color: initial;
   transform-origin: center top;
 }
+
 .tippy-box[data-placement^="bottom"] > .tippy-arrow {
   top: 0;
 }
+
 .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
   top: -7px;
   left: 0;
@@ -50,117 +83,140 @@
   border-bottom-color: initial;
   transform-origin: center bottom;
 }
+
 .tippy-box[data-placement^="left"] > .tippy-arrow {
   right: 0;
 }
+
 .tippy-box[data-placement^="left"] > .tippy-arrow:before {
   border-width: 8px 0 8px 8px;
   border-left-color: initial;
   right: -7px;
   transform-origin: center left;
 }
+
 .tippy-box[data-placement^="right"] > .tippy-arrow {
   left: 0;
 }
+
 .tippy-box[data-placement^="right"] > .tippy-arrow:before {
   left: -7px;
   border-width: 8px 8px 8px 0;
   border-right-color: initial;
   transform-origin: center right;
 }
+
 .tippy-box[data-inertia][data-state="visible"] {
   transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
 }
+
 .tippy-arrow {
   width: 16px;
   height: 16px;
-  color: rgb(var(--neeto-ui-gray-800));
+  color: var(--#{$prefix}tooltip-arrow-color);
 }
+
 .tippy-arrow:before {
   content: "";
   position: absolute;
   border-color: transparent;
   border-style: solid;
 }
+
 .tippy-content {
   position: relative;
-  padding: 4px 8px;
-  z-index: 1;
+  padding: var(--#{$prefix}tooltip-padding-y) var(--#{$prefix}tooltip-padding-x);
+  z-index: var(--#{$prefix}tooltip-z-index);
 }
 
-// svg arrow
+// SVG arrow
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow {
   bottom: 0;
 }
+
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow > svg {
   top: 16px;
   transform: rotate(180deg);
 }
+
 .tippy-box[data-placement^="bottom"] > .tippy-svg-arrow {
   top: 0;
 }
+
 .tippy-box[data-placement^="bottom"] > .tippy-svg-arrow > svg {
   bottom: 16px;
 }
+
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow {
   right: 0;
 }
+
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow > svg {
   transform: rotate(90deg);
   top: calc(50% - 3px);
   left: 13px;
 }
+
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow {
   left: 0;
 }
+
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow > svg {
   transform: rotate(-90deg);
   top: calc(50% - 3px);
   right: 13px;
 }
+
 .tippy-svg-arrow {
   width: 17px;
   height: 17px;
-  fill: rgb(var(--neeto-ui-gray-800));
+  fill: var(--#{$prefix}tooltip-arrow-color);
   text-align: initial;
 }
+
 .tippy-svg-arrow,
 .tippy-svg-arrow > svg {
   position: absolute;
 }
 
 .tippy-svg-arrow > svg > path {
-  fill: rgb(var(--neeto-ui-gray-800));
+  fill: var(--#{$prefix}tooltip-arrow-color);
 }
 
-// light theme
+// Light theme
 .tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path {
-  fill: rgb(var(--neeto-ui-white));
+  fill: var(--#{$prefix}tooltip-light-theme-arrow-color);
 }
+
 .tippy-box[data-theme~="light"] {
-  color: rgb(var(--neeto-ui-gray-800));
-  box-shadow: var(--neeto-ui-shadow-sm);
-  background-color: rgb(var(--neeto-ui-white));
+  color: var(--#{$prefix}tooltip-light-theme-color);
+  box-shadow: var(--#{$prefix}tooltip-light-theme-box-shadow);
+  background-color: var(--#{$prefix}tooltip-light-theme-bg-color);
 }
+
 .tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
-  border-top-color: rgb(var(--neeto-ui-white));
+  border-top-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
 }
-.tippy-box[data-theme~="light"][data-placement^="bottom"]
-  > .tippy-arrow:before {
-  border-bottom-color: rgb(var(--neeto-ui-white));
+
+.tippy-box[data-theme~="light"][data-placement^="bottom"] > .tippy-arrow:before {
+  border-bottom-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
 }
+
 .tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
-  border-left-color: rgb(var(--neeto-ui-white));
+  border-left-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
 }
+
 .tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
-  border-right-color: rgb(var(--neeto-ui-white));
+  border-right-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
 }
+
 .tippy-box[data-theme~="light"] > .tippy-backdrop {
-  background-color: rgb(var(--neeto-ui-white));
+  background-color: var(--#{$prefix}tooltip-light-theme-backdrop-bg-color);
 }
+
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow {
-  fill: rgb(var(--neeto-ui-white));
+  fill: var(--#{$prefix}tooltip-light-theme-arrow-color);
 }
