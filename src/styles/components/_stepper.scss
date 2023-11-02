@@ -5,6 +5,22 @@
     gap: 8px;
   }
 
+  &-item__wrapper {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        width: 48px;
+        height: 2px;
+        background-color: rgb(var(--neeto-ui-primary-500));
+        border-radius: var(--neeto-ui-rounded-full);
+        margin-left: 8px;
+      }
+    }
+  }
+
   &-item {
     display: flex;
     align-items: center;
@@ -93,22 +109,6 @@
       .neeto-ui-stepper-item__label {
         color: rgb(var(--neeto-ui-black));
         font-weight: var(--neeto-ui-font-semibold);
-      }
-    }
-  }
-
-  &-item__wrapper {
-    display: flex;
-    align-items: center;
-
-    &:not(:last-child) {
-      &::after {
-        content: "";
-        width: 48px;
-        height: 2px;
-        background-color: rgb(var(--neeto-ui-primary-500));
-        border-radius: var(--neeto-ui-rounded-full);
-        margin-left: 8px;
       }
     }
   }
