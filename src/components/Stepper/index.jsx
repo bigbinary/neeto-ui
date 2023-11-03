@@ -6,12 +6,15 @@ import PropTypes from "prop-types";
 const Stepper = ({ steps, activeIndex, setActiveIndex }) => (
   <div className="neeto-ui-stepper__wrapper">
     {steps.map(({ id, label }, index) => (
-      <div className="neeto-ui-stepper-item__wrapper" key={id}>
+      <div
+        key={id}
+        className={classnames("neeto-ui-stepper-item__wrapper", {
+          "neeto-ui-stepper-item__wrapper--active": index === activeIndex,
+          "neeto-ui-stepper-item__wrapper--done": index < activeIndex,
+        })}
+      >
         <button
-          className={classnames("neeto-ui-stepper-item", {
-            "neeto-ui-stepper-item--active": index === activeIndex,
-            "neeto-ui-stepper-item--done": index < activeIndex,
-          })}
+          className="neeto-ui-stepper-item"
           onClick={() => setActiveIndex(index)}
         >
           <span className="neeto-ui-stepper-item__stage">
