@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Footer = ({ children, className }) => (
   <div
     className={classnames(
-      "neeto-ui-pane__footer neeto-ui-shadow-m neeto-ui-flex neeto-ui-items-center",
+      "neeto-ui-pane__footer neeto-ui-flex neeto-ui-items-center",
       className
     )}
   >

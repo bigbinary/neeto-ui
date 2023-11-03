@@ -1,7 +1,44 @@
+:root {
+  --#{$prefix}pane-spacing: 24px;
+
+  // Backdrop
+  --#{$prefix}pane-backdrop-z-index: var(--neeto-ui-modal-z-index);
+  --#{$prefix}pane-backdrop-bg-color: #1b1f23dd;
+  --#{$prefix}pane-backdrop-backdrop-filter: blur(2px);
+
+  // Wrapper
+  --#{$prefix}pane-wrapper-width: auto;
+  --#{$prefix}pane-wrapper-max-width: 100%;
+  --#{$prefix}pane-wrapper-height: auto;
+  --#{$prefix}pane-wrapper-bg-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}pane-wrapper-backdrop-filter: blur(2px);
+
+  // Close Button
+  --#{$prefix}pane-close-btn-top: var(--#{$prefix}pane-spacing);
+  --#{$prefix}pane-close-btn-right: var(--#{$prefix}pane-spacing);
+
+  // Header
+  --#{$prefix}pane-header-padding-y: var(--#{$prefix}pane-spacing);
+  --#{$prefix}pane-header-padding-right: 64px;
+  --#{$prefix}pane-header-padding-left: var(--#{$prefix}pane-spacing);
+
+  // Body
+  --#{$prefix}pane-body-padding-x: var(--#{$prefix}pane-spacing);
+  --#{$prefix}pane-body-padding-y: 0px;
+  --#{$prefix}pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}pane-body-font-size);
+
+  // Footer
+  --#{$prefix}pane-footer-padding: var(--#{$prefix}pane-spacing);
+  --#{$prefix}pane-footer-bg-color: rgb(var(--neeto-ui-white));
+  --#{$prefix}pane-footer-min-height: var(--neeto-ui-pane-footer-height);
+  --#{$prefix}pane-footer-box-shadow: var(--neeto-ui-shadow-m);
+}
+
 .neeto-ui-pane {
   &__backdrop {
     position: fixed;
-    z-index: 99998;
+    z-index: var(--#{$prefix}pane-backdrop-z-index);
     left: 0;
     top: 0;
     width: 100vw;
@@ -10,26 +47,25 @@
     overflow-y: auto;
 
     transition: all 0.3s;
-    background-color: #1b1f23dd;
-    backdrop-filter: blur(2px);
+    background-color: var(--#{$prefix}pane-backdrop-bg-color);
+    backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
   &__wrapper {
     overflow: hidden;
-    max-width: 100%;
-    height: 100vh;
-    background-color: rgb(var(--neeto-ui-white));
-
+    width: var(--#{$prefix}pane-wrapper-width);
+    max-width: var(--#{$prefix}pane-wrapper-max-width);
+    height: var(--#{$prefix}pane-wrapper-height);
+    background-color: var(--#{$prefix}pane-wrapper-bg-color);
+    backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
     transform: translateX(100%);
-    backdrop-filter: blur(2px);
-
     transition: all 0.3s;
 
     &--small {
-      width: 480px;
+      --neeto-ui-pane-wrapper-width: 480px;
     }
 
     &--large {
-      width: 50vw;
+      --neeto-ui-pane-wrapper-width: 50vw;
     }
 
     @include viewport(tab-min) {
@@ -40,44 +76,43 @@
       width: 100%;
     }
   }
+
   &__close {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: var(--#{$prefix}pane-close-btn-top);
+    right: var(--#{$prefix}pane-close-btn-right);
   }
 
   &__header {
     width: 100%;
-    padding: 24px;
-    padding-right: 60px;
+    padding: var(--#{$prefix}pane-header-padding-y) var(--#{$prefix}pane-header-padding-right) var(--#{$prefix}pane-header-padding-y) var(--#{$prefix}pane-header-padding-left);
   }
 
   &__body {
     width: 100%;
-    height: calc(100vh - var(--neeto-ui-pane-header-height));
-    padding: 0 24px;
-    font-size: var(--neeto-ui-text-sm);
+    height: var(--#{$prefix}pane-body-height);
+    padding: var(--#{$prefix}pane-body-padding-y) var(--#{$prefix}pane-body-padding-x);
+    font-size: var(--#{$prefix}pane-body-font-size);
     overflow-y: auto;
 
     &.neeto-ui-pane__body--has-footer {
-      height: calc(
+      --neeto-ui-pane-body-height: calc(
         100vh - var(--neeto-ui-pane-header-height) -
-          var(--neeto-ui-pane-footer-height)
-      );
+          var(--neeto-ui-pane-footer-height));
     }
   }
 
   &__footer {
     width: 100%;
-    padding: 24px;
-    background-color: rgb(var(--neeto-ui-white));
-    min-height: var(--neeto-ui-pane-footer-height);
+    padding: var(--#{$prefix}pane-footer-padding);
+    background-color: var(--#{$prefix}pane-footer-bg-color);
+    min-height: var(--#{$prefix}pane-footer-min-height);
+    box-shadow: var(--#{$prefix}pane-footer-box-shadow);
 
     &.neeto-ui-pane__footer__absolute {
       width: 100%;
       position: absolute;
       left: 0;
-      bottom: 0;
     }
   }
 }
@@ -87,41 +122,41 @@
 .neeto-ui-pane-enter {
   &.neeto-ui-pane__backdrop {
     opacity: 0;
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
   .neeto-ui-pane__wrapper {
     transform: translateX(100%);
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
   }
 }
 .neeto-ui-pane-enter-active,
 .neeto-ui-pane-enter-done {
   &.neeto-ui-pane__backdrop {
     opacity: 1;
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
   .neeto-ui-pane__wrapper {
     transform: translateX(0);
-    backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px)
   }
 }
 .neeto-ui-pane-exit {
   &.neeto-ui-pane__backdrop {
     opacity: 1;
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
   .neeto-ui-pane__wrapper {
     transform: translateX(100%);
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
   }
 }
 .neeto-ui-pane-exit-active {
   &.neeto-ui-pane__backdrop {
     opacity: 0;
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-backdrop-backdrop-filter);
   }
   .neeto-ui-pane__wrapper {
     transform: translateX(100%);
-    backdrop-filter: blur(2px);
+    backdrop-filter: var(--#{$prefix}pane-wrapper-backdrop-filter);
   }
 }
