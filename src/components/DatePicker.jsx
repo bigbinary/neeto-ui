@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { useId } from "@reach/auto-id";
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
-import { Left, Right, Calendar } from "neetoicons";
+import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { useSyncedRef } from "hooks";
@@ -97,6 +97,9 @@ const DatePicker = forwardRef(
           suffixIcon={<Calendar size={16} />}
           superNextIcon={<IconOverride icon={Right} />}
           superPrevIcon={<IconOverride icon={Left} />}
+          allowClear={{
+            clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+          }}
         />
         {!!error && (
           <p
