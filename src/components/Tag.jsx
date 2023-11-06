@@ -84,6 +84,7 @@ const Tag = forwardRef(
         {onClose && (
           <span
             className="neeto-ui-tag__close"
+            data-cy="tag-close-icon"
             data-testid="tag-close-button"
             onClick={!disabled ? onClose : null}
           >
