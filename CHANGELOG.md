@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.23 - 2023-11-06
+
+Added: data-cy attributes to Select, DatePicker and Tags
+
 ## 5.2.21 - 2023-10-27
 
 Added: `TimePickerInput` component
@@ -676,7 +680,6 @@ Changes documentations to sentence case from title casing.
 - Updated font weight of Accordion title to `500`
 - Updated `border-radius` to `8px`
 #### Avatar
-
 - Updated background colors to new pastel colors
 - Updated square variant `border-radius` to `5px`
 
