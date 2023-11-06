@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState, useEffect } from "react";
 
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
+import { modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc } from "ramda";
@@ -19,7 +20,7 @@ import {
 import useReorderColumns from "./hooks/useReorderColumns";
 import useResizableColumns from "./hooks/useResizableColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getQueryParams, modifyBy, snakeToCamelCase } from "./utils";
+import { getQueryParams } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
