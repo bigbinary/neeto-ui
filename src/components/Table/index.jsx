@@ -35,7 +35,7 @@ const Table = ({
   className = "",
   columnData = [],
   currentPageNumber = 1,
-  defaultPageSize = 30,
+  defaultPageSize = 25,
   handlePageChange = noop,
   loading = false,
   onRowClick,
@@ -51,12 +51,13 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
-  preserveTableStateInQuery = false,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+
+  const isDefaultPageChangeHandler = handlePageChange === noop;
 
   const headerRef = useRef();
 
@@ -116,7 +117,7 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = preserveTableStateInQuery
+  const sortedColumns = isDefaultPageChangeHandler
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
@@ -242,7 +243,8 @@ const Table = ({
         ...scroll,
       }}
       onChange={(pagination, _, sorter) => {
-        preserveTableStateInQuery && handleTableChange(pagination, sorter);
+        // If `handlePageChange` callback is not provided, component will handle pagination and sorting query parameters.
+        isDefaultPageChangeHandler && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
         ref: headerRef,
@@ -360,10 +362,6 @@ Table.propTypes = {
    * Make sure to pass `id` in `rowData` for this to work.
    */
   rowSelection: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  /**
-   * This prop decides whether the pagination and sorting parameters should be added to the URL query parameters.
-   */
-  preserveTableStateInQuery: PropTypes.bool,
 };
 
 export default Table;

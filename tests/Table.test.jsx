@@ -175,14 +175,11 @@ describe("Table", () => {
   });
 
   it("should set pagination URL query parameters when page is changed", () => {
-    const handlePageChange = jest.fn();
     render(
       <BrowserRouter>
         <Table
-          preserveTableStateInQuery
           columnData={columnData}
           defaultPageSize={2}
-          handlePageChange={handlePageChange}
           rowData={rowData}
           shouldDynamicallyRenderRowSize={false}
         />
@@ -193,14 +190,12 @@ describe("Table", () => {
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({ page: "2", page_size: "2" });
-    expect(handlePageChange).toBeCalledTimes(1);
   });
 
   it("should set sorting URL query parameters when column title is clicked", () => {
     render(
       <BrowserRouter>
         <Table
-          preserveTableStateInQuery
           columnData={columnData}
           defaultPageSize={2}
           rowData={rowData}
