@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.24 - 2023-11-07
+
+Added: data-cy attribute to TextArea
+
 ## 5.2.23 - 2023-11-06
 
 Added: data-cy attributes to Select, DatePicker and Tags
@@ -682,7 +686,6 @@ Changes documentations to sentence case from title casing.
 #### Avatar
 - Updated background colors to new pastel colors
 - Updated square variant `border-radius` to `5px`
-
 #### Table
 
 - Updated column title color to `grey 600`
