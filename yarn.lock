@@ -1771,10 +1771,10 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.70.tgz#c52f0e45b5bcebc7118c93dabc2cb7a35cce6138"
   integrity sha512-fQS3X8+DKTbqAsehMKfQ3KK5CxWcBZpDl7D0GuumRYUAZLnUGBEwxAKoINXxdZs6Unb1KKsi7a50jNHFLGoRCg==
 
-"@bigbinary/neeto-commons-frontend@^2.0.87":
-  version "2.0.87"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.0.87.tgz#77815150db120f7c67d0ecb26e19757f188ef062"
-  integrity sha512-QXPB4zntnJFIZsF62/OSpN5zvpTvPJbScWnCfnceHBy03JQuelJbJXozivFDkEdD+vL5PwRQj16Lk4+J7byv5A==
+"@bigbinary/neeto-commons-frontend@^2.1.32":
+  version "2.1.35"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.1.35.tgz#42d261d2b37876c716595e57ca6c0513e470961e"
+  integrity sha512-S+D4JetniYZh0ADrI6KoknBSbuEeHQIdPZv7qAHCQyZMboytrWsr4GkIniH3L437VWiJGSIB/ZDIsT5XTRTDrQ==
 
 "@bigbinary/neeto-icons@^1.9.22":
   version "1.17.4"
@@ -3916,6 +3916,17 @@
     "@types/babel__template" "*"
     "@types/babel__traverse" "*"
 
+"@types/babel__core@^7.1.12":
+  version "7.20.4"
+  resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.4.tgz#26a87347e6c6f753b3668398e34496d6d9ac6ac0"
+  integrity sha512-mLnSC22IC4vcWiuObSRjrLd9XcBTGf59vUSoq2jkQDJ/QQ8PMI9rSuzE+aEV8karUMbskw07bKYoUJCKTUaygg==
+  dependencies:
+    "@babel/parser" "^7.20.7"
+    "@babel/types" "^7.20.7"
+    "@types/babel__generator" "*"
+    "@types/babel__template" "*"
+    "@types/babel__traverse" "*"
+
 "@types/babel__generator@*":
   version "7.6.4"
   resolved "https://registry.yarnpkg.com/@types/babel__generator/-/babel__generator-7.6.4.tgz#1f20ce4c5b1990b37900b63f050182d28c2439b7"
@@ -5244,6 +5255,16 @@ babel-plugin-polyfill-regenerator@^0.4.1:
   integrity sha512-NtQGmyQDXjQqQ+IzRkBVwEOz9lQ4zxAQZgoAYEtU9dJjnl1Oc98qnN7jcp+bE7O7aYzVpavXE3/VKXNzUbh7aw==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.3"
+
+babel-plugin-preval@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-preval/-/babel-plugin-preval-5.1.0.tgz#6efb89bf6b97af592cd1400c6df49c0e9e6ab027"
+  integrity sha512-G5R+xmo5LS41A4UyZjOjV0mp9AvkuCyUOAJ6TOv/jTZS+VKh7L7HUDRcCSOb0YCM/u0fFarh7Diz0wjY8rFNFg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@types/babel__core" "^7.1.12"
+    babel-plugin-macros "^3.0.1"
+    require-from-string "^2.0.2"
 
 babel-plugin-react-docgen@^4.2.1:
   version "4.2.1"
@@ -14004,6 +14025,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==
+
+require-from-string@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
+  integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
 requireindex@~1.1.0:
   version "1.1.0"
