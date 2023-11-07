@@ -3,7 +3,9 @@ import localeData from "dayjs/plugin/localeData";
 import utc from "dayjs/plugin/utc";
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
-import { complement, equals } from "ramda";
+import { preprocessForSerialization } from "neetocist";
+import { parse, stringify } from "qs";
+import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
 
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
@@ -139,4 +141,24 @@ export const ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES = {
   controlItemBgActive: "rgb(var(--neeto-ui-primary-100))",
   controlItemBgActiveHover: "rgb(var(--neeto-ui-pastel-purple))",
   controlItemBgHover: "rgb(var(--neeto-ui-gray-100))",
+};
+
+export const getQueryParams = (options = {}) =>
+  parse(location.search, { ignoreQueryPrefix: true, ...options });
+
+export const buildUrl = (route, params) => {
+  const placeHolders = [];
+  toPairs(params).forEach(([key, value]) => {
+    if (!route.includes(`:${key}`)) return;
+    placeHolders.push(key);
+    route = route.replace(`:${key}`, encodeURIComponent(value));
+  });
+
+  const queryParams = pipe(
+    omit(placeHolders),
+    preprocessForSerialization,
+    stringify
+  )(params);
+
+  return isEmpty(queryParams) ? route : `${route}?${queryParams}`;
 };

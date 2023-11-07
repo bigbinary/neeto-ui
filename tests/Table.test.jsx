@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
 import { Table } from "components";
-import { getQueryParams } from "components/Table/utils";
+import { getQueryParams } from "utils";
 
 const columnData = [
   {

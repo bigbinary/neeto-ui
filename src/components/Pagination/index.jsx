@@ -5,6 +5,7 @@ import { Left, Right } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { DOTS } from "./constants";
+import usePaginationQueryParams from "./hooks/usePaginationQueryParams";
 import { usePagination } from "./utils";
 
 const Pagination = ({
@@ -21,17 +22,40 @@ const Pagination = ({
     siblingCount,
     pageSize,
   });
+  const { handlePaginationQueryParamsChange } = usePaginationQueryParams();
 
   if (pageNo === 0 || paginationRange.length < 2) {
     return null;
   }
 
   const onNext = () => {
-    !isLastPage && navigate(pageNo + 1);
+    if (isLastPage) return;
+
+    const nextPage = pageNo + 1;
+    if (navigate) {
+      navigate(nextPage);
+    } else {
+      handlePaginationQueryParamsChange(nextPage, pageSize);
+    }
   };
 
   const onPrevious = () => {
-    !isFirstPage && navigate(pageNo - 1);
+    if (isFirstPage) return;
+
+    const previousPage = pageNo - 1;
+    if (navigate) {
+      navigate(previousPage);
+    } else {
+      handlePaginationQueryParamsChange(previousPage, pageSize);
+    }
+  };
+
+  const onPaginationItemClick = page => {
+    if (navigate) {
+      navigate(page);
+    } else {
+      handlePaginationQueryParamsChange(page, pageSize);
+    }
   };
 
   const lastPage = paginationRange[paginationRange.length - 1];
@@ -83,7 +107,7 @@ const Pagination = ({
               className={classnames("neeto-ui-pagination__item", {
                 active: isActive,
               })}
-              onClick={() => navigate(pageNumber)}
+              onClick={() => onPaginationItemClick(pageNumber)}
             >
               <a>{pageNumber}</a>
             </li>
@@ -118,7 +142,7 @@ Pagination.propTypes = {
    */
   pageNo: PropTypes.number,
   /**
-   * To specify the callback which will be invoked when the navigate buttons are clicked.
+   * To specify the callback which will be invoked when the navigate buttons are clicked. If not provided, the component will handle pagination query parameters.
    */
   navigate: PropTypes.func,
   /**

@@ -9,7 +9,7 @@ import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
 import { useTimeout } from "hooks";
-import { noop } from "utils";
+import { noop, getQueryParams } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import {
@@ -20,7 +20,6 @@ import {
 import useReorderColumns from "./hooks/useReorderColumns";
 import useResizableColumns from "./hooks/useResizableColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getQueryParams } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -74,12 +73,12 @@ const Table = ({
 
   const tableRef = useCallback(
     table => {
-      if (fixedHeight) {
-        if (table !== null) {
-          resizeObserver.current.observe(table?.parentNode);
-        } else {
-          if (resizeObserver.current) resizeObserver.current.disconnect();
-        }
+      if (!fixedHeight) return;
+
+      if (table !== null) {
+        resizeObserver.current.observe(table?.parentNode);
+      } else {
+        if (resizeObserver.current) resizeObserver.current.disconnect();
       }
     },
     [resizeObserver.current, fixedHeight]
@@ -201,21 +200,15 @@ const Table = ({
       ? calculateRowsPerPage()
       : defaultPageSize;
 
-    const pageSizeOptions = [...Array(5).keys()].map(
-      i => (i + 1) * rowsPerPage
-    );
-
-    return pageSizeOptions;
+    return [...Array(5).keys()].map(i => (i + 1) * rowsPerPage);
   };
 
   const renderTable = () => (
     <AntTable
-      bordered={bordered}
+      {...{ bordered, loading, locale }}
       columns={sortedColumnsWithAlignment}
       components={componentOverrides}
       dataSource={rowData}
-      loading={loading}
-      locale={locale}
       ref={tableRef}
       rowKey="id"
       rowSelection={rowSelectionProps}
