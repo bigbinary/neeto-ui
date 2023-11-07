@@ -80,6 +80,7 @@ const Textarea = forwardRef(
           )}
         </div>
         <div
+          data-cy={`${hyphenize(label)}-text-input`}
           className={classnames("neeto-ui-input", "neeto-ui-input--textarea", {
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,
