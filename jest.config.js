@@ -14,9 +14,13 @@ module.exports = () => ({
       __dirname,
       "node_modules/@bigbinary/neeto-icons/dist/app-icons.js"
     ),
-    "neetoicons": path.resolve(
+    neetoicons: path.resolve(
       __dirname,
       "node_modules/@bigbinary/neeto-icons/dist/neeto-icons.js"
+    ),
+    "^(@bigbinary/neeto-cist|neetocist)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-cist/index.cjs.js"
     ),
     "^atoms/(.*)$": path.resolve(__dirname, "src/atoms", "$1"),
     "^components/(.*)$": path.resolve(__dirname, "src/components", "$1"),
