@@ -88,13 +88,37 @@ describe("Pagination", () => {
     expect(dots).toBeNull();
   });
 
-  it("should set query params when any page number is clicked provided that navigate fn is not passed", () => {
+  it("should set page query params when any page number is clicked, provided that navigate fn is not passed", () => {
     const { getByText } = render(
       <BrowserRouter>
         <Pagination {...{ count, pageSize }} pageNo={currentPage} />
       </BrowserRouter>
     );
     userEvent.click(getByText("4"));
+    const queryParams = getQueryParams();
+    expect(queryParams).toEqual({ page: "4", page_size: "100" });
+  });
+
+  it("should set previouse page param when the left navigate button is clicked, provided that navigate fn is not passed", () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <Pagination {...{ count, pageSize }} pageNo={currentPage} />
+      </BrowserRouter>
+    );
+    userEvent.click(getByTestId("left-navigate-button"));
+
+    const queryParams = getQueryParams();
+    expect(queryParams).toEqual({ page: "2", page_size: "100" });
+  });
+
+  it("should set next page param when the right navigate button is clicked, provided that navigate fn is not passed", () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <Pagination {...{ count, pageSize }} pageNo={currentPage} />
+      </BrowserRouter>
+    );
+    userEvent.click(getByTestId("right-navigate-button"));
+
     const queryParams = getQueryParams();
     expect(queryParams).toEqual({ page: "4", page_size: "100" });
   });
