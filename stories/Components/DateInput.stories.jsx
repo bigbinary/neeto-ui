@@ -5,6 +5,8 @@ import dayjs from "dayjs";
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
 
+import { disabledDateTime } from "./constants";
+
 import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
 import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
@@ -189,7 +191,14 @@ DateRangePickerWithPresetRanges.parameters = {
 };
 
 const ShowTime = args => (
-  <DatePicker {...args} showTime label="Date" picker="date" type="date" />
+  <DatePicker
+    {...args}
+    showTime
+    disabledTime={disabledDateTime}
+    label="Date"
+    picker="date"
+    type="date"
+  />
 );
 ShowTime.storyName = "Show time";
 

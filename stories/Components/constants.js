@@ -1,3 +1,5 @@
+import { range } from "ramda";
+
 export const PALETTE_PICKER_CODE = `const OnlyPalettePicker = () => {
   const [color, setColor] = useState("#4558F9");
 
@@ -270,3 +272,8 @@ export const EVENT_BUBBLING_CAPTURING = `const EventBubblingAndCapturing = () =>
   );
 };`;
 
+export const disabledDateTime = () => ({
+  disabledHours: () => range(0, 24).splice(4, 20),
+  disabledMinutes: () => range(30, 60),
+  disabledSeconds: () => [55, 56],
+});
