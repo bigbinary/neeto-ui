@@ -300,7 +300,7 @@ Table.propTypes = {
    */
   defaultPageSize: PropTypes.number,
   /**
-   * Handles page change events. Accepts a callback with `page` and `pageSize` as parameters.
+   * Handles page change events. Accepts a callback with `page` and `pageSize` as parameters. If not provided, component will handle page query parameters.
    *
    * `handlePageChange={(page, pageSize) => {}}`
    */
