@@ -333,7 +333,7 @@ export type SelectProps = {
   totalOptionsCount?: number;
   isAsyncLoadOptionEnabled?: boolean;
   isMulti?: boolean;
-  addButtonLabel: string;
+  addButtonLabel?: string;
 };
 
 export type SpinnerProps = {
