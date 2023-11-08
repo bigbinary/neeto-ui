@@ -10,6 +10,7 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
+import Button from "components/Button";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
@@ -44,12 +45,17 @@ const CustomInput = props => {
   const { selectProps } = props;
 
   return (
-    <components.Input
-      {...props}
-      data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
-      data-testid={selectProps && selectProps["data-testid"]}
-      maxLength={selectProps && selectProps.maxLength}
-    />
+    <>
+      <Button size="small" style="secondary">
+        Add
+      </Button>
+      <components.Input
+        {...props}
+        data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
+        data-testid={selectProps && selectProps["data-testid"]}
+        maxLength={selectProps && selectProps.maxLength}
+      />
+    </>
   );
 };
 
