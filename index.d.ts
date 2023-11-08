@@ -340,9 +340,9 @@ export type SpinnerProps = {
 };
 
 export type StepperProps = {
-  steps: { id: string; label: string }[];
-  activeIndex: string;
-  setActiveIndex: (index: string) => void;
+  steps: { id: string | number; label: string }[];
+  activeIndex: number;
+  setActiveIndex: (index: number) => void;
 };
 
 export type SwitchProps = {
