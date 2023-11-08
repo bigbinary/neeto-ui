@@ -332,6 +332,8 @@ export type SelectProps = {
   fetchMore?: () => void;
   totalOptionsCount?: number;
   isAsyncLoadOptionEnabled?: boolean;
+  isMulti?: boolean;
+  addButtonLabel: string;
 };
 
 export type SpinnerProps = {

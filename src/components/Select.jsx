@@ -48,7 +48,7 @@ const CustomInput = props => {
     <>
       {selectProps.isMulti && (
         <Button
-          label={selectProps.addButtonLable || "Add"}
+          label={selectProps.addButtonLabel || "Add"}
           size="small"
           style="secondary"
           type="button"
@@ -404,6 +404,10 @@ Select.propTypes = {
    * To specify if async options loading is enabled
    */
   isAsyncLoadOptionEnabled: PropTypes.bool,
+  /**
+   * To specify the label for the button shown in multi select
+   */
+  addButtonLabel: PropTypes.string,
 };
 
 export default Select;
