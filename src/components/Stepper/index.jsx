@@ -7,6 +7,7 @@ const Stepper = ({ steps, activeIndex, setActiveIndex }) => (
   <div className="neeto-ui-stepper__wrapper">
     {steps.map(({ id, label }, index) => (
       <div
+        data-testid={`stepper-item-${id}`}
         key={id}
         className={classnames("neeto-ui-stepper-item__wrapper", {
           "neeto-ui-stepper-item__wrapper--active": index === activeIndex,
@@ -34,7 +35,7 @@ Stepper.propTypes = {
    * To provide the array of steps
    */
   steps: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string, label: PropTypes.string })
+    PropTypes.shape({ id: PropTypes.number, label: PropTypes.string })
   ),
   /**
    * To specify the active step
