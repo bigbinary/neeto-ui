@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.27 - 2023-11-08
+
+Changed: Updated instances of `@reach/autoid` with React `useId`
+
 ## 5.2.26 - 2023-11-08
 
 - Changed: pagination button size from `32px` to `28px`.
@@ -699,7 +703,6 @@ Changes documentations to sentence case from title casing.
 - Updated pagination buttons to match neetoUI button style
 - Updated active pagination item styles to `neeto-ui-primary`
 - Replaced default icons with neetoIcons
-
 #### PageLoader
 
 - Updated neeto logo
