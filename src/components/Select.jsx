@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
@@ -10,6 +9,7 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
+import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";

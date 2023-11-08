@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import Label from "./Label";

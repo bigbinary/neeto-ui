@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Check, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
+import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import Label from "./Label";
