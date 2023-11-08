@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
+import { useId } from "hooks";
 import { convertToDayjsObjects, hyphenize } from "utils";
 
 dayjs.extend(customParseFormat);
@@ -25,8 +26,7 @@ const TimePickerInput = ({
   error = "",
   ...otherProps
 }) => {
-  const _id = useId();
-  const id = otherProps.id || _id;
+  const id = useId(otherProps.id);
   const errorId = `error_${id}`;
 
   const handleChange = value => {

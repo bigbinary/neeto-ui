@@ -1,10 +1,10 @@
 import React, { useState, forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { replace } from "ramda";
 
+import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
