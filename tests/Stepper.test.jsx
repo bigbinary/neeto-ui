@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { Stepper } from "components";
 
@@ -36,7 +37,7 @@ const testDoneClass = id => {
 
 const testActiveClassOnClick = step => {
   const { id, label } = step;
-  fireEvent.click(screen.getByText(label));
+  userEvent.click(screen.getByText(label));
   testActiveClass(id);
 };
 
