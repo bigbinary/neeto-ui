@@ -167,19 +167,23 @@ const Table = ({
 
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
-      return <Button className="" icon={Left} style="text" />;
+      return <Button className="" icon={Left} size="small" style="text" />;
     }
 
     if (type === "next") {
-      return <Button className="" icon={Right} style="text" />;
+      return <Button className="" icon={Right} size="small" style="text" />;
     }
 
     if (type === "jump-prev") {
-      return <Button className="" icon={MenuHorizontal} style="text" />;
+      return (
+        <Button className="" icon={MenuHorizontal} size="small" style="text" />
+      );
     }
 
     if (type === "jump-next") {
-      return <Button className="" icon={MenuHorizontal} style="text" />;
+      return (
+        <Button className="" icon={MenuHorizontal} size="small" style="text" />
+      );
     }
 
     return originalElement;
