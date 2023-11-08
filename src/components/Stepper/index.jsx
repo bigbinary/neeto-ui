@@ -35,7 +35,7 @@ Stepper.propTypes = {
    * To provide the array of steps
    */
   steps: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number, label: PropTypes.string })
+    PropTypes.shape({ id: PropTypes.string, label: PropTypes.string })
   ),
   /**
    * To specify the active step
