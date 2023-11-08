@@ -46,9 +46,14 @@ const CustomInput = props => {
 
   return (
     <>
-      <Button size="small" style="secondary">
-        Add
-      </Button>
+      {selectProps.isMulti && (
+        <Button
+          label={selectProps.addButtonLable || "Add"}
+          size="small"
+          style="secondary"
+          type="button"
+        />
+      )}
       <components.Input
         {...props}
         data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
