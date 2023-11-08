@@ -339,6 +339,12 @@ export type SpinnerProps = {
   className?: string;
 };
 
+export type StepperProps = {
+  steps: { id: string; label: string }[];
+  activeIndex: string;
+  setActiveIndex: (index: string) => void;
+};
+
 export type SwitchProps = {
   label?: string;
   required?: boolean;
@@ -765,6 +771,7 @@ export const Label: React.FC<LabelProps>;
 export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
+export const Stepper: React.FC<StepperProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
 export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;
