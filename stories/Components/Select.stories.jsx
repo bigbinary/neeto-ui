@@ -105,7 +105,7 @@ const MultiSelect = Template.bind({});
 MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
   label: "Multi Select",
-  addButtonLabel: "Add more",
+  addButtonLabel: "Add",
   storyName: "Multi Select",
   isMulti: true,
   defaultValue: [

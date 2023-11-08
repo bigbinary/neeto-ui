@@ -9,7 +9,6 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
-import Button from "components/Button";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
@@ -19,6 +18,21 @@ import Spinner from "./Spinner";
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
 const STRATEGIES = { default: "default", fixed: "fixed" };
+
+const Control = ({ children, ...props }) => {
+  const { selectProps } = props;
+
+  return (
+    <components.Control {...props}>
+      {selectProps.isMulti && (
+        <span className="neeto-ui-btn neeto-ui-btn--style-primary neeto-ui-react-select__add-btn">
+          {selectProps.addButtonLabel || "Add"}
+        </span>
+      )}{" "}
+      {children}
+    </components.Control>
+  );
+};
 
 const DropdownIndicator = props => (
   <components.DropdownIndicator
@@ -45,22 +59,12 @@ const CustomInput = props => {
   const { selectProps } = props;
 
   return (
-    <>
-      {selectProps.isMulti && (
-        <Button
-          label={selectProps.addButtonLabel || "Add"}
-          size="small"
-          style="secondary"
-          type="button"
-        />
-      )}
-      <components.Input
-        {...props}
-        data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
-        data-testid={selectProps && selectProps["data-testid"]}
-        maxLength={selectProps && selectProps.maxLength}
-      />
-    </>
+    <components.Input
+      {...props}
+      data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
+      data-testid={selectProps && selectProps["data-testid"]}
+      maxLength={selectProps && selectProps.maxLength}
+    />
   );
 };
 
@@ -262,6 +266,7 @@ const Select = ({
       <Parent
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
+        closeMenuOnSelect={!otherProps.isMulti}
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         inputId={inputId}
@@ -285,6 +290,7 @@ const Select = ({
           ValueContainer,
           MenuList,
           SingleValue,
+          Control,
           ...componentOverrides,
         }}
         {...portalProps}
