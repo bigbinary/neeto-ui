@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.28 - 2023-11-08
+
+Added: *Stepper* component.
+
 ## 5.2.27 - 2023-11-08
 
 Changed: Updated instances of `@reach/autoid` with React `useId`
@@ -704,7 +708,6 @@ Changes documentations to sentence case from title casing.
 - Updated active pagination item styles to `neeto-ui-primary`
 - Replaced default icons with neetoIcons
 #### PageLoader
-
 - Updated neeto logo
 
 #### Color picker
