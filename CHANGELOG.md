@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.26 - 2023-11-08
+
+- Changed: pagination button size from `32px` to `28px`.
+- Changed: reduced pagination margin top and margin bottom values to make it more compact.
+
 ## 5.2.24 - 2023-11-07
 
 Added: data-cy attribute to TextArea
@@ -687,7 +692,6 @@ Changes documentations to sentence case from title casing.
 - Updated background colors to new pastel colors
 - Updated square variant `border-radius` to `5px`
 #### Table
-
 - Updated column title color to `grey 600`
 - Updated column title font weight to 700
 - Reduced cell padding from `12px 16px` to `8px 16px` to accommodate more number of row in a given height
