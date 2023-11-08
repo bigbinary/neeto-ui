@@ -1,3 +1,4 @@
+import useId from "./useId";
 import useNavPrompt from "./useNavPrompt";
 import useOnClickOutside from "./useOnClickOutside";
 import useOverlay from "./useOverlay";
@@ -6,6 +7,7 @@ import useSyncedRef from "./useSyncedRef";
 import useTimeout from "./useTimeout";
 
 export {
+  useId,
   useOnClickOutside,
   useOverlay,
   useOverlayManager,

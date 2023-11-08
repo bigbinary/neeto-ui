@@ -1,10 +1,10 @@
 import React from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
+import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 const Item = ({
