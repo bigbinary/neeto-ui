@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { Stepper } from "components";
 
 const STEPS = [
-  { id: "1", label: "Connect your calendar" },
-  { id: "2", label: "Connect conferencing app" },
-  { id: "3", label: "Set availability" },
+  { id: 1, label: "Connect your calendar" },
+  { id: 2, label: "Connect conferencing app" },
+  { id: 3, label: "Set availability" },
 ];
-
-const getActiveClass = () =>
-  document.querySelector(".neeto-ui-stepper-item__wrapper--active");
-
-const getDoneClass = () =>
-  document.querySelector(".neeto-ui-stepper-item__wrapper--done");
 
 const ControlledStepper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,33 +22,48 @@ const ControlledStepper = () => {
   );
 };
 
+const testActiveClass = id => {
+  expect(screen.getByTestId(`stepper-item-${id}`)).toHaveClass(
+    "neeto-ui-stepper-item__wrapper--active"
+  );
+};
+
+const testDoneClass = id => {
+  expect(screen.getByTestId(`stepper-item-${id}`)).toHaveClass(
+    "neeto-ui-stepper-item__wrapper--done"
+  );
+};
+
+const testActiveClassOnClick = step => {
+  const { id, label } = step;
+  fireEvent.click(screen.getByText(label));
+  testActiveClass(id);
+};
+
 describe("Stepper", () => {
   it("should render without error", () => {
-    const { getByText } = render(<ControlledStepper />);
+    render(<ControlledStepper />);
     STEPS.forEach(({ id, label }) => {
-      expect(getByText(id)).toBeInTheDocument();
-      expect(getByText(label)).toBeInTheDocument();
+      expect(screen.getByText(id)).toBeInTheDocument();
+      expect(screen.getByText(label)).toBeInTheDocument();
     });
   });
 
   it("should have the first element active by default", () => {
     render(<ControlledStepper />);
-    expect(getActiveClass()).toHaveTextContent(STEPS[0].label);
+    testActiveClass(STEPS[0].id);
   });
 
   it("should have the second element active on clicking the second element", () => {
-    const { getByText } = render(<ControlledStepper />);
-    userEvent.click(getByText(STEPS[1].id));
-    expect(getActiveClass()).toHaveTextContent(STEPS[1].label);
-    expect(getDoneClass()).toHaveTextContent(STEPS[0].label);
+    render(<ControlledStepper />);
+    testActiveClassOnClick(STEPS[1]);
+    testDoneClass(STEPS[0].id);
   });
 
   it("should have the third element active on clicking the third element and then to second element", () => {
-    const { getByText } = render(<ControlledStepper />);
-    userEvent.click(getByText(STEPS[2].id));
-    expect(getActiveClass()).toHaveTextContent(STEPS[2].label);
-    userEvent.click(getByText(STEPS[1].id));
-    expect(getActiveClass()).toHaveTextContent(STEPS[1].label);
-    expect(getDoneClass()).toHaveTextContent(STEPS[0].label);
+    render(<ControlledStepper />);
+    testActiveClassOnClick(STEPS[2]);
+    testActiveClassOnClick(STEPS[1]);
+    testDoneClass(STEPS[0].id);
   });
 });
