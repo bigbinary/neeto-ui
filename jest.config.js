@@ -18,7 +18,7 @@ module.exports = () => ({
       __dirname,
       "node_modules/@bigbinary/neeto-icons/dist/neeto-icons.js"
     ),
-    "^(@bigbinary/neeto-cist|neetocist)$": path.resolve(
+    neetocist: path.resolve(
       __dirname,
       "node_modules/@bigbinary/neeto-cist/index.cjs.js"
     ),

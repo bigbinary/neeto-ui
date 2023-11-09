@@ -2,14 +2,14 @@ import React, { useCallback, useRef, useState, useEffect } from "react";
 
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
-import { modifyBy, snakeToCamelCase } from "neetocist";
+import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
-import { useTimeout } from "hooks";
-import { noop, getQueryParams } from "utils";
+import { useQueryParams, useTimeout } from "hooks";
+import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import {
@@ -57,7 +57,7 @@ const Table = ({
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
 
-  const isDefaultPageChangeHandler = handlePageChange === noop;
+  const isPageChangeHandlerDefault = handlePageChange === noop;
 
   const headerRef = useRef();
 
@@ -75,10 +75,11 @@ const Table = ({
     table => {
       if (!fixedHeight) return;
 
+      const observer = resizeObserver.current;
       if (table !== null) {
-        resizeObserver.current.observe(table?.parentNode);
+        observer.observe(table?.parentNode);
       } else {
-        if (resizeObserver.current) resizeObserver.current.disconnect();
+        if (observer) observer.disconnect();
       }
     },
     [resizeObserver.current, fixedHeight]
@@ -108,7 +109,7 @@ const Table = ({
 
   const { handleTableChange } = useTableSort();
 
-  const queryParams = getQueryParams();
+  const queryParams = useQueryParams();
 
   const setSortFromURL = columnData =>
     modifyBy(
@@ -117,7 +118,7 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = isDefaultPageChangeHandler
+  const sortedColumns = isPageChangeHandlerDefault
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
@@ -200,7 +201,7 @@ const Table = ({
       ? calculateRowsPerPage()
       : defaultPageSize;
 
-    return [...Array(5).keys()].map(i => (i + 1) * rowsPerPage);
+    return dynamicArray(5, index => (index + 1) * rowsPerPage);
   };
 
   const renderTable = () => (
@@ -237,8 +238,7 @@ const Table = ({
         ...scroll,
       }}
       onChange={(pagination, _, sorter) => {
-        // If `handlePageChange` callback is not provided, component will handle pagination and sorting query parameters.
-        isDefaultPageChangeHandler && handleTableChange(pagination, sorter);
+        isPageChangeHandlerDefault && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
         ref: headerRef,
