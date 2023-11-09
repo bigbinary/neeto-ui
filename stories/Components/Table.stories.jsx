@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
+import { BrowserRouter } from "react-router-dom";
 
 import { Tooltip, Tag, Avatar, Button, Dropdown } from "components";
 import NeetoTable from "components/Table";
@@ -17,24 +18,16 @@ const metadata = {
   component: NeetoTable,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: TableDocs,
-      },
-    },
+    docs: { description: { component: TableDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
   argTypes: {
-    rowData: {
-      control: false,
-    },
+    rowData: { control: false },
 
-    columnData: {
-      control: false,
-    },
+    columnData: { control: false },
     handlePageChange: {
       table: {
         type: { summary: "func" },
@@ -51,18 +44,8 @@ const metadata = {
 };
 
 const fixedColumnWidths = [
-  {
-    title: "ID",
-    dataIndex: "id",
-    key: "id",
-    width: "25%",
-  },
-  {
-    title: "guid",
-    dataIndex: "guid",
-    key: "guid",
-    width: "25%",
-  },
+  { title: "ID", dataIndex: "id", key: "id", width: "25%" },
+  { title: "guid", dataIndex: "guid", key: "guid", width: "25%" },
   {
     title: "First Name",
     dataIndex: "first_name",
@@ -147,9 +130,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "guid",
     key: "guid",
     width: 150,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "First Name",
@@ -178,9 +159,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "email",
     key: "email",
     width: 200,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "IP Address",
@@ -199,9 +178,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "credit_card_number",
     key: "credit_card_number",
     width: 250,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "Shirt Size",
@@ -242,11 +219,17 @@ const getColumns = (fixed = false) => [
   },
 ];
 
+const Table = props => (
+  <BrowserRouter>
+    <NeetoTable {...props} />
+  </BrowserRouter>
+);
+
 const Default = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
@@ -256,21 +239,13 @@ const Default = args => {
   );
 };
 
-Default.args = {
-  defaultPageSize: 10,
-};
+Default.args = { defaultPageSize: 10 };
 
-Default.parameters = {
-  docs: {
-    source: {
-      code: getTableSource(),
-    },
-  },
-};
+Default.parameters = { docs: { source: { code: getTableSource() } } };
 
 const TableWithSpecifiedHorizontalScrolling = args => (
   <div className="mx-auto mt-10 w-2/3">
-    <NeetoTable
+    <Table
       columnData={fixedColumnWidths}
       rowData={SIMPLE_TABLE_DATA}
       scroll={{ x: "100%" }}
@@ -284,7 +259,7 @@ TableWithSpecifiedHorizontalScrolling.storyName =
 
 const TableWithTooltipsOnHeader = args => (
   <div className="mx-auto mt-10 w-2/3">
-    <NeetoTable
+    <Table
       columnData={headerTooltips}
       rowData={SIMPLE_TABLE_DATA}
       scroll={{ x: "100%" }}
@@ -299,7 +274,7 @@ const TableWithFixedRightColumn = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns(true)}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
@@ -323,14 +298,13 @@ const TableWithSelectedRowKeys = ({
   }, [selectedRowKeysProp]);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
-      {...args}
+      {...{ ...args, selectedRowKeys }}
       rowSelection
-      selectedRowKeys={selectedRowKeys}
       onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
     />
   );
@@ -350,7 +324,7 @@ TableWithSelectedRowKeys.parameters = {
 };
 
 const TableWithSorting = args => (
-  <NeetoTable
+  <Table
     columnData={getColumns()}
     currentPageNumber={1}
     rowData={TABLE_DATA}
@@ -361,22 +335,18 @@ TableWithSorting.storyName = "Table with sorting";
 TableWithSorting.parameters = {
   docs: {
     description: { story: TableSortingDocs },
-    source: {
-      code: null,
-    },
+    source: { code: null },
   },
 };
 
-TableWithSorting.args = {
-  defaultPageSize: 10,
-};
+TableWithSorting.args = { defaultPageSize: 10 };
 
 const TableWithFixedHeight = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
     <div style={{ height: "600px" }}>
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -395,9 +365,7 @@ TableWithFixedHeight.args = {
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
-    source: {
-      code: getTableSource("fixedHeight"),
-    },
+    source: { code: getTableSource("fixedHeight") },
   },
 };
 
@@ -406,7 +374,7 @@ const TableWithoutCheckbox = args => {
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -417,16 +385,12 @@ const TableWithoutCheckbox = args => {
   );
 };
 TableWithoutCheckbox.storyName = "Table without checkbox";
-TableWithoutCheckbox.args = {
-  rowSelection: false,
-};
+TableWithoutCheckbox.args = { rowSelection: false };
 
 TableWithoutCheckbox.parameters = {
   docs: {
     description: { story: TableWithoutCheckboxDocs },
-    source: {
-      code: getTableSource("rowSelection={false}"),
-    },
+    source: { code: getTableSource("rowSelection={false}") },
   },
 };
 
@@ -441,7 +405,7 @@ const TableWithDynamicData = args => {
         label="Slice the data"
         onClick={() => setSlice(slice === 20 ? 5 : 20)}
       />
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -452,16 +416,14 @@ const TableWithDynamicData = args => {
   );
 };
 TableWithDynamicData.storyName = "Table with dynamic data";
-TableWithDynamicData.args = {
-  defaultPageSize: 10,
-};
+TableWithDynamicData.args = { defaultPageSize: 10 };
 
 const TableWithResizableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         enableColumnResize
         columnData={getColumns()}
         currentPageNumber={pageNumber}
@@ -474,16 +436,14 @@ const TableWithResizableColumns = args => {
   );
 };
 TableWithResizableColumns.storyName = "Table with resizable columns";
-TableWithResizableColumns.args = {
-  defaultPageSize: 10,
-};
+TableWithResizableColumns.args = { defaultPageSize: 10 };
 
 const TableWithReordableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         enableColumnReorder
         columnData={getColumns()}
         currentPageNumber={pageNumber}
@@ -496,9 +456,7 @@ const TableWithReordableColumns = args => {
   );
 };
 TableWithReordableColumns.storyName = "Table with reorderable columns";
-TableWithReordableColumns.args = {
-  defaultPageSize: 10,
-};
+TableWithReordableColumns.args = { defaultPageSize: 10 };
 
 export {
   Default,
