@@ -96,7 +96,7 @@ describe("Pagination", () => {
     );
     userEvent.click(getByText("4"));
     const queryParams = getQueryParams();
-    expect(queryParams).toEqual({ page: "4", page_size: "100" });
+    expect(queryParams).toEqual({ page: "4" });
   });
 
   it("should set previouse page param when the left navigate button is clicked, provided that navigate fn is not passed", () => {
@@ -108,7 +108,7 @@ describe("Pagination", () => {
     userEvent.click(getByTestId("left-navigate-button"));
 
     const queryParams = getQueryParams();
-    expect(queryParams).toEqual({ page: "2", page_size: "100" });
+    expect(queryParams).toEqual({ page: "2" });
   });
 
   it("should set next page param when the right navigate button is clicked, provided that navigate fn is not passed", () => {
@@ -120,6 +120,6 @@ describe("Pagination", () => {
     userEvent.click(getByTestId("right-navigate-button"));
 
     const queryParams = getQueryParams();
-    expect(queryParams).toEqual({ page: "4", page_size: "100" });
+    expect(queryParams).toEqual({ page: "4" });
   });
 });
