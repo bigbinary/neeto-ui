@@ -2,12 +2,13 @@ import { camelToSnakeCase } from "neetocist";
 import { mergeLeft } from "ramda";
 import { useHistory } from "react-router-dom";
 
-import { getQueryParams, buildUrl } from "utils";
+import { useQueryParams } from "hooks";
+import { buildUrl } from "utils";
 
 import { URL_SORT_ORDERS } from "../constants";
 
 const useTableSort = () => {
-  const queryParams = getQueryParams();
+  const queryParams = useQueryParams();
 
   const history = useHistory();
 

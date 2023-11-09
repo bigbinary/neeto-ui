@@ -1,10 +1,11 @@
 import { mergeLeft } from "ramda";
 import { useHistory } from "react-router-dom";
 
-import { getQueryParams, buildUrl } from "utils";
+import { useQueryParams } from "hooks";
+import { buildUrl } from "utils";
 
 const usePaginationQueryParams = () => {
-  const queryParams = getQueryParams();
+  const queryParams = useQueryParams();
   const history = useHistory();
 
   const handlePaginationQueryParamsChange = page => {

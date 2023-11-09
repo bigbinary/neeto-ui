@@ -24,6 +24,8 @@ const Pagination = ({
   });
   const { handlePaginationQueryParamsChange } = usePaginationQueryParams();
 
+  if (!navigate) navigate = handlePaginationQueryParamsChange;
+
   if (pageNo === 0 || paginationRange.length < 2) {
     return null;
   }
@@ -31,32 +33,16 @@ const Pagination = ({
   const onNext = () => {
     if (isLastPage) return;
 
-    const nextPage = pageNo + 1;
-    if (navigate) {
-      navigate(nextPage);
-    } else {
-      handlePaginationQueryParamsChange(nextPage);
-    }
+    navigate(pageNo + 1);
   };
 
   const onPrevious = () => {
     if (isFirstPage) return;
 
-    const previousPage = pageNo - 1;
-    if (navigate) {
-      navigate(previousPage);
-    } else {
-      handlePaginationQueryParamsChange(previousPage);
-    }
+    navigate(pageNo - 1);
   };
 
-  const onPaginationItemClick = page => {
-    if (navigate) {
-      navigate(page);
-    } else {
-      handlePaginationQueryParamsChange(page);
-    }
-  };
+  const onPaginationItemClick = page => navigate(page);
 
   const lastPage = paginationRange[paginationRange.length - 1];
   const isFirstPage = pageNo === 1;
