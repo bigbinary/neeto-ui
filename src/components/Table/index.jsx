@@ -35,7 +35,7 @@ const Table = ({
   className = "",
   columnData = [],
   currentPageNumber = 1,
-  defaultPageSize = 25,
+  defaultPageSize = 30,
   handlePageChange = noop,
   loading = false,
   onRowClick,
