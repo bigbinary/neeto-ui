@@ -35,7 +35,7 @@ const Pagination = ({
     if (navigate) {
       navigate(nextPage);
     } else {
-      handlePaginationQueryParamsChange(nextPage, pageSize);
+      handlePaginationQueryParamsChange(nextPage);
     }
   };
 
@@ -46,7 +46,7 @@ const Pagination = ({
     if (navigate) {
       navigate(previousPage);
     } else {
-      handlePaginationQueryParamsChange(previousPage, pageSize);
+      handlePaginationQueryParamsChange(previousPage);
     }
   };
 
@@ -54,7 +54,7 @@ const Pagination = ({
     if (navigate) {
       navigate(page);
     } else {
-      handlePaginationQueryParamsChange(page, pageSize);
+      handlePaginationQueryParamsChange(page);
     }
   };
 
@@ -142,7 +142,7 @@ Pagination.propTypes = {
    */
   pageNo: PropTypes.number,
   /**
-   * To specify the callback which will be invoked when the navigate buttons are clicked. If not provided, the component will handle pagination query parameters.
+   * To specify the callback which will be invoked when the navigate buttons are clicked. If not provided, the component will update pagination information in the URL query parameters.
    */
   navigate: PropTypes.func,
   /**

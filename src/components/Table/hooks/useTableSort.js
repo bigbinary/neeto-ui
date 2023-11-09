@@ -16,7 +16,6 @@ const useTableSort = () => {
       sort_by: sorter.order && camelToSnakeCase(sorter.field),
       order_by: URL_SORT_ORDERS[sorter.order],
       page: pagination.current,
-      page_size: pagination.pageSize,
     };
 
     const pathname = window.location.pathname;
