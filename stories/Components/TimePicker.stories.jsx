@@ -6,6 +6,8 @@ import { Modal, Typography, Pane } from "components";
 import Button from "components/Button";
 import TimePicker from "components/TimePicker";
 
+import { disabledDateTime } from "./constants";
+
 import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
 
 const metadata = {
@@ -25,7 +27,9 @@ const metadata = {
   },
 };
 
-const TimeInput = args => <TimePicker {...args} />;
+const TimeInput = args => (
+  <TimePicker disabledTime={disabledDateTime} {...args} />
+);
 
 TimeInput.storyName = "TimePicker";
 TimeInput.args = { type: "time" };

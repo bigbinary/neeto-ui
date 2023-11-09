@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
@@ -10,6 +9,7 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
+import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
@@ -20,7 +20,10 @@ const SIZES = { small: "small", medium: "medium", large: "large" };
 const STRATEGIES = { default: "default", fixed: "fixed" };
 
 const DropdownIndicator = props => (
-  <components.DropdownIndicator {...props}>
+  <components.DropdownIndicator
+    {...props}
+    innerProps={{ ...props.innerProps, ["data-cy"]: "action-select-indicator" }}
+  >
     <Down size={16} />
   </components.DropdownIndicator>
 );
@@ -91,6 +94,13 @@ const Menu = props => {
     />
   );
 };
+
+const SingleValue = props => (
+  <components.SingleValue
+    {...props}
+    innerProps={{ ...props.innerProps, "data-cy": "select-single-value" }}
+  />
+);
 
 const ValueContainer = props => {
   const { selectProps } = props;
@@ -263,6 +273,7 @@ const Select = ({
           Menu,
           ValueContainer,
           MenuList,
+          SingleValue,
           ...componentOverrides,
         }}
         {...portalProps}

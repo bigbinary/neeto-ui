@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import { DatePicker as AntDatePicker, ConfigProvider } from "antd";
 import classnames from "classnames";
-import { Left, Right, Calendar } from "neetoicons";
+import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import {
   convertToDayjsObjects,
   noop,
@@ -156,6 +155,9 @@ const DatePicker = forwardRef(
             suffixIcon={<Calendar size={16} />}
             superNextIcon={<IconOverride icon={Right} />}
             superPrevIcon={<IconOverride icon={Left} />}
+            allowClear={{
+              clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+            }}
           />
           {!!error && (
             <p

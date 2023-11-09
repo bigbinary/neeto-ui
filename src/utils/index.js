@@ -25,11 +25,13 @@ const getScrollbarWidth = () => {
 
 export const noop = () => {};
 
-export const hyphenize = string => {
+export const hyphenize = input => {
   const fallbackString = "nui";
 
-  if (string && typeof string === "string" && string.replace) {
-    return string
+  if (typeof input === "number") return String(input);
+
+  if (input && typeof input === "string" && input.replace) {
+    return input
       .replace(/[\s_]/g, "-")
       .replace(/([a-z])([A-Z])/g, "$1-$2")
       .replace(/-+/g, "-")

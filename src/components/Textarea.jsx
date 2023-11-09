@@ -1,10 +1,9 @@
 import React, { useState, useEffect, forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
@@ -78,6 +77,7 @@ const Textarea = forwardRef(
           )}
         </div>
         <div
+          data-cy={`${hyphenize(label)}-text-input`}
           className={classnames("neeto-ui-input", "neeto-ui-input--textarea", {
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,

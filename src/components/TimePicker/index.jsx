@@ -1,13 +1,12 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import { ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import {
   convertToDayjsObjects,
   noop,

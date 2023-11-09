@@ -21,6 +21,7 @@ import Radio from "./Radio";
 import Select from "./Select";
 import Slider from "./Slider";
 import Spinner from "./Spinner";
+import Stepper from "./Stepper";
 import Switch from "./Switch";
 import Tab from "./Tab";
 import Table from "./Table";
@@ -58,6 +59,7 @@ export {
   Radio,
   Select,
   Spinner,
+  Stepper,
   Switch,
   Tab,
   Table,

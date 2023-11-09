@@ -1,8 +1,8 @@
 :root {
   --#{$prefix}pagination-item-padding-x: 4px;
   --#{$prefix}pagination-item-padding-y: 4px;
-  --#{$prefix}pagination-item-width: 32px;
-  --#{$prefix}pagination-item-height: 32px;
+  --#{$prefix}pagination-item-width: 28px;
+  --#{$prefix}pagination-item-height: 28px;
   --#{$prefix}pagination-item-margin-x: 4px;
   --#{$prefix}pagination-item-margin-y: 0px;
   @include rfs(var(--neeto-ui-text-sm), --#{$prefix}pagination-item-font-size);
