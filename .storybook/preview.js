@@ -17,13 +17,10 @@ export const parameters = {
       order: [
         "Welcome",
         "Getting started",
-        "Formik",
         "Changelog",
         "Older versions",
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers", "Language"],
-        "Formik",
-        ["Form"],
         "Components",
         [
           "Button",
@@ -61,6 +58,8 @@ export const parameters = {
           "Tooltip",
           "Popover"
         ],
+        "Formik",
+        ["Form"],
         "Customize",
         "Migration-Guide",
       ],
