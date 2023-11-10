@@ -1,58 +1,58 @@
 :root {
-  --#{$prefix}btn-padding-x: 8px;
-  --#{$prefix}btn-padding-y: 6px;
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}btn-font-size);
-  --#{$prefix}btn-font-weight: var(--neeto-ui-font-medium);
-  --#{$prefix}btn-line-height: 16px;
-  --#{$prefix}btn-color: rgb(var(--neeto-ui-black));
-  --#{$prefix}btn-bg-color: transparent;
-  --#{$prefix}btn-border-width: 0;
-  --#{$prefix}btn-border-color: transparent;
-  --#{$prefix}btn-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}btn-gap: 4px;
-  --#{$prefix}btn-icon-size: 16px;
-  --#{$prefix}btn-box-shadow: none;
-  --#{$prefix}btn-outline: none;
+  --neeto-ui-btn-padding-x: 8px;
+  --neeto-ui-btn-padding-y: 6px;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-btn-font-size);
+  --neeto-ui-btn-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-btn-line-height: 16px;
+  --neeto-ui-btn-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-btn-bg-color: transparent;
+  --neeto-ui-btn-border-width: 0;
+  --neeto-ui-btn-border-color: transparent;
+  --neeto-ui-btn-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-btn-gap: 4px;
+  --neeto-ui-btn-icon-size: 16px;
+  --neeto-ui-btn-box-shadow: none;
+  --neeto-ui-btn-outline: none;
 
   // Disabled
-  --#{$prefix}btn-disabled-opacity: 0.5;
+  --neeto-ui-btn-disabled-opacity: 0.5;
 
   // Hover
-  --#{$prefix}btn-hover-color: rgb(var(--neeto-ui-black));
-  --#{$prefix}btn-hover-bg-color: transparent;
-  --#{$prefix}btn-hover-box-shadow: none;
-  --#{$prefix}btn-hover-opacity: 1;
+  --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-btn-hover-bg-color: transparent;
+  --neeto-ui-btn-hover-box-shadow: none;
+  --neeto-ui-btn-hover-opacity: 1;
 
   // Focus
-  --#{$prefix}btn-focus-color: rgb(var(--neeto-ui-black));
-  --#{$prefix}btn-focus-box-shadow: none;
-  --#{$prefix}btn-focus-opacity: 1;
+  --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-btn-focus-box-shadow: none;
+  --neeto-ui-btn-focus-opacity: 1;
 
   // Focus Visible
-  --#{$prefix}btn-focus-visible-color: rgb(var(--neeto-ui-black));
-  --#{$prefix}btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-  --#{$prefix}btn-focus-visible-outline-offset: 1px;
-  --#{$prefix}btn-focus-visible-box-shadow: none;
+  --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-btn-focus-visible-outline-offset: 1px;
+  --neeto-ui-btn-focus-visible-box-shadow: none;
 }
 
 .neeto-ui-btn {
   position: relative;
   display: inline-flex !important;
   align-items: center;
-  padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
-  gap: var(--#{$prefix}btn-gap);
+  padding: var(--neeto-ui-btn-padding-y) var(--neeto-ui-btn-padding-x);
+  gap: var(--neeto-ui-btn-gap);
 
-  color: var(--#{$prefix}btn-color);
-  background-color: var(--#{$prefix}btn-bg-color);
-  font-size: var(--#{$prefix}btn-font-size);
-  font-weight: var(--#{$prefix}btn-font-weight);
-  line-height: var(--#{$prefix}btn-line-height);
+  color: var(--neeto-ui-btn-color);
+  background-color: var(--neeto-ui-btn-bg-color);
+  font-size: var(--neeto-ui-btn-font-size);
+  font-weight: var(--neeto-ui-btn-font-weight);
+  line-height: var(--neeto-ui-btn-line-height);
   transition: var(--neeto-ui-transition);
-  border-width: var(--#{$prefix}btn-border-width);
-  border-color: var(--#{$prefix}btn-border-color);
-  border-radius: var(--#{$prefix}btn-border-radius);
-  box-shadow: var(--#{$prefix}btn-box-shadow);
-  outline: var(--#{$prefix}btn-outline);
+  border-width: var(--neeto-ui-btn-border-width);
+  border-color: var(--neeto-ui-btn-border-color);
+  border-radius: var(--neeto-ui-btn-border-radius);
+  box-shadow: var(--neeto-ui-btn-box-shadow);
+  outline: var(--neeto-ui-btn-outline);
 
   user-select: none;
   min-width: 0;
@@ -65,8 +65,8 @@
     .neeto-ui-btn__icon,
     .neeto-ui-btn__spinner svg {
       pointer-events: none;
-      width: var(--#{$prefix}btn-icon-size) !important;
-      height: var(--#{$prefix}btn-icon-size) !important;
+      width: var(--neeto-ui-btn-icon-size) !important;
+      height: var(--neeto-ui-btn-icon-size) !important;
     }
   }
 
@@ -103,26 +103,26 @@
 
   &:hover:not(:disabled),
   &:active {
-    color: var(--#{$prefix}btn-hover-color);
-    background-color: var(--#{$prefix}btn-hover-bg-color);
+    color: var(--neeto-ui-btn-hover-color);
+    background-color: var(--neeto-ui-btn-hover-bg-color);
   }
 
   &:focus {
-    color: var(--#{$prefix}btn-focus-color);
-    box-shadow: var(--#{$prefix}btn-focus-box-shadow);
+    color: var(--neeto-ui-btn-focus-color);
+    box-shadow: var(--neeto-ui-btn-focus-box-shadow);
   }
 
   &:focus-visible {
-    color: var(--#{$prefix}btn-focus-visible-color);
+    color: var(--neeto-ui-btn-focus-visible-color);
 
-    outline: var(--#{$prefix}btn-focus-visible-outline);
-    outline-offset: var(--#{$prefix}btn-focus-visible-outline-offset);
-    box-shadow: var(--#{$prefix}btn-focus-visible-box-shadow);
+    outline: var(--neeto-ui-btn-focus-visible-outline);
+    outline-offset: var(--neeto-ui-btn-focus-visible-outline-offset);
+    box-shadow: var(--neeto-ui-btn-focus-visible-box-shadow);
   }
 
   &.disabled {
     cursor: not-allowed;
-    opacity: var(--#{$prefix}btn-disabled-opacity);
+    opacity: var(--neeto-ui-btn-disabled-opacity);
   }
 }
 

@@ -1,45 +1,45 @@
 :root {
-  --#{$prefix}tag-padding-x: 8px;
-  --#{$prefix}tag-padding-y: 3px;
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}tag-font-size);
-  --#{$prefix}tag-font-weight: var(--neeto-ui-font-normal);
-  --#{$prefix}tag-line-height: 12px;
-  --#{$prefix}tag-color: rgb(var(--neeto-ui-black));
-  --#{$prefix}tag-bg-color: transparent;
-  --#{$prefix}tag-border-width: 1px;
-  --#{$prefix}tag-border-color: transparent;
-  --#{$prefix}tag-border-radius: var(--neeto-ui-rounded-full);
-  --#{$prefix}tag-gap: 4px;
-  --#{$prefix}tag-icon-size: 12px;
+  --neeto-ui-tag-padding-x: 8px;
+  --neeto-ui-tag-padding-y: 3px;
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-tag-font-size);
+  --neeto-ui-tag-font-weight: var(--neeto-ui-font-normal);
+  --neeto-ui-tag-line-height: 12px;
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-tag-bg-color: transparent;
+  --neeto-ui-tag-border-width: 1px;
+  --neeto-ui-tag-border-color: transparent;
+  --neeto-ui-tag-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-tag-gap: 4px;
+  --neeto-ui-tag-icon-size: 12px;
 
   // Indicator
-  --#{$prefix}tag-indicator-size: 8px;
-  --#{$prefix}tag-indicator-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-tag-indicator-size: 8px;
+  --neeto-ui-tag-indicator-border-radius: var(--neeto-ui-rounded-full);
 
   // Hover
-  --#{$prefix}tag-icon-hover-opacity: 0.8;
+  --neeto-ui-tag-icon-hover-opacity: 0.8;
 }
 
 .neeto-ui-tag {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--#{$prefix}tag-font-size);
-  line-height: var(--#{$prefix}tag-line-height);
-  font-weight: var(--#{$prefix}tag-font-weight);
-  gap: var(--#{$prefix}tag-gap);
-  padding: var(--#{$prefix}tag-padding-y) var(--#{$prefix}tag-padding-x);
-  border-radius: var(--#{$prefix}tag-border-radius);
-  color: var(--#{$prefix}tag-color);
-  background-color: var(--#{$prefix}tag-bg-color);
-  border-width: var(--#{$prefix}tag-border-width);
-  border-color: var(--#{$prefix}tag-border-color);
+  font-size: var(--neeto-ui-tag-font-size);
+  line-height: var(--neeto-ui-tag-line-height);
+  font-weight: var(--neeto-ui-tag-font-weight);
+  gap: var(--neeto-ui-tag-gap);
+  padding: var(--neeto-ui-tag-padding-y) var(--neeto-ui-tag-padding-x);
+  border-radius: var(--neeto-ui-tag-border-radius);
+  color: var(--neeto-ui-tag-color);
+  background-color: var(--neeto-ui-tag-bg-color);
+  border-width: var(--neeto-ui-tag-border-width);
+  border-color: var(--neeto-ui-tag-border-color);
   user-select: none;
 
   &__indicator {
-    border-radius: var(--#{$prefix}tag-indicator-border-radius);
-    height: var(--#{$prefix}tag-indicator-size);
-    width: var(--#{$prefix}tag-indicator-size);
+    border-radius: var(--neeto-ui-tag-indicator-border-radius);
+    height: var(--neeto-ui-tag-indicator-size);
+    width: var(--neeto-ui-tag-indicator-size);
   }
 
   &__icon {
@@ -48,8 +48,8 @@
     align-items: center;
 
     svg {
-      width: var(--#{$prefix}tag-icon-size);
-      height: var(--#{$prefix}tag-icon-size);
+      width: var(--neeto-ui-tag-icon-size);
+      height: var(--neeto-ui-tag-icon-size);
     }
   }
 
@@ -58,12 +58,12 @@
     cursor: pointer;
 
     &:hover {
-      opacity: var(--#{$prefix}tag-icon-hover-opacity);
+      opacity: var(--neeto-ui-tag-icon-hover-opacity);
     }
 
     svg {
-      width: var(--#{$prefix}tag-icon-size);
-      height: var(--#{$prefix}tag-icon-size);
+      width: var(--neeto-ui-tag-icon-size);
+      height: var(--neeto-ui-tag-icon-size);
     }
   }
 

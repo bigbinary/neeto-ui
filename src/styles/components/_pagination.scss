@@ -1,27 +1,27 @@
 :root {
-  --#{$prefix}pagination-item-padding-x: 4px;
-  --#{$prefix}pagination-item-padding-y: 4px;
-  --#{$prefix}pagination-item-width: 28px;
-  --#{$prefix}pagination-item-height: 28px;
-  --#{$prefix}pagination-item-margin-x: 4px;
-  --#{$prefix}pagination-item-margin-y: 0px;
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}pagination-item-font-size);
-  --#{$prefix}pagination-item-font-weight: var(--neeto-ui-font-medium);
-  --#{$prefix}pagination-item-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}pagination-item-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}pagination-item-line-height: 1;
-  --#{$prefix}pagination-item-border-width: 1px;
-  --#{$prefix}pagination-item-border-color: transparent;
-  --#{$prefix}pagination-item-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-pagination-item-padding-x: 4px;
+  --neeto-ui-pagination-item-padding-y: 4px;
+  --neeto-ui-pagination-item-width: 28px;
+  --neeto-ui-pagination-item-height: 28px;
+  --neeto-ui-pagination-item-margin-x: 4px;
+  --neeto-ui-pagination-item-margin-y: 0px;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-pagination-item-font-size);
+  --neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-pagination-item-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-pagination-item-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-pagination-item-line-height: 1;
+  --neeto-ui-pagination-item-border-width: 1px;
+  --neeto-ui-pagination-item-border-color: transparent;
+  --neeto-ui-pagination-item-border-radius: var(--neeto-ui-rounded);
 
   // Hover
-  --#{$prefix}pagination-item-hover-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}pagination-item-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-pagination-item-hover-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-pagination-item-hover-bg-color: rgb(var(--neeto-ui-gray-200));
 
   // Focus Visible
-  --#{$prefix}pagination-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-  --#{$prefix}pagination-item-focus-visible-outline-offset: 1px;
-  --#{$prefix}pagination-item-focus-visible-box-shadow: none;
+  --neeto-ui-pagination-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-pagination-item-focus-visible-outline-offset: 1px;
+  --neeto-ui-pagination-item-focus-visible-box-shadow: none;
 }
 
 .neeto-ui-pagination__wrapper {
@@ -32,12 +32,12 @@
   list-style: none;
 
   .neeto-ui-pagination__item:not(.neeto-ui-pagination__item--dots) {
-    margin: var(--#{$prefix}pagination-item-margin-y) var(--#{$prefix}pagination-item-margin-x);
+    margin: var(--neeto-ui-pagination-item-margin-y) var(--neeto-ui-pagination-item-margin-x);
     overflow: hidden;
 
     &:hover:not(.disabled, .active) {
-      background-color: var(--#{$prefix}pagination-item-hover-bg-color);
-      color: var(--#{$prefix}pagination-item-hover-color);
+      background-color: var(--neeto-ui-pagination-item-hover-bg-color);
+      color: var(--neeto-ui-pagination-item-hover-color);
     }
   }
 
@@ -45,17 +45,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--#{$prefix}pagination-item-padding-y) var(--#{$prefix}pagination-item-padding-x);
-    min-width: var(--#{$prefix}pagination-item-width);
-    height: var(--#{$prefix}pagination-item-height);
-    line-height: var(--#{$prefix}pagination-item-line-height);
-    font-size: var(--#{$prefix}pagination-item-font-size);
-    font-weight: var(--#{$prefix}pagination-item-font-weight);
+    padding: var(--neeto-ui-pagination-item-padding-y) var(--neeto-ui-pagination-item-padding-x);
+    min-width: var(--neeto-ui-pagination-item-width);
+    height: var(--neeto-ui-pagination-item-height);
+    line-height: var(--neeto-ui-pagination-item-line-height);
+    font-size: var(--neeto-ui-pagination-item-font-size);
+    font-weight: var(--neeto-ui-pagination-item-font-weight);
     transition: var(--neeto-ui-transition);
-    border: var(--#{$prefix}pagination-item-border-width) solid var(--#{$prefix}pagination-item-border-color);
-    border-radius: var(--#{$prefix}pagination-item-border-radius);
-    color: var(--#{$prefix}pagination-item-color);
-    background-color: var(--#{$prefix}pagination-item-bg-color);
+    border: var(--neeto-ui-pagination-item-border-width) solid var(--neeto-ui-pagination-item-border-color);
+    border-radius: var(--neeto-ui-pagination-item-border-radius);
+    color: var(--neeto-ui-pagination-item-color);
+    background-color: var(--neeto-ui-pagination-item-bg-color);
     text-align: center;
     user-select: none;
     cursor: pointer;
@@ -68,9 +68,9 @@
     }
 
     &:focus-visible {
-      outline: var(--#{$prefix}pagination-item-focus-visible-outline);
-      outline-offset: var(--#{$prefix}pagination-item-focus-visible-outline-offset);
-      box-shadow: var(--#{$prefix}pagination-item-focus-visible-box-shadow);
+      outline: var(--neeto-ui-pagination-item-focus-visible-outline);
+      outline-offset: var(--neeto-ui-pagination-item-focus-visible-outline-offset);
+      box-shadow: var(--neeto-ui-pagination-item-focus-visible-box-shadow);
 
       a {
         outline: none;

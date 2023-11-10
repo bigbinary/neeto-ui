@@ -1,35 +1,35 @@
 :root {
   // Wrapper
-  --#{$prefix}switch-wrapper-width: fit-content;
+  --neeto-ui-switch-wrapper-width: fit-content;
 
   // Switch Item
-  --#{$prefix}switch-item-width: 44px;
-  --#{$prefix}switch-item-height: 24px;
-  --#{$prefix}switch-item-border-width: 2px;
-  --#{$prefix}switch-item-border-color: transparent;
-  --#{$prefix}switch-item-border-radius: 20px;
-  --#{$prefix}switch-item-bg-color: rgb(var(--neeto-ui-gray-300));
-  --#{$prefix}switch-item-opacity: 1;
+  --neeto-ui-switch-item-width: 44px;
+  --neeto-ui-switch-item-height: 24px;
+  --neeto-ui-switch-item-border-width: 2px;
+  --neeto-ui-switch-item-border-color: transparent;
+  --neeto-ui-switch-item-border-radius: 20px;
+  --neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-gray-300));
+  --neeto-ui-switch-item-opacity: 1;
 
   // Switch
-  --#{$prefix}switch-width: 20px;
-  --#{$prefix}switch-height: 20px;
-  --#{$prefix}switch-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}switch-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}switch-transform: translateX(0);
-  --#{$prefix}switch-border-radius: 16px;
-  --#{$prefix}switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  --neeto-ui-switch-width: 20px;
+  --neeto-ui-switch-height: 20px;
+  --neeto-ui-switch-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-switch-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-switch-transform: translateX(0);
+  --neeto-ui-switch-border-radius: 16px;
+  --neeto-ui-switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
   // Margin
-  --#{$prefix}switch-label-margin: 12px;
+  --neeto-ui-switch-label-margin: 12px;
 
   // Focus Within
-  --#{$prefix}switch-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
 
   // Focus Visible
-  --#{$prefix}switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-  --#{$prefix}switch-focus-visible-outline-offset: 1px;
-  --#{$prefix}switch-focus-visible-box-shadow: none;
+  --neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-switch-focus-visible-outline-offset: 1px;
+  --neeto-ui-switch-focus-visible-box-shadow: none;
 }
 
 .neeto-ui-switch__wrapper {
@@ -37,7 +37,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: var(--#{$prefix}switch-wrapper-width);
+  width: var(--neeto-ui-switch-wrapper-width);
 
   .neeto-ui-switch__container {
     display: flex;
@@ -46,23 +46,23 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: var(--#{$prefix}switch-label-margin);
+      margin-left: var(--neeto-ui-switch-label-margin);
     }
 
     .neeto-ui-switch__item {
-      width: var(--#{$prefix}switch-item-width);
-      height: var(--#{$prefix}switch-item-height);
-      border: var(--#{$prefix}switch-item-border-width) solid var(--#{$prefix}switch-item-border-color);
-      border-radius: var(--#{$prefix}switch-item-border-radius);
+      width: var(--neeto-ui-switch-item-width);
+      height: var(--neeto-ui-switch-item-height);
+      border: var(--neeto-ui-switch-item-border-width) solid var(--neeto-ui-switch-item-border-color);
+      border-radius: var(--neeto-ui-switch-item-border-radius);
       transition: var(--neeto-ui-transition);
-      background-color: var(--#{$prefix}switch-item-bg-color);
+      background-color: var(--neeto-ui-switch-item-bg-color);
       cursor: pointer;
       display: inline-flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       flex-shrink: 0;
-      opacity: var(--#{$prefix}switch-item-opacity);
+      opacity: var(--neeto-ui-switch-item-opacity);
 
       input[type="checkbox"] {
         width: 0;
@@ -85,14 +85,14 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: var(--#{$prefix}switch-width);
-        height: var(--#{$prefix}switch-height);
+        width: var(--neeto-ui-switch-width);
+        height: var(--neeto-ui-switch-height);
         transition: var(--neeto-ui-transition);
-        transform: var(--#{$prefix}switch-transform);
-        color: var(--#{$prefix}switch-color);
-        background-color: var(--#{$prefix}switch-bg-color);
-        border-radius: var(--#{$prefix}switch-border-radius);
-        box-shadow: var(--#{$prefix}switch-box-shadow);
+        transform: var(--neeto-ui-switch-transform);
+        color: var(--neeto-ui-switch-color);
+        background-color: var(--neeto-ui-switch-bg-color);
+        border-radius: var(--neeto-ui-switch-border-radius);
+        box-shadow: var(--neeto-ui-switch-box-shadow);
 
         &--checked {
           --neeto-ui-switch-transform: translateX(20px);
@@ -101,13 +101,13 @@
       }
 
       &:focus-within {
-        box-shadow: var(--#{$prefix}switch-focus-within-box-shadow);
+        box-shadow: var(--neeto-ui-switch-focus-within-box-shadow);
       }
 
       &:focus-visible {
-        outline: var(--#{$prefix}switch-focus-visible-outline);
-        outline-offset: var(--#{$prefix}switch-focus-visible-outline-offset);
-        box-shadow: var(--#{$prefix}switch-focus-visible-box-shadow);
+        outline: var(--neeto-ui-switch-focus-visible-outline);
+        outline-offset: var(--neeto-ui-switch-focus-visible-outline-offset);
+        box-shadow: var(--neeto-ui-switch-focus-visible-box-shadow);
       }
     }
   }

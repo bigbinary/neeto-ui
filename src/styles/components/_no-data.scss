@@ -1,18 +1,18 @@
 :root {
   // Description
-  --#{$prefix}no-data-description-margin-top: 0.5rem;
+  --neeto-ui-no-data-description-margin-top: 0.5rem;
 
   // Help Text
-  --#{$prefix}no-data-help-text-margin-top: 0.5rem;
+  --neeto-ui-no-data-help-text-margin-top: 0.5rem;
 
   // Image
-  --#{$prefix}no-data-image-margin-bottom: 1.5rem;
-  --#{$prefix}no-data-image-max-width: 11.5rem;
-  --#{$prefix}no-data-image-height: auto;
+  --neeto-ui-no-data-image-margin-bottom: 1.5rem;
+  --neeto-ui-no-data-image-max-width: 11.5rem;
+  --neeto-ui-no-data-image-height: auto;
 
   // Action Block
-  --#{$prefix}no-data-action-block-margin-top: 1.5rem;
-  --#{$prefix}no-data-action-block-gap: 0.5rem;
+  --neeto-ui-no-data-action-block-margin-top: 1.5rem;
+  --neeto-ui-no-data-action-block-gap: 0.5rem;
 }
 
 .neeto-ui-no-data {
@@ -22,24 +22,24 @@
   align-items: center;
 
   &__description {
-    margin-top: var(--#{$prefix}no-data-description-margin-top);
+    margin-top: var(--neeto-ui-no-data-description-margin-top);
   }
 
   &__help-text {
-    margin-top: var(--#{$prefix}no-data-help-text-margin-top);
+    margin-top: var(--neeto-ui-no-data-help-text-margin-top);
   }
 
   &__image {
-    margin-bottom: var(--#{$prefix}no-data-image-margin-bottom);
+    margin-bottom: var(--neeto-ui-no-data-image-margin-bottom);
 
     img {
-      max-width: var(--#{$prefix}no-data-image-max-width);
-      height: var(--#{$prefix}no-data-image-height);
+      max-width: var(--neeto-ui-no-data-image-max-width);
+      height: var(--neeto-ui-no-data-image-height);
     }
   }
 
   &__action-block {
-    margin-top: var(--#{$prefix}no-data-action-block-margin-top);
-    gap: var(--#{$prefix}no-data-action-block-gap);
+    margin-top: var(--neeto-ui-no-data-action-block-margin-top);
+    gap: var(--neeto-ui-no-data-action-block-gap);
   }
 }

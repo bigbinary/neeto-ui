@@ -1,30 +1,30 @@
 :root {
-  --#{$prefix}checkbox-size: 16px;
-  --#{$prefix}checkbox-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}checkbox-border-width: 2px;
-  --#{$prefix}checkbox-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}checkbox-border-radius: var(--neeto-ui-rounded-sm);
+  --neeto-ui-checkbox-size: 16px;
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-checkbox-border-width: 2px;
+  --neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-checkbox-border-radius: var(--neeto-ui-rounded-sm);
 
   // Disabled
-  --#{$prefix}checkbox-disabled-opacity: 0.5;
+  --neeto-ui-checkbox-disabled-opacity: 0.5;
 
   // Hover
-  --#{$prefix}checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+  --neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
 
   // Focus
-  --#{$prefix}checkbox-focus-outline: transparent;
-  --#{$prefix}checkbox-focus-outline-offset: 0px;
+  --neeto-ui-checkbox-focus-outline: transparent;
+  --neeto-ui-checkbox-focus-outline-offset: 0px;
 
   // Focus Visible
-  --#{$prefix}checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-  --#{$prefix}checkbox-focus-visible-outline-offset: 1px;
-  --#{$prefix}checkbox-focus-visible-box-shadow: none;
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-checkbox-focus-visible-outline-offset: 1px;
+  --neeto-ui-checkbox-focus-visible-box-shadow: none;
 
   // Checked
-  --#{$prefix}checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
 
   // Margin
-  --#{$prefix}checkbox-label-margin: 8px;
+  --neeto-ui-checkbox-label-margin: 8px;
 }
 
 .neeto-ui-checkbox__wrapper {
@@ -41,43 +41,43 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: var(--#{$prefix}checkbox-label-margin);
+      margin-left: var(--neeto-ui-checkbox-label-margin);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
-      width: var(--#{$prefix}checkbox-size);
-      height: var(--#{$prefix}checkbox-size);
-      color: var(--#{$prefix}checkbox-color);
-      border: var(--#{$prefix}checkbox-border-width) solid var(--#{$prefix}checkbox-border-color);
-      border-radius: var(--#{$prefix}checkbox-border-radius);
+      width: var(--neeto-ui-checkbox-size);
+      height: var(--neeto-ui-checkbox-size);
+      color: var(--neeto-ui-checkbox-color);
+      border: var(--neeto-ui-checkbox-border-width) solid var(--neeto-ui-checkbox-border-color);
+      border-radius: var(--neeto-ui-checkbox-border-radius);
 
       &:not(:disabled) {
         cursor: pointer;
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: var(--#{$prefix}checkbox-hover-border-color);
+        border-color: var(--neeto-ui-checkbox-hover-border-color);
       }
 
       &:checked {
-        border-color: var(--#{$prefix}checkbox-checked-border-color);
-        background-size: calc(var(--#{$prefix}checkbox-size) * 0.6875) calc(var(--#{$prefix}checkbox-size) / 2);
+        border-color: var(--neeto-ui-checkbox-checked-border-color);
+        background-size: calc(var(--neeto-ui-checkbox-size) * 0.6875) calc(var(--neeto-ui-checkbox-size) / 2);
       }
 
       &:disabled {
-        opacity: var(--#{$prefix}checkbox-disabled-opacity);
+        opacity: var(--neeto-ui-checkbox-disabled-opacity);
         cursor: not-allowed;
       }
 
       &:focus {
-        outline: var(--#{$prefix}checkbox-focus-outline);
-        outline-offset: var(--#{$prefix}checkbox-focus-outline-offset);
+        outline: var(--neeto-ui-checkbox-focus-outline);
+        outline-offset: var(--neeto-ui-checkbox-focus-outline-offset);
       }
 
       &:focus-visible {
-        outline: var(--#{$prefix}checkbox-focus-visible-outline);
-        outline-offset: var(--#{$prefix}checkbox-focus-visible-outline-offset);
-        box-shadow: var(--#{$prefix}checkbox-focus-visible-box-shadow);
+        outline: var(--neeto-ui-checkbox-focus-visible-outline);
+        outline-offset: var(--neeto-ui-checkbox-focus-visible-outline-offset);
+        box-shadow: var(--neeto-ui-checkbox-focus-visible-box-shadow);
       }
     }
   }
@@ -86,15 +86,15 @@
 // ant design checkbox override
 
 .ant-checkbox {
-  width: var(--#{$prefix}checkbox-size);
-  height: var(--#{$prefix}checkbox-size);
+  width: var(--neeto-ui-checkbox-size);
+  height: var(--neeto-ui-checkbox-size);
 
   [type="checkbox"] {
-    width: var(--#{$prefix}checkbox-size);
-    height: var(--#{$prefix}checkbox-size);
-    color: var(--#{$prefix}checkbox-color);
-    border: var(--#{$prefix}checkbox-border-width) solid var(--#{$prefix}checkbox-border-color);
-    border-radius: var(--#{$prefix}checkbox-border-radius);
+    width: var(--neeto-ui-checkbox-size);
+    height: var(--neeto-ui-checkbox-size);
+    color: var(--neeto-ui-checkbox-color);
+    border: var(--neeto-ui-checkbox-border-width) solid var(--neeto-ui-checkbox-border-color);
+    border-radius: var(--neeto-ui-checkbox-border-radius);
     opacity: 1;
 
     &:not(:disabled) {
@@ -102,28 +102,28 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: var(--#{$prefix}checkbox-hover-border-color);
+      border-color: var(--neeto-ui-checkbox-hover-border-color);
     }
 
     &:checked {
-      border-color: var(--#{$prefix}checkbox-checked-border-color);
-      background-size: calc(var(--#{$prefix}checkbox-size) * 0.6875);
+      border-color: var(--neeto-ui-checkbox-checked-border-color);
+      background-size: calc(var(--neeto-ui-checkbox-size) * 0.6875);
     }
 
     &:disabled {
-      opacity: var(--#{$prefix}checkbox-disabled-opacity);
+      opacity: var(--neeto-ui-checkbox-disabled-opacity);
       cursor: not-allowed;
     }
 
     &:focus {
-      outline: var(--#{$prefix}checkbox-focus-outline);
-      outline-offset: var(--#{$prefix}checkbox-focus-outline-offset);
+      outline: var(--neeto-ui-checkbox-focus-outline);
+      outline-offset: var(--neeto-ui-checkbox-focus-outline-offset);
     }
 
     &:focus-visible {
-      outline: var(--#{$prefix}checkbox-focus-visible-outline);
-      outline-offset: var(--#{$prefix}checkbox-focus-visible-outline-offset);
-      box-shadow: var(--#{$prefix}checkbox-focus-visible-box-shadow);
+      outline: var(--neeto-ui-checkbox-focus-visible-outline);
+      outline-offset: var(--neeto-ui-checkbox-focus-visible-outline-offset);
+      box-shadow: var(--neeto-ui-checkbox-focus-visible-box-shadow);
     }
   }
 

@@ -1,14 +1,14 @@
 :root {
-  --#{$prefix}spinner-size: 20px;
-  --#{$prefix}spinner-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-spinner-size: 20px;
+  --neeto-ui-spinner-color: rgb(var(--neeto-ui-gray-800));
 }
 
 .neeto-ui-spinner {
   position: relative;
   display: inline-block;
-  font-size: var(--#{$prefix}spinner-size);
-  width: var(--#{$prefix}spinner-size);
-  height: var(--#{$prefix}spinner-size);
+  font-size: var(--neeto-ui-spinner-size);
+  width: var(--neeto-ui-spinner-size);
+  height: var(--neeto-ui-spinner-size);
 
   &--light {
     --neeto-ui-spinner-color: rgb(var(--neeto-ui-white));
@@ -22,15 +22,15 @@
 .neeto-ui-spinner__item {
   position: absolute;
   display: block;
-  width: calc(var(--#{$prefix}spinner-size) * 0.45);
-  height: calc(var(--#{$prefix}spinner-size) * 0.45);
+  width: calc(var(--neeto-ui-spinner-size) * 0.45);
+  height: calc(var(--neeto-ui-spinner-size) * 0.45);
   border-radius: 100%;
   transform: scale(0.75);
   transform-origin: 50% 50%;
   opacity: 0.3;
   -webkit-animation: neetoUISpinnerMove 1s infinite linear alternate;
   animation: neetoUISpinnerMove 1s infinite linear alternate;
-  background-color: var(--#{$prefix}spinner-color);
+  background-color: var(--neeto-ui-spinner-color);
 }
 
 .neeto-ui-spinner__item:nth-child(1) {

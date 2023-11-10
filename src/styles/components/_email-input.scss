@@ -1,13 +1,13 @@
 :root {
   // Label Wrapper
-  --#{$prefix}multi-email-input-label-wrapper-gap: 8px;
-  --#{$prefix}multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}multi-email-input-counter-line-height: 1;
-  --#{$prefix}multi-email-input-counter-margin-bottom: 8px;
+  --neeto-ui-multi-email-input-label-wrapper-gap: 8px;
+  --neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-multi-email-input-counter-line-height: 1;
+  --neeto-ui-multi-email-input-counter-margin-bottom: 8px;
 
   // Prefx & Suffix
-  --#{$prefix}multi-email-input-prefix-suffix-icon-size: 16px;
-  --#{$prefix}multi-email-input-prefix-margin-left: 12px;
+  --neeto-ui-multi-email-input-prefix-suffix-icon-size: 16px;
+  --neeto-ui-multi-email-input-prefix-margin-left: 12px;
 }
 
 .neeto-ui-email-input__wrapper {
@@ -15,7 +15,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: var(--#{$prefix}multi-email-input-label-wrapper-gap);
+    gap: var(--neeto-ui-multi-email-input-label-wrapper-gap);
 
     .neeto-ui-label {
       flex-grow: 1;
@@ -23,26 +23,26 @@
     }
 
     .neeto-ui-email-input__counter {
-      color: var(--#{$prefix}multi-email-input-counter-color);
-      line-height: var(--#{$prefix}multi-email-input-counter-line-height);
-      margin-bottom: var(--#{$prefix}multi-email-input-counter-margin-bottom);
+      color: var(--neeto-ui-multi-email-input-counter-color);
+      line-height: var(--neeto-ui-multi-email-input-counter-line-height);
+      margin-bottom: var(--neeto-ui-multi-email-input-counter-margin-bottom);
       margin-left: auto;
     }
   }
 
   .neeto-ui-email-input__prefix {
-    margin-left: var(--#{$prefix}multi-email-input-prefix-margin-left);
+    margin-left: var(--neeto-ui-multi-email-input-prefix-margin-left);
 
     svg {
-      width: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
-      height: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
+      width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
+      height: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
     }
   }
 
   .neeto-ui-email-input__suffix {
     svg {
-      width: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
-      height: var(--#{$prefix}multi-email-input-prefix-suffix-icon-size);
+      width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
+      height: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
     }
   }
 }

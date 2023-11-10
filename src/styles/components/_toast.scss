@@ -1,68 +1,68 @@
 :root {
   // Container
-  --#{$prefix}toastr-min-width: 320px;
-  --#{$prefix}toastr-max-width: 640px;
-  --#{$prefix}toastr-z-index: 100000;
+  --neeto-ui-toastr-min-width: 320px;
+  --neeto-ui-toastr-max-width: 640px;
+  --neeto-ui-toastr-z-index: 100000;
 
   // Styles
-  --#{$prefix}info-toastr-bg-color: rgb(var(--neeto-ui-info-800));
-  --#{$prefix}error-toastr-bg-color: rgb(var(--neeto-ui-error-800));
-  --#{$prefix}success-toastr-bg-color: rgb(var(--neeto-ui-success-800));
-  --#{$prefix}warning-toastr-bg-color: rgb(var(--neeto-ui-warning-800));
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-800));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-800));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-800));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-800));
 
   // Toastr
-  --#{$prefix}toastr-min-height: 48px;
-  --#{$prefix}toastr-padding-x: 1rem;
-  --#{$prefix}toastr-padding-y: 0.75rem;
-  --#{$prefix}toastr-margin-x: 0;
-  --#{$prefix}toastr-margin-y: 1rem;
-  --#{$prefix}toastr-box-shadow: none;
-  --#{$prefix}toastr-border-radius: var(--neeto-ui-rounded-md);
-  --#{$prefix}toastr-icon-size: 24px;
-  --#{$prefix}toastr-gap: 12px;
-  --#{$prefix}toastr-color: rgb(var(--neeto-ui-white));
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}toastr-font-size);
-  --#{$prefix}toastr-font-weight: var(--neeto-ui-font-normal);
+  --neeto-ui-toastr-min-height: 48px;
+  --neeto-ui-toastr-padding-x: 1rem;
+  --neeto-ui-toastr-padding-y: 0.75rem;
+  --neeto-ui-toastr-margin-x: 0;
+  --neeto-ui-toastr-margin-y: 1rem;
+  --neeto-ui-toastr-box-shadow: none;
+  --neeto-ui-toastr-border-radius: var(--neeto-ui-rounded-md);
+  --neeto-ui-toastr-icon-size: 24px;
+  --neeto-ui-toastr-gap: 12px;
+  --neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-toastr-font-size);
+  --neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
 
   // Close Button
-  --#{$prefix}toastr-close-btn-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}toastr-close-btn-margin-y: auto;
-  --#{$prefix}toastr-close-btn-margin-right: 0px;
-  --#{$prefix}toastr-close-btn-margin-left: 8px;
+  --neeto-ui-toastr-close-btn-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-toastr-close-btn-margin-y: auto;
+  --neeto-ui-toastr-close-btn-margin-right: 0px;
+  --neeto-ui-toastr-close-btn-margin-left: 8px;
 }
 
 body {
   .Toastify__toast-container {
-    z-index: var(--#{$prefix}toastr-z-index);
+    z-index: var(--neeto-ui-toastr-z-index);
     padding: 0;
 
     width: auto;
-    max-width: var(--#{$prefix}toastr-max-width);
-    min-width: var(--#{$prefix}toastr-min-width);
+    max-width: var(--neeto-ui-toastr-max-width);
+    min-width: var(--neeto-ui-toastr-min-width);
 
     .Toastify__toast.Toastify__toast--info {
-      background-color: var(--#{$prefix}info-toastr-bg-color);
+      background-color: var(--neeto-ui-info-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--error {
-      background-color: var(--#{$prefix}error-toastr-bg-color);
+      background-color: var(--neeto-ui-error-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--success {
-      background-color: var(--#{$prefix}success-toastr-bg-color);
+      background-color: var(--neeto-ui-success-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--warning {
-      background-color: var(--#{$prefix}warning-toastr-bg-color);
+      background-color: var(--neeto-ui-warning-toastr-bg-color);
     }
 
     .Toastify__toast,
     .neeto-ui-toastr {
-      min-height: var(--#{$prefix}toastr-min-height);
-      padding: var(--#{$prefix}toastr-padding-y) var(--#{$prefix}toastr-padding-x);
-      margin: var(--#{$prefix}toastr-margin-y) var(--#{$prefix}toastr-margin-x);
-      box-shadow: var(--#{$prefix}toastr-box-shadow);
-      border-radius: var(--#{$prefix}toastr-border-radius);
+      min-height: var(--neeto-ui-toastr-min-height);
+      padding: var(--neeto-ui-toastr-padding-y) var(--neeto-ui-toastr-padding-x);
+      margin: var(--neeto-ui-toastr-margin-y) var(--neeto-ui-toastr-margin-x);
+      box-shadow: var(--neeto-ui-toastr-box-shadow);
+      border-radius: var(--neeto-ui-toastr-border-radius);
 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
@@ -75,27 +75,27 @@ body {
         margin: 0;
 
         svg {
-          width: var(--#{$prefix}toastr-icon-size);
-          height: var(--#{$prefix}toastr-icon-size);
+          width: var(--neeto-ui-toastr-icon-size);
+          height: var(--neeto-ui-toastr-icon-size);
         }
       }
 
       .Toastify__toast-body {
         margin: 0;
         padding: 0;
-        gap: var(--#{$prefix}toastr-gap);
-        color: var(--#{$prefix}toastr-color);
+        gap: var(--neeto-ui-toastr-gap);
+        color: var(--neeto-ui-toastr-color);
 
         div {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: var(--#{$prefix}toastr-gap);
+          gap: var(--neeto-ui-toastr-gap);
 
           p {
-            font-size: var(--#{$prefix}toastr-font-size);
-            font-weight: var(--#{$prefix}toastr-font-weight);
+            font-size: var(--neeto-ui-toastr-font-size);
+            font-weight: var(--neeto-ui-toastr-font-weight);
           }
         }
 
@@ -107,9 +107,9 @@ body {
 
       .neeto-ui-toastr__close-button {
         opacity: 0.8;
-        margin: var(--#{$prefix}toastr-close-btn-margin-y) var(--#{$prefix}toastr-close-btn-margin-right) var(--#{$prefix}toastr-close-btn-margin-y) var(--#{$prefix}toastr-close-btn-margin-left);
+        margin: var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-right) var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-left);
         flex-shrink: 0;
-        color: var(--#{$prefix}toastr-close-btn-color);
+        color: var(--neeto-ui-toastr-close-btn-color);
         transition: var(--neeto-ui-transition);
 
         &:hover,

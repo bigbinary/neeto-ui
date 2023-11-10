@@ -1,11 +1,19 @@
-:root {
+:root, .neeto-ui-theme--light{
+  // Body
+  --neeto-ui-body-color: 31, 31, 31;
+  --neeto-ui-body-bg: 255, 255, 255;
   // Color
   @each $color, $value in $neeto-ui-theme-colors {
     --neeto-ui-#{$color}: #{$value};
   }
+}
 
-  // Surface color
-  --neeto-ui-surface-bg: #{$neeto-ui-surface-bg};
+:root {
+  // Body
+  --neeto-ui-body-font-family: #{$neeto-ui-body-font-family};
+  --neeto-ui-body-font-size: #{$neeto-ui-body-font-size};
+  --neeto-ui-body-font-weight: #{$neeto-ui-body-font-weight};
+  --neeto-ui-body-line-height: #{$neeto-ui-body-line-height};
 
   // Box shadow
   @each $shadow, $value in $neeto-ui-shadows {
