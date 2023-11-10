@@ -4,7 +4,7 @@
     --neeto-ui-#{$color}: #{$value};
   }
 
-  // surface color
+  // Surface color
   --neeto-ui-surface-bg: #{$neeto-ui-surface-bg};
 
   // Box shadow
@@ -48,17 +48,6 @@
   --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
 
   // Layout constants
-  --neeto-ui-sidebar-width: #{$neeto-ui-sidebar-width};
-
   --neeto-ui-pane-header-height: #{$neeto-ui-pane-header-height};
   --neeto-ui-pane-footer-height: #{$neeto-ui-pane-footer-height};
-
-  --neeto-ui-main-header-height: #{$neeto-ui-main-header-height};
-  --neeto-ui-main-header-with-breadcrumbs-height: #{$neeto-ui-main-header-with-breadcrumbs-height};
-
-  --neeto-ui-sub-header-height: #{$neeto-ui-sub-header-height};
-  --neeto-ui-sub-header-bottom-margin: #{$neeto-ui-sub-header-bottom-margin};
-
-  --neeto-ui-pagination-block-height: #{$neeto-ui-pagination-block-height};
-  --neeto-ui-table-header-height: #{$neeto-ui-table-header-height};
 }

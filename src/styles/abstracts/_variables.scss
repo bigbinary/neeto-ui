@@ -248,10 +248,14 @@ $neeto-ui-tab-1024: 1024px;
 $neeto-ui-desk-1200: 1200px;
 
 // Constants
-$neeto-ui-sidebar-width: 72px;
-
 $neeto-ui-pane-header-height: 78px;
 $neeto-ui-pane-footer-height: 80px;
+
+$prefix: "neeto-ui-";
+$neeto-ui-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+"Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue",
+sans-serif !important;
+
 
 $neeto-ui-main-header-height: 80px;
 $neeto-ui-main-header-with-breadcrumbs-height: 94px;
@@ -264,7 +268,3 @@ $neeto-ui-table-header-height: 40px;
 // Z Indexes
 $neeto-ui-modal-z-index: 99999;
 
-$prefix: "neeto-ui-";
-$neeto-ui-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-"Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue",
-sans-serif !important;

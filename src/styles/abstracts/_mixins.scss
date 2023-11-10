@@ -1,26 +1,3 @@
-// custom scrollbar
-
-@mixin scrollbars(
-  $size,
-  $foreground-color: rgb(var(--neeto-ui-gray-300)),
-  $background-color: "transparent"
-) {
-  // For Google Chrome
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $foreground-color;
-    border-radius: 50px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $background-color;
-  }
-}
-
 // media queries
 
 @mixin viewport($media) {
@@ -44,12 +21,6 @@
     @media screen and (max-width: $neeto-ui-mob-479) {
       @content;
     }
-  }
-}
-
-@mixin min-max($resMin, $resMax) {
-  @media (min-width: $resMin+px) and (max-width: $resMax+px) {
-    @content;
   }
 }
 
