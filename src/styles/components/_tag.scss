@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-tag-padding-x: 8px;
   --neeto-ui-tag-padding-y: 3px;
   @include rfs(var(--neeto-ui-text-xs), --neeto-ui-tag-font-size);
