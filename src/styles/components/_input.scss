@@ -10,7 +10,7 @@
   --neeto-ui-input-label-margin: 8px;
 
   // Max Length
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-max-length-font-size);
+  --neeto-ui-input-max-length-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-input-max-length-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-max-length-line-height: 1;
 
@@ -18,7 +18,7 @@
   --neeto-ui-input-padding-x: 0px;
   --neeto-ui-input-padding-y: 0px;
   --neeto-ui-input-min-height: 0px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-font-size);
+  --neeto-ui-input-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-input-border-width: 1px;
   --neeto-ui-input-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-input-border-radius: var(--neeto-ui-rounded);
@@ -46,7 +46,7 @@
   --neeto-ui-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
 
   // Prefix & Suffix
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-prefix-suffix-font-size);
+  --neeto-ui-input-prefix-suffix-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-prefix-suffix-bg-color: transparent;
   --neeto-ui-input-prefix-suffix-line-height: 1;
@@ -58,13 +58,13 @@
 
   // Help Text
   --neeto-ui-input-help-text-margin: 8px;
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-input-help-text-font-size);
+  --neeto-ui-input-help-text-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-input-help-text-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-help-text-line-height: 1.1;
 
   // Error Text
   --neeto-ui-input-error-text-margin: 8px;
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-input-error-text-font-size);
+  --neeto-ui-input-error-text-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-input-error-text-color: rgb(var(--neeto-ui-error-800));
   --neeto-ui-input-error-text-line-height: 1.1;
 }

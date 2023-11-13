@@ -3,7 +3,7 @@
   --neeto-ui-tab-wrapper-border-color: rgb(var(--neeto-ui-gray-300));
   --neeto-ui-tab-padding-x: 8px;
   --neeto-ui-tab-padding-y: 12px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-tab-font-size);
+  --neeto-ui-tab-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-tab-font-weight: var(--neeto-ui-font-semibold);
   --neeto-ui-tab-line-height: 1;
   --neeto-ui-tab-color: rgb(var(--neeto-ui-gray-600));

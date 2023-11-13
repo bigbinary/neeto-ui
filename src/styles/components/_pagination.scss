@@ -5,7 +5,7 @@
   --neeto-ui-pagination-item-height: 28px;
   --neeto-ui-pagination-item-margin-x: 4px;
   --neeto-ui-pagination-item-margin-y: 0px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-pagination-item-font-size);
+  --neeto-ui-pagination-item-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-pagination-item-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-pagination-item-bg-color: rgb(var(--neeto-ui-white));

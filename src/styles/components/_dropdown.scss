@@ -23,7 +23,7 @@
   // Item
   --neeto-ui-dropdown-item-padding-y: 6px;
   --neeto-ui-dropdown-item-padding-x: 12px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-dropdown-item-font-size);
+  --neeto-ui-dropdown-item-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-dropdown-item-font-weight: var(--neeto-ui-font-normal);
   --neeto-ui-dropdown-item-line-height: 1.143;
   --neeto-ui-dropdown-item-color: rgb(var(--neeto-ui-gray-800));

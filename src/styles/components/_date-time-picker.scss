@@ -1,6 +1,6 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Date Input
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-date-input-font-size);
+  --neeto-ui-date-input-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-date-input-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-date-input-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-date-input-border-width: 1px;
@@ -26,7 +26,7 @@
   --neeto-ui-date-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
 
   // Cell
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-date-input-cell-font-size);
+  --neeto-ui-date-input-cell-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-date-input-cell-height: 32px;
   --neeto-ui-date-input-cell-border-radius: var(--neeto-ui-rounded-sm);
   --neeto-ui-date-input-cell-color: rgb(var(--neeto-ui-gray-800));
@@ -45,7 +45,7 @@
   --neeto-ui-date-input-footer-btn-padding-x: 8px;
   --neeto-ui-date-input-footer-btn-padding-y: 5px;
   --neeto-ui-date-input-footer-btn-gap: 4px;
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-date-input-footer-btn-font-size);
+  --neeto-ui-date-input-footer-btn-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-date-input-footer-btn-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-date-input-footer-btn-line-height: 16px;
   --neeto-ui-date-input-footer-btn-border-radius: var(--neeto-ui-rounded);
@@ -63,7 +63,7 @@
   --neeto-ui-date-panel-width: 320px;
   --neeto-ui-date-panel-content-width: 272px;
   --neeto-ui-date-panel-content-header-color: rgb(var(--neeto-ui-gray-600));
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-date-panel-content-header-font-size);
+  --neeto-ui-date-panel-content-header-font-size: var(--neeto-ui-text-xs);
 
 
   // Date Panel Dropdown
@@ -82,7 +82,7 @@
   --neeto-ui-date-panel-header-padding-bottom: 0px;
   --neeto-ui-date-panel-header-padding-x: 24px;
   --neeto-ui-date-panel-header-border-bottom-width: 0px;
-  @include rfs(var(--neeto-ui-text-base), --neeto-ui-date-panel-header-nav-btn-font-size);
+  --neeto-ui-date-panel-header-nav-btn-font-size: var(--neeto-ui-text-base);
   --neeto-ui-date-panel-header-nav-btn-font-weight: var(--neeto-ui-font-semibold);
   --neeto-ui-date-panel-header-nav-btn-padding-right: 24px;
   --neeto-ui-date-panel-header-btn-color: rgb(var(--neeto-ui-gray-800));
@@ -91,7 +91,7 @@
   --neeto-ui-time-panel-header-padding-top: 16px;
   --neeto-ui-time-panel-header-padding-bottom: 8px;
   --neeto-ui-time-panel-header-padding-x: 16px;
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-time-panel-header-column-font-size);
+  --neeto-ui-time-panel-header-column-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-time-panel-header-column-line-height: 16px;
   --neeto-ui-time-panel-header-column-color: rgb(var(--neeto-ui-gray-600));
   --neeto-ui-time-panel-header-column-gap: 12px;
@@ -104,7 +104,7 @@
   --neeto-ui-time-panel-now-btn-margin-bottom: 22px;
 
   // Time Input
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-time-input-font-size);
+  --neeto-ui-time-input-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-time-input-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-time-input-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-time-input-border-width: 1px;

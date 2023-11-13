@@ -1,5 +1,5 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-table-header-font-size);
+  --neeto-ui-table-header-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-table-header-text-transform: uppercase;
   --neeto-ui-table-header-border-bottom-width: 2px;
   --neeto-ui-table-resize-handle-width: 10px;

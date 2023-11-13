@@ -1,5 +1,5 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-kbd-font-size);
+  --neeto-ui-kbd-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-kbd-font-weight: var(--neeto-ui-font-semibold);
   --neeto-ui-kbd-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-kbd-bg-color: rgb(var(--neeto-ui-gray-200));

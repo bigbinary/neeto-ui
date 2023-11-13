@@ -1,7 +1,7 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-callout-padding-x: 12px;
   --neeto-ui-callout-padding-y: 9px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-callout-font-size);
+  --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-callout-line-height: 16px;
   --neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));

@@ -1,5 +1,5 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-label-font-size);
+  --neeto-ui-label-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-label-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-label-line-height: 1;
   --neeto-ui-label-color: rgb(var(--neeto-ui-black));
