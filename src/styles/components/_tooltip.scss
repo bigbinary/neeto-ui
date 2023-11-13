@@ -1,27 +1,27 @@
 :root {
-  --#{$prefix}tooltip-max-width: calc(100vw - 10px);
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}tooltip-font-size);
-  --#{$prefix}tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}tooltip-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}tooltip-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}tooltip-line-height: 1.4;
-  --#{$prefix}tooltip-word-wrap: break-word;
-  --#{$prefix}tooltip-padding-x: 8px;
-  --#{$prefix}tooltip-padding-y: 4px;
-  --#{$prefix}tooltip-z-index: 1;
+  --neeto-ui-tooltip-max-width: calc(100vw - 10px);
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-tooltip-font-size);
+  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-tooltip-line-height: 1.4;
+  --neeto-ui-tooltip-word-wrap: break-word;
+  --neeto-ui-tooltip-padding-x: 8px;
+  --neeto-ui-tooltip-padding-y: 4px;
+  --neeto-ui-tooltip-z-index: 1;
 
   // Arrow
-  --#{$prefix}tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
 
   // Light theme
-  --#{$prefix}tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}tooltip-light-theme-box-shadow: var(--neeto-ui-shadow-sm);
-  --#{$prefix}tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tooltip-light-theme-box-shadow: var(--neeto-ui-shadow-sm);
+  --neeto-ui-tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
 
   // Light theme arrow
-  --#{$prefix}tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}tooltip-light-theme-arrow-border-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-tooltip-light-theme-arrow-border-color: rgb(var(--neeto-ui-white));
 
 }
 
@@ -30,19 +30,19 @@
 }
 
 [data-tippy-root] {
-  max-width: var(--#{$prefix}tooltip-max-width);
+  max-width: var(--neeto-ui-tooltip-max-width);
 }
 
 .tippy-box {
   position: relative;
-  background-color: var(--#{$prefix}tooltip-bg-color);
-  color: var(--#{$prefix}tooltip-color);
-  border-radius: var(--#{$prefix}tooltip-border-radius);
-  font-size: var(--#{$prefix}tooltip-font-size);
-  line-height: var(--#{$prefix}tooltip-line-height);
+  background-color: var(--neeto-ui-tooltip-bg-color);
+  color: var(--neeto-ui-tooltip-color);
+  border-radius: var(--neeto-ui-tooltip-border-radius);
+  font-size: var(--neeto-ui-tooltip-font-size);
+  line-height: var(--neeto-ui-tooltip-line-height);
   outline: 0;
   transition-property: transform, visibility, opacity;
-  word-wrap: var(--#{$prefix}tooltip-word-wrap);
+  word-wrap: var(--neeto-ui-tooltip-word-wrap);
 
   h1,
   h2,
@@ -113,7 +113,7 @@
 .tippy-arrow {
   width: 16px;
   height: 16px;
-  color: var(--#{$prefix}tooltip-arrow-color);
+  color: var(--neeto-ui-tooltip-arrow-color);
 }
 
 .tippy-arrow:before {
@@ -125,8 +125,8 @@
 
 .tippy-content {
   position: relative;
-  padding: var(--#{$prefix}tooltip-padding-y) var(--#{$prefix}tooltip-padding-x);
-  z-index: var(--#{$prefix}tooltip-z-index);
+  padding: var(--neeto-ui-tooltip-padding-y) var(--neeto-ui-tooltip-padding-x);
+  z-index: var(--neeto-ui-tooltip-z-index);
 }
 
 // SVG arrow
@@ -173,7 +173,7 @@
 .tippy-svg-arrow {
   width: 17px;
   height: 17px;
-  fill: var(--#{$prefix}tooltip-arrow-color);
+  fill: var(--neeto-ui-tooltip-arrow-color);
   text-align: initial;
 }
 
@@ -183,40 +183,40 @@
 }
 
 .tippy-svg-arrow > svg > path {
-  fill: var(--#{$prefix}tooltip-arrow-color);
+  fill: var(--neeto-ui-tooltip-arrow-color);
 }
 
 // Light theme
 .tippy-box[data-theme~="light"] .tippy-svg-arrow > svg > path {
-  fill: var(--#{$prefix}tooltip-light-theme-arrow-color);
+  fill: var(--neeto-ui-tooltip-light-theme-arrow-color);
 }
 
 .tippy-box[data-theme~="light"] {
-  color: var(--#{$prefix}tooltip-light-theme-color);
-  box-shadow: var(--#{$prefix}tooltip-light-theme-box-shadow);
-  background-color: var(--#{$prefix}tooltip-light-theme-bg-color);
+  color: var(--neeto-ui-tooltip-light-theme-color);
+  box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
+  background-color: var(--neeto-ui-tooltip-light-theme-bg-color);
 }
 
 .tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow:before {
-  border-top-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
+  border-top-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"][data-placement^="bottom"] > .tippy-arrow:before {
-  border-bottom-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
+  border-bottom-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
-  border-left-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
+  border-left-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
-  border-right-color: var(--#{$prefix}tooltip-light-theme-arrow-border-color);
+  border-right-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"] > .tippy-backdrop {
-  background-color: var(--#{$prefix}tooltip-light-theme-backdrop-bg-color);
+  background-color: var(--neeto-ui-tooltip-light-theme-backdrop-bg-color);
 }
 
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow {
-  fill: var(--#{$prefix}tooltip-light-theme-arrow-color);
+  fill: var(--neeto-ui-tooltip-light-theme-arrow-color);
 }

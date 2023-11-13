@@ -1,20 +1,20 @@
 :root {
-  --#{$prefix}popover-border-width: 1px;
-  --#{$prefix}popover-border-color: rgb(var(--neeto-ui-gray-800));;
-  --#{$prefix}popover-padding-x: 1rem;
-  --#{$prefix}popover-padding-y: 1rem;
+  --neeto-ui-popover-border-width: 1px;
+  --neeto-ui-popover-border-color: rgb(var(--neeto-ui-gray-800));;
+  --neeto-ui-popover-padding-x: 1rem;
+  --neeto-ui-popover-padding-y: 1rem;
 
   // Light theme
-  --#{$prefix}popover-light-theme-border-color: rgb(var(--neeto-ui-gray-400));;
+  --neeto-ui-popover-light-theme-border-color: rgb(var(--neeto-ui-gray-400));;
 }
 
 .neeto-ui-popover {
   --neeto-ui-tooltip-padding-x: var(--neeto-ui-popover-padding-x);
   --neeto-ui-tooltip-padding-y: var(--neeto-ui-popover-padding-y);
 
-  border: var(--#{$prefix}popover-border-width) solid var(--#{$prefix}popover-border-color);
+  border: var(--neeto-ui-popover-border-width) solid var(--neeto-ui-popover-border-color);
 
   &[data-theme~=light] {
-    border-color: var(--#{$prefix}popover-light-theme-border-color);
+    border-color: var(--neeto-ui-popover-light-theme-border-color);
   }
 }

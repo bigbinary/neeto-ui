@@ -1,132 +1,132 @@
 :root {
   // Date Input
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}date-input-font-size);
-  --#{$prefix}date-input-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}date-input-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}date-input-border-width: 1px;
-  --#{$prefix}date-input-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}date-input-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}date-input-line-height: 1.2;
-  --#{$prefix}date-input-padding-x: 0px;
-  --#{$prefix}date-input-padding-y: 0px;
-  --#{$prefix}date-input-box-shadow: 0px;
-  --#{$prefix}date-input-active-bar-bg-color: rgb(var(--neeto-ui-primary-500));
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-date-input-font-size);
+  --neeto-ui-date-input-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-input-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-date-input-border-width: 1px;
+  --neeto-ui-date-input-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-date-input-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-date-input-line-height: 1.2;
+  --neeto-ui-date-input-padding-x: 0px;
+  --neeto-ui-date-input-padding-y: 0px;
+  --neeto-ui-date-input-box-shadow: 0px;
+  --neeto-ui-date-input-active-bar-bg-color: rgb(var(--neeto-ui-primary-500));
 
   // Hover
-  --#{$prefix}date-input-hover-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-input-hover-border-color: rgb(var(--neeto-ui-gray-800));
 
   // Focus
-  --#{$prefix}date-input-focus-outline-color: transparent;
-  --#{$prefix}date-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-  --#{$prefix}date-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-focus-outline-color: transparent;
+  --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-date-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
 
   // Prefix & Suffix
-  --#{$prefix}date-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}date-input-prefix-suffix-size: 16px;
-  --#{$prefix}date-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-date-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-date-input-prefix-suffix-size: 16px;
+  --neeto-ui-date-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
 
   // Cell
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}date-input-cell-font-size);
-  --#{$prefix}date-input-cell-height: 32px;
-  --#{$prefix}date-input-cell-border-radius: var(--neeto-ui-rounded-sm);
-  --#{$prefix}date-input-cell-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}date-input-cell-hover-bg-color: rgb(var(--neeto-ui-gray-200));
-  --#{$prefix}date-input-cell-border-width: 1px;
-  --#{$prefix}date-input-cell-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}date-input-today-cell-border-width: 1px;
-  --#{$prefix}date-input-today-cell-border-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}date-input-selected-cell-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}date-input-selected-cell-bg-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}date-input-cell-range-bg-color: rgb(var(--neeto-ui-gray-200));
-  --#{$prefix}date-input-cell-range-hover-bg-color: rgb(var(--neeto-ui-gray-400));
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-date-input-cell-font-size);
+  --neeto-ui-date-input-cell-height: 32px;
+  --neeto-ui-date-input-cell-border-radius: var(--neeto-ui-rounded-sm);
+  --neeto-ui-date-input-cell-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-input-cell-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-date-input-cell-border-width: 1px;
+  --neeto-ui-date-input-cell-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-date-input-today-cell-border-width: 1px;
+  --neeto-ui-date-input-today-cell-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-selected-cell-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-date-input-selected-cell-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-cell-range-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-date-input-cell-range-hover-bg-color: rgb(var(--neeto-ui-gray-400));
 
   // Footer
-  --#{$prefix}date-input-footer-bg-color: rgb(var(--neeto-ui-gray-100));
-  --#{$prefix}date-input-footer-btn-padding-x: 8px;
-  --#{$prefix}date-input-footer-btn-padding-y: 5px;
-  --#{$prefix}date-input-footer-btn-gap: 4px;
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}date-input-footer-btn-font-size);
-  --#{$prefix}date-input-footer-btn-font-weight: var(--neeto-ui-font-medium);
-  --#{$prefix}date-input-footer-btn-line-height: 16px;
-  --#{$prefix}date-input-footer-btn-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}date-input-footer-today-now-btn-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}date-input-footer-today-now-btn-hover-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}date-input-footer-today-now-btn-hover-bg-color: rgb(var(--neeto-ui-gray-200));
-  --#{$prefix}date-input-footer-ok-btn-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}date-input-footer-ok-btn-bg-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}date-input-footer-ok-btn-border-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}date-input-footer-ok-btn-hover-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}date-input-footer-ok-btn-hover-bg-color: rgb(var(--neeto-ui-primary-600));
-  --#{$prefix}date-input-footer-ok-btn-disabled-opacity: 0.5;
+  --neeto-ui-date-input-footer-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-date-input-footer-btn-padding-x: 8px;
+  --neeto-ui-date-input-footer-btn-padding-y: 5px;
+  --neeto-ui-date-input-footer-btn-gap: 4px;
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-date-input-footer-btn-font-size);
+  --neeto-ui-date-input-footer-btn-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-date-input-footer-btn-line-height: 16px;
+  --neeto-ui-date-input-footer-btn-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-date-input-footer-today-now-btn-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-input-footer-today-now-btn-hover-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-input-footer-today-now-btn-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-date-input-footer-ok-btn-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-date-input-footer-ok-btn-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-footer-ok-btn-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-footer-ok-btn-hover-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-date-input-footer-ok-btn-hover-bg-color: rgb(var(--neeto-ui-primary-600));
+  --neeto-ui-date-input-footer-ok-btn-disabled-opacity: 0.5;
 
   // Date Panel
-  --#{$prefix}date-panel-width: 320px;
-  --#{$prefix}date-panel-content-width: 272px;
-  --#{$prefix}date-panel-content-header-color: rgb(var(--neeto-ui-gray-600));
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}date-panel-content-header-font-size);
+  --neeto-ui-date-panel-width: 320px;
+  --neeto-ui-date-panel-content-width: 272px;
+  --neeto-ui-date-panel-content-header-color: rgb(var(--neeto-ui-gray-600));
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-date-panel-content-header-font-size);
 
 
   // Date Panel Dropdown
-  --#{$prefix}date-panel-dropdown-padding-y: 2px;
+  --neeto-ui-date-panel-dropdown-padding-y: 2px;
 
   // Date Panel Container
-  --#{$prefix}date-panel-container-border-width: 1px;
-  --#{$prefix}date-panel-container-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}date-panel-container-box-shadow: var(--neeto-ui-shadow-lg);
-  --#{$prefix}date-panel-container-border-radius: var(--neeto-ui-rounded-xl);
+  --neeto-ui-date-panel-container-border-width: 1px;
+  --neeto-ui-date-panel-container-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-date-panel-container-box-shadow: var(--neeto-ui-shadow-lg);
+  --neeto-ui-date-panel-container-border-radius: var(--neeto-ui-rounded-xl);
 
   // Date Panel Header
-  --#{$prefix}date-panel-header-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}date-panel-header-min-height: 68px;
-  --#{$prefix}date-panel-header-padding-top: 12px;
-  --#{$prefix}date-panel-header-padding-bottom: 0px;
-  --#{$prefix}date-panel-header-padding-x: 24px;
-  --#{$prefix}date-panel-header-border-bottom-width: 0px;
-  @include rfs(var(--neeto-ui-text-base), --#{$prefix}date-panel-header-nav-btn-font-size);
-  --#{$prefix}date-panel-header-nav-btn-font-weight: var(--neeto-ui-font-semibold);
-  --#{$prefix}date-panel-header-nav-btn-padding-right: 24px;
-  --#{$prefix}date-panel-header-btn-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-panel-header-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-date-panel-header-min-height: 68px;
+  --neeto-ui-date-panel-header-padding-top: 12px;
+  --neeto-ui-date-panel-header-padding-bottom: 0px;
+  --neeto-ui-date-panel-header-padding-x: 24px;
+  --neeto-ui-date-panel-header-border-bottom-width: 0px;
+  @include rfs(var(--neeto-ui-text-base), --neeto-ui-date-panel-header-nav-btn-font-size);
+  --neeto-ui-date-panel-header-nav-btn-font-weight: var(--neeto-ui-font-semibold);
+  --neeto-ui-date-panel-header-nav-btn-padding-right: 24px;
+  --neeto-ui-date-panel-header-btn-color: rgb(var(--neeto-ui-gray-800));
 
   // Time Panel
-  --#{$prefix}time-panel-header-padding-top: 16px;
-  --#{$prefix}time-panel-header-padding-bottom: 8px;
-  --#{$prefix}time-panel-header-padding-x: 16px;
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}time-panel-header-column-font-size);
-  --#{$prefix}time-panel-header-column-line-height: 16px;
-  --#{$prefix}time-panel-header-column-color: rgb(var(--neeto-ui-gray-600));
-  --#{$prefix}time-panel-header-column-gap: 12px;
-  --#{$prefix}time-panel-body-gap: 12px;
-  --#{$prefix}time-panel-body-padding-x: 16px;
-  --#{$prefix}time-panel-column-width: 62px;
-  --#{$prefix}time-panel-column-border-left-color: rgb(var(--neeto-ui-gray-200));
-  --#{$prefix}time-panel-cell-padding-x: 0px;
-  --#{$prefix}time-panel-cell-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}time-panel-now-btn-margin-bottom: 22px;
+  --neeto-ui-time-panel-header-padding-top: 16px;
+  --neeto-ui-time-panel-header-padding-bottom: 8px;
+  --neeto-ui-time-panel-header-padding-x: 16px;
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-time-panel-header-column-font-size);
+  --neeto-ui-time-panel-header-column-line-height: 16px;
+  --neeto-ui-time-panel-header-column-color: rgb(var(--neeto-ui-gray-600));
+  --neeto-ui-time-panel-header-column-gap: 12px;
+  --neeto-ui-time-panel-body-gap: 12px;
+  --neeto-ui-time-panel-body-padding-x: 16px;
+  --neeto-ui-time-panel-column-width: 62px;
+  --neeto-ui-time-panel-column-border-left-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-time-panel-cell-padding-x: 0px;
+  --neeto-ui-time-panel-cell-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-time-panel-now-btn-margin-bottom: 22px;
 
   // Time Input
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}time-input-font-size);
-  --#{$prefix}time-input-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}time-input-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}time-input-border-width: 1px;
-  --#{$prefix}time-input-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}time-input-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}time-input-line-height: 1.2;
-  --#{$prefix}time-input-padding-x: 0px;
-  --#{$prefix}time-input-padding-y: 0px;
-  --#{$prefix}time-input-box-shadow: 0px;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-time-input-font-size);
+  --neeto-ui-time-input-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-time-input-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-time-input-border-width: 1px;
+  --neeto-ui-time-input-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-time-input-line-height: 1.2;
+  --neeto-ui-time-input-padding-x: 0px;
+  --neeto-ui-time-input-padding-y: 0px;
+  --neeto-ui-time-input-box-shadow: 0px;
 
   // Hover
-  --#{$prefix}time-input-hover-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-time-input-hover-border-color: rgb(var(--neeto-ui-gray-800));
 
   // Focus
-  --#{$prefix}time-input-focus-outline-color: transparent;
-  --#{$prefix}time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-  --#{$prefix}time-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-time-input-focus-outline-color: transparent;
+  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
 
   // Prefix & Suffix
-  --#{$prefix}time-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}time-input-prefix-suffix-size: 16px;
-  --#{$prefix}time-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-time-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-time-input-prefix-suffix-size: 16px;
+  --neeto-ui-time-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
 }
 
 .neeto-ui-date-input {
@@ -135,16 +135,16 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  font-size: var(--#{$prefix}date-input-font-size);
+  font-size: var(--neeto-ui-date-input-font-size);
   transition: var(--neeto-ui-transition);
-  color: var(--#{$prefix}date-input-color);
-  background-color: var(--#{$prefix}date-input-bg-color);
-  border: var(--#{$prefix}date-input-border-width) solid var(--#{$prefix}date-input-border-color);
-  border-radius: var(--#{$prefix}date-input-border-radius);
+  color: var(--neeto-ui-date-input-color);
+  background-color: var(--neeto-ui-date-input-bg-color);
+  border: var(--neeto-ui-date-input-border-width) solid var(--neeto-ui-date-input-border-color);
+  border-radius: var(--neeto-ui-date-input-border-radius);
   overflow: hidden;
-  line-height: var(--#{$prefix}date-input-line-height);
-  padding: var(--#{$prefix}date-input-padding-y) var(--#{$prefix}date-input-padding-x);
-  box-shadow: var(--#{$prefix}date-input-box-shadow);
+  line-height: var(--neeto-ui-date-input-line-height);
+  padding: var(--neeto-ui-date-input-padding-y) var(--neeto-ui-date-input-padding-x);
+  box-shadow: var(--neeto-ui-date-input-box-shadow);
 
   &.neeto-ui-date-input--large {
     --neeto-ui-date-input-padding-x: 12px;
@@ -162,11 +162,11 @@
   }
 
   .ant-picker-input > input {
-    color: var(--#{$prefix}date-input-color);
+    color: var(--neeto-ui-date-input-color);
   }
 
   &:hover:not(.neeto-ui-date-input--naked, .neeto-ui-date-input--disabled, .ant-picker-focused) {
-    border-color: var(--#{$prefix}date-input-hover-border-color);
+    border-color: var(--neeto-ui-date-input-hover-border-color);
   }
 
   &.neeto-ui-date-input--error:not(.neeto-ui-date-input--naked) {
@@ -186,15 +186,15 @@
   }
 
   .ant-picker-suffix {
-    color: var(--#{$prefix}date-input-prefix-suffix-color);
+    color: var(--neeto-ui-date-input-prefix-suffix-color);
   }
 
   &.ant-picker-focused:not(.neeto-ui-date-input--naked) {
-    border-color: var(--#{$prefix}date-input-focus-border-color) !important;
-    box-shadow: var(--#{$prefix}date-input-focus-box-shadow) !important;
+    border-color: var(--neeto-ui-date-input-focus-border-color) !important;
+    box-shadow: var(--neeto-ui-date-input-focus-box-shadow) !important;
 
     .ant-picker-suffix {
-      color: var(--#{$prefix}date-input-focus-prefix-suffix-color);
+      color: var(--neeto-ui-date-input-focus-prefix-suffix-color);
     }
   }
 
@@ -206,9 +206,9 @@
     background-color: transparent;
 
     svg {
-      width: var(--#{$prefix}date-input-prefix-suffix-size);
-      height: var(--#{$prefix}date-input-prefix-suffix-size);
-      color: var(--#{$prefix}date-input-prefix-suffix-color);
+      width: var(--neeto-ui-date-input-prefix-suffix-size);
+      height: var(--neeto-ui-date-input-prefix-suffix-size);
+      color: var(--neeto-ui-date-input-prefix-suffix-color);
     }
   }
 
@@ -217,7 +217,7 @@
   }
 
   &.ant-picker-range.ant-picker-focused .ant-picker-active-bar {
-    background: var(--#{$prefix}date-input-active-bar-bg-color);
+    background: var(--neeto-ui-date-input-active-bar-bg-color);
   }
 
   &.ant-picker-range .ant-picker-clear {
@@ -228,14 +228,14 @@
 // Time Input
 
 .neeto-ui-time-input {
-  font-size: var(--#{$prefix}time-input-font-size);
-  color: var(--#{$prefix}time-input-color);
-  background-color: var(--#{$prefix}time-input-bg-color);
-  border: var(--#{$prefix}time-input-border-width) solid var(--#{$prefix}time-input-border-color);
-  border-radius: var(--#{$prefix}time-input-border-radius);
-  line-height: var(--#{$prefix}time-input-line-height);
-  padding: var(--#{$prefix}time-input-padding-y) var(--#{$prefix}time-input-padding-x);
-  box-shadow: var(--#{$prefix}time-input-box-shadow);
+  font-size: var(--neeto-ui-time-input-font-size);
+  color: var(--neeto-ui-time-input-color);
+  background-color: var(--neeto-ui-time-input-bg-color);
+  border: var(--neeto-ui-time-input-border-width) solid var(--neeto-ui-time-input-border-color);
+  border-radius: var(--neeto-ui-time-input-border-radius);
+  line-height: var(--neeto-ui-time-input-line-height);
+  padding: var(--neeto-ui-time-input-padding-y) var(--neeto-ui-time-input-padding-x);
+  box-shadow: var(--neeto-ui-time-input-box-shadow);
 
   &.neeto-ui-time-input--large {
     --neeto-ui-time-input-padding-x: 12px;
@@ -253,7 +253,7 @@
   }
 
   &:hover:not(.neeto-ui-time-input--naked, .neeto-ui-time-input--disabled) {
-    border-color: var(--#{$prefix}time-input-hover-border-color);
+    border-color: var(--neeto-ui-time-input-hover-border-color);
   }
 
   &.neeto-ui-time-input--error {
@@ -273,15 +273,15 @@
   }
 
   .ant-picker-suffix {
-    color: var(--#{$prefix}time-input-prefix-suffix-color);
+    color: var(--neeto-ui-time-input-prefix-suffix-color);
   }
 
   &.ant-picker-focused:not(.neeto-ui-time-input--naked) {
-    border-color: var(--#{$prefix}time-input-focus-border-color) !important;
-    box-shadow: var(--#{$prefix}time-input-focus-box-shadow) !important;
+    border-color: var(--neeto-ui-time-input-focus-border-color) !important;
+    box-shadow: var(--neeto-ui-time-input-focus-box-shadow) !important;
 
     .ant-picker-suffix {
-      color: var(--#{$prefix}time-input-focus-prefix-suffix-color);
+      color: var(--neeto-ui-time-input-focus-prefix-suffix-color);
     }
   }
 
@@ -293,9 +293,9 @@
     background-color: transparent;
 
     svg {
-      width: var(--#{$prefix}time-input-prefix-suffix-size);
-      height: var(--#{$prefix}time-input-prefix-suffix-size);
-      color: var(--#{$prefix}time-input-prefix-suffix-color);
+      width: var(--neeto-ui-time-input-prefix-suffix-size);
+      height: var(--neeto-ui-time-input-prefix-suffix-size);
+      color: var(--neeto-ui-time-input-prefix-suffix-color);
     }
   }
 
@@ -309,8 +309,8 @@
     .ant-picker-time-panel-column {
       & > li.ant-picker-time-panel-cell-selected {
         .ant-picker-time-panel-cell-inner {
-          background: var(--#{$prefix}date-input-selected-cell-bg-color);
-          color: var(--#{$prefix}date-input-selected-cell-color);
+          background: var(--neeto-ui-date-input-selected-cell-bg-color);
+          color: var(--neeto-ui-date-input-selected-cell-color);
         }
       }
     }
@@ -319,39 +319,39 @@
   .ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
   .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end)
     .ant-picker-cell-inner {
-    background-color: var(--#{$prefix}date-input-cell-hover-bg-color);
+    background-color: var(--neeto-ui-date-input-cell-hover-bg-color);
   }
 
   .ant-picker-time-panel-column
     > li.ant-picker-time-panel-cell:not(.ant-picker-time-panel-cell-selected, .ant-picker-time-panel-cell-disabled)
     .ant-picker-time-panel-cell-inner {
-    color: var(--#{$prefix}date-input-cell-color);
+    color: var(--neeto-ui-date-input-cell-color);
 
     &:hover {
-      background-color: var(--#{$prefix}date-input-cell-hover-bg-color);
+      background-color: var(--neeto-ui-date-input-cell-hover-bg-color);
     }
   }
 
   .ant-picker-footer {
     border-top: 0 !important;
     border-bottom: 0 !important;
-    background: var(--#{$prefix}date-input-footer-bg-color);
+    background: var(--neeto-ui-date-input-footer-bg-color);
   }
 }
 
 .neeto-ui-date-time-dropdown {
-  padding-top: var(--#{$prefix}date-panel-dropdown-padding-y);
-  padding-bottom: var(--#{$prefix}date-panel-dropdown-padding-y);
+  padding-top: var(--neeto-ui-date-panel-dropdown-padding-y);
+  padding-bottom: var(--neeto-ui-date-panel-dropdown-padding-y);
   z-index: calc(var(--neeto-ui-modal-z-index) + 1);
 
   .ant-picker-panel {
     .ant-picker-header {
       .ant-picker-header-view {
-        color: var(--#{$prefix}date-panel-header-color);
+        color: var(--neeto-ui-date-panel-header-color);
 
         button {
           &:hover {
-            color: var(--#{$prefix}date-panel-header-btn-color);
+            color: var(--neeto-ui-date-panel-header-btn-color);
           }
         }
       }
@@ -362,32 +362,32 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
           .ant-picker-cell-inner {
             &::before {
-              border: var(--#{$prefix}date-input-today-cell-border-width) solid var(--#{$prefix}date-input-today-cell-border-color);
+              border: var(--neeto-ui-date-input-today-cell-border-width) solid var(--neeto-ui-date-input-today-cell-border-color);
             }
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view {
           &::after {
-            border: var(--#{$prefix}date-input-cell-border-width) solid var(--#{$prefix}date-input-cell-border-width);
+            border: var(--neeto-ui-date-input-cell-border-width) solid var(--neeto-ui-date-input-cell-border-width);
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
           &::before {
-            background: var(--#{$prefix}date-input-cell-range-bg-color);
+            background: var(--neeto-ui-date-input-cell-range-bg-color);
           }
 
           .ant-picker-cell-inner {
-            background: var(--#{$prefix}date-input-selected-cell-bg-color);
-            color: var(--#{$prefix}date-input-selected-cell-color);
+            background: var(--neeto-ui-date-input-selected-cell-bg-color);
+            color: var(--neeto-ui-date-input-selected-cell-color);
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
           &::before {
-            background: var(--#{$prefix}date-input-cell-range-bg-color);
+            background: var(--neeto-ui-date-input-cell-range-bg-color);
           }
         }
 
@@ -395,12 +395,12 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start,
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end {
           &::before {
-            background: var(--#{$prefix}date-input-cell-range-hover-bg-color);
+            background: var(--neeto-ui-date-input-cell-range-hover-bg-color);
           }
 
           .ant-picker-cell-inner {
             &::after {
-              background: var(--#{$prefix}date-input-cell-range-hover-bg-color);
+              background: var(--neeto-ui-date-input-cell-range-hover-bg-color);
             }
           }
         }
@@ -414,19 +414,19 @@
       position: relative;
       display: inline-flex !important;
       align-items: center;
-      padding: var(--#{$prefix}date-input-footer-btn-padding-y) var(--#{$prefix}date-input-footer-btn-padding-x);
-      gap: var(--#{$prefix}date-input-footer-btn-gap);
-      color: var(--#{$prefix}date-input-footer-today-now-btn-color);
-      font-size: var(--#{$prefix}date-input-footer-btn-font-size);
-      font-weight: var(--#{$prefix}date-input-footer-btn-font-weight);
-      line-height: var(--#{$prefix}date-input-footer-btn-line-height);
+      padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+      gap: var(--neeto-ui-date-input-footer-btn-gap);
+      color: var(--neeto-ui-date-input-footer-today-now-btn-color);
+      font-size: var(--neeto-ui-date-input-footer-btn-font-size);
+      font-weight: var(--neeto-ui-date-input-footer-btn-font-weight);
+      line-height: var(--neeto-ui-date-input-footer-btn-line-height);
       transition: var(--neeto-ui-transition);
-      border-radius: var(--#{$prefix}date-input-footer-btn-border-radius);
+      border-radius: var(--neeto-ui-date-input-footer-btn-border-radius);
       height: auto;
 
       &:hover {
-        color: var(--#{$prefix}date-input-footer-today-now-btn-hover-color);
-        background-color: var(--#{$prefix}date-input-footer-today-now-btn-hover-bg-color);
+        color: var(--neeto-ui-date-input-footer-today-now-btn-hover-color);
+        background-color: var(--neeto-ui-date-input-footer-today-now-btn-hover-bg-color);
       }
     }
 
@@ -435,35 +435,35 @@
         position: relative;
         display: inline-flex !important;
         align-items: center;
-        padding: var(--#{$prefix}date-input-footer-btn-padding-y) var(--#{$prefix}date-input-footer-btn-padding-x);
-        gap: var(--#{$prefix}date-input-footer-btn-gap);
-        color: var(--#{$prefix}date-input-footer-ok-btn-color);
-        background: var(--#{$prefix}date-input-footer-ok-btn-bg-color);
-        border-color: var(--#{$prefix}date-input-footer-ok-btn-border-color);
-        font-size: var(--#{$prefix}date-input-footer-btn-font-size);
-        font-weight: var(--#{$prefix}date-input-footer-btn-font-weight);
-        line-height: var(--#{$prefix}date-input-footer-btn-line-height);
+        padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+        gap: var(--neeto-ui-date-input-footer-btn-gap);
+        color: var(--neeto-ui-date-input-footer-ok-btn-color);
+        background: var(--neeto-ui-date-input-footer-ok-btn-bg-color);
+        border-color: var(--neeto-ui-date-input-footer-ok-btn-border-color);
+        font-size: var(--neeto-ui-date-input-footer-btn-font-size);
+        font-weight: var(--neeto-ui-date-input-footer-btn-font-weight);
+        line-height: var(--neeto-ui-date-input-footer-btn-line-height);
         transition: var(--neeto-ui-transition);
-        border-radius: var(--#{$prefix}date-input-footer-btn-border-radius);
+        border-radius: var(--neeto-ui-date-input-footer-btn-border-radius);
         height: auto;
 
         &:not([disabled]):hover {
-          color: var(--#{$prefix}date-input-footer-ok-btn-hover-color);
-          background-color: var(--#{$prefix}date-input-footer-ok-btn-hover-bg-color);
+          color: var(--neeto-ui-date-input-footer-ok-btn-hover-color);
+          background-color: var(--neeto-ui-date-input-footer-ok-btn-hover-bg-color);
         }
         &[disabled] {
           cursor: not-allowed;
-          opacity: var(--#{$prefix}date-input-footer-ok-btn-disabled-opacity);
+          opacity: var(--neeto-ui-date-input-footer-ok-btn-disabled-opacity);
         }
       }
     }
   }
 
   .ant-picker-panel-container {
-    border: var(--#{$prefix}date-panel-container-border-width) solid var(--#{$prefix}date-panel-container-border-color);
+    border: var(--neeto-ui-date-panel-container-border-width) solid var(--neeto-ui-date-panel-container-border-color);
     /* Elevation/S */
-    box-shadow: var(--#{$prefix}date-panel-container-box-shadow);
-    border-radius: var(--#{$prefix}date-panel-container-border-radius);
+    box-shadow: var(--neeto-ui-date-panel-container-box-shadow);
+    border-radius: var(--neeto-ui-date-panel-container-border-radius);
   }
 
   .ant-picker-panel-container .ant-picker-panel {
@@ -473,11 +473,11 @@
 
 .neeto-ui-date-time-dropdown {
   .ant-picker-header {
-    min-height: var(--#{$prefix}date-panel-header-min-height);
-    padding: var(--#{$prefix}date-panel-header-padding-top) var(--#{$prefix}date-panel-header-padding-x) var(--#{$prefix}date-panel-header-padding-bottom) var(--#{$prefix}date-panel-header-padding-x);
+    min-height: var(--neeto-ui-date-panel-header-min-height);
+    padding: var(--neeto-ui-date-panel-header-padding-top) var(--neeto-ui-date-panel-header-padding-x) var(--neeto-ui-date-panel-header-padding-bottom) var(--neeto-ui-date-panel-header-padding-x);
     white-space: nowrap;
     align-items: center;
-    border-bottom: var(--#{$prefix}date-panel-header-border-bottom-width);
+    border-bottom: var(--neeto-ui-date-panel-header-border-bottom-width);
   }
 
   .ant-picker-header-view {
@@ -485,10 +485,10 @@
   }
 
   .ant-picker-header-view button {
-    padding-right: var(--#{$prefix}date-panel-header-nav-btn-padding-right);
+    padding-right: var(--neeto-ui-date-panel-header-nav-btn-padding-right);
     position: relative;
-    font-size: var(--#{$prefix}date-panel-header-nav-btn-font-size);
-    font-weight: var(--#{$prefix}date-panel-header-nav-btn-font-weight);
+    font-size: var(--neeto-ui-date-panel-header-nav-btn-font-size);
+    font-weight: var(--neeto-ui-date-panel-header-nav-btn-font-weight);
 
     &::after {
       content: "";
@@ -505,43 +505,43 @@
 
   .ant-picker-header button {
     line-height: inherit;
-    color: var(--#{$prefix}date-panel-header-btn-color);
+    color: var(--neeto-ui-date-panel-header-btn-color);
   }
 
   .ant-picker-date-panel {
-    width: var(--#{$prefix}date-panel-width);
+    width: var(--neeto-ui-date-panel-width);
   }
 
   .ant-picker-date-panel .ant-picker-content {
-    width: var(--#{$prefix}date-panel-content-width);
+    width: var(--neeto-ui-date-panel-content-width);
   }
 
   .ant-picker-date-panel .ant-picker-content th {
-    color: var(--#{$prefix}date-panel-content-header-color);
-    font-size: var(--#{$prefix}date-panel-content-header-font-size);
+    color: var(--neeto-ui-date-panel-content-header-color);
+    font-size: var(--neeto-ui-date-panel-content-header-font-size);
     text-transform: uppercase;
   }
 
   .ant-picker-cell::before {
-    height: var(--#{$prefix}date-input-cell-height);
+    height: var(--neeto-ui-date-input-cell-height);
   }
 
   .ant-picker-cell .ant-picker-cell-inner {
     user-select: none;
-    font-size: var(--#{$prefix}date-input-cell-font-size);
-    border-radius: var(--#{$prefix}date-input-cell-border-radius);
+    font-size: var(--neeto-ui-date-input-cell-font-size);
+    border-radius: var(--neeto-ui-date-input-cell-border-radius);
 
     &::before {
-      border-radius: var(--#{$prefix}date-input-cell-border-radius);
+      border-radius: var(--neeto-ui-date-input-cell-border-radius);
     }
   }
 
   .ant-picker-cell-in-view {
-    color: var(--#{$prefix}date-input-cell-color);
+    color: var(--neeto-ui-date-input-cell-color);
   }
 
   .ant-picker-range.ant-picker-focused .ant-picker-active-bar {
-    background: var(--#{$prefix}date-input-active-bar-bg-color) !important;
+    background: var(--neeto-ui-date-input-active-bar-bg-color) !important;
   }
 
   .ant-picker-date-panel .ant-picker-header {
@@ -552,48 +552,48 @@
   }
   .ant-picker-datetime-panel .ant-picker-time-panel,
   .ant-picker-time-panel-column:not(:first-child) {
-    border-left-color: var(--#{$prefix}time-panel-column-border-left-color);
+    border-left-color: var(--neeto-ui-time-panel-column-border-left-color);
   }
 }
 
 .neeto-ui-date-input-custom-panel {
   .ant-picker-time-panel-column {
-    width: var(--#{$prefix}time-panel-column-width);
+    width: var(--neeto-ui-time-panel-column-width);
     flex-grow: 0;
     border: 0;
   }
 
   .ant-picker-time-panel-cell-inner {
-    padding-left: var(--#{$prefix}time-panel-cell-padding-x) !important;
-    padding-right: var(--#{$prefix}time-panel-cell-padding-x) !important;
+    padding-left: var(--neeto-ui-time-panel-cell-padding-x) !important;
+    padding-right: var(--neeto-ui-time-panel-cell-padding-x) !important;
     text-align: center;
-    color: var(--#{$prefix}time-panel-cell-color)
+    color: var(--neeto-ui-time-panel-cell-color)
   }
 
   .neeto-ui-date-input-custom-panel__header {
     display: flex;
     flex-direction: column;
-    padding: var(--#{$prefix}time-panel-header-padding-top) var(--#{$prefix}time-panel-header-padding-x) var(--#{$prefix}time-panel-header-padding-bottom) var(--#{$prefix}time-panel-header-padding-x);
+    padding: var(--neeto-ui-time-panel-header-padding-top) var(--neeto-ui-time-panel-header-padding-x) var(--neeto-ui-time-panel-header-padding-bottom) var(--neeto-ui-time-panel-header-padding-x);
   }
 
   .neeto-ui-date-input-custom-panel__header-now-btn {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: var(--#{$prefix}time-panel-now-btn-margin-bottom);
-    font-size: var(--#{$prefix}date-panel-header-nav-btn-font-size) !important;
+    margin-bottom: var(--neeto-ui-time-panel-now-btn-margin-bottom);
+    font-size: var(--neeto-ui-date-panel-header-nav-btn-font-size) !important;
   }
 
   .neeto-ui-date-input-custom-panel__header-cols {
     display: flex;
-    gap: var(--#{$prefix}time-panel-header-column-gap);
+    gap: var(--neeto-ui-time-panel-header-column-gap);
   }
 
   .neeto-ui-date-input-custom-panel__header-col {
-    width: var(--#{$prefix}time-panel-column-width);
+    width: var(--neeto-ui-time-panel-column-width);
     text-align: center;
-    color: var(--#{$prefix}time-panel-header-column-color);
-    font-size: var(--#{$prefix}time-panel-header-column-font-size);
-    line-height: var(--#{$prefix}time-panel-header-column-line-height);
+    color: var(--neeto-ui-time-panel-header-column-color);
+    font-size: var(--neeto-ui-time-panel-header-column-font-size);
+    line-height: var(--neeto-ui-time-panel-header-column-line-height);
     text-transform: uppercase;
   }
 
@@ -602,14 +602,14 @@
       width: 100%;
     }
     .ant-picker-content {
-      gap: var(--#{$prefix}time-panel-body-gap);
+      gap: var(--neeto-ui-time-panel-body-gap);
     }
     .ant-picker-time-panel {
-      padding-left: var(--#{$prefix}time-panel-body-padding-x);
-      padding-right: var(--#{$prefix}time-panel-body-padding-x);
+      padding-left: var(--neeto-ui-time-panel-body-padding-x);
+      padding-right: var(--neeto-ui-time-panel-body-padding-x);
     }
     .ant-picker-time-panel-cell-inner {
-      border-radius: var(--#{$prefix}date-input-cell-border-radius) !important;
+      border-radius: var(--neeto-ui-date-input-cell-border-radius) !important;
     }
   }
 }
@@ -619,18 +619,18 @@
 
 .ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
   height: auto;
-  padding: var(--#{$prefix}date-input-footer-btn-padding-y) var(--#{$prefix}date-input-footer-btn-padding-x);
-  color: var(--#{$prefix}date-input-footer-today-now-btn-color);
-  font-size: var(--#{$prefix}date-input-footer-btn-font-size);
-  font-weight: var(--#{$prefix}date-input-footer-btn-font-weight);
-  line-height: var(--#{$prefix}date-input-footer-btn-line-height);
+  padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+  color: var(--neeto-ui-date-input-footer-today-now-btn-color);
+  font-size: var(--neeto-ui-date-input-footer-btn-font-size);
+  font-weight: var(--neeto-ui-date-input-footer-btn-font-weight);
+  line-height: var(--neeto-ui-date-input-footer-btn-line-height);
   transition: var(--neeto-ui-transition);
-  border-radius: var(--#{$prefix}date-input-footer-btn-border-radius);
+  border-radius: var(--neeto-ui-date-input-footer-btn-border-radius);
   background: rgba(255, 255, 255, 0);
   cursor: pointer;
 
   &:hover {
-    color: var(--#{$prefix}date-input-footer-today-now-btn-hover-color);
-    background: var(--#{$prefix}date-input-footer-today-now-btn-hover-bg-color);
+    color: var(--neeto-ui-date-input-footer-today-now-btn-hover-color);
+    background: var(--neeto-ui-date-input-footer-today-now-btn-hover-bg-color);
   }
 }

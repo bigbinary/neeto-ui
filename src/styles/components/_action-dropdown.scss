@@ -1,6 +1,6 @@
 :root {
-  --#{$prefix}action-dropdown-gap: 1px;
-  --#{$prefix}action-dropdown-border-radius: 0px;
+  --neeto-ui-action-dropdown-gap: 1px;
+  --neeto-ui-action-dropdown-border-radius: 0px;
 }
 
 .neeto-ui-action-dropdown {
@@ -8,17 +8,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--#{$prefix}action-dropdown-gap);
+  gap: var(--neeto-ui-action-dropdown-gap);
 
   > .neeto-ui-btn {
     &:first-child {
-      border-top-right-radius: var(--#{$prefix}action-dropdown-border-radius);
-      border-bottom-right-radius: var(--#{$prefix}action-dropdown-border-radius);
+      border-top-right-radius: var(--neeto-ui-action-dropdown-border-radius);
+      border-bottom-right-radius: var(--neeto-ui-action-dropdown-border-radius);
     }
   }
 
   > .neeto-ui-btn.neeto-ui-btn--icon-only {
-    border-top-left-radius: var(--#{$prefix}action-dropdown-border-radius);
-    border-bottom-left-radius: var(--#{$prefix}action-dropdown-border-radius);
+    border-top-left-radius: var(--neeto-ui-action-dropdown-border-radius);
+    border-bottom-left-radius: var(--neeto-ui-action-dropdown-border-radius);
   }
 }

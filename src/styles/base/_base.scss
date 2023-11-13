@@ -103,7 +103,8 @@ body {
 }
 
 body {
-  color: rgb(var(--neeto-ui-gray-800));
+  color: rgb(var(--neeto-ui-body-color));
+  background-color: rgb(var(--neeto-ui-body-bg));
 }
 
 h1,

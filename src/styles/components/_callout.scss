@@ -1,17 +1,17 @@
 :root {
-  --#{$prefix}callout-padding-x: 12px;
-  --#{$prefix}callout-padding-y: 9px;
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}callout-font-size);
-  --#{$prefix}callout-font-weight: var(--neeto-ui-font-medium);
-  --#{$prefix}callout-line-height: 16px;
-  --#{$prefix}callout-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}callout-bg-color: transparent;
-  --#{$prefix}callout-border-width: 1px;
-  --#{$prefix}callout-border-color: transparent;
-  --#{$prefix}callout-border-radius: var(--neeto-ui-rounded-md);
-  --#{$prefix}callout-gap: 12px;
-  --#{$prefix}callout-icon-size: 20px;
-  --#{$prefix}callout-icon-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-callout-padding-x: 12px;
+  --neeto-ui-callout-padding-y: 9px;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-callout-font-size);
+  --neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-callout-line-height: 16px;
+  --neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-callout-bg-color: transparent;
+  --neeto-ui-callout-border-width: 1px;
+  --neeto-ui-callout-border-color: transparent;
+  --neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);
+  --neeto-ui-callout-gap: 12px;
+  --neeto-ui-callout-icon-size: 20px;
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-gray-800));
 }
 
 .neeto-ui-callout {
@@ -19,23 +19,23 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border: var(--#{$prefix}callout-border-width) solid var(--#{$prefix}callout-border-color);
-  border-radius: var(--#{$prefix}callout-border-radius);
-  padding: var(--#{$prefix}callout-padding-y) var(--#{$prefix}callout-padding-x);
-  font-size: var(--#{$prefix}callout-font-size);
-  line-height: var(--#{$prefix}callout-line-height);
-  font-weight: var(--#{$prefix}callout-font-weight);
-  color: var(--#{$prefix}callout-color);
-  background-color: var(--#{$prefix}callout-bg-color);
-  gap: var(--#{$prefix}callout-gap);
+  border: var(--neeto-ui-callout-border-width) solid var(--neeto-ui-callout-border-color);
+  border-radius: var(--neeto-ui-callout-border-radius);
+  padding: var(--neeto-ui-callout-padding-y) var(--neeto-ui-callout-padding-x);
+  font-size: var(--neeto-ui-callout-font-size);
+  line-height: var(--neeto-ui-callout-line-height);
+  font-weight: var(--neeto-ui-callout-font-weight);
+  color: var(--neeto-ui-callout-color);
+  background-color: var(--neeto-ui-callout-bg-color);
+  gap: var(--neeto-ui-callout-gap);
 
   .neeto-ui-callout__icon {
     flex-shrink: 0;
 
     svg {
-      color: var(--#{$prefix}callout-icon-color);
-      width: var(--#{$prefix}callout-icon-size);
-      height: var(--#{$prefix}callout-icon-size);
+      color: var(--neeto-ui-callout-icon-color);
+      width: var(--neeto-ui-callout-icon-size);
+      height: var(--neeto-ui-callout-icon-size);
     }
   }
 

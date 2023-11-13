@@ -1,72 +1,72 @@
 :root {
   // Wrapper
-  --#{$prefix}input-wrapper-flex-grow: 1;
+  --neeto-ui-input-wrapper-flex-grow: 1;
 
   // Label Wrapper
-  --#{$prefix}input-label-wrapper-gap: 8px;
+  --neeto-ui-input-label-wrapper-gap: 8px;
 
   // Label
-  --#{$prefix}input-label-overflow-wrap: break-word;
-  --#{$prefix}input-label-margin: 8px;
+  --neeto-ui-input-label-overflow-wrap: break-word;
+  --neeto-ui-input-label-margin: 8px;
 
   // Max Length
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}input-max-length-font-size);
-  --#{$prefix}input-max-length-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}input-max-length-line-height: 1;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-max-length-font-size);
+  --neeto-ui-input-max-length-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-input-max-length-line-height: 1;
 
   // Input
-  --#{$prefix}input-padding-x: 0px;
-  --#{$prefix}input-padding-y: 0px;
-  --#{$prefix}input-min-height: 0px;
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}input-font-size);
-  --#{$prefix}input-border-width: 1px;
-  --#{$prefix}input-border-color: rgb(var(--neeto-ui-gray-400));
-  --#{$prefix}input-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}input-color: rgb(var(--neeto-ui-gray-800));
-  --#{$prefix}input-bg-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}input-line-height: 1.2;
+  --neeto-ui-input-padding-x: 0px;
+  --neeto-ui-input-padding-y: 0px;
+  --neeto-ui-input-min-height: 0px;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-font-size);
+  --neeto-ui-input-border-width: 1px;
+  --neeto-ui-input-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-input-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-input-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-input-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-input-line-height: 1.2;
 
   // Textarea
-  --#{$prefix}textarea-padding-x: 0px;
-  --#{$prefix}textarea-padding-y: 0px;
-  --#{$prefix}textarea-line-height: 1.5;
-  --#{$prefix}textarea-max-height: 224px;
+  --neeto-ui-textarea-padding-x: 0px;
+  --neeto-ui-textarea-padding-y: 0px;
+  --neeto-ui-textarea-line-height: 1.5;
+  --neeto-ui-textarea-max-height: 224px;
 
   // Placeholder
-  --#{$prefix}input-placeholder-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-input-placeholder-color: rgb(var(--neeto-ui-gray-400));
 
   // Focus
-  --#{$prefix}input-focus-outline-color: transparent;
+  --neeto-ui-input-focus-outline-color: transparent;
 
   // Hover
-  --#{$prefix}input-hover-border-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-input-hover-border-color: rgb(var(--neeto-ui-gray-700));
 
   // Focus Within
-  --#{$prefix}input-focus-within-border-color: rgb(var(--neeto-ui-primary-500));
-  --#{$prefix}input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-input-focus-within-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
 
   // Prefix & Suffix
-  @include rfs(var(--neeto-ui-text-sm), --#{$prefix}input-prefix-suffix-font-size);
-  --#{$prefix}input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}input-prefix-suffix-bg-color: transparent;
-  --#{$prefix}input-prefix-suffix-line-height: 1;
-  --#{$prefix}input-prefix-suffix-icon-size: 16px;
-  --#{$prefix}input-prefix-suffix-margin: 0px;
-  --#{$prefix}input-prefix-suffix-padding-x: 0px;
-  --#{$prefix}input-prefix-suffix-border-width: 0px;
-  --#{$prefix}input-prefix-suffix-border-color: transparent;
+  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-input-prefix-suffix-font-size);
+  --neeto-ui-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-input-prefix-suffix-bg-color: transparent;
+  --neeto-ui-input-prefix-suffix-line-height: 1;
+  --neeto-ui-input-prefix-suffix-icon-size: 16px;
+  --neeto-ui-input-prefix-suffix-margin: 0px;
+  --neeto-ui-input-prefix-suffix-padding-x: 0px;
+  --neeto-ui-input-prefix-suffix-border-width: 0px;
+  --neeto-ui-input-prefix-suffix-border-color: transparent;
 
   // Help Text
-  --#{$prefix}input-help-text-margin: 8px;
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}input-help-text-font-size);
-  --#{$prefix}input-help-text-color: rgb(var(--neeto-ui-gray-700));
-  --#{$prefix}input-help-text-line-height: 1.1;
+  --neeto-ui-input-help-text-margin: 8px;
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-input-help-text-font-size);
+  --neeto-ui-input-help-text-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-input-help-text-line-height: 1.1;
 
   // Error Text
-  --#{$prefix}input-error-text-margin: 8px;
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}input-error-text-font-size);
-  --#{$prefix}input-error-text-color: rgb(var(--neeto-ui-error-800));
-  --#{$prefix}input-error-text-line-height: 1.1;
+  --neeto-ui-input-error-text-margin: 8px;
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-input-error-text-font-size);
+  --neeto-ui-input-error-text-color: rgb(var(--neeto-ui-error-800));
+  --neeto-ui-input-error-text-line-height: 1.1;
 }
 
 .neeto-ui-input__wrapper {
@@ -74,24 +74,24 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-grow: var(--#{$prefix}input-wrapper-flex-grow);
+  flex-grow: var(--neeto-ui-input-wrapper-flex-grow);
 
   .neeto-ui-input__label-wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: var(--#{$prefix}input-label-wrapper-gap);
+    gap: var(--neeto-ui-input-label-wrapper-gap);
 
     .neeto-ui-label {
       flex-grow: 1;
-      overflow-wrap: var(--#{$prefix}input-label-overflow-wrap);
+      overflow-wrap: var(--neeto-ui-input-label-overflow-wrap);
     }
 
     .neeto-ui-input__max-length {
-      font-size: var(--#{$prefix}input-max-length-font-size);
-      color: var(--#{$prefix}input-max-length-color);
-      line-height: var(--#{$prefix}input-max-length-line-height);
-      margin-bottom: var(--#{$prefix}input-label-margin);
+      font-size: var(--neeto-ui-input-max-length-font-size);
+      color: var(--neeto-ui-input-max-length-color);
+      line-height: var(--neeto-ui-input-max-length-line-height);
+      margin-bottom: var(--neeto-ui-input-label-margin);
       margin-left: auto;
 
       &.neeto-ui-input__max-length--error {
@@ -101,7 +101,7 @@
   }
 
   .neeto-ui-label {
-    margin-bottom: var(--#{$prefix}input-label-margin);
+    margin-bottom: var(--neeto-ui-input-label-margin);
   }
 
   .neeto-ui-input {
@@ -110,12 +110,12 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: var(--#{$prefix}input-font-size);
+    font-size: var(--neeto-ui-input-font-size);
     transition: var(--neeto-ui-transition);
-    border-radius: var(--#{$prefix}input-border-radius);
-    border: var(--#{$prefix}input-border-width) solid var(--#{$prefix}input-border-color);
-    background-color: var(--#{$prefix}input-bg-color);
-    color: var(--#{$prefix}input-color);
+    border-radius: var(--neeto-ui-input-border-radius);
+    border: var(--neeto-ui-input-border-width) solid var(--neeto-ui-input-border-color);
+    background-color: var(--neeto-ui-input-bg-color);
+    color: var(--neeto-ui-input-color);
     overflow: hidden;
 
     input,
@@ -129,38 +129,38 @@
       outline: none;
 
       &::placeholder {
-        color: var(--#{$prefix}input-placeholder-color);
+        color: var(--neeto-ui-input-placeholder-color);
       }
 
       &:focus {
-        outline-color: var(--#{$prefix}input-focus-outline-color);
+        outline-color: var(--neeto-ui-input-focus-outline-color);
       }
     }
 
     input {
-      line-height: var(--#{$prefix}input-line-height);
-      padding: var(--#{$prefix}input-padding-y) var(--#{$prefix}input-padding-x);
-      min-height: var(--#{$prefix}input-min-height);
+      line-height: var(--neeto-ui-input-line-height);
+      padding: var(--neeto-ui-input-padding-y) var(--neeto-ui-input-padding-x);
+      min-height: var(--neeto-ui-input-min-height);
     }
 
     textarea {
       padding: 0px;
-      max-height: var(--#{$prefix}textarea-max-height);
+      max-height: var(--neeto-ui-textarea-max-height);
       overflow-y: auto;
-      line-height: var(--#{$prefix}input-line-height);
+      line-height: var(--neeto-ui-input-line-height);
     }
 
     &.neeto-ui-input--textarea {
-      padding: var(--#{$prefix}textarea-padding-y) var(--#{$prefix}textarea-padding-x);
+      padding: var(--neeto-ui-textarea-padding-y) var(--neeto-ui-textarea-padding-x);
     }
 
     &:hover:not(.neeto-ui-input--naked, .neeto-ui-input--error, .neeto-ui-input--disabled) {
-      border-color: var(--#{$prefix}input-hover-border-color);
+      border-color: var(--neeto-ui-input-hover-border-color);
     }
 
     &:focus-within:not(.neeto-ui-input--naked) {
-      border-color: var(--#{$prefix}input-focus-within-border-color);
-      box-shadow: var(--#{$prefix}input-focus-within-box-shadow);
+      border-color: var(--neeto-ui-input-focus-within-border-color);
+      box-shadow: var(--neeto-ui-input-focus-within-box-shadow);
 
       .neeto-ui-input__prefix,
       .neeto-ui-input__suffix {
@@ -251,40 +251,40 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: var(--#{$prefix}input-prefix-suffix-font-size);
-    color: var(--#{$prefix}input-prefix-suffix-color);
-    background-color: var(--#{$prefix}input-prefix-suffix-bg-color);
-    padding: 4px var(--#{$prefix}input-prefix-suffix-padding-x);
-    line-height: var(--#{$prefix}input-prefix-suffix-line-height);
-    min-height: var(--#{$prefix}input-min-height);
+    font-size: var(--neeto-ui-input-prefix-suffix-font-size);
+    color: var(--neeto-ui-input-prefix-suffix-color);
+    background-color: var(--neeto-ui-input-prefix-suffix-bg-color);
+    padding: 4px var(--neeto-ui-input-prefix-suffix-padding-x);
+    line-height: var(--neeto-ui-input-prefix-suffix-line-height);
+    min-height: var(--neeto-ui-input-min-height);
 
     svg {
-      width: var(--#{$prefix}input-prefix-suffix-icon-size);
-      height: var(--#{$prefix}input-prefix-suffix-icon-size);
+      width: var(--neeto-ui-input-prefix-suffix-icon-size);
+      height: var(--neeto-ui-input-prefix-suffix-icon-size);
     }
   }
 
   .neeto-ui-input__prefix {
     margin-left: var(--neeto-ui-input-prefix-suffix-margin);
-    border-right: var(--#{$prefix}input-prefix-suffix-border-width) solid var(--#{$prefix}input-prefix-suffix-border-color);
+    border-right: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
   }
 
   .neeto-ui-input__suffix {
     margin-right: var(--neeto-ui-input-prefix-suffix-margin);
-    border-left: var(--#{$prefix}input-prefix-suffix-border-width) solid var(--#{$prefix}input-prefix-suffix-border-color);
+    border-left: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
   }
 }
 
 .neeto-ui-input__help-text {
-  margin-top: var(--#{$prefix}input-help-text-margin);
-  font-size: var(--#{$prefix}input-help-text-font-size);
-  color: var(--#{$prefix}input-help-text-color);
-  line-height: var(--#{$prefix}input-help-text-line-height);
+  margin-top: var(--neeto-ui-input-help-text-margin);
+  font-size: var(--neeto-ui-input-help-text-font-size);
+  color: var(--neeto-ui-input-help-text-color);
+  line-height: var(--neeto-ui-input-help-text-line-height);
 }
 
 .neeto-ui-input__error {
-  margin-top: var(--#{$prefix}input-error-text-margin);
-  font-size: var(--#{$prefix}input-error-text-font-size);
-  color: var(--#{$prefix}input-error-text-color);
-  line-height: var(--#{$prefix}input-error-text-line-height);
+  margin-top: var(--neeto-ui-input-error-text-margin);
+  font-size: var(--neeto-ui-input-error-text-font-size);
+  color: var(--neeto-ui-input-error-text-color);
+  line-height: var(--neeto-ui-input-error-text-line-height);
 }

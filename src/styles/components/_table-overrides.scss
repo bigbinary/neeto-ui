@@ -1,9 +1,9 @@
 :root {
-  @include rfs(var(--neeto-ui-text-xs), --#{$prefix}table-header-font-size);
-  --#{$prefix}table-header-text-transform: uppercase;
-  --#{$prefix}table-header-border-bottom-width: 2px;
-  --#{$prefix}table-resize-handle-width: 10px;
-  --#{$prefix}table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
+  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-table-header-font-size);
+  --neeto-ui-table-header-text-transform: uppercase;
+  --neeto-ui-table-header-border-bottom-width: 2px;
+  --neeto-ui-table-resize-handle-width: 10px;
+  --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
 }
 
 .ant-table-wrapper {
@@ -11,9 +11,9 @@
     thead {
       tr {
         th {
-          font-size: var(--#{$prefix}table-header-font-size);
-          text-transform: var(--#{$prefix}table-header-text-transform);
-          border-bottom-width: var(--#{$prefix}table-header-border-bottom-width) !important;
+          font-size: var(--neeto-ui-table-header-font-size);
+          text-transform: var(--neeto-ui-table-header-text-transform);
+          border-bottom-width: var(--neeto-ui-table-header-border-bottom-width) !important;
 
           .ant-table-column-sorters {
             .ant-table-column-title {
@@ -76,7 +76,7 @@
 
 .react-resizable-handle {
   position: absolute;
-  width: var(--#{$prefix}table-resize-handle-width);
+  width: var(--neeto-ui-table-resize-handle-width);
   height: 100%;
   bottom: 0;
   right: -5px;
@@ -85,5 +85,5 @@
 }
 
 .react-resizable-handle:hover {
-  background-color: var(--#{$prefix}table-resize-handle-hover-bg-color);
+  background-color: var(--neeto-ui-table-resize-handle-hover-bg-color);
 }

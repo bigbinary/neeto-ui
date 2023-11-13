@@ -1,33 +1,33 @@
 :root {
   // Container
-  --#{$prefix}avatar-container-border-radius: var(--neeto-ui-rounded);
-  --#{$prefix}avatar-container-width: 24px;
-  --#{$prefix}avatar-container-height: 24px;
+  --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-avatar-container-width: 24px;
+  --neeto-ui-avatar-container-height: 24px;
 
   // Avatar
-  --#{$prefix}avatar-width: 1.5rem;
-  --#{$prefix}avatar-height: 1.5rem;
-  --#{$prefix}avatar-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-avatar-width: 1.5rem;
+  --neeto-ui-avatar-height: 1.5rem;
+  --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
 
   // Status
-  --#{$prefix}avatar-status-width: 0.4rem;
-  --#{$prefix}avatar-status-height: 0.4rem;
-  --#{$prefix}avatar-status-bg-color: var(--neeto-ui-white);
-  --#{$prefix}avatar-status-border-width: 0.5px;
-  --#{$prefix}avatar-status-border-color: rgb(var(--neeto-ui-white));
-  --#{$prefix}avatar-status-border-radius: var(--neeto-ui-rounded-full);
-  --#{$prefix}avatar-status-transform: translateX(-40%);
+  --neeto-ui-avatar-status-width: 0.4rem;
+  --neeto-ui-avatar-status-height: 0.4rem;
+  --neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
+  --neeto-ui-avatar-status-border-width: 0.5px;
+  --neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-avatar-status-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-avatar-status-transform: translateX(-40%);
 }
 
 .neeto-ui-avatar__container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--#{$prefix}avatar-container-border-radius);
+  border-radius: var(--neeto-ui-avatar-container-border-radius);
   position: relative;
   flex-shrink: 0;
-  width: var(--#{$prefix}avatar-container-width);
-  height: var(--#{$prefix}avatar-container-height);
+  width: var(--neeto-ui-avatar-container-width);
+  height: var(--neeto-ui-avatar-container-height);
 
   &--medium {
     --neeto-ui-avatar-container-width: 32px;
@@ -48,12 +48,12 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: var(--#{$prefix}avatar-status-width);
-    height: var(--#{$prefix}avatar-status-width);
-    background-color: var(--#{$prefix}avatar-status-bg-color);
-    border: var(--#{$prefix}avatar-status-border-width) solid var(--#{$prefix}avatar-status-border-color);
-    border-radius: var(--#{$prefix}avatar-status-border-radius);
-    transform: var(--#{$prefix}avatar-status-transform);
+    width: var(--neeto-ui-avatar-status-width);
+    height: var(--neeto-ui-avatar-status-width);
+    background-color: var(--neeto-ui-avatar-status-bg-color);
+    border: var(--neeto-ui-avatar-status-border-width) solid var(--neeto-ui-avatar-status-border-color);
+    border-radius: var(--neeto-ui-avatar-status-border-radius);
+    transform: var(--neeto-ui-avatar-status-transform);
 
     &.neeto-ui-avatar__status-medium {
       --neeto-ui-avatar-status-width: 0.465rem;
@@ -86,9 +86,9 @@
 
   .neeto-ui-avatar {
     display: inline-block;
-    border-radius: var(--#{$prefix}avatar-border-radius);
-    width: var(--#{$prefix}avatar-width);
-    height: var(--#{$prefix}avatar-height);
+    border-radius: var(--neeto-ui-avatar-border-radius);
+    width: var(--neeto-ui-avatar-width);
+    height: var(--neeto-ui-avatar-height);
     object-fit: cover;
 
     &.hidden {
