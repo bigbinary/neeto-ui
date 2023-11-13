@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.29 - 2023-11-13
+
+Added: `Add` button in *Select*
+
 ## 5.2.28 - 2023-11-08
 
 Added: *Stepper* component.
@@ -709,7 +713,6 @@ Changes documentations to sentence case from title casing.
 - Replaced default icons with neetoIcons
 #### PageLoader
 - Updated neeto logo
-
 #### Color picker
 
 - Added border to input
