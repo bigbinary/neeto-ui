@@ -19,6 +19,21 @@ const SIZES = { small: "small", medium: "medium", large: "large" };
 
 const STRATEGIES = { default: "default", fixed: "fixed" };
 
+const Control = ({ children, ...props }) => {
+  const { selectProps } = props;
+
+  return (
+    <components.Control {...props}>
+      {selectProps.isMulti && (
+        <span className="neeto-ui-btn neeto-ui-btn--style-primary neeto-ui-react-select__add-btn">
+          {selectProps.addButtonLabel || "Add"}
+        </span>
+      )}{" "}
+      {children}
+    </components.Control>
+  );
+};
+
 const DropdownIndicator = props => (
   <components.DropdownIndicator
     {...props}
@@ -251,6 +266,7 @@ const Select = ({
       <Parent
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
+        closeMenuOnSelect={!otherProps.isMulti}
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         inputId={inputId}
@@ -274,6 +290,7 @@ const Select = ({
           ValueContainer,
           MenuList,
           SingleValue,
+          Control,
           ...componentOverrides,
         }}
         {...portalProps}
@@ -393,6 +410,10 @@ Select.propTypes = {
    * To specify if async options loading is enabled
    */
   isAsyncLoadOptionEnabled: PropTypes.bool,
+  /**
+   * To specify the label for the button shown in multi select
+   */
+  addButtonLabel: PropTypes.string,
 };
 
 export default Select;
