@@ -50,7 +50,9 @@ const Input = forwardRef(
     const maxLengthError = unlimitedChars && valueLength > maxLength;
 
     const onChange = e => {
-      setValueInternal(e.target.value);
+      if (!otherProps.onChange || !otherProps.value) {
+        setValueInternal(e.target.value);
+      }
       otherProps.onChange?.(e);
     };
 
