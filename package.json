@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "5.2.29",
+  "version": "5.2.30",
   "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
