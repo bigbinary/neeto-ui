@@ -33,6 +33,7 @@ import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
 import TreeSelect from "./TreeSelect";
 import Typography from "./Typography";
+import Tree from './Tree'
 
 import "../styles/index.scss";
 
@@ -68,6 +69,7 @@ export {
   TimePicker,
   Toastr,
   Tooltip,
+  Tree,
   TreeSelect,
   Typography,
   Slider,
