@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-pane-spacing: 24px;
 
   // Backdrop
@@ -26,7 +26,7 @@
   --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
   --neeto-ui-pane-body-padding-y: 0px;
   --neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-pane-body-font-size);
+  --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
   // Footer
   --neeto-ui-pane-footer-padding: var(--neeto-ui-pane-spacing);

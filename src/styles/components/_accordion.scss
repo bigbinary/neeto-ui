@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Outer wrapper
   --neeto-ui-accordion-outer-wrapper-padding-x: 0px;
   --neeto-ui-accordion-outer-wrapper-padding-y: 0px;
@@ -13,7 +13,7 @@
   // Item
   --neeto-ui-accordion-item-padding-x: 8px;
   --neeto-ui-accordion-item-padding-y: 16px;
-  @include rfs(var(--neeto-ui-text-base), --neeto-ui-accordion-item-font-size);
+  --neeto-ui-accordion-item-font-size: var(--neeto-ui-text-base);
   --neeto-ui-accordion-item-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-accordion-item-line-height: 16px;
   --neeto-ui-accordion-item-color: rgb(var(--neeto-ui-gray-800));

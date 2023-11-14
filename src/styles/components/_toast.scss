@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Container
   --neeto-ui-toastr-min-width: 320px;
   --neeto-ui-toastr-max-width: 640px;
@@ -21,7 +21,7 @@
   --neeto-ui-toastr-icon-size: 24px;
   --neeto-ui-toastr-gap: 12px;
   --neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-toastr-font-size);
+  --neeto-ui-toastr-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
 
   // Close Button

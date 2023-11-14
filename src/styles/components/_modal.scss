@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-modal-spacing: 24px;
 
   // Backdrop
@@ -32,7 +32,7 @@
   --neeto-ui-modal-body-padding-top: 0;
   --neeto-ui-modal-body-padding-bottom: var(--neeto-ui-modal-spacing);
   --neeto-ui-modal-body-padding-x: var(--neeto-ui-modal-spacing);
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-modal-body-font-size);
+  --neeto-ui-modal-body-font-size: --neeto-ui-text-sm;
   --neeto-ui-modal-body-line-height: 1.5;
 
   // Footer

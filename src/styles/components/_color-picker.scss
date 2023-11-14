@@ -1,4 +1,4 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Popover
   --neeto-ui-colorpicker-popover-width: 224px;
   --neeto-ui-colorpicker-popover-padding: 12px;
@@ -45,7 +45,7 @@
   --neeto-ui-colorpicker-target-color-block-height: 20px;
 
   // Target - Hexcode
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-colorpicker-target-hexcode-font-size);
+  --neeto-ui-colorpicker-target-hexcode-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-colorpicker-target-hexcode-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-colorpicker-target-hexcode-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-colorpicker-target-hexcode-min-width: 72px;

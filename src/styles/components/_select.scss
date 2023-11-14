@@ -1,9 +1,9 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Select
   --neeto-ui-select-padding-x: 0px;
   --neeto-ui-select-padding-y: 0px;
   --neeto-ui-select-min-height: 0px;
-  @include rfs(var(--neeto-ui-text-sm), --neeto-ui-select-font-size);
+  --neeto-ui-select-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-select-border-width: 1px;
   --neeto-ui-select-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-select-border-radius: var(--neeto-ui-rounded);

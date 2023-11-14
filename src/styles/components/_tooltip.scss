@@ -1,6 +1,6 @@
-:root {
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-tooltip-max-width: calc(100vw - 10px);
-  @include rfs(var(--neeto-ui-text-xs), --neeto-ui-tooltip-font-size);
+  --neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
