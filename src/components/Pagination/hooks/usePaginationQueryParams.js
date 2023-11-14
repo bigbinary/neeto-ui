@@ -8,14 +8,14 @@ const usePaginationQueryParams = () => {
   const queryParams = useQueryParams();
   const history = useHistory();
 
-  const handlePaginationQueryParamsChange = page => {
+  const updatePageInQueryParam = page => {
     const params = { page };
 
     const pathname = window.location.pathname;
     history.push(buildUrl(pathname, mergeLeft(params, queryParams)));
   };
 
-  return { handlePaginationQueryParamsChange };
+  return { updatePageInQueryParam };
 };
 
 export default usePaginationQueryParams;

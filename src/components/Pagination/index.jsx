@@ -22,27 +22,21 @@ const Pagination = ({
     siblingCount,
     pageSize,
   });
-  const { handlePaginationQueryParamsChange } = usePaginationQueryParams();
+  const { updatePageInQueryParam } = usePaginationQueryParams();
 
-  if (!navigate) navigate = handlePaginationQueryParamsChange;
+  if (!navigate) navigate = updatePageInQueryParam;
 
   if (pageNo === 0 || paginationRange.length < 2) {
     return null;
   }
 
   const onNext = () => {
-    if (isLastPage) return;
-
-    navigate(pageNo + 1);
+    if (!isLastPage) navigate(pageNo + 1);
   };
 
   const onPrevious = () => {
-    if (isFirstPage) return;
-
-    navigate(pageNo - 1);
+    if (!isFirstPage) navigate(pageNo - 1);
   };
-
-  const onPaginationItemClick = page => navigate(page);
 
   const lastPage = paginationRange[paginationRange.length - 1];
   const isFirstPage = pageNo === 1;
@@ -93,7 +87,7 @@ const Pagination = ({
               className={classnames("neeto-ui-pagination__item", {
                 active: isActive,
               })}
-              onClick={() => onPaginationItemClick(pageNumber)}
+              onClick={() => navigate(pageNumber)}
             >
               <a>{pageNumber}</a>
             </li>

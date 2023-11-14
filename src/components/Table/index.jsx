@@ -78,9 +78,7 @@ const Table = ({
       const observer = resizeObserver.current;
       if (table !== null) {
         observer.observe(table?.parentNode);
-      } else {
-        if (observer) observer.disconnect();
-      }
+      } else if (observer) observer.disconnect();
     },
     [resizeObserver.current, fixedHeight]
   );
