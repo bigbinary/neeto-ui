@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.31 - 2023-11-15
+
+- Allowed the component to use its internal state even when the `onChange` prop is passed.
+
 ## 5.2.29 - 2023-11-13
 
 Added: `Add` button in *Select*
@@ -714,7 +718,6 @@ Changes documentations to sentence case from title casing.
 #### PageLoader
 - Updated neeto logo
 #### Color picker
-
 - Added border to input
 
 #### Alert & Modal
