@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.32 - 2023-11-15
+
+- Updated pagination URL param handling in the *Table*.
+- Implemented pagination URL param handling in the *Pagination* component.
+
 ## 5.2.31 - 2023-11-15
 
 - Allowed the component to use its internal state even when the `onChange` prop is passed.
@@ -719,7 +724,6 @@ Changes documentations to sentence case from title casing.
 - Updated neeto logo
 #### Color picker
 - Added border to input
-
 #### Alert & Modal
 
 - Reduced outer padding from `32px ` to `24px` to provide the compact view
