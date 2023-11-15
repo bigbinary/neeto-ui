@@ -20,6 +20,11 @@
   --neeto-ui-switch-border-radius: 16px;
   --neeto-ui-switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
+  // Checked
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-switch-checked-transform: translateX(20px);
+
   // Margin
   --neeto-ui-switch-label-margin: 12px;
 
@@ -77,7 +82,7 @@
       }
 
       &.neeto-ui-switch__item--checked {
-        --neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-success-500));
+        background-color: var(--neeto-ui-switch-item-checked-bg-color);
       }
 
       .neeto-ui-switch {
@@ -95,8 +100,8 @@
         box-shadow: var(--neeto-ui-switch-box-shadow);
 
         &--checked {
-          --neeto-ui-switch-transform: translateX(20px);
-          --neeto-ui-switch-color: rgb(var(--neeto-ui-success-500));
+          transform: var(--neeto-ui-switch-checked-transform);
+          color: var(--neeto-ui-switch-checked-color);
         }
       }
 
@@ -111,4 +116,9 @@
       }
     }
   }
+}
+
+.neetix-switch {
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-primary-500));
 }

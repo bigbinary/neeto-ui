@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import Switch from "components/Switch";
 import ToolTip from "components/Tooltip";
 
-import SwitchStoriesDocs from "!raw-loader!./SwitchStoriesDocs.mdx";
+import SwitchCSSCustomization from "!raw-loader!./SwitchStoriesDocs/SwitchCSSCustomization.mdx";
+import SwitchDocs from "!raw-loader!./SwitchStoriesDocs/SwitchDocs.mdx";
 
 const metadata = {
   title: "Components/Switch",
   component: Switch,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SwitchStoriesDocs } },
+    docs: { description: { component: SwitchDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=943%3A2135",
@@ -75,6 +76,28 @@ const TooltipExample = args => {
   );
 };
 
-export { Default, Checked, Controlled, Disabled, Label, TooltipExample };
+const CSSCustomization = args => <Switch {...args} />;
+
+CSSCustomization.storyName = "Switch CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Switch",
+  checked: true,
+  className: "neetix-switch",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: SwitchCSSCustomization } },
+};
+
+export {
+  Default,
+  Checked,
+  Controlled,
+  Disabled,
+  Label,
+  TooltipExample,
+  CSSCustomization,
+};
 
 export default metadata;
