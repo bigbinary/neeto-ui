@@ -6,14 +6,15 @@ import Button from "components/Button";
 
 import { icons } from "../constants";
 
-import ButtonStoriesDocs from "!raw-loader!./ButtonStoriesDocs.mdx";
+import ButtonCSSCustomization from "!raw-loader!./ButtonStoriesDocs/ButtonCSSCustomization.mdx";
+import ButtonDocs from "!raw-loader!./ButtonStoriesDocs/ButtonDocs.mdx";
 
 const metadata = {
   title: "Components/Button",
   component: Button,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ButtonStoriesDocs } },
+    docs: { description: { component: ButtonDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
@@ -84,9 +85,9 @@ const IconButtons = args => (
           />
         </div>
         <div className="flex flex-wrap items-start gap-4">
-          <Button {...args} size="small" icon={Favorite} />
-          <Button {...args} size="medium" icon={Favorite} />
-          <Button {...args} size="large" icon={Favorite} />
+          <Button {...args} icon={Favorite} size="small" />
+          <Button {...args} icon={Favorite} size="medium" />
+          <Button {...args} icon={Favorite} size="large" />
         </div>
       </div>
     </div>
@@ -115,6 +116,19 @@ Tooltip.args = {
   tooltipProps: { content: "Top", position: "top" },
 };
 
+const CSSCustomization = args => <Button {...args} />;
+
+CSSCustomization.storyName = "Button CSS Customization";
+
+CSSCustomization.args = {
+  label: "Button",
+  className: "neetix-button--primary",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: ButtonCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -123,6 +137,7 @@ export {
   LoadingState,
   FullWidth,
   Tooltip,
+  CSSCustomization,
 };
 
 export default metadata;
