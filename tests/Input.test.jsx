@@ -21,7 +21,7 @@ describe("Input", () => {
   it("should call onChange when input value changes", () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <Input id="input" label="Input Label" onChange={onChange} />
+      <Input {...{ onChange }} id="input" label="Input Label" />
     );
     userEvent.type(getByLabelText("Input Label"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
@@ -103,17 +103,27 @@ describe("Input", () => {
   });
 
   it("should trim leading and trailing white spaces onBlur", () => {
-    const { getByLabelText } = render(<Input  label="label" />);
+    const { getByLabelText } = render(<Input label="label" />);
     userEvent.type(getByLabelText("label"), "   Test   ");
     userEvent.tab(); // go out of focus
     expect(getByLabelText("label")).toHaveValue("Test");
   });
 
   it("should properly handle disableTrimOnBlur", () => {
-    const { getByLabelText } = render(<Input  label="label" disableTrimOnBlur/>);
+    const { getByLabelText } = render(
+      <Input disableTrimOnBlur label="label" />
+    );
     userEvent.type(getByLabelText("label"), "   Test   ");
     userEvent.tab();
     expect(getByLabelText("label")).toHaveValue("   Test   ");
   });
 
+  it("should display value when onChange handler is passed but value prop is not passed", () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input {...{ onChange }} label="label" />
+    );
+    userEvent.type(getByLabelText("label"), "Test");
+    expect(getByLabelText("label")).toHaveValue("Test");
+  });
 });
