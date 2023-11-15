@@ -9,14 +9,15 @@ import { Select as FormikSelect } from "components/formik";
 
 import { FORMIK_SELECT } from "../constants";
 
-import SelectStoriesDocs from "!raw-loader!./SelectStoriesDocs.mdx";
+import SelectCSSCustomization from "!raw-loader!./SelectStoriesDocs/SelectCSSCustomization.mdx";
+import SelectDocs from "!raw-loader!./SelectStoriesDocs/SelectDocs.mdx";
 
 const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SelectStoriesDocs } },
+    docs: { description: { component: SelectDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
@@ -539,6 +540,20 @@ WithLazyLoadMenuList.storyName = "Lazy load MenuList options";
 
 WithLazyLoadMenuList.args = {};
 
+const CSSCustomization = args => <Select {...args} />;
+
+CSSCustomization.storyName = "Select CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Select label",
+  placeholder: "Custom Select placeholder",
+  className: "neetix-select",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: SelectCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -553,6 +568,7 @@ export {
   FormikSelectStory,
   WithLazyLoadMenuList,
   FormikSelectWithValidation,
+  CSSCustomization,
 };
 
 export default metadata;
