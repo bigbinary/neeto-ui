@@ -5,14 +5,15 @@ import { Help } from "neetoicons";
 import Label from "components/Label";
 import Tooltip from "components/Tooltip";
 
-import LabelStoriesDocs from "!raw-loader!./LabelStoriesDocs.mdx";
+import LabelCSSCustomization from "!raw-loader!./LabelStoriesDocs/LabelCSSCustomization.mdx";
+import LabelDocs from "!raw-loader!./LabelStoriesDocs/LabelDocs.mdx";
 
 const metadata = {
   title: "Components/Label",
   component: Label,
   parameters: {
     layout: "padded",
-    docs: { description: { component: LabelStoriesDocs } },
+    docs: { description: { component: LabelDocs } },
   },
   subcomponents: { Tooltip },
 };
@@ -40,6 +41,19 @@ WithHelpIcon.args = {
 };
 WithHelpIcon.storyName = "With help icon";
 
-export { Default, Required, WithHelpIcon };
+const CSSCustomization = args => <Label {...args} />;
+
+CSSCustomization.storyName = "Label CSS Customization";
+
+CSSCustomization.args = {
+  children: "This is a custom label",
+  className: "neetix-label",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: LabelCSSCustomization } },
+};
+
+export { Default, Required, WithHelpIcon, CSSCustomization };
 
 export default metadata;
