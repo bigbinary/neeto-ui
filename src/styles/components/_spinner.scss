@@ -88,3 +88,8 @@
     transform: rotate(405deg);
   }
 }
+
+.neetix-spinner {
+  --neeto-ui-spinner-size: 32px;
+  --neeto-ui-spinner-color: rgb(var(--neeto-ui-primary-500));
+}
