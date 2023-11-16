@@ -87,3 +87,8 @@
 .react-resizable-handle:hover {
   background-color: var(--neeto-ui-table-resize-handle-hover-bg-color);
 }
+
+.neetix-table {
+  --neeto-ui-table-header-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-table-header-text-transform: capitalize;
+}
