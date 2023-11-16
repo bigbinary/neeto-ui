@@ -14,15 +14,16 @@ import Typography from "components/Typography";
 
 import { suffixes, prefixes } from "../constants";
 
-import EmailInputCounterDocs from "!raw-loader!./MultiEmailInputCounterDocs.mdx";
-import EmailInputStoriesDocs from "!raw-loader!./MultiEmailInputStoriesDocs.mdx";
+import MultiEmailInputCounterDocs from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputCounterDocs.mdx";
+import MultiEmailInputCSSCustomization from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputCSSCustomization.mdx";
+import MultiEmailInputDocs from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputDocs.mdx";
 
 const metadata = {
   title: "Components/MultiEmailInput",
   component: MultiEmailInput,
   parameters: {
     layout: "padded",
-    docs: { description: { component: EmailInputStoriesDocs } },
+    docs: { description: { component: MultiEmailInputDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
@@ -143,7 +144,7 @@ const Counter = _args => {
 };
 
 Counter.parameters = {
-  docs: { description: { story: EmailInputCounterDocs } },
+  docs: { description: { story: MultiEmailInputCounterDocs } },
 };
 
 const WithPrefixAndSuffix = args => {
@@ -218,6 +219,69 @@ const FormikEmail = _args => {
 
 FormikEmail.storyName = "Formik email";
 
+const CSSCustomization = args => {
+  const [emails, setEmails] = useState(args.value);
+
+  return (
+    <div className="neetix-email-input">
+      <MultiEmailInput
+        {...args}
+        counter
+        value={emails}
+        options={[
+          {
+            label: "Daniel Ferry (daniel.ferry@example.com)",
+            value: "daniel.ferry@example.com",
+            valid: true,
+          },
+          {
+            label: "Daniel Grady (daniel.grady@example.com)",
+            value: "daniel.grady@example.com",
+            valid: true,
+          },
+          {
+            label: "Daniel Gutkowski (daniel.gutkowski@example.com)",
+            value: "daniel.gutkowski@example.com",
+            valid: true,
+          },
+          {
+            label: "Daniel Langosh (daniel.langosh@example.com)",
+            value: "daniel.langosh@example.com",
+            valid: true,
+          },
+          {
+            label: "Daniel Newton (daniel.newton@example.com)",
+            value: "daniel.newton@example.com",
+            valid: true,
+          },
+          {
+            label: "Daniel Schiller (daniel.schiller@example.com)",
+            value: "daniel.schiller@example.com",
+            valid: true,
+          },
+        ]}
+        onChange={emails => setEmails(emails)}
+      />
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "MultiEmailInput CSS Customization";
+
+CSSCustomization.args = {
+  value: [
+    {
+      label: "test@example.com",
+      value: "test@example.com",
+      valid: true,
+    },
+  ],
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: MultiEmailInputCSSCustomization } },
+};
+
 export {
   Controlled,
   Error,
@@ -226,6 +290,7 @@ export {
   Counter,
   WithPrefixAndSuffix,
   FormikEmail,
+  CSSCustomization,
 };
 
 export default metadata;
