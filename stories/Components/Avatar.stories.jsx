@@ -2,7 +2,8 @@ import React from "react";
 
 import Avatar from "components/Avatar";
 
-import AvatarStoriesDocs from "!raw-loader!./AvatarStoriesDocs.mdx";
+import AvatarCSSCustomization from "!raw-loader!./AvatarStoriesDocs/AvatarCSSCustomization.mdx";
+import AvatarDocs from "!raw-loader!./AvatarStoriesDocs/AvatarDocs.mdx";
 
 const onClick = () => {
   alert("onClick event!");
@@ -13,7 +14,7 @@ const metadata = {
   component: Avatar,
   parameters: {
     layout: "padded",
-    docs: { description: { component: AvatarStoriesDocs } },
+    docs: { description: { component: AvatarDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
@@ -191,6 +192,18 @@ const Variants = args => {
   );
 };
 
+const CSSCustomization = args => {
+  const imageUrl = "https://i.pravatar.cc/300";
+
+  return <Avatar className="neetix-avatar" user={{ imageUrl }} {...args} />;
+};
+
+CSSCustomization.storyName = "Avatar CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: AvatarCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -198,6 +211,7 @@ export {
   WithTooltip,
   WithCustomClassName,
   Variants,
+  CSSCustomization,
 };
 
 export default metadata;
