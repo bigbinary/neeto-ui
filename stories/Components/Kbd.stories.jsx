@@ -2,14 +2,15 @@ import React from "react";
 
 import Kbd from "components/Kbd";
 
-import KbdStoriesDocs from "!raw-loader!./KbdStoriesDocs.mdx";
+import KbdCSSCustomization from "!raw-loader!./KbdStoriesDocs/KbdCSSCustomization.mdx";
+import KbdDocs from "!raw-loader!./KbdStoriesDocs/KbdDocs.mdx";
 
 const metadata = {
   title: "Components/Kbd",
   component: Kbd,
   parameters: {
     layout: "padded",
-    docs: { description: { component: KbdStoriesDocs } },
+    docs: { description: { component: KbdDocs } },
   },
 };
 
@@ -33,6 +34,16 @@ WithTooltips.storyName = "Kbd with tooltips";
 
 const Default = Template.bind({});
 
-export { Default, WithTooltips };
+const CSSCustomization = args => <Kbd {...args} />;
+
+CSSCustomization.storyName = "Kbd CSS Customization";
+
+CSSCustomization.args = { keyName: "⌘", className: "neetix-kbd" };
+
+CSSCustomization.parameters = {
+  docs: { description: { story: KbdCSSCustomization } },
+};
+
+export { Default, WithTooltips, CSSCustomization };
 
 export default metadata;

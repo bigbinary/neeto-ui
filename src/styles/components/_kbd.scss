@@ -22,3 +22,12 @@
   background-color: var(--neeto-ui-kbd-bg-color);
   border-radius: var(--neeto-ui-kbd-border-radius);
 }
+
+.neetix-kbd {
+  --neeto-ui-kbd-font-size: var(--neeto-ui-text-base);
+  --neeto-ui-kbd-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-kbd-bg-color: rgb(var(--neeto-ui-primary-100));
+  --neeto-ui-kbd-border-radius: var(--neeto-ui-rounded-sm);
+  --neeto-ui-kbd-min-width: 32px;
+  --neeto-ui-kbd-height: 32px;
+}
