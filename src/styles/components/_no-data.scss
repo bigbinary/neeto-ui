@@ -43,3 +43,9 @@
     gap: var(--neeto-ui-no-data-action-block-gap);
   }
 }
+
+.neetix-nodata {
+  --neeto-ui-no-data-image-margin-bottom: 2rem;
+  --neeto-ui-no-data-image-max-width: 20rem;
+  --neeto-ui-no-data-action-block-margin-top: 2rem;
+}

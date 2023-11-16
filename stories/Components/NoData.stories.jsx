@@ -3,18 +3,15 @@ import React from "react";
 import Button from "components/Button";
 import NoData from "components/NoData";
 
-import NoDataStoriesDocs from "!raw-loader!./NoDataStoriesDocs.mdx";
+import NoDataCSSCustomization from "!raw-loader!./NoDataStoriesDocs/NoDataCSSCustomization.mdx";
+import NoDataDocs from "!raw-loader!./NoDataStoriesDocs/NoDataDocs.mdx";
 
 const metadata = {
   title: "Components/NoData",
   component: NoData,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: NoDataStoriesDocs,
-      },
-    },
+    docs: { description: { component: NoDataDocs } },
   },
 };
 
@@ -22,10 +19,8 @@ const Template = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
@@ -37,10 +32,8 @@ const WithDescription = args => (
     <NoData
       {...args}
       description="You can try adding a new ticket"
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
@@ -53,13 +46,9 @@ const WithSecondaryButton = args => (
       {...args}
       buttonSeparatorText="or"
       description="You can try adding a new suite or importing test cases"
+      primaryButtonProps={{ label: "Add new suite" }}
+      secondaryButtonProps={{ label: "Import Test Cases" }}
       title="There are no suites to show"
-      primaryButtonProps={{
-        label: "Add new suite",
-      }}
-      secondaryButtonProps={{
-        label: "Import Test Cases",
-      }}
     />
   </div>
 );
@@ -70,6 +59,7 @@ const WithHelpText = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
       helpText={
         <>
@@ -77,9 +67,6 @@ const WithHelpText = args => (
           <Button label="Knowledge Base" style="link" />
         </>
       }
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
@@ -90,6 +77,7 @@ const WithCustomImageAsSVG = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
+      primaryButtonProps={{ label: "Back to home" }}
       title="The page you're looking for can't be found"
       image={
         <svg
@@ -117,9 +105,6 @@ const WithCustomImageAsSVG = args => (
           />
         </svg>
       }
-      primaryButtonProps={{
-        label: "Back to home",
-      }}
     />
   </div>
 );
@@ -131,15 +116,31 @@ const WithCustomImageFromURL = args => (
     <NoData
       {...args}
       image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
 
 WithCustomImageFromURL.storyName = "No Data with custom image from URL";
+
+const CSSCustomization = args => (
+  <div className="flex w-full items-center justify-center">
+    <NoData
+      {...args}
+      className="neetix-nodata"
+      primaryButtonProps={{ label: "Add new ticket" }}
+      title="There are no tickets to show"
+      image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
+    />
+  </div>
+);
+
+CSSCustomization.storyName = "NoData CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: NoDataCSSCustomization } },
+};
 
 export {
   Default,
@@ -148,6 +149,7 @@ export {
   WithHelpText,
   WithCustomImageAsSVG,
   WithCustomImageFromURL,
+  CSSCustomization,
 };
 
 export default metadata;
