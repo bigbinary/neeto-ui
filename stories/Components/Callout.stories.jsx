@@ -6,14 +6,15 @@ import Callout from "components/Callout";
 
 import { icons } from "../constants";
 
-import CalloutStoriesDocs from "!raw-loader!./CalloutStoriesDocs.mdx";
+import CalloutCSSCustomization from "!raw-loader!./CalloutStoriesDocs/CalloutCSSCustomization.mdx";
+import CalloutDocs from "!raw-loader!./CalloutStoriesDocs/CalloutDocs.mdx";
 
 const metadata = {
   title: "Components/Callout",
   component: Callout,
   parameters: {
     layout: "padded",
-    docs: { description: { component: CalloutStoriesDocs } },
+    docs: { description: { component: CalloutDocs } },
   },
   argTypes: { icon: { options: Object.keys(icons), mapping: icons } },
 };
@@ -61,6 +62,18 @@ const Variants = args => (
   </div>
 );
 
-export { Default, Styles, WithIcon, Variants };
+const CSSCustomization = args => (
+  <Callout className="neetix-callout--success" style="success" {...args}>
+    This is a custom Callout!
+  </Callout>
+);
+
+CSSCustomization.storyName = "Callout CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: CalloutCSSCustomization } },
+};
+
+export { Default, Styles, WithIcon, Variants, CSSCustomization };
 
 export default metadata;
