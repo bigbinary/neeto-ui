@@ -15,7 +15,8 @@ import DeactivateExample from "../assets/images/deactivate.png";
   }}
 />
 
-<style>{`
+<style>
+  {`
   .story-demo-table tr{
     background: transparent !important;
   }
@@ -45,7 +46,8 @@ import DeactivateExample from "../assets/images/deactivate.png";
     margin-left:auto !important;
     margin-right:auto !important;
   }
-`}</style>
+  `}
+</style>
 
 export const data = [
   { id: "general-language", title: "General language" },
@@ -165,7 +167,7 @@ consistently.
 - Avoid unnecessary words and articles such as "the", "an", or "a"
 - Write in sentence case, capitalize the first word and proper nouns only
 - Buttons should always lead with a strong verb that encourages action
-- To provide enough context to users, use the {verb} + {noun} content formula on
+- To provide enough context to users, use the "verb" + "noun" content formula on
   buttons except in the case of common actions like "Done", "Close", "Cancel",
   or "OK"
 
@@ -215,8 +217,8 @@ consistently.
           rel="noopener"
         >
           neetoDesk's ticket status
-        </a>{" "}
-        documentation for more information.
+        </a>
+        {" "}documentation for more information.
       </li>
     </ul>
   </div>
@@ -231,8 +233,8 @@ consistently.
           rel="noopener"
         >
           Click here
-        </a>{" "}
-        to see neetoDesk's ticket status documentation for more information.
+        </a>
+        {" "}to see neetoDesk's ticket status documentation for more information.
       </li>
     </ul>
   </div>
@@ -325,8 +327,6 @@ For example, if we are on the home/root page,
 <h2 id="confirmations">
   <a href="#confirmations">Confirmations</a>
 </h2>
-
-<Confirmations />
 
 <a
   href="https://witty-tern-16b.notion.site/Confirmation-modal-best-practices-ef707f480cdd42e1bbcd3abea065a0d9"

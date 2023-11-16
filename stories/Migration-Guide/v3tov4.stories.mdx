@@ -12,7 +12,8 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # V3 to V4
 
-This document will help you upgrade from neetoUI `3.x` version to neetoUI `4.x` version.
+This document will help you upgrade from neetoUI `3.x` version to neetoUI `4.x`
+version.
 
 ## Start upgrading
 
@@ -28,21 +29,31 @@ yarn upgrade @bigbinary/neetoui@4.0.13
 git commit -m "Upgraded neetoUI to v4"
 ```
 
-3. As we have removed the dependencies from the neetoUI package, you will have to install them separately.
+3. As we have removed the dependencies from the neetoUI package, you will have
+   to install them separately.
 
 ```shell
 yarn add antd@4.24.3
 ```
 
-4. We provide a codemod cli tool [@bigbinary/neetoui-codemod-v4](https://github.com/bigbinary/neetoui-codemod-v4) To help you quickly upgrade to v4.
+4. We provide a codemod cli tool
+   [@bigbinary/neetoui-codemod-v4](https://github.com/bigbinary/neetoui-codemod-v4)
+   To help you quickly upgrade to v4.
 
 > **Before running codemod cli command, ensure the following:**
 >
-> 1. **The changes related to upgrading neetoUI to v4 should be committed.** That is, changes to package.json and yarn.lock should be committed.
-> 2. All other changes, you can either [stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash) them if those changes are not yet commit ready or directly commit them via git.
+> 1. **The changes related to upgrading neetoUI to v4 should be committed.**
+>    That is, changes to package.json and yarn.lock should be committed.
+> 2. All other changes, you can either
+>    [stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+>    them if those changes are not yet commit ready or directly commit them via
+>    git.
 
-> This script will migrate all the direct props changes of components. Changes in the nested props have to done manually.
-> E.g.: `Dropdown` component has a prop `buttonProps` which is an object. If you are using any of the nested props of `buttonProps` like `buttonProps={{ size: "large" }}` then you have to change it manually.
+> This script will migrate all the direct props changes of components. Changes
+> in the nested props have to done manually. E.g.: `Dropdown` component has a
+> prop `buttonProps` which is an object. If you are using any of the nested
+> props of `buttonProps` like `buttonProps={{ size: "large" }}` then you have to
+> change it manually.
 
 ```shell
 # Run directly through npx
@@ -75,11 +86,17 @@ neetoui-codemod-v4 src
 
 <br />
 
-5. You can manually check the code one by one against the [list for modification](/docs/changelog--page).
+5. You can manually check the code one by one against the
+   [list for modification](/docs/changelog--page).
 
 <br />
 <br />
 
 ## Encounter problems
 
-v4 made a lot of detailed improvements and refactoring. We collected all known incompatible changes and related impacts as much as possible, but there may be some scenarios we have not considered. If you encounter problems during the upgrade, please go to [GitHub issues](https://github.com/bigbinary/neeto-ui/issues/new) for feedback. We will respond and improve this document as soon as possible.
+v4 made a lot of detailed improvements and refactoring. We collected all known
+incompatible changes and related impacts as much as possible, but there may be
+some scenarios we have not considered. If you encounter problems during the
+upgrade, please go to
+[GitHub issues](https://github.com/bigbinary/neeto-ui/issues/new) for feedback.
+We will respond and improve this document as soon as possible.

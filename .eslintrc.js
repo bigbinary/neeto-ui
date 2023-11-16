@@ -3,6 +3,7 @@ const { mergeDeepLeft } = require("ramda");
 
 module.exports = mergeDeepLeft(
   {
+    extends: [...defaultConfig.extends, "plugin:storybook/recommended"],
     rules: {
       "@bigbinary/neeto/neetocommons-tips": "off",
       "@bigbinary/neeto/no-blacklisted-imports": "off",

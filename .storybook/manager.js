@@ -1,6 +1,5 @@
 import { addons } from "@storybook/addons";
 import neetoTheme from "./neetoTheme";
-import Favicon from "./public/favicon_light.ico";
 
 addons.setConfig({
   theme: neetoTheme,
@@ -8,5 +7,5 @@ addons.setConfig({
 
 const link = document.createElement("link");
 link.setAttribute("rel", "shortcut icon");
-link.setAttribute("href", Favicon);
+link.setAttribute("href", "./favicon_light.ico");
 document.head.appendChild(link);
