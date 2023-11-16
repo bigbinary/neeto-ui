@@ -7,6 +7,7 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
+import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
@@ -17,24 +18,16 @@ const metadata = {
   component: NeetoTable,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: TableDocs,
-      },
-    },
+    docs: { description: { component: TableDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
     },
   },
   argTypes: {
-    rowData: {
-      control: false,
-    },
+    rowData: { control: false },
 
-    columnData: {
-      control: false,
-    },
+    columnData: { control: false },
     handlePageChange: {
       table: {
         type: { summary: "func" },
@@ -51,18 +44,8 @@ const metadata = {
 };
 
 const fixedColumnWidths = [
-  {
-    title: "ID",
-    dataIndex: "id",
-    key: "id",
-    width: "25%",
-  },
-  {
-    title: "guid",
-    dataIndex: "guid",
-    key: "guid",
-    width: "25%",
-  },
+  { title: "ID", dataIndex: "id", key: "id", width: "25%" },
+  { title: "guid", dataIndex: "guid", key: "guid", width: "25%" },
   {
     title: "First Name",
     dataIndex: "first_name",
@@ -147,9 +130,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "guid",
     key: "guid",
     width: 150,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "First Name",
@@ -178,9 +159,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "email",
     key: "email",
     width: 200,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "IP Address",
@@ -199,9 +178,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "credit_card_number",
     key: "credit_card_number",
     width: 250,
-    ellipsis: {
-      showTitle: false,
-    },
+    ellipsis: { showTitle: false },
   },
   {
     title: "Shirt Size",
@@ -256,17 +233,9 @@ const Default = args => {
   );
 };
 
-Default.args = {
-  defaultPageSize: 10,
-};
+Default.args = { defaultPageSize: 10 };
 
-Default.parameters = {
-  docs: {
-    source: {
-      code: getTableSource(),
-    },
-  },
-};
+Default.parameters = { docs: { source: { code: getTableSource() } } };
 
 const TableWithSpecifiedHorizontalScrolling = args => (
   <div className="mx-auto mt-10 w-2/3">
@@ -361,15 +330,11 @@ TableWithSorting.storyName = "Table with sorting";
 TableWithSorting.parameters = {
   docs: {
     description: { story: TableSortingDocs },
-    source: {
-      code: null,
-    },
+    source: { code: null },
   },
 };
 
-TableWithSorting.args = {
-  defaultPageSize: 10,
-};
+TableWithSorting.args = { defaultPageSize: 10 };
 
 const TableWithFixedHeight = args => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -395,9 +360,7 @@ TableWithFixedHeight.args = {
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
-    source: {
-      code: getTableSource("fixedHeight"),
-    },
+    source: { code: getTableSource("fixedHeight") },
   },
 };
 
@@ -417,16 +380,12 @@ const TableWithoutCheckbox = args => {
   );
 };
 TableWithoutCheckbox.storyName = "Table without checkbox";
-TableWithoutCheckbox.args = {
-  rowSelection: false,
-};
+TableWithoutCheckbox.args = { rowSelection: false };
 
 TableWithoutCheckbox.parameters = {
   docs: {
     description: { story: TableWithoutCheckboxDocs },
-    source: {
-      code: getTableSource("rowSelection={false}"),
-    },
+    source: { code: getTableSource("rowSelection={false}") },
   },
 };
 
@@ -452,9 +411,7 @@ const TableWithDynamicData = args => {
   );
 };
 TableWithDynamicData.storyName = "Table with dynamic data";
-TableWithDynamicData.args = {
-  defaultPageSize: 10,
-};
+TableWithDynamicData.args = { defaultPageSize: 10 };
 
 const TableWithResizableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -474,9 +431,7 @@ const TableWithResizableColumns = args => {
   );
 };
 TableWithResizableColumns.storyName = "Table with resizable columns";
-TableWithResizableColumns.args = {
-  defaultPageSize: 10,
-};
+TableWithResizableColumns.args = { defaultPageSize: 10 };
 
 const TableWithReordableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -496,8 +451,28 @@ const TableWithReordableColumns = args => {
   );
 };
 TableWithReordableColumns.storyName = "Table with reorderable columns";
-TableWithReordableColumns.args = {
-  defaultPageSize: 10,
+TableWithReordableColumns.args = { defaultPageSize: 10 };
+
+const CSSCustomization = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  return (
+    <div className="neetix-table">
+      <NeetoTable
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        {...args}
+      />
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Table CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TableCSSCustomization } },
 };
 
 export {
@@ -512,6 +487,7 @@ export {
   TableWithDynamicData,
   TableWithResizableColumns,
   TableWithReordableColumns,
+  CSSCustomization,
 };
 
 export default metadata;
