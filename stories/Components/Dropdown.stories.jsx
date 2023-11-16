@@ -8,7 +8,8 @@ import { EVENT_BUBBLING_CAPTURING } from "./constants";
 
 import { icons } from "../constants";
 
-import DropdownStoriesDocs from "!raw-loader!./DropdownStoriesDocs.mdx";
+import DropdownCSSCustomization from "!raw-loader!./DropdownStoriesDocs/DropdownCSSCustomization.mdx";
+import DropdownDocs from "!raw-loader!./DropdownStoriesDocs/DropdownDocs.mdx";
 
 const DEPRECATED_PROPS = {
   ulProps: { control: false, table: { type: { summary: null } } },
@@ -25,7 +26,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: DropdownStoriesDocs } },
+    docs: { description: { component: DropdownDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
@@ -417,6 +418,38 @@ EventBubblingAndCapturing.parameters = {
   },
 };
 
+const CSSCustomization = args => {
+  const { Menu, MenuItem, Divider } = Dropdown;
+  const listItems = ["Action", "Another action", "Something else here"];
+
+  return (
+    <div className="h-40">
+      <Dropdown
+        buttonProps={{ className: "neetix-button--primary" }}
+        className="neetix-dropdown"
+        label="Custom Dropdown"
+        {...args}
+      >
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+          ))}
+          <MenuItem.Button isActive>Active</MenuItem.Button>
+          <MenuItem.Button isDisabled>Disabled</MenuItem.Button>
+          <Divider />
+          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+        </Menu>
+      </Dropdown>
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Dropdown CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: DropdownCSSCustomization } },
+};
+
 export {
   Default,
   TriggerStyles,
@@ -429,6 +462,7 @@ export {
   CustomTarget,
   CustomDropdown,
   EventBubblingAndCapturing,
+  CSSCustomization,
 };
 
 export default metadata;
