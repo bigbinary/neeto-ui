@@ -49,9 +49,13 @@ const Input = forwardRef(
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
     const maxLengthError = unlimitedChars && valueLength > maxLength;
 
-    const onChangeInternal = e => setValueInternal(e.target.value);
+    const onChange = e => {
+      if (!otherProps.onChange || !otherProps.value) {
+        setValueInternal(e.target.value);
+      }
+      otherProps.onChange?.(e);
+    };
 
-    const onChange = otherProps.onChange || onChangeInternal;
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     const handleRegexChange = e => {
@@ -75,9 +79,9 @@ const Input = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(label)}-input-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {label}
@@ -108,19 +112,21 @@ const Input = forwardRef(
           <input
             aria-invalid={!!error}
             data-cy={`${hyphenize(label)}-input-field`}
-            disabled={disabled}
-            id={id}
-            ref={ref}
-            required={required}
             size={contentSize}
-            type={type}
             aria-describedby={classnames({
               [errorId]: !!error,
               [helpTextId]: helpText,
             })}
-            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
-            {...otherProps}
-            value={value}
+            {...{
+              disabled,
+              id,
+              ref,
+              required,
+              type,
+              ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
+              ...otherProps,
+              value,
+            }}
             onBlur={handleOnBlur}
             onChange={handleChange}
           />

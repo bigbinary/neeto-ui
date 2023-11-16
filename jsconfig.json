@@ -21,6 +21,8 @@
       "src/*": ["src/*"],
       "neetoicons": ["node_modules/@bigbinary/neeto-icons"],
       "neetoicons/*": ["node_modules/@bigbinary/neeto-icons/*"],
+      "neetocist": ["node_modules/@bigbinary/neeto-cist"],
+      "neetocist/*": ["node_modules/@bigbinary/neeto-cist/*"],
       // You can add custom project specific paths below this comment
       "atoms": ["src/atoms"],
       "atoms/*": ["src/atoms/*"],
