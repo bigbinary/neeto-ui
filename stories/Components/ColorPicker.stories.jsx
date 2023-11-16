@@ -6,7 +6,8 @@ import ColorPicker from "components/ColorPicker";
 
 import { PALETTE_PICKER_CODE } from "./constants";
 
-import ColorPickerStoriesDocs from "!raw-loader!./ColorPickerStoriesDocs.mdx";
+import ColorPickerCSSCustomization from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerCSSCustomization.mdx";
+import ColorPickerDocs from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerDocs.mdx";
 
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
@@ -28,7 +29,7 @@ const metadata = {
   component: ColorPicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ColorPickerStoriesDocs } },
+    docs: { description: { component: ColorPickerDocs } },
   },
   argTypes: {
     onChange: {
@@ -256,6 +257,38 @@ OnlyPalettePicker.parameters = {
   docs: { source: { code: PALETTE_PICKER_CODE } },
 };
 
+const CSSCustomization = ({ color, ...args }) => {
+  const [currentColor, setCurrentColor] = useState("#4558F9");
+
+  const onChange = value => {
+    action("onChange")(value);
+    setCurrentColor(value.hex);
+  };
+
+  useEffect(() => {
+    setCurrentColor(color || "#4558F9");
+  }, [color]);
+
+  return (
+    <div className="h-60 w-40">
+      <div className="neetix-colorpicker">
+        <ColorPicker color={currentColor} onChange={onChange} {...args} />
+      </div>
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "ColorPicker CSS Customization";
+
+CSSCustomization.args = {
+  color: "#4558F9",
+  className: "neetix-colorpicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: ColorPickerCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -264,6 +297,7 @@ export {
   ShowHexValue,
   ShowTransparencyControl,
   OnlyPalettePicker,
+  CSSCustomization,
 };
 
 export default metadata;

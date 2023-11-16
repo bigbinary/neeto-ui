@@ -158,3 +158,8 @@
     --neeto-ui-colorpicker-target-color-block-height: 24px;
   }
 }
+
+.neetix-colorpicker {
+  --neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-colorpicker-target-color-block-border-radius: var(--neeto-ui-rounded-full);
+}
