@@ -45,9 +45,9 @@ const EmptyMultiLineForm = ({ onSubmit }) => {
     <Form
       className="nui-form-wrapper"
       formikProps={{
-        initialValues: { address: "" },
+        initialValues: { address: "add" },
         validationSchema: yup.object().shape({
-          address: yup.string().trim("").required("Address is required"),
+          address: yup.string().trim().required("Address is required"),
         }),
         onSubmit: handleSubmit,
       }}
@@ -74,7 +74,7 @@ describe("formik/Form", () => {
     render(<FormikForm onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
-    await userEvent.type(input, "{selectall}{backspace}");
+    await userEvent.clear(input);
     await userEvent.type(input, "Oliver");
     await waitFor(() => expect(button).not.toBeDisabled());
     await userEvent.click(button);
@@ -97,7 +97,7 @@ describe("formik/Form", () => {
     render(<FormikForm onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
-    await userEvent.type(input, "{selectall}{backspace}");
+    await userEvent.clear(input);
     await waitFor(() => expect(button).not.toBeDisabled());
     await userEvent.click(button);
     await waitFor(() => {
@@ -113,7 +113,7 @@ describe("formik/Form", () => {
     render(<FormikForm scrollToErrorField onSubmit={onSubmit} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
-    await userEvent.type(input, "{selectall}{backspace}");
+    await userEvent.clear(input);
     await waitFor(() => expect(button).not.toBeDisabled());
     await userEvent.click(button);
     await waitFor(() => {
@@ -131,19 +131,21 @@ describe("formik/Form", () => {
 
     const addressInput = screen.getByLabelText("Address");
 
-    // Form is not dirty and hence it's not validated for the enter press.
-    await userEvent.type(addressInput, "{enter}");
+    // Form is not dirty and hence it's not validated or submitted for the enter press.
+    await userEvent.type(addressInput, "{meta>}{enter}");
     expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
 
     // Form is dirty and hence it's validated for the second enter press
     // and submit is called since there is no error.
-    await userEvent.type(addressInput, "Address Line 1 {meta}{enter}");
+    await userEvent.type(addressInput, "Address Line 1 {meta>}{enter}");
     expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
     await waitFor(() => expect(onSubmit).toHaveBeenCalled());
 
     // Form is cleared and the second enter should trigger validation
     // and since there's no value, the error message should be rendered.
-    await userEvent.type(addressInput, "{selectall}{backspace} {meta}{enter}");
+    await userEvent.clear(addressInput);
+    await userEvent.type(addressInput, "{meta>}{enter}");
     expect(await screen.findByText("Address is required")).toBeInTheDocument();
   });
 
