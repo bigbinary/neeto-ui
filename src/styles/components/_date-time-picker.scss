@@ -650,3 +650,9 @@
   --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
   --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-success-500));
 }
+
+.neetix-timepicker {
+  --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-success-500));
+}
