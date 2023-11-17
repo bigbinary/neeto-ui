@@ -63,7 +63,7 @@ describe("formik/Button", () => {
 
   it("Should be disabled if formik value is same as initial value", async () => {
     const { input, button, onSubmit } = renderTestComponent();
-    await userEvent.type(input, "{selectall}{backspace}"); // clear everything
+    await userEvent.clear(input); // clear everything
     await userEvent.type(input, "Oliver"); // retype initial value
     // button disabled: no change in form values
     await waitFor(() => expect(button).toBeDisabled());
@@ -73,7 +73,7 @@ describe("formik/Button", () => {
 
   it("Should not be disabled if form contains errors but should not submit form", async () => {
     const { input, button, onSubmit } = renderTestComponent();
-    await userEvent.type(input, "{selectall}{backspace}"); // clear everything
+    await userEvent.clear(input); // clear everything
     // error: name is required;
     await waitFor(() => expect(button).not.toBeDisabled());
     await userEvent.click(button);
