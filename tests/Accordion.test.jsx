@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-  render,
-  waitFor,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render, waitForElementToBeRemoved } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Accordion } from "components";
@@ -54,10 +50,10 @@ describe("Accordion", () => {
     );
     await userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    await userEvent.keyboard("{space}");
+    await userEvent.type(getByText("Item 1"), "{space}");
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
-    await userEvent.keyboard("{enter}");
+    await userEvent.type(getByText("Item 1"), "{enter}");
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
