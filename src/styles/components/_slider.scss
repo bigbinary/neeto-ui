@@ -1,15 +1,25 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-primary-600));
+  --neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-primary-500));
+}
+
 .ant-slider {
   &:hover {
     .ant-slider-handle {
       &:after {
-        box-shadow: 0 0 0 2px rgb(var(--neeto-ui-primary-600));
+        box-shadow: var(--neeto-ui-slider-handle-box-shadow);
       }
 
       &:focus {
         &:after {
-          box-shadow: 0 0 0 4px rgb(var(--neeto-ui-primary-500));
+          box-shadow: var(--neeto-ui-slider-handle-focus-box-shadow);
         }
       }
     }
   }
+}
+
+.neetix-slider {
+  --neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-success-600));
+  --neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-success-500));
 }
