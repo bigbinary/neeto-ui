@@ -9,14 +9,15 @@ import { disabledDateTime } from "./constants";
 
 import { DATE_PICKER_CODE, DATE_RANGE_PICKER_CODE } from "../constants";
 
-import DateInputStoriesDocs from "!raw-loader!./DateInputStoriesDocs.mdx";
+import DateInputCSSCustomization from "!raw-loader!./DateInputStoriesDocs/DateInputCSSCustomization.mdx";
+import DateInputDocs from "!raw-loader!./DateInputStoriesDocs/DateInputDocs.mdx";
 
 const metadata = {
   title: "Components/DatePicker",
   component: DatePicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: DateInputStoriesDocs } },
+    docs: { description: { component: DateInputDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A7",
@@ -202,6 +203,22 @@ const ShowTime = args => (
 );
 ShowTime.storyName = "Show time";
 
+const CSSCustomization = args => <DatePicker {...args} />;
+
+CSSCustomization.storyName = "DatePicker CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom DatePicker",
+  type: "date",
+  picker: "date",
+  showTime: false,
+  className: "neetix-datepicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: DateInputCSSCustomization } },
+};
+
 export {
   DateInput,
   RequiredDatePicker,
@@ -212,6 +229,7 @@ export {
   DateRangePicker,
   DateRangePickerWithPresetRanges,
   ShowTime,
+  CSSCustomization,
 };
 
 export default metadata;
