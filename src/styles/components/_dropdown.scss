@@ -27,7 +27,7 @@
 .neeto-ui-dropdown__popup {
   width: auto;
   min-width: 168px;
-  max-height: 480px;
+  max-height: max(480px, 60vh);
   overflow-y: auto;
   background-color: rgb(var(--neeto-ui-white));
   border-radius: var(--neeto-ui-rounded);
