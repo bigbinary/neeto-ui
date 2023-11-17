@@ -47,20 +47,20 @@ describe("TimePicker", () => {
     expect(onChange).toHaveBeenCalled();
   });
 
-  it("should trigger onChange function on typing in textbox", () => {
+  it("should trigger onChange function on typing in textbox", async () => {
     const onChange = jest.fn();
     render(<TimePicker open format="HH:mm" onChange={onChange} />);
-    userEvent.paste(getByRole("textbox"), "11:01");
-    fireEvent.click(getByText("OK"));
+    await userEvent.paste(getByRole("textbox"), "11:01");
+    await fireEvent.click(getByText("OK"));
     expect(onChange).toHaveBeenCalledWith(
       currentTime.hour(11).minute(1).second(0).millisecond(0),
       "11:01"
     );
   });
 
-  it("should not break component even if onChange is not provided", () => {
+  it("should not break component even if onChange is not provided", async () => {
     render(<TimePicker open format="HH:mm" />);
-    userEvent.paste(getByRole("textbox"), "11:01");
+    await userEvent.paste(getByRole("textbox"), "11:01");
     fireEvent.click(getByText("OK"));
     expect(getByRole("textbox")).toHaveValue("11:01");
   });
@@ -70,13 +70,13 @@ describe("TimePicker", () => {
     render(<TimePicker format="HH:mm:ss" type="range" onChange={onChange} />);
     const startTimeInput = getAllByRole("textbox")[0];
     const endTimeInput = getAllByRole("textbox")[1];
-    userEvent.click(startTimeInput);
+    await userEvent.click(startTimeInput);
     fireEvent.click(getAllByText("02")[0]);
     fireEvent.click(getAllByText("15")[1]);
     fireEvent.click(getAllByText("00")[2]);
     fireEvent.click(getByText("OK"));
 
-    userEvent.click(endTimeInput);
+    await userEvent.click(endTimeInput);
     fireEvent.click(getAllByText("03")[0]);
     fireEvent.click(getAllByText("20")[1]);
     fireEvent.click(getAllByText("10")[2]);

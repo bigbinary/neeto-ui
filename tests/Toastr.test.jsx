@@ -76,7 +76,7 @@ const testToastrErrorMessages = async (errorResponse, expectedMessage) => {
     </>
   );
   const button = screen.getByText("Throw an axios error");
-  userEvent.click(button);
+  await userEvent.click(button);
   const axiosError = await screen.findByText(expectedMessage);
   expect(axiosError).toBeInTheDocument();
 };
@@ -105,7 +105,7 @@ describe("Toastr", () => {
   ["Success", "Info", "Warning", "Error"].forEach(type => {
     it(`should render ${type} Toastr without error`, async () => {
       const button = renderToastrButton(type);
-      userEvent.click(button);
+      await userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
     });
@@ -122,11 +122,11 @@ describe("Toastr", () => {
       );
       const button = screen.getByText(`${type} Toastr`);
 
-      userEvent.click(button);
+      await userEvent.click(button);
       let toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
       expect(toastrs.length).toBe(1);
 
-      userEvent.click(button);
+      await userEvent.click(button);
       // wait for some time for new toastr to show up
       await act(() => new Promise(resolve => setTimeout(resolve, 100)));
       toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
@@ -138,11 +138,11 @@ describe("Toastr", () => {
     it(`should not render duplicate ${type} Toastrs`, async () => {
       const button = renderToastrButton(type);
 
-      userEvent.click(button);
+      await userEvent.click(button);
       let toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
       expect(toastrs.length).toBe(1);
 
-      userEvent.click(button);
+      await userEvent.click(button);
       // wait for some time for new toastr to show up (but won't be shown)
       await act(() => new Promise(resolve => setTimeout(resolve, 100)));
       toastrs = await screen.findAllByText(`This is a ${type} toastr.`);
@@ -167,12 +167,12 @@ describe("Toastr", () => {
       </>
     );
     const button = screen.getByText("Toastr with CTA");
-    userEvent.click(button);
+    await userEvent.click(button);
     const toastr = await screen.findByText("Ticket marked as spam.");
     expect(toastr).toBeInTheDocument();
     const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const callToAction = screen.getByText("Block Customer");
-    userEvent.click(callToAction);
+    await userEvent.click(callToAction);
     expect(alertMock).toHaveBeenCalledTimes(1);
   });
 
@@ -187,7 +187,7 @@ describe("Toastr", () => {
       </>
     );
     const button = screen.getByText("Info Toastr");
-    userEvent.click(button);
+    await userEvent.click(button);
     const link = await screen.findByRole("link");
     expect(link).toHaveAttribute(
       "href",
@@ -206,7 +206,7 @@ describe("Toastr", () => {
       </>
     );
     const button = screen.getByText("String Error");
-    userEvent.click(button);
+    await userEvent.click(button);
     const errorToastr = await screen.findByText(
       "This is a plain text error toastr!"
     );
@@ -227,7 +227,7 @@ describe("Toastr", () => {
       </>
     );
     const button = screen.getByText("Error Toastr");
-    userEvent.click(button);
+    await userEvent.click(button);
     const errorToastr = await screen.findByText("Something went wrong.");
     expect(errorToastr).toBeInTheDocument();
   });
@@ -235,7 +235,7 @@ describe("Toastr", () => {
   ["Success", "Info", "Warning", "Error"].forEach(type => {
     it(`should render ${type} Toastr when custom config is passed`, async () => {
       const button = renderCustomConfigToastrButton(type);
-      userEvent.click(button);
+      await userEvent.click(button);
 
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
@@ -256,7 +256,7 @@ describe("Toastr", () => {
         noticeCode: `message.${type.toLowerCase()}`,
         entityName: "toastr",
       });
-      userEvent.click(button);
+      await userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
     });
@@ -267,7 +267,7 @@ describe("Toastr", () => {
       const button = renderCustomMessageToastrButton(type, {
         notice: `This is a ${type} toastr.`,
       });
-      userEvent.click(button);
+      await userEvent.click(button);
       const toastr = await screen.findByText(`This is a ${type} toastr.`);
       expect(toastr).toBeInTheDocument();
     });
@@ -279,7 +279,7 @@ describe("Toastr", () => {
         noticeCode: "custom_message",
         customMessage: "This is a custom message.",
       });
-      userEvent.click(button);
+      await userEvent.click(button);
       const toastr = await screen.findByText("This is a custom message.");
       expect(toastr).toBeInTheDocument();
     });

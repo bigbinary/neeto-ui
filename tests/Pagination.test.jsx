@@ -17,7 +17,7 @@ describe("Pagination", () => {
     expect(getByText(currentPage)).toBeInTheDocument();
   });
 
-  it("should invoke navigate callback when the left navigate button is clicked.", () => {
+  it("should invoke navigate callback when the left navigate button is clicked.", async () => {
     const navigate = jest.fn();
     const { getByTestId } = render(
       <Pagination
@@ -27,12 +27,12 @@ describe("Pagination", () => {
         pageSize={pageSize}
       />
     );
-    userEvent.click(getByTestId("left-navigate-button"));
+    await userEvent.click(getByTestId("left-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(currentPage - 1);
   });
 
-  it("should invoke navigate callback when the right navigate button is clicked.", () => {
+  it("should invoke navigate callback when the right navigate button is clicked.", async () => {
     const navigate = jest.fn();
     const { getByTestId } = render(
       <Pagination
@@ -42,12 +42,12 @@ describe("Pagination", () => {
         pageSize={pageSize}
       />
     );
-    userEvent.click(getByTestId("right-navigate-button"));
+    await userEvent.click(getByTestId("right-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(currentPage + 1);
   });
 
-  it("should invoke navigate callback when any page number is clicked.", () => {
+  it("should invoke navigate callback when any page number is clicked.", async () => {
     const navigate = jest.fn();
     const { getByText } = render(
       <Pagination
@@ -57,7 +57,7 @@ describe("Pagination", () => {
         pageSize={pageSize}
       />
     );
-    userEvent.click(getByText("4"));
+    await userEvent.click(getByText("4"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(4);
   });

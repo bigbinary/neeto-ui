@@ -59,8 +59,8 @@ describe("formik/EmailInput", () => {
       emailInput,
       "john.doe@email.com  sam.doe@email.com oliver.doe@email.com"
     );
-    userEvent.click(document.body);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         emails: [
@@ -89,8 +89,8 @@ describe("formik/EmailInput", () => {
     render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
     const emailInput = screen.getByRole("combobox");
     userEvent.paste(emailInput, "sam.doeemail.com");
-    userEvent.click(document.body);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(
         screen.getByText("All emails should be valid.")
@@ -101,7 +101,7 @@ describe("formik/EmailInput", () => {
   it("should display error when no email is provided", async () => {
     const onSubmit = jest.fn();
     render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(
         screen.getByText("Atleast one email is required.")

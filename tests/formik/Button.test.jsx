@@ -53,9 +53,9 @@ describe("formik/Button", () => {
 
   it("Should be enabled if formik value differs from initial value", async () => {
     const { input, button, onSubmit } = renderTestComponent();
-    userEvent.type(input, " Smith");
+    await userEvent.type(input, " Smith");
     await waitFor(() => expect(button).not.toBeDisabled());
-    userEvent.click(button);
+    await userEvent.click(button);
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({ name: "Oliver Smith" })
     );
@@ -63,20 +63,20 @@ describe("formik/Button", () => {
 
   it("Should be disabled if formik value is same as initial value", async () => {
     const { input, button, onSubmit } = renderTestComponent();
-    userEvent.type(input, "{selectall}{backspace}"); // clear everything
-    userEvent.type(input, "Oliver"); // retype initial value
+    await userEvent.type(input, "{selectall}{backspace}"); // clear everything
+    await userEvent.type(input, "Oliver"); // retype initial value
     // button disabled: no change in form values
     await waitFor(() => expect(button).toBeDisabled());
-    userEvent.click(button);
+    await userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 
   it("Should not be disabled if form contains errors but should not submit form", async () => {
     const { input, button, onSubmit } = renderTestComponent();
-    userEvent.type(input, "{selectall}{backspace}"); // clear everything
+    await userEvent.type(input, "{selectall}{backspace}"); // clear everything
     // error: name is required;
     await waitFor(() => expect(button).not.toBeDisabled());
-    userEvent.click(button);
+    await userEvent.click(button);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 
@@ -84,9 +84,9 @@ describe("formik/Button", () => {
     render(<TestButtonForm onSubmit={() => new Promise(() => {})} />); // will be submitting forever
     const input = screen.getByRole("textbox");
     const button = screen.getByRole("button");
-    userEvent.type(input, " Smith");
+    await userEvent.type(input, " Smith");
     await waitFor(() => expect(button).not.toBeDisabled());
-    userEvent.click(button);
+    await userEvent.click(button);
     await waitFor(() => expect(button).toBeDisabled());
   });
 });

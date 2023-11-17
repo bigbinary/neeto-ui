@@ -49,10 +49,10 @@ describe("formik/BlockNavigation", () => {
     expect(screen.queryByText(/test page/i)).not.toBeInTheDocument();
   });
 
-  it("should allow navigation when form is empty", () => {
+  it("should allow navigation when form is empty", async () => {
     render(<TestBlockNavigation />);
 
-    userEvent.click(screen.getByRole("link"));
+    await userEvent.click(screen.getByRole("link"));
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
   });
 
@@ -60,25 +60,25 @@ describe("formik/BlockNavigation", () => {
     render(<TestBlockNavigation />);
 
     const input = screen.getByRole("textbox");
-    await waitFor(() => {
-      userEvent.type(input, "test");
-      userEvent.click(screen.getByRole("link"));
+    await waitFor(async () => {
+      await userEvent.type(input, "test");
+      await userEvent.click(screen.getByRole("link"));
     });
 
     expect(screen.queryByText(/test page/i)).not.toBeInTheDocument();
   });
 
-  it("should not allow navigation if isDirty prop is true", () => {
+  it("should not allow navigation if isDirty prop is true", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    userEvent.click(screen.getByRole("link"));
+    await userEvent.click(screen.getByRole("link"));
     expect(screen.queryByText(/test page/i)).not.toBeInTheDocument();
   });
 
-  it("should display an Alert modal with Continue and Cancel buttons", () => {
+  it("should display an Alert modal with Continue and Cancel buttons", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    userEvent.click(screen.getByRole("link"));
+    await userEvent.click(screen.getByRole("link"));
     expect(screen.getByText(/You have unsaved changes/i)).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: "Discard changes" })
@@ -91,10 +91,10 @@ describe("formik/BlockNavigation", () => {
 
     const input = screen.getByRole("textbox");
 
-    userEvent.click(screen.getByRole("link"));
+    await userEvent.click(screen.getByRole("link"));
 
     const cancelButton = screen.getByRole("button", { name: "Cancel" });
-    userEvent.click(cancelButton);
+    await userEvent.click(cancelButton);
 
     await waitFor(() => expect(cancelButton).not.toBeInTheDocument());
     expect(input).toBeInTheDocument();
@@ -103,12 +103,12 @@ describe("formik/BlockNavigation", () => {
   it("should allow navigation if the Continue button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    userEvent.click(screen.getByRole("link"));
+    await userEvent.click(screen.getByRole("link"));
 
     const continueButton = screen.getByRole("button", {
       name: "Discard changes",
     });
-    userEvent.click(continueButton);
+    await userEvent.click(continueButton);
 
     await waitFor(() => expect(continueButton).not.toBeInTheDocument());
     expect(screen.getByText(/test page/i)).toBeInTheDocument();

@@ -9,7 +9,7 @@ const SAMPLE_EMAILS = [
   {
     label: "test@example.com",
     value: "test@example.com",
-    valid: true
+    valid: true,
   },
   {
     label: "test2@example.com",
@@ -50,7 +50,7 @@ describe("MultiEmailInput", () => {
   });
 
   it("should render asterisk when required is set to true", () => {
-    const { getByText } = render(<MultiEmailInput required/>);
+    const { getByText } = render(<MultiEmailInput required />);
     const asterisk = getByText("*");
     expect(asterisk).toBeInTheDocument();
   });
@@ -84,21 +84,21 @@ describe("MultiEmailInput", () => {
     expect(screen.getByText("5 emails")).toBeInTheDocument();
   });
 
-  it("should call onBlur when focus from the input field changes", () => {
+  it("should call onBlur when focus from the input field changes", async () => {
     const onBlur = jest.fn();
     render(<MultiEmailInput onBlur={onBlur} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.click(emailInput);
-    userEvent.click(document.body);
+    await userEvent.click(emailInput);
+    await userEvent.click(document.body);
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
-  it("should call onChange when input loses focus after entering email", () => {
+  it("should call onChange when input loses focus after entering email", async () => {
     const onChange = jest.fn();
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.paste(emailInput, "test@email.com test2@email.com");
-    userEvent.click(document.body);
+    await userEvent.paste(emailInput, "test@email.com test2@email.com");
+    await userEvent.click(document.body);
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "test@email.com", valid: true, value: "test@email.com" },
@@ -106,60 +106,60 @@ describe("MultiEmailInput", () => {
     ]);
   });
 
-  it("should call onInputChange when email input value changes", () => {
+  it("should call onInputChange when email input value changes", async () => {
     const onInputChange = jest.fn();
     render(<MultiEmailInput onInputChange={onInputChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.type(emailInput, "test");
+    await userEvent.type(emailInput, "test");
     expect(onInputChange).toHaveBeenCalledTimes(4);
   });
 
-  it("should call onChange when Enter key is pressed", () => {
+  it("should call onChange when Enter key is pressed", async () => {
     const onChange = jest.fn();
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.type(emailInput, "email@domain.com{enter}");
+    await userEvent.type(emailInput, "email@domain.com{enter}");
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
   });
 
-  it("should call onChange when Space key is pressed", () => {
+  it("should call onChange when Space key is pressed", async () => {
     const onChange = jest.fn();
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.type(emailInput, "email@domain.com{space}");
+    await userEvent.type(emailInput, "email@domain.com{space}");
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
   });
 
-  it("should call onChange when Tab key is pressed", () => {
+  it("should call onChange when Tab key is pressed", async () => {
     const onChange = jest.fn();
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.type(emailInput, "email@domain.com");
-    userEvent.tab();
+    await userEvent.type(emailInput, "email@domain.com");
+    await userEvent.tab();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
   });
 
-  it("should call onChange when comma key is pressed", () => {
+  it("should call onChange when comma key is pressed", async () => {
     const onChange = jest.fn();
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.type(emailInput, "email@domain.com,");
+    await userEvent.type(emailInput, "email@domain.com,");
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
   });
 
-  it("should remove all invalid emails on clicking filterInvalidEmails label", () => {
+  it("should remove all invalid emails on clicking filterInvalidEmails label", async () => {
     const onChange = jest.fn();
     render(
       <MultiEmailInput
@@ -174,7 +174,7 @@ describe("MultiEmailInput", () => {
         onChange={onChange}
       />
     );
-    userEvent.click(screen.getByText("Filter invalid emails"));
+    await userEvent.click(screen.getByText("Filter invalid emails"));
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "test@example.com", value: "test@example.com", valid: true },
@@ -200,12 +200,13 @@ describe("MultiEmailInput", () => {
     ).toBeInTheDocument();
   });
 
-  it("should accept a generic string containing an email and should pluck out that email", () => {
+  it("should accept a generic string containing an email and should pluck out that email", async () => {
     const onChange = jest.fn();
+    const user = userEvent.setup({ document });
     render(<MultiEmailInput onChange={onChange} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.paste(emailInput, "John Doe <john@example.com>");
-    userEvent.tab();
+    await userEvent.paste(emailInput, "John Doe <john@example.com>");
+    await user.tab();
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([
       { label: "john@example.com", valid: true, value: "john@example.com" },
@@ -213,30 +214,33 @@ describe("MultiEmailInput", () => {
   });
 
   it("Should display within the specified visible count", () => {
-    const VISIBLE_ELEMENT_COUNT = 3
-    
+    const VISIBLE_ELEMENT_COUNT = 3;
+
     render(
-      <MultiEmailInput counter value={SAMPLE_EMAILS} visibleEmailsCount={VISIBLE_ELEMENT_COUNT}/>
+      <MultiEmailInput
+        counter
+        value={SAMPLE_EMAILS}
+        visibleEmailsCount={VISIBLE_ELEMENT_COUNT}
+      />
     );
     // Check that the total visible email count matches the specified visibleEmailsCount
     const visibleEmailElements = screen.queryAllByText(/@example\.com/);
     expect(visibleEmailElements.length).toBe(VISIBLE_ELEMENT_COUNT);
-  
+
     // Check if the "more" counter is displayed if there are hidden emails
     if (SAMPLE_EMAILS.length > VISIBLE_ELEMENT_COUNT) {
       const hiddenEmailsCount = SAMPLE_EMAILS.length - VISIBLE_ELEMENT_COUNT;
       expect(screen.getByText(`${hiddenEmailsCount} more`)).toBeInTheDocument();
-    }})
+    }
+  });
 
-  it("Should display all emails when input is in focus", () => {
-    render(
-      <MultiEmailInput counter value={SAMPLE_EMAILS} />
-    );
+  it("Should display all emails when input is in focus", async () => {
+    render(<MultiEmailInput counter value={SAMPLE_EMAILS} />);
     const emailInput = screen.getByRole("combobox");
-    userEvent.click(emailInput);
+    await userEvent.click(emailInput);
 
     SAMPLE_EMAILS.forEach(email => {
       expect(screen.getByText(email.label)).toBeInTheDocument();
     });
-  })
+  });
 });

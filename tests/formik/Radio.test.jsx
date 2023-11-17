@@ -51,9 +51,9 @@ describe("formik/Radio", () => {
     const onSubmit = jest.fn();
     render(<TestRadioForm onSubmit={onSubmit} />);
     const radio = screen.getAllByRole("radio");
-    userEvent.click(radio[0]);
-    userEvent.click(radio[1]);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(radio[0]);
+    await userEvent.click(radio[1]);
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({ options: "option2" })
     );
@@ -62,7 +62,7 @@ describe("formik/Radio", () => {
   it("should display error when no option is selected", async () => {
     const onSubmit = jest.fn();
     render(<TestRadioForm onSubmit={onSubmit} />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText("Selecting an option is required.")
     ).toBeInTheDocument();

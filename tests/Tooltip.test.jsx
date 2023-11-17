@@ -6,27 +6,27 @@ import userEvent from "@testing-library/user-event";
 import { Tooltip, Typography } from "components";
 
 describe("Tooltip", () => {
-  it("should render on hover", () => {
+  it("should render on hover", async () => {
     render(
       <Tooltip content="Tooltip">
         <Typography>Text</Typography>
       </Tooltip>
     );
     const text = screen.getByText("Text");
-    userEvent.hover(text);
+    await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
     expect(tooltip).toBeInTheDocument();
   });
 
-  it("should render properly when string is passed as children", () => {
+  it("should render properly when string is passed as children", async () => {
     render(<Tooltip content="Tooltip">Text</Tooltip>);
     const text = screen.getByText("Text");
-    userEvent.hover(text);
+    await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
     expect(tooltip).toBeInTheDocument();
   });
 
-  it("should render properly when array of nodes is passed as children", () => {
+  it("should render properly when array of nodes is passed as children", async () => {
     render(
       <Tooltip content="Tooltip">
         <span>Hello</span>
@@ -35,7 +35,7 @@ describe("Tooltip", () => {
     );
     const text1 = screen.getByText("Hello");
     const text2 = screen.getByText("World");
-    userEvent.hover(text1);
+    await userEvent.hover(text1);
     expect(screen.getByText("Tooltip")).toBeInTheDocument();
     userEvent.hover(text2);
     expect(screen.getByText("Tooltip")).toBeInTheDocument();
@@ -48,9 +48,9 @@ describe("Tooltip", () => {
       </Tooltip>
     );
     const text = screen.getByText("Text");
-    userEvent.hover(text);
+    await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
-    userEvent.unhover(text);
+    await userEvent.unhover(text);
     await waitFor(() => expect(tooltip).not.toBeVisible());
   });
 
@@ -62,7 +62,7 @@ describe("Tooltip", () => {
     );
 
     const text = screen.getByText("Text");
-    userEvent.hover(text);
+    await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
     await waitFor(() => expect(tooltip).not.toBeVisible());
   });

@@ -54,10 +54,10 @@ describe("formik/Input", () => {
   it("should return entered values when used inside a formik form", async () => {
     const onSubmit = jest.fn();
     render(<TestForm onSubmit={onSubmit} />);
-    userEvent.type(screen.getByLabelText("First Name"), "John");
-    userEvent.type(screen.getByLabelText("Last Name"), "Doe");
-    userEvent.type(screen.getByLabelText("Email"), "john.doe@email.com");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(screen.getByLabelText("First Name"), "John");
+    await userEvent.type(screen.getByLabelText("Last Name"), "Doe");
+    await userEvent.type(screen.getByLabelText("Email"), "john.doe@email.com");
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         firstName: "John",
@@ -70,8 +70,8 @@ describe("formik/Input", () => {
   it("should display validation error when invalid input is provided", async () => {
     const onSubmit = jest.fn();
     render(<TestForm onSubmit={onSubmit} />);
-    userEvent.type(screen.getByLabelText("Email"), "john.doemail.com");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(screen.getByLabelText("Email"), "john.doemail.com");
+    await userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText("First name is required")
     ).toBeInTheDocument();
@@ -80,8 +80,8 @@ describe("formik/Input", () => {
   it("should display validation error when string having only rejected characters is provided", async () => {
     const onSubmit = jest.fn();
     render(<TestForm onSubmit={onSubmit} />);
-    userEvent.type(screen.getByLabelText("First Name"), "123");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(screen.getByLabelText("First Name"), "123");
+    await userEvent.click(screen.getByText("Submit"));
 
     expect(
       await screen.findByText("First name is required")

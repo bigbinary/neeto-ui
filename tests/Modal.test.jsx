@@ -61,51 +61,51 @@ describe("Modal", () => {
     expect(queryByTestId("close-button")).not.toBeInTheDocument();
   });
 
-  it("should trigger onClose on close button is clicked", () => {
+  it("should trigger onClose on close button is clicked", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Modal isOpen onClose={onClose}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should close the modal when Esc key is pressed", () => {
+  it("should close the modal when Esc key is pressed", async () => {
     const onClose = jest.fn();
     const { container } = render(
       <Modal isOpen onClose={onClose}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    userEvent.type(container, "{esc}");
+    await userEvent.type(container, "{esc}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should not close the modal when Esc key is pressed when closeOnEsc is false", () => {
+  it("should not close the modal when Esc key is pressed when closeOnEsc is false", async () => {
     const onClose = jest.fn();
     const { container } = render(
       <Modal isOpen closeOnEsc={false} onClose={onClose}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    userEvent.type(container, "{esc}");
+    await userEvent.type(container, "{esc}");
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("should close modal when clicking outside", () => {
+  it("should close modal when clicking outside", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Modal closeOnOutsideClick isOpen onClose={onClose}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("backdrop"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should not close modal when clicking outside when closeOnOutsideClick is false", () => {
+  it("should not close modal when clicking outside when closeOnOutsideClick is false", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Modal isOpen closeOnOutsideClick={false} onClose={onClose}>
@@ -115,7 +115,7 @@ describe("Modal", () => {
         </Modal.Body>
       </Modal>
     );
-    userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
 
