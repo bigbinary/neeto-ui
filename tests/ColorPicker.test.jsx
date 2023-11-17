@@ -22,7 +22,8 @@ describe("ColorPicker", () => {
     render(<ColorPicker onChange={onChange} />);
     expect(screen.getByTestId("neeto-color-picker")).toBeInTheDocument();
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
-    await userEvent.paste(await screen.findByRole("textbox"), "#000000");
+    await (await screen.findByRole("textbox")).focus();
+    await userEvent.paste("#000000");
     await expect(onChange).toHaveBeenCalledTimes(1);
   });
 
