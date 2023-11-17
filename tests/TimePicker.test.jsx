@@ -50,7 +50,7 @@ describe("TimePicker", () => {
   it("should trigger onChange function on typing in textbox", async () => {
     const onChange = jest.fn();
     render(<TimePicker open format="HH:mm" onChange={onChange} />);
-    await userEvent.paste(getByRole("textbox"), "11:01");
+    await userEvent.type(getByRole("textbox"), "11:01");
     await fireEvent.click(getByText("OK"));
     expect(onChange).toHaveBeenCalledWith(
       currentTime.hour(11).minute(1).second(0).millisecond(0),
@@ -60,7 +60,7 @@ describe("TimePicker", () => {
 
   it("should not break component even if onChange is not provided", async () => {
     render(<TimePicker open format="HH:mm" />);
-    await userEvent.paste(getByRole("textbox"), "11:01");
+    await userEvent.type(getByRole("textbox"), "11:01");
     fireEvent.click(getByText("OK"));
     expect(getByRole("textbox")).toHaveValue("11:01");
   });
