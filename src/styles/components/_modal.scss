@@ -163,3 +163,15 @@
     backdrop-filter: var(--neeto-ui-modal-backdrop-backdrop-filter);
   }
 }
+
+.neetix-alert, .neetix-modal {
+  --neeto-ui-modal-close-btn-top: 32px;
+  --neeto-ui-modal-close-btn-right: 32px;
+  --neeto-ui-modal-header-padding-top: 32px;
+  --neeto-ui-modal-header-padding-left: 32px;
+  --neeto-ui-modal-body-padding-bottom: 32px;
+  --neeto-ui-modal-body-padding-x: 32px;
+  --neeto-ui-modal-footer-padding-bottom: 32px;
+  --neeto-ui-modal-footer-padding-x: 32px;
+  --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
+}
