@@ -82,7 +82,7 @@ describe("Dropdown", () => {
       </Dropdown>
     );
     await userEvent.click(getByText("Dropdown"));
-    await userEvent.keyboard("{esc}");
+    await userEvent.keyboard("{Escape}");
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
