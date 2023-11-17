@@ -121,3 +121,10 @@ body {
     }
   }
 }
+
+.neetix-toastr {
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+}
