@@ -68,7 +68,7 @@ describe("Alert", () => {
 
   it("should close the alert when Esc key is pressed", async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    const { getAllByRole } = render(
       <Alert
         closeOnEsc
         isOpen
@@ -77,7 +77,8 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    await userEvent.type(container, "{esc}");
+    await userEvent.click(getAllByRole("button")[0]);
+    await userEvent.keyboard("{Escape}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
