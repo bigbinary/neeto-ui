@@ -75,12 +75,13 @@ describe("Pane", () => {
 
   it("should close the pane when Esc key is pressed", async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    const { getByRole } = render(
       <Pane isOpen onClose={onClose}>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    await userEvent.type(container, "{esc}");
+    await userEvent.click(getByRole("button"));
+    await userEvent.keyboard("{Escape}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
