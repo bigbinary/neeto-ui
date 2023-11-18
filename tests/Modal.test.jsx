@@ -74,12 +74,14 @@ describe("Modal", () => {
 
   it("should close the modal when Esc key is pressed", async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    const { getByRole } = render(
       <Modal isOpen onClose={onClose}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    await userEvent.type(container, "{esc}");
+
+    await userEvent.click(getByRole("button"));
+    await userEvent.keyboard("{Escape}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
