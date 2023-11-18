@@ -41,7 +41,7 @@ describe("Popover", () => {
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
     const popover = screen.getByText("Popover Title");
-    await userEvent.unhover(text);
+    await userEvent.click(document.body);
     await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 20 });
   });
 
