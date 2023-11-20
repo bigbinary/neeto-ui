@@ -1,40 +1,87 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  // Wrapper
+  --neeto-ui-stepper-wrapper-gap: 8px;
+
+  // Item
+  --neeto-ui-stepper-item-gap: 8px;
+  --neeto-ui-stepper-item-padding: 8px;
+
+  // Item Separator
+  --neeto-ui-stepper-item-separator-width: 48px;
+  --neeto-ui-stepper-item-separator-border-top: 2px dashed rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-stepper-item-separator-margin-left: 8px;
+
+  // Item - Done Separator
+  --neeto-ui-stepper-item-done-separator-border-top-style: solid;
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Stage
+  --neeto-ui-stepper-stage-width: 28px;
+  --neeto-ui-stepper-stage-height: 28px;
+  --neeto-ui-stepper-stage-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-stepper-stage-border-radius: var(--neeto-ui-rounded-full);
+
+  // Stage Done
+  --neeto-ui-stepper-item-done-stage-bg-color: rgb(var(--neeto-ui-success-800));
+
+  // Stage Active
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-stepper-item-active-stage-inner-width: 18px;
+  --neeto-ui-stepper-item-active-stage-inner-height: 18px;
+  --neeto-ui-stepper-item-active-stage-inner-border-width: 2px;
+  --neeto-ui-stepper-item-active-stage-inner-border-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-stepper-item-active-stage-inner-border-radius: var(--neeto-ui-rounded-full);
+
+  // Label
+  --neeto-ui-stepper-label-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-stepper-label-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-stepper-label-line-height: 16px;
+
+  // Label Hover
+  --neeto-ui-stepper-label-hover-color: rgb(var(--neeto-ui-black));
+
+  // Label Active
+  --neeto-ui-stepper-label-active-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-stepper-label-active-font-weight: var(--neeto-ui-font-semibold);
+}
+
 .neeto-ui-stepper {
   &__wrapper {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--neeto-ui-stepper-wrapper-gap);
   }
 
   &-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px;
+    gap: var(--neeto-ui-stepper-item-gap);
+    padding: var(--neeto-ui-stepper-item-padding);
 
     &__stage {
-      width: 28px;
-      height: 28px;
+      width: var(--neeto-ui-stepper-stage-width);
+      height: var(--neeto-ui-stepper-stage-height);
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgb(var(--neeto-ui-gray-200));
-      border-radius: var(--neeto-ui-rounded-full);
+      background-color: var(--neeto-ui-stepper-stage-bg-color);
+      border-radius: var(--neeto-ui-stepper-stage-border-radius);
       font-weight: var(--neeto-ui-font-semibold);
       background-repeat: no-repeat;
       background-position: center;
     }
 
     &__label {
-      color: rgb(var(--neeto-ui-gray-800));
-      font-size: var(--neeto-ui-text-sm);
-      line-height: 16px;
+      color: var(--neeto-ui-stepper-label-color);
+      font-size: var(--neeto-ui-stepper-label-font-size);
+      line-height: var(--neeto-ui-stepper-label-line-height);
       display: inline-flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
 
       &:hover {
-        color: rgb(var(--neeto-ui-black));
+        color: var(--neeto-ui-stepper-label-hover-color);
       }
 
       &::after {
@@ -44,7 +91,7 @@
         overflow: hidden;
         user-select: none;
         pointer-events: none;
-        font-weight: var(--neeto-ui-font-semibold);
+        font-weight: var(--neeto-ui-stepper-label-active-font-weight);
 
         @media speech {
           display: none;
@@ -60,16 +107,16 @@
     &:not(:last-child) {
       &::after {
         content: "";
-        width: 48px;
-        border-top: 2px dashed rgb(var(--neeto-ui-gray-400));
-        margin-left: 8px;
+        width: var(--neeto-ui-stepper-item-separator-width);
+        border-top: var(--neeto-ui-stepper-item-separator-border-top);
+        margin-left: var(--neeto-ui-stepper-item-separator-margin-left);
       }
     }
 
     &--done {
       .neeto-ui-stepper-item__stage {
         background-image: url("data:image/svg+xml,%3Csvg width='16' height='11.5' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.66671 1L4.00004 6.66667L1.33337 4' stroke='white' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-        background-color: rgb(var(--neeto-ui-success-800));
+        background-color: var(--neeto-ui-stepper-item-done-stage-bg-color);
         transition: var(--neeto-ui-transition);
 
         span {
@@ -79,8 +126,8 @@
 
       &:not(:last-child) {
         &::after {
-          border-top-style: solid;
-          border-color: rgb(var(--neeto-ui-primary-500));
+          border-top-style: var(--neeto-ui-stepper-item-done-separator-border-top-style);
+          border-color: var(--neeto-ui-stepper-item-done-separator-border-color);
         }
       }
     }
@@ -88,7 +135,7 @@
     &--active {
       .neeto-ui-stepper-item__stage {
         position: relative;
-        background-color: rgb(var(--neeto-ui-primary-500));
+        background-color: var(--neeto-ui-stepper-item-active-stage-bg-color);
         transition: var(--neeto-ui-transition);
 
         &:after {
@@ -98,10 +145,10 @@
           top: 0;
           bottom: 0;
           right: 0;
-          width: 18px;
-          height: 18px;
-          border: 2px solid rgb(var(--neeto-ui-white));
-          border-radius: var(--neeto-ui-rounded-full);
+          width: var(--neeto-ui-stepper-item-active-stage-inner-width);
+          height: var(--neeto-ui-stepper-item-active-stage-inner-height);
+          border: var(--neeto-ui-stepper-item-active-stage-inner-border-width) solid var(--neeto-ui-stepper-item-active-stage-inner-border-color);
+          border-radius: var(--neeto-ui-stepper-item-active-stage-inner-border-radius);
           margin: auto;
         }
 
@@ -111,8 +158,8 @@
       }
 
       .neeto-ui-stepper-item__label {
-        color: rgb(var(--neeto-ui-black));
-        font-weight: var(--neeto-ui-font-semibold);
+        color: var(--neeto-ui-stepper-label-active-color);
+        font-weight: var(--neeto-ui-stepper-label-active-font-weight);
       }
     }
   }
