@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.33 - 2023-11-20
+
+- Fixed: Grouped select `defaultValue` not being set issue
+
 ## 5.2.32 - 2023-11-15
 
 - Updated pagination URL param handling in the *Table*.
@@ -725,7 +729,6 @@ Changes documentations to sentence case from title casing.
 #### Color picker
 - Added border to input
 #### Alert & Modal
-
 - Reduced outer padding from `32px ` to `24px` to provide the compact view
 - Updated `border-radius` to `12px`
 
