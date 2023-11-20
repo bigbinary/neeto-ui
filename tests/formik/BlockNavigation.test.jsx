@@ -60,10 +60,8 @@ describe("formik/BlockNavigation", () => {
     render(<TestBlockNavigation />);
 
     const input = screen.getByRole("textbox");
-    await waitFor(async () => {
-      await userEvent.type(input, "test");
-      await userEvent.click(screen.getByRole("link"));
-    });
+    await userEvent.type(input, "test");
+    await userEvent.click(screen.getByRole("link"));
 
     expect(screen.queryByText(/test page/i)).not.toBeInTheDocument();
   });
