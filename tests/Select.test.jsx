@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Select } from "components";
+import { append, evolve } from "ramda";
 
 const options = [
   { label: "Option 1", value: "option-1" },
@@ -201,4 +202,33 @@ describe("Select", () => {
     );
     expect(screen.getByText("Add more")).toBeInTheDocument();
   });
+
+  it("should set the default value for grouped Select", () => {
+    render(
+      <Select
+        options={[
+          {
+            label: "Group 1",
+            options: options
+          },
+          {
+            label: "Group 2",
+            options: options.map(evolve({
+              label: val => `Group 2 - ${val}`,
+              value: val => `Group 2 - ${val}`
+            }))
+          }
+        ]}
+        defaultValue={[
+          {
+            label: 'Group 2 - Option 1',
+            value: 'Group 2 - options-1'
+          }
+        ]}
+      />
+    )
+
+    expect(screen.getByText('Group 2 - Option 1')).toBeInTheDocument()
+    expect(screen.queryByText('Group 2 - Option 2')).not.toBeInTheDocument()
+  })
 });
