@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Select } from "components";
-import { append, evolve } from "ramda";
+import { evolve } from "ramda";
 
 const options = [
   { label: "Option 1", value: "option-1" },
