@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { existsBy } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc } from "ramda";
+import { prop, assoc, flatten, pluck } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -238,12 +238,15 @@ const Select = ({
     if (!value || otherProps.isMulti) {
       return value;
     }
-    const currentOptions = options || defaultOptions;
+
+    let currentOptions = options || defaultOptions;
     if (Array.isArray(value)) value = value[0];
 
     const isGrouped = existsBy({ options: Array.isArray }, currentOptions);
 
-    if (isGrouped) return value;
+    if (isGrouped) {
+      currentOptions = flatten(pluck("options", currentOptions));
+    }
 
     return currentOptions?.filter(
       opt => getRealOptionValue(opt) === getRealOptionValue(value)

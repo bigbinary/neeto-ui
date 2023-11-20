@@ -222,7 +222,7 @@ describe("Select", () => {
         defaultValue={[
           {
             label: 'Group 2 - Option 1',
-            value: 'Group 2 - options-1'
+            value: 'Group 2 - option-1'
           }
         ]}
       />
