@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import classnames from "classnames";
+import { existsBy } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
 import { prop, assoc } from "ramda";
@@ -155,9 +156,8 @@ const MenuList = props => {
     }
 
     return () => {
-      if (loaderRef.current && isAsyncLoadOptionEnabled) {
-        observer?.unobserve(loaderRef.current);
-      }
+      if (!(loaderRef.current && isAsyncLoadOptionEnabled)) return;
+      observer?.unobserve(loaderRef.current);
     };
   }, [hasMore]);
 
@@ -241,6 +241,10 @@ const Select = ({
     const currentOptions = options || defaultOptions;
     if (Array.isArray(value)) value = value[0];
 
+    const isGrouped = existsBy({ options: Array.isArray }, currentOptions);
+
+    if (isGrouped) return value;
+
     return currentOptions?.filter(
       opt => getRealOptionValue(opt) === getRealOptionValue(value)
     );
@@ -254,10 +258,10 @@ const Select = ({
     >
       {label && (
         <Label
+          {...{ required }}
           data-cy={`${hyphenize(label)}-input-label`}
           data-testid="select-label"
           htmlFor={inputId}
-          required={required}
           {...labelProps}
         >
           {label}
@@ -269,8 +273,6 @@ const Select = ({
         closeMenuOnSelect={!otherProps.isMulti}
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
-        inputId={inputId}
-        label={label}
         ref={innerRef}
         value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
@@ -293,8 +295,7 @@ const Select = ({
           Control,
           ...componentOverrides,
         }}
-        {...portalProps}
-        {...otherProps}
+        {...{ inputId, label, ...portalProps, ...otherProps }}
       />
       {!!error && (
         <p
