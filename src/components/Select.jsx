@@ -326,7 +326,7 @@ Select.propTypes = {
   /**
    * To specify the default selected option.
    */
-  defaultValue: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   /**
    * To specify the placeholder text.
    */
