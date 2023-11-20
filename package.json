@@ -116,9 +116,9 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
-    "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-security": "^1.7.1",
     "eslint-plugin-sonarjs": "^0.21.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "2.0.0",
     "eslint-plugin-xss": "^0.1.12",
     "express": "^4.18.2",
@@ -201,5 +201,8 @@
   "bugs": {
     "url": "https://github.com/bigbinary/neeto-ui/issues"
   },
-  "homepage": "https://neeto-ui.neeto.com"
+  "homepage": "https://neeto-ui.neeto.com",
+  "dependencies": {
+    "@floating-ui/react": "^0.26.2"
+  }
 }
