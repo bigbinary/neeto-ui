@@ -164,3 +164,9 @@
     }
   }
 }
+
+.neetix-stepper {
+  --neeto-ui-stepper-stage-bg-color: rgb(var(--neeto-ui-success-100));
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-success-800));
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-success-800));
+}
