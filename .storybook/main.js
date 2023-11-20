@@ -7,13 +7,12 @@ const rootResolve = mergeDeepLeft(projectResolve, commonResolve);
 
 module.exports = {
   staticDirs: ["./public"],
-  core: {
-    builder: "webpack5",
-  },
+
   stories: [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
   ],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -24,6 +23,7 @@ module.exports = {
     "@storybook/addon-console",
     "storybook-dark-mode",
   ],
+
   webpackFinal: async config => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -33,4 +33,13 @@ module.exports = {
 
     return config;
   },
+
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {}
+  },
+
+  docs: {
+    autodocs: true
+  }
 };

@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import Label from "./Label";
@@ -64,16 +63,11 @@ const DatePicker = forwardRef(
 
     return (
       <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
+        {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
+          {...{ format, onOk, picker }}
           data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
           defaultValue={convertToDayjsObjects(defaultValue)}
-          format={format}
-          picker={picker}
           ref={datePickerRef}
           showTime={showTime && { format: timeFormat }}
           value={convertToDayjsObjects(value)}
@@ -90,7 +84,6 @@ const DatePicker = forwardRef(
             popupClassName,
           ])}
           onChange={handleOnChange}
-          onOk={onOk}
           {...otherProps}
           nextIcon={<IconOverride icon={Right} />}
           prevIcon={<IconOverride icon={Left} />}

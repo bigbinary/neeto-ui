@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
@@ -97,14 +96,8 @@ const TimePicker = forwardRef(
 
     return (
       <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
+        {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
-          disabled={disabled}
-          format={format}
           hourStep={interval.hourStep}
           minuteStep={interval.minuteStep}
           ref={timePickerRef}
@@ -122,10 +115,9 @@ const TimePicker = forwardRef(
             popupClassName,
           ])}
           onChange={handleOnChange}
-          {...otherProps}
+          {...{ disabled, format, ...otherProps, panelRender }}
           defaultValue={convertToDayjsObjects(defaultValue)}
           mode={undefined}
-          panelRender={panelRender}
           picker="time"
           suffixIcon={<Clock size={16} />}
           value={convertToDayjsObjects(value)}

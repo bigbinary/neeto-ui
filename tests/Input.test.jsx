@@ -21,7 +21,7 @@ describe("Input", () => {
   it("should call onChange when input value changes", async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <Input id="input" label="Input Label" onChange={onChange} />
+      <Input {...{ onChange }} id="input" label="Input Label" />
     );
     await userEvent.type(getByLabelText("Input Label"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
@@ -111,10 +111,19 @@ describe("Input", () => {
 
   it("should properly handle disableTrimOnBlur", async () => {
     const { getByLabelText } = render(
-      <Input label="label" disableTrimOnBlur />
+      <Input disableTrimOnBlur label="label" />
     );
     await userEvent.type(getByLabelText("label"), "   Test   ");
     await userEvent.tab();
     expect(getByLabelText("label")).toHaveValue("   Test   ");
+  });
+
+  it("should display value when onChange handler is passed but value prop is not passed", async () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input {...{ onChange }} label="label" />
+    );
+    await userEvent.type(getByLabelText("label"), "Test");
+    expect(getByLabelText("label")).toHaveValue("Test");
   });
 });

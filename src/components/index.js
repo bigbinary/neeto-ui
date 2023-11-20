@@ -21,6 +21,7 @@ import Radio from "./Radio";
 import Select from "./Select";
 import Slider from "./Slider";
 import Spinner from "./Spinner";
+import Stepper from "./Stepper";
 import Switch from "./Switch";
 import Tab from "./Tab";
 import Table from "./Table";
@@ -30,6 +31,7 @@ import TimePicker from "./TimePicker";
 import TimePickerInput from "./TimePickerInput";
 import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
+import Tree from "./Tree";
 import TreeSelect from "./TreeSelect";
 import Typography from "./Typography";
 
@@ -58,6 +60,7 @@ export {
   Radio,
   Select,
   Spinner,
+  Stepper,
   Switch,
   Tab,
   Table,
@@ -66,6 +69,7 @@ export {
   TimePicker,
   Toastr,
   Tooltip,
+  Tree,
   TreeSelect,
   Typography,
   Slider,

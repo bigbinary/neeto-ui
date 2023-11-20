@@ -332,11 +332,19 @@ export type SelectProps = {
   fetchMore?: () => void;
   totalOptionsCount?: number;
   isAsyncLoadOptionEnabled?: boolean;
+  isMulti?: boolean;
+  addButtonLabel?: string;
 };
 
 export type SpinnerProps = {
   theme?: "dark" | "light";
   className?: string;
+};
+
+export type StepperProps = {
+  steps: { id: string | number; label: string }[];
+  activeIndex: number;
+  setActiveIndex: (index: number) => void;
 };
 
 export type SwitchProps = {
@@ -765,6 +773,7 @@ export const Label: React.FC<LabelProps>;
 export const Pagination: React.FC<PaginationProps>;
 export const Select: React.ForwardRefExoticComponent<SelectProps>;
 export const Spinner: React.FC<SpinnerProps>;
+export const Stepper: React.FC<StepperProps>;
 export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
 export const Slider: React.ForwardRefExoticComponent<SliderProps>;
 export const Table: React.FC<TableProps>;

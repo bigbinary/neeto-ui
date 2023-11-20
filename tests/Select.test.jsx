@@ -83,7 +83,7 @@ describe("Select", () => {
     expect(getByText("Help text")).toBeInTheDocument();
   });
 
-  test("creatable Select should create new element", async () => {
+  it("should create new element when Select is creatable", async () => {
     const { getByRole, getByTestId } = render(<Select isCreateable />);
     const select = getByRole("combobox");
     const selectBox = getByTestId("select");
@@ -94,7 +94,7 @@ describe("Select", () => {
     expect(selectBox).toHaveTextContent("hello", { exact: false });
   });
 
-  test("should be searchable with isCreatable", async () => {
+  it("should be searchable with isCreatable", async () => {
     const { getByRole } = render(
       <Select isCreateable isSearchable label="Select" options={options} />
     );
@@ -105,7 +105,7 @@ describe("Select", () => {
     expect(screen.queryByText("Option 1")).not.toBeInTheDocument();
   });
 
-  test("should lazy load options when enabled", async () => {
+  it("should lazy load options when enabled", async () => {
     const handleFetchMore = jest.fn();
     const totalValues = 10;
 
@@ -127,7 +127,7 @@ describe("Select", () => {
     expect(loader).toBeInTheDocument();
   });
 
-  test("should not lazy load options when isAsyncLoadOptionEnabled is disabled", async () => {
+  it("should not lazy load options when isAsyncLoadOptionEnabled is disabled", async () => {
     const handleFetchMore = jest.fn();
     const totalValues = 10;
 
@@ -146,42 +146,59 @@ describe("Select", () => {
     const loader = screen.queryByTestId("loader");
     expect(loader).toBeNull();
   });
-});
 
-it("should show option list on clicking when remapped label and value is provided with optionRemapping", async () => {
-  const { getByRole, getByText } = render(
-    <Select
-      label="Select"
-      optionRemapping={{ label: "lab", value: "val" }}
-      options={remappedLabelAndValueOptions}
-    />
-  );
-  const select = getByRole("combobox");
-  await userEvent.click(select);
-  expect(getByText("Option 1")).toBeInTheDocument();
-  expect(getByText("Option 2")).toBeInTheDocument();
-});
+  it("should show option list on clicking when remapped label and value is provided with optionRemapping", async () => {
+    const { getByRole, getByText } = render(
+      <Select
+        label="Select"
+        optionRemapping={{ label: "lab", value: "val" }}
+        options={remappedLabelAndValueOptions}
+      />
+    );
+    const select = getByRole("combobox");
+    await userEvent.click(select);
+    expect(getByText("Option 1")).toBeInTheDocument();
+    expect(getByText("Option 2")).toBeInTheDocument();
+  });
 
-it("should show option list on clicking when remapped label is provided with optionRemapping", async () => {
-  const { getByRole, getByText } = render(
-    <Select
-      label="Select"
-      optionRemapping={{ label: "lab" }}
-      options={remappedLabelOptions}
-    />
-  );
-  const select = getByRole("combobox");
-  await userEvent.click(select);
-  expect(getByText("Option 1")).toBeInTheDocument();
-  expect(getByText("Option 2")).toBeInTheDocument();
-});
+  it("should show option list on clicking when remapped label is provided with optionRemapping", async () => {
+    const { getByRole, getByText } = render(
+      <Select
+        label="Select"
+        optionRemapping={{ label: "lab" }}
+        options={remappedLabelOptions}
+      />
+    );
+    const select = getByRole("combobox");
+    await userEvent.click(select);
+    expect(getByText("Option 1")).toBeInTheDocument();
+    expect(getByText("Option 2")).toBeInTheDocument();
+  });
 
-it("should not show option list on clicking when remapped label is provided without optionRemapping", async () => {
-  const { getByRole, queryByText } = render(
-    <Select label="Select" options={remappedLabelOptions} />
-  );
-  const select = getByRole("combobox");
-  await userEvent.click(select);
-  expect(queryByText("Option 1")).toBeNull();
-  expect(queryByText("Option 2")).toBeNull();
+  it("should not show option list on clicking when remapped label is provided without optionRemapping", async () => {
+    const { getByRole, queryByText } = render(
+      <Select label="Select" options={remappedLabelOptions} />
+    );
+    const select = getByRole("combobox");
+    await userEvent.click(select);
+    expect(queryByText("Option 1")).toBeNull();
+    expect(queryByText("Option 2")).toBeNull();
+  });
+
+  it("should show the add button when select is multi", () => {
+    render(<Select isMulti label="Select" options={remappedLabelOptions} />);
+    expect(screen.getByText("Add")).toBeInTheDocument();
+  });
+
+  it("should show the custom label for add button when select is multi", () => {
+    render(
+      <Select
+        isMulti
+        addButtonLabel="Add more"
+        label="Select"
+        options={remappedLabelOptions}
+      />
+    );
+    expect(screen.getByText("Add more")).toBeInTheDocument();
+  });
 });

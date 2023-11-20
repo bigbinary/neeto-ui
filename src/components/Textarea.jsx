@@ -1,10 +1,9 @@
 import React, { useState, useEffect, forwardRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-import { useSyncedRef } from "hooks";
+import { useSyncedRef, useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
@@ -60,9 +59,9 @@ const Textarea = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(label)}-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {label}
@@ -91,13 +90,15 @@ const Textarea = forwardRef(
           })}
         >
           <textarea
-            disabled={disabled}
             ref={textareaRef}
-            rows={rows}
-            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
-            {...otherProps}
-            value={value}
-            onChange={onChange}
+            {...{
+              disabled,
+              rows,
+              ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
+              ...otherProps,
+              onChange,
+              value,
+            }}
           />
         </div>
         {!!error && (

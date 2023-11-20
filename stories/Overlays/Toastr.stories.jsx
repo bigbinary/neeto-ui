@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Button from "components/Button";
 import Toastr from "components/Toastr";
 
-import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
+import ToastrStory from "!raw-loader!./Toastr.mdx";
 
 const metadata = {
   title: "Overlays/Toastr",

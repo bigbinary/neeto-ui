@@ -2,12 +2,13 @@ import React, { useCallback, useRef, useState, useEffect } from "react";
 
 import { Table as AntTable } from "antd";
 import classnames from "classnames";
+import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc } from "ramda";
 import ReactDragListView from "react-drag-listview";
 
-import { useTimeout } from "hooks";
+import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
@@ -19,7 +20,6 @@ import {
 import useReorderColumns from "./hooks/useReorderColumns";
 import useResizableColumns from "./hooks/useResizableColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getQueryParams, modifyBy, snakeToCamelCase } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -51,12 +51,13 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
-  preserveTableStateInQuery = false,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+
+  const isPageChangeHandlerDefault = handlePageChange === noop;
 
   const headerRef = useRef();
 
@@ -72,13 +73,12 @@ const Table = ({
 
   const tableRef = useCallback(
     table => {
-      if (fixedHeight) {
-        if (table !== null) {
-          resizeObserver.current.observe(table?.parentNode);
-        } else {
-          if (resizeObserver.current) resizeObserver.current.disconnect();
-        }
-      }
+      if (!fixedHeight) return;
+
+      const observer = resizeObserver.current;
+      if (table !== null) {
+        observer.observe(table?.parentNode);
+      } else if (observer) observer.disconnect();
     },
     [resizeObserver.current, fixedHeight]
   );
@@ -107,7 +107,7 @@ const Table = ({
 
   const { handleTableChange } = useTableSort();
 
-  const queryParams = getQueryParams();
+  const queryParams = useQueryParams();
 
   const setSortFromURL = columnData =>
     modifyBy(
@@ -116,7 +116,7 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = preserveTableStateInQuery
+  const sortedColumns = isPageChangeHandlerDefault
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
@@ -167,19 +167,23 @@ const Table = ({
 
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
-      return <Button className="" icon={Left} style="text" />;
+      return <Button className="" icon={Left} size="small" style="text" />;
     }
 
     if (type === "next") {
-      return <Button className="" icon={Right} style="text" />;
+      return <Button className="" icon={Right} size="small" style="text" />;
     }
 
     if (type === "jump-prev") {
-      return <Button className="" icon={MenuHorizontal} style="text" />;
+      return (
+        <Button className="" icon={MenuHorizontal} size="small" style="text" />
+      );
     }
 
     if (type === "jump-next") {
-      return <Button className="" icon={MenuHorizontal} style="text" />;
+      return (
+        <Button className="" icon={MenuHorizontal} size="small" style="text" />
+      );
     }
 
     return originalElement;
@@ -199,21 +203,15 @@ const Table = ({
       ? calculateRowsPerPage()
       : defaultPageSize;
 
-    const pageSizeOptions = [...Array(5).keys()].map(
-      i => (i + 1) * rowsPerPage
-    );
-
-    return pageSizeOptions;
+    return dynamicArray(5, index => (index + 1) * rowsPerPage);
   };
 
   const renderTable = () => (
     <AntTable
-      bordered={bordered}
+      {...{ bordered, loading, locale }}
       columns={sortedColumnsWithAlignment}
       components={componentOverrides}
       dataSource={rowData}
-      loading={loading}
-      locale={locale}
       ref={tableRef}
       rowKey="id"
       rowSelection={rowSelectionProps}
@@ -242,7 +240,7 @@ const Table = ({
         ...scroll,
       }}
       onChange={(pagination, _, sorter) => {
-        preserveTableStateInQuery && handleTableChange(pagination, sorter);
+        isPageChangeHandlerDefault && handleTableChange(pagination, sorter);
       }}
       onHeaderRow={() => ({
         ref: headerRef,
@@ -304,7 +302,7 @@ Table.propTypes = {
    */
   defaultPageSize: PropTypes.number,
   /**
-   * Handles page change events. Accepts a callback with `page` and `pageSize` as parameters.
+   * Handles page change events. Accepts a callback with `page` and `pageSize` as parameters. If not provided, component will handle page query parameters.
    *
    * `handlePageChange={(page, pageSize) => {}}`
    */
@@ -360,10 +358,6 @@ Table.propTypes = {
    * Make sure to pass `id` in `rowData` for this to work.
    */
   rowSelection: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  /**
-   * This prop decides whether the pagination and sorting parameters should be added to the URL query parameters.
-   */
-  preserveTableStateInQuery: PropTypes.bool,
 };
 
 export default Table;

@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
+import { useId } from "hooks";
 import { convertToDayjsObjects, hyphenize } from "utils";
 
 dayjs.extend(customParseFormat);
@@ -25,8 +26,7 @@ const TimePickerInput = ({
   error = "",
   ...otherProps
 }) => {
-  const _id = useId();
-  const id = otherProps.id || _id;
+  const id = useId(otherProps.id);
   const errorId = `error_${id}`;
 
   const handleChange = value => {
@@ -36,12 +36,12 @@ const TimePickerInput = ({
 
   return (
     <div className="neeto-ui-input__wrapper">
-      {label && (
-        <Label required={required} {...labelProps}>
-          {label}
-        </Label>
-      )}
+      {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
       <TimePicker
+        {...{ id, value }}
+        disableClock
+        clearIcon={null}
+        value={convertToDayjsObjects(value)?.toDate()}
         className={classnames("neeto-ui-time-picker", [className], {
           "neeto-ui-time-picker--small": size === "small",
           "neeto-ui-time-picker--medium": size === "medium",
@@ -50,10 +50,6 @@ const TimePickerInput = ({
           "neeto-ui-time-picker--naked": nakedInput,
           "neeto-ui-time-picker--error": !!error,
         })}
-        {...{ value, id }}
-        disableClock
-        clearIcon={null}
-        value={convertToDayjsObjects(value)?.toDate()}
         onChange={handleChange}
         {...otherProps}
       />

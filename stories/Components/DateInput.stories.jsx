@@ -49,14 +49,14 @@ DateInput.args = {
 };
 
 const RequiredDatePicker = args => <DatePicker {...args} />;
-DateInput.args = {
+RequiredDatePicker.args = {
   label: "Required Date",
   type: "date",
   picker: "date",
   showTime: false,
   required: true,
 };
-DateInput.storyName = "Required Date";
+RequiredDatePicker.storyName = "Required Date";
 
 const DatePickerWithRef = args => {
   const ref = React.useRef();
@@ -204,6 +204,7 @@ ShowTime.storyName = "Show time";
 
 export {
   DateInput,
+  RequiredDatePicker,
   DatePickerWithRef,
   DatePickerInModal,
   DatePickerInPane,
@@ -211,7 +212,6 @@ export {
   DateRangePicker,
   DateRangePickerWithPresetRanges,
   ShowTime,
-  RequiredDatePicker,
 };
 
 export default metadata;

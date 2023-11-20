@@ -1,10 +1,11 @@
-import React, { useId } from "react";
+import React from "react";
 
 import { Slider as AntdSlider, ConfigProvider } from "antd";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
 import Typography from "components/Typography";
+import { useId } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
 
 import { NEETO_UI_PRIMARY_500 } from "./constants";
@@ -22,8 +23,7 @@ const Slider = ({
   helpText,
   ...otherProps
 }) => {
-  const _id = useId();
-  const id = otherProps.id || _id;
+  const id = useId(otherProps.id);
   const errorId = `error_${id}`;
   const helpTextId = `helpText_${id}`;
 
@@ -53,9 +53,9 @@ const Slider = ({
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(label)}-slider-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {label}
@@ -63,13 +63,11 @@ const Slider = ({
           )}
         </div>
         <AntdSlider
-          {...{ max, min, value, defaultValue, onChange }}
           className="neeto-ui-w-full"
           handleStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}
           tooltip={{ formatter: null }}
           trackStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}
-          {...otherProps}
-          id={id}
+          {...{ defaultValue, max, min, onChange, value, ...otherProps, id }}
         />
         {!!error && (
           <Typography

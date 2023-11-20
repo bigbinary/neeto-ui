@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import { useId } from "@reach/auto-id";
 import classnames from "classnames";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
@@ -10,6 +9,7 @@ import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
+import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
@@ -18,6 +18,21 @@ import Spinner from "./Spinner";
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
 const STRATEGIES = { default: "default", fixed: "fixed" };
+
+const Control = ({ children, ...props }) => {
+  const { selectProps } = props;
+
+  return (
+    <components.Control {...props}>
+      {selectProps.isMulti && (
+        <span className="neeto-ui-btn neeto-ui-btn--style-primary neeto-ui-react-select__add-btn">
+          {selectProps.addButtonLabel || "Add"}
+        </span>
+      )}{" "}
+      {children}
+    </components.Control>
+  );
+};
 
 const DropdownIndicator = props => (
   <components.DropdownIndicator
@@ -140,9 +155,8 @@ const MenuList = props => {
     }
 
     return () => {
-      if (loaderRef.current && isAsyncLoadOptionEnabled) {
-        observer?.unobserve(loaderRef.current);
-      }
+      if (!(loaderRef.current && isAsyncLoadOptionEnabled)) return;
+      observer?.unobserve(loaderRef.current);
     };
   }, [hasMore]);
 
@@ -239,10 +253,10 @@ const Select = ({
     >
       {label && (
         <Label
+          {...{ required }}
           data-cy={`${hyphenize(label)}-input-label`}
           data-testid="select-label"
           htmlFor={inputId}
-          required={required}
           {...labelProps}
         >
           {label}
@@ -251,10 +265,9 @@ const Select = ({
       <Parent
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
+        closeMenuOnSelect={!otherProps.isMulti}
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
-        inputId={inputId}
-        label={label}
         ref={innerRef}
         value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
@@ -274,10 +287,10 @@ const Select = ({
           ValueContainer,
           MenuList,
           SingleValue,
+          Control,
           ...componentOverrides,
         }}
-        {...portalProps}
-        {...otherProps}
+        {...{ inputId, label, ...portalProps, ...otherProps }}
       />
       {!!error && (
         <p
@@ -393,6 +406,10 @@ Select.propTypes = {
    * To specify if async options loading is enabled
    */
   isAsyncLoadOptionEnabled: PropTypes.bool,
+  /**
+   * To specify the label for the button shown in multi select
+   */
+  addButtonLabel: PropTypes.string,
 };
 
 export default Select;
