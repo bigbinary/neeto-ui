@@ -173,7 +173,7 @@ const Creatable = args => {
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
-        label="Grouped Select"
+        label="Creatable Select"
         name="ValueList"
         options={options}
         placeholder="Select an option"
