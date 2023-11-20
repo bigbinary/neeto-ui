@@ -30,7 +30,7 @@ describe("Label", () => {
     expect(getByTestId("icon")).toBeInTheDocument();
   });
 
-  it("should show tooltip when provided in helpIconProps", () => {
+  it("should show tooltip when provided in helpIconProps", async () => {
     const { getByText, getByTestId } = render(
       <Label
         helpIconProps={{
@@ -41,11 +41,11 @@ describe("Label", () => {
         <p>Content</p>
       </Label>
     );
-    userEvent.hover(getByTestId("icon"));
+    await userEvent.hover(getByTestId("icon"));
     expect(getByText("Tooltip")).toBeInTheDocument();
   });
 
-  it("should trigger onClick when provided in helpIconProps", () => {
+  it("should trigger onClick when provided in helpIconProps", async () => {
     const onClick = jest.fn();
     const { getByTestId } = render(
       <Label
@@ -57,7 +57,7 @@ describe("Label", () => {
         <p>Content</p>
       </Label>
     );
-    userEvent.click(getByTestId("icon"));
+    await userEvent.click(getByTestId("icon"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

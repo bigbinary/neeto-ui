@@ -51,7 +51,7 @@ describe("Tab", () => {
     expect(screen.getByTestId("tab-icon")).toBeInTheDocument();
   });
 
-  it("should call onClick when clicked on Tab", () => {
+  it("should call onClick when clicked on Tab", async () => {
     const onClick = jest.fn();
     render(
       <Tab>
@@ -60,7 +60,7 @@ describe("Tab", () => {
         </Tab.Item>
       </Tab>
     );
-    userEvent.click(screen.getByText("Tab 1"));
+    await userEvent.click(screen.getByText("Tab 1"));
     expect(onClick).toHaveBeenCalled();
   });
 

@@ -11,12 +11,12 @@ describe("Checkbox", () => {
     expect(getByRole("checkbox")).toBeInTheDocument();
   });
 
-  it("should call onChange when checkbox value is changed", () => {
+  it("should call onChange when checkbox value is changed", async () => {
     const onChange = jest.fn();
     const { getByRole } = render(
       <Checkbox label="Checkbox" onChange={onChange} />
     );
-    userEvent.click(getByRole("checkbox"));
+    await userEvent.click(getByRole("checkbox"));
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
@@ -32,10 +32,10 @@ describe("Checkbox", () => {
     expect(getByRole("checkbox")).not.toBeChecked();
   });
 
-  it("should be checked on clicking the checkbox", () => {
+  it("should be checked on clicking the checkbox", async () => {
     const { getByRole } = render(<Checkbox label="Checkbox" />);
     const checkbox = getByRole("checkbox");
-    userEvent.click(checkbox);
+    await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
   });
 });

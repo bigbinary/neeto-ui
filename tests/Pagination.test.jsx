@@ -25,7 +25,7 @@ describe("Pagination", () => {
     expect(getByText(currentPage)).toBeInTheDocument();
   });
 
-  it("should invoke navigate callback when the left navigate button is clicked.", () => {
+  it("should invoke navigate callback when the left navigate button is clicked.", async () => {
     const navigate = jest.fn();
     const { getByTestId } = render(
       <NeetoUIPagination
@@ -33,12 +33,12 @@ describe("Pagination", () => {
         pageNo={currentPage}
       />
     );
-    userEvent.click(getByTestId("left-navigate-button"));
+    await userEvent.click(getByTestId("left-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(currentPage - 1);
   });
 
-  it("should invoke navigate callback when the right navigate button is clicked.", () => {
+  it("should invoke navigate callback when the right navigate button is clicked.", async () => {
     const navigate = jest.fn();
     const { getByTestId } = render(
       <NeetoUIPagination
@@ -46,12 +46,12 @@ describe("Pagination", () => {
         pageNo={currentPage}
       />
     );
-    userEvent.click(getByTestId("right-navigate-button"));
+    await userEvent.click(getByTestId("right-navigate-button"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(currentPage + 1);
   });
 
-  it("should invoke navigate callback when any page number is clicked.", () => {
+  it("should invoke navigate callback when any page number is clicked.", async () => {
     const navigate = jest.fn();
     const { getByText } = render(
       <NeetoUIPagination
@@ -59,7 +59,7 @@ describe("Pagination", () => {
         pageNo={currentPage}
       />
     );
-    userEvent.click(getByText("4"));
+    await userEvent.click(getByText("4"));
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith(4);
   });
@@ -103,30 +103,30 @@ describe("Pagination", () => {
     expect(dots).toBeNull();
   });
 
-  it("should set page query params when any page number is clicked, provided that navigate fn is not passed", () => {
+  it("should set page query params when any page number is clicked, provided that navigate fn is not passed", async () => {
     const { getByText } = render(
       <NeetoUIPagination {...{ count, pageSize }} pageNo={currentPage} />
     );
-    userEvent.click(getByText("4"));
+    await userEvent.click(getByText("4"));
     const queryParams = getQueryParams();
     expect(queryParams).toEqual({ page: "4" });
   });
 
-  it("should set previouse page param when the left navigate button is clicked, provided that navigate fn is not passed", () => {
+  it("should set previouse page param when the left navigate button is clicked, provided that navigate fn is not passed", async () => {
     const { getByTestId } = render(
       <NeetoUIPagination {...{ count, pageSize }} pageNo={currentPage} />
     );
-    userEvent.click(getByTestId("left-navigate-button"));
+    await userEvent.click(getByTestId("left-navigate-button"));
 
     const queryParams = getQueryParams();
     expect(queryParams).toEqual({ page: "2" });
   });
 
-  it("should set next page param when the right navigate button is clicked, provided that navigate fn is not passed", () => {
+  it("should set next page param when the right navigate button is clicked, provided that navigate fn is not passed", async () => {
     const { getByTestId } = render(
       <NeetoUIPagination {...{ count, pageSize }} pageNo={currentPage} />
     );
-    userEvent.click(getByTestId("right-navigate-button"));
+    await userEvent.click(getByTestId("right-navigate-button"));
 
     const queryParams = getQueryParams();
     expect(queryParams).toEqual({ page: "4" });

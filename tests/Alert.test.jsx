@@ -22,7 +22,7 @@ describe("Alert", () => {
     expect(queryByText("Alert message")).not.toBeInTheDocument();
   });
 
-  it("should call onClose when close button is clicked", () => {
+  it("should call onClose when close button is clicked", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
@@ -32,11 +32,11 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should call onSubmit when submit button is clicked", () => {
+  it("should call onSubmit when submit button is clicked", async () => {
     const onSubmit = jest.fn();
     const { getByText } = render(
       <Alert
@@ -47,11 +47,11 @@ describe("Alert", () => {
         onSubmit={onSubmit}
       />
     );
-    userEvent.click(getByText("Submit"));
+    await userEvent.click(getByText("Submit"));
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it("should call onClose when cancel button is clicked", () => {
+  it("should call onClose when cancel button is clicked", async () => {
     const onClose = jest.fn();
     const { getByText } = render(
       <Alert
@@ -62,13 +62,13 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.click(getByText("Cancel"));
+    await userEvent.click(getByText("Cancel"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should close the alert when Esc key is pressed", () => {
+  it("should close the alert when Esc key is pressed", async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    const { getAllByRole } = render(
       <Alert
         closeOnEsc
         isOpen
@@ -77,11 +77,12 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.type(container, "{esc}");
+    await userEvent.click(getAllByRole("button")[0]);
+    await userEvent.keyboard("{Escape}");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should not close the alert when Esc key is pressed when closeOnEsc is false", () => {
+  it("should not close the alert when Esc key is pressed when closeOnEsc is false", async () => {
     const onClose = jest.fn();
     const { container } = render(
       <Alert
@@ -92,11 +93,11 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.type(container, "{esc}");
+    await userEvent.type(container, "{esc}");
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("should close alert when clicking outside", () => {
+  it("should close alert when clicking outside", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
@@ -107,11 +108,11 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("backdrop"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should not close alert when clicking outside when closeOnOutsideClick is false", () => {
+  it("should not close alert when clicking outside when closeOnOutsideClick is false", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
@@ -122,23 +123,23 @@ describe("Alert", () => {
         onClose={onClose}
       />
     );
-    userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("should not call onSubmit while alert is closing", () => {
+  it("should not call onSubmit while alert is closing", async () => {
     const onSubmit = jest.fn();
 
     const { getByText, rerender } = render(
       <Alert isOpen submitButtonLabel="Submit" onSubmit={onSubmit} />
     );
-    userEvent.click(getByText("Submit"));
+    await userEvent.click(getByText("Submit"));
 
     rerender(
       <Alert isOpen={false} submitButtonLabel="Submit" onSubmit={onSubmit} />
     );
 
-    userEvent.click(getByText("Submit"));
+    await userEvent.click(getByText("Submit"));
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });

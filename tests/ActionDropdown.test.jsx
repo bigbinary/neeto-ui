@@ -16,7 +16,7 @@ describe("ActionDropdown", () => {
     expect(screen.getByText("ActionDropdown")).toBeInTheDocument();
   });
 
-  it("should call onClick on button click", () => {
+  it("should call onClick on button click", async () => {
     const onClick = jest.fn();
     render(
       <ActionDropdown label="ActionDropdown" onClick={onClick}>
@@ -25,11 +25,11 @@ describe("ActionDropdown", () => {
       </ActionDropdown>
     );
     const button = screen.getByTestId("action-dropdown-btn");
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should not call onClick on button click when disabled", () => {
+  it("should not call onClick on button click when disabled", async () => {
     const onClick = jest.fn();
     render(
       <ActionDropdown disabled label="ActionDropdown">
@@ -37,7 +37,7 @@ describe("ActionDropdown", () => {
         <li>Option 2</li>
       </ActionDropdown>
     );
-    userEvent.click(screen.getByText("ActionDropdown"));
+    await userEvent.click(screen.getByText("ActionDropdown"));
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
@@ -56,7 +56,7 @@ describe("ActionDropdown", () => {
       </ActionDropdown>
     );
     const dropdown = screen.getByTestId("action-dropdown-dropdown");
-    userEvent.click(dropdown);
+    await userEvent.click(dropdown);
     expect(await screen.findByText("Option 1")).toBeInTheDocument();
     expect(await screen.findByText("Option 2")).toBeInTheDocument();
   });

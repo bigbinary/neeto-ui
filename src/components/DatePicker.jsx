@@ -63,16 +63,11 @@ const DatePicker = forwardRef(
 
     return (
       <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
+        {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
+          {...{ format, onOk, picker }}
           data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
           defaultValue={convertToDayjsObjects(defaultValue)}
-          format={format}
-          picker={picker}
           ref={datePickerRef}
           showTime={showTime && { format: timeFormat }}
           value={convertToDayjsObjects(value)}
@@ -89,7 +84,6 @@ const DatePicker = forwardRef(
             popupClassName,
           ])}
           onChange={handleOnChange}
-          onOk={onOk}
           {...otherProps}
           nextIcon={<IconOverride icon={Right} />}
           prevIcon={<IconOverride icon={Left} />}

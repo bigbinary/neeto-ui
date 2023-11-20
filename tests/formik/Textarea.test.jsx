@@ -39,8 +39,8 @@ describe("formik/Textarea", () => {
   it("should submit with the correct values", async () => {
     const onSubmit = jest.fn();
     render(<TestTextarea onSubmit={onSubmit} />);
-    userEvent.type(screen.getByRole("textbox"), "Test input");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(screen.getByRole("textbox"), "Test input");
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         textarea: "Test input",
@@ -50,12 +50,12 @@ describe("formik/Textarea", () => {
 
   it("should display validation error when invalid input is provided", async () => {
     render(<TestTextarea onSubmit={() => {}} />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText("This field is required")
     ).toBeInTheDocument();
 
-    userEvent.type(screen.getByRole("textbox"), "Test");
+    await userEvent.type(screen.getByRole("textbox"), "Test");
     expect(
       await screen.findByText("Must be atleast 10 characters long")
     ).toBeInTheDocument();

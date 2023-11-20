@@ -96,14 +96,8 @@ const TimePicker = forwardRef(
 
     return (
       <div className="neeto-ui-input__wrapper">
-        {label && (
-          <Label required={required} {...labelProps}>
-            {label}
-          </Label>
-        )}
+        {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
-          disabled={disabled}
-          format={format}
           hourStep={interval.hourStep}
           minuteStep={interval.minuteStep}
           ref={timePickerRef}
@@ -121,10 +115,9 @@ const TimePicker = forwardRef(
             popupClassName,
           ])}
           onChange={handleOnChange}
-          {...otherProps}
+          {...{ disabled, format, ...otherProps, panelRender }}
           defaultValue={convertToDayjsObjects(defaultValue)}
           mode={undefined}
-          panelRender={panelRender}
           picker="time"
           suffixIcon={<Clock size={16} />}
           value={convertToDayjsObjects(value)}

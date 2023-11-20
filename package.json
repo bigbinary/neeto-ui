@@ -86,7 +86,7 @@
     "@svgr/rollup": "^6.2.1",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "13.5.0",
+    "@testing-library/user-event": "^14.5.1",
     "@tippyjs/react": "4.2.5",
     "antd": "5.9.2",
     "autoprefixer": "9.0.0",

@@ -52,8 +52,8 @@ describe("formik/Checkbox", () => {
     const onSubmit = jest.fn();
     const { getByRole } = render(<TestCheckboxForm onSubmit={onSubmit} />);
     const checkbox = getByRole("checkbox");
-    userEvent.click(checkbox);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(checkbox);
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({ formikCheckbox: true })
     );
@@ -62,7 +62,7 @@ describe("formik/Checkbox", () => {
   it("should display error when checkbox is not checked", async () => {
     const onSubmit = jest.fn();
     render(<TestCheckboxForm onSubmit={onSubmit} />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText("Checking the formik checkbox is checked.")
     ).toBeVisible();

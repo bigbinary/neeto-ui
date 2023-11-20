@@ -11,31 +11,31 @@ describe("Input", () => {
     expect(getByLabelText("Input Label")).toBeInTheDocument();
   });
 
-  it("should be able to type when uncontrolled", () => {
+  it("should be able to type when uncontrolled", async () => {
     const { getByLabelText } = render(<Input id="input" label="Input Label" />);
     const inputField = getByLabelText("Input Label");
-    userEvent.type(inputField, "sample content");
+    await userEvent.type(inputField, "sample content");
     expect(inputField).toHaveValue("sample content");
   });
 
-  it("should call onChange when input value changes", () => {
+  it("should call onChange when input value changes", async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Input {...{ onChange }} id="input" label="Input Label" />
     );
-    userEvent.type(getByLabelText("Input Label"), "Test");
+    await userEvent.type(getByLabelText("Input Label"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
-  it("should not show matched regex value", () => {
+  it("should not show matched regex value", async () => {
     const { getByLabelText } = render(
       <Input id="input" label="Input Label" rejectCharsRegex={/[0-9]+/} />
     );
     const inputField = getByLabelText("Input Label");
-    userEvent.type(inputField, "12345");
+    await userEvent.type(inputField, "12345");
     expect(inputField).not.toHaveValue("12345");
 
-    userEvent.type(inputField, "abc123");
+    await userEvent.type(inputField, "abc123");
     expect(inputField).toHaveValue("abc");
     expect(inputField).not.toHaveValue("123");
   });
@@ -73,57 +73,57 @@ describe("Input", () => {
     expect(asterisk).toBeInTheDocument();
   });
 
-  it("should properly handle maxLength", () => {
+  it("should properly handle maxLength", async () => {
     const { getByLabelText, getByText } = render(
       <Input id="input" label="Input label" maxLength={5} />
     );
-    userEvent.type(getByLabelText("Input label"), "Testing maxLength");
+    await userEvent.type(getByLabelText("Input label"), "Testing maxLength");
     expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Input label")).toHaveValue("Testi");
   });
 
-  it("should properly handle maxLength with unlimitedChars", () => {
+  it("should properly handle maxLength with unlimitedChars", async () => {
     const { getByLabelText, getByText } = render(
       <Input unlimitedChars id="input" label="Input label" maxLength={5} />
     );
-    userEvent.type(getByLabelText("Input label"), "Testing maxLength");
+    await userEvent.type(getByLabelText("Input label"), "Testing maxLength");
     expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Input label")).toHaveValue("Testing maxLength");
   });
 
-  it("should display character count when the input text length reaches 90% of maxlength", () => {
+  it("should display character count when the input text length reaches 90% of maxlength", async () => {
     const { getByLabelText, queryByText, getByText } = render(
       <Input id="input" label="Input label" maxLength={10} />
     );
     expect(queryByText(/0(.*)\/(.*)10/)).not.toBeInTheDocument();
-    userEvent.type(getByLabelText("Input label"), "Testing ");
+    await userEvent.type(getByLabelText("Input label"), "Testing ");
     expect(queryByText(/8(.*)\/(.*)10/)).not.toBeInTheDocument();
-    userEvent.type(getByLabelText("Input label"), "m");
+    await userEvent.type(getByLabelText("Input label"), "m");
     expect(getByText(/9(.*)\/(.*)10/)).toBeInTheDocument();
   });
 
-  it("should trim leading and trailing white spaces onBlur", () => {
+  it("should trim leading and trailing white spaces onBlur", async () => {
     const { getByLabelText } = render(<Input label="label" />);
-    userEvent.type(getByLabelText("label"), "   Test   ");
-    userEvent.tab(); // go out of focus
+    await userEvent.type(getByLabelText("label"), "   Test   ");
+    await userEvent.tab(); // go out of focus
     expect(getByLabelText("label")).toHaveValue("Test");
   });
 
-  it("should properly handle disableTrimOnBlur", () => {
+  it("should properly handle disableTrimOnBlur", async () => {
     const { getByLabelText } = render(
       <Input disableTrimOnBlur label="label" />
     );
-    userEvent.type(getByLabelText("label"), "   Test   ");
-    userEvent.tab();
+    await userEvent.type(getByLabelText("label"), "   Test   ");
+    await userEvent.tab();
     expect(getByLabelText("label")).toHaveValue("   Test   ");
   });
 
-  it("should display value when onChange handler is passed but value prop is not passed", () => {
+  it("should display value when onChange handler is passed but value prop is not passed", async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Input {...{ onChange }} label="label" />
     );
-    userEvent.type(getByLabelText("label"), "Test");
+    await userEvent.type(getByLabelText("label"), "Test");
     expect(getByLabelText("label")).toHaveValue("Test");
   });
 });

@@ -78,25 +78,25 @@ describe("Table", () => {
     expect(checkbox).not.toBeInTheDocument();
   });
 
-  it("should call onRowSelect on row selection", () => {
+  it("should call onRowSelect on row selection", async () => {
     const onRowSelect = jest.fn();
     render(
       <NeetoUITable {...{ columnData, onRowSelect, rowData }} rowSelection />
     );
     const checkbox = screen.getAllByRole("checkbox");
-    userEvent.click(checkbox[0]);
+    await userEvent.click(checkbox[0]);
     expect(onRowSelect).toHaveBeenCalledTimes(1);
   });
 
-  it("should call onRowClick on row click by default", () => {
+  it("should call onRowClick on row click by default", async () => {
     const onRowClick = jest.fn();
     render(<NeetoUITable {...{ columnData, onRowClick, rowData }} />);
     const row = screen.getByText("1");
-    userEvent.click(row);
+    await userEvent.click(row);
     expect(onRowClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should not call onRowClick on row click when allowRowClick is disabled", () => {
+  it("should not call onRowClick on row click when allowRowClick is disabled", async () => {
     const onRowClick = jest.fn();
     render(
       <NeetoUITable
@@ -105,7 +105,7 @@ describe("Table", () => {
       />
     );
     const row = screen.getByText("1");
-    userEvent.click(row);
+    await userEvent.click(row);
     expect(onRowClick).toHaveBeenCalledTimes(0);
   });
 
@@ -127,7 +127,7 @@ describe("Table", () => {
     expect(row.length).toBe(2);
   });
 
-  it("should call handlePageChange when page is changed ", () => {
+  it("should call handlePageChange when page is changed ", async () => {
     const handlePageChange = jest.fn();
     render(
       <NeetoUITable
@@ -137,11 +137,11 @@ describe("Table", () => {
       />
     );
     const pages = screen.getAllByRole("listitem");
-    userEvent.click(pages[2]);
+    await userEvent.click(pages[2]);
     expect(handlePageChange).toBeCalledTimes(1);
   });
 
-  it("should set pagination URL query parameters when page is changed", () => {
+  it("should set pagination URL query parameters when page is changed", async () => {
     render(
       <NeetoUITable
         {...{ columnData, rowData }}
@@ -150,13 +150,13 @@ describe("Table", () => {
       />
     );
     const pages = screen.getAllByRole("listitem");
-    userEvent.click(pages[2]);
+    await userEvent.click(pages[2]);
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({ page: "2" });
   });
 
-  it("should set sorting URL query parameters when column title is clicked", () => {
+  it("should set sorting URL query parameters when column title is clicked", async () => {
     render(
       <NeetoUITable
         {...{ columnData, rowData }}
@@ -165,7 +165,7 @@ describe("Table", () => {
       />
     );
     const column = screen.getByText("Last Name");
-    userEvent.click(column);
+    await userEvent.click(column);
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({

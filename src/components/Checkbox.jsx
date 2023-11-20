@@ -29,21 +29,19 @@ const Checkbox = forwardRef(
       <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
         <div className="neeto-ui-checkbox__container">
           <input
+            {...{ id, ref, required }}
             aria-invalid={!!error}
             className="neeto-ui-checkbox"
             data-cy={`${hyphenize(renderLabel)}-checkbox-input`}
-            id={id}
             name={id}
-            ref={ref}
-            required={required}
             type="checkbox"
             {...otherProps}
           />
           {renderLabel && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(renderLabel)}-checkbox-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {renderLabel}

@@ -19,9 +19,8 @@ const Item = ({
   return (
     <div className={classnames(["neeto-ui-radio__item", className])}>
       <input
+        {...{ id, name }}
         className="neeto-ui-radio"
-        id={id}
-        name={name}
         type="radio"
         {...otherProps}
       />

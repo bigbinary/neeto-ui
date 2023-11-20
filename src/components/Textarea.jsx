@@ -59,9 +59,9 @@ const Textarea = forwardRef(
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(label)}-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {label}
@@ -90,13 +90,15 @@ const Textarea = forwardRef(
           })}
         >
           <textarea
-            disabled={disabled}
             ref={textareaRef}
-            rows={rows}
-            {...(isMaxLengthPresent && !unlimitedChars && { maxLength })}
-            {...otherProps}
-            value={value}
-            onChange={onChange}
+            {...{
+              disabled,
+              rows,
+              ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
+              ...otherProps,
+              onChange,
+              value,
+            }}
           />
         </div>
         {!!error && (

@@ -41,22 +41,22 @@ describe("formik/TreeSelect", () => {
     expect(screen.getByText("Formik TreeSelect")).toBeInTheDocument();
   });
 
-  it("should show available options when clicked", () => {
+  it("should show available options when clicked", async () => {
     render(<TreeSelectComponent />);
 
     const select = screen.getByRole("combobox");
-    userEvent.click(select);
+    await userEvent.click(select);
     expect(screen.getByText("Category 1")).toBeInTheDocument();
     expect(screen.getByText("Category 2")).toBeInTheDocument();
     expect(screen.getByText("Category 3")).toBeInTheDocument();
   });
 
-  it("should should show no options if the input deosn't match any options", () => {
+  it("should should show no options if the input deosn't match any options", async () => {
     render(<TreeSelectComponent />);
 
     const select = screen.getByRole("combobox");
-    userEvent.click(select);
-    userEvent.type(select, "Invalid Option");
+    await userEvent.click(select);
+    await userEvent.type(select, "Invalid Option");
     expect(screen.getByText("No options")).toBeInTheDocument();
   });
 
@@ -65,9 +65,9 @@ describe("formik/TreeSelect", () => {
     render(<TreeSelectComponent onSubmit={onSubmit} />);
 
     const select = screen.getByRole("combobox");
-    userEvent.click(select);
-    userEvent.click(screen.getByText(treeData[0].label));
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(select);
+    await userEvent.click(screen.getByText(treeData[0].label));
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         formikTreeSelect: treeData[0].value,
@@ -77,7 +77,7 @@ describe("formik/TreeSelect", () => {
 
   it("should display validation error when invalid input is provided", async () => {
     render(<TreeSelectComponent />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(await screen.findByText("Value is required")).toBeInTheDocument();
   });
 });
