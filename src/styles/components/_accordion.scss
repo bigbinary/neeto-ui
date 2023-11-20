@@ -26,11 +26,13 @@
   --neeto-ui-accordion-drop-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-accordion-drop-margin-bottom: 0px;
 
+  // Item - Open
+  --neeto-ui-accordion-item-open-color: rgb(var(--neeto-ui-black));
 
-  // Hover
+  // Item - Hover
   --neeto-ui-accordion-item-hover-color: rgb(var(--neeto-ui-black));
 
-  // Focus Visible
+  // Item - Focus Visible
   --neeto-ui-accordion-item-focus-visible-color: rgb(var(--neeto-ui-black));
   --neeto-ui-accordion-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
   --neeto-ui-accordion-item-focus-visible-outline-offset: 1px;
@@ -113,7 +115,7 @@
     }
 
     &--open {
-      --neeto-ui-accordion-item-color: var(--neeto-ui-black);
+      color: var(--neeto-ui-accordion-item-open-color);
     }
   }
 
@@ -122,4 +124,12 @@
     margin-bottom: var(--neeto-ui-accordion-drop-margin-bottom);
     color: var(--neeto-ui-accordion-drop-color);
   }
+}
+
+.neetix-accordion {
+  --neeto-ui-accordion-item-padding-x: 0px;
+  --neeto-ui-accordion-drop-padding-x: 0px;
+  --neeto-ui-accordion-item-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-accordion-item-hover-color: rgb(var(--neeto-ui-primary-600));
+  --neeto-ui-accordion-item-open-color: rgb(var(--neeto-ui-primary-800));
 }

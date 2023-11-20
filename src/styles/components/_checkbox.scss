@@ -131,3 +131,9 @@
     display: none;
   }
 }
+
+.neetix-checkbox {
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-gray-800), 50%);
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-gray-800));
+}

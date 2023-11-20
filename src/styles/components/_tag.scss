@@ -152,3 +152,9 @@
     }
   }
 }
+
+.neeto-ui-tag--type-outline.neetix-tag--primary {
+  --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+}

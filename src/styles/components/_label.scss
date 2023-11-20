@@ -18,3 +18,8 @@
     margin-left: var(--neeto-ui-label-icon-margin-left);
   }
 }
+
+.neetix-label {
+  --neeto-ui-label-font-size: var(--neeto-ui-text-base);
+  --neeto-ui-label-font-weight: var(--neeto-ui-font-normal);
+}

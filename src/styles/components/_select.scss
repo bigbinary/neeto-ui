@@ -333,3 +333,10 @@
     margin: var(--neeto-ui-select-menu-margin-top) 0 var(--neeto-ui-select-menu-margin-top);
   }
 }
+
+.neetix-select {
+  --neeto-ui-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded-none);
+}

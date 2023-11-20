@@ -160,3 +160,7 @@
     backdrop-filter: var(--neeto-ui-pane-wrapper-backdrop-filter);
   }
 }
+
+.neetix-pane {
+  --neeto-ui-pane-wrapper-bg-color: rgb(var(--neeto-ui-gray-100));
+}

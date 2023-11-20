@@ -288,3 +288,15 @@
   color: var(--neeto-ui-input-error-text-color);
   line-height: var(--neeto-ui-input-error-text-line-height);
 }
+
+.neetix-input {
+  --neeto-ui-input-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-input-focus-within-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}
+
+.neetix-textarea {
+  --neeto-ui-input-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-input-focus-within-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}

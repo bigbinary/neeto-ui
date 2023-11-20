@@ -111,3 +111,8 @@
     }
   }
 }
+
+.neetix-avatar {
+  --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded-lg);
+  --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-lg);
+}

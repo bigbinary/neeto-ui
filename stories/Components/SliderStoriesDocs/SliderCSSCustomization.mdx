@@ -1,0 +1,20 @@
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the `Slider`
+component.
+
+```css
+--neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-primary-600));
+--neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-primary-500));
+```
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+```css
+.neetix-slider {
+  --neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-success-600));
+  --neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-success-500));
+}
+```
+
+#### Output

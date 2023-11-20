@@ -2,14 +2,15 @@ import React, { useState } from "react";
 
 import Textarea from "components/Textarea";
 
-import TextareaStoriesDocs from "!raw-loader!./TextareaStoriesDocs.mdx";
+import TextareaCSSCustomization from "!raw-loader!./TextareaStoriesDocs/TextareaCSSCustomization.mdx";
+import TextareaDocs from "!raw-loader!./TextareaStoriesDocs/TextareaDocs.mdx";
 
 const metadata = {
   title: "Components/Textarea",
   component: Textarea,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TextareaStoriesDocs } },
+    docs: { description: { component: TextareaDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A13",
@@ -105,6 +106,20 @@ const TextareaWithMaxLength = args => (
 );
 TextareaWithMaxLength.storyName = "Textarea with max length";
 
+const CSSCustomization = args => <Textarea {...args} />;
+
+CSSCustomization.storyName = "Textarea CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Textarea label",
+  placeholder: "Custom Textarea placeholder",
+  className: "neetix-textarea",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TextareaCSSCustomization } },
+};
+
 export {
   Default,
   Controlled,
@@ -114,6 +129,7 @@ export {
   HelpText,
   NakedInput,
   TextareaWithMaxLength,
+  CSSCustomization,
 };
 
 export default metadata;

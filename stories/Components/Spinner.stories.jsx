@@ -2,14 +2,15 @@ import React from "react";
 
 import Spinner from "components/Spinner";
 
-import SpinnerStoriesDocs from "!raw-loader!./SpinnerStoriesDocs.mdx";
+import SpinnerCSSCustomization from "!raw-loader!./SpinnerStoriesDocs/SpinnerCSSCustomization.mdx";
+import SpinnerDocs from "!raw-loader!./SpinnerStoriesDocs/SpinnerDocs.mdx";
 
 const metadata = {
   title: "Components/Spinner",
   component: Spinner,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SpinnerStoriesDocs } },
+    docs: { description: { component: SpinnerDocs } },
   },
 };
 
@@ -40,6 +41,20 @@ const SizeCutomization = args => (
 );
 SizeCutomization.storyName = "Size Cutomization";
 
-export { Default, LightTheme, SizeCutomization };
+const CSSCustomization = args => (
+  <div className="flex h-20 w-20 items-center justify-center">
+    <Spinner {...args} />
+  </div>
+);
+
+CSSCustomization.storyName = "Spinner CSS Customization";
+
+CSSCustomization.args = { className: "neetix-spinner" };
+
+CSSCustomization.parameters = {
+  docs: { description: { story: SpinnerCSSCustomization } },
+};
+
+export { Default, LightTheme, SizeCutomization, CSSCustomization };
 
 export default metadata;

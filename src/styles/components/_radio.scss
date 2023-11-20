@@ -124,3 +124,9 @@
     }
   }
 }
+
+.neetix-radio {
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-gray-800), 50%);
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-gray-800));
+}

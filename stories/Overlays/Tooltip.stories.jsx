@@ -2,7 +2,8 @@ import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "components";
 
-import TooltipDocs from "!raw-loader!./TooltipDocs.mdx";
+import TooltipCSSCustomization from "!raw-loader!./TooltipStoriesDocs/TooltipCSSCustomization.mdx";
+import TooltipDocs from "!raw-loader!./TooltipStoriesDocs/TooltipDocs.mdx";
 
 const metadata = {
   title: "Overlays/Tooltip",
@@ -230,6 +231,25 @@ const HidingTooltipOnTargetExit = args => (
 );
 HidingTooltipOnTargetExit.storyName = "Hiding Tooltip on target exit";
 
+const CSSCustomization = args => (
+  <div>
+    <Tooltip
+      className="neetix-tooltip"
+      content="Content is string"
+      position="top"
+      {...args}
+    >
+      <Button label="Custom Tooltip" style="secondary" />
+    </Tooltip>
+  </div>
+);
+
+CSSCustomization.storyName = "Tooltip CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TooltipCSSCustomization } },
+};
+
 export {
   FollowCursor,
   JSXContentInside,
@@ -239,6 +259,7 @@ export {
   TooltipOnCustomComponent,
   AutoHidingTooltip,
   HidingTooltipOnTargetExit,
+  CSSCustomization,
 };
 
 export default metadata;

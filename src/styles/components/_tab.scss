@@ -24,6 +24,8 @@
   --neeto-ui-tab-focus-outline: none;
 
   // Active
+  --neeto-ui-tab-active-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tab-active-border-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-tab-active-text-decoration: none;
   --neeto-ui-tab-active-outline: none;
 
@@ -106,7 +108,14 @@
   }
 
   &.active {
-    --neeto-ui-tab-color: rgb(var(--neeto-ui-gray-800));
-    --neeto-ui-tab-border-color: rgb(var(--neeto-ui-gray-800));
+    color: var(--neeto-ui-tab-active-color);
+    &:before {
+      background-color: var(--neeto-ui-tab-active-border-color);
+    }
   }
+}
+
+.neetix-tab {
+  --neeto-ui-tab-active-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tab-active-border-color: rgb(var(--neeto-ui-primary-500));
 }

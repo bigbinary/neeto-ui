@@ -5,14 +5,15 @@ import { ToastContainer } from "react-toastify";
 import Button from "components/Button";
 import Toastr from "components/Toastr";
 
-import ToastrStory from "!raw-loader!./Toastr.stories.mdx";
+import ToastrCSSCustomization from "!raw-loader!./ToastrStoriesDocs/ToastrCSSCustomization.mdx";
+import ToastrDocs from "!raw-loader!./ToastrStoriesDocs/ToastrDocs.mdx";
 
 const metadata = {
   title: "Overlays/Toastr",
   component: Toastr,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ToastrStory } },
+    docs: { description: { component: ToastrDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
@@ -150,6 +151,66 @@ const CustomConfigToastr = ({}) => (
 
 CustomConfigToastr.storyName = "Custom config toastr";
 
-export { Toastrs, ErrorToastr, CustomConfigToastr };
+const CSSCustomization = args => {
+  const showAlert = useCallback(() => alert("Customer blocked successfully!"));
+
+  return (
+    <>
+      <div className="neetix-toastr">
+        <ToastContainer />
+      </div>
+      <div className="space-y-6">
+        <div className="flex flex-row flex-wrap items-center justify-start gap-2">
+          <Button
+            label="Custom Info Toastr"
+            onClick={() => Toastr.info("This is an info Toastr.")}
+          />
+          <Button
+            label="Custom Warning Toastr"
+            onClick={() => Toastr.warning("This is a warning Toastr.")}
+          />
+          <Button
+            label="Custom Success Toastr"
+            onClick={() => Toastr.success("Form has been successfully saved.")}
+          />
+          <Button
+            label="Custom Toastr with CTA"
+            onClick={() =>
+              Toastr.error(
+                Error("Ticket marked as spam."),
+                "Block customer",
+                showAlert
+              )
+            }
+          />
+          <Button
+            label="Custom Error Toastr"
+            onClick={() =>
+              Toastr.error(
+                Error(
+                  "Some error occured! Please visit https://github.com/bigbinary/neeto-ui."
+                )
+              )
+            }
+          />
+          <Button
+            label="Custom 👍"
+            onClick={() =>
+              Toastr.success("", { icon: "👍", className: "w-20" })
+            }
+          />
+        </div>
+      </div>
+    </>
+  );
+};
+
+CSSCustomization.storyName = "Toastr CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: ToastrCSSCustomization } },
+};
+
+export { Toastrs, ErrorToastr, CustomConfigToastr, CSSCustomization };
 
 export default metadata;

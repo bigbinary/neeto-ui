@@ -22,7 +22,6 @@
   // Light theme arrow
   --neeto-ui-tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-light-theme-arrow-border-color: rgb(var(--neeto-ui-white));
-
 }
 
 .tippy-box[data-animation="fade"][data-state="hidden"] {
@@ -219,4 +218,10 @@
 
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow {
   fill: var(--neeto-ui-tooltip-light-theme-arrow-color);
+}
+
+.neetix-tooltip {
+  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-primary-800));
 }

@@ -8,14 +8,15 @@ import TimePicker from "components/TimePicker";
 
 import { disabledDateTime } from "./constants";
 
-import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
+import TimePickerCSSCustomization from "!raw-loader!./TimePickerStoriesDocs/TimePickerCSSCustomization.mdx";
+import TimePickerDocs from "!raw-loader!./TimePickerStoriesDocs/TimePickerDocs.mdx";
 
 const metadata = {
   title: "Components/TimePicker",
   component: TimePicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TimePickerStoriesDocs } },
+    docs: { description: { component: TimePickerDocs } },
   },
   argTypes: {
     onChange: {
@@ -130,6 +131,19 @@ RequiredTimePicker.args = {
   label: "Required Picker",
 };
 
+const CSSCustomization = args => <TimePicker {...args} />;
+
+CSSCustomization.storyName = "TimePicker CSS Customization";
+
+CSSCustomization.args = {
+  type: "time",
+  className: "neetix-timepicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TimePickerCSSCustomization } },
+};
+
 export {
   TimeInput,
   TimePickerInModal,
@@ -137,6 +151,7 @@ export {
   TimePickerWithRef,
   TimePickerWithDefaultValue,
   RequiredTimePicker,
+  CSSCustomization,
 };
 
 export default metadata;

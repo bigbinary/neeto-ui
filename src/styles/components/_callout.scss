@@ -39,27 +39,33 @@
     }
   }
 
-  &.neeto-ui-callout--info {
+  &--info {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-info-100));
     --neeto-ui-callout-border-color: rgb(var(--neeto-ui-info-500));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-info-500));
   }
 
-  &.neeto-ui-callout--warning {
+  &--warning {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-warning-100));
     --neeto-ui-callout-border-color: rgb(var(--neeto-ui-warning-500));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-warning-500));
   }
 
-  &.neeto-ui-callout--danger {
+  &--danger {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-error-100));
     --neeto-ui-callout-border-color: rgb(var(--neeto-ui-error-500));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-error-500));
   }
 
-  &.neeto-ui-callout--success {
+  &--success {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
     --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-500));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
   }
+}
+
+.neetix-callout--success {
+  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-primary-100));
+  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-500));
 }

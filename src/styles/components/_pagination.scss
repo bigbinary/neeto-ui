@@ -22,6 +22,11 @@
   --neeto-ui-pagination-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
   --neeto-ui-pagination-item-focus-visible-outline-offset: 1px;
   --neeto-ui-pagination-item-focus-visible-box-shadow: none;
+
+  // Active
+  --neeto-ui-pagination-item-active-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-pagination-item-active-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-pagination-item-active-color: rgb(var(--neeto-ui-white));
 }
 
 .neeto-ui-pagination__wrapper {
@@ -79,9 +84,9 @@
     }
 
     &.active {
-      --neeto-ui-pagination-item-border-color: rgb(var(--neeto-ui-primary-500));
-      --neeto-ui-pagination-item-bg-color: rgb(var(--neeto-ui-primary-500));
-      --neeto-ui-pagination-item-color: rgb(var(--neeto-ui-white));
+      border-color: var(--neeto-ui-pagination-item-active-border-color);
+      background-color: var(--neeto-ui-pagination-item-active-bg-color);
+      color: var(--neeto-ui-pagination-item-active-color);
     }
 
     &.disabled {
@@ -96,4 +101,11 @@
       --neeto-ui-pagination-item-bg-color: transparent;
     }
   }
+}
+
+.neetix-pagination {
+  --neeto-ui-pagination-item-width: 32px;
+  --neeto-ui-pagination-item-height: 32px;
+  --neeto-ui-pagination-item-active-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-pagination-item-active-bg-color: rgb(var(--neeto-ui-gray-800));
 }
