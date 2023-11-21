@@ -63,3 +63,9 @@
     opacity: var(--neeto-ui-tree-drag-icon-opacity) !important;
   }
 }
+
+.neetix-tree {
+  --neeto-ui-tree-checkbox-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-tree-checkbox-checked-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-tree-checkbox-checked-bg-color: rgb(var(--neeto-ui-success-500));
+}

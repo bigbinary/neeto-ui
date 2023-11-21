@@ -13,14 +13,15 @@ import {
 } from "./constants";
 import { handleOnDrop } from "./utils";
 
-import TreeStoriesDocs from "!raw-loader!./TreeStoriesDocs.mdx";
+import TreeCSSCustomization from "!raw-loader!./TreeStoriesDocs/TreeCSSCustomization.mdx";
+import TreeDocs from "!raw-loader!./TreeStoriesDocs/TreeDocs.mdx";
 
 const metadata = {
   title: "Components/Tree",
   component: Tree,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TreeStoriesDocs } },
+    docs: { description: { component: TreeDocs } },
   },
 };
 
@@ -140,5 +141,19 @@ SearchableTree.parameters = {
   docs: { source: { code: SEARCHABLE_TREE_CODE } },
 };
 
-export { Default, DraggableTree, SearchableTree };
+const CSSCustomization = args => <Tree {...args} />;
+
+CSSCustomization.storyName = "Tree CSS Customization";
+CSSCustomization.args = {
+  height: 200,
+  treeData: TREE_DATA,
+  checkable: true,
+  className: "neetix-tree",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TreeCSSCustomization } },
+};
+
+export { Default, DraggableTree, SearchableTree, CSSCustomization };
 export default metadata;

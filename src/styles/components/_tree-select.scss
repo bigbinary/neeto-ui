@@ -148,3 +148,9 @@
     padding-right: var(--neeto-ui-tree-select-dropdown-tree-list-holder-padding-right) !important;
   }
 }
+
+.neetix-tree-select {
+  --neeto-ui-tree-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-tree-select-focus-within-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-tree-select-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}
