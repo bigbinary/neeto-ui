@@ -10,11 +10,7 @@ const metadata = {
   component: NoData,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: NoDataStoriesDocs,
-      },
-    },
+    docs: { description: { component: NoDataStoriesDocs } },
   },
 };
 
@@ -22,10 +18,8 @@ const Template = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
@@ -37,10 +31,8 @@ const WithDescription = args => (
     <NoData
       {...args}
       description="You can try adding a new ticket."
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
@@ -53,13 +45,9 @@ const WithSecondaryButton = args => (
       {...args}
       buttonSeparatorText="or"
       description="You can try adding a new suite or importing test cases."
+      primaryButtonProps={{ label: "Add new suite" }}
+      secondaryButtonProps={{ label: "Import Test Cases" }}
       title="There are no suites to show"
-      primaryButtonProps={{
-        label: "Add new suite",
-      }}
-      secondaryButtonProps={{
-        label: "Import Test Cases",
-      }}
     />
   </div>
 );
@@ -67,19 +55,78 @@ const WithSecondaryButton = args => (
 WithSecondaryButton.storyName = "No Data with secondary button";
 
 const WithHelpText = args => (
-  <div className="flex w-full items-center justify-center">
+  <div className="flex flex-col gap-20">
     <NoData
+      className="col-span-1"
       {...args}
-      title="There are no tickets to show"
+      primaryButtonProps={{ label: "Add new form" }}
+      title="There are no forms to show"
       helpText={
         <>
-          For more information, please visit our{" "}
-          <Button label="Knowledge Base" style="link" />.
+          Learn about{" "}
+          <Button
+            href="https://example.com/"
+            label="how to build forms"
+            style="link"
+            target="_blank"
+          />
+          .
         </>
       }
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
+    />
+    <NoData
+      className="col-span-1"
+      {...args}
+      primaryButtonProps={{ label: "Add new discount code" }}
+      title="There are no discount codes to show"
+      helpText={
+        <>
+          Learn about{" "}
+          <Button
+            href="https://example.com/"
+            label="how to use discount codes"
+            style="link"
+            target="_blank"
+          />
+          .
+        </>
+      }
+    />
+    <NoData
+      className="col-span-1"
+      {...args}
+      primaryButtonProps={{ label: "Add new invoices" }}
+      title="There are no invoices to show"
+      helpText={
+        <>
+          Learn about{" "}
+          <Button
+            href="https://example.com/"
+            label="how to build invoices"
+            style="link"
+            target="_blank"
+          />
+          .
+        </>
+      }
+    />
+    <NoData
+      className="col-span-1"
+      {...args}
+      primaryButtonProps={{ label: "Add new custom domain" }}
+      title="There are no custom domains to show"
+      helpText={
+        <>
+          Learn about{" "}
+          <Button
+            href="https://example.com/"
+            label="how to setup custom domain"
+            style="link"
+            target="_blank"
+          />
+          .
+        </>
+      }
     />
   </div>
 );
@@ -90,6 +137,7 @@ const WithCustomImageAsSVG = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
+      primaryButtonProps={{ label: "Back to home" }}
       title="The page you're looking for can't be found"
       image={
         <svg
@@ -117,9 +165,6 @@ const WithCustomImageAsSVG = args => (
           />
         </svg>
       }
-      primaryButtonProps={{
-        label: "Back to home",
-      }}
     />
   </div>
 );
@@ -131,10 +176,8 @@ const WithCustomImageFromURL = args => (
     <NoData
       {...args}
       image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
+      primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      primaryButtonProps={{
-        label: "Add new ticket",
-      }}
     />
   </div>
 );
