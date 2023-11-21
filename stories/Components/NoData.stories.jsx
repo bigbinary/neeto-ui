@@ -36,7 +36,7 @@ const WithDescription = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
       {...args}
-      description="You can try adding a new ticket"
+      description="You can try adding a new ticket."
       title="There are no tickets to show"
       primaryButtonProps={{
         label: "Add new ticket",
@@ -52,7 +52,7 @@ const WithSecondaryButton = args => (
     <NoData
       {...args}
       buttonSeparatorText="or"
-      description="You can try adding a new suite or importing test cases"
+      description="You can try adding a new suite or importing test cases."
       title="There are no suites to show"
       primaryButtonProps={{
         label: "Add new suite",
@@ -74,7 +74,7 @@ const WithHelpText = args => (
       helpText={
         <>
           For more information, please visit our{" "}
-          <Button label="Knowledge Base" style="link" />
+          <Button label="Knowledge Base" style="link" />.
         </>
       }
       primaryButtonProps={{
