@@ -2,14 +2,15 @@ import React from "react";
 
 import TimePickerInput from "components/TimePickerInput";
 
-import TimePickerInputStoriesDocs from "!raw-loader!./TimePickerInputStoriesDocs.mdx";
+import TimePickerInputCSSCustomization from "!raw-loader!./TimePickerInputStoriesDocs/TimePickerInputCSSCustomization.mdx";
+import TimePickerInputDocs from "!raw-loader!./TimePickerInputStoriesDocs/TimePickerInputDocs.mdx";
 
 const metadata = {
   title: "Components/TimePickerInput",
   component: TimePickerInput,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TimePickerInputStoriesDocs } },
+    docs: { description: { component: TimePickerInputDocs } },
   },
 };
 
@@ -41,5 +42,19 @@ const Sizes = args => (
   </div>
 );
 
-export { Default, Sizes };
+const CSSCustomization = args => (
+  <TimePickerInput
+    label="TimePicker Input"
+    className="neetix-time-input"
+    {...args}
+  />
+);
+
+CSSCustomization.storyName = "TimePickerInput CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TimePickerInputCSSCustomization } },
+};
+
+export { Default, Sizes, CSSCustomization };
 export default metadata;

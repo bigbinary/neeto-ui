@@ -98,3 +98,11 @@
     margin: 0;
   }
 }
+
+.neetix-time-input {
+  --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-time-input-focus-within-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}
