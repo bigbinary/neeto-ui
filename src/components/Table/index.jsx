@@ -12,10 +12,13 @@ import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
-import useReorderColumns from "./hooks/useReorderColumns";
-import useResizableColumns from "./hooks/useResizableColumns";
+import {
+  HeaderCell,
+  ReorderableHeaderCell,
+  ResizableHeaderCell,
+} from "./HeaderCell";
+import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -86,19 +89,13 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
-  const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
-    isEnabled: enableColumnReorder,
+  const { dragProps, columns: curatedColumnsData } = useColumns({
+    isReorderEnabled: enableColumnReorder,
+    isResizeEnabled: enableColumnResize,
     columns,
     setColumns,
     onColumnUpdate,
     rowSelection,
-  });
-
-  const { columns: curatedColumnsData } = useResizableColumns({
-    isEnabled: enableColumnResize,
-    columns: columnsWithReorderProps,
-    setColumns,
-    onColumnUpdate,
   });
 
   const { handleTableChange } = useTableSort();
@@ -142,10 +139,20 @@ const Table = ({
     };
   }
 
-  const componentOverrides = {
-    ...components,
-    header: getHeaderCell({ enableColumnReorder, enableColumnResize }),
+  const reordableHeader = {
+    header: {
+      // eslint-disable-next-line no-nested-ternary
+      cell: enableColumnResize
+        ? enableColumnReorder
+          ? HeaderCell
+          : ResizableHeaderCell
+        : enableColumnReorder
+        ? ReorderableHeaderCell
+        : null,
+    },
   };
+
+  const componentOverrides = { ...components, ...reordableHeader };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
