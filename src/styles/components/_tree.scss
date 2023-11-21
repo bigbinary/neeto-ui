@@ -1,13 +1,32 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-tree-checkbox-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tree-checkbox-border-color: rgb(var(--neeto-ui-gray-300));
+  --neeto-ui-tree-checkbox-border-radius: var(--neeto-ui-rounded-sm);
+
+  // Hover
+  --neeto-ui-tree-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+  // Checked
+  --neeto-ui-tree-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tree-checkbox-checked-bg-color: rgb(var(--neeto-ui-primary-500));
+
+  // Drag Icon
+  --neeto-ui-tree-drag-icon-opacity: 0.4;
+
+  // Search Value
+  --neeto-ui-tree-search-value: #f50;
+}
+
 .neeto-ui-tree {
   .site-tree-search-value {
-    color: #f50;
+    color: var(--neeto-ui-tree-search-value);
   }
 
   .ant-tree-checkbox {
     .ant-tree-checkbox-inner {
-      color: rgb(var(--neeto-ui-primary-500));
-      border-color: rgb(var(--neeto-ui-gray-300));
-      border-radius: var(--neeto-ui-rounded-sm);
+      color: var(--neeto-ui-tree-checkbox-color);
+      border-color: var(--neeto-ui-tree-checkbox-border-color);
+      border-radius: var(--neeto-ui-tree-checkbox-border-radius);
 
       &::after {
         top: 47.5%;
@@ -17,19 +36,19 @@
 
     &:hover {
       .ant-tree-checkbox-inner {
-        border-color: rgb(var(--neeto-ui-gray-500)) !important;
+        border-color: var(--neeto-ui-tree-checkbox-hover-border-color) !important;
       }
     }
   }
 
   .ant-tree-checkbox-checked {
     .ant-tree-checkbox-inner {
-      border-color: rgb(var(--neeto-ui-primary-500)) !important;
-      background-color: rgb(var(--neeto-ui-primary-500)) !important;
+      border-color: var(--neeto-ui-tree-checkbox-checked-border-color) !important;
+      background-color: var(--neeto-ui-tree-checkbox-checked-bg-color) !important;
     }
     &:hover {
       .ant-tree-checkbox-inner {
-        border-color: rgb(var(--neeto-ui-primary-500)) !important;
+        border-color: var(--neeto-ui-tree-checkbox-checked-border-color) !important;
       }
     }
   }
@@ -41,6 +60,6 @@
   }
 
   .ant-tree-draggable-icon {
-    opacity: 0.4 !important;
+    opacity: var(--neeto-ui-tree-drag-icon-opacity) !important;
   }
 }
