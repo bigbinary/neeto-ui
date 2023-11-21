@@ -1,69 +1,98 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 
-import Tippy from "@tippyjs/react";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  arrow,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+  FloatingPortal,
+  FloatingArrow,
+  useClientPoint,
+  useClick,
+  hide,
+} from "@floating-ui/react";
 import PropTypes from "prop-types";
-import { followCursor } from "tippy.js";
 
-import { ARROW } from "./constants";
+import { POSITION, X_AXIS, Y_AXIS, CLICK } from "./constants";
 
 const Tooltip = ({
-  content,
   children,
-  theme = "dark",
-  disabled = false,
+  content,
   position = "auto",
-  interactive = false,
-  hideAfter = -1,
-  hideOnTargetExit = false,
-  ...otherProps
+  disabled = false,
+  followCursor,
+  trigger = "hover",
+  hideAfter = 0,
+  offsetValue = 15,
 }) => {
-  const [instance, setInstance] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
 
-  const localProps = {};
+  if (hideAfter > 0 && isOpen) setTimeout(() => setIsOpen(false), hideAfter);
 
-  if (hideAfter > 0) {
-    localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
-  }
+  const { refs, floatingStyles, context } = useFloating({
+    open: disabled ? false : isOpen,
+    onOpenChange: setIsOpen,
+    placement: position,
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(offsetValue),
+      flip({ fallbackAxisSideDirection: "start" }),
+      shift(),
+      arrow({ element: arrowRef }),
+      hide(state => ({ padding: state.rects.reference.height })),
+    ],
+  });
 
-  useEffect(() => {
-    if (hideOnTargetExit) {
-      const intersectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => !entry.isIntersecting && instance?.hide());
-      });
-      instance?.reference && intersectionObserver.observe(instance?.reference);
+  const clientPoint = useClientPoint(context, {
+    enabled: !!followCursor,
+    axis: followCursor === "horizontal" ? X_AXIS : Y_AXIS,
+  });
 
-      return () => intersectionObserver.disconnect();
-    }
+  const hover = useHover(context, {
+    enabled: trigger !== CLICK,
+    move: !hideAfter,
+  });
+  const focus = useFocus(context, { enabled: trigger !== CLICK });
+  const dismiss = useDismiss(context);
+  const role = useRole(context, { role: "tooltip" });
+  const click = useClick(context, { enabled: trigger === CLICK });
 
-    return undefined;
-  }, [instance, hideOnTargetExit]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+    clientPoint,
+    click,
+  ]);
 
   return (
-    <Tippy
-      animation="scale-subtle"
-      arrow={ARROW}
-      content={content}
-      disabled={disabled}
-      duration={[100, 200]}
-      interactive={interactive}
-      placement={position}
-      plugins={[followCursor]}
-      role="tooltip"
-      theme={theme}
-      zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
-      }}
-      {...localProps}
-      {...otherProps}
-    >
-      {React.isValidElement(children) ? children : <span>{children}</span>}
-    </Tippy>
+    <>
+      <span ref={refs.setReference} {...getReferenceProps()}>
+        {children}
+      </span>
+      <FloatingPortal>
+        {isOpen && !disabled && (
+          <div
+            className="neeto-ui-tooltip"
+            ref={refs.setFloating}
+            style={floatingStyles}
+            {...getFloatingProps()}
+          >
+            {content}
+            <FloatingArrow {...{ context }} ref={arrowRef} />
+          </div>
+        )}
+      </FloatingPortal>
+    </>
   );
 };
 
@@ -87,7 +116,7 @@ Tooltip.propTypes = {
   /**
    * To specify the position of the Tooltip.
    */
-  position: PropTypes.string,
+  position: PropTypes.oneOf(Object.values(POSITION)),
   /**
    * To specify whether the Tooltip can be hovered over and clicked inside without hiding.
    */
@@ -98,11 +127,6 @@ Tooltip.propTypes = {
    * By default it's disabled.
    */
   hideAfter: PropTypes.number,
-  /**
-   * To auto-hide the Tooltip on when target leaves the screen.
-   * By default it's disabled.
-   */
-  hideOnTargetExit: PropTypes.bool,
 };
 
 export default Tooltip;
