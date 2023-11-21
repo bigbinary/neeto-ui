@@ -101,7 +101,7 @@ NoData.propTypes = {
   /**
    * To specify the description text.
    */
-  description: PropTypes.string,
+  description: PropTypes.node,
   /**
    * To specify the text that appears below the description.
    */
