@@ -1,61 +1,63 @@
 import React from "react";
+
 import classnames from "classnames";
 import { Resizable } from "react-resizable";
 
-const HeaderCell = (props) => {
+const CellContent = props => <th {...props} />;
+
+const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;
 
   if (!width) {
-    return <th {...restProps} className="drag-handler" />;
+    return <CellContent {...restProps} className="drag-handler" />;
   }
 
   return (
     <Resizable
-      width={width}
+      {...{ onResize, onResizeStop, width }}
+      draggableOpts={{ enableUserSelectHack: false }}
       height={0}
       handle={
         <span
           className="react-resizable-handle"
-          onClick={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
         />
       }
-      onResize={onResize}
-      onResizeStop={onResizeStop}
-      draggableOpts={{ enableUserSelectHack: false }}
     >
-      <th {...restProps} className={classnames(className, "drag-handler")} />
+      <CellContent
+        {...restProps}
+        className={classnames(className, "drag-handler")}
+      />
     </Resizable>
   );
 };
 
-const ResizableHeaderCell = (props) => {
+const ResizableHeaderCell = props => {
   const { onResize, width, onResizeStop, ...restProps } = props;
 
   if (!width) {
-    return <th {...restProps} />;
+    return <CellContent {...restProps} />;
   }
 
   return (
     <Resizable
-      width={width}
+      {...{ onResize, onResizeStop, width }}
+      draggableOpts={{ enableUserSelectHack: false }}
       height={0}
       handle={
         <span
           className="react-resizable-handle"
-          onClick={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
         />
       }
-      onResize={onResize}
-      onResizeStop={onResizeStop}
-      draggableOpts={{ enableUserSelectHack: false }}
     >
-      <th {...restProps} />
+      <CellContent {...restProps} />
     </Resizable>
   );
 };
 
-const ReorderableHeaderCell = (props) => {
-  return <th {...props} className="drag-handler" />;
-};
+const ReorderableHeaderCell = props => (
+  <th {...props} className="drag-handler" />
+);
 
 export { ResizableHeaderCell, ReorderableHeaderCell, HeaderCell };
