@@ -1,4 +1,7 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
+
+import { isPresent } from "neetocist";
+import { Settings } from "neetoicons";
 
 const useResizableColumns = ({
   columns,
@@ -6,10 +9,6 @@ const useResizableColumns = ({
   isEnabled,
   onColumnUpdate,
 }) => {
-  if (!isEnabled) {
-    return { components: {}, columns };
-  }
-
   const handleResize =
     index =>
     (_, { size }) => {
@@ -26,9 +25,11 @@ const useResizableColumns = ({
           ...col,
           onHeaderCell: column => ({
             width: column.width,
-            onResize: handleResize(index),
-            onResizeStop: () => onColumnUpdate(columns),
+            onResize: isEnabled ? handleResize(index) : null,
+            onResizeStop: isEnabled ? () => onColumnUpdate(columns) : null,
+            isSortable: isPresent(col.sorter),
           }),
+          sortIcon: () => <Settings />,
         };
 
         if (!col.ellipsis) {
