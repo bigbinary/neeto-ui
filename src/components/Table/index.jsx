@@ -12,14 +12,10 @@ import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
-import {
-  ResizableHeaderCell,
-  ReorderableHeaderCell,
-  HeaderCell,
-} from "./HeaderCell";
 import useReorderColumns from "./hooks/useReorderColumns";
 import useResizableColumns from "./hooks/useResizableColumns";
 import useTableSort from "./hooks/useTableSort";
+import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -146,19 +142,10 @@ const Table = ({
     };
   }
 
-  const reordableHeader = {
-    header: {
-      cell: enableColumnResize
-        ? enableColumnReorder
-          ? HeaderCell
-          : ResizableHeaderCell
-        : enableColumnReorder
-        ? ReorderableHeaderCell
-        : null,
-    },
+  const componentOverrides = {
+    ...components,
+    header: getHeaderCell({ enableColumnReorder, enableColumnResize }),
   };
-
-  const componentOverrides = { ...components, ...reordableHeader };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
