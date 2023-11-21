@@ -31,7 +31,7 @@
     min-height: var(--neeto-ui-time-input-min-height);
   }
 
-  &:focus-within:not(.neeto-ui-time-picker--naked, .neeto-ui-time-picker--error) {
+  &:focus-within:not(.neeto-ui-time-picker--naked) {
     .react-time-picker__wrapper {
       border-color: var(--neeto-ui-time-input-focus-within-border-color);
       box-shadow: var(--neeto-ui-time-input-focus-within-box-shadow);
