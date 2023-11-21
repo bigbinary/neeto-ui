@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
-import { Settings } from "neetoicons";
+import { DownArrow, UpArrow } from "neetoicons";
 import { move } from "ramda";
 
 const useColumns = ({
@@ -55,7 +55,13 @@ const useColumns = ({
             isSortable: isPresent(col.sorter),
             description: col.description,
           }),
-          sortIcon: () => <Settings />,
+          sortIcon: ({ sortOrder }) => {
+            if (sortOrder === "ascend") return <UpArrow size={14} />;
+
+            if (sortOrder === "descend") return <DownArrow size={14} />;
+
+            return null;
+          },
         };
 
         if (!col.ellipsis) {
