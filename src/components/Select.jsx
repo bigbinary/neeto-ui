@@ -45,7 +45,10 @@ const DropdownIndicator = props => (
 );
 
 const ClearIndicator = props => (
-  <components.ClearIndicator {...props}>
+  <components.ClearIndicator
+    {...props}
+    innerProps={{ ...props.innerProps, ["data-cy"]: "clear-select-indicator" }}
+  >
     <Close size={16} />
   </components.ClearIndicator>
 );
