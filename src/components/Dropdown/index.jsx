@@ -43,6 +43,8 @@ const Dropdown = ({
   closeOnOutsideClick = true,
   trigger = TRIGGERS.click,
   strategy = STRATEGY.absolute,
+  buttonProps = {},
+  dropdownProps = {},
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const Icon = icon || Down;
@@ -98,6 +100,7 @@ const Dropdown = ({
           iconPosition="right"
           size={buttonSize}
           style={buttonStyle}
+          {...buttonProps}
         />
       )}
       <FloatingPortal>
@@ -108,6 +111,7 @@ const Dropdown = ({
             style={floatingStyles}
             onClick={handleCloseOnClick}
             {...getFloatingProps()}
+            {...dropdownProps}
           >
             {children}
           </div>
@@ -203,10 +207,6 @@ Dropdown.propTypes = {
    * To specify whether the Dropdown should close on clicking outside the Dropdown content. (will not have any effect if the component is controlled.)
    */
   closeOnOutsideClick: PropTypes.bool,
-  /**
-   * To provide custom modifiers to Dropdown component.
-   */
-  dropdownModifiers: PropTypes.array,
   /**
    * To specify whether the Dropdown should be multilevel.
    */

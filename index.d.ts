@@ -203,8 +203,6 @@ export type DatePickerProps = {
 export interface DropdownProps {
   icon?: string | any;
   label?: React.ReactNode;
-  isOpen?: boolean;
-  onClose?: () => void;
   position?:
     | "auto"
     | "auto-start"
@@ -237,7 +235,6 @@ export interface DropdownProps {
   closeOnEsc?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
-  dropdownModifiers?: any[];
   trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
@@ -459,13 +456,13 @@ export type TimePickerProps = {
 };
 
 export interface TooltipProps {
+  className: string;
+  followCursor: boolean;
   content: React.ReactNode;
   theme?: "dark" | "light";
   disabled?: boolean;
   position?:
     | "auto"
-    | "auto-start"
-    | "auto-end"
     | "top"
     | "bottom"
     | "right"
@@ -481,7 +478,10 @@ export interface TooltipProps {
     | "left-end";
   interactive?: boolean;
   hideAfter?: number;
-  hideOnTargetExit?: boolean;
+  trigger: "click" | "hover";
+  offsetValue: number;
+  isPopover: boolean;
+  referenceElement: React.ReactNode;
   [key: string]: any;
 }
 
@@ -509,6 +509,7 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  referenceElement: React.ReactNode;
   [key: string]: any;
 }
 

@@ -50,6 +50,10 @@ Popover.propTypes = {
    * By default it's disabled.
    */
   hideOnTargetExit: PropTypes.bool,
+  /**
+   * To provide a custom target to be rendered instead of the default button target.
+   */
+  referenceElement: PropTypes.node,
 };
 
 Popover.Title = Title;

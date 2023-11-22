@@ -41,7 +41,7 @@ const Tooltip = ({
   followCursor,
   trigger = "hover",
   hideAfter = 0,
-  offsetValue = 15,
+  offsetValue = 10,
   isPopover = false,
   referenceElement,
   className = "",
@@ -62,7 +62,7 @@ const Tooltip = ({
       flip({ fallbackAxisSideDirection: DIRECTION }),
       shift(),
       arrow({ element: arrowRef }),
-      hide(state => ({ padding: state.rects.reference.height })),
+      hide(),
     ],
   });
 
@@ -96,9 +96,9 @@ const Tooltip = ({
 
   return (
     <>
-      <span ref={refs.setReference} {...getReferenceProps()}>
+      <div ref={refs.setReference} {...getReferenceProps()} className="w-max">
         {isPopover ? referenceElement : children}
-      </span>
+      </div>
       <WrapperComponent {...wrapperProps}>
         {showContent && (
           <div
@@ -110,7 +110,15 @@ const Tooltip = ({
             {...getFloatingProps()}
           >
             {content}
-            {!isPopover && <FloatingArrow {...{ context }} ref={arrowRef} />}
+            {!isPopover && (
+              <FloatingArrow
+                {...{ context }}
+                height={5}
+                ref={arrowRef}
+                tipRadius={3}
+                width={10}
+              />
+            )}
           </div>
         )}
       </WrapperComponent>
@@ -149,6 +157,14 @@ Tooltip.propTypes = {
    * By default it's disabled.
    */
   hideAfter: PropTypes.number,
+  /**
+   * Add distance between the reference and floating element.
+   */
+  offsetValue: PropTypes.number,
+  /**
+   * To provide a custom target to be rendered instead of the default button target.
+   */
+  referenceElement: PropTypes.node,
 };
 
 export default Tooltip;
