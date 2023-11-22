@@ -155,7 +155,7 @@ describe("Sidebar", () => {
     }
   });
 
-  it("should render a working AppSwitcher button", () => {
+  it("should render a working AppSwitcher button", async () => {
     const onAppSwitcherToggle = jest.fn();
     const { container } = render(
       <Router>
@@ -172,7 +172,7 @@ describe("Sidebar", () => {
     );
     expect(appSwitcherButton).toBeInTheDocument();
 
-    userEvent.click(appSwitcherButton);
+    await userEvent.click(appSwitcherButton);
     expect(onAppSwitcherToggle).toHaveBeenCalled();
   });
 

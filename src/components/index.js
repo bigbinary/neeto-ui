@@ -31,6 +31,7 @@ import TimePicker from "./TimePicker";
 import TimePickerInput from "./TimePickerInput";
 import Toastr from "./Toastr";
 import Tooltip from "./Tooltip";
+import Tree from "./Tree";
 import TreeSelect from "./TreeSelect";
 import Typography from "./Typography";
 
@@ -68,6 +69,7 @@ export {
   TimePicker,
   Toastr,
   Tooltip,
+  Tree,
   TreeSelect,
   Typography,
   Slider,

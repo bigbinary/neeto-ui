@@ -24,8 +24,8 @@ describe("Slider", () => {
         </Form>
       </Formik>
     );
-    userEvent.click(screen.getByRole("slider"));
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByRole("slider"));
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() => expect(screen.getByText("Min 1")).toBeInTheDocument());
   });
 });

@@ -26,17 +26,17 @@ describe("Tag", () => {
     expect(getByTestId("tag-close-button")).toBeInTheDocument();
   });
 
-  it("should call onClose on button click", () => {
+  it("should call onClose on button click", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(<Tag onClose={onClose} />);
-    userEvent.click(getByTestId("tag-close-button"));
+    await userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should not call onClose function if tag is disabled", () => {
+  it("should not call onClose function if tag is disabled", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(<Tag disabled onClose={onClose} />);
-    userEvent.click(getByTestId("tag-close-button"));
+    await userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(0);
   });
 });

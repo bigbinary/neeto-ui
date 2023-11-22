@@ -67,7 +67,7 @@ describe("formik/Select", () => {
     expect(getByLabelText("Formik Select")).toBeInTheDocument();
   });
 
-  it("should show available options when clicked", () => {
+  it("should show available options when clicked", async () => {
     render(
       <Form
         formikProps={{
@@ -84,13 +84,13 @@ describe("formik/Select", () => {
     );
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
-    userEvent.click(selectInput);
+    await userEvent.click(selectInput);
     for (const { label } of SELECT_OPTIONS) {
       expect(screen.getByText(label)).toBeInTheDocument();
     }
   });
 
-  it("should should show no options if the input deosn't match any options", () => {
+  it("should should show no options if the input deosn't match any options", async () => {
     render(
       <Form
         formikProps={{
@@ -107,7 +107,7 @@ describe("formik/Select", () => {
     );
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
-    userEvent.type(selectInput, "Invalid Option");
+    await userEvent.type(selectInput, "Invalid Option");
     expect(screen.getByText(/No options/i)).toBeInTheDocument();
   });
 
@@ -116,9 +116,9 @@ describe("formik/Select", () => {
     render(<SelectTest onSubmit={onSubmit} />);
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
-    userEvent.click(selectInput);
-    userEvent.click(screen.getByText(SELECT_OPTIONS[0].label));
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(selectInput);
+    await userEvent.click(screen.getByText(SELECT_OPTIONS[0].label));
+    await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         formikSelect: SELECT_OPTIONS[0],
@@ -128,7 +128,7 @@ describe("formik/Select", () => {
 
   it("should display validation error when invalid input is provided", async () => {
     render(<SelectTest onSubmit={() => {}} />);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(
       await screen.findByText(/Invalid option selected/i)
     ).toBeInTheDocument();

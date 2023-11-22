@@ -11,19 +11,19 @@ describe("Textarea", () => {
     expect(getByLabelText("Textarea")).toBeInTheDocument();
   });
 
-  it("should update value on input when uncontrolled", () => {
+  it("should update value on input when uncontrolled", async () => {
     const { getByLabelText } = render(<Textarea id="text" label="Textarea" />);
     const textarea = getByLabelText("Textarea");
-    userEvent.type(textarea, "Test");
+    await userEvent.type(textarea, "Test");
     expect(textarea).toHaveValue("Test");
   });
 
-  it("should call onChange when textarea value changes", () => {
+  it("should call onChange when textarea value changes", async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Textarea id="text" label="Textarea" onChange={onChange} />
     );
-    userEvent.type(getByLabelText("Textarea"), "Test");
+    await userEvent.type(getByLabelText("Textarea"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
@@ -41,20 +41,20 @@ describe("Textarea", () => {
     expect(getByText("Error message")).toBeInTheDocument();
   });
 
-  it("should properly handle maxLength", () => {
+  it("should properly handle maxLength", async () => {
     const { getByLabelText, getByText } = render(
       <Textarea id="text" label="Textarea" maxLength={5} />
     );
-    userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
+    await userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
     expect(getByText(/5(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Textarea")).toHaveValue("Testi");
   });
 
-  it("should properly handle maxLength", () => {
+  it("should properly handle maxLength", async () => {
     const { getByLabelText, getByText } = render(
       <Textarea unlimitedChars id="text" label="Textarea" maxLength={5} />
     );
-    userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
+    await userEvent.type(getByLabelText("Textarea"), "Testing maxLength");
     expect(getByText(/17(.*)\/(.*)5/)).toBeInTheDocument();
     expect(getByLabelText("Textarea")).toHaveValue("Testing maxLength");
   });

@@ -30,8 +30,8 @@ const Switch = forwardRef(
 
     return (
       <div
+        {...{ ref }}
         className={classnames(["neeto-ui-switch__wrapper", className])}
-        ref={ref}
       >
         <div className="neeto-ui-switch__container">
           <label
@@ -41,7 +41,7 @@ const Switch = forwardRef(
               "neeto-ui-switch__item--disabled": disabled,
             })}
           >
-            <input type="checkbox" onChange={onChange} {...otherProps} />
+            <input {...{ onChange }} type="checkbox" {...otherProps} />
             <span
               aria-hidden="true"
               data-cy={`${hyphenize(renderLabel)}-switch`}
@@ -58,9 +58,9 @@ const Switch = forwardRef(
           </label>
           {renderLabel && (
             <Label
+              {...{ required }}
               data-cy={`${hyphenize(renderLabel)}-switch-label`}
               htmlFor={id}
-              required={required}
               {...labelProps}
             >
               {renderLabel}

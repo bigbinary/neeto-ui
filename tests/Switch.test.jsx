@@ -18,10 +18,10 @@ describe("Switch", () => {
     expect(switchButton).not.toBeChecked();
   });
 
-  it("should be checked on clicking the checkbox", () => {
+  it("should be checked on clicking the checkbox", async () => {
     const { getByRole } = render(<Switch />);
     const switchButton = getByRole("checkbox");
-    userEvent.click(switchButton);
+    await userEvent.click(switchButton);
     expect(switchButton).toBeChecked();
   });
 

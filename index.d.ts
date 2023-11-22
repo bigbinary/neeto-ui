@@ -121,6 +121,7 @@ export interface AlertProps {
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
   initialFocusElement?: "cancel" | "submit";
+  hideCancelButton?: boolean;
 }
 
 export type AvatarProps = {
@@ -332,6 +333,8 @@ export type SelectProps = {
   fetchMore?: () => void;
   totalOptionsCount?: number;
   isAsyncLoadOptionEnabled?: boolean;
+  isMulti?: boolean;
+  addButtonLabel?: string;
 };
 
 export type SpinnerProps = {
@@ -586,7 +589,7 @@ export type SliderProps = {
 
 export type NoDataProps = {
   title?: string;
-  description?: string;
+  description?: React.ReactNode;
   helpText?: React.ReactNode;
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;

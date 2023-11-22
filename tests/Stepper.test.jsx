@@ -35,9 +35,9 @@ const testDoneClass = id => {
   );
 };
 
-const testActiveClassOnClick = step => {
+const testActiveClassOnClick = async step => {
   const { id, label } = step;
-  userEvent.click(screen.getByText(label));
+  await userEvent.click(screen.getByText(label));
   testActiveClass(id);
 };
 
@@ -55,16 +55,16 @@ describe("Stepper", () => {
     testActiveClass(STEPS[0].id);
   });
 
-  it("should have the second element active on clicking the second element", () => {
+  it("should have the second element active on clicking the second element", async () => {
     render(<ControlledStepper />);
-    testActiveClassOnClick(STEPS[1]);
+    await testActiveClassOnClick(STEPS[1]);
     testDoneClass(STEPS[0].id);
   });
 
-  it("should have the third element active on clicking the third element and then to second element", () => {
+  it("should have the third element active on clicking the third element and then to second element", async () => {
     render(<ControlledStepper />);
-    testActiveClassOnClick(STEPS[2]);
-    testActiveClassOnClick(STEPS[1]);
+    await testActiveClassOnClick(STEPS[2]);
+    await testActiveClassOnClick(STEPS[1]);
     testDoneClass(STEPS[0].id);
   });
 });

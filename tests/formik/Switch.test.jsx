@@ -40,8 +40,8 @@ describe("formik/Switch", () => {
   it("should submit with correct value", async () => {
     const onSubmit = jest.fn();
     render(<TestSwitch onSubmit={onSubmit} />);
-    userEvent.click(screen.getByRole("checkbox"));
-    userEvent.click(screen.getByText(/Submit/i));
+    await userEvent.click(screen.getByRole("checkbox"));
+    await userEvent.click(screen.getByText(/Submit/i));
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         formikSwitch: true,
@@ -55,7 +55,7 @@ describe("formik/Switch", () => {
       formikSwitch: yup.boolean().isTrue("Switch must be on"),
     });
     render(<TestSwitch schema={validationScehma} onSubmit={onSubmit} />);
-    userEvent.click(screen.getByText(/Submit/i));
+    await userEvent.click(screen.getByText(/Submit/i));
     expect(await screen.findByText(/Switch must be on/i)).toBeInTheDocument();
   });
 });

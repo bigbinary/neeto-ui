@@ -74,7 +74,7 @@ describe("formik/ActionBlock", () => {
 
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
+    await userEvent.type(input, "test");
     await waitFor(() => expect(submitButton).not.toBeDisabled());
   });
 
@@ -84,8 +84,8 @@ describe("formik/ActionBlock", () => {
 
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
-    userEvent.click(submitButton);
+    await userEvent.type(input, "test");
+    await userEvent.click(submitButton);
     await waitFor(() =>
       expect(onSubmit).toHaveBeenCalledWith({
         input: "test",
@@ -98,8 +98,8 @@ describe("formik/ActionBlock", () => {
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
     const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
-    userEvent.click(cancelButton);
+    await userEvent.type(input, "test");
+    await userEvent.click(cancelButton);
     await waitFor(() => expect(input).toHaveValue(""));
   });
 
@@ -110,11 +110,11 @@ describe("formik/ActionBlock", () => {
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
     expect(cancelButton).toBeDisabled();
     const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
+    await userEvent.type(input, "test");
     await waitFor(() => expect(cancelButton).not.toBeDisabled());
-    userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
     await waitFor(() => expect(cancelButton).toBeDisabled());
-    userEvent.click(cancelButton);
+    await userEvent.click(cancelButton);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 
@@ -128,11 +128,11 @@ describe("formik/ActionBlock", () => {
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     expect(cancelButton).toBeDisabled();
     const input = screen.getByRole("textbox");
-    userEvent.type(input, "test");
+    await userEvent.type(input, "test");
     await waitFor(() => expect(cancelButton).not.toBeDisabled());
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
     await waitFor(() => expect(cancelButton).toBeDisabled());
-    userEvent.click(cancelButton);
+    await userEvent.click(cancelButton);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
 });

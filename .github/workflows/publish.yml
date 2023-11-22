@@ -27,3 +27,4 @@ jobs:
         with:
           access: "public"
           token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ github.event.release.prerelease && 'beta' || 'latest' }}

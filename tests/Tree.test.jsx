@@ -68,10 +68,10 @@ describe("Tree", () => {
     expect(treeNodeOne).toBeInTheDocument();
   });
 
-  it("should render child node when parent node is clicked", () => {
+  it("should render child node when parent node is clicked", async () => {
     const { container } = render(<Tree treeData={[TREE_DATA[0]]} />);
     const parentNode = container.querySelector(".ant-tree-switcher");
-    userEvent.click(parentNode);
+    await userEvent.click(parentNode);
     expect(screen.getByText("0-0-0")).toBeInTheDocument();
   });
 });

@@ -12,36 +12,36 @@ describe("Button", () => {
     expect(getByText("Button")).toBeInTheDocument();
   });
 
-  it("should call onClick on button click", () => {
+  it("should call onClick on button click", async () => {
     const onClick = jest.fn();
     const { getByText } = render(<Button label="Button" onClick={onClick} />);
-    userEvent.click(getByText("Button"));
+    await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should not call onClick on button click when disabled", () => {
+  it("should not call onClick on button click when disabled", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
       <Button disabled label="Button" onClick={onClick} />
     );
-    userEvent.click(getByText("Button"));
+    await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
-  it("should not call onClick on button click when loading", () => {
+  it("should not call onClick on button click when loading", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
       <Button loading label="Button" onClick={onClick} />
     );
-    userEvent.click(getByText("Button"));
+    await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
-  it("should show tooltip when button is hovered", () => {
+  it("should show tooltip when button is hovered", async () => {
     const { getByText } = render(
       <Button label="Button" tooltipProps={{ content: "Tooltip" }} />
     );
-    userEvent.hover(getByText("Button"));
+    await userEvent.hover(getByText("Button"));
     expect(getByText("Tooltip")).toBeInTheDocument();
   });
 

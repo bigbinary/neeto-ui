@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
+import { BrowserRouter } from "react-router-dom";
 
 import { Tooltip, Tag, Avatar, Button, Dropdown } from "components";
 import NeetoTable from "components/Table";
@@ -219,11 +220,17 @@ const getColumns = (fixed = false) => [
   },
 ];
 
+const Table = props => (
+  <BrowserRouter>
+    <NeetoTable {...props} />
+  </BrowserRouter>
+);
+
 const Default = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
@@ -239,7 +246,7 @@ Default.parameters = { docs: { source: { code: getTableSource() } } };
 
 const TableWithSpecifiedHorizontalScrolling = args => (
   <div className="mx-auto mt-10 w-2/3">
-    <NeetoTable
+    <Table
       columnData={fixedColumnWidths}
       rowData={SIMPLE_TABLE_DATA}
       scroll={{ x: "100%" }}
@@ -253,7 +260,7 @@ TableWithSpecifiedHorizontalScrolling.storyName =
 
 const TableWithTooltipsOnHeader = args => (
   <div className="mx-auto mt-10 w-2/3">
-    <NeetoTable
+    <Table
       columnData={headerTooltips}
       rowData={SIMPLE_TABLE_DATA}
       scroll={{ x: "100%" }}
@@ -268,7 +275,7 @@ const TableWithFixedRightColumn = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns(true)}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
@@ -292,14 +299,13 @@ const TableWithSelectedRowKeys = ({
   }, [selectedRowKeysProp]);
 
   return (
-    <NeetoTable
+    <Table
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
-      {...args}
+      {...{ ...args, selectedRowKeys }}
       rowSelection
-      selectedRowKeys={selectedRowKeys}
       onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
     />
   );
@@ -319,7 +325,7 @@ TableWithSelectedRowKeys.parameters = {
 };
 
 const TableWithSorting = args => (
-  <NeetoTable
+  <Table
     columnData={getColumns()}
     currentPageNumber={1}
     rowData={TABLE_DATA}
@@ -341,7 +347,7 @@ const TableWithFixedHeight = args => {
 
   return (
     <div style={{ height: "600px" }}>
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -369,7 +375,7 @@ const TableWithoutCheckbox = args => {
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -400,7 +406,7 @@ const TableWithDynamicData = args => {
         label="Slice the data"
         onClick={() => setSlice(slice === 20 ? 5 : 20)}
       />
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
@@ -418,7 +424,7 @@ const TableWithResizableColumns = args => {
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         enableColumnResize
         columnData={getColumns()}
         currentPageNumber={pageNumber}
@@ -438,7 +444,7 @@ const TableWithReordableColumns = args => {
 
   return (
     <div className="h-96">
-      <NeetoTable
+      <Table
         enableColumnReorder
         columnData={getColumns()}
         currentPageNumber={pageNumber}

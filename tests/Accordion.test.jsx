@@ -28,7 +28,7 @@ describe("Accordion", () => {
     expect(queryByText("Content 1")).not.toBeInTheDocument();
   });
 
-  it("should open accordion and render content when accordion title is clicked", () => {
+  it("should open accordion and render content when accordion title is clicked", async () => {
     const { getByText } = render(
       <Accordion>
         <Accordion.Item title="Item 1">
@@ -36,7 +36,7 @@ describe("Accordion", () => {
         </Accordion.Item>
       </Accordion>
     );
-    userEvent.click(getByText("Item 1"));
+    await userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
@@ -48,16 +48,16 @@ describe("Accordion", () => {
         </Accordion.Item>
       </Accordion>
     );
-    userEvent.click(getByText("Item 1"));
+    await userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    userEvent.keyboard("{space}");
+    await userEvent.type(getByText("Item 1"), "{space}");
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
-    userEvent.keyboard("{enter}");
+    await userEvent.type(getByText("Item 1"), "{enter}");
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
-  it("should not toggle accordion when any other keys are pressed", () => {
+  it("should not toggle accordion when any other keys are pressed", async () => {
     const { getByText } = render(
       <Accordion>
         <Accordion.Item title="Item 1">
@@ -65,13 +65,13 @@ describe("Accordion", () => {
         </Accordion.Item>
       </Accordion>
     );
-    userEvent.click(getByText("Item 1"));
+    await userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    userEvent.type(getByText("Item 1"), "a");
+    await userEvent.type(getByText("Item 1"), "a");
     expect(getByText("Content 1")).toBeInTheDocument();
   });
 
-  it("should trigger onClick when title is clicked", () => {
+  it("should trigger onClick when title is clicked", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
       <Accordion>
@@ -80,7 +80,7 @@ describe("Accordion", () => {
         </Accordion.Item>
       </Accordion>
     );
-    userEvent.click(getByText("Item 1"));
+    await userEvent.click(getByText("Item 1"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -95,9 +95,9 @@ describe("Accordion", () => {
         </Accordion.Item>
       </Accordion>
     );
-    userEvent.click(getByText("Item 1"));
+    await userEvent.click(getByText("Item 1"));
     expect(getByText("Content 1")).toBeInTheDocument();
-    userEvent.click(getByText("Item 2"));
+    await userEvent.click(getByText("Item 2"));
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
     expect(getByText("Content 2")).toBeInTheDocument();

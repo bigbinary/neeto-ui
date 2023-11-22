@@ -30,7 +30,7 @@ describe("Dropdown", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown">{options}</Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
+    await userEvent.click(getByText("Dropdown"));
     const listItems = await screen.findAllByText(/option/i);
     expect(listItems.length).toBe(2);
   });
@@ -56,9 +56,9 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
+    await userEvent.click(getByText("Dropdown"));
     const listItem = await findByText("option 1");
-    userEvent.click(listItem);
+    await userEvent.click(listItem);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -68,21 +68,21 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
+    await userEvent.click(getByText("Dropdown"));
     const listItem = await findByText("option 1");
-    userEvent.click(listItem);
+    await userEvent.click(listItem);
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
 
-  it("should close the dropdown when Esc key is pressed if closeOnEsc is true", () => {
+  it("should close the dropdown when Esc key is pressed if closeOnEsc is true", async () => {
     const { getByText } = render(
       <Dropdown closeOnEsc label="Dropdown">
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.keyboard("{esc}");
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.keyboard("{Escape}");
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -92,20 +92,20 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.keyboard("{esc}");
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.keyboard("{esc}");
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
 
-  it("should close dropdown on clicking outside if closeOnOutsideClick is true", () => {
+  it("should close dropdown on clicking outside if closeOnOutsideClick is true", async () => {
     const { getByText } = render(
       <Dropdown closeOnOutsideClick label="Dropdown">
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.click(document.body);
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -115,8 +115,8 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.click(document.body);
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
@@ -133,7 +133,7 @@ describe("Dropdown", () => {
         </Dropdown>
       </Dropdown>
     );
-    userEvent.click(await findByText("Another Dropdown"));
+    await userEvent.click(await findByText("Another Dropdown"));
     expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
@@ -148,21 +148,21 @@ describe("Dropdown", () => {
         </Dropdown>
       </Dropdown>
     );
-    userEvent.hover(await findByText("Another Dropdown"));
+    await userEvent.hover(await findByText("Another Dropdown"));
     expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
   });
 
-  it("should call onClose when Dropdown is closed", () => {
+  it("should call onClose when Dropdown is closed", async () => {
     const onClose = jest.fn();
     const { getByText } = render(
       <Dropdown closeOnOutsideClick label="Dropdown" onClose={onClose}>
         {options}
       </Dropdown>
     );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.click(document.body);
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

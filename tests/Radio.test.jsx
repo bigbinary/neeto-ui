@@ -26,7 +26,7 @@ describe("Radio", () => {
     expect(getByText("Radio")).toBeInTheDocument();
   });
 
-  it("should call onChange when radio value is changed", () => {
+  it("should call onChange when radio value is changed", async () => {
     const onChange = jest.fn(event => {
       expect(event.target.value).toBe("option1");
     });
@@ -36,7 +36,7 @@ describe("Radio", () => {
         <Radio.Item label="option1" name="options" value="option1" />
       </Radio>
     );
-    userEvent.click(getByText("option1"));
+    await userEvent.click(getByText("option1"));
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
@@ -58,25 +58,25 @@ describe("Radio", () => {
     expect(getByRole("radio")).not.toBeChecked();
   });
 
-  it("should show controlled behaviour", () => {
+  it("should show controlled behaviour", async () => {
     const { getAllByRole } = render(<ControlledRadio />);
     const radio = getAllByRole("radio");
-    userEvent.click(radio[0]);
+    await userEvent.click(radio[0]);
     expect(radio[0]).toBeChecked();
     expect(radio[1]).not.toBeChecked();
-    userEvent.click(radio[1]);
+    await userEvent.click(radio[1]);
     expect(radio[0]).not.toBeChecked();
     expect(radio[1]).toBeChecked();
   });
 
-  it("should be checked on clicking the radio item", () => {
+  it("should be checked on clicking the radio item", async () => {
     const { getByRole } = render(
       <Radio label="Radio">
         <Radio.Item label="option1" name="options" value="option1" />
       </Radio>
     );
     const radio = getByRole("radio");
-    userEvent.click(radio);
+    await userEvent.click(radio);
     expect(radio).toBeChecked();
   });
 });

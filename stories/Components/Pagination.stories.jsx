@@ -1,5 +1,7 @@
 import React from "react";
 
+import { BrowserRouter } from "react-router-dom";
+
 import Pagination from "components/Pagination";
 
 import PaginationCSSCustomization from "!raw-loader!./PaginationStoriesDocs/PaginationCSSCustomization.mdx";
@@ -18,7 +20,11 @@ const metadata = {
   },
 };
 
-const Template = args => <Pagination {...args} />;
+const Template = args => (
+  <BrowserRouter>
+    <Pagination {...args} />
+  </BrowserRouter>
+);
 
 const Default = Template.bind({});
 Default.args = {

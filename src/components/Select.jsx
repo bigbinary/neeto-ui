@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
 import classnames from "classnames";
+import { _existsBy } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc } from "ramda";
+import { prop, assoc, flatten, pluck } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -19,6 +20,21 @@ const SIZES = { small: "small", medium: "medium", large: "large" };
 
 const STRATEGIES = { default: "default", fixed: "fixed" };
 
+const Control = ({ children, ...props }) => {
+  const { selectProps } = props;
+
+  return (
+    <components.Control {...props}>
+      {selectProps.isMulti && (
+        <span className="neeto-ui-btn neeto-ui-btn--style-primary neeto-ui-react-select__add-btn">
+          {selectProps.addButtonLabel || "Add"}
+        </span>
+      )}{" "}
+      {children}
+    </components.Control>
+  );
+};
+
 const DropdownIndicator = props => (
   <components.DropdownIndicator
     {...props}
@@ -29,7 +45,10 @@ const DropdownIndicator = props => (
 );
 
 const ClearIndicator = props => (
-  <components.ClearIndicator {...props}>
+  <components.ClearIndicator
+    {...props}
+    innerProps={{ ...props.innerProps, "data-cy": "clear-select-indicator" }}
+  >
     <Close size={16} />
   </components.ClearIndicator>
 );
@@ -140,9 +159,8 @@ const MenuList = props => {
     }
 
     return () => {
-      if (loaderRef.current && isAsyncLoadOptionEnabled) {
-        observer?.unobserve(loaderRef.current);
-      }
+      if (!(loaderRef.current && isAsyncLoadOptionEnabled)) return;
+      observer?.unobserve(loaderRef.current);
     };
   }, [hasMore]);
 
@@ -223,8 +241,15 @@ const Select = ({
     if (!value || otherProps.isMulti) {
       return value;
     }
-    const currentOptions = options || defaultOptions;
+
+    let currentOptions = options || defaultOptions;
     if (Array.isArray(value)) value = value[0];
+
+    const isGrouped = _existsBy({ options: Array.isArray }, currentOptions);
+
+    if (isGrouped) {
+      currentOptions = flatten(pluck("options", currentOptions));
+    }
 
     return currentOptions?.filter(
       opt => getRealOptionValue(opt) === getRealOptionValue(value)
@@ -239,10 +264,10 @@ const Select = ({
     >
       {label && (
         <Label
+          {...{ required }}
           data-cy={`${hyphenize(label)}-input-label`}
           data-testid="select-label"
           htmlFor={inputId}
-          required={required}
           {...labelProps}
         >
           {label}
@@ -251,10 +276,9 @@ const Select = ({
       <Parent
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
+        closeMenuOnSelect={!otherProps.isMulti}
         data-cy={`${hyphenize(label)}-select-container`}
         defaultValue={findInOptions(defaultValue)}
-        inputId={inputId}
-        label={label}
         ref={innerRef}
         value={findInOptions(value)}
         className={classnames(["neeto-ui-react-select__container"], {
@@ -274,10 +298,10 @@ const Select = ({
           ValueContainer,
           MenuList,
           SingleValue,
+          Control,
           ...componentOverrides,
         }}
-        {...portalProps}
-        {...otherProps}
+        {...{ inputId, label, ...portalProps, ...otherProps }}
       />
       {!!error && (
         <p
@@ -305,7 +329,7 @@ Select.propTypes = {
   /**
    * To specify the default selected option.
    */
-  defaultValue: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   /**
    * To specify the placeholder text.
    */
@@ -393,6 +417,10 @@ Select.propTypes = {
    * To specify if async options loading is enabled
    */
   isAsyncLoadOptionEnabled: PropTypes.bool,
+  /**
+   * To specify the label for the button shown in multi select
+   */
+  addButtonLabel: PropTypes.string,
 };
 
 export default Select;

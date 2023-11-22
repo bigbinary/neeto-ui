@@ -106,6 +106,7 @@ const MultiSelect = Template.bind({});
 MultiSelect.storyName = "Multi Select";
 MultiSelect.args = {
   label: "Multi Select",
+  addButtonLabel: "Add",
   storyName: "Multi Select",
   isMulti: true,
   defaultValue: [
@@ -173,7 +174,7 @@ const Creatable = args => {
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
-        label="Grouped Select"
+        label="Creatable Select"
         name="ValueList"
         options={options}
         placeholder="Select an option"
