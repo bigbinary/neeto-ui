@@ -13,6 +13,8 @@ const HeaderCellMenu = ({
   sortedInfo,
   isSortable,
   columnDescription,
+  isHidable,
+  onColumnHide,
 }) => {
   const columnInfoButtonReference = useRef();
 
@@ -58,7 +60,11 @@ const HeaderCellMenu = ({
               <MenuItem.Button ref={columnInfoButtonReference}>
                 Column info
               </MenuItem.Button>
-              <Popover position="right" reference={columnInfoButtonReference}>
+              <Popover
+                position="right"
+                reference={columnInfoButtonReference}
+                strategy="fixed"
+              >
                 <Typography
                   className="w-72 normal-case"
                   lineHeight="normal"
@@ -69,6 +75,11 @@ const HeaderCellMenu = ({
                 </Typography>
               </Popover>
             </>
+          )}
+          {isHidable && (
+            <MenuItem.Button onClick={() => onColumnHide(columnKey)}>
+              Hide column
+            </MenuItem.Button>
           )}
         </Menu>
       </Dropdown>

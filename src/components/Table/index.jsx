@@ -51,6 +51,7 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
+  onColumnHide,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -100,6 +101,7 @@ const Table = ({
     rowSelection,
     sortedInfo,
     setSortedInfo,
+    onColumnHide,
   });
 
   const { handleTableChange: handleTableSortChange } = useTableSort();

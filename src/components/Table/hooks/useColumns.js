@@ -14,6 +14,7 @@ const useColumns = ({
   rowSelection,
   sortedInfo,
   setSortedInfo,
+  onColumnHide,
 }) => {
   const isColumnFixed = column => !!column.fixed;
 
@@ -64,6 +65,8 @@ const useColumns = ({
             sortedInfo,
             columnKey: col.key,
             columnDescription: col.description,
+            onColumnHide,
+            isHidable: col.isHidable,
           }),
           sortIcon: SortIcon,
           sortOrder: sortedInfo.columnKey === col.key ? sortedInfo.order : null,

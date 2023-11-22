@@ -13,6 +13,8 @@ const CellContent = ({
   sortedInfo,
   onSort,
   columnDescription,
+  isHidable = true,
+  onColumnHide,
   ...headerProps
 }) => (
   <th {...headerProps} onClick={isSortable ? noop : headerProps.onClick}>
@@ -24,9 +26,11 @@ const CellContent = ({
             columnDescription,
             columnKey,
             isSortable,
+            onColumnHide,
             onSort,
             sortedInfo,
           }}
+          isHidable={isHidable && isPresent(onColumnHide)}
         />
       )}
     </div>
