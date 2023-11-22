@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.35 - 2023-11-22
+
+Added: data cy to close select/multiSelect icon
+
 ## 5.2.34 - 2023-11-21
 
 This PR will migrate the package from `react-linkify` to `linkify-react`
@@ -736,7 +740,6 @@ Changes documentations to sentence case from title casing.
 - Reduced outer padding from `32px ` to `24px` to provide the compact view
 - Updated `border-radius` to `12px`
 #### Toast
-
 - Applied `48px` minimum height
 - Applied dark theme to all variants
 - Reduced text font weight to `400`
