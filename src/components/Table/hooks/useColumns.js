@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
-import { DownArrow, UpArrow } from "neetoicons";
 import { move } from "ramda";
+
+import SortIcon from "../SortIcon";
 
 const useColumns = ({
   columns,
@@ -11,6 +12,8 @@ const useColumns = ({
   isReorderEnabled,
   onColumnUpdate,
   rowSelection,
+  sortedInfo,
+  setSortedInfo,
 }) => {
   const isColumnFixed = column => !!column.fixed;
 
@@ -33,6 +36,10 @@ const useColumns = ({
     ignoreSelector: ".react-resizable-handle",
   };
 
+  const handleSort = (columnKey, order) => {
+    setSortedInfo({ order, columnKey });
+  };
+
   const handleResize =
     index =>
     (_, { size }) => {
@@ -53,15 +60,12 @@ const useColumns = ({
             onResizeStop: () =>
               isResizeEnabled ? onColumnUpdate(columns) : noop,
             isSortable: isPresent(col.sorter),
-            description: col.description,
+            onSort: handleSort,
+            sortedInfo,
+            columnKey: col.key,
           }),
-          sortIcon: ({ sortOrder }) => {
-            if (sortOrder === "ascend") return <UpArrow size={14} />;
-
-            if (sortOrder === "descend") return <DownArrow size={14} />;
-
-            return null;
-          },
+          sortIcon: SortIcon,
+          sortOrder: sortedInfo.columnKey === col.key ? sortedInfo.order : null,
         };
 
         if (!col.ellipsis) {
@@ -70,7 +74,7 @@ const useColumns = ({
 
         return modifiedColumn;
       }),
-    [columns]
+    [columns, sortedInfo]
   );
 
   return { dragProps, columns: computedColumnsData };
