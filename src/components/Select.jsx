@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import classnames from "classnames";
-import { existsBy } from "neetocist";
+import { _existsBy } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
 import { prop, assoc, flatten, pluck } from "ramda";
@@ -245,7 +245,7 @@ const Select = ({
     let currentOptions = options || defaultOptions;
     if (Array.isArray(value)) value = value[0];
 
-    const isGrouped = existsBy({ options: Array.isArray }, currentOptions);
+    const isGrouped = _existsBy({ options: Array.isArray }, currentOptions);
 
     if (isGrouped) {
       currentOptions = flatten(pluck("options", currentOptions));
