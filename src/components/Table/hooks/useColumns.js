@@ -40,7 +40,7 @@ const useColumns = ({
 
   const handleSort = (columnKey, order) => {
     setSortedInfo({ order, columnKey });
-    onTableChange(null, null, { field: columnKey, order });
+    onTableChange?.(null, null, { field: columnKey, order });
   };
 
   const handleResize =
