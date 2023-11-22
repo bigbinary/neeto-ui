@@ -148,10 +148,10 @@ const Table = ({
   }
 
   // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
-  const handleTableChange = (pagination, filters, sorter, extra) => {
+  const handleTableChange = (pagination, filters, sorter, extras) => {
     setSortedInfo(sorter);
     isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
-    onChange(pagination, filters, sorter, extra);
+    onChange(pagination, filters, sorter, extras);
   };
 
   const reordableHeader = {

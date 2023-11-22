@@ -16,26 +16,32 @@ const CellContent = ({
   isHidable = true,
   onColumnHide,
   ...headerProps
-}) => (
-  <th {...headerProps} onClick={isSortable ? noop : headerProps.onClick}>
-    <div className="flex items-center justify-between">
-      <div className="min-w-0 flex-grow">{children}</div>
-      {(isSortable || isPresent(columnDescription)) && (
-        <HeaderCellMenu
-          {...{
-            columnDescription,
-            columnKey,
-            isSortable,
-            onColumnHide,
-            onSort,
-            sortedInfo,
-          }}
-          isHidable={isHidable && isPresent(onColumnHide)}
-        />
-      )}
-    </div>
-  </th>
-);
+}) => {
+  const isColumnHidable = isHidable && isPresent(onColumnHide);
+  const hasMoreMenu =
+    isSortable || isPresent(columnDescription) || isColumnHidable;
+
+  return (
+    <th {...headerProps} onClick={isSortable ? noop : headerProps.onClick}>
+      <div className="flex items-center justify-between">
+        <div className="min-w-0 flex-grow">{children}</div>
+        {hasMoreMenu && (
+          <HeaderCellMenu
+            {...{
+              columnDescription,
+              columnKey,
+              isSortable,
+              onColumnHide,
+              onSort,
+              sortedInfo,
+            }}
+            isHidable={isColumnHidable}
+          />
+        )}
+      </div>
+    </th>
+  );
+};
 
 const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;
