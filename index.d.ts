@@ -121,6 +121,7 @@ export interface AlertProps {
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
   initialFocusElement?: "cancel" | "submit";
+  hideCancelButton?: boolean;
 }
 
 export type AvatarProps = {
