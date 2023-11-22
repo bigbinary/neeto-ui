@@ -1,7 +1,7 @@
 import React from "react";
 
 import classnames from "classnames";
-import { noop } from "neetocist";
+import { isPresent, noop } from "neetocist";
 import { Resizable } from "react-resizable";
 
 import HeaderCellMenu from "./HeaderCellMenu";
@@ -12,12 +12,23 @@ const CellContent = ({
   columnKey,
   sortedInfo,
   onSort,
-  ...props
+  columnDescription,
+  ...headerProps
 }) => (
-  <th {...props} onClick={isSortable ? noop : props.onClick}>
+  <th {...headerProps} onClick={isSortable ? noop : headerProps.onClick}>
     <div className="flex items-center justify-between">
       <div className="min-w-0 flex-grow">{children}</div>
-      {isSortable && <HeaderCellMenu {...{ columnKey, onSort, sortedInfo }} />}
+      {(isSortable || isPresent(columnDescription)) && (
+        <HeaderCellMenu
+          {...{
+            columnDescription,
+            columnKey,
+            isSortable,
+            onSort,
+            sortedInfo,
+          }}
+        />
+      )}
     </div>
   </th>
 );

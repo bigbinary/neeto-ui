@@ -63,6 +63,7 @@ const useColumns = ({
             onSort: handleSort,
             sortedInfo,
             columnKey: col.key,
+            columnDescription: col.description,
           }),
           sortIcon: SortIcon,
           sortOrder: sortedInfo.columnKey === col.key ? sortedInfo.order : null,
