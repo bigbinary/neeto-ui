@@ -11,15 +11,10 @@ import ReactDragListView from "react-drag-listview";
 import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
-import {
-  CellContent,
-  HeaderCell,
-  ReorderableHeaderCell,
-  ResizableHeaderCell,
-} from "./components/HeaderCell";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
+import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -151,23 +146,13 @@ const Table = ({
   const handleTableChange = (pagination, filters, sorter, extras) => {
     setSortedInfo(sorter);
     isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
-    onChange(pagination, filters, sorter, extras);
+    onChange?.(pagination, filters, sorter, extras);
   };
 
-  const reordableHeader = {
-    header: {
-      // eslint-disable-next-line no-nested-ternary
-      cell: enableColumnResize
-        ? enableColumnReorder
-          ? HeaderCell
-          : ResizableHeaderCell
-        : enableColumnReorder
-        ? ReorderableHeaderCell
-        : CellContent,
-    },
+  const componentOverrides = {
+    ...components,
+    header: getHeaderCell({ enableColumnResize, enableColumnReorder }),
   };
-
-  const componentOverrides = { ...components, ...reordableHeader };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
