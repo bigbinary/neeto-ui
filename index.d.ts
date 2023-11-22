@@ -121,6 +121,7 @@ export interface AlertProps {
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
   initialFocusElement?: "cancel" | "submit";
+  hideCancelButton?: boolean;
 }
 
 export type AvatarProps = {
@@ -589,7 +590,7 @@ export type SliderProps = {
 
 export type NoDataProps = {
   title?: string;
-  description?: string;
+  description?: React.ReactNode;
   helpText?: React.ReactNode;
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
