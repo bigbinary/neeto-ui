@@ -88,6 +88,12 @@
   --neeto-ui-select-multi-value-label-padding-y: 2px;
 
   --neeto-ui-select-multi-value-remove-hover-opacity: 0.7;
+
+  // Add Button
+  --neeto-ui-select-add-btn-font-size: var(--neeto-ui-text-xs);
+  --neeto-ui-select-add-btn-padding-x: 8px;
+  --neeto-ui-select-add-btn-padding-y: 4px;
+  --neeto-ui-select-add-btn-margin-left: 0px;
 }
 
 
@@ -334,30 +340,20 @@
   }
 }
 
-.neeto-ui-react-select__add-btn {
-  font-size: 12px;
-  padding: 4px 8px;
-}
-
 .neeto-ui-react-select__container {
   .neeto-ui-react-select__add-btn {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: var(--neeto-ui-select-add-btn-font-size);
+    padding: var(--neeto-ui-select-add-btn-padding-y) var(--neeto-ui-select-add-btn-padding-y);
+    margin-left: var(--neeto-ui-select-add-btn-margin-left);
   }
   &--small {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 2px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 2px;
   }
   &--medium {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 4px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 4px;
   }
   &--large {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 8px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 8px;
   }
 }
 

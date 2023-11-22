@@ -58,6 +58,7 @@ const Sizes = args => (
           {...args}
           label="Small"
           placeholder="Select placeholder"
+          isMulti
           size="small"
           options={[
             { value: "value1", label: "Value one" },
@@ -74,6 +75,7 @@ const Sizes = args => (
           label="Medium"
           // size="medium"
           placeholder="Select placeholder"
+          isMulti
           options={[
             { value: "value1", label: "Value one" },
             { value: "value2", label: "Value two" },
@@ -88,6 +90,7 @@ const Sizes = args => (
           {...args}
           label="Large"
           placeholder="Select placeholder"
+          isMulti
           size="large"
           options={[
             { value: "value1", label: "Value one" },
