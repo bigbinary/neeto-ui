@@ -26,12 +26,7 @@ Popover.propTypes = {
   /**
    * The popover will be positioned next to the specified element.
    */
-  reference: PropTypes.oneOfType([
-    // Either a function
-    PropTypes.func,
-    // Or the instance of a DOM native element (see the note about SSR)
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]),
+  target: PropTypes.node,
   /**
    * To display Popover in dark or light theme. By default the theme is dark.
    */

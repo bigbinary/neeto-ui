@@ -43,8 +43,9 @@ const Tooltip = ({
   hideAfter = 0,
   offsetValue = 15,
   isPopover = false,
-  target,
+  referenceElement,
   className = "",
+  interactive,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
@@ -77,7 +78,7 @@ const Tooltip = ({
   const hover = useHover(context, {
     enabled: trigger !== CLICK,
     move: !hideAfter,
-    handleClose: isPopover ? safePolygon() : null,
+    handleClose: interactive ? safePolygon() : null,
   });
   const focus = useFocus(context, { enabled: trigger !== CLICK });
   const dismiss = useDismiss(context);
@@ -96,7 +97,7 @@ const Tooltip = ({
   return (
     <>
       <span ref={refs.setReference} {...getReferenceProps()}>
-        {isPopover ? target : children}
+        {isPopover ? referenceElement : children}
       </span>
       <WrapperComponent {...wrapperProps}>
         {showContent && (
