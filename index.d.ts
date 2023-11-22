@@ -391,8 +391,9 @@ export interface TableProps {
   enableColumnResize?: boolean;
   enableColumnReorder?: boolean;
   onColumnUpdate?: (columns: any[]) => void;
-  [key: string]: any;
   preserveTableStateInQuery?: boolean;
+  onColumnHide?: (columnKey: string) => void;
+  [key: string]: any;
 }
 
 export interface TagProps {
