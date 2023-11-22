@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.36 - 2023-11-22
+
+- Fixed: `undefined` options issue in *Select*
+
 ## 5.2.35 - 2023-11-22
 
 Added: data cy to close select/multiSelect icon
@@ -743,7 +747,6 @@ Changes documentations to sentence case from title casing.
 - Applied `48px` minimum height
 - Applied dark theme to all variants
 - Reduced text font weight to `400`
-
 #### Tooltip
 
 - Changed box shadow of light theme variant to `--neeto-ui-shadow-s`
