@@ -17,10 +17,21 @@ import {
   useClientPoint,
   useClick,
   hide,
+  FloatingFocusManager,
+  safePolygon,
 } from "@floating-ui/react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 
-import { POSITION, X_AXIS, Y_AXIS, CLICK } from "./constants";
+import {
+  POSITION,
+  X_AXIS,
+  Y_AXIS,
+  CLICK,
+  DIRECTION,
+  HORIZONTAL,
+  ROLE,
+} from "./constants";
 
 const Tooltip = ({
   children,
@@ -31,6 +42,9 @@ const Tooltip = ({
   trigger = "hover",
   hideAfter = 0,
   offsetValue = 15,
+  isPopover = false,
+  target,
+  className = "",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
@@ -44,25 +58,30 @@ const Tooltip = ({
     whileElementsMounted: autoUpdate,
     middleware: [
       offset(offsetValue),
-      flip({ fallbackAxisSideDirection: "start" }),
+      flip({ fallbackAxisSideDirection: DIRECTION }),
       shift(),
       arrow({ element: arrowRef }),
       hide(state => ({ padding: state.rects.reference.height })),
     ],
   });
 
+  const WrapperComponent = isPopover ? FloatingFocusManager : FloatingPortal;
+  const wrapperProps = isPopover ? { context, modal: true } : {};
+  const showContent = isOpen && !disabled;
+
   const clientPoint = useClientPoint(context, {
     enabled: !!followCursor,
-    axis: followCursor === "horizontal" ? X_AXIS : Y_AXIS,
+    axis: followCursor === HORIZONTAL ? X_AXIS : Y_AXIS,
   });
 
   const hover = useHover(context, {
     enabled: trigger !== CLICK,
     move: !hideAfter,
+    handleClose: isPopover ? safePolygon() : null,
   });
   const focus = useFocus(context, { enabled: trigger !== CLICK });
   const dismiss = useDismiss(context);
-  const role = useRole(context, { role: "tooltip" });
+  const role = useRole(context, { role: ROLE });
   const click = useClick(context, { enabled: trigger === CLICK });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
@@ -77,21 +96,23 @@ const Tooltip = ({
   return (
     <>
       <span ref={refs.setReference} {...getReferenceProps()}>
-        {children}
+        {isPopover ? target : children}
       </span>
-      <FloatingPortal>
-        {isOpen && !disabled && (
+      <WrapperComponent {...wrapperProps}>
+        {showContent && (
           <div
-            className="neeto-ui-tooltip"
             ref={refs.setFloating}
             style={floatingStyles}
+            className={classNames([className], {
+              "neeto-ui-tooltip": !isPopover,
+            })}
             {...getFloatingProps()}
           >
             {content}
-            <FloatingArrow {...{ context }} ref={arrowRef} />
+            {!isPopover && <FloatingArrow {...{ context }} ref={arrowRef} />}
           </div>
         )}
-      </FloatingPortal>
+      </WrapperComponent>
     </>
   );
 };

@@ -17,3 +17,5 @@ export const X_AXIS = "x";
 export const Y_AXIS = "y";
 export const CLICK = "click";
 export const HORIZONTAL = "horizontal";
+export const DIRECTION = "start";
+export const ROLE = "tooltip";
