@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { isPresent, noop } from "neetocist";
 import { move } from "ramda";
 
-import SortIcon from "../SortIcon";
+import SortIcon from "../components/SortIcon";
 
 const useColumns = ({
   columns,

@@ -11,13 +11,13 @@ import ReactDragListView from "react-drag-listview";
 import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
-import { TABLE_SORT_ORDERS } from "./constants";
 import {
   CellContent,
   HeaderCell,
   ReorderableHeaderCell,
   ResizableHeaderCell,
-} from "./HeaderCell";
+} from "./components/HeaderCell";
+import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
 
