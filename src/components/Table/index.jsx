@@ -13,6 +13,7 @@ import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import {
+  CellContent,
   HeaderCell,
   ReorderableHeaderCell,
   ResizableHeaderCell,
@@ -55,6 +56,7 @@ const Table = ({
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+  const [sortedInfo, setSortedInfo] = useState({});
 
   const isPageChangeHandlerDefault = handlePageChange === noop;
 
@@ -96,9 +98,11 @@ const Table = ({
     setColumns,
     onColumnUpdate,
     rowSelection,
+    sortedInfo,
+    setSortedInfo,
   });
 
-  const { handleTableChange } = useTableSort();
+  const { handleTableChange: handleTableSortChange } = useTableSort();
 
   const queryParams = useQueryParams();
 
@@ -139,6 +143,11 @@ const Table = ({
     };
   }
 
+  const handleTableChange = (pagination, _, sorter) => {
+    setSortedInfo(sorter);
+    isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
+  };
+
   const reordableHeader = {
     header: {
       // eslint-disable-next-line no-nested-ternary
@@ -148,7 +157,7 @@ const Table = ({
           : ResizableHeaderCell
         : enableColumnReorder
         ? ReorderableHeaderCell
-        : null,
+        : CellContent,
     },
   };
 
@@ -233,9 +242,7 @@ const Table = ({
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
-      onChange={(pagination, _, sorter) => {
-        isPageChangeHandlerDefault && handleTableChange(pagination, sorter);
-      }}
+      onChange={handleTableChange}
       onHeaderRow={() => ({
         ref: headerRef,
         className: classnames("neeto-ui-table__header", {
