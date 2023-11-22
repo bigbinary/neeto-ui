@@ -45,6 +45,7 @@ const Dropdown = ({
   strategy = STRATEGY.absolute,
   buttonProps = {},
   dropdownProps = {},
+  disabled = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const Icon = icon || Down;
@@ -93,6 +94,7 @@ const Dropdown = ({
       ) : (
         <Button
           className="neeto-ui-dropdown"
+          disabled={disabled || buttonProps?.disabled}
           ref={refs.setReference}
           {...{ ...getReferenceProps(), label }}
           data-cy={`${hyphenize(label)}-dropdown-icon`}

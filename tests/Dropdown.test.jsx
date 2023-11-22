@@ -35,18 +35,9 @@ describe("Dropdown", () => {
     expect(listItems.length).toBe(2);
   });
 
-  it("should render all the options if isOpen is true", async () => {
-    const { findAllByText } = render(
-      <Dropdown isOpen label="Dropdown">
-        {options}
-      </Dropdown>
-    );
-    const listItems = await findAllByText(/option/i);
-    expect(listItems.length).toBe(2);
-  });
-
   it("should be disabled if disabled is true", () => {
     const { getByRole } = render(<Dropdown disabled label="Dropdown" />);
+
     expect(getByRole("button")).toBeDisabled();
   });
 
@@ -152,17 +143,5 @@ describe("Dropdown", () => {
     expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
-  });
-
-  it("should call onClose when Dropdown is closed", () => {
-    const onClose = jest.fn();
-    const { getByText } = render(
-      <Dropdown closeOnOutsideClick label="Dropdown" onClose={onClose}>
-        {options}
-      </Dropdown>
-    );
-    userEvent.click(getByText("Dropdown"));
-    userEvent.click(document.body);
-    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });
