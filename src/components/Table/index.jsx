@@ -52,6 +52,7 @@ const Table = ({
   onColumnUpdate = noop,
   components = {},
   onColumnHide,
+  onChange,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -102,6 +103,7 @@ const Table = ({
     sortedInfo,
     setSortedInfo,
     onColumnHide,
+    onTableChange: onChange,
   });
 
   const { handleTableChange: handleTableSortChange } = useTableSort();
@@ -145,9 +147,11 @@ const Table = ({
     };
   }
 
-  const handleTableChange = (pagination, _, sorter) => {
+  // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
+  const handleTableChange = (pagination, filters, sorter, extra) => {
     setSortedInfo(sorter);
     isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
+    onChange(pagination, filters, sorter, extra);
   };
 
   const reordableHeader = {

@@ -15,6 +15,7 @@ const useColumns = ({
   sortedInfo,
   setSortedInfo,
   onColumnHide,
+  onTableChange,
 }) => {
   const isColumnFixed = column => !!column.fixed;
 
@@ -39,6 +40,7 @@ const useColumns = ({
 
   const handleSort = (columnKey, order) => {
     setSortedInfo({ order, columnKey });
+    onTableChange(null, null, { field: columnKey, order });
   };
 
   const handleResize =
