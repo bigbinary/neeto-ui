@@ -5,6 +5,8 @@ import userEvent from "@testing-library/user-event";
 
 import { Dropdown } from "components";
 
+const { MenuItem } = Dropdown;
+
 const options = ["option 1", "option 2"].map(option => (
   <li key={option}>{option}</li>
 ));
@@ -164,5 +166,26 @@ describe("Dropdown", () => {
     await userEvent.click(getByText("Dropdown"));
     await userEvent.click(document.body);
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("should show tooltip when menuitem is hovered", async () => {
+    const { getByText } = render(
+      <Dropdown label="Dropdown">
+        <MenuItem.Button tooltipProps={{ content: "Enabled button's tooltip" }}>
+          Enabled button
+        </MenuItem.Button>
+        <MenuItem.Button
+          isDisabled
+          tooltipProps={{ content: "Disabled button's tooltip" }}
+        >
+          Disabled button
+        </MenuItem.Button>
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.hover(getByText("Enabled button"));
+    expect(getByText("Enabled button's tooltip")).toBeInTheDocument();
+    await userEvent.hover(getByText("Disabled button"));
+    expect(getByText("Disabled button's tooltip")).toBeInTheDocument();
   });
 });

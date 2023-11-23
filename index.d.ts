@@ -250,6 +250,13 @@ export interface DropdownProps {
   [key: string]: any;
 }
 
+export interface MenuItemProps extends React.DetailedHTMLProps<
+  React.LiHTMLAttributes<HTMLLIElement>,
+  HTMLLIElement
+> {
+  tooltipProps?: TooltipProps;
+}
+
 export interface MultiEmailInputProps {
   label?: string;
   placeholder?: string;
@@ -755,12 +762,7 @@ export const Dropdown: React.FC<DropdownProps> & {
       HTMLUListElement
     >
   >;
-  MenuItem: React.FC<
-    React.DetailedHTMLProps<
-      React.LiHTMLAttributes<HTMLLIElement>,
-      HTMLLIElement
-    >
-  > & { Button: ButtonProps };
+  MenuItem: React.FC<MenuItemProps> & { Button: ButtonProps };
   Divider: React.FC<
     React.DetailedHTMLProps<
       React.LiHTMLAttributes<HTMLLIElement>,

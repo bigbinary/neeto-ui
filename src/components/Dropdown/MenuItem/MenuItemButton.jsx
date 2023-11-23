@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 
 import MenuItem from "./MenuItem";
 
-const ITEM_BTN_STYLES = {
-  default: "default",
-  danger: "danger",
-};
+const ITEM_BTN_STYLES = { default: "default", danger: "danger" };
 
 const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
 
@@ -24,6 +21,7 @@ const MenuItemButton = ({
   type = BUTTON_TYPES.button,
   to = "",
   href = "",
+  tooltipProps,
   ...otherProps
 }) => {
   let Parent, elementSpecificProps;
@@ -35,13 +33,11 @@ const MenuItemButton = ({
     elementSpecificProps = { href };
   } else {
     Parent = "button";
-    elementSpecificProps = {
-      type,
-    };
+    elementSpecificProps = { type };
   }
 
   return (
-    <MenuItem>
+    <MenuItem {...{ tooltipProps }}>
       <Parent
         disabled={isDisabled}
         className={classnames(
@@ -114,6 +110,10 @@ MenuItemButton.propTypes = {
    * To specify the style of button.
    */
   style: PropTypes.oneOf(Object.values(ITEM_BTN_STYLES)),
+  /**
+   * To specify the props to be passed to the tooltip.
+   */
+  tooltipProps: PropTypes.object,
 };
 
 export default MenuItemButton;
