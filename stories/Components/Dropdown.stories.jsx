@@ -4,10 +4,7 @@ import { Settings, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
-import {
-  DROPDOWN_WITH_TOOTLTIP_FOR_MENUITEM,
-  EVENT_BUBBLING_CAPTURING,
-} from "./constants";
+import { EVENT_BUBBLING_CAPTURING } from "./constants";
 
 import { icons } from "../constants";
 
@@ -444,9 +441,6 @@ const DropdownWithTooltipForMenuItem = args => {
 };
 
 DropdownWithTooltipForMenuItem.storyName = "Dropdown with tooltip for MenuItem";
-DropdownWithTooltipForMenuItem.parameters = {
-  docs: { source: { code: DROPDOWN_WITH_TOOTLTIP_FOR_MENUITEM } },
-};
 
 export {
   Default,

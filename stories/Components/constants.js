@@ -276,27 +276,3 @@ export const disabledDateTime = () => ({
   disabledMinutes: () => range(30, 60),
   disabledSeconds: () => [55, 56],
 });
-
-export const DROPDOWN_WITH_TOOTLTIP_FOR_MENUITEM = `const DropdownWithTooltipForMenuItem = () => {
-  const { Menu, MenuItem } = Dropdown;
-
-  return (
-    <div className="h-40">
-      <Dropdown label="Dropdown" {...args}>
-        <Menu>
-          <MenuItem.Button
-            tooltipProps={{ content: "Enabled button's tooltip" }}
-          >
-            Enabled
-          </MenuItem.Button>
-          <MenuItem.Button
-            isDisabled
-            tooltipProps={{ content: "Disabled button's tooltip" }}
-          >
-            Disabled
-          </MenuItem.Button>
-        </Menu>
-      </Dropdown>
-    </div>
-  );
-};`;
