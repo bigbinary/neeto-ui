@@ -25,6 +25,7 @@ const Control = ({ children, ...props }) => {
 
   return (
     <components.Control {...props}>
+      {/* hasValue is part of commonProps passed to custom components internally by react-select */}
       {hasValue && selectProps.isMulti && (
         <span className="neeto-ui-btn neeto-ui-btn--style-secondary neeto-ui-react-select__add-btn">
           {selectProps.addButtonLabel || "Add"}
