@@ -1,23 +1,7 @@
-import React, { useState } from "react";
+import React, { forwardRef } from "react";
 
-import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  useHover,
-  useFocus,
-  useDismiss,
-  useClick,
-  useInteractions,
-  FloatingPortal,
-} from "@floating-ui/react";
-import { Down } from "neetoicons";
+import { FloatingTree, useFloatingParentNodeId } from "@floating-ui/react";
 import PropTypes from "prop-types";
-
-import Button from "components/Button";
-import { hyphenize } from "utils";
 
 import {
   TRIGGERS,
@@ -27,101 +11,26 @@ import {
   STRATEGY,
 } from "./constants";
 import Divider from "./Divider";
+import List from "./List";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
 
-const Dropdown = ({
-  icon,
-  label,
-  position = PLACEMENT.bottom,
-  children,
-  buttonStyle = BTN_STYLES.primary,
-  buttonSize = BTN_SIZES.medium,
-  customTarget,
-  closeOnEsc = true,
-  closeOnSelect = true,
-  closeOnOutsideClick = true,
-  trigger = TRIGGERS.click,
-  strategy = STRATEGY.absolute,
-  buttonProps = {},
-  dropdownProps = {},
-  disabled = false,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const Icon = icon || Down;
+const Dropdown = forwardRef((props, ref) => {
+  const parentId = useFloatingParentNodeId();
 
-  const { refs, floatingStyles, context } = useFloating({
-    strategy,
-    open: isOpen,
-    onOpenChange: setIsOpen,
-    placement: position,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(5),
-      flip({ fallbackAxisSideDirection: "start" }),
-      shift(),
-    ],
-  });
+  // This is a root, so we wrap it with the tree
+  if (parentId === null) {
+    return (
+      <FloatingTree>
+        <List {...{ ...props, ref }} />
+      </FloatingTree>
+    );
+  }
 
-  const hover = useHover(context, {
-    move: false,
-    enabled: trigger !== "click",
-  });
-  const focus = useFocus(context, { enabled: trigger !== "click" });
-  const dismiss = useDismiss(context, {
-    escapeKey: closeOnEsc,
-    outsidePress: closeOnOutsideClick,
-  });
-  const click = useClick(context, { enabled: trigger === "click" });
+  return <List {...{ ...props, ref }} />;
+});
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    hover,
-    focus,
-    dismiss,
-    click,
-  ]);
-
-  const handleCloseOnClick = () => {
-    if (closeOnSelect) setIsOpen(false);
-  };
-
-  return (
-    <>
-      {customTarget ? (
-        <span ref={refs.setReference} {...getReferenceProps()}>
-          {typeof customTarget === "function" ? customTarget() : customTarget}
-        </span>
-      ) : (
-        <Button
-          className="neeto-ui-dropdown"
-          disabled={disabled || buttonProps?.disabled}
-          ref={refs.setReference}
-          {...{ ...getReferenceProps(), label }}
-          data-cy={`${hyphenize(label)}-dropdown-icon`}
-          icon={Icon}
-          iconPosition="right"
-          size={buttonSize}
-          style={buttonStyle}
-          {...buttonProps}
-        />
-      )}
-      <FloatingPortal>
-        {isOpen && (
-          <div
-            className="neeto-ui-dropdown__popup"
-            ref={refs.setFloating}
-            style={floatingStyles}
-            onClick={handleCloseOnClick}
-            {...getFloatingProps()}
-            {...dropdownProps}
-          >
-            {children}
-          </div>
-        )}
-      </FloatingPortal>
-    </>
-  );
-};
+Dropdown.displayName = "Dropdown";
 
 Dropdown.Menu = Menu;
 Dropdown.MenuItem = MenuItem;

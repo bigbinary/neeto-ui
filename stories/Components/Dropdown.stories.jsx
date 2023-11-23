@@ -252,9 +252,11 @@ const MultiDropdownWithHoverTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             position="right-start"
             trigger="hover"
+            customTarget={
+              <MenuItem.Button isNested>Another Dropdown</MenuItem.Button>
+            }
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -303,8 +305,7 @@ const ControlledDropdown = args => {
         />
       </div>
       <Dropdown
-        {...args}
-        isOpen={isOpen}
+        {...{ ...args, isOpen }}
         label="Controlled Dropdown"
         onClickOutside={() => setIsOpen(false)}
         onClose={() => setIsOpen(false)}

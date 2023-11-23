@@ -1,15 +1,13 @@
 import React from "react";
 
+import { useFloatingTree } from "@floating-ui/react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import MenuItem from "./MenuItem";
 
-const ITEM_BTN_STYLES = {
-  default: "default",
-  danger: "danger",
-};
+const ITEM_BTN_STYLES = { default: "default", danger: "danger" };
 
 const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
 
@@ -24,8 +22,11 @@ const MenuItemButton = ({
   type = BUTTON_TYPES.button,
   to = "",
   href = "",
+  isNested,
   ...otherProps
 }) => {
+  const tree = useFloatingTree();
+
   let Parent, elementSpecificProps;
   if (to) {
     Parent = Link;
@@ -35,10 +36,13 @@ const MenuItemButton = ({
     elementSpecificProps = { href };
   } else {
     Parent = "button";
-    elementSpecificProps = {
-      type,
-    };
+    elementSpecificProps = { type };
   }
+
+  const handleOnClick = event => {
+    otherProps?.onClick?.(event);
+    !isNested && tree?.events.emit("click");
+  };
 
   return (
     <MenuItem>
@@ -54,6 +58,7 @@ const MenuItemButton = ({
               style === ITEM_BTN_STYLES.danger,
           }
         )}
+        onClick={handleOnClick}
         {...otherProps}
         {...elementSpecificProps}
       >
