@@ -2,10 +2,12 @@ import React from "react";
 
 import { DownArrow, UpArrow } from "neetoicons";
 
-const SortIcon = ({ sortOrder }) => {
-  if (sortOrder === "ascend") return <UpArrow size={14} />;
+import { TABLE_SORT_ORDERS } from "../constants";
 
-  if (sortOrder === "descend") return <DownArrow size={14} />;
+const SortIcon = ({ sortOrder }) => {
+  if (sortOrder === TABLE_SORT_ORDERS.asc) return <UpArrow size={14} />;
+
+  if (sortOrder === TABLE_SORT_ORDERS.desc) return <DownArrow size={14} />;
 
   return null;
 };

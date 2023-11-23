@@ -4,6 +4,7 @@ import { isPresent } from "neetocist";
 import { CheckCircle, MenuVertical } from "neetoicons";
 
 import { Dropdown, Popover, Typography } from "components";
+import { TABLE_SORT_ORDERS } from "components/Table/constants";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -35,20 +36,20 @@ const HeaderCellMenu = ({
             <>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, "ascend")}
+                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.ascend)}
               >
                 <span>Ascending</span>
-                {sortedInfo.order === "ascend" &&
+                {sortedInfo.order === TABLE_SORT_ORDERS.ascend &&
                   sortedInfo.columnKey === columnKey && (
                     <CheckCircle size={14} />
                   )}
               </MenuItem.Button>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, "descend")}
+                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.descend)}
               >
                 <span>Desceding</span>
-                {sortedInfo.order === "descend" &&
+                {sortedInfo.order === TABLE_SORT_ORDERS.descend &&
                   sortedInfo.columnKey === columnKey && (
                     <CheckCircle size={14} />
                   )}
