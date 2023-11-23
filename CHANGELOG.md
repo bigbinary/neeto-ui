@@ -37,6 +37,15 @@ Each change is prefixed with one of these keywords::
 - Removed: Removed unused components and styles.
 - Fixed: Fixed _TimePicker_ component dark mode issue.
 
+## 5.2.40 - 2023-11-23
+
+- Updated the multi select component to not show the `Add` button when no options are selected.
+- Changed the type of the `Add` button from `primary` to `secondary`.
+
+## 5.2.38 - 2023-11-23
+
+- Updates the logic to calculate table height without considering the pagination height when pagination is set to false
+
 ## 5.2.37 - 2023-11-22
 
 Added:  `hideCancelButton` prop to **Alert** component.
@@ -788,9 +797,7 @@ Changes documentations to sentence case from title casing.
 - Reduced text font weight to `400`
 #### Tooltip
 - Changed box shadow of light theme variant to `--neeto-ui-shadow-s`
-
 #### Sidebar
-
 - Increased width from `64px` to `72px`
 - Changed background color from `neeto-ui-gray-200` to `neeto-ui-white`
 - Added border on the right side

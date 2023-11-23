@@ -21,12 +21,13 @@ const SIZES = { small: "small", medium: "medium", large: "large" };
 const STRATEGIES = { default: "default", fixed: "fixed" };
 
 const Control = ({ children, ...props }) => {
-  const { selectProps } = props;
+  const { selectProps, hasValue } = props;
 
   return (
     <components.Control {...props}>
-      {selectProps.isMulti && (
-        <span className="neeto-ui-btn neeto-ui-btn--style-primary neeto-ui-react-select__add-btn">
+      {/* hasValue is part of commonProps passed to custom components internally by react-select */}
+      {hasValue && selectProps.isMulti && (
+        <span className="neeto-ui-btn neeto-ui-btn--style-secondary neeto-ui-react-select__add-btn">
           {selectProps.addButtonLabel || "Add"}
         </span>
       )}{" "}

@@ -304,8 +304,7 @@ const ControlledDropdown = args => {
         />
       </div>
       <Dropdown
-        {...args}
-        isOpen={isOpen}
+        {...{ ...args, isOpen }}
         label="Controlled Dropdown"
         onClickOutside={() => setIsOpen(false)}
         onClose={() => setIsOpen(false)}
@@ -418,6 +417,32 @@ EventBubblingAndCapturing.parameters = {
   },
 };
 
+const DropdownWithTooltipForMenuItem = args => {
+  const { Menu, MenuItem } = Dropdown;
+
+  return (
+    <div className="h-40">
+      <Dropdown label="Dropdown" {...args}>
+        <Menu>
+          <MenuItem.Button
+            tooltipProps={{ content: "Enabled button's tooltip" }}
+          >
+            Enabled
+          </MenuItem.Button>
+          <MenuItem.Button
+            isDisabled
+            tooltipProps={{ content: "Disabled button's tooltip" }}
+          >
+            Disabled
+          </MenuItem.Button>
+        </Menu>
+      </Dropdown>
+    </div>
+  );
+};
+
+DropdownWithTooltipForMenuItem.storyName = "Dropdown with tooltip for MenuItem";
+
 const CSSCustomization = args => {
   const { Menu, MenuItem, Divider } = Dropdown;
   const listItems = ["Action", "Another action", "Something else here"];
@@ -462,6 +487,7 @@ export {
   CustomTarget,
   CustomDropdown,
   EventBubblingAndCapturing,
+  DropdownWithTooltipForMenuItem,
   CSSCustomization,
 };
 
