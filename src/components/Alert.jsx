@@ -27,6 +27,7 @@ const Alert = ({
   cancelButtonLabel = "Cancel",
   initialFocusRef,
   initialFocusElement,
+  hideCancelButton = false,
 }) => {
   const submitButtonRef = useRef(null);
   const cancelButtonRef = useRef(null);
@@ -39,15 +40,17 @@ const Alert = ({
 
   return (
     <Modal
-      backdropClassName={backdropClassName}
-      className={className}
-      closeButton={closeButton}
-      closeOnEsc={closeOnEsc}
-      closeOnOutsideClick={closeOnOutsideClick}
+      {...{
+        backdropClassName,
+        className,
+        closeButton,
+        closeOnEsc,
+        closeOnOutsideClick,
+        isOpen,
+        onClose,
+        size,
+      }}
       data-cy="alert-box"
-      isOpen={isOpen}
-      size={size}
-      onClose={onClose}
       {...(hasCustomFocusableElement && {
         initialFocusRef: initialFocusRef || initialFocusElementRef,
       })}
@@ -72,13 +75,15 @@ const Alert = ({
           style="danger"
           onClick={onSubmit}
         />
-        <Button
-          data-cy="alert-cancel-button"
-          label={cancelButtonLabel}
-          ref={cancelButtonRef}
-          style="text"
-          onClick={onClose}
-        />
+        {!hideCancelButton && (
+          <Button
+            data-cy="alert-cancel-button"
+            label={cancelButtonLabel}
+            ref={cancelButtonRef}
+            style="text"
+            onClick={onClose}
+          />
+        )}
       </Modal.Footer>
     </Modal>
   );
@@ -150,6 +155,10 @@ Alert.propTypes = {
    * To specify the element which will receive focus when the Alert is opened.
    */
   initialFocusElement: PropTypes.oneOf(Object.values(FOCUSABLE_ELEMENTS)),
+  /**
+   * To hide the cancel button
+   */
+  hideCancelButton: PropTypes.bool,
 };
 
 export default Alert;
