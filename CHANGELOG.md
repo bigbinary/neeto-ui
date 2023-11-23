@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.38 - 2023-11-23
+
+- Updates the logic to calculate table height without considering the pagination height when pagination is set to false
+
 ## 5.2.37 - 2023-11-22
 
 Added:  `hideCancelButton` prop to **Alert** component.
@@ -753,7 +757,6 @@ Changes documentations to sentence case from title casing.
 - Reduced text font weight to `400`
 #### Tooltip
 - Changed box shadow of light theme variant to `--neeto-ui-shadow-s`
-
 #### Sidebar
 
 - Increased width from `64px` to `72px`
