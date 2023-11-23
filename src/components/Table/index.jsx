@@ -133,7 +133,8 @@ const Table = ({
     },
   }));
 
-  const isPaginationVisible = rowData.length > defaultPageSize;
+  const isPaginationVisible =
+    otherProps.pagination !== false && rowData.length > defaultPageSize;
 
   let rowSelectionProps = false;
   if (rowSelection) {
