@@ -29,6 +29,10 @@
   width: var(--neeto-ui-avatar-container-width);
   height: var(--neeto-ui-avatar-container-height);
 
+  &-round {
+    --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded-full);
+  }
+
   &--medium {
     --neeto-ui-avatar-container-width: 32px;
     --neeto-ui-avatar-container-height: 32px;
