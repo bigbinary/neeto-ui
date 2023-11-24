@@ -23,6 +23,31 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.40 - 2023-11-23
+
+- Updated the multi select component to not show the `Add` button when no options are selected.
+- Changed the type of the `Add` button from `primary` to `secondary`.
+
+## 5.2.38 - 2023-11-23
+
+- Updates the logic to calculate table height without considering the pagination height when pagination is set to false
+
+## 5.2.37 - 2023-11-22
+
+Added:  `hideCancelButton` prop to **Alert** component.
+
+## 5.2.36 - 2023-11-22
+
+- Fixed: `undefined` options issue in *Select*
+
+## 5.2.35 - 2023-11-22
+
+Added: data cy to close select/multiSelect icon
+
+## 5.2.34 - 2023-11-21
+
+This PR will migrate the package from `react-linkify` to `linkify-react`
+
 ## 5.2.33 - 2023-11-20
 
 - Fixed: Grouped select `defaultValue` not being set issue
@@ -731,19 +756,13 @@ Changes documentations to sentence case from title casing.
 #### Alert & Modal
 - Reduced outer padding from `32px ` to `24px` to provide the compact view
 - Updated `border-radius` to `12px`
-
 #### Toast
-
 - Applied `48px` minimum height
 - Applied dark theme to all variants
 - Reduced text font weight to `400`
-
 #### Tooltip
-
 - Changed box shadow of light theme variant to `--neeto-ui-shadow-s`
-
 #### Sidebar
-
 - Increased width from `64px` to `72px`
 - Changed background color from `neeto-ui-gray-200` to `neeto-ui-white`
 - Added border on the right side

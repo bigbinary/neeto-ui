@@ -1,6 +1,6 @@
 import React from "react";
 
-import Linkify from "react-linkify";
+import Linkify from "linkify-react";
 
 import { noop } from "utils";
 
@@ -10,11 +10,11 @@ const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
     data-test={`toastr-${type}-container`}
   >
     <Linkify
-      componentDecorator={(decoratedHref, decoratedText, key) => (
-        <a href={decoratedHref} key={key} rel="noreferrer" target="_blank">
-          {decoratedText}
-        </a>
-      )}
+      options={{
+        defaultProtocol: "https",
+        rel: "noreferrer",
+        target: "_blank",
+      }}
     >
       <p>{message}</p>
     </Linkify>

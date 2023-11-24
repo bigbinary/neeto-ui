@@ -122,6 +122,7 @@ export interface AlertProps {
   submitButtonLabel?: string;
   cancelButtonLabel?: string;
   initialFocusElement?: "cancel" | "submit";
+  hideCancelButton?: boolean;
 }
 
 export type AvatarProps = {
@@ -264,6 +265,13 @@ export interface DropdownProps {
     HTMLUListElement
   > & { [key: string]: any };
   [key: string]: any;
+}
+
+export interface MenuItemProps extends React.DetailedHTMLProps<
+  React.LiHTMLAttributes<HTMLLIElement>,
+  HTMLLIElement
+> {
+  tooltipProps?: TooltipProps;
 }
 
 export interface MultiEmailInputProps {
@@ -605,7 +613,7 @@ export type SliderProps = {
 
 export type NoDataProps = {
   title?: string;
-  description?: string;
+  description?: React.ReactNode;
   helpText?: React.ReactNode;
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
@@ -772,12 +780,7 @@ export const Dropdown: React.FC<DropdownProps> & {
       HTMLUListElement
     >
   >;
-  MenuItem: React.FC<
-    React.DetailedHTMLProps<
-      React.LiHTMLAttributes<HTMLLIElement>,
-      HTMLLIElement
-    >
-  > & { Button: ButtonProps };
+  MenuItem: React.FC<MenuItemProps> & { Button: ButtonProps };
   Divider: React.FC<
     React.DetailedHTMLProps<
       React.LiHTMLAttributes<HTMLLIElement>,

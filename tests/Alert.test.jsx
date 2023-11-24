@@ -143,4 +143,16 @@ describe("Alert", () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
+
+  it("should not show cancel button when hideCancelButton is true", () => {
+    const { queryByText } = render(
+      <Alert
+        hideCancelButton
+        isOpen
+        message="Alert message"
+        title="Alert title"
+      />
+    );
+    expect(queryByText("Cancel")).not.toBeInTheDocument();
+  });
 });

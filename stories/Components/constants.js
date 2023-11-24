@@ -39,7 +39,6 @@ export const PALETTE_PICKER_CODE = `const OnlyPalettePicker = () => {
   );
 };`;
 
-
 export const DRAGGABLE_TREE_CODE = `const DraggableTree = () => {
   const [treeData, setTreeData] = useState(TREE_DATA);
   const onDrop = info => {
