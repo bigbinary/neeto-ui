@@ -23,6 +23,7 @@ const MenuItemButton = forwardRef(
       type = BUTTON_TYPES.button,
       to = "",
       href = "",
+      tooltipProps,
       ...otherProps
     },
     ref
@@ -40,7 +41,7 @@ const MenuItemButton = forwardRef(
     }
 
     return (
-      <MenuItem>
+      <MenuItem {...{ tooltipProps }}>
         <Parent
           disabled={isDisabled}
           className={classnames(
@@ -115,6 +116,10 @@ MenuItemButton.propTypes = {
    * To specify the style of button.
    */
   style: PropTypes.oneOf(Object.values(ITEM_BTN_STYLES)),
+  /**
+   * To specify the props to be passed to the tooltip.
+   */
+  tooltipProps: PropTypes.object,
 };
 
 export default MenuItemButton;
