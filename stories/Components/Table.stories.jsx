@@ -120,6 +120,7 @@ const getColumns = (fixed = false) => [
     key: "id",
     width: 175,
     sorter: (a, b) => a.id - b.id,
+    isHidable: false,
     description:
       "An identifier (ID) is a name given to a variable, function, or other programming language entities to uniquely distinguish it from other entities.",
     render: id => (
@@ -470,8 +471,35 @@ const TableWithColumnDescriptionPopover = args => {
     </div>
   );
 };
-TableWithColumnDescriptionPopover.storyName = "Table with column description popover";
+
+TableWithColumnDescriptionPopover.storyName =
+  "Table with column description popover";
 TableWithColumnDescriptionPopover.args = { defaultPageSize: 10 };
+
+const TableWithColumnWithHideColumnOption = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [columns, setColumns] = useState(getColumns());
+
+  return (
+    <div className="h-96">
+      <Table
+        enableColumnReorder
+        columnData={columns}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onColumnHide={columnKey => {
+          setColumns(columns.filter(({ key }) => key !== columnKey));
+        }}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithColumnWithHideColumnOption.storyName =
+  "Table with column description popover";
+TableWithColumnWithHideColumnOption.args = { defaultPageSize: 10 };
 
 export {
   Default,
@@ -486,6 +514,7 @@ export {
   TableWithResizableColumns,
   TableWithReordableColumns,
   TableWithColumnDescriptionPopover,
+  TableWithColumnWithHideColumnOption,
 };
 
 export default metadata;
