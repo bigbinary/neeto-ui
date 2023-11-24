@@ -8,11 +8,11 @@ import Tooltip from "../Tooltip";
 
 const Popover = ({ children, theme = "light", ...otherProps }) => (
   <Tooltip
+    {...{ theme }}
+    arrow
     interactive
-    arrow={false}
     className="neeto-ui-popover"
     content={children}
-    theme={theme}
     {...otherProps}
   />
 );

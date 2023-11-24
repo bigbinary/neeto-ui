@@ -118,6 +118,7 @@ const getColumns = (fixed = false) => [
     key: "id",
     width: 175,
     sorter: (a, b) => a.id - b.id,
+    description: "A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.",
   },
   {
     title: () => (

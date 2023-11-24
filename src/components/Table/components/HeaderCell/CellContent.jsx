@@ -20,7 +20,11 @@ const CellContent = ({
     isSortable || isPresent(columnDescription) || isColumnHidable;
 
   return (
-    <th {...headerProps} onClick={isSortable ? noop : headerProps.onClick}>
+    <th
+      {...headerProps}
+      title=""
+      onClick={isSortable ? noop : headerProps.onClick}
+    >
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-grow">{children}</div>
         {hasMoreMenu && (
@@ -28,11 +32,13 @@ const CellContent = ({
             {...{
               columnDescription,
               columnKey,
+
               isSortable,
               onColumnHide,
               onSort,
               sortedInfo,
             }}
+            columnTitle={headerProps.title}
             isHidable={isColumnHidable}
           />
         )}

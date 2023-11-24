@@ -16,6 +16,7 @@ const HeaderCellMenu = ({
   columnDescription,
   isHidable,
   onColumnHide,
+  columnTitle = null,
 }) => {
   const columnInfoButtonReference = useRef();
 
@@ -62,12 +63,16 @@ const HeaderCellMenu = ({
                 Column info
               </MenuItem.Button>
               <Popover
+                hideOnClick={false}
+                interactiveDebounce={20}
+                offset={[0, 0]}
                 position="right"
                 reference={columnInfoButtonReference}
                 strategy="fixed"
               >
+                {columnTitle && <Popover.Title>{columnTitle}</Popover.Title>}
                 <Typography
-                  className="w-72 normal-case"
+                  className="w-72 max-w-full whitespace-normal normal-case"
                   lineHeight="normal"
                   style="body2"
                   weight="normal"
