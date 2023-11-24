@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { isPresent } from "neetocist";
-import { CheckCircle, MenuVertical } from "neetoicons";
+import { Check, MenuHorizontal } from "neetoicons";
 
 import { Dropdown, Popover, Typography } from "components";
 import { TABLE_SORT_ORDERS } from "components/Table/constants";
@@ -23,7 +23,7 @@ const HeaderCellMenu = ({
     <div onClick={event => event.stopPropagation()}>
       <Dropdown
         className="flex"
-        icon={MenuVertical}
+        icon={MenuHorizontal}
         strategy="fixed"
         buttonProps={{
           className: "min-h-0 flex-shrink-0",
@@ -41,7 +41,7 @@ const HeaderCellMenu = ({
                 <span>Ascending</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.ascend &&
                   sortedInfo.columnKey === columnKey && (
-                    <CheckCircle size={14} />
+                    <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
               <MenuItem.Button
@@ -51,7 +51,7 @@ const HeaderCellMenu = ({
                 <span>Desceding</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.descend &&
                   sortedInfo.columnKey === columnKey && (
-                    <CheckCircle size={14} />
+                    <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
             </>
