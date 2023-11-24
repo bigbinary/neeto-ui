@@ -109,6 +109,38 @@ describe("Input", () => {
     expect(getByLabelText("label")).toHaveValue("Test");
   });
 
+  it("should not trigger onChange on onBlur if there are no leading and trailing white spaces", async () => {
+    const handleChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input label="label" onChange={handleChange} />
+    );
+    await userEvent.type(getByLabelText("label"), "  Test  ");
+    handleChange.mockReset(); // reset previous invocations
+    await userEvent.tab(); // go out of focus
+    expect(handleChange).toBeCalled();
+
+    await userEvent.type(getByLabelText("label"), "Test");
+    handleChange.mockReset(); // reset previous invocations
+    await userEvent.tab(); // go out of focus
+    expect(handleChange).not.toBeCalled();
+  });
+
+  it("should always call onBlur if passed", async () => {
+    const handleChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input label="label" onBlur={handleChange} />
+    );
+    await userEvent.type(getByLabelText("label"), "  Test  ");
+    handleChange.mockReset(); // reset previous invocations
+    await userEvent.tab(); // go out of focus
+    expect(handleChange).toBeCalled();
+
+    await userEvent.type(getByLabelText("label"), "Test");
+    handleChange.mockReset(); // reset previous invocations
+    await userEvent.tab(); // go out of focus
+    expect(handleChange).toBeCalled();
+  });
+
   it("should properly handle disableTrimOnBlur", async () => {
     const { getByLabelText } = render(
       <Input disableTrimOnBlur label="label" />

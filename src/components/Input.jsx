@@ -65,11 +65,18 @@ const Input = forwardRef(
 
     const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
 
+    const handleTrimmedChangeOnBlur = e => {
+      if (disableTrimOnBlur || typeof value !== "string") return;
+
+      const trimmedValue = value.trim();
+      if (value === trimmedValue) return;
+
+      e.target.value = trimmedValue;
+      handleChange(e);
+    };
+
     const handleOnBlur = e => {
-      if (!disableTrimOnBlur && typeof value === "string") {
-        e.target.value = value.trim();
-        handleChange(e);
-      }
+      handleTrimmedChangeOnBlur(e);
       onBlur?.(e);
     };
 
