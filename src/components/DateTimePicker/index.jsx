@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-import { noop } from "@bigbinary/neeto-cist";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import PropTypes from "prop-types";
 
 import { TimePickerInput, DatePicker, Label } from "components";
 import { useId } from "hooks";
-import { hyphenize } from "utils";
+import { hyphenize, noop } from "utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
