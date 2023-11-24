@@ -37,20 +37,20 @@ const HeaderCellMenu = ({
             <>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.ascend)}
+                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.asc)}
               >
                 <span>Ascending</span>
-                {sortedInfo.order === TABLE_SORT_ORDERS.ascend &&
+                {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
                   sortedInfo.columnKey === columnKey && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.descend)}
+                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.desc)}
               >
                 <span>Desceding</span>
-                {sortedInfo.order === TABLE_SORT_ORDERS.descend &&
+                {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
                   sortedInfo.columnKey === columnKey && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}

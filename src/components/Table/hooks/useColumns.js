@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
-import { move } from "ramda";
+import { equals, move } from "ramda";
 
 import SortIcon from "../components/SortIcon";
 
@@ -39,8 +39,15 @@ const useColumns = ({
   };
 
   const handleSort = (columnKey, order) => {
-    setSortedInfo({ order, columnKey });
-    onTableChange?.(null, null, { field: columnKey, order });
+    let newSortedInfo = { columnKey, order };
+    if (equals(newSortedInfo, sortedInfo)) {
+      newSortedInfo = {};
+    }
+    setSortedInfo(newSortedInfo);
+    onTableChange?.(null, null, {
+      field: newSortedInfo.columnKey,
+      order: newSortedInfo.order,
+    });
   };
 
   const handleResize =
