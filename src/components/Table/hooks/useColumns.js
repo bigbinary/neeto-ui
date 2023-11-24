@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
-import { equals, move } from "ramda";
+import { equals, move, props } from "ramda";
 
 import SortIcon from "../components/SortIcon";
 
@@ -16,6 +16,7 @@ const useColumns = ({
   setSortedInfo,
   onColumnHide,
   onTableChange,
+  tableOnChangeProps,
 }) => {
   const isColumnFixed = column => !!column.fixed;
 
@@ -38,16 +39,27 @@ const useColumns = ({
     ignoreSelector: ".react-resizable-handle",
   };
 
-  const handleSort = (columnKey, order) => {
-    let newSortedInfo = { columnKey, order };
-    if (equals(newSortedInfo, sortedInfo)) {
-      newSortedInfo = {};
+  const handleSort = sorter => {
+    let newSortedInfo = { ...sorter };
+    if (
+      equals(
+        props(["field", "order"], newSortedInfo),
+        props(["field", "order"], sortedInfo)
+      )
+    ) {
+      newSortedInfo = {
+        field: null,
+        order: null,
+        column: null,
+        columnKey: null,
+      };
     }
     setSortedInfo(newSortedInfo);
-    onTableChange?.(null, null, {
-      field: newSortedInfo.columnKey,
-      order: newSortedInfo.order,
-    });
+    onTableChange?.(
+      tableOnChangeProps.current?.pagination || {},
+      tableOnChangeProps.current?.filters || {},
+      newSortedInfo
+    );
   };
 
   const handleResize =
@@ -72,13 +84,13 @@ const useColumns = ({
             isSortable: isPresent(col.sorter),
             onSort: handleSort,
             sortedInfo,
-            columnKey: col.key,
-            columnDescription: col.description,
             onColumnHide,
             isHidable: col.isHidable,
+            column: col,
           }),
           sortIcon: SortIcon,
-          sortOrder: sortedInfo.columnKey === col.key ? sortedInfo.order : null,
+          sortOrder:
+            sortedInfo.field === col.dataIndex ? sortedInfo.order : null,
         };
 
         if (!col.ellipsis) {
@@ -87,7 +99,7 @@ const useColumns = ({
 
         return modifiedColumn;
       }),
-    [columns, sortedInfo]
+    [columns, sortedInfo, tableOnChangeProps]
   );
 
   return { dragProps, columns: computedColumnsData };

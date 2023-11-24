@@ -58,6 +58,7 @@ const Table = ({
   const isPageChangeHandlerDefault = handlePageChange === noop;
 
   const headerRef = useRef();
+  const tableOnChangeProps = useRef({});
 
   const resizeObserver = useRef(
     new ResizeObserver(
@@ -99,6 +100,7 @@ const Table = ({
     setSortedInfo,
     onColumnHide,
     onTableChange: onChange,
+    tableOnChangeProps,
   });
 
   const { handleTableChange: handleTableSortChange } = useTableSort();
@@ -148,6 +150,7 @@ const Table = ({
     setSortedInfo(sorter);
     isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
     onChange?.(pagination, filters, sorter, extras);
+    tableOnChangeProps.current = { pagination, filters };
   };
 
   const componentOverrides = {

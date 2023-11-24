@@ -7,17 +7,16 @@ import HeaderCellMenu from "./HeaderCellMenu";
 const CellContent = ({
   children,
   isSortable,
-  columnKey,
   sortedInfo,
   onSort,
-  columnDescription,
   isHidable = true,
   onColumnHide,
+  column,
   ...headerProps
 }) => {
   const isColumnHidable = isHidable && isPresent(onColumnHide);
   const hasMoreMenu =
-    isSortable || isPresent(columnDescription) || isColumnHidable;
+    isSortable || isPresent(column?.description) || isColumnHidable;
 
   return (
     <th
@@ -30,9 +29,7 @@ const CellContent = ({
         {hasMoreMenu && (
           <HeaderCellMenu
             {...{
-              columnDescription,
-              columnKey,
-
+              column,
               isSortable,
               onColumnHide,
               onSort,

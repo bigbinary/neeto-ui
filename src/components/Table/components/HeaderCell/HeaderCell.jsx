@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 import { Resizable } from "react-resizable";
 
-import { CellContent } from "./CellContent";
+import CellContent from "./CellContent";
 
 const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;

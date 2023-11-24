@@ -10,10 +10,9 @@ const { Menu, MenuItem } = Dropdown;
 
 const HeaderCellMenu = ({
   onSort,
-  columnKey,
+  column = {},
   sortedInfo,
   isSortable,
-  columnDescription,
   isHidable,
   onColumnHide,
   columnTitle = null,
@@ -37,27 +36,41 @@ const HeaderCellMenu = ({
             <>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.asc)}
+                onClick={() =>
+                  onSort({
+                    column,
+                    columnKey: column.key,
+                    field: column.dataIndex,
+                    order: TABLE_SORT_ORDERS.asc,
+                  })
+                }
               >
                 <span>Ascending</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
-                  sortedInfo.columnKey === columnKey && (
+                  sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
               <MenuItem.Button
                 className="flex items-center justify-between"
-                onClick={() => onSort(columnKey, TABLE_SORT_ORDERS.desc)}
+                onClick={() =>
+                  onSort({
+                    column,
+                    columnKey: column.key,
+                    field: column.dataIndex,
+                    order: TABLE_SORT_ORDERS.desc,
+                  })
+                }
               >
                 <span>Desceding</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
-                  sortedInfo.columnKey === columnKey && (
+                  sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
             </>
           )}
-          {isPresent(columnDescription) && (
+          {isPresent(column?.description) && (
             <>
               <MenuItem.Button ref={columnInfoButtonReference}>
                 Column info
@@ -77,13 +90,13 @@ const HeaderCellMenu = ({
                   style="body2"
                   weight="normal"
                 >
-                  {columnDescription}
+                  {column?.description}
                 </Typography>
               </Popover>
             </>
           )}
           {isHidable && (
-            <MenuItem.Button onClick={() => onColumnHide(columnKey)}>
+            <MenuItem.Button onClick={() => onColumnHide(column.dataIndex)}>
               Hide column
             </MenuItem.Button>
           )}
