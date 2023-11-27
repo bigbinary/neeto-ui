@@ -255,6 +255,7 @@ const Table = ({
             rowSelectedBg: "rgb(var(--neeto-ui-primary-100))",
             rowSelectedHoverBg: "rgb(var(--neeto-ui-pastel-purple))",
             stickyScrollBarBg: "rgb(var(--neeto-ui-primary-100))",
+            cellPaddingBlock: 10,
 
             // Global overrides
             colorPrimary: "rgb(var(--neeto-ui-primary-500))",
