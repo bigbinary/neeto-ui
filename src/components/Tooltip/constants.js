@@ -1,4 +1,5 @@
 export const POSITION = {
+  auto: "auto",
   top: "top",
   bottom: "bottom",
   left: "left",

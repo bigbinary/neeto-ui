@@ -19,6 +19,7 @@ import {
   hide,
   FloatingFocusManager,
   safePolygon,
+  autoPlacement,
 } from "@floating-ui/react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
@@ -58,6 +59,10 @@ const Tooltip = ({
     placement: position,
     whileElementsMounted: autoUpdate,
     middleware: [
+      autoPlacement({
+        alignment: position,
+        autoAlignment: position === "auto",
+      }),
       offset(offsetValue),
       flip({ fallbackAxisSideDirection: DIRECTION }),
       shift(),
