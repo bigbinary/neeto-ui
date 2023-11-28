@@ -7,12 +7,14 @@ import { Dropdown } from "components";
 
 const { MenuItem } = Dropdown;
 
-const options = ["option 1", "option 2"].map(option => (
-  <li key={option}>{option}</li>
+const options = ["option 1", "option 2"].map((option, idx) => (
+  <MenuItem.Button data-testid={`option-${idx}`} key={option}>
+    {option}
+  </MenuItem.Button>
 ));
 
 const secondOptions = ["option 3", "option 4"].map(option => (
-  <li key={option}>{option}</li>
+  <MenuItem.Button key={option}>{option}</MenuItem.Button>
 ));
 
 describe("Dropdown", () => {
@@ -32,7 +34,7 @@ describe("Dropdown", () => {
     const { getByText } = render(
       <Dropdown label="Dropdown">{options}</Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
+    userEvent.click(getByText("Dropdown"));
     const listItems = await screen.findAllByText(/option/i);
     expect(listItems.length).toBe(2);
   });
@@ -49,16 +51,15 @@ describe("Dropdown", () => {
 
   it("should be disabled if disabled is true", () => {
     const { getByRole } = render(<Dropdown disabled label="Dropdown" />);
+
     expect(getByRole("button")).toBeDisabled();
   });
 
   it("should close the dropdown on select if closeOnSelect is true", async () => {
     const { getByText, findByText } = render(
-      <Dropdown closeOnSelect label="Dropdown">
-        {options}
-      </Dropdown>
+      <Dropdown label="Dropdown">{options}</Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
+    userEvent.click(getByText("Dropdown"));
     const listItem = await findByText("option 1");
     await userEvent.click(listItem);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
@@ -70,21 +71,21 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
+    userEvent.click(getByText("Dropdown"));
     const listItem = await findByText("option 1");
-    await userEvent.click(listItem);
+    userEvent.click(listItem);
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
 
-  it("should close the dropdown when Esc key is pressed if closeOnEsc is true", async () => {
+  it("should close the dropdown when Esc key is pressed if closeOnEsc is true", () => {
     const { getByText } = render(
       <Dropdown closeOnEsc label="Dropdown">
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
-    await userEvent.keyboard("{Escape}");
+    userEvent.click(getByText("Dropdown"));
+    userEvent.keyboard("{esc}");
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -94,20 +95,20 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
-    await userEvent.keyboard("{esc}");
+    userEvent.click(getByText("Dropdown"));
+    userEvent.keyboard("{esc}");
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
 
-  it("should close dropdown on clicking outside if closeOnOutsideClick is true", async () => {
+  it("should close dropdown on clicking outside if closeOnOutsideClick is true", () => {
     const { getByText } = render(
       <Dropdown closeOnOutsideClick label="Dropdown">
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
-    await userEvent.click(document.body);
+    userEvent.click(getByText("Dropdown"));
+    userEvent.click(document.body);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -117,8 +118,8 @@ describe("Dropdown", () => {
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
-    await userEvent.click(document.body);
+    userEvent.click(getByText("Dropdown"));
+    userEvent.click(document.body);
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(2);
   });
@@ -135,7 +136,7 @@ describe("Dropdown", () => {
         </Dropdown>
       </Dropdown>
     );
-    await userEvent.click(await findByText("Another Dropdown"));
+    userEvent.click(await findByText("Another Dropdown"));
     expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
@@ -150,7 +151,7 @@ describe("Dropdown", () => {
         </Dropdown>
       </Dropdown>
     );
-    await userEvent.hover(await findByText("Another Dropdown"));
+    userEvent.hover(await findByText("Another Dropdown"));
     expect(await findByText("option 3")).toBeInTheDocument();
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(5);
@@ -158,18 +159,17 @@ describe("Dropdown", () => {
 
   it("should call onClose when Dropdown is closed", async () => {
     const onClose = jest.fn();
-    const { getByText } = render(
-      <Dropdown closeOnOutsideClick label="Dropdown" onClose={onClose}>
+    render(
+      <Dropdown {...{ onClose }} isOpen label="Dropdown">
         {options}
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
     await userEvent.click(document.body);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it("should show tooltip when menuitem is hovered", async () => {
-    const { getByText } = render(
+    const { getByText, findByText } = render(
       <Dropdown label="Dropdown">
         <MenuItem.Button tooltipProps={{ content: "Enabled button's tooltip" }}>
           Enabled button
@@ -182,9 +182,12 @@ describe("Dropdown", () => {
         </MenuItem.Button>
       </Dropdown>
     );
-    await userEvent.click(getByText("Dropdown"));
-    await userEvent.hover(getByText("Enabled button"));
-    expect(getByText("Enabled button's tooltip")).toBeInTheDocument();
+    const dropdown = await findByText("Dropdown");
+    userEvent.click(dropdown);
+    const enableBtn = await findByText("Enabled button");
+    userEvent.hover(enableBtn);
+    const btnTooltip = await findByText("Enabled button's tooltip");
+    expect(btnTooltip).toBeInTheDocument();
     await userEvent.hover(getByText("Disabled button"));
     expect(getByText("Disabled button's tooltip")).toBeInTheDocument();
   });

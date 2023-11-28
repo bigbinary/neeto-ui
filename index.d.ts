@@ -238,7 +238,6 @@ export interface DropdownProps {
   closeOnEsc?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
-  dropdownModifiers?: any[];
   trigger?: "click" | "hover";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;

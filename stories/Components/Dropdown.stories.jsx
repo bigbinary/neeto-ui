@@ -211,7 +211,7 @@ const MultiDropdownWithClickTrigger = args => {
           <Dropdown
             customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             position="right-start"
-            onClick={e => e.stopPropagation()}
+            trigger="click"
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -252,9 +252,11 @@ const MultiDropdownWithHoverTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             position="right-start"
             trigger="hover"
+            customTarget={
+              <MenuItem.Button isNested>Another Dropdown</MenuItem.Button>
+            }
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -416,32 +418,6 @@ EventBubblingAndCapturing.parameters = {
   },
 };
 
-const DropdownWithTooltipForMenuItem = args => {
-  const { Menu, MenuItem } = Dropdown;
-
-  return (
-    <div className="h-40">
-      <Dropdown label="Dropdown" {...args}>
-        <Menu>
-          <MenuItem.Button
-            tooltipProps={{ content: "Enabled button's tooltip" }}
-          >
-            Enabled
-          </MenuItem.Button>
-          <MenuItem.Button
-            isDisabled
-            tooltipProps={{ content: "Disabled button's tooltip" }}
-          >
-            Disabled
-          </MenuItem.Button>
-        </Menu>
-      </Dropdown>
-    </div>
-  );
-};
-
-DropdownWithTooltipForMenuItem.storyName = "Dropdown with tooltip for MenuItem";
-
 export {
   Default,
   TriggerStyles,
@@ -454,7 +430,6 @@ export {
   CustomTarget,
   CustomDropdown,
   EventBubblingAndCapturing,
-  DropdownWithTooltipForMenuItem,
 };
 
 export default metadata;
