@@ -70,7 +70,6 @@ const useColumns = ({
       setColumns(nextColumns);
     };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const computedColumnsData = useMemo(
     () =>
       columns.map((col, index) => {
