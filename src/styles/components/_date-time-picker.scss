@@ -129,7 +129,7 @@
   --neeto-ui-time-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
 }
 
-.neeto-ui-date-input {
+.ant-picker.neeto-ui-date-input {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -227,7 +227,7 @@
 
 // Time Input
 
-.neeto-ui-time-input {
+.ant-picker.neeto-ui-time-input {
   font-size: var(--neeto-ui-time-input-font-size);
   color: var(--neeto-ui-time-input-color);
   background-color: var(--neeto-ui-time-input-bg-color);
