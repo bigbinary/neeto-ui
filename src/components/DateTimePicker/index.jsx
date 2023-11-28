@@ -50,7 +50,7 @@ const DateTimePicker = ({
   return (
     <div className="neeto-ui-input__wrapper">
       {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-      <div className="flex">
+      <div className="neeto-ui-date-time-input flex">
         <DatePicker
           {...{
             dateFormat,
@@ -60,16 +60,16 @@ const DateTimePicker = ({
             popupClassName,
             value,
           }}
-          onBlur={() => setOpen(false)}
-          onFocus={() => setOpen(true)}
-          onChange={handleDateChange}
           picker="date"
           showTime={false}
           type="date"
+          onBlur={() => setOpen(false)}
+          onChange={handleDateChange}
+          onFocus={() => setOpen(true)}
         />
         <TimePickerInput
-          value={date}
           ref={timeRef}
+          value={date}
           onChange={handleTimeChange}
         />
       </div>
