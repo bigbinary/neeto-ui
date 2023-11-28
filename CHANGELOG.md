@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.41 - 2023-11-24
+
+Previously onBlur was causing a redundant onChange call. Now onChange will be called only if the value contains leading or trailing whitespaces.
+
 ## 5.2.40 - 2023-11-23
 
 - Updated the multi select component to not show the `Add` button when no options are selected.
@@ -767,7 +771,6 @@ Changes documentations to sentence case from title casing.
 - Changed background color from `neeto-ui-gray-200` to `neeto-ui-white`
 - Added border on the right side
 - Updated `padding-top` and `padding-bottom` to `24px`
-
 ### Functionality changes 🛠️
 
 #### Input
