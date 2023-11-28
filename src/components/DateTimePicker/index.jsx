@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import PropTypes from "prop-types";
@@ -50,14 +51,16 @@ const DateTimePicker = ({
   return (
     <div className="neeto-ui-input__wrapper">
       {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-      <div className="neeto-ui-date-time-input flex">
+      <div className={classnames("neeto-ui-date-time-input flex", className)}>
         <DatePicker
           {...{
             dateFormat,
             defaultValue,
             dropdownClassName,
+            nakedInput,
             open,
             popupClassName,
+            size,
             value,
           }}
           picker="date"
@@ -68,6 +71,7 @@ const DateTimePicker = ({
           onFocus={() => setOpen(true)}
         />
         <TimePickerInput
+          {...{ nakedInput, size }}
           ref={timeRef}
           value={date}
           onChange={handleTimeChange}
