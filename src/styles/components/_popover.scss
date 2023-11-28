@@ -1,11 +1,9 @@
 .neeto-ui-popover {
-  border: thin solid rgb(var(--neeto-ui-gray-800));
-
-  &[data-theme~=light] {
-    border-color: rgb(var(--neeto-ui-gray-400));
-  }
-
-  .tippy-content {
-    padding: 1rem;
-  }
+  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  box-shadow: var(--neeto-ui-shadow-lg);
+  border-radius: var(--neeto-ui-rounded);
+  background-color: rgb(var(--neeto-ui-white));
+  border-radius: var(--neeto-ui-rounded);
+  max-width: 350px;
+  padding: 1rem;
 }

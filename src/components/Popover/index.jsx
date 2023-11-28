@@ -8,11 +8,12 @@ import Tooltip from "../Tooltip";
 
 const Popover = ({ children, theme = "light", ...otherProps }) => (
   <Tooltip
+    {...{ theme }}
     interactive
-    arrow={false}
+    isPopover
     className="neeto-ui-popover"
     content={children}
-    theme={theme}
+    position="left"
     {...otherProps}
   />
 );
@@ -25,12 +26,7 @@ Popover.propTypes = {
   /**
    * The popover will be positioned next to the specified element.
    */
-  reference: PropTypes.oneOfType([
-    // Either a function
-    PropTypes.func,
-    // Or the instance of a DOM native element (see the note about SSR)
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]),
+  target: PropTypes.node,
   /**
    * To display Popover in dark or light theme. By default the theme is dark.
    */
@@ -54,8 +50,11 @@ Popover.propTypes = {
    * By default it's disabled.
    */
   hideOnTargetExit: PropTypes.bool,
+  /**
+   * To provide a custom target to be rendered instead of the default button target.
+   */
+  referenceElement: PropTypes.node,
 };
 
 Popover.Title = Title;
-
 export default Popover;

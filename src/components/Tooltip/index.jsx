@@ -1,69 +1,133 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 
-import Tippy from "@tippyjs/react";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  arrow,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+  FloatingPortal,
+  FloatingArrow,
+  useClientPoint,
+  useClick,
+  hide,
+  FloatingFocusManager,
+  useTransitionStyles,
+  safePolygon,
+} from "@floating-ui/react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
-import { followCursor } from "tippy.js";
 
-import { ARROW } from "./constants";
+import {
+  POSITION,
+  X_AXIS,
+  Y_AXIS,
+  CLICK,
+  DIRECTION,
+  HORIZONTAL,
+  ROLE,
+  TIP_RADIUS,
+  TIP_WIDTH,
+  TIP_HEIGHT,
+} from "./constants";
 
 const Tooltip = ({
-  content,
   children,
-  theme = "dark",
-  disabled = false,
+  content,
   position = "auto",
-  interactive = false,
-  hideAfter = -1,
-  hideOnTargetExit = false,
-  ...otherProps
+  disabled = false,
+  followCursor,
+  trigger = "hover",
+  hideAfter = 0,
+  offsetValue = 10,
+  isPopover = false,
+  targeElement,
+  className = "",
+  interactive,
 }) => {
-  const [instance, setInstance] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
 
-  const localProps = {};
+  if (hideAfter > 0 && isOpen) setTimeout(() => setIsOpen(false), hideAfter);
 
-  if (hideAfter > 0) {
-    localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
-  }
+  const { refs, floatingStyles, context } = useFloating({
+    open: disabled ? false : isOpen,
+    onOpenChange: setIsOpen,
+    placement: position,
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(offsetValue),
+      flip({ fallbackAxisSideDirection: DIRECTION }),
+      shift(),
+      arrow({ element: arrowRef }),
+      hide(),
+    ],
+  });
 
-  useEffect(() => {
-    if (hideOnTargetExit) {
-      const intersectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => !entry.isIntersecting && instance?.hide());
-      });
-      instance?.reference && intersectionObserver.observe(instance?.reference);
+  const WrapperComponent = isPopover ? FloatingFocusManager : FloatingPortal;
+  const wrapperProps = isPopover ? { context, modal: true } : {};
+  const showContent = isOpen && !disabled;
 
-      return () => intersectionObserver.disconnect();
-    }
+  const clientPoint = useClientPoint(context, {
+    enabled: !!followCursor,
+    axis: followCursor === HORIZONTAL ? X_AXIS : Y_AXIS,
+  });
 
-    return undefined;
-  }, [instance, hideOnTargetExit]);
+  const hover = useHover(context, {
+    enabled: trigger !== CLICK,
+    move: !hideAfter,
+    handleClose: interactive ? safePolygon() : null,
+  });
+  const focus = useFocus(context, { enabled: trigger !== CLICK });
+  const dismiss = useDismiss(context);
+  const role = useRole(context, { role: ROLE });
+  const click = useClick(context, { enabled: trigger === CLICK });
+  const { styles } = useTransitionStyles(context, { duration: 150 });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+    clientPoint,
+    click,
+  ]);
 
   return (
-    <Tippy
-      animation="scale-subtle"
-      arrow={ARROW}
-      content={content}
-      disabled={disabled}
-      duration={[100, 200]}
-      interactive={interactive}
-      placement={position}
-      plugins={[followCursor]}
-      role="tooltip"
-      theme={theme}
-      zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
-      }}
-      {...localProps}
-      {...otherProps}
-    >
-      {React.isValidElement(children) ? children : <span>{children}</span>}
-    </Tippy>
+    <>
+      <div ref={refs.setReference} {...getReferenceProps()} className="w-max">
+        {isPopover ? targeElement : children}
+      </div>
+      <WrapperComponent {...wrapperProps}>
+        {showContent && (
+          <div
+            ref={refs.setFloating}
+            style={{ ...floatingStyles, ...styles }}
+            className={classNames([className], {
+              "neeto-ui-tooltip": !isPopover,
+            })}
+            {...getFloatingProps()}
+          >
+            {content}
+            {!isPopover && (
+              <FloatingArrow
+                {...{ context }}
+                height={TIP_HEIGHT}
+                ref={arrowRef}
+                tipRadius={TIP_RADIUS}
+                width={TIP_WIDTH}
+              />
+            )}
+          </div>
+        )}
+      </WrapperComponent>
+    </>
   );
 };
 
@@ -87,7 +151,7 @@ Tooltip.propTypes = {
   /**
    * To specify the position of the Tooltip.
    */
-  position: PropTypes.string,
+  position: PropTypes.oneOf(Object.values(POSITION)),
   /**
    * To specify whether the Tooltip can be hovered over and clicked inside without hiding.
    */
@@ -99,10 +163,13 @@ Tooltip.propTypes = {
    */
   hideAfter: PropTypes.number,
   /**
-   * To auto-hide the Tooltip on when target leaves the screen.
-   * By default it's disabled.
+   * Add distance between the reference and floating element.
    */
-  hideOnTargetExit: PropTypes.bool,
+  offsetValue: PropTypes.number,
+  /**
+   * To provide a custom target to be rendered instead of the default button target.
+   */
+  targeElement: PropTypes.node,
 };
 
 export default Tooltip;

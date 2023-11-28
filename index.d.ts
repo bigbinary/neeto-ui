@@ -250,10 +250,11 @@ export interface DropdownProps {
   [key: string]: any;
 }
 
-export interface MenuItemProps extends React.DetailedHTMLProps<
-  React.LiHTMLAttributes<HTMLLIElement>,
-  HTMLLIElement
-> {
+export interface MenuItemProps
+  extends React.DetailedHTMLProps<
+    React.LiHTMLAttributes<HTMLLIElement>,
+    HTMLLIElement
+  > {
   tooltipProps?: TooltipProps;
 }
 
@@ -467,13 +468,13 @@ export type TimePickerProps = {
 };
 
 export interface TooltipProps {
+  className: string;
+  followCursor: boolean;
   content: React.ReactNode;
   theme?: "dark" | "light";
   disabled?: boolean;
   position?:
     | "auto"
-    | "auto-start"
-    | "auto-end"
     | "top"
     | "bottom"
     | "right"
@@ -489,7 +490,10 @@ export interface TooltipProps {
     | "left-end";
   interactive?: boolean;
   hideAfter?: number;
-  hideOnTargetExit?: boolean;
+  trigger: "click" | "hover";
+  offsetValue: number;
+  isPopover: boolean;
+  targeElement: React.ReactNode;
   [key: string]: any;
 }
 
@@ -517,6 +521,7 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  targeElement: React.ReactNode;
   [key: string]: any;
 }
 
