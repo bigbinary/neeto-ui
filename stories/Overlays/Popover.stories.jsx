@@ -21,7 +21,7 @@ const metadata = {
 const ShowPopover = args => (
   <div className="space-y-8 p-10">
     <Popover
-      referenceElement={<Button label="Show Popover" style="secondary" />}
+      targeElement={<Button label="Show Popover" style="secondary" />}
       {...args}
     >
       <Popover.Title>What is KB keywords?</Popover.Title>

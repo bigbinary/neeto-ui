@@ -41,7 +41,7 @@ import {
 const Tooltip = ({
   children,
   content,
-  position = "auto",
+  position = "top",
   disabled = false,
   followCursor,
   trigger = "hover",
@@ -170,7 +170,7 @@ Tooltip.propTypes = {
   /**
    * To specify the position of the Tooltip.
    */
-  position: PropTypes.oneOf(Object.values(POSITION)),
+  position: PropTypes.oneOf(POSITION),
   /**
    * To specify whether the Tooltip can be hovered over and clicked inside without hiding.
    */
@@ -189,6 +189,10 @@ Tooltip.propTypes = {
    * To provide a custom target to be rendered instead of the default button target.
    */
   targeElement: PropTypes.node,
+  /**
+   *  To show tooltip follows the cursor
+   */
+  followCursor: PropTypes.oneOf(["horizontal", "vertical"]),
 };
 
 export default Tooltip;

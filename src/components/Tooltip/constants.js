@@ -1,17 +1,18 @@
-export const POSITION = {
-  top: "top",
-  bottom: "bottom",
-  left: "left",
-  right: "right",
-  topStart: "top-start",
-  topEnd: "top-end",
-  rightStart: "right-start",
-  rightEnd: "right-end",
-  bottomStart: "bottom-start",
-  bottomEnd: "bottom-end",
-  leftStart: "left-start",
-  leftEnd: "left-end",
-};
+export const POSITION = [
+  "auto",
+  "top",
+  "bottom",
+  "left",
+  "right",
+  "top-start",
+  "top-end",
+  "right-start",
+  "right-end",
+  "bottom-start",
+  "bottom-end",
+  "left-start",
+  "left-end",
+];
 
 export const X_AXIS = "x";
 export const Y_AXIS = "y";

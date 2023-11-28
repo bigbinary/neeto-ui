@@ -494,6 +494,7 @@ export interface TooltipProps {
   offsetValue: number;
   isPopover: boolean;
   targeElement: React.ReactNode;
+  followCursor: "horizontal" | "vertical";
   [key: string]: any;
 }
 

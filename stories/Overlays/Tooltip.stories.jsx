@@ -151,8 +151,8 @@ TooltipOnText.storyName = "Tooltip on text";
 const TooltipOnCustomComponent = args => {
   const CustomComponent = forwardRef(({ text }, ref) => (
     <div
+      {...{ ref }}
       className="neeto-ui-bg-black neeto-ui-text-white neeto-ui-rounded-md neeto-ui-shadow-lg cursor-pointer items-center justify-center p-10"
-      ref={ref}
     >
       {text}
     </div>
