@@ -31,7 +31,10 @@ const HeaderCellMenu = ({
           size: "medium",
         }}
       >
-        <Menu>
+        <Menu
+          className="cursor-auto"
+          onMouseDown={event => event.preventDefault()}
+        >
           {isSortable && (
             <>
               <MenuItem.Button
@@ -76,6 +79,7 @@ const HeaderCellMenu = ({
                 Column info
               </MenuItem.Button>
               <Popover
+                className="cursor-auto"
                 hideOnClick={false}
                 interactiveDebounce={20}
                 offset={[0, 0]}
