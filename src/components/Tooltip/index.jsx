@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 
 import {
   useFloating,
@@ -35,6 +35,7 @@ import {
   TIP_RADIUS,
   TIP_WIDTH,
   TIP_HEIGHT,
+  ARROW_OFFSET,
 } from "./constants";
 
 const Tooltip = ({
@@ -45,7 +46,7 @@ const Tooltip = ({
   followCursor,
   trigger = "hover",
   hideAfter = 0,
-  offsetValue = 10,
+  offsetValue = 5,
   isPopover = false,
   targeElement,
   className = "",
@@ -70,6 +71,23 @@ const Tooltip = ({
     ],
   });
 
+  /**
+   *  arrowOffset is desirable if the floating element is smaller than
+   *  the reference element along the relevant axis and has an
+   *  edge alignment ('start'/'end')
+   */
+  const arrowOffset = useMemo(() => {
+    if (
+      refs?.reference?.current?.clientWidth >
+        refs?.floating?.current?.clientWidth &&
+      (position.includes("start") || position.includes("end"))
+    ) {
+      return ARROW_OFFSET;
+    }
+
+    return null;
+  }, [refs.floating.current]);
+
   const WrapperComponent = isPopover ? FloatingFocusManager : FloatingPortal;
   const wrapperProps = isPopover ? { context, modal: true } : {};
   const showContent = isOpen && !disabled;
@@ -85,7 +103,7 @@ const Tooltip = ({
     handleClose: interactive ? safePolygon() : null,
   });
   const focus = useFocus(context, { enabled: trigger !== CLICK });
-  const dismiss = useDismiss(context);
+  const dismiss = useDismiss(context, { ancestorScroll: true });
   const role = useRole(context, { role: ROLE });
   const click = useClick(context, { enabled: trigger === CLICK });
   const { styles } = useTransitionStyles(context, { duration: 150 });
@@ -120,6 +138,7 @@ const Tooltip = ({
                 {...{ context }}
                 height={TIP_HEIGHT}
                 ref={arrowRef}
+                staticOffset={arrowOffset}
                 tipRadius={TIP_RADIUS}
                 width={TIP_WIDTH}
               />

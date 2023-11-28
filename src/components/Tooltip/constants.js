@@ -22,3 +22,4 @@ export const ROLE = "tooltip";
 export const TIP_RADIUS = 3;
 export const TIP_WIDTH = 10;
 export const TIP_HEIGHT = 5;
+export const ARROW_OFFSET = "45%";
