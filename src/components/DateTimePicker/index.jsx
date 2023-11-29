@@ -9,8 +9,6 @@ import { TimePickerInput, DatePicker, Label } from "components";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
-import HoverIcon from "./HoverIcon";
-
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
 
@@ -63,12 +61,14 @@ const DateTimePicker = ({
             dateFormat,
             defaultValue,
             dropdownClassName,
+            error,
             nakedInput,
             open,
             popupClassName,
             size,
             value,
           }}
+          errorMessageDisabled
           picker="date"
           showTime={false}
           type="date"
@@ -77,8 +77,8 @@ const DateTimePicker = ({
           onFocus={() => setOpen(true)}
         />
         <TimePickerInput
-          {...{ nakedInput, size }}
-          clearIcon={<HoverIcon {...{ time }} />}
+          {...{ error, nakedInput, size }}
+          errorMessageDisabled
           ref={timeRef}
           value={time}
           onChange={handleTimeChange}

@@ -10,6 +10,8 @@ import Label from "components/Label";
 import { useId } from "hooks";
 import { convertToDayjsObjects, hyphenize } from "utils";
 
+import HoverIcon from "./HoverIcon";
+
 dayjs.extend(customParseFormat);
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
@@ -26,8 +28,7 @@ const TimePickerInput = forwardRef(
       value,
       onChange,
       error = "",
-      clearIcon = null,
-      clockIcon = null,
+      errorMessageDisabled = false,
       ...otherProps
     },
     ref
@@ -44,7 +45,9 @@ const TimePickerInput = forwardRef(
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <TimePicker
-          {...{ clearIcon, clockIcon, id, value }}
+          {...{ id, value }}
+          disableClock
+          clearIcon={<HoverIcon />}
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
@@ -60,7 +63,7 @@ const TimePickerInput = forwardRef(
           onChange={handleChange}
           {...otherProps}
         />
-        {!!error && (
+        {!!error && !errorMessageDisabled && (
           <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
@@ -126,21 +129,9 @@ TimePickerInput.propTypes = {
    */
   required: PropTypes.bool,
   /**
-   * To specify close icon to be shown in the input.
+   * To specify whether the error message is disabled or not.
    */
-  closeIcon: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.element,
-  ]),
-  /**
-   * To specify the clock icon to be shown in the input.
-   */
-  clockIcon: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.element,
-  ]),
+  errorMessageDisabled: PropTypes.bool,
 };
 
 export default TimePickerInput;
