@@ -26,6 +26,8 @@ const TimePickerInput = forwardRef(
       value,
       onChange,
       error = "",
+      clearIcon = null,
+      clockIcon = null,
       ...otherProps
     },
     ref
@@ -42,9 +44,10 @@ const TimePickerInput = forwardRef(
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <TimePicker
-          {...{ id, value }}
-          disableClock
-          clearIcon={null}
+          {...{ clearIcon, clockIcon, id, value }}
+          hourPlaceholder="HH"
+          minutePlaceholder="mm"
+          secondAriaLabel="ss"
           value={convertToDayjsObjects(value)?.toDate()}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
@@ -122,6 +125,22 @@ TimePickerInput.propTypes = {
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
+  /**
+   * To specify close icon to be shown in the input.
+   */
+  closeIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]),
+  /**
+   * To specify the clock icon to be shown in the input.
+   */
+  clockIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]),
 };
 
 export default TimePickerInput;
