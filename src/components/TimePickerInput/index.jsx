@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -28,16 +28,20 @@ const TimePickerInput = forwardRef(
       value,
       onChange,
       error = "",
-      errorMessageDisabled = false,
       ...otherProps
     },
     ref
   ) => {
+    const [time, setTime] = useState(value);
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
+    useEffect(() => {
+      setTime(value);
+    }, [value]);
 
     const handleChange = value => {
       const date = dayjs(value, "HH:mm:ss");
+      setTime(value);
       onChange(date, value);
     };
 
@@ -45,9 +49,9 @@ const TimePickerInput = forwardRef(
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <TimePicker
-          {...{ id, value }}
+          {...{ id }}
           disableClock
-          clearIcon={<HoverIcon />}
+          clearIcon={<HoverIcon {...{ time }} />}
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
@@ -63,7 +67,7 @@ const TimePickerInput = forwardRef(
           onChange={handleChange}
           {...otherProps}
         />
-        {!!error && !errorMessageDisabled && (
+        {typeof error === "string" && (
           <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
@@ -123,15 +127,11 @@ TimePickerInput.propTypes = {
   /**
    * To specify the error message to be shown in the TimePicker.
    */
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
-  /**
-   * To specify whether the error message is disabled or not.
-   */
-  errorMessageDisabled: PropTypes.bool,
 };
 
 export default TimePickerInput;
