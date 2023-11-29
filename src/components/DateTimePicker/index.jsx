@@ -61,14 +61,13 @@ const DateTimePicker = ({
             dateFormat,
             defaultValue,
             dropdownClassName,
-            error,
             nakedInput,
             open,
             popupClassName,
             size,
             value,
           }}
-          errorMessageDisabled
+          error={!!error}
           picker="date"
           showTime={false}
           type="date"
@@ -78,7 +77,7 @@ const DateTimePicker = ({
         />
         <TimePickerInput
           {...{ error, nakedInput, size }}
-          errorMessageDisabled
+          error={!!error}
           ref={timeRef}
           value={time}
           onChange={handleTimeChange}

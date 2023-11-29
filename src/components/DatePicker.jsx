@@ -43,7 +43,6 @@ const DatePicker = forwardRef(
       value,
       labelProps,
       required = false,
-      errorMessageDisabled = false,
       ...otherProps
     },
     ref
@@ -95,7 +94,7 @@ const DatePicker = forwardRef(
             clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
           }}
         />
-        {!!error && !errorMessageDisabled && (
+        {!!error && (
           <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
@@ -135,7 +134,7 @@ DatePicker.propTypes = {
   /**
    * To specify the error message to be shown in the DatePicker.
    */
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
    * To set DatePicker as disabled.
    */
@@ -185,10 +184,6 @@ DatePicker.propTypes = {
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
-  /**
-   * To specify whether to show error message or not.
-   */
-  errorMessageDisabled: PropTypes.bool,
 };
 
 export default DatePicker;
