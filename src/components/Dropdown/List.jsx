@@ -157,6 +157,16 @@ const List = forwardRef(
       tree.events.emit("menuopen", { parentId, nodeId });
     }, [tree, isOpenState, nodeId, parentId]);
 
+    // Handle on close for custom children which do not use MenuItem.button
+    const handleOnClose = () => {
+      const {
+        nodesRef: { current },
+      } = tree;
+      if (current.length < 2) {
+        handleTreeClick();
+      }
+    };
+
     return (
       <FloatingNode id={nodeId}>
         {customTarget ? (
@@ -199,7 +209,7 @@ const List = forwardRef(
                     [dropdownClassName]: dropdownClassName,
                   })}
                   {...{
-                    ...getFloatingProps(),
+                    ...getFloatingProps({ onClick: handleOnClose }),
                     ...otherDropdownProps,
                   }}
                 >

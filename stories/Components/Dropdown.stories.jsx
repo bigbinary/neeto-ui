@@ -52,7 +52,7 @@ const Default = args => {
       <Dropdown label="Dropdown" {...args}>
         <Menu>
           {listItems.map((item, idx) => (
-            <MenuItem.Button key={idx}>{item}</MenuItem.Button>
+            <li key={idx}>{item}</li>
           ))}
           <MenuItem.Button isActive>Active</MenuItem.Button>
           <MenuItem.Button isDisabled>Disabled</MenuItem.Button>
