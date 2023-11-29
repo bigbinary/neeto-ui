@@ -418,6 +418,32 @@ EventBubblingAndCapturing.parameters = {
   },
 };
 
+const DropdownWithTooltipForMenuItem = args => {
+  const { Menu, MenuItem } = Dropdown;
+
+  return (
+    <div className="h-40">
+      <Dropdown label="Dropdown" {...args}>
+        <Menu>
+          <MenuItem.Button
+            tooltipProps={{ content: "Enabled button's tooltip" }}
+          >
+            Enabled
+          </MenuItem.Button>
+          <MenuItem.Button
+            isDisabled
+            tooltipProps={{ content: "Disabled button's tooltip" }}
+          >
+            Disabled
+          </MenuItem.Button>
+        </Menu>
+      </Dropdown>
+    </div>
+  );
+};
+
+DropdownWithTooltipForMenuItem.storyName = "Dropdown with tooltip for MenuItem";
+
 export {
   Default,
   TriggerStyles,
@@ -430,6 +456,7 @@ export {
   CustomTarget,
   CustomDropdown,
   EventBubblingAndCapturing,
+  DropdownWithTooltipForMenuItem,
 };
 
 export default metadata;
