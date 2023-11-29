@@ -518,6 +518,7 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  className?: string;
   [key: string]: any;
 }
 
