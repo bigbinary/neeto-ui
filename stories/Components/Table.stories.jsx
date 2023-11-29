@@ -497,8 +497,7 @@ const TableWithColumnWithHideColumnOption = args => {
   );
 };
 
-TableWithColumnWithHideColumnOption.storyName =
-  "Table with column description popover";
+TableWithColumnWithHideColumnOption.storyName = "Table with hide column option";
 TableWithColumnWithHideColumnOption.args = { defaultPageSize: 10 };
 
 export {
