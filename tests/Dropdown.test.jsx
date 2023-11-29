@@ -8,13 +8,13 @@ import { Dropdown } from "components";
 const { MenuItem } = Dropdown;
 
 const options = ["option 1", "option 2"].map((option, idx) => (
-  <MenuItem.Button data-testid={`option-${idx}`} key={option}>
+  <li data-testid={`option-${idx}`} key={option}>
     {option}
-  </MenuItem.Button>
+  </li>
 ));
 
 const secondOptions = ["option 3", "option 4"].map(option => (
-  <MenuItem.Button key={option}>{option}</MenuItem.Button>
+  <li key={option}>{option}</li>
 ));
 
 describe("Dropdown", () => {

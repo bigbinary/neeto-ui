@@ -23,6 +23,7 @@ import {
   useTypeahead,
   useFloatingTree,
 } from "@floating-ui/react";
+import classnames from "classnames";
 import { Down } from "neetoicons";
 
 import Button from "components/Button";
@@ -65,6 +66,9 @@ const List = forwardRef(
 
     const isOpenState = isControlled ? isOpen : isDropDownOpen;
     const onOpenStateChange = isControlled ? onClose : setIsDropDownOpen;
+
+    const { classNames: dropdownClassName, ...otherDropdownProps } =
+      dropdownProps;
 
     const elementsRef = useRef([]);
     const labelsRef = useRef([]);
@@ -159,7 +163,7 @@ const List = forwardRef(
           <span ref={reference} {...getReferenceProps()}>
             {typeof customTarget === "function"
               ? customTarget()
-              : React.cloneElement(customTarget, { isNested: true })}
+              : React.cloneElement(customTarget, { isNested })}
           </span>
         ) : (
           <Button
@@ -171,7 +175,12 @@ const List = forwardRef(
             ref={reference}
             size={buttonSize}
             style={buttonStyle}
-            {...{ label, ...buttonProps, ...getReferenceProps() }}
+            {...{
+              dropdownProps,
+              label,
+              ...buttonProps,
+              ...getReferenceProps(),
+            }}
           />
         )}
         <FloatingList {...{ elementsRef, labelsRef }}>
@@ -184,11 +193,15 @@ const List = forwardRef(
                 returnFocus={!isNested}
               >
                 <div
-                  className="neeto-ui-dropdown__popup"
                   ref={refs.setFloating}
                   style={floatingStyles}
-                  {...getFloatingProps()}
-                  {...dropdownProps}
+                  className={classnames("neeto-ui-dropdown__popup", {
+                    [dropdownClassName]: dropdownClassName,
+                  })}
+                  {...{
+                    ...getFloatingProps(),
+                    ...otherDropdownProps,
+                  }}
                 >
                   {children}
                 </div>
