@@ -9,6 +9,8 @@ import { TimePickerInput, DatePicker, Label } from "components";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
+import HoverIcon from "./HoverIcon";
+
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
 
@@ -29,13 +31,15 @@ const DateTimePicker = ({
   ...otherProps
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
 
   const timeRef = React.useRef(null);
   const id = useId(otherProps.id);
   const errorId = `error_${id}`;
   const handleDateChange = date => {
     setDate(date);
+    setTime(date);
     setOpen(false);
     onChange(date);
     timeRef.current
@@ -44,7 +48,9 @@ const DateTimePicker = ({
   };
 
   const handleTimeChange = (_, value) => {
-    const dateTIme = dayjs(`${date?.format("YYYY-MM-DD")} ${value}`);
+    const currentTime = dayjs(value, "HH:mm");
+    setTime(value ? currentTime : null);
+    const dateTIme = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
     onChange(dateTIme);
   };
 
@@ -72,8 +78,9 @@ const DateTimePicker = ({
         />
         <TimePickerInput
           {...{ nakedInput, size }}
+          clearIcon={<HoverIcon {...{ time }} />}
           ref={timeRef}
-          value={date}
+          value={time}
           onChange={handleTimeChange}
         />
       </div>
