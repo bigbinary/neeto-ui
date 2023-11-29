@@ -67,7 +67,7 @@ const TimePickerInput = forwardRef(
           onChange={handleChange}
           {...otherProps}
         />
-        {typeof error === "string" && (
+        {!!error && typeof error === "string" && (
           <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
