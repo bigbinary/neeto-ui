@@ -1,14 +1,13 @@
 import React from "react";
 
+import { useFloatingTree } from "@floating-ui/react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import MenuItem from "./MenuItem";
 
-const ITEM_BTN_STYLES = { default: "default", danger: "danger" };
-
-const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
+import { BUTTON_TYPES, ITEM_BTN_STYLES } from "../constants";
 
 const MenuItemButton = ({
   children,
@@ -21,9 +20,12 @@ const MenuItemButton = ({
   type = BUTTON_TYPES.button,
   to = "",
   href = "",
+  isNested,
   tooltipProps,
   ...otherProps
 }) => {
+  const tree = useFloatingTree();
+
   let Parent, elementSpecificProps;
   if (to) {
     Parent = Link;
@@ -35,6 +37,11 @@ const MenuItemButton = ({
     Parent = "button";
     elementSpecificProps = { type };
   }
+
+  const handleOnClick = event => {
+    otherProps?.onClick?.(event);
+    !isNested && tree?.events.emit("click");
+  };
 
   return (
     <MenuItem {...{ tooltipProps }}>
@@ -50,6 +57,7 @@ const MenuItemButton = ({
               style === ITEM_BTN_STYLES.danger,
           }
         )}
+        onClick={handleOnClick}
         {...otherProps}
         {...elementSpecificProps}
       >
@@ -110,10 +118,6 @@ MenuItemButton.propTypes = {
    * To specify the style of button.
    */
   style: PropTypes.oneOf(Object.values(ITEM_BTN_STYLES)),
-  /**
-   * To specify the props to be passed to the tooltip.
-   */
-  tooltipProps: PropTypes.object,
 };
 
 export default MenuItemButton;

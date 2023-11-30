@@ -211,7 +211,7 @@ const MultiDropdownWithClickTrigger = args => {
           <Dropdown
             customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             position="right-start"
-            onClick={e => e.stopPropagation()}
+            trigger="click"
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -252,9 +252,11 @@ const MultiDropdownWithHoverTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
             position="right-start"
             trigger="hover"
+            customTarget={
+              <MenuItem.Button isNested>Another Dropdown</MenuItem.Button>
+            }
           >
             <Menu>
               {listItems.map((item, idx) => (
