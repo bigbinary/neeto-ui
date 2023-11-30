@@ -7,6 +7,7 @@ import Callout from "./Callout";
 import Checkbox from "./Checkbox";
 import ColorPicker from "./ColorPicker";
 import DatePicker from "./DatePicker";
+import DateTimePicker from "./DateTimePicker";
 import Dropdown from "./Dropdown";
 import Input from "./Input";
 import Kbd from "./Kbd";
@@ -74,4 +75,5 @@ export {
   Typography,
   Slider,
   TimePickerInput,
+  DateTimePicker,
 };

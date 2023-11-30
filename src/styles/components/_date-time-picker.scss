@@ -568,3 +568,18 @@
     background: rgb(var(--neeto-ui-gray-200));
   }
 }
+
+// date time picker
+
+.neeto-ui-date-time-input{
+  .neeto-ui-date-input{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .neeto-ui-time-picker .react-time-picker__wrapper{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+  }
+}
+
