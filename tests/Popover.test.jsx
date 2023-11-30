@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -6,27 +6,15 @@ import userEvent from "@testing-library/user-event";
 import { Popover, Typography, Button } from "components";
 
 describe("Popover", () => {
-  const PopoverExample = ({ popoverProps, children }) => {
-    const popoverReferenceElement = useRef(null);
-
-    return (
-      <div>
-        <div>
-          <Button
-            label="Show Popover"
-            ref={popoverReferenceElement}
-            style="secondary"
-          />
-        </div>
-        <div>
-          <Popover reference={popoverReferenceElement} {...popoverProps}>
-            <Popover.Title>Popover Title</Popover.Title>
-            {children}
-          </Popover>
-        </div>
-      </div>
-    );
-  };
+  const PopoverExample = ({ popoverProps, children }) => (
+    <Popover
+      targeElement={<Button label="Show Popover" style="secondary" />}
+      {...popoverProps}
+    >
+      <Popover.Title>Popover Title</Popover.Title>
+      {children}
+    </Popover>
+  );
 
   it("should render on hover ", async () => {
     render(<PopoverExample />);
@@ -45,12 +33,12 @@ describe("Popover", () => {
     await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 20 });
   });
 
-  it("should auto hide after 20ms", async () => {
-    render(<PopoverExample popoverProps={{ hideAfter: 20 }} />);
+  it("should auto hide after 100ms", async () => {
+    render(<PopoverExample popoverProps={{ hideAfter: 100 }} />);
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
     const popover = screen.getByText("Popover Title");
-    await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 20 });
+    await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 100 });
   });
 
   it("should render a disabled popover", async () => {

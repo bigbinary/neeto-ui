@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import { Button, Typography, Popover } from "components";
 
@@ -18,32 +18,26 @@ const metadata = {
   },
 };
 
-const ShowPopover = args => {
-  const popoverReferenceElement = useRef();
-
-  return (
-    <div className="space-y-8 p-10">
+const ShowPopover = args => (
+  <div className="space-y-8 p-10">
+    <Popover
+      targeElement={<Button label="Show Popover" style="secondary" />}
+      {...args}
+    >
+      <Popover.Title>What is KB keywords?</Popover.Title>
+      <Typography lineHeight="normal" style="body2">
+        Keywords represent the key concepts of an article. These will be shown
+        on the KB and will be used for SEO
+      </Typography>
       <Button
-        label="Show Popover"
-        ref={popoverReferenceElement}
-        style="secondary"
+        className="neeto-ui-mt-3"
+        label="View help article"
+        size="small"
+        style="link"
       />
-      <Popover reference={popoverReferenceElement} {...args}>
-        <Popover.Title>What is KB keywords?</Popover.Title>
-        <Typography lineHeight="normal" style="body2">
-          Keywords represent the key concepts of an article. These will be shown
-          on the KB and will be used for SEO
-        </Typography>
-        <Button
-          className="neeto-ui-mt-3"
-          label="View help article"
-          size="small"
-          style="link"
-        />
-      </Popover>
-    </div>
-  );
-};
+    </Popover>
+  </div>
+);
 
 ShowPopover.storyName = "Show Popover";
 

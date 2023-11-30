@@ -1,2 +1,26 @@
-export const ARROW =
-  "<svg width='12' height='6' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 5H0.926697L3.95208 1.63847C4.74227 0.760478 6.11722 0.754951 6.91445 1.62656L10 5Z' /></svg>";
+export const POSITION = [
+  "auto",
+  "top",
+  "bottom",
+  "left",
+  "right",
+  "top-start",
+  "top-end",
+  "right-start",
+  "right-end",
+  "bottom-start",
+  "bottom-end",
+  "left-start",
+  "left-end",
+];
+
+export const X_AXIS = "x";
+export const Y_AXIS = "y";
+export const CLICK = "click";
+export const HORIZONTAL = "horizontal";
+export const DIRECTION = "start";
+export const ROLE = "tooltip";
+export const TIP_RADIUS = 3;
+export const TIP_WIDTH = 10;
+export const TIP_HEIGHT = 5;
+export const ARROW_OFFSET = "45%";
