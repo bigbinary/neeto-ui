@@ -2,14 +2,15 @@ import React from "react";
 
 import { DateTimePicker } from "components";
 
-import DateTimePickerStoriesDocs from "!raw-loader!./DateTimePickerStoriesDocs.mdx";
+import DateTimePickerCSSCustomization from "!raw-loader!./DateTimePickerStoriesDocs/DateTimePickerCSSCustomization.mdx";
+import DateTimePickerDocs from "!raw-loader!./DateTimePickerStoriesDocs/DateTimePickerDocs.mdx";
 
 const metadata = {
   title: "Components/DateTimePicker",
   component: DateTimePicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: DateTimePickerStoriesDocs } },
+    docs: { description: { component: DateTimePickerDocs } },
   },
   argTypes: {
     onChange: {
@@ -23,6 +24,19 @@ const metadata = {
 
 const Default = args => <DateTimePicker {...args} />;
 
-export { Default };
+const CSSCustomization = args => <DateTimePicker {...args} />;
+
+CSSCustomization.storyName = "DateTimePicker CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom DateTimePicker",
+  className: "neetix-datetimepicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: DateTimePickerCSSCustomization } },
+};
+
+export { Default, CSSCustomization };
 
 export default metadata;

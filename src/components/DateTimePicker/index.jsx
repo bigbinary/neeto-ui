@@ -55,7 +55,7 @@ const DateTimePicker = ({
   return (
     <div className="neeto-ui-input__wrapper">
       {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-      <div className={classnames("neeto-ui-date-time-input flex", className)}>
+      <div className={classnames("neeto-ui-date-time-input", className)}>
         <DatePicker
           {...{
             dateFormat,

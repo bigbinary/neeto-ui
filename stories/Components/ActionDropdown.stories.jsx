@@ -208,7 +208,7 @@ const CSSCustomization = args => {
   );
 };
 
-CSSCustomization.storyName = "Dropdown CSS Customization";
+CSSCustomization.storyName = "ActionDropdown CSS Customization";
 
 CSSCustomization.args = {
   label: "Custom ActionDropdown",

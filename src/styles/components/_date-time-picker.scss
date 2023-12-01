@@ -127,6 +127,10 @@
   --neeto-ui-time-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-time-input-prefix-suffix-size: 16px;
   --neeto-ui-time-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+
+  // Date Time Picker
+  --neeto-ui-date-time-picker-gap: -1px;
+  --neeto-ui-date-time-picker-border-radius: 0px;
 }
 
 .ant-picker.neeto-ui-date-input {
@@ -638,14 +642,19 @@
 // Date Time Picker
 
 .neeto-ui-date-time-input {
-  .neeto-ui-date-input{
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .neeto-ui-date-input {
+    border-top-right-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-bottom-right-radius: var(--neeto-ui-date-time-picker-border-radius);
   }
-  .neeto-ui-time-picker .react-time-picker__wrapper{
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-left: -1px;
+  .neeto-ui-time-picker .react-time-picker__wrapper {
+    border-top-left-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-bottom-left-radius: var(--neeto-ui-date-time-picker-border-radius);
+    margin-left: var(--neeto-ui-date-time-picker-gap);
   }
 }
 
@@ -670,4 +679,9 @@
   --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
   --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
   --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-success-500));
+}
+
+.neetix-datetimepicker {
+  --neeto-ui-date-time-picker-gap: 2px;
+  --neeto-ui-date-time-picker-border-radius: 4px;
 }

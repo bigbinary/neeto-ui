@@ -9,6 +9,9 @@
   --neeto-ui-time-input-padding-y: 0px;
   --neeto-ui-time-input-min-height: 0px;
 
+  // Clear Button
+  --neeto-ui-time-input-clear-btn-margin-left: 8px;
+
   // Focus Within
   --neeto-ui-time-input-focus-within-border-color: rgb(var(--neeto-ui-primary-500));
   --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
@@ -29,6 +32,10 @@
     color: var(--neeto-ui-time-input-color);
     padding: var(--neeto-ui-time-input-padding-y) var(--neeto-ui-time-input-padding-x);
     min-height: var(--neeto-ui-time-input-min-height);
+  }
+
+  .react-time-picker__clear-button {
+    margin-left: var(--neeto-ui-time-input-clear-btn-margin-left);
   }
 
   &:focus-within:not(.neeto-ui-time-picker--naked) {
