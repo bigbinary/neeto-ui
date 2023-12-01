@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -10,61 +10,76 @@ import Label from "components/Label";
 import { useId } from "hooks";
 import { convertToDayjsObjects, hyphenize } from "utils";
 
+import HoverIcon from "./HoverIcon";
+
 dayjs.extend(customParseFormat);
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
-const TimePickerInput = ({
-  className = "",
-  label,
-  labelProps,
-  size = INPUT_SIZES.medium,
-  nakedInput = false,
-  required = false,
-  value,
-  onChange,
-  error = "",
-  ...otherProps
-}) => {
-  const id = useId(otherProps.id);
-  const errorId = `error_${id}`;
+const TimePickerInput = forwardRef(
+  (
+    {
+      className = "",
+      label,
+      labelProps,
+      size = INPUT_SIZES.medium,
+      nakedInput = false,
+      required = false,
+      value,
+      onChange,
+      error = "",
+      ...otherProps
+    },
+    ref
+  ) => {
+    const [time, setTime] = useState(value);
+    const id = useId(otherProps.id);
+    const errorId = `error_${id}`;
+    useEffect(() => {
+      setTime(value);
+    }, [value]);
 
-  const handleChange = value => {
-    const date = dayjs(value, "HH:mm:ss");
-    onChange(date, value);
-  };
+    const handleChange = value => {
+      const date = dayjs(value, "HH:mm:ss");
+      setTime(value);
+      onChange(date, value);
+    };
 
-  return (
-    <div className="neeto-ui-input__wrapper">
-      {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-      <TimePicker
-        {...{ id, value }}
-        disableClock
-        clearIcon={null}
-        value={convertToDayjsObjects(value)?.toDate()}
-        className={classnames("neeto-ui-time-picker", [className], {
-          "neeto-ui-time-picker--small": size === "small",
-          "neeto-ui-time-picker--medium": size === "medium",
-          "neeto-ui-time-picker--large": size === "large",
-          "neeto-ui-time-picker--disabled": otherProps.disabled,
-          "neeto-ui-time-picker--naked": nakedInput,
-          "neeto-ui-time-picker--error": !!error,
-        })}
-        onChange={handleChange}
-        {...otherProps}
-      />
-      {!!error && (
-        <p
-          className="neeto-ui-input__error"
-          data-cy={`${hyphenize(label)}-input-error`}
-          id={errorId}
-        >
-          {error}
-        </p>
-      )}
-    </div>
-  );
-};
+    return (
+      <div {...{ ref }} className="neeto-ui-input__wrapper">
+        {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
+        <TimePicker
+          {...{ id }}
+          disableClock
+          clearIcon={<HoverIcon {...{ time }} />}
+          hourPlaceholder="HH"
+          minutePlaceholder="mm"
+          secondAriaLabel="ss"
+          value={convertToDayjsObjects(value)?.toDate()}
+          className={classnames("neeto-ui-time-picker", [className], {
+            "neeto-ui-time-picker--small": size === "small",
+            "neeto-ui-time-picker--medium": size === "medium",
+            "neeto-ui-time-picker--large": size === "large",
+            "neeto-ui-time-picker--disabled": otherProps.disabled,
+            "neeto-ui-time-picker--naked": nakedInput,
+            "neeto-ui-time-picker--error": !!error,
+          })}
+          onChange={handleChange}
+          {...otherProps}
+        />
+        {!!error && typeof error === "string" && (
+          <p
+            className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
+            id={errorId}
+          >
+            {error}
+          </p>
+        )}
+      </div>
+    );
+  }
+);
 
 TimePickerInput.displayName = "TimePicker";
 
@@ -112,7 +127,7 @@ TimePickerInput.propTypes = {
   /**
    * To specify the error message to be shown in the TimePicker.
    */
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /**
    * To specify whether the Date picker is required or not.
    */

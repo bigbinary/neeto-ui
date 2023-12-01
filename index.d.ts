@@ -1,3 +1,4 @@
+import { Dayjs } from "dayjs";
 import React from "react";
 
 export interface AccordionProps {
@@ -197,6 +198,22 @@ export type DatePickerProps = {
   error?: string;
   id?: string;
   disabled?: boolean;
+  labelProps?: LabelProps;
+  [key: string]: any;
+};
+
+export type DateTimePickerProps = {
+  value: any;
+  defaultValue?: any;
+  className?: string;
+  label?: string;
+  size?: "small" | "medium" | "large";
+  dropdownClassName?: string;
+  dateFormat?: string;
+  onChange?: (dateTime: Dayjs) => void;
+  nakedInput?: boolean;
+  error?: string;
+  id?: string;
   labelProps?: LabelProps;
   [key: string]: any;
 };
@@ -757,6 +774,7 @@ export const Button: React.FC<ButtonProps>;
 export const Callout: React.FC<CalloutProps>;
 export const Checkbox: React.FC<CheckboxProps>;
 export const DatePicker: React.FC<DatePickerProps>;
+export const DateTimePicker: React.FC<DateTimePickerProps>;
 export const Dropdown: React.FC<DropdownProps> & {
   Menu: React.FC<
     React.DetailedHTMLProps<
