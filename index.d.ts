@@ -416,9 +416,8 @@ export interface TableProps {
   enableColumnResize?: boolean;
   enableColumnReorder?: boolean;
   onColumnUpdate?: (columns: any[]) => void;
-  preserveTableStateInQuery?: boolean;
-  onColumnHide?: (columnKey: string) => void;
   [key: string]: any;
+  preserveTableStateInQuery?: boolean;
 }
 
 export interface TagProps {
@@ -535,7 +534,6 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
-  className?: string;
   [key: string]: any;
 }
 

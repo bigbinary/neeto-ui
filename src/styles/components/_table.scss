@@ -54,7 +54,10 @@
       }
 
       th.ant-table-cell.ant-table-column-has-sorters {
-        cursor: auto;
+        &:hover {
+          background-color: rgb(var(--neeto-ui-gray-100)) !important;
+          color: rgb(var(--neeto-ui-primary-800)) !important;
+        }
 
         .ant-table-column-sorters {
           .ant-table-column-sorter.ant-table-column-sorter-full {
