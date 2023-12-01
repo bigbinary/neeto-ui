@@ -60,9 +60,8 @@ const Button = React.forwardRef(
     }
 
     const handleClick = e => {
-      if (!loading && !disabled) {
-        onClick(e);
-      }
+      if (loading || disabled) return;
+      onClick(e);
     };
 
     const Icon =
@@ -78,8 +77,6 @@ const Button = React.forwardRef(
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
         <Parent
-          disabled={disabled}
-          ref={ref}
           className={classnames("neeto-ui-btn", [className], {
             "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
             "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
@@ -96,31 +93,28 @@ const Button = React.forwardRef(
             disabled,
           })}
           onClick={handleClick}
-          {...elementSpecificProps}
-          {...otherProps}
+          {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >
           {renderLabel && <span>{renderLabel}</span>}
-          <AnimatePresence mode="wait">
-            {icon ? (
-              /* When Icon is present, animate between the icon and the spinner*/
-              loading ? (
-                <Spinner
-                  aria-hidden="true"
-                  className="neeto-ui-btn__spinner"
-                  key="1"
-                  size={16}
-                />
-              ) : (
-                <Icon
-                  aria-hidden="true"
-                  className="neeto-ui-btn__icon"
-                  key="2"
-                  size={iconSize}
-                />
-              )
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {icon ? (
+            loading ? (
+              <Spinner
+                aria-hidden="true"
+                className="neeto-ui-btn__spinner"
+                size={16}
+              />
             ) : (
-              /* When Icon is not present, animate the margin from 0 to the needed value*/
-              loading && (
+              <Icon
+                aria-hidden="true"
+                className="neeto-ui-btn__icon"
+                size={iconSize}
+              />
+            )
+          ) : (
+            <AnimatePresence>
+              {/* When Icon is not present, animate the margin from 0 to the needed value*/}
+              {loading && (
                 <motion.div
                   animate={{ width: "auto", scale: 1 }}
                   className="neeto-ui-btn__spinner-wrapper"
@@ -135,9 +129,9 @@ const Button = React.forwardRef(
                     size={16}
                   />
                 </motion.div>
-              )
-            )}
-          </AnimatePresence>
+              )}
+            </AnimatePresence>
+          )}
         </Parent>
       </Tooltip>
     );
