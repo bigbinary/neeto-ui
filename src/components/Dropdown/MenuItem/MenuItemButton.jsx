@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
@@ -10,64 +10,70 @@ const ITEM_BTN_STYLES = { default: "default", danger: "danger" };
 
 const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
 
-const MenuItemButton = ({
-  children,
-  className,
-  isActive,
-  isDisabled,
-  style = ITEM_BTN_STYLES.default,
-  prefix,
-  suffix,
-  type = BUTTON_TYPES.button,
-  to = "",
-  href = "",
-  tooltipProps,
-  ...otherProps
-}) => {
-  let Parent, elementSpecificProps;
-  if (to) {
-    Parent = Link;
-    elementSpecificProps = { to };
-  } else if (href) {
-    Parent = "a";
-    elementSpecificProps = { href };
-  } else {
-    Parent = "button";
-    elementSpecificProps = { type };
-  }
+const MenuItemButton = forwardRef(
+  (
+    {
+      children,
+      className,
+      isActive,
+      isDisabled,
+      style = ITEM_BTN_STYLES.default,
+      prefix,
+      suffix,
+      type = BUTTON_TYPES.button,
+      to = "",
+      href = "",
+      tooltipProps,
+      ...otherProps
+    },
+    ref
+  ) => {
+    let Parent, elementSpecificProps;
+    if (to) {
+      Parent = Link;
+      elementSpecificProps = { to };
+    } else if (href) {
+      Parent = "a";
+      elementSpecificProps = { href };
+    } else {
+      Parent = "button";
+      elementSpecificProps = { type };
+    }
 
-  return (
-    <MenuItem {...{ tooltipProps }}>
-      <Parent
-        disabled={isDisabled}
-        className={classnames(
-          "neeto-ui-dropdown__popup-menu-item-btn",
-          className,
-          {
-            "neeto-ui-dropdown__popup-menu-item-btn--active": isActive,
-            "neeto-ui-dropdown__popup-menu-item-btn--disabled": isDisabled,
-            "neeto-ui-dropdown__popup-menu-item-btn--style-danger":
-              style === ITEM_BTN_STYLES.danger,
-          }
-        )}
-        {...otherProps}
-        {...elementSpecificProps}
-      >
-        {prefix && (
-          <div className="neeto-ui-dropdown__popup-menu-item-btn__prefix">
-            {prefix}
-          </div>
-        )}
-        {children}
-        {suffix && (
-          <div className="neeto-ui-dropdown__popup-menu-item-btn__suffix">
-            {suffix}
-          </div>
-        )}
-      </Parent>
-    </MenuItem>
-  );
-};
+    return (
+      <MenuItem {...{ tooltipProps }}>
+        <Parent
+          disabled={isDisabled}
+          className={classnames(
+            "neeto-ui-dropdown__popup-menu-item-btn",
+            className,
+            {
+              "neeto-ui-dropdown__popup-menu-item-btn--active": isActive,
+              "neeto-ui-dropdown__popup-menu-item-btn--disabled": isDisabled,
+              "neeto-ui-dropdown__popup-menu-item-btn--style-danger":
+                style === ITEM_BTN_STYLES.danger,
+            }
+          )}
+          {...{ ref, ...otherProps, ...elementSpecificProps }}
+        >
+          {prefix && (
+            <div className="neeto-ui-dropdown__popup-menu-item-btn__prefix">
+              {prefix}
+            </div>
+          )}
+          {children}
+          {suffix && (
+            <div className="neeto-ui-dropdown__popup-menu-item-btn__suffix">
+              {suffix}
+            </div>
+          )}
+        </Parent>
+      </MenuItem>
+    );
+  }
+);
+
+MenuItemButton.displayName = "MenuItemButton";
 
 MenuItemButton.propTypes = {
   /**

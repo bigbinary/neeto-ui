@@ -1,3 +1,4 @@
+import { Dayjs } from "dayjs";
 import React from "react";
 
 export interface AccordionProps {
@@ -201,6 +202,22 @@ export type DatePickerProps = {
   [key: string]: any;
 };
 
+export type DateTimePickerProps = {
+  value: any;
+  defaultValue?: any;
+  className?: string;
+  label?: string;
+  size?: "small" | "medium" | "large";
+  dropdownClassName?: string;
+  dateFormat?: string;
+  onChange?: (dateTime: Dayjs) => void;
+  nakedInput?: boolean;
+  error?: string;
+  id?: string;
+  labelProps?: LabelProps;
+  [key: string]: any;
+};
+
 export interface DropdownProps {
   icon?: string | any;
   label?: React.ReactNode;
@@ -399,8 +416,9 @@ export interface TableProps {
   enableColumnResize?: boolean;
   enableColumnReorder?: boolean;
   onColumnUpdate?: (columns: any[]) => void;
-  [key: string]: any;
   preserveTableStateInQuery?: boolean;
+  onColumnHide?: (columnKey: string) => void;
+  [key: string]: any;
 }
 
 export interface TagProps {
@@ -517,6 +535,7 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  className?: string;
   [key: string]: any;
 }
 
@@ -755,6 +774,7 @@ export const Button: React.FC<ButtonProps>;
 export const Callout: React.FC<CalloutProps>;
 export const Checkbox: React.FC<CheckboxProps>;
 export const DatePicker: React.FC<DatePickerProps>;
+export const DateTimePicker: React.FC<DateTimePickerProps>;
 export const Dropdown: React.FC<DropdownProps> & {
   Menu: React.FC<
     React.DetailedHTMLProps<

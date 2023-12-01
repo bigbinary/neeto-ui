@@ -53,6 +53,10 @@
           }
         }
 
+        th.ant-table-cell.ant-table-column-has-sorters {
+          cursor: auto;
+        }
+
         [data-text-align="center"] {
           .ant-table-column-sorters {
             justify-content: center !important;

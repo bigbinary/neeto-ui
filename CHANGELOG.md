@@ -37,6 +37,10 @@ Each change is prefixed with one of these keywords::
 - Removed: Removed unused components and styles.
 - Fixed: Fixed _TimePicker_ component dark mode issue.
 
+## 5.2.42 - 2023-11-30
+
+Added: DateTimePicker component
+
 ## 5.2.41 - 2023-11-24
 
 Previously onBlur was causing a redundant onChange call. Now onChange will be called only if the value contains leading or trailing whitespaces.
@@ -807,7 +811,6 @@ Changes documentations to sentence case from title casing.
 - Added border on the right side
 - Updated `padding-top` and `padding-bottom` to `24px`
 ### Functionality changes 🛠️
-
 #### Input
 
 - Changed: `maxlength` prop logic to allow typing characters beyond the
