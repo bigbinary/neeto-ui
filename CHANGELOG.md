@@ -24,6 +24,10 @@ Each change is prefixed with one of these keywords::
 - _Fixed_: Denotes bug fixes.
 - _Security_: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.45 - 2023-12-01
+
+Fixed: Loading indicator with icon issue in `Button`
+
 ## 5.2.42 - 2023-11-30
 
 Added: DateTimePicker component
