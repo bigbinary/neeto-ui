@@ -12,9 +12,14 @@ import { useQueryParams, useTimeout } from "hooks";
 import { noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
-import useColumns from "./hooks/useColumns";
+import {
+  ResizableHeaderCell,
+  ReorderableHeaderCell,
+  HeaderCell,
+} from "./HeaderCell";
+import useReorderColumns from "./hooks/useReorderColumns";
+import useResizableColumns from "./hooks/useResizableColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -46,19 +51,15 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
-  onColumnHide,
-  onChange,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
-  const [sortedInfo, setSortedInfo] = useState({});
 
   const isPageChangeHandlerDefault = handlePageChange === noop;
 
   const headerRef = useRef();
-  const tableOnChangeProps = useRef({});
 
   const resizeObserver = useRef(
     new ResizeObserver(
@@ -89,23 +90,22 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
-  const { handleTableChange: handleTableSortChange } = useTableSort();
-
-  const { dragProps, columns: curatedColumnsData } = useColumns({
-    isReorderEnabled: enableColumnReorder,
-    isResizeEnabled: enableColumnResize,
+  const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
+    isEnabled: enableColumnReorder,
     columns,
     setColumns,
     onColumnUpdate,
     rowSelection,
-    sortedInfo,
-    setSortedInfo,
-    onColumnHide,
-    onTableChange: onChange,
-    tableOnChangeProps,
-    handleTableSortChange,
-    isPageChangeHandlerDefault,
   });
+
+  const { columns: curatedColumnsData } = useResizableColumns({
+    isEnabled: enableColumnResize,
+    columns: columnsWithReorderProps,
+    setColumns,
+    onColumnUpdate,
+  });
+
+  const { handleTableChange } = useTableSort();
 
   const queryParams = useQueryParams();
 
@@ -147,18 +147,19 @@ const Table = ({
     };
   }
 
-  // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
-  const handleTableChange = (pagination, filters, sorter, extras) => {
-    setSortedInfo(sorter);
-    isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
-    onChange?.(pagination, filters, sorter, extras);
-    tableOnChangeProps.current = { pagination, filters };
+  const reordableHeader = {
+    header: {
+      cell: enableColumnResize
+        ? enableColumnReorder
+          ? HeaderCell
+          : ResizableHeaderCell
+        : enableColumnReorder
+        ? ReorderableHeaderCell
+        : null,
+    },
   };
 
-  const componentOverrides = {
-    ...components,
-    header: getHeaderCell({ enableColumnResize, enableColumnReorder }),
-  };
+  const componentOverrides = { ...components, ...reordableHeader };
 
   const calculateTableContainerHeight = () =>
     containerHeight -
@@ -239,7 +240,9 @@ const Table = ({
         y: calculateTableContainerHeight(),
         ...scroll,
       }}
-      onChange={handleTableChange}
+      onChange={(pagination, _, sorter) => {
+        isPageChangeHandlerDefault && handleTableChange(pagination, sorter);
+      }}
       onHeaderRow={() => ({
         ref: headerRef,
         className: classnames("neeto-ui-table__header", {
