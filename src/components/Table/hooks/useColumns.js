@@ -43,7 +43,7 @@ const useColumns = ({
     onTableChange?.(
       tableOnChangeProps.current?.pagination || {},
       tableOnChangeProps.current?.filters || {},
-      newSortedInfo
+      { ...newSortedInfo }
     );
   };
 

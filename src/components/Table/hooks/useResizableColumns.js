@@ -40,7 +40,9 @@ const useResizableColumns = ({
           }),
           sortIcon: SortIcon,
           sortOrder:
-            sortedInfo.field === col.dataIndex ? sortedInfo.order : null,
+            sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
+              ? sortedInfo.order
+              : null,
         };
 
         if (!col.ellipsis) {
