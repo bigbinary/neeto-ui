@@ -38,7 +38,7 @@ const Avatar = ({
       "neeto-ui-avatar__container--large": isLarge,
       "neeto-ui-avatar__container--xlarge": isExtraLarge,
     },
-    [className]
+    className
   );
 
   const imageClasses = classNames("neeto-ui-avatar", {
@@ -72,17 +72,17 @@ const Avatar = ({
       {...tooltipProps}
     >
       <span
+        {...{ onClick }}
         className={containerClasses}
         data-testid="avatar"
-        onClick={onClick}
         {...otherProps}
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
           <FallbackAvatar
+            {...{ name }}
             className="neeto-ui-avatar__svg"
             colors={COLOR_PALLETE}
-            name={name}
             size={SIZE[size]}
             variant={AVATAR_VARIANT}
           />

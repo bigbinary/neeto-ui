@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "6.0.0-beta",
+  "version": "5.2.44",
   "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
@@ -152,6 +152,7 @@
     "react-select": "5.6.0",
     "react-time-picker": "^6.5.2",
     "react-toastify": "9.0.1",
+    "rfs": "^10.0.0",
     "rollup": "^2.73.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-styles": "^4.0.0",
@@ -202,8 +203,5 @@
   "bugs": {
     "url": "https://github.com/bigbinary/neeto-ui/issues"
   },
-  "homepage": "https://neeto-ui.neeto.com",
-  "dependencies": {
-    "rfs": "^10.0.0"
-  }
+  "homepage": "https://neeto-ui.neeto.com"
 }

@@ -24,43 +24,33 @@ Each change is prefixed with one of these keywords::
 - _Fixed_: Denotes bug fixes.
 - _Security_: Pertains to actions taken in response to vulnerabilities.
 
-## 6.0.0 - 2023-12-18
-
-- Changed: Enhanced the customizability of all the components by allowing users
-  to easily override the default styles.
-- Added: Added CSS customization storybook example for all the components.
-- Changed: Updated _Typography_ component to be responsive using
-  [RFS](https://github.com/twbs/rfs/tree/v9.0.3).
-- Changed: Updated components using Ant Design to CSS-in-JS approach with
-  improved dark mode support.
-- Removed: Removed Ant Design vendor styles in favor of CSS-in-JS approach.
-- Removed: Removed unused components and styles.
-- Fixed: Fixed _TimePicker_ component dark mode issue.
-
 ## 5.2.42 - 2023-11-30
 
 Added: DateTimePicker component
 
 ## 5.2.41 - 2023-11-24
 
-Previously onBlur was causing a redundant onChange call. Now onChange will be called only if the value contains leading or trailing whitespaces.
+Previously onBlur was causing a redundant onChange call. Now onChange will be
+called only if the value contains leading or trailing whitespaces.
 
 ## 5.2.40 - 2023-11-23
 
-- Updated the multi select component to not show the `Add` button when no options are selected.
+- Updated the multi select component to not show the `Add` button when no
+  options are selected.
 - Changed the type of the `Add` button from `primary` to `secondary`.
 
 ## 5.2.38 - 2023-11-23
 
-- Updates the logic to calculate table height without considering the pagination height when pagination is set to false
+- Updates the logic to calculate table height without considering the pagination
+  height when pagination is set to false
 
 ## 5.2.37 - 2023-11-22
 
-Added:  `hideCancelButton` prop to **Alert** component.
+Added: `hideCancelButton` prop to **Alert** component.
 
 ## 5.2.36 - 2023-11-22
 
-- Fixed: `undefined` options issue in *Select*
+- Fixed: `undefined` options issue in _Select_
 
 ## 5.2.35 - 2023-11-22
 
@@ -76,16 +66,17 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 
 ## 5.2.32 - 2023-11-15
 
-- Updated pagination URL param handling in the *Table*.
-- Implemented pagination URL param handling in the *Pagination* component.
+- Updated pagination URL param handling in the _Table_.
+- Implemented pagination URL param handling in the _Pagination_ component.
 
 ## 5.2.31 - 2023-11-15
 
-- Allowed the component to use its internal state even when the `onChange` prop is passed.
+- Allowed the component to use its internal state even when the `onChange` prop
+  is passed.
 
 ## 5.2.29 - 2023-11-13
 
-Added: `Add` button in *Select*
+Added: `Add` button in _Select_
 
 ## 5.2.28 - 2023-11-08
 
