@@ -89,6 +89,8 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
+  const { handleTableChange: handleTableSortChange } = useTableSort();
+
   const { dragProps, columns: curatedColumnsData } = useColumns({
     isReorderEnabled: enableColumnReorder,
     isResizeEnabled: enableColumnResize,
@@ -101,9 +103,9 @@ const Table = ({
     onColumnHide,
     onTableChange: onChange,
     tableOnChangeProps,
+    handleTableSortChange,
+    isPageChangeHandlerDefault,
   });
-
-  const { handleTableChange: handleTableSortChange } = useTableSort();
 
   const queryParams = useQueryParams();
 

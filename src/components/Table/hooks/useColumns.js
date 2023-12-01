@@ -15,6 +15,8 @@ const useColumns = ({
   onColumnHide,
   onTableChange,
   tableOnChangeProps,
+  handleTableSortChange,
+  isPageChangeHandlerDefault,
 }) => {
   const { dragProps } = useReorderColumns({
     isEnabled: isReorderEnabled,
@@ -45,6 +47,12 @@ const useColumns = ({
       tableOnChangeProps.current?.filters || {},
       { ...newSortedInfo }
     );
+
+    isPageChangeHandlerDefault &&
+      handleTableSortChange(
+        tableOnChangeProps.current?.pagination || {},
+        newSortedInfo
+      );
   };
 
   const { columns: computedColumnsData } = useResizableColumns({
