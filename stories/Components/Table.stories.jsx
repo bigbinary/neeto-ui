@@ -464,7 +464,7 @@ const CSSCustomization = args => {
 
   return (
     <div className="neetix-table">
-      <NeetoTable
+      <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
