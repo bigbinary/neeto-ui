@@ -16,7 +16,7 @@ const useColumns = ({
   onTableChange,
   tableOnChangeProps,
   handleTableSortChange,
-  isPageChangeHandlerDefault,
+  isDefaultPageChangeHandler,
 }) => {
   const { dragProps } = useReorderColumns({
     isEnabled: isReorderEnabled,
@@ -48,7 +48,7 @@ const useColumns = ({
       { ...newSortedInfo }
     );
 
-    isPageChangeHandlerDefault &&
+    isDefaultPageChangeHandler &&
       handleTableSortChange(
         tableOnChangeProps.current?.pagination || {},
         newSortedInfo

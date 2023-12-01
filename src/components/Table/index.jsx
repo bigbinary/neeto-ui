@@ -5,11 +5,12 @@ import classnames from "classnames";
 import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc } from "ramda";
+import { assoc, isEmpty, mergeLeft } from "ramda";
 import ReactDragListView from "react-drag-listview";
+import { useHistory } from "react-router-dom";
 
 import { useQueryParams, useTimeout } from "hooks";
-import { noop } from "utils";
+import { buildUrl, noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
@@ -55,29 +56,30 @@ const Table = ({
   const [columns, setColumns] = useState(columnData);
   const [sortedInfo, setSortedInfo] = useState({});
 
-  const isPageChangeHandlerDefault = handlePageChange === noop;
+  const history = useHistory();
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
 
   const resizeObserver = useRef(
-    new ResizeObserver(
-      ([
-        {
-          contentRect: { height },
-        },
-      ]) => setContainerHeight(height)
+    new ResizeObserver(([entry]) =>
+      setContainerHeight(entry.contentRect.height)
     )
   );
+
+  const isDefaultPageChangeHandler = handlePageChange === noop;
 
   const tableRef = useCallback(
     table => {
       if (!fixedHeight) return;
 
       const observer = resizeObserver.current;
+
       if (table !== null) {
         observer.observe(table?.parentNode);
-      } else if (observer) observer.disconnect();
+      } else if (observer) {
+        observer.disconnect();
+      }
     },
     [resizeObserver.current, fixedHeight]
   );
@@ -86,6 +88,7 @@ const Table = ({
     const headerHeight = headerRef.current
       ? headerRef.current.offsetHeight
       : TABLE_DEFAULT_HEADER_HEIGHT;
+
     setHeaderHeight(headerHeight);
   }, 10);
 
@@ -104,7 +107,7 @@ const Table = ({
     onTableChange: onChange,
     tableOnChangeProps,
     handleTableSortChange,
-    isPageChangeHandlerDefault,
+    isDefaultPageChangeHandler,
   });
 
   const queryParams = useQueryParams();
@@ -116,41 +119,34 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = isPageChangeHandlerDefault
+  const sortedColumns = isDefaultPageChangeHandler
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
-  const locale = {
-    emptyText: <Typography style="body2">No Data</Typography>,
-  };
+  const locale = { emptyText: <Typography style="body2">No Data</Typography> };
 
   const sortedColumnsWithAlignment = sortedColumns.map(sortedColumn => ({
     ...sortedColumn,
-    onHeaderCell: column => {
-      const col = sortedColumn.onHeaderCell?.(column);
-
-      return { ...col, "data-text-align": column.align };
-    },
+    onHeaderCell: column => ({
+      ...sortedColumn.onHeaderCell?.(column),
+      "data-text-align": column.align,
+    }),
   }));
 
-  const isPaginationVisible =
-    otherProps.pagination !== false && rowData.length > defaultPageSize;
-
-  let rowSelectionProps = false;
-  if (rowSelection) {
-    rowSelectionProps = {
-      type: "checkbox",
-      ...rowSelection,
-      onChange: (selectedRowKeys, selectedRows) =>
-        onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
-      selectedRowKeys,
-    };
-  }
+  const rowSelectionProps = rowSelection
+    ? {
+        type: "checkbox",
+        ...rowSelection,
+        onChange: (selectedRowKeys, selectedRows) =>
+          onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
+        selectedRowKeys,
+      }
+    : false;
 
   // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
   const handleTableChange = (pagination, filters, sorter, extras) => {
     setSortedInfo(sorter);
-    isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
+    isDefaultPageChangeHandler && handleTableSortChange(pagination, sorter);
     onChange?.(pagination, filters, sorter, extras);
     tableOnChangeProps.current = { pagination, filters };
   };
@@ -158,35 +154,6 @@ const Table = ({
   const componentOverrides = {
     ...components,
     header: getHeaderCell({ enableColumnResize, enableColumnReorder }),
-  };
-
-  const calculateTableContainerHeight = () =>
-    containerHeight -
-    headerHeight -
-    (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0);
-
-  const itemRender = (_, type, originalElement) => {
-    if (type === "prev") {
-      return <Button className="" icon={Left} size="small" style="text" />;
-    }
-
-    if (type === "next") {
-      return <Button className="" icon={Right} size="small" style="text" />;
-    }
-
-    if (type === "jump-prev") {
-      return (
-        <Button className="" icon={MenuHorizontal} size="small" style="text" />
-      );
-    }
-
-    if (type === "jump-next") {
-      return (
-        <Button className="" icon={MenuHorizontal} size="small" style="text" />
-      );
-    }
-
-    return originalElement;
   };
 
   const calculateRowsPerPage = () => {
@@ -198,13 +165,54 @@ const Table = ({
     return Math.ceil(rowsPerPage / 10) * 10;
   };
 
-  const calculatePageSizeOptions = () => {
-    const rowsPerPage = shouldDynamicallyRenderRowSize
-      ? calculateRowsPerPage()
-      : defaultPageSize;
+  const pageSize = shouldDynamicallyRenderRowSize
+    ? calculateRowsPerPage()
+    : defaultPageSize;
 
-    return dynamicArray(5, index => (index + 1) * rowsPerPage);
+  const calculateTableContainerHeight = () => {
+    const isPaginationVisible =
+      otherProps.pagination !== false && rowData.length > pageSize;
+
+    return (
+      containerHeight -
+      headerHeight -
+      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0)
+    );
   };
+
+  const itemRender = (_, type, originalElement) => {
+    const commonProps = { size: "small", style: "text" };
+
+    if (type === "prev") return <Button icon={Left} {...commonProps} />;
+
+    if (type === "next") return <Button icon={Right} {...commonProps} />;
+
+    if (type === "jump-prev" || type === "jump-next") {
+      return <Button icon={MenuHorizontal} {...commonProps} />;
+    }
+
+    return originalElement;
+  };
+
+  const calculatePageSizeOptions = () =>
+    dynamicArray(5, index => (index + 1) * pageSize);
+
+  useEffect(() => {
+    const shouldNavigateToLastPage =
+      isEmpty(rowData) && !loading && currentPageNumber !== 1;
+
+    if (!shouldNavigateToLastPage) return;
+
+    const lastPage = Math.ceil(totalCount / pageSize);
+    const page = Math.max(1, lastPage);
+    const pathname = window.location.pathname;
+
+    isDefaultPageChangeHandler
+      ? history.push(buildUrl(pathname, mergeLeft({ page }, queryParams)))
+      : handlePageChange(page, pageSize);
+  }, [rowData]);
+
+  useEffect(() => setColumns(columnData), [columnData]);
 
   const renderTable = () => (
     <AntTable
@@ -222,9 +230,7 @@ const Table = ({
         showSizeChanger: false,
         total: totalCount ?? 0,
         current: currentPageNumber,
-        defaultPageSize: shouldDynamicallyRenderRowSize
-          ? calculateRowsPerPage()
-          : defaultPageSize,
+        defaultPageSize: pageSize,
         pageSizeOptions: calculatePageSizeOptions(),
         onChange: handlePageChange,
         itemRender,
@@ -255,19 +261,13 @@ const Table = ({
     />
   );
 
-  useEffect(() => {
-    setColumns(columnData);
-  }, [columnData]);
-
-  if (enableColumnReorder) {
-    return (
-      <ReactDragListView.DragColumn {...dragProps}>
-        {renderTable()}
-      </ReactDragListView.DragColumn>
-    );
-  }
-
-  return renderTable();
+  return enableColumnReorder ? (
+    <ReactDragListView.DragColumn {...dragProps}>
+      {renderTable()}
+    </ReactDragListView.DragColumn>
+  ) : (
+    renderTable()
+  );
 };
 
 Table.propTypes = {
