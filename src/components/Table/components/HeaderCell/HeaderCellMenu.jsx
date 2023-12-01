@@ -22,6 +22,7 @@ const HeaderCellMenu = ({
   return (
     <div onClick={event => event.stopPropagation()}>
       <Dropdown
+        appendTo={() => document.body}
         className="flex"
         icon={MenuHorizontal}
         strategy="fixed"
@@ -43,7 +44,7 @@ const HeaderCellMenu = ({
                   onSort({
                     column,
                     columnKey: column.key,
-                    field: column.dataIndex,
+                    field: column.dataIndex || column.key,
                     order: TABLE_SORT_ORDERS.asc,
                   })
                 }
