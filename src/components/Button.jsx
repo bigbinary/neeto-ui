@@ -60,7 +60,7 @@ const Button = React.forwardRef(
     }
 
     const handleClick = e => {
-      if (!(!loading && !disabled)) return;
+      if (loading || disabled) return;
       onClick(e);
     };
 
