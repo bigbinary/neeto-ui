@@ -30,6 +30,7 @@ const HeaderCellMenu = ({
           className: "min-h-0 flex-shrink-0",
           style: "text",
           size: "medium",
+          "data-testid": "column-menu-button",
         }}
       >
         <Menu

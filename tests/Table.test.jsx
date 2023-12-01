@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
@@ -153,7 +153,7 @@ describe("Table", () => {
     await userEvent.click(pages[2]);
     const queryParams = getQueryParams();
 
-    expect(queryParams).toEqual({ page: "2" });
+    expect(queryParams).toEqual({ page: "2", sort_by: "" });
   });
 
   it("should set sorting URL query parameters when column title is clicked", async () => {
@@ -165,11 +165,15 @@ describe("Table", () => {
       />
     );
     const column = screen.getByText("Last Name");
-    await userEvent.click(column);
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Ascending")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Ascending"));
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({
-      page: "1",
       sort_by: "last_name",
       order_by: "asc",
     });
