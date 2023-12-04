@@ -45,7 +45,7 @@ const Item = ({
           "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
           { "neeto-ui-accordion__item--open": isOpen }
         )}
-        onKeyDown={e => onKeyDown(e)}
+        onKeyDown={onKeyDown}
       >
         <div
           {...titleProps}
