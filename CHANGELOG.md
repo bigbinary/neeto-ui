@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 5.2.46 - 2023-12-04
+
+- Added: Logic to handle pagination when the last item from the last page is deleted and when applying filters.
+
 ## 5.2.45 - 2023-12-01
 
 Fixed: Loading indicator with icon issue in `Button`
@@ -782,7 +786,6 @@ Changes documentations to sentence case from title casing.
 ### Functionality changes 🛠️
 #### Input
 - Changed: `maxlength` prop logic to allow typing characters beyond the specified maxlength. The character count will be shown only when the input length reaches 90% of maxlength and changes the state to error when input exceeds the maxlength
-
 #### TextArea
 
 - Changed: `maxlength` prop logic to allow typing characters beyond the specified maxlength. Character count will be shown only when the input length reaches 90% of maxlength and changes the state to error when input exceeds the maxlength
