@@ -1,3 +1,32 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-checkbox-size: 16px;
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-checkbox-border-width: 2px;
+  --neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-checkbox-border-radius: var(--neeto-ui-rounded-sm);
+
+  // Disabled
+  --neeto-ui-checkbox-disabled-opacity: 0.5;
+
+  // Hover
+  --neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+  // Focus
+  --neeto-ui-checkbox-focus-outline: transparent;
+  --neeto-ui-checkbox-focus-outline-offset: 0px;
+
+  // Focus Visible
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-checkbox-focus-visible-outline-offset: 1px;
+  --neeto-ui-checkbox-focus-visible-box-shadow: none;
+
+  // Checked
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Margin
+  --neeto-ui-checkbox-label-margin: 8px;
+}
+
 .neeto-ui-checkbox__wrapper {
   display: flex;
   flex-direction: column;
@@ -12,41 +41,43 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 8px;
+      margin-left: var(--neeto-ui-checkbox-label-margin);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      color: rgb(var(--neeto-ui-primary-500));
-      border: 2px solid rgb(var(--neeto-ui-gray-400));
-      border-radius: var(--neeto-ui-rounded-sm);
+      width: var(--neeto-ui-checkbox-size);
+      height: var(--neeto-ui-checkbox-size);
+      color: var(--neeto-ui-checkbox-color);
+      border: var(--neeto-ui-checkbox-border-width) solid var(--neeto-ui-checkbox-border-color);
+      border-radius: var(--neeto-ui-checkbox-border-radius);
 
       &:not(:disabled) {
         cursor: pointer;
       }
 
       &:hover:not(:disabled, :checked) {
-        border-color: rgb(var(--neeto-ui-gray-500));
+        border-color: var(--neeto-ui-checkbox-hover-border-color);
       }
 
       &:checked {
-        border: none !important;
+        border-color: var(--neeto-ui-checkbox-checked-border-color);
+        background-size: calc(var(--neeto-ui-checkbox-size) * 0.6875) calc(var(--neeto-ui-checkbox-size) / 2);
       }
 
       &:disabled {
-        opacity: 0.5;
+        opacity: var(--neeto-ui-checkbox-disabled-opacity);
         cursor: not-allowed;
       }
 
       &:focus {
-        outline: transparent;
+        outline: var(--neeto-ui-checkbox-focus-outline);
+        outline-offset: var(--neeto-ui-checkbox-focus-outline-offset);
       }
 
       &:focus-visible {
-        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-        outline-offset: 1px;
-        box-shadow: none;
+        outline: var(--neeto-ui-checkbox-focus-visible-outline);
+        outline-offset: var(--neeto-ui-checkbox-focus-visible-outline-offset);
+        box-shadow: var(--neeto-ui-checkbox-focus-visible-box-shadow);
       }
     }
   }
@@ -54,16 +85,16 @@
 
 // ant design checkbox override
 
-.ant-checkbox{
-  width: 16px;
-  height: 16px;
+.ant-checkbox {
+  width: var(--neeto-ui-checkbox-size);
+  height: var(--neeto-ui-checkbox-size);
 
   [type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    color: rgb(var(--neeto-ui-primary-500));
-    border: 2px solid rgb(var(--neeto-ui-gray-400));
-    border-radius: var(--neeto-ui-rounded-sm);
+    width: var(--neeto-ui-checkbox-size);
+    height: var(--neeto-ui-checkbox-size);
+    color: var(--neeto-ui-checkbox-color);
+    border: var(--neeto-ui-checkbox-border-width) solid var(--neeto-ui-checkbox-border-color);
+    border-radius: var(--neeto-ui-checkbox-border-radius);
     opacity: 1;
 
     &:not(:disabled) {
@@ -71,32 +102,38 @@
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: rgb(var(--neeto-ui-gray-500));
+      border-color: var(--neeto-ui-checkbox-hover-border-color);
     }
 
     &:checked {
-      border: none !important;
+      border-color: var(--neeto-ui-checkbox-checked-border-color);
+      background-size: calc(var(--neeto-ui-checkbox-size) * 0.6875);
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: var(--neeto-ui-checkbox-disabled-opacity);
       cursor: not-allowed;
     }
 
     &:focus {
-      outline: transparent;
+      outline: var(--neeto-ui-checkbox-focus-outline);
+      outline-offset: var(--neeto-ui-checkbox-focus-outline-offset);
     }
 
     &:focus-visible {
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
+      outline: var(--neeto-ui-checkbox-focus-visible-outline);
+      outline-offset: var(--neeto-ui-checkbox-focus-visible-outline-offset);
+      box-shadow: var(--neeto-ui-checkbox-focus-visible-box-shadow);
     }
   }
-  .ant-checkbox-inner{
+
+  .ant-checkbox-inner {
     display: none;
   }
 }
 
-
-
+.neetix-checkbox {
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-gray-800), 50%);
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-gray-800));
+}

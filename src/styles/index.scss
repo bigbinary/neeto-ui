@@ -1,4 +1,5 @@
 //Abstracts
+@import "~rfs/scss";
 @import "./abstracts/mixins";
 @import "./abstracts/normalize";
 @import "./abstracts/variables";
@@ -13,15 +14,6 @@
 @import "./utilities/helpers";
 @import "./utilities/utilities";
 
-//Ant Components
-@import "./vendors/ant-animations";
-@import "./vendors/ant-spin";
-@import "./vendors/antd-buttons";
-@import "./vendors/antd-date-picker";
-@import "./vendors/antd-table";
-@import "./vendors/antd-pagination";
-@import "./vendors/antd-select";
-
 //Components
 @import "./components/accordion";
 @import "./components/action-dropdown";
@@ -30,7 +22,7 @@
 @import "./components/callout";
 @import "./components/checkbox";
 @import "./components/color-picker";
-@import "./components/common";
+@import "./components/label";
 @import "./components/date-time-picker";
 @import "./components/dropdown";
 @import "./components/input";
@@ -41,7 +33,7 @@
 @import "./components/select";
 @import "./components/switch";
 @import "./components/tab";
-@import "./components/table";
+@import "./components/table-overrides";
 @import "./components/tag";
 @import "./components/tooltip";
 @import "./components/spinner";
@@ -58,10 +50,6 @@
 
 //Layouts
 @import "./layout/common";
-@import "./layout/sidebar";
 
 //Tooltip animations
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";
-
-// // AntDesign date picker
-// @import "antd/dist/antd.css";

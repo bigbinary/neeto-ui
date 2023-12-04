@@ -1,8 +1,9 @@
 import React from "react";
+
 import classnames from "classnames";
 import { Resizable } from "react-resizable";
 
-const HeaderCell = (props) => {
+const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;
 
   if (!width) {
@@ -11,24 +12,22 @@ const HeaderCell = (props) => {
 
   return (
     <Resizable
-      width={width}
+      {...{ onResize, onResizeStop, width }}
+      draggableOpts={{ enableUserSelectHack: false }}
       height={0}
       handle={
         <span
           className="react-resizable-handle"
-          onClick={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
         />
       }
-      onResize={onResize}
-      onResizeStop={onResizeStop}
-      draggableOpts={{ enableUserSelectHack: false }}
     >
       <th {...restProps} className={classnames(className, "drag-handler")} />
     </Resizable>
   );
 };
 
-const ResizableHeaderCell = (props) => {
+const ResizableHeaderCell = props => {
   const { onResize, width, onResizeStop, ...restProps } = props;
 
   if (!width) {
@@ -37,25 +36,23 @@ const ResizableHeaderCell = (props) => {
 
   return (
     <Resizable
-      width={width}
+      {...{ onResize, onResizeStop, width }}
+      draggableOpts={{ enableUserSelectHack: false }}
       height={0}
       handle={
         <span
           className="react-resizable-handle"
-          onClick={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
         />
       }
-      onResize={onResize}
-      onResizeStop={onResizeStop}
-      draggableOpts={{ enableUserSelectHack: false }}
     >
       <th {...restProps} />
     </Resizable>
   );
 };
 
-const ReorderableHeaderCell = (props) => {
-  return <th {...props} className="drag-handler" />;
-};
+const ReorderableHeaderCell = props => (
+  <th {...props} className="drag-handler" />
+);
 
 export { ResizableHeaderCell, ReorderableHeaderCell, HeaderCell };

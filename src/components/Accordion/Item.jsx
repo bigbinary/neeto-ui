@@ -16,75 +16,63 @@ const Item = ({
   className = "",
   titleProps = {},
   iconProps = {},
-}) => (
-  <div
-    className={classnames("neeto-ui-accordion__wrapper", {
-      [className]: className,
-    })}
-  >
+}) => {
+  const onKeyDown = e => {
+    switch (e.key) {
+      case " ":
+      case "Enter":
+        onClick();
+        break;
+      default:
+    }
+  };
+
+  return (
     <div
-      aria-controls={`neeto-ui-accordion-section-${id}`}
-      aria-disabled={isOpen}
-      aria-expanded={isOpen}
-      id={`neeto-ui-accordion-item-${id}`}
-      role="button"
-      tabIndex={0}
-      className={classnames(
-        "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
-        {
-          "neeto-ui-accordion__item--open": isOpen,
-        }
-      )}
-      onClick={onClick}
-      onKeyDown={e => {
-        switch (e.key) {
-          case " ":
-          case "Enter":
-            onClick();
-            break;
-          default:
-        }
-      }}
+      className={classnames("neeto-ui-accordion__wrapper", {
+        [className]: className,
+      })}
     >
       <div
-        {...titleProps}
+        {...{ onClick, onKeyDown }}
+        aria-controls={`neeto-ui-accordion-section-${id}`}
+        aria-disabled={isOpen}
+        aria-expanded={isOpen}
+        id={`neeto-ui-accordion-item-${id}`}
+        role="button"
+        tabIndex={0}
         className={classnames(
-          "neeto-ui-accordion__item-handle neeto-ui-flex neeto-ui-flex-grow neeto-ui-items-center neeto-ui-break-words",
-          {
-            "neeto-ui-text-gray-700": !isOpen,
-            "neeto-ui-text-gray-800": isOpen,
-          }
+          "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
+          { "neeto-ui-accordion__item--open": isOpen }
         )}
       >
-        {title}
+        <div
+          {...titleProps}
+          className="neeto-ui-accordion__item-handle neeto-ui-flex neeto-ui-flex-grow neeto-ui-items-center neeto-ui-break-words"
+        >
+          {title}
+        </div>
+        <motion.div
+          animate={isOpen ? "open" : "collapsed"}
+          className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
+          transition={{ duration: 0.3 }}
+          variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
+        >
+          <Right size={16} {...iconProps} />
+        </motion.div>
       </div>
-      <motion.div
-        animate={isOpen ? "open" : "collapsed"}
-        className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
-        transition={{ duration: 0.3 }}
-        variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
+      <Collapse
+        aria-labelledby={`neeto-ui-accordion-item-${id}`}
+        className="neeto-ui-accordion__drop"
+        id={`neeto-ui-accordion-section-${id}`}
+        open={isOpen}
+        role="region"
       >
-        <Right
-          size={16}
-          className={classnames({
-            "neeto-ui-text-gray-700": !isOpen,
-            "neeto-ui-text-gray-800": isOpen,
-          })}
-          {...iconProps}
-        />
-      </motion.div>
+        {children}
+      </Collapse>
     </div>
-    <Collapse
-      aria-labelledby={`neeto-ui-accordion-item-${id}`}
-      className="neeto-ui-accordion__drop"
-      id={`neeto-ui-accordion-section-${id}`}
-      open={isOpen}
-      role="region"
-    >
-      {children}
-    </Collapse>
-  </div>
-);
+  );
+};
 
 Item.displayName = "Accordion.Item";
 

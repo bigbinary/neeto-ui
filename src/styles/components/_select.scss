@@ -1,9 +1,108 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  // Select
+  --neeto-ui-select-padding-x: 0px;
+  --neeto-ui-select-padding-y: 0px;
+  --neeto-ui-select-min-height: 0px;
+  --neeto-ui-select-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-select-border-width: 1px;
+  --neeto-ui-select-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-select-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-select-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-select-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-select-line-height: 1.2;
+
+  // Placeholder
+  --neeto-ui-select-placeholder-color: rgb(var(--neeto-ui-gray-400));
+
+  // Focus
+  --neeto-ui-select-focus-outline-color: transparent;
+  --neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Hover
+  --neeto-ui-select-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+  // Error
+  --neeto-ui-select-error-border-color: rgb(var(--neeto-ui-error-500));
+  --neeto-ui-select-error-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+
+  // Indicators
+  --neeto-ui-select-indicators-padding: 0px;
+  --neeto-ui-select-indicators-gap: 8px;
+  --neeto-ui-select-indicators-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-select-indicators-hover-color: rgb(var(--neeto-ui-gray-700));
+
+  // Menu
+  --neeto-ui-select-menu-border-width: 1px;
+  --neeto-ui-select-menu-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-select-menu-margin-top: 6px;
+  --neeto-ui-select-menu-margin-bottom: 16px;
+  --neeto-ui-select-menu-z-index: 20;
+  --neeto-ui-select-menu-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-select-menu-box-shadow: var(--neeto-ui-shadow-lg);
+  --neeto-ui-select-menu-max-height: 480px;
+
+  // Menu Option
+  --neeto-ui-select-menu-option-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-select-menu-option-padding-x: 12px;
+  --neeto-ui-select-menu-option-padding-y: 8px;
+  --neeto-ui-select-menu-option-line-height: 1.1;
+  --neeto-ui-select-menu-option-min-height: 32px;
+
+  // Menu Option Focus
+  --neeto-ui-select-menu-option-focus-bg-color: rgb(var(--neeto-ui-gray-200));
+
+  // Menu Option Disabled
+  --neeto-ui-select-menu-option-disabled-color: rgb(var(--neeto-ui-gray-200));
+
+  // Menu Option Active
+  --neeto-ui-select-menu-option-acitve-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-select-menu-option-acitve-color: rgb(var(--neeto-ui-white));
+
+  // Menu Fixed Option
+  --neeto-ui-select-menu-fixed-option-border-top-width: 1px;
+  --neeto-ui-select-menu-fixed-option-border-top-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-select-menu-fixed-option-padding-x: 0px;
+  --neeto-ui-select-menu-fixed-option-padding-y: 2px;
+  --neeto-ui-select-menu-fixed-option-link-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-select-menu-fixed-option-link-padding-x: 12px;
+  --neeto-ui-select-menu-fixed-option-link-padding-y: 8px;
+  --neeto-ui-select-menu-fixed-option-link-hover-color: rgb(var(--neeto-ui-gray-800));
+
+  // Multi Value
+  --neeto-ui-select-multi-value-bg-color: transparent;
+  --neeto-ui-select-multi-value-border-width: 1px;
+  --neeto-ui-select-multi-value-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-select-multi-value-border-radius: 100px;
+  --neeto-ui-select-multi-value-margin-right: 4px;
+  --neeto-ui-select-multi-value-margin-y: 4px;
+  --neeto-ui-select-multi-value-padding-x: 8px;
+  --neeto-ui-select-multi-value-padding-y: 0px;
+  --neeto-ui-select-multi-value-color: rgb(var(--neeto-ui-gray-800));
+
+  --neeto-ui-select-multi-value-label-margin-right: 6px;
+  --neeto-ui-select-multi-value-label-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-select-multi-value-label-line-height: 1;
+  --neeto-ui-select-multi-value-label-padding-x: 0px;
+  --neeto-ui-select-multi-value-label-padding-y: 2px;
+
+  --neeto-ui-select-multi-value-remove-hover-opacity: 0.7;
+
+  // Add Button
+  --neeto-ui-select-add-btn-font-size: var(--neeto-ui-text-xs);
+  --neeto-ui-select-add-btn-padding-x: 8px;
+  --neeto-ui-select-add-btn-padding-y: 4px;
+  --neeto-ui-select-add-btn-margin-left: 0px;
+}
+
+
 .neeto-ui-react-select__container.neeto-ui-react-select__container--error {
   .neeto-ui-react-select__control {
-    border: thin solid rgb(var(--neeto-ui-error-500)) !important;
+    border-color: var(--neeto-ui-select-error-border-color) !important;
   }
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
-    box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+    box-shadow: var(--neeto-ui-select-error-box-shadow);
   }
 }
 
@@ -13,25 +112,11 @@
 
 .neeto-ui-react-select__container,
 .neeto-ui-react-select__menu-portal {
-  font-size: var(--neeto-ui-text-sm);
+  font-size: var(--neeto-ui-select-font-size);
 
   &.neeto-ui-react-select__container--naked {
-    .neeto-ui-react-select__control {
-      border: none;
-      background-color: transparent;
-    }
-
-    .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
-      border: none;
-    }
-
-    .neeto-ui-react-select__value-container {
-      padding: 0;
-    }
-
-    .neeto-ui-react-select__indicator {
-      padding: 0;
-    }
+    --neeto-ui-select-border-width: 0px;
+    --neeto-ui-select-bg-color: transparent;
   }
 
   &.neeto-ui-react-select--is-disabled {
@@ -44,66 +129,56 @@
   }
 
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-disabled {
-    background-color: rgb(var(--neeto-ui-gray-100)) !important;
-    border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
+    --neeto-ui-select-bg-color: rgb(var(--neeto-ui-gray-100));
+    --neeto-ui-select-hover-border-color: rgb(var(--neeto-ui-gray-400));
     cursor: not-allowed;
   }
 
   .neeto-ui-react-select__control.neeto-ui-react-select__control--is-focused {
     transition: var(--neeto-ui-transition);
-    outline-color: transparent;
-    border-color: rgb(var(--neeto-ui-primary-500));
-    box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    outline-color: var(--neeto-ui-select-focus-outline-color);
+    border-color: var(--neeto-ui-select-focus-border-color);
+    box-shadow: var(--neeto-ui-select-focus-box-shadow);
   }
 
   .neeto-ui-react-select__control {
-    border: thin solid rgb(var(--neeto-ui-gray-400));
-    border-radius: var(--neeto-ui-rounded);
-    background-color: rgb(var(--neeto-ui-white));
+    border: var(--neeto-ui-select-border-width) solid var(--neeto-ui-select-border-color);
+    border-radius: var(--neeto-ui-select-border-radius);
+    background-color: var(--neeto-ui-select-bg-color);
     min-height: 0;
     transition: border 0.3s;
 
     &:hover:not(.neeto-ui-react-select__control--is-focused) {
-      border-color: rgb(var(--neeto-ui-gray-700));
+      border-color: var(--neeto-ui-select-hover-border-color);
     }
   }
 
   .neeto-ui-react-select__value-container {
-    line-height: 1.2;
+    line-height: var(--neeto-ui-select-line-height);
+    min-height: var(--neeto-ui-select-min-height);
+    padding: var(--neeto-ui-select-padding-y) var(--neeto-ui-select-padding-x);
   }
 
   &.neeto-ui-react-select__container--small {
-    .neeto-ui-react-select__value-container {
-      min-height: 26px;
-      padding: 0 8px;
-    }
-    .neeto-ui-react-select__indicators {
-      padding-right: 8px;
-    }
+    --neeto-ui-select-min-height: 26px;
+    --neeto-ui-select-padding-x: 8px;
+    --neeto-ui-select-indicators-padding: 8px;
   }
 
   &.neeto-ui-react-select__container--medium {
-    .neeto-ui-react-select__value-container {
-      min-height: 30px;
-      padding: 0 8px;
-    }
-    .neeto-ui-react-select__indicators {
-      padding-right: 8px;
-    }
+    --neeto-ui-select-min-height: 30px;
+    --neeto-ui-select-padding-x: 8px;
+    --neeto-ui-select-indicators-padding: 8px;
   }
 
   &.neeto-ui-react-select__container--large {
-    .neeto-ui-react-select__value-container {
-      padding: 0 12px;
-      min-height: 38px;
-    }
-    .neeto-ui-react-select__indicators {
-      padding-right: 12px;
-    }
+    --neeto-ui-select-min-height: 38px;
+    --neeto-ui-select-padding-x: 12px;
+    --neeto-ui-select-indicators-padding: 12px;
   }
 
   .neeto-ui-react-select__placeholder {
-    color: rgb(var(--neeto-ui-gray-400));
+    color: var(--neeto-ui-select-placeholder-color);
     font-size: inherit;
     white-space: nowrap;
     overflow: hidden;
@@ -111,15 +186,15 @@
   }
 
   .neeto-ui-react-select__input-container {
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--neeto-ui-select-color);
   }
 
   .neeto-ui-react-select__single-value {
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--neeto-ui-select-color);
   }
 
   .neeto-ui-react-select__input {
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--neeto-ui-select-color);
     font-size: inherit;
   }
 
@@ -128,32 +203,32 @@
   }
 
   .neeto-ui-react-select__indicators {
-    padding-right: 12px;
-    gap: 8px;
+    padding-right: var(--neeto-ui-select-indicators-padding);
+    gap: var(--neeto-ui-select-indicators-gap);
   }
 
   .neeto-ui-react-select__indicator {
     padding: 0;
     cursor: pointer;
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--neeto-ui-select-indicators-color);
     transition: var(--neeto-ui-transition);
 
     &:hover {
-      color: rgb(var(--neeto-ui-gray-700));
+      color: var(--neeto-ui-select-indicators-hover-color);
     }
   }
 
   .neeto-ui-react-select__menu {
-    border-radius: var(--neeto-ui-rounded);
-    margin: 6px 0 16px;
-    z-index: 20;
-    border: thin solid rgb(var(--neeto-ui-gray-400)) !important;
-    box-shadow: var(--neeto-ui-shadow-lg);
-    background-color: rgb(var(--neeto-ui-white));
+    border-radius: var(--neeto-ui-select-menu-border-radius);
+    margin: var(--neeto-ui-select-menu-margin-top) 0 var(--neeto-ui-select-menu-margin-bottom);
+    z-index: var(--neeto-ui-select-menu-z-index);
+    border: var(--neeto-ui-select-menu-border-width) solid var(--neeto-ui-select-menu-border-color) !important;
+    box-shadow: var(--neeto-ui-select-menu-box-shadow);
+    background-color: var(--neeto-ui-select-menu-bg-color);
 
     .neeto-ui-react-select__menu-list {
       position: relative;
-      max-height: 480px;
+      max-height: var(--neeto-ui-select-menu-max-height);
 
       @media (max-height: 1000px) {
         max-height: calc(40vh - 50px);
@@ -161,54 +236,54 @@
     }
 
     .neeto-ui-react-select__option {
-      color: rgb(var(--neeto-ui-gray-800));
+      color: var(--neeto-ui-select-menu-option-color);
       font-size: inherit;
       cursor: pointer;
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-word;
-      padding: 8px 12px;
-      line-height: 1.1;
-      min-height: 32px;
+      padding: var(--neeto-ui-select-menu-option-padding-y) var(--neeto-ui-select-menu-option-padding-x);
+      line-height: var(--neeto-ui-select-menu-option-line-height);
+      min-height: var(--neeto-ui-select-menu-option-min-height);
       transition: var(--neeto-ui-transition);
     }
 
     .neeto-ui-react-select__option--is-focused {
-      background-color: rgb(var(--neeto-ui-gray-200));
+      background-color: var(--neeto-ui-select-menu-option-focus-bg-color);
     }
 
     .neeto-ui-react-select__option--is-disabled {
-      color: rgb(var(--neeto-ui-gray-200));
+      color: var(--neeto-ui-select-menu-option-disabled-color);
       cursor: not-allowed;
     }
 
     .neeto-ui-react-select__option--is-selected {
-      background-color: rgb(var(--neeto-ui-primary-500));
-      color: rgb(var(--neeto-ui-white));
+      background-color: var(--neeto-ui-select-menu-option-acitve-bg-color);
+      color: var(--neeto-ui-select-menu-option-acitve-color);
     }
 
     .neeto-ui-react-select__fixed-option {
       width: 100%;
       font-size: inherit;
-      border-top: thin solid rgb(var(--neeto-ui-gray-100));
-      padding: 2px 0;
+      border-top: var(--neeto-ui-select-menu-fixed-option-border-top-width) solid var(--neeto-ui-select-menu-fixed-option-border-top-color);
+      padding: var(--neeto-ui-select-menu-fixed-option-padding-y) var(--neeto-ui-select-menu-fixed-option-padding-x);
       cursor: pointer;
 
       a {
         width: 100%;
         display: inline-block;
-        color: rgb(var(--neeto-ui-gray-700));
+        color: var(--neeto-ui-select-menu-fixed-option-link-color);
         transition: var(--neeto-ui-transition);
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        padding: 8px 12px;
+        padding: var(--neeto-ui-select-menu-fixed-option-link-padding-y) var(--neeto-ui-select-menu-fixed-option-link-padding-x);
       }
 
       &:hover {
         a {
-          color: rgb(var(--neeto-ui-gray-800));
+          color: var(--neeto-ui-select-menu-fixed-option-link-hover-color);
           text-decoration: none;
         }
       }
@@ -221,41 +296,35 @@
     justify-content: flex-start;
     align-items: stretch;
     user-select: none;
-    background-color: transparent;
-    border: thin solid rgb(var(--neeto-ui-gray-400));
-    border-radius: 100px;
-    margin: 3px 4px 3px 0;
-    padding: 0 8px;
-    color: rgb(var(--neeto-ui-gray-800));
+    background-color: var(--neeto-ui-select-multi-value-bg-color);
+    border: var(--neeto-ui-select-multi-value-border-width) solid var(--neeto-ui-select-multi-value-border-color);
+    border-radius: var(--neeto-ui-select-multi-value-border-radius);
+    margin: var(--neeto-ui-select-multi-value-margin-y) var(--neeto-ui-select-multi-value-margin-right) var(--neeto-ui-select-multi-value-margin-y) 0;
+    padding: var(--neeto-ui-select-multi-value-padding-y) var(--neeto-ui-select-multi-value-padding-x);
+    color: var(--neeto-ui-select-multi-value-color);
+
     .neeto-ui-react-select__multi-value__label {
-      margin: 0 6px 0 0;
+      margin: 0 var(--neeto-ui-select-multi-value-label-margin-right) 0 0;
       color: inherit !important;
-      font-size: var(--neeto-ui-text-sm);
-      line-height: var(--neeto-ui-leading-tight);
-      padding: 2px 0;
-      line-height: 1;
+      font-size: var(--neeto-ui-select-multi-value-label-font-size);
+      padding: var(--neeto-ui-select-multi-value-label-padding-y) var(--neeto-ui-select-multi-value-label-padding-x);
+      line-height: var(--neeto-ui-select-multi-value-label-line-height);
       display: flex;
       align-items: center;
     }
+
     .neeto-ui-react-select__multi-value__remove {
       color: inherit !important;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      padding: 0;
+      transition: var(--neeto-ui-transition);
+      cursor: pointer;
+
       &:hover {
-        opacity: 0.7;
+        background-color: transparent;
+        opacity: var(--neeto-ui-select-multi-value-remove-hover-opacity);
       }
-    }
-  }
-
-  .neeto-ui-react-select__multi-value__remove {
-    cursor: pointer;
-    transition: var(--neeto-ui-transition);
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    color: rgb(var(--neeto-ui-gray-800));
-    padding: 0;
-
-    &:hover {
-      background-color: transparent;
-      color: rgb(var(--neeto-ui-gray-700));
     }
   }
 }
@@ -267,34 +336,24 @@
 
 .neeto-ui-react-select__menu-portal {
   .neeto-ui-react-select__menu {
-    margin: 6px 0;
+    margin: var(--neeto-ui-select-menu-margin-top) 0 var(--neeto-ui-select-menu-margin-top);
   }
-}
-
-.neeto-ui-react-select__add-btn {
-  font-size: 12px;
-  padding: 4px 8px;
 }
 
 .neeto-ui-react-select__container {
   .neeto-ui-react-select__add-btn {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: var(--neeto-ui-select-add-btn-font-size);
+    padding: var(--neeto-ui-select-add-btn-padding-y) var(--neeto-ui-select-add-btn-padding-y);
+    margin-left: var(--neeto-ui-select-add-btn-margin-left);
   }
   &--small {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 2px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 2px;
   }
   &--medium {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 4px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 4px;
   }
   &--large {
-    .neeto-ui-react-select__add-btn {
-      margin-left: 8px;
-    }
+    --neeto-ui-select-add-btn-margin-left: 8px;
   }
 }
 
@@ -303,4 +362,11 @@
     cursor: not-allowed;
     opacity: 0.5;
   }
+}
+
+.neetix-select {
+  --neeto-ui-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded-none);
 }

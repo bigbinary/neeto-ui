@@ -3,14 +3,15 @@ import React from "react";
 import Button from "components/Button";
 import NoData from "components/NoData";
 
-import NoDataStoriesDocs from "!raw-loader!./NoDataStoriesDocs.mdx";
+import NoDataCSSCustomization from "!raw-loader!./NoDataStoriesDocs/NoDataCSSCustomization.mdx";
+import NoDataDocs from "!raw-loader!./NoDataStoriesDocs/NoDataDocs.mdx";
 
 const metadata = {
   title: "Components/NoData",
   component: NoData,
   parameters: {
     layout: "padded",
-    docs: { description: { component: NoDataStoriesDocs } },
+    docs: { description: { component: NoDataDocs } },
   },
 };
 
@@ -184,6 +185,24 @@ const WithCustomImageFromURL = args => (
 
 WithCustomImageFromURL.storyName = "No Data with custom image from URL";
 
+const CSSCustomization = args => (
+  <div className="flex w-full items-center justify-center">
+    <NoData
+      {...args}
+      className="neetix-nodata"
+      image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
+      primaryButtonProps={{ label: "Add new ticket" }}
+      title="There are no tickets to show"
+    />
+  </div>
+);
+
+CSSCustomization.storyName = "NoData CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: NoDataCSSCustomization } },
+};
+
 export {
   Default,
   WithDescription,
@@ -191,6 +210,7 @@ export {
   WithHelpText,
   WithCustomImageAsSVG,
   WithCustomImageFromURL,
+  CSSCustomization,
 };
 
 export default metadata;

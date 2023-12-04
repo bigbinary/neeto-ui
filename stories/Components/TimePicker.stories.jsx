@@ -8,14 +8,15 @@ import TimePicker from "components/TimePicker";
 
 import { disabledDateTime } from "./constants";
 
-import TimePickerStoriesDocs from "!raw-loader!./TimePickerStoriesDocs.mdx";
+import TimePickerCSSCustomization from "!raw-loader!./TimePickerStoriesDocs/TimePickerCSSCustomization.mdx";
+import TimePickerDocs from "!raw-loader!./TimePickerStoriesDocs/TimePickerDocs.mdx";
 
 const metadata = {
   title: "Components/TimePicker",
   component: TimePicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TimePickerStoriesDocs } },
+    docs: { description: { component: TimePickerDocs } },
   },
   argTypes: {
     onChange: {
@@ -40,7 +41,7 @@ const TimePickerInModal = args => {
   return (
     <>
       <Button label="Open modal" onClick={() => setIsOpen(true)} />
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
         </Modal.Header>
@@ -66,7 +67,7 @@ const TimePickerInPane = args => {
   return (
     <>
       <Button label="Open pane" onClick={() => setIsOpen(true)} />
-      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Pane {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h3">Pane</Typography>
         </Pane.Header>
@@ -93,9 +94,7 @@ const TimePickerWithRef = args => {
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <TimePicker
-        {...args}
-        open={open}
-        ref={ref}
+        {...{ ...args, open, ref }}
         onBlur={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onOk={() => setOpen(false)}
@@ -130,6 +129,19 @@ RequiredTimePicker.args = {
   label: "Required Picker",
 };
 
+const CSSCustomization = args => <TimePicker {...args} />;
+
+CSSCustomization.storyName = "TimePicker CSS Customization";
+
+CSSCustomization.args = {
+  type: "time",
+  className: "neetix-timepicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TimePickerCSSCustomization } },
+};
+
 export {
   TimeInput,
   TimePickerInModal,
@@ -137,6 +149,7 @@ export {
   TimePickerWithRef,
   TimePickerWithDefaultValue,
   RequiredTimePicker,
+  CSSCustomization,
 };
 
 export default metadata;

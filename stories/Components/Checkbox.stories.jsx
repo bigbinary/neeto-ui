@@ -2,14 +2,15 @@ import React from "react";
 
 import Checkbox from "components/Checkbox";
 
-import CheckboxStoriesDocs from "!raw-loader!./CheckboxStoriesDocs.mdx";
+import CheckboxCSSCustomization from "!raw-loader!./CheckboxStoriesDocs/CheckboxCSSCustomization.mdx";
+import CheckboxDocs from "!raw-loader!./CheckboxStoriesDocs/CheckboxDocs.mdx";
 
 const metadata = {
   title: "Components/Checkbox",
   component: Checkbox,
   parameters: {
     layout: "padded",
-    docs: { description: { component: CheckboxStoriesDocs } },
+    docs: { description: { component: CheckboxDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A4",
@@ -48,6 +49,20 @@ Error.args = {
   error: "Error message",
 };
 
-export { Checked, Disabled, Required, Error };
+const CSSCustomization = args => <Checkbox {...args} />;
+
+CSSCustomization.storyName = "Checkbox CSS Customization";
+
+CSSCustomization.args = {
+  label: "This is a custom Checkbox",
+  checked: true,
+  className: "neetix-checkbox",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: CheckboxCSSCustomization } },
+};
+
+export { Checked, Disabled, Required, Error, CSSCustomization };
 
 export default metadata;

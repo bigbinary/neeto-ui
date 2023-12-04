@@ -2,7 +2,8 @@ import React from "react";
 
 import Accordion from "components/Accordion";
 
-import AccordionStoriesDocs from "!raw-loader!./AccordionStoriesDocs.mdx";
+import AccordionCSSCustomization from "!raw-loader!./AccordionStoriesDocs/AccordionCSSCustomization.mdx";
+import AccordionDocs from "!raw-loader!./AccordionStoriesDocs/AccordionDocs.mdx";
 
 const metadata = {
   title: "Components/Accordion",
@@ -10,7 +11,7 @@ const metadata = {
   subcomponents: { "Accordion.Item": Accordion.Item },
   parameters: {
     layout: "padded",
-    docs: { description: { component: AccordionStoriesDocs } },
+    docs: { description: { component: AccordionDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A15",
@@ -122,12 +123,33 @@ const AccordionWithCustomizedIcon = args => (
 AccordionWithCustomizedIcon.storyName = "Accordion with customized icon";
 AccordionWithCustomizedIcon.parameters = { layout: "default" };
 
+const CSSCustomization = args => (
+  <Accordion {...args}>
+    <Accordion.Item title="Custom Accordion 1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </Accordion.Item>
+  </Accordion>
+);
+
+CSSCustomization.storyName = "Accordion CSS Customization";
+
+CSSCustomization.args = {
+  label: "Accordion",
+  className: "neetix-accordion",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: AccordionCSSCustomization } },
+};
+
 export {
   AccordionStory,
   Styles,
   DefaultActiveKeyStory,
   AccordionWithPadding,
   AccordionWithCustomizedIcon,
+  CSSCustomization,
 };
 
 export default metadata;

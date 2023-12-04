@@ -1,11 +1,19 @@
-:root {
+:root, .neeto-ui-theme--light{
+  // Body
+  --neeto-ui-body-color: 31, 31, 31;
+  --neeto-ui-body-bg: 255, 255, 255;
   // Color
   @each $color, $value in $neeto-ui-theme-colors {
     --neeto-ui-#{$color}: #{$value};
   }
+}
 
-  // surface color
-  --neeto-ui-surface-bg: #{$neeto-ui-surface-bg};
+:root {
+  // Body
+  --neeto-ui-body-font-family: #{$neeto-ui-body-font-family};
+  --neeto-ui-body-font-size: #{$neeto-ui-body-font-size};
+  --neeto-ui-body-font-weight: #{$neeto-ui-body-font-weight};
+  --neeto-ui-body-line-height: #{$neeto-ui-body-line-height};
 
   // Box shadow
   @each $shadow, $value in $neeto-ui-shadows {
@@ -14,7 +22,7 @@
 
   // Font sizes
   @each $size, $value in $neeto-ui-font-sizes {
-    --neeto-ui-text-#{$size}: #{$value};
+    @include rfs($value, --neeto-ui-text-#{$size});
   }
 
   // Font weights
@@ -48,17 +56,6 @@
   --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
 
   // Layout constants
-  --neeto-ui-sidebar-width: #{$neeto-ui-sidebar-width};
-
   --neeto-ui-pane-header-height: #{$neeto-ui-pane-header-height};
   --neeto-ui-pane-footer-height: #{$neeto-ui-pane-footer-height};
-
-  --neeto-ui-main-header-height: #{$neeto-ui-main-header-height};
-  --neeto-ui-main-header-with-breadcrumbs-height: #{$neeto-ui-main-header-with-breadcrumbs-height};
-
-  --neeto-ui-sub-header-height: #{$neeto-ui-sub-header-height};
-  --neeto-ui-sub-header-bottom-margin: #{$neeto-ui-sub-header-bottom-margin};
-
-  --neeto-ui-pagination-block-height: #{$neeto-ui-pagination-block-height};
-  --neeto-ui-table-header-height: #{$neeto-ui-table-header-height};
 }

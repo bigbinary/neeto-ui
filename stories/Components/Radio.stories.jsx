@@ -7,18 +7,16 @@ import { Radio as FormikRadio } from "components/formik";
 import Radio from "components/Radio";
 import Typography from "components/Typography";
 
+import RadioCSSCustomization from "!raw-loader!./RadioStoriesDocs/RadioCSSCustomization.mdx";
+import RadioDocs from "!raw-loader!./RadioStoriesDocs/RadioDocs.mdx";
+
 const metadata = {
   title: "Components/Radio",
   component: Radio,
   subcomponents: { "Radio.Item": Radio.Item },
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component:
-          '`import { Radio } from "@bigbinary/neetoui";` \n\n `Radio` button allows users to select one option from a set of mutually exclusive choices.',
-      },
-    },
+    docs: { description: { component: RadioDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A10",
@@ -52,7 +50,7 @@ const ControlledRadio = args => {
   const [value, setValue] = React.useState("");
 
   return (
-    <Radio {...args} value={value} onChange={e => setValue(e.target.value)}>
+    <Radio {...{ ...args, value }} onChange={e => setValue(e.target.value)}>
       <Radio.Item label="Option 1" name="controlledOptions" value="Option1" />
       <Radio.Item label="Option 2" name="controlledOptions" value="Option2" />
       <Radio.Item label="Option 3" name="controlledOptions" value="Option3" />
@@ -101,6 +99,30 @@ FormikRadioStory.parameters = {
   },
 };
 
-export { Options, OptionsStacked, ControlledRadio, FormikRadioStory };
+const CSSCustomization = args => (
+  <Radio {...args}>
+    <Radio.Item label="Option 1" name="options" value="Option1" />
+    <Radio.Item label="Option 2" name="options" value="Option2" />
+  </Radio>
+);
+
+CSSCustomization.storyName = "Radio CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Radio options",
+  className: "neetix-radio",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: RadioCSSCustomization } },
+};
+
+export {
+  Options,
+  OptionsStacked,
+  ControlledRadio,
+  FormikRadioStory,
+  CSSCustomization,
+};
 
 export default metadata;

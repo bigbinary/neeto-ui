@@ -7,17 +7,15 @@ import Button from "components/Button";
 import { Input as FormikInput, Form } from "components/formik";
 import Input from "components/Input";
 
+import InputCSSCustomization from "!raw-loader!./InputStoriesDocs/InputCSSCustomization.mdx";
+import InputDocs from "!raw-loader!./InputStoriesDocs/InputDocs.mdx";
+
 const metadata = {
   title: "Components/Input",
   component: Input,
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component:
-          '`import { Input } from "@bigbinary/neetoui";` \n\n `Input` is a component for capturing user inputs, commonly utilized in forms, search bars, and other data entry scenarios.',
-      },
-    },
+    docs: { description: { component: InputDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
@@ -38,7 +36,7 @@ const Email = Template.bind({});
 Email.args = {
   label: "Email",
   placeholder: "oliver@example.com",
-  type: 'email'
+  type: "email",
 };
 
 const Sizes = args => (
@@ -64,10 +62,9 @@ const Controlled = args => {
 
   return (
     <Input
-      {...args}
+      {...{ ...args, value }}
       label="Controlled Input"
       prefix={<Search />}
-      value={value}
       onChange={e => setValue(e.target.value)}
     />
   );
@@ -200,6 +197,20 @@ RejectCharsInputStory.parameters = {
   },
 };
 
+const CSSCustomization = args => <Input {...args} />;
+
+CSSCustomization.storyName = "Input CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Input label",
+  placeholder: "Custom Input placeholder",
+  className: "neetix-input",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: InputCSSCustomization } },
+};
+
 export {
   Default,
   Email,
@@ -214,6 +225,7 @@ export {
   InputWithMaxLength,
   FormikInputStory,
   RejectCharsInputStory,
+  CSSCustomization,
 };
 
 export default metadata;

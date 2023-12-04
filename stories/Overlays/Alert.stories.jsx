@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import Alert from "components/Alert";
 import Button from "components/Button";
 
-import AlertStoriesDocs from "!raw-loader!./AlertStoriesDocs.mdx";
+import AlertCSSCustomization from "!raw-loader!./AlertStoriesDocs/AlertCSSCustomization.mdx";
+import AlertDocs from "!raw-loader!./AlertStoriesDocs/AlertDocs.mdx";
 
-export default {
+const metadata = {
   title: "Overlays/Alert",
   component: Alert,
   subcomponents: { Button },
   parameters: {
     layout: "padded",
-    docs: { description: { component: AlertStoriesDocs } },
+    docs: { description: { component: AlertDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1061%3A3055",
@@ -39,7 +40,7 @@ export default {
   },
 };
 
-export const Default = () => {
+const Default = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -61,7 +62,7 @@ export const Default = () => {
   );
 };
 
-export const Sizes = () => {
+const Sizes = () => {
   const [showAlertSmall, setShowAlertSmall] = useState(false);
   const [showAlertMedium, setShowAlertMedium] = useState(false);
   const [showAlertLarge, setShowAlertLarge] = useState(false);
@@ -107,3 +108,36 @@ export const Sizes = () => {
     </div>
   );
 };
+
+const CSSCustomization = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="p-4">
+      <Button
+        label="Show Alert"
+        style="primary"
+        onClick={() => setOpen(true)}
+      />
+      <Alert
+        className="neetix-alert"
+        isOpen={open}
+        message="All of your unsaved changes will be lost. This can't be undone."
+        submitButtonLabel="Discard changes"
+        title="You have unsaved changes"
+        onClose={() => setOpen(false)}
+        onSubmit={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Alert CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: AlertCSSCustomization } },
+};
+
+export { Default, Sizes, CSSCustomization };
+
+export default metadata;

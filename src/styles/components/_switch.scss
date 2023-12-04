@@ -1,9 +1,48 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  // Wrapper
+  --neeto-ui-switch-wrapper-width: fit-content;
+
+  // Switch Item
+  --neeto-ui-switch-item-width: 44px;
+  --neeto-ui-switch-item-height: 24px;
+  --neeto-ui-switch-item-border-width: 2px;
+  --neeto-ui-switch-item-border-color: transparent;
+  --neeto-ui-switch-item-border-radius: 20px;
+  --neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-gray-300));
+  --neeto-ui-switch-item-opacity: 1;
+
+  // Switch
+  --neeto-ui-switch-width: 20px;
+  --neeto-ui-switch-height: 20px;
+  --neeto-ui-switch-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-switch-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-switch-transform: translateX(0);
+  --neeto-ui-switch-border-radius: 16px;
+  --neeto-ui-switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+
+  // Checked
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-switch-checked-transform: translateX(20px);
+
+  // Margin
+  --neeto-ui-switch-label-margin: 12px;
+
+  // Focus Within
+  --neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+
+  // Focus Visible
+  --neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-switch-focus-visible-outline-offset: 1px;
+  --neeto-ui-switch-focus-visible-box-shadow: none;
+}
+
 .neeto-ui-switch__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: fit-content;
+  width: var(--neeto-ui-switch-wrapper-width);
 
   .neeto-ui-switch__container {
     display: flex;
@@ -12,22 +51,23 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 12px;
+      margin-left: var(--neeto-ui-switch-label-margin);
     }
 
     .neeto-ui-switch__item {
-      width: 44px;
-      height: 24px;
-      border: 2px solid transparent;
-      border-radius: 20px;
+      width: var(--neeto-ui-switch-item-width);
+      height: var(--neeto-ui-switch-item-height);
+      border: var(--neeto-ui-switch-item-border-width) solid var(--neeto-ui-switch-item-border-color);
+      border-radius: var(--neeto-ui-switch-item-border-radius);
       transition: var(--neeto-ui-transition);
-      background-color: rgb(var(--neeto-ui-gray-300));
+      background-color: var(--neeto-ui-switch-item-bg-color);
       cursor: pointer;
       display: inline-flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       flex-shrink: 0;
+      opacity: var(--neeto-ui-switch-item-opacity);
 
       input[type="checkbox"] {
         width: 0;
@@ -37,12 +77,12 @@
       }
 
       &.neeto-ui-switch__item--disabled {
-        opacity: 0.7;
+        --neeto-ui-switch-item-opacity: 0.7;
         cursor: not-allowed;
       }
 
       &.neeto-ui-switch__item--checked {
-        background-color: rgb(var(--neeto-ui-success-500));
+        background-color: var(--neeto-ui-switch-item-checked-bg-color);
       }
 
       .neeto-ui-switch {
@@ -50,30 +90,35 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        height: 20px;
-        transition: all 0.3s ease-in-out;
-        transform: translateX(0);
-        color: rgb(var(--neeto-ui-gray-400));
-        background-color: rgb(var(--neeto-ui-white));
-        border-radius: 16px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+        width: var(--neeto-ui-switch-width);
+        height: var(--neeto-ui-switch-height);
+        transition: var(--neeto-ui-transition);
+        transform: var(--neeto-ui-switch-transform);
+        color: var(--neeto-ui-switch-color);
+        background-color: var(--neeto-ui-switch-bg-color);
+        border-radius: var(--neeto-ui-switch-border-radius);
+        box-shadow: var(--neeto-ui-switch-box-shadow);
 
-        &--checked{
-          transform: translateX(20px);
-          color: rgb(var(--neeto-ui-success-500));
+        &--checked {
+          transform: var(--neeto-ui-switch-checked-transform);
+          color: var(--neeto-ui-switch-checked-color);
         }
       }
 
       &:focus-within {
-        box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+        box-shadow: var(--neeto-ui-switch-focus-within-box-shadow);
       }
 
-      &:focus-visible{
-        outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-        outline-offset: 1px;
-        box-shadow: none;
+      &:focus-visible {
+        outline: var(--neeto-ui-switch-focus-visible-outline);
+        outline-offset: var(--neeto-ui-switch-focus-visible-outline-offset);
+        box-shadow: var(--neeto-ui-switch-focus-visible-box-shadow);
       }
     }
   }
+}
+
+.neetix-switch {
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-primary-500));
 }

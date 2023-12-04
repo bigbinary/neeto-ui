@@ -7,17 +7,15 @@ import Button from "components/Button";
 import { TreeSelect as FormikTreeSelect, Form } from "components/formik";
 import TreeSelect from "components/TreeSelect";
 
-const description = `\`import { TreeSelect } from "@bigbinary/neetoui";\`
-\nWe use antd TreeSelect under the hood. For more customization options,
-see [TreeSelect](https://ant.design/components/tree-select).
-`;
+import TreeSelectCSSCustomization from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectCSSCustomization.mdx";
+import TreeSelectDocs from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectDocs.mdx";
 
 const metadata = {
   title: "Components/TreeSelect",
   component: TreeSelect,
   parameters: {
     layout: "padded",
-    docs: { description: { component: description } },
+    docs: { description: { component: TreeSelectDocs } },
   },
 };
 
@@ -122,6 +120,28 @@ const FormikTreeSelectStory = _ => (
 FormikTreeSelectStory.args = commonProps;
 FormikTreeSelectStory.storyName = "Formik TreeSelect";
 
+const CSSCustomization = args => {
+  const [selectedValue, setSelectedValue] = useState("");
+
+  return (
+    <TreeSelect
+      {...args}
+      value={selectedValue}
+      onChange={value => setSelectedValue(value)}
+    />
+  );
+};
+
+CSSCustomization.storyName = "TreeSelect CSS Customization";
+CSSCustomization.args = {
+  ...commonProps,
+  className: "neetix-tree-select",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TreeSelectCSSCustomization } },
+};
+
 export {
   Default,
   TreeSelectNestedData,
@@ -130,6 +150,7 @@ export {
   TreeSelectSizes,
   WithCustomSuffixAndSwitcherIcon,
   FormikTreeSelectStory,
+  CSSCustomization,
 };
 
 export default metadata;

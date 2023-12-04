@@ -1,22 +1,45 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-tag-padding-x: 8px;
+  --neeto-ui-tag-padding-y: 3px;
+  --neeto-ui-tag-font-size: var(--neeto-ui-text-xs);
+  --neeto-ui-tag-font-weight: var(--neeto-ui-font-normal);
+  --neeto-ui-tag-line-height: 12px;
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-tag-bg-color: transparent;
+  --neeto-ui-tag-border-width: 1px;
+  --neeto-ui-tag-border-color: transparent;
+  --neeto-ui-tag-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-tag-gap: 4px;
+  --neeto-ui-tag-icon-size: 12px;
+
+  // Indicator
+  --neeto-ui-tag-indicator-size: 8px;
+  --neeto-ui-tag-indicator-border-radius: var(--neeto-ui-rounded-full);
+
+  // Hover
+  --neeto-ui-tag-icon-hover-opacity: 0.8;
+}
+
 .neeto-ui-tag {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--neeto-ui-text-xs);
-  line-height: 12px;
-  font-weight: var(--neeto-ui-font-normal);
-  gap: 4px;
-  padding: 3px 8px;
-  border-radius: 100px;
-  color: rgb(var(--neeto-ui-black));
-  border-width: 1px;
-  border-style: solid;
+  font-size: var(--neeto-ui-tag-font-size);
+  line-height: var(--neeto-ui-tag-line-height);
+  font-weight: var(--neeto-ui-tag-font-weight);
+  gap: var(--neeto-ui-tag-gap);
+  padding: var(--neeto-ui-tag-padding-y) var(--neeto-ui-tag-padding-x);
+  border-radius: var(--neeto-ui-tag-border-radius);
+  color: var(--neeto-ui-tag-color);
+  background-color: var(--neeto-ui-tag-bg-color);
+  border-width: var(--neeto-ui-tag-border-width);
+  border-color: var(--neeto-ui-tag-border-color);
   user-select: none;
 
   &__indicator {
-    border-radius: var(--neeto-ui-rounded-full);
-    height: 8px;
-    width: 8px;
+    border-radius: var(--neeto-ui-tag-indicator-border-radius);
+    height: var(--neeto-ui-tag-indicator-size);
+    width: var(--neeto-ui-tag-indicator-size);
   }
 
   &__icon {
@@ -25,8 +48,8 @@
     align-items: center;
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: var(--neeto-ui-tag-icon-size);
+      height: var(--neeto-ui-tag-icon-size);
     }
   }
 
@@ -35,97 +58,103 @@
     cursor: pointer;
 
     &:hover {
-      opacity: 0.8;
+      opacity: var(--neeto-ui-tag-icon-hover-opacity);
     }
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: var(--neeto-ui-tag-icon-size);
+      height: var(--neeto-ui-tag-icon-size);
     }
   }
 
   &--size-large {
-    padding: 3px 12px;
-    gap: 6px;
-    font-size: var(--neeto-ui-text-sm);
-    line-height: 16px;
-
-    .neeto-ui-tag__icon,
-    .neeto-ui-tag__close {
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
+    --neeto-ui-tag-padding-x: 12px;
+    --neeto-ui-tag-padding-y: 3px;
+    --neeto-ui-tag-gap: 6px;
+    --neeto-ui-tag-font-size: var(--neeto-ui-text-sm);
+    --neeto-ui-tag-line-height: 16px;
+    --neeto-ui-tag-icon-size: 16px;
   }
 
   &--type-outline {
     &.neeto-ui-tag--style-primary {
-      background-color: rgb(var(--neeto-ui-primary-100));
-      border-color: rgb(var(--neeto-ui-primary-500));
-      color: rgb(var(--neeto-ui-primary-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-primary-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-primary-800));
     }
 
     &.neeto-ui-tag--style-secondary {
-      border-color: rgb(var(--neeto-ui-gray-400));
-      background-color: rgb(var(--neeto-ui-white));
-      color: rgb(var(--neeto-ui-black));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-white));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-400));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-danger {
-      background-color: rgb(var(--neeto-ui-error-100));
-      border-color: rgb(var(--neeto-ui-error-500));
-      color: rgb(var(--neeto-ui-error-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-error-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-error-800));
     }
 
     &.neeto-ui-tag--style-info {
-      background-color: rgb(var(--neeto-ui-info-100));
-      border-color: rgb(var(--neeto-ui-info-500));
-      color: rgb(var(--neeto-ui-info-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-info-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-info-800));
     }
 
     &.neeto-ui-tag--style-success {
-      background-color: rgb(var(--neeto-ui-success-100));
-      border-color: rgb(var(--neeto-ui-success-500));
-      color: rgb(var(--neeto-ui-success-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-success-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-success-800));
     }
 
     &.neeto-ui-tag--style-warning {
-      background-color: rgb(var(--neeto-ui-warning-100));
-      border-color: rgb(var(--neeto-ui-warning-500));
-      color: rgb(var(--neeto-ui-warning-800));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-warning-500));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-warning-800));
     }
   }
 
   &--type-solid {
     &.neeto-ui-tag--style-primary {
-      background-color: rgb(var(--neeto-ui-primary-100));
-      border-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-primary-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-secondary {
-      background-color: rgb(var(--neeto-ui-gray-200));
-      border-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-200));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-danger {
-      background-color: rgb(var(--neeto-ui-error-100));
-      border-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-error-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-info {
-      background-color: rgb(var(--neeto-ui-info-100));
-      border-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-info-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-success {
-      background-color: rgb(var(--neeto-ui-success-100));
-      border-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-success-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
 
     &.neeto-ui-tag--style-warning {
-      background-color: rgb(var(--neeto-ui-warning-100));
-      border-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-border-color: rgb(var(--neeto-ui-warning-100));
+      --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
     }
   }
+}
+
+.neeto-ui-tag--type-outline.neetix-tag--primary {
+  --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
 }

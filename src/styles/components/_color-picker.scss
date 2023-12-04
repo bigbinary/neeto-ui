@@ -1,80 +1,98 @@
-.neeto-ui-colorpicker__dropdown {
-  width: 100%;
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  // Popover
+  --neeto-ui-colorpicker-popover-width: 224px;
+  --neeto-ui-colorpicker-popover-padding: 12px;
+
+  // Pointer
+  --neeto-ui-colorpicker-pointer-width: 20px;
+  --neeto-ui-colorpicker-pointer-height: 20px;
+
+  // Palette Wrapper
+  --neeto-ui-colorpicker-palette-wrapper-margin-top: 12px;
+
+  // Palette Item
+  --neeto-ui-colorpicker-palette-item-width: 32px;
+  --neeto-ui-colorpicker-palette-item-height: 32px;
+  --neeto-ui-colorpicker-palette-item-border-width: 1px;
+  --neeto-ui-colorpicker-palette-item-border-color: transparent;
+  --neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-md);
+  --neeto-ui-colorpicker-palette-item-padding: 2px;
+  --neeto-ui-colorpicker-palette-item-margin-left: 1.25px;
+
+  // Target Wrapper
+  --neeto-ui-colorpicker-target-wrapper-gap: 8px;
+
+  // Target
+  --neeto-ui-colorpicker-target-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-colorpicker-target-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-colorpicker-target-border-width: 1px;
+  --neeto-ui-colorpicker-target-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-colorpicker-target-height: 28px;
+  --neeto-ui-colorpicker-target-padding: 8px;
+  --neeto-ui-colorpicker-target-gap: 12px;
+
+  // Targer: Hover
+  --neeto-ui-colorpicker-target-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+  // Targer: Focus Visible
+  --neeto-ui-colorpicker-target-focus-visible-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-colorpicker-target-focus-visible-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-colorpicker-target-focus-visible-outline: none;
+
+  // Target - Color
+  --neeto-ui-colorpicker-target-color-block-border-radius: var(--neeto-ui-rounded);
+  --neeto-ui-colorpicker-target-color-block-width: 20px;
+  --neeto-ui-colorpicker-target-color-block-height: 20px;
+
+  // Target - Hexcode
+  --neeto-ui-colorpicker-target-hexcode-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-colorpicker-target-hexcode-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-colorpicker-target-hexcode-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-colorpicker-target-hexcode-min-width: 72px;
 }
 
 .neeto-ui-colorpicker__popover {
-  width: 224px;
-  padding: 12px;
+  width: var(--neeto-ui-colorpicker-popover-width);
+  padding: var(--neeto-ui-colorpicker-popover-padding);
 
-  .neeto-ui-colorpicker__eyedropper-btn{
-    svg{
+  .neeto-ui-colorpicker__eyedropper-btn {
+    svg {
       fill: currentColor;
     }
   }
 
   .neeto-ui-colorpicker__palette-wrapper {
-    margin-top: 12px;
+    margin-top: var(--neeto-ui-colorpicker-palette-wrapper-margin-top);
 
     &--hidden-picker {
-      margin-top: 0;
-    }
-  }
-
-  .neeto-ui-colorpicker__saturation {
-    width: 100%;
-    padding-bottom: 75%;
-    position: relative;
-    overflow: hidden;
-
-    .neeto-ui-colorpicker__pointer {
-      width: 4px;
-      height: 4px;
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 1.5px,
-        rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset,
-        rgba(0, 0, 0, 0.4) 0px 0px 1px 2px;
-      border-radius: 50%;
-      transform: translate(-2px, -2px);
-    }
-  }
-
-  .neeto-ui-colorpicker__hue {
-    height: 10px;
-    margin: 12px 0;
-    position: relative;
-
-    .neeto-ui-colorpicker__slider {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      transform: translate(-6px, -1px);
-      background-color: rgb(248, 248, 248);
-      box-shadow: rgba(0, 0, 0, 0.37) 0px 1px 4px 0px;
+      --neeto-ui-colorpicker-palette-wrapper-margin-top: 0px;
     }
   }
 
   .neeto-ui-colorpicker__pointer .react-colorful__saturation-pointer {
-    width: 20px;
-    height: 20px;
+    width: var(--neeto-ui-colorpicker-pointer-width);
+    height: var(--neeto-ui-colorpicker-pointer-height);
   }
 }
 
 .neeto-ui-color-palette__item {
-  width: 32px;
-  height: 32px;
-  border: thin solid transparent;
-  transition: all 0.3s;
-  padding: 2px;
-  border-radius: var(--neeto-ui-rounded-md);
-  margin: 0 0 0 1.25px;
+  width: var(--neeto-ui-colorpicker-palette-item-width);
+  height: var(--neeto-ui-colorpicker-palette-item-height);
+  border: var(--neeto-ui-colorpicker-palette-item-border-width) solid var(--neeto-ui-colorpicker-palette-item-border-color);
+  transition: var(--neeto-ui-transition);
+  padding: var(--neeto-ui-colorpicker-palette-item-padding);
+  border-radius: var(--neeto-ui-colorpicker-palette-item-border-radius);
+  margin-left: var(--neeto-ui-colorpicker-palette-item-margin-left);
+  cursor: pointer;
 
   &.active {
-    border-color: rgb(var(--neeto-ui-gray-500));
+    --neeto-ui-colorpicker-palette-item-border-color: rgb(var(--neeto-ui-gray-500));
   }
 
   div {
     width: 100%;
     min-height: 100%;
-    border-radius: var(--neeto-ui-rounded-md);
+    border-radius: var(--neeto-ui-colorpicker-palette-item-border-radius);
     overflow: hidden;
   }
 }
@@ -83,45 +101,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(var(--neeto-ui-white));
-  border-radius: var(--neeto-ui-rounded);
-  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  background-color: var(--neeto-ui-colorpicker-target-bg-color);
+  border-radius: var(--neeto-ui-colorpicker-target-border-radius);
+  border: var(--neeto-ui-colorpicker-target-border-width) solid var(--neeto-ui-colorpicker-target-border-color);
   transition: var(--neeto-ui-transition);
-  height: 40px;
-  padding: 8px 12px;
-  gap: 12px;
+  height: var(--neeto-ui-colorpicker-target-height);
+  padding: var(--neeto-ui-colorpicker-target-padding);
+  gap: var(--neeto-ui-colorpicker-target-gap);
 
   &:hover {
-    border-color: rgb(var(--neeto-ui-gray-700));
+    border-color: var(--neeto-ui-colorpicker-target-hover-border-color);
   }
 
   &:focus-visible{
-    border-color: rgb(var(--neeto-ui-primary-500));
-    box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
-    outline: none;
-  }
-
-  &-size--small {
-    height: 28px;
-    padding: 8px;
-    gap: 12px;
-
-    .neeto-ui-colorpicker-target__color {
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  &-size--medium {
-    height: 32px;
-    padding: 8px;
-    gap: 12px;
-  }
-
-  &-size--large {
-    height: 40px;
-    padding: 12px;
-    gap: 12px;
+    border-color: var(--neeto-ui-colorpicker-target-focus-visible-border-color);
+    box-shadow: var(--neeto-ui-colorpicker-target-focus-visible-box-shadow);
+    outline: var(--neeto-ui-colorpicker-target-focus-visible-outline);
   }
 
   .neeto-ui-colorpicker-target__color-wrapper {
@@ -129,7 +124,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: var(--neeto-ui-colorpicker-target-wrapper-gap);
   }
 
   .neeto-ui-colorpicker-target__color {
@@ -137,23 +132,34 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-radius: var(--neeto-ui-rounded);
-
-    width: 24px;
-    height: 24px;
-  }
-
-  &-size--small {
-    .neeto-ui-colorpicker-target__color {
-      width: 20px;
-      height: 20px;
-    }
+    border-radius: var(--neeto-ui-colorpicker-target-color-block-border-radius);
+    width: var(--neeto-ui-colorpicker-target-color-block-width);
+    height: var(--neeto-ui-colorpicker-target-color-block-height);
   }
 
   .neeto-ui-colorpicker-target__code {
-    font-size: 14px;
+    font-size: var(--neeto-ui-colorpicker-target-hexcode-font-size);
     color: rgb(var(--neeto-ui-gray-800));
-    font-weight: var(--neeto-ui-font-medium);
-    min-width: 70px;
+    font-weight: var(--neeto-ui-colorpicker-target-hexcode-font-weight);
+    min-width: var(--neeto-ui-colorpicker-target-hexcode-min-width);
   }
+
+  &-size--medium {
+    --neeto-ui-colorpicker-target-height: 32px;
+    --neeto-ui-colorpicker-target-padding: 8px;
+    --neeto-ui-colorpicker-target-color-block-width: 24px;
+    --neeto-ui-colorpicker-target-color-block-height: 24px;
+  }
+
+  &-size--large {
+    --neeto-ui-colorpicker-target-height: 40px;
+    --neeto-ui-colorpicker-target-padding: 12px;
+    --neeto-ui-colorpicker-target-color-block-width: 24px;
+    --neeto-ui-colorpicker-target-color-block-height: 24px;
+  }
+}
+
+.neetix-colorpicker {
+  --neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-colorpicker-target-color-block-border-radius: var(--neeto-ui-rounded-full);
 }

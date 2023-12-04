@@ -8,6 +8,7 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
+import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
@@ -429,7 +430,7 @@ const TableWithResizableColumns = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onColumnUpdate={columns => {}}
+        onColumnUpdate={_columns => {}}
         {...args}
       />
     </div>
@@ -449,7 +450,7 @@ const TableWithReordableColumns = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onColumnUpdate={columns => {}}
+        onColumnUpdate={_columns => {}}
         {...args}
       />
     </div>
@@ -457,6 +458,28 @@ const TableWithReordableColumns = args => {
 };
 TableWithReordableColumns.storyName = "Table with reorderable columns";
 TableWithReordableColumns.args = { defaultPageSize: 10 };
+
+const CSSCustomization = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  return (
+    <div className="neetix-table">
+      <Table
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        {...args}
+      />
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Table CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TableCSSCustomization } },
+};
 
 export {
   Default,
@@ -470,6 +493,7 @@ export {
   TableWithDynamicData,
   TableWithResizableColumns,
   TableWithReordableColumns,
+  CSSCustomization,
 };
 
 export default metadata;

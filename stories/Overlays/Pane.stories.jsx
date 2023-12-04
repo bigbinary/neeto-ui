@@ -8,7 +8,8 @@ import Pane from "components/Pane";
 import Typography from "components/Typography";
 import { manager as OverlayManager } from "managers";
 
-import PaneStoriesDocs from "!raw-loader!./PaneStoriesDocs.mdx";
+import PaneCSSCustomization from "!raw-loader!./PaneStoriesDocs/PaneCSSCustomization.mdx";
+import PaneDocs from "!raw-loader!./PaneStoriesDocs/PaneDocs.mdx";
 
 const metadata = {
   title: "Overlays/Pane",
@@ -21,7 +22,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: PaneStoriesDocs } },
+    docs: { description: { component: PaneDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
@@ -594,6 +595,13 @@ const DynamicFieldFocusInsidePane = args => {
   const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const [inputFields, setInputFields] = useState([]);
 
+  const handleSetInputFields = () => {
+    setInputFields([
+      ...inputFields,
+      { name: `Dynamic Field ${inputFields.length + 1}` },
+    ]);
+  };
+
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -627,14 +635,7 @@ const DynamicFieldFocusInsidePane = args => {
                 )}
                 <Button
                   label="Add Field"
-                  onClick={() => {
-                    setInputFields([
-                      ...inputFields,
-                      {
-                        name: `Dynamic Field ${inputFields.length + 1}`,
-                      },
-                    ]);
-                  }}
+                  onClick={() => handleSetInputFields()}
                 />
                 {inputFields.map(field => (
                   <Input
@@ -681,6 +682,63 @@ DynamicFieldFocusInsidePane.parameters = {
 };
 DynamicFieldFocusInsidePane.storyName = "Dynamic field focus inside pane";
 
+const CSSCustomization = args => {
+  const [showPane, setShowPane] = useState(false);
+  const inputRef = React.useRef(null);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="w-1/2 space-y-8">
+          <div className="flex flex-row items-center justify-start space-x-6">
+            <Button label="Show Pane" onClick={() => setShowPane(true)} />
+          </div>
+        </div>
+      </div>
+      <Pane
+        {...args}
+        className="neetix-pane"
+        initialFocusRef={inputRef}
+        isOpen={showPane}
+        onClose={() => setShowPane(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <div className="mb-4 w-full">
+            <Input label="Input Label" ref={inputRef} />
+          </div>
+          <Typography style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="flex items-center space-x-2">
+          <Button label="Continue" onClick={() => setShowPane(false)} />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowPane(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Pane CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: PaneCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -689,6 +747,7 @@ export {
   MultiplePanes,
   PaneWithOverlayManager,
   DynamicFieldFocusInsidePane,
+  CSSCustomization,
 };
 
 export default metadata;
