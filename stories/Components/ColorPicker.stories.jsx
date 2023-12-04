@@ -55,7 +55,7 @@ const Default = ({ color, ...args }) => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker color={currentColor} onChange={onChange} {...args} />
+      <ColorPicker {...{ onChange }} color={currentColor} {...args} />
     </div>
   );
 };
@@ -78,15 +78,15 @@ const Sizes = args => {
     <div className="flex h-60 w-40 flex-col gap-4">
       <div className="flex flex-col gap-2">
         <span>Small</span>
-        <ColorPicker color={color} size="small" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="small" />
       </div>
       <div className="flex flex-col gap-2">
         <span>Medium</span>
-        <ColorPicker color={color} size="medium" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="medium" />
       </div>
       <div className="flex flex-col gap-2">
         <span>Large</span>
-        <ColorPicker color={color} size="large" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="large" />
       </div>
     </div>
   );
@@ -131,13 +131,12 @@ const WithColorPalette = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={color}
+        {...{ color, onChange }}
         colorPaletteProps={{
           color: selectedColor,
           colorList,
           onChange: handleColorChange,
         }}
-        onChange={onChange}
       />
     </div>
   );
@@ -159,7 +158,7 @@ const WithEyeDropper = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showEyeDropper color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showEyeDropper />
     </div>
   );
 };
@@ -180,7 +179,7 @@ const ShowHexValue = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showHexValue color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showHexValue />
     </div>
   );
 };
@@ -201,7 +200,7 @@ const ShowTransparencyControl = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showTransparencyControl color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showTransparencyControl />
     </div>
   );
 };
@@ -239,7 +238,7 @@ const OnlyPalettePicker = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={color}
+        {...{ color }}
         showPicker={false}
         colorPaletteProps={{
           color: selectedColor,
@@ -272,7 +271,7 @@ const CSSCustomization = ({ color, ...args }) => {
   return (
     <div className="h-60 w-40">
       <div className="neetix-colorpicker">
-        <ColorPicker color={currentColor} onChange={onChange} {...args} />
+        <ColorPicker {...{ onChange }} color={currentColor} {...args} />
       </div>
     </div>
   );

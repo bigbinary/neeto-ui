@@ -120,13 +120,13 @@ const CSSCustomization = () => {
         onClick={() => setOpen(true)}
       />
       <Alert
+        className="neetix-alert"
         isOpen={open}
         message="All of your unsaved changes will be lost. This can't be undone."
         submitButtonLabel="Discard changes"
         title="You have unsaved changes"
         onClose={() => setOpen(false)}
         onSubmit={() => setOpen(false)}
-        className="neetix-alert"
       />
     </div>
   );

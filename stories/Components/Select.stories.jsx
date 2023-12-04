@@ -56,9 +56,9 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
+          isMulti
           label="Small"
           placeholder="Select placeholder"
-          isMulti
           size="small"
           options={[
             { value: "value1", label: "Value one" },
@@ -72,10 +72,10 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
-          label="Medium"
-          // size="medium"
-          placeholder="Select placeholder"
           isMulti
+          // size="medium"
+          label="Medium"
+          placeholder="Select placeholder"
           options={[
             { value: "value1", label: "Value one" },
             { value: "value2", label: "Value two" },
@@ -88,9 +88,9 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
+          isMulti
           label="Large"
           placeholder="Select placeholder"
-          isMulti
           size="large"
           options={[
             { value: "value1", label: "Value one" },
@@ -173,13 +173,12 @@ const Creatable = args => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
-        {...args}
+        {...{ ...args, options }}
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
         label="Creatable Select"
         name="ValueList"
-        options={options}
         placeholder="Select an option"
         onCreateOption={inputValue =>
           setOptions([...options, { label: inputValue, value: inputValue }])
@@ -223,16 +222,14 @@ const AsyncCreatable = args => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
-        {...args}
+        {...{ ...args, loadOptions, value }}
         cacheOptions
         isCreateable
         className="w-full"
         defaultOptions={options}
         label="Select"
-        loadOptions={loadOptions}
         placeholder="Select placeholder"
         size="small"
-        value={value}
         onChange={newValue => setValue(newValue)}
         onCreateOption={inputValue =>
           setOptions(prevOptions => [
@@ -316,7 +313,7 @@ const SelectInModal = args => {
   return (
     <>
       <Button label="Open Modal" onClick={() => setIsOpen(true)} />
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
         </Modal.Header>
@@ -355,7 +352,7 @@ const SelectInPane = args => {
   return (
     <>
       <Button label="Open Pane" onClick={() => setIsOpen(true)} />
-      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Pane {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h2">Modal</Typography>
         </Pane.Header>
@@ -481,18 +478,18 @@ const FormikSelectWithValidation = () => (
   >
     <Form className="flex space-x-2">
       <FormikSelect
+        {...{ options }}
         isClearable
         required
         label="Select 1"
         name="select1"
-        options={options}
       />
       <FormikSelect
+        {...{ options }}
         isClearable
         required
         label="Select 2"
         name="select2"
-        options={options}
       />
       <Button className="mt-4 self-end" label="Submit" type="submit" />
     </Form>
@@ -530,10 +527,9 @@ const WithLazyLoadMenuList = args => {
   return (
     <div className="mb-2 h-80 p-4">
       <Select
-        {...args}
+        {...{ ...args, options }}
         isAsyncLoadOptionEnabled
         fetchMore={handleFetchMore}
-        options={options}
         totalOptionsCount={TotalValues}
       />
     </div>

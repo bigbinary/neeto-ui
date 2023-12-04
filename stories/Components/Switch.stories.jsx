@@ -41,7 +41,7 @@ const Controlled = args => {
     setIsChecked(e.target.checked);
   };
 
-  return <Switch {...args} checked={isChecked} onChange={onChange} />;
+  return <Switch {...{ ...args, onChange }} checked={isChecked} />;
 };
 
 const Disabled = Template.bind({});
@@ -70,7 +70,7 @@ const TooltipExample = args => {
   return (
     <div className="flex flex-col space-y-6">
       <ToolTip content="This is a tooltip" placement="right">
-        <Switch {...args} checked={isChecked} onChange={onChange} />
+        <Switch {...{ ...args, onChange }} checked={isChecked} />
       </ToolTip>
     </div>
   );

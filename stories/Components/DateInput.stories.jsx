@@ -67,9 +67,7 @@ const DatePickerWithRef = args => {
     <div className="space-y-3">
       <Button label="Focus" onClick={() => ref.current.focus()} />
       <DatePicker
-        {...args}
-        open={open}
-        ref={ref}
+        {...{ ...args, open, ref }}
         onBlur={() => setOpen(false)}
         onFocus={() => setOpen(true)}
       />
@@ -84,7 +82,7 @@ const DatePickerInModal = args => {
   return (
     <>
       <Button label="Open modal" onClick={() => setIsOpen(true)} />
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
         </Modal.Header>
@@ -110,7 +108,7 @@ const DatePickerInPane = args => {
   return (
     <>
       <Button label="Open pane" onClick={() => setIsOpen(true)} />
-      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Pane {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h3">Pane</Typography>
         </Pane.Header>

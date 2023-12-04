@@ -35,7 +35,7 @@ const DraggableTree = () => {
   const [treeData, setTreeData] = useState(TREE_DATA);
   const onDrop = info => handleOnDrop({ info, treeData, setTreeData });
 
-  return <Tree blockNode draggable treeData={treeData} onDrop={onDrop} />;
+  return <Tree {...{ onDrop, treeData }} blockNode draggable />;
 };
 
 DraggableTree.args = {};
@@ -119,19 +119,14 @@ const SearchableTree = () => {
   return (
     <div className="space-y-3">
       <Input
+        {...{ onChange }}
         label="Search"
         placeholder="Input search text"
         prefix={<Search />}
         type="search"
         value={searchValue}
-        onChange={onChange}
       />
-      <Tree
-        autoExpandParent={autoExpandParent}
-        expandedKeys={expandedKeys}
-        treeData={treeData}
-        onExpand={onExpand}
-      />
+      <Tree {...{ autoExpandParent, expandedKeys, onExpand, treeData }} />
     </div>
   );
 };

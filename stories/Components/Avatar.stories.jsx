@@ -33,18 +33,13 @@ const Sizes = args => {
   return (
     <div className="flex flex-col space-y-4 p-2 ">
       <span className="text-sm">Small</span>
-      <Avatar {...args} size="small" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...{ ...args, onClick }} size="small" user={{ imageUrl }} />
       <span className="text-sm">Medium</span>
-      <Avatar {...args} size="medium" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...{ ...args, onClick }} size="medium" user={{ imageUrl }} />
       <span className="text-sm">Large</span>
-      <Avatar {...args} size="large" user={{ imageUrl }} onClick={onClick} />
+      <Avatar {...{ ...args, onClick }} size="large" user={{ imageUrl }} />
       <span className="text-sm">X Large</span>
-      <Avatar
-        {...args}
-        size="extraLarge"
-        user={{ imageUrl }}
-        onClick={onClick}
-      />
+      <Avatar {...{ ...args, onClick }} size="extraLarge" user={{ imageUrl }} />
     </div>
   );
 };
@@ -104,88 +99,76 @@ const Variants = args => {
     <div className="flex space-x-4 p-4">
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="small"
           user={{ name: "Akkshay Lawrence" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="medium"
           user={{ name: "Vinay V Chandran" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="large"
           user={{ name: "Neeraj Singh" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="extraLarge"
           user={{ name: "Goutham Subramanyam" }}
-          onClick={onClick}
         />
       </div>
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="small"
           status="online"
           user={{ name: "Akkshay Lawrence" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="medium"
           status="idle"
           user={{ name: "Vinay V" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="large"
           status="offline"
           user={{ name: "Neeraj Singh" }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="extraLarge"
           status="online"
           user={{ name: "Goutham Subramanyam" }}
-          onClick={onClick}
         />
       </div>
       <div className="flex flex-col space-y-4 p-2">
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="small"
           status="online"
           user={{ name: "Akkshay Lawrence", imageUrl }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="medium"
           status="idle"
           user={{ name: "Vinay V", imageUrl }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="large"
           status="offline"
           user={{ name: "Neeraj Singh", imageUrl }}
-          onClick={onClick}
         />
         <Avatar
-          {...args}
+          {...{ ...args, onClick }}
           size="extraLarge"
           status="online"
           user={{ name: "Goutham Subramanyam", imageUrl }}
-          onClick={onClick}
         />
       </div>
     </div>

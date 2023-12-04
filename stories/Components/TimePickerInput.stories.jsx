@@ -44,8 +44,8 @@ const Sizes = args => (
 
 const CSSCustomization = args => (
   <TimePickerInput
-    label="TimePicker Input"
     className="neetix-time-input"
+    label="TimePicker Input"
     {...args}
   />
 );

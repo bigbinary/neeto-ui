@@ -84,12 +84,11 @@ const ErrorToastr = ({}) => {
   const onAxiosStringError = () => {
     try {
       // Dummy axios error object
-      const axiosError = {
+      throw {
         isAxiosError: true,
         config: { url: "https://api.github.com/users/org" },
         response: { data: { error: "Not found" }, status: 404 },
       };
-      throw axiosError;
     } catch (e) {
       Toastr.error(e);
     }
@@ -98,14 +97,13 @@ const ErrorToastr = ({}) => {
   const onAxiosArrayError = () => {
     try {
       // Dummy axios error object
-      const axiosError = {
+      throw {
         isAxiosError: true,
         config: { url: "https://api.github.com/users/org" },
         response: {
           data: { errors: ["A is required", "B is required"] },
         },
       };
-      throw axiosError;
     } catch (e) {
       Toastr.error(e);
     }
@@ -151,7 +149,7 @@ const CustomConfigToastr = ({}) => (
 
 CustomConfigToastr.storyName = "Custom config toastr";
 
-const CSSCustomization = args => {
+const CSSCustomization = () => {
   const showAlert = useCallback(() => alert("Customer blocked successfully!"));
 
   return (

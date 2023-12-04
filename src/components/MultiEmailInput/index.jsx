@@ -127,9 +127,9 @@ const MultiEmailInput = forwardRef(
         <div className="neeto-ui-email-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               className="neeto-ui-email-input__label"
               data-cy={`${hyphenize(label)}-input-label`}
-              required={required}
               {...labelProps}
             >
               {label}
@@ -153,13 +153,7 @@ const MultiEmailInput = forwardRef(
           required
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
-          inputValue={inputValue}
           isDisabled={disabled}
-          isFocused={isFocused}
-          placeholder={placeholder}
-          ref={ref}
-          value={value}
-          visibleEmailsCount={visibleEmailsCount}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-react-select__container--medium neeto-ui-email-input__select",
             { "neeto-ui-react-select__container--error": !!error }
@@ -172,13 +166,21 @@ const MultiEmailInput = forwardRef(
             }),
           }}
           onBlur={handleBlur}
-          onChange={onChange}
           onFocus={() => setIsFocused(true)}
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
-          {...(!isOptionsPresent && { menuIsOpen: false })}
-          {...otherProps}
-          {...overrideProps}
+          {...{
+            inputValue,
+            isFocused,
+            onChange,
+            placeholder,
+            ref,
+            value,
+            visibleEmailsCount,
+            ...(!isOptionsPresent && { menuIsOpen: false }),
+            ...otherProps,
+            ...overrideProps,
+          }}
         />
         {!!error && (
           <Typography

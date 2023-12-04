@@ -430,7 +430,7 @@ const TableWithResizableColumns = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onColumnUpdate={columns => {}}
+        onColumnUpdate={_columns => {}}
         {...args}
       />
     </div>
@@ -450,7 +450,7 @@ const TableWithReordableColumns = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onColumnUpdate={columns => {}}
+        onColumnUpdate={_columns => {}}
         {...args}
       />
     </div>

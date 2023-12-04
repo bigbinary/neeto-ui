@@ -28,9 +28,8 @@ const Controlled = args => {
 
   return (
     <Textarea
-      {...args}
+      {...{ ...args, value }}
       label="Controlled input"
-      value={value}
       onChange={e => setValue(e.target.value)}
     />
   );

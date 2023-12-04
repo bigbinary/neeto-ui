@@ -62,10 +62,9 @@ const Controlled = args => {
 
   return (
     <Input
-      {...args}
+      {...{ ...args, value }}
       label="Controlled Input"
       prefix={<Search />}
-      value={value}
       onChange={e => setValue(e.target.value)}
     />
   );

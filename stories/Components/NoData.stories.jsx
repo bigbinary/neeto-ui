@@ -190,9 +190,9 @@ const CSSCustomization = args => (
     <NoData
       {...args}
       className="neetix-nodata"
+      image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
       primaryButtonProps={{ label: "Add new ticket" }}
       title="There are no tickets to show"
-      image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
     />
   </div>
 );

@@ -50,7 +50,7 @@ const ControlledRadio = args => {
   const [value, setValue] = React.useState("");
 
   return (
-    <Radio {...args} value={value} onChange={e => setValue(e.target.value)}>
+    <Radio {...{ ...args, value }} onChange={e => setValue(e.target.value)}>
       <Radio.Item label="Option 1" name="controlledOptions" value="Option1" />
       <Radio.Item label="Option 2" name="controlledOptions" value="Option2" />
       <Radio.Item label="Option 3" name="controlledOptions" value="Option3" />

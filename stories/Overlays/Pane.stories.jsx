@@ -595,6 +595,13 @@ const DynamicFieldFocusInsidePane = args => {
   const [isInputFieldVisible, setIsInputFieldVisible] = useState(false);
   const [inputFields, setInputFields] = useState([]);
 
+  const handleSetInputFields = () => {
+    setInputFields([
+      ...inputFields,
+      { name: `Dynamic Field ${inputFields.length + 1}` },
+    ]);
+  };
+
   return (
     <div className="w-full">
       <div className="space-y-6">
@@ -628,14 +635,7 @@ const DynamicFieldFocusInsidePane = args => {
                 )}
                 <Button
                   label="Add Field"
-                  onClick={() => {
-                    setInputFields([
-                      ...inputFields,
-                      {
-                        name: `Dynamic Field ${inputFields.length + 1}`,
-                      },
-                    ]);
-                  }}
+                  onClick={() => handleSetInputFields()}
                 />
                 {inputFields.map(field => (
                   <Input
