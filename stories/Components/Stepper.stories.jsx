@@ -31,25 +31,14 @@ const STEPS_MAX = [
 const Default = args => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  return (
-    <Stepper
-      activeIndex={activeIndex}
-      setActiveIndex={setActiveIndex}
-      {...args}
-    />
-  );
+  return <Stepper {...{ activeIndex, setActiveIndex, ...args }} />;
 };
 
 const Variant = args => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Stepper
-      activeIndex={activeIndex}
-      setActiveIndex={setActiveIndex}
-      steps={STEPS_MAX}
-      {...args}
-    />
+    <Stepper {...{ activeIndex, setActiveIndex }} steps={STEPS_MAX} {...args} />
   );
 };
 
@@ -63,12 +52,7 @@ const CSSCustomization = args => {
 
   return (
     <div className="neetix-stepper">
-      <Stepper
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-        steps={STEPS}
-        {...args}
-      />
+      <Stepper {...{ activeIndex, setActiveIndex }} steps={STEPS} {...args} />
     </div>
   );
 };
