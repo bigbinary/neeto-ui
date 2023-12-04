@@ -34,7 +34,7 @@ const Item = ({
       })}
     >
       <div
-        {...{ onClick }}
+        {...{ onClick, onKeyDown }}
         aria-controls={`neeto-ui-accordion-section-${id}`}
         aria-disabled={isOpen}
         aria-expanded={isOpen}
@@ -45,7 +45,6 @@ const Item = ({
           "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
           { "neeto-ui-accordion__item--open": isOpen }
         )}
-        onKeyDown={onKeyDown}
       >
         <div
           {...titleProps}
