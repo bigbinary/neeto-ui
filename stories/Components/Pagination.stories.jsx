@@ -37,7 +37,7 @@ Default.args = {
 };
 
 const CSSCustomization = args => (
-  <Pagination className="neetix-pagination" {...args} />
+  <Template className="neetix-pagination" {...args} />
 );
 
 CSSCustomization.args = {
