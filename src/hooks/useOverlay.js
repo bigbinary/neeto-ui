@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback, useSyncExternalStore } from "react";
 
-import { useHotkeys } from "react-hotkeys-hook";
+import useHotKeys from "@bigbinary/neeto-hotkeys";
 
 import { manager } from "managers";
 import {
@@ -44,12 +44,12 @@ const useOverlay = ({
   };
 
   const focusRequiredElementInOverlay = () => {
-    if (hasTransitionCompleted) {
-      if (initialFocusRef?.current) {
-        initialFocusRef?.current?.focus();
-      } else {
-        focusFirstFocusableElement(overlayWrapper);
-      }
+    if (!hasTransitionCompleted) return;
+
+    if (initialFocusRef?.current) {
+      initialFocusRef?.current?.focus();
+    } else {
+      focusFirstFocusableElement(overlayWrapper);
     }
   };
 
@@ -69,13 +69,7 @@ const useOverlay = ({
     manager.isTopOverlay(overlayWrapper)
   );
 
-  useHotkeys(
-    "esc",
-    () => {
-      closeOnEsc && handleOverlayClose();
-    },
-    [handleOverlayClose, closeOnEsc]
-  );
+  useHotKeys("escape", handleOverlayClose, { enabled: closeOnEsc });
 
   useEffect(() => {
     let cleanUp = noop;

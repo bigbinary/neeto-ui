@@ -2720,6 +2720,11 @@
     uuid "^9.0.0"
     zustand "4.3.2"
 
+"@bigbinary/neeto-hotkeys@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-hotkeys/-/neeto-hotkeys-1.0.1.tgz#5aef3a6c814e997b3a0c4e2d6cb4ff8875ecf488"
+  integrity sha512-1cKB2vKQ7GfY2CFTjQWfgk5Uplgb3MZxWy/KCWKQDTjRhovsSpxwaI0e4PVoDoDvZBFOP7/wbppO8sgNHDTSZw==
+
 "@bigbinary/neeto-icons@^1.9.22":
   version "1.17.4"
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.17.4.tgz#d2de4e1e64ec92c5e94a4eedd8a4b4ffe8ee9d72"
@@ -9319,11 +9324,6 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
   integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
-hotkeys-js@3.8.7:
-  version "3.8.7"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.7.tgz#c16cab978b53d7242f860ca3932e976b92399981"
-  integrity sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==
-
 hsl-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hsl-regex/-/hsl-regex-1.0.0.tgz#d49330c789ed819e276a4c0d272dffa30b18fe6e"
@@ -13447,13 +13447,6 @@ react-fit@^1.7.0:
     detect-element-overflow "^1.4.0"
     prop-types "^15.6.0"
     tiny-warning "^1.0.0"
-
-react-hotkeys-hook@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.3.2.tgz#00730bda494ccf429a1693840fa2375405056ad1"
-  integrity sha512-sR98wtrz3qyVZ5G3I5TTRy7Odm1I9poGt1VwT4RN1ztnobRV/pNGja+6B+LONv+IBIyHLvidzW8IZRB7AuAUkw==
-  dependencies:
-    hotkeys-js "3.8.7"
 
 react-i18next@11.16.8:
   version "11.16.8"
