@@ -51,6 +51,11 @@
     align-items: center;
     gap: var(--neeto-ui-stepper-wrapper-gap);
     flex-wrap: wrap;
+
+    @include viewport(mob) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &-item {
