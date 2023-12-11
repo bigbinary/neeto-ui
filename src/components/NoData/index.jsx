@@ -67,7 +67,7 @@ const NoData = ({
         </Typography>
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
-        <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
+        <div className="neeto-ui-no-data__action-block">
           {hasPrimaryButtonProps && (
             <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
           )}
