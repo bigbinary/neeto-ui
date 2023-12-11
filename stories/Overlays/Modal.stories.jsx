@@ -40,8 +40,8 @@ const Default = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -84,8 +84,8 @@ const Sizes = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button
               label="Small"
               onClick={() => setShowModalExtraSmall(true)}
@@ -219,8 +219,8 @@ const ModalFocusTrapping = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -269,8 +269,8 @@ const NestedModals = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -345,8 +345,8 @@ const InitialAndFinalFocusRef = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button
               label="Focus here on close"
@@ -401,8 +401,8 @@ const CSSCustomization = () => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>

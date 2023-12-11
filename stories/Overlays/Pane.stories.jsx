@@ -45,8 +45,8 @@ const Default = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -95,8 +95,8 @@ const Sizes = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Small" onClick={() => setShowPaneExtraSmall(true)} />
             <Button label="Large" onClick={() => setShowPaneLarge(true)} />
           </div>
@@ -168,8 +168,8 @@ const PaneWithLongTitle = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -221,7 +221,7 @@ const PaneWithModalAndAlert = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
+        <div className="space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
@@ -305,7 +305,7 @@ const MultiplePanes = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
+        <div className="space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
             <Button
               label="Show Pane"
@@ -423,7 +423,7 @@ const PaneWithOverlayManager = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
+        <div className="space-y-8">
           <div className="flex flex-row items-center justify-start space-x-2">
             <Button
               label="Show Pane"
@@ -605,8 +605,8 @@ const DynamicFieldFocusInsidePane = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button
               label="Show Pane"
               onClick={() => {
@@ -689,8 +689,8 @@ const CSSCustomization = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>

@@ -70,8 +70,8 @@ const Sizes = () => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Small" onClick={() => setShowAlertSmall(true)} />
             <Button label="Medium" onClick={() => setShowAlertMedium(true)} />
             <Button label="Large" onClick={() => setShowAlertLarge(true)} />

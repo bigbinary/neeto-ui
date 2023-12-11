@@ -60,6 +60,9 @@
     transform: translateX(100%);
     transition: all 0.3s;
 
+    display: flex;
+    flex-direction: column;
+
     &--small {
       --neeto-ui-pane-wrapper-width: 480px;
     }
@@ -94,6 +97,7 @@
     padding: var(--neeto-ui-pane-body-padding-y) var(--neeto-ui-pane-body-padding-x);
     font-size: var(--neeto-ui-pane-body-font-size);
     overflow-y: auto;
+    flex-grow: 1;
 
     &.neeto-ui-pane__body--has-footer {
       --neeto-ui-pane-body-height: calc(
