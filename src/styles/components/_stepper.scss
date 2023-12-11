@@ -50,6 +50,7 @@
     display: flex;
     align-items: center;
     gap: var(--neeto-ui-stepper-wrapper-gap);
+    flex-wrap: wrap;
   }
 
   &-item {
@@ -104,12 +105,24 @@
     display: flex;
     align-items: center;
 
+    @include viewport(mob) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     &:not(:last-child) {
       &::after {
         content: "";
         width: var(--neeto-ui-stepper-item-separator-width);
         border-top: var(--neeto-ui-stepper-item-separator-border-top);
         margin-left: var(--neeto-ui-stepper-item-separator-margin-left);
+
+        @include viewport(mob) {
+          width: 1px;
+          height: var(--neeto-ui-stepper-item-separator-width);
+          border-left: var(--neeto-ui-stepper-item-separator-border-top);
+          margin-left: 22px;
+        }
       }
     }
 
