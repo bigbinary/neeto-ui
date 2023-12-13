@@ -22,7 +22,6 @@ import {
 } from "./utils";
 
 import Label from "../Label";
-import Typography from "../Typography";
 
 const MultiEmailInput = forwardRef(
   (
@@ -136,16 +135,15 @@ const MultiEmailInput = forwardRef(
             </Label>
           )}
           {isCounterVisible && (
-            <Typography
+            <p
               className="neeto-ui-email-input__counter"
               data-cy={`${hyphenize(label)}-email-counter`}
-              style="body2"
             >
               {getValidEmailsCount(value)}{" "}
               {counter.label
                 ? counter.label
                 : renderDefaultText(getValidEmailsCount(value))}
-            </Typography>
+            </p>
           )}
         </div>
         <CreatableSelect
@@ -183,36 +181,31 @@ const MultiEmailInput = forwardRef(
           }}
         />
         {!!error && (
-          <Typography
+          <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
-            style="body3"
           >
             {error}
             {isFilterEmailsLinkVisible && (
-              <Typography
-                className="cursor-pointer"
-                component="span"
-                style="body3"
-                weight="semibold"
+              <span
+                className="neeto-ui-font-semibold cursor-pointer"
                 onClick={handleFilterEmails}
               >
                 &nbsp;
                 {filterInvalidEmails.label
                   ? filterInvalidEmails.label
                   : "Click here to remove invalid emails."}
-              </Typography>
+              </span>
             )}
-          </Typography>
+          </p>
         )}
         {!!helpText && (
-          <Typography
+          <p
             className="neeto-ui-input__help-text"
             data-cy={`${hyphenize(label)}-input-help`}
-            style="body3"
           >
             {helpText}
-          </Typography>
+          </p>
         )}
       </div>
     );
