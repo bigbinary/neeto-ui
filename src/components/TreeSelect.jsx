@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import Label from "./Label";
-import Typography from "./Typography";
 
 const TreeSelect = forwardRef(
   (
@@ -54,24 +53,27 @@ const TreeSelect = forwardRef(
       >
         <div className="neeto-ui-input__wrapper">
           {label && (
-            <Label data-testid="treeselect-label" {...{ required }}>
+            <Label {...{ required }} data-testid="treeselect-label">
               {label}
             </Label>
           )}
           <AntdTreeSelect
-            allowClear={allowClear}
+            {...{
+              allowClear,
+              disabled,
+              fieldNames,
+              onChange,
+              placeholder,
+              ref,
+              showSearch,
+              size,
+              treeData,
+              treeDataSimpleMode,
+            }}
             data-cy="neeto-ui-tree-select-wrapper"
-            disabled={disabled}
             dropdownStyle={{ zIndex: 100000 }}
-            fieldNames={fieldNames}
-            placeholder={placeholder}
             popupClassName="neeto-ui-tree-select-dropdown"
-            ref={ref}
-            showSearch={showSearch}
-            size={size}
             suffixIcon={<SuffixIcon />}
-            treeData={treeData}
-            treeDataSimpleMode={treeDataSimpleMode}
             treeNodeFilterProp={fieldNames?.label ?? "label"}
             value={value || undefined}
             className={classnames("neeto-ui-tree-select__wrapper", className, {
@@ -88,17 +90,12 @@ const TreeSelect = forwardRef(
                 <SwitcherIcon />
               </div>
             )}
-            onChange={onChange}
             {...otherProps}
           />
           {error && (
-            <Typography
-              className="neeto-ui-input__error"
-              data-testid="treeselect-error"
-              style="body3"
-            >
+            <p className="neeto-ui-input__error" data-testid="treeselect-error">
               {error}
-            </Typography>
+            </p>
           )}
         </div>
       </ConfigProvider>
