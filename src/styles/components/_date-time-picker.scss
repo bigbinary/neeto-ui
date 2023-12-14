@@ -362,6 +362,12 @@
     }
 
     .ant-picker-body {
+
+      @include viewport(xs-mob) {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
       .ant-picker-content {
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
           .ant-picker-cell-inner {
@@ -482,6 +488,11 @@
     white-space: nowrap;
     align-items: center;
     border-bottom: var(--neeto-ui-date-panel-header-border-bottom-width);
+
+    @include viewport(xs-mob) {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
 
   .ant-picker-header-view {
@@ -514,6 +525,10 @@
 
   .ant-picker-date-panel {
     width: var(--neeto-ui-date-panel-width);
+
+    @include viewport(xs-mob) {
+      width: 296px;
+    }
   }
 
   .ant-picker-date-panel .ant-picker-content {

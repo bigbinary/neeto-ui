@@ -41,6 +41,14 @@
   &__action-block {
     margin-top: var(--neeto-ui-no-data-action-block-margin-top);
     gap: var(--neeto-ui-no-data-action-block-gap);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include viewport(mob) {
+      flex-direction: column;
+    }
   }
 }
 

@@ -70,6 +70,12 @@
     backdrop-filter: var(--neeto-ui-modal-wrapper-backdrop-filter);
     animation: showModalWrapper 0.3s forwards;
 
+    @include viewport(mob) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     @keyframes showModalWrapper {
       0% {
         opacity: 0;
@@ -110,6 +116,10 @@
       max-height: 100vh;
       transform: scale(1);
       animation: nuifadeIn 0s forwards;
+
+      @include viewport(mob) {
+        width: 100%;
+      }
     }
 
     .neeto-ui-modal__header {
