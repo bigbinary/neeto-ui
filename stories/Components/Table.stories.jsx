@@ -493,7 +493,7 @@ const TableWithColumnWithHideColumnOption = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onColumnHide={columnKey => {
+        onColumnHide={({ key: columnKey }) => {
           setColumns(columns.filter(({ key }) => key !== columnKey));
         }}
         {...args}

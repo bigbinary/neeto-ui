@@ -102,7 +102,7 @@ const HeaderCellMenu = ({
             </>
           )}
           {isHidable && (
-            <MenuItem.Button onClick={() => onColumnHide(column.dataIndex)}>
+            <MenuItem.Button onClick={() => onColumnHide(column)}>
               Hide column
             </MenuItem.Button>
           )}
