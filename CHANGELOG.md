@@ -23,6 +23,24 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.0.2 - 2023-12-14
+
+Enhanced the responsiveness of the following components
+
+- Alert
+- Modal
+- Pane
+- Toastr
+- NoData
+- DatePicker
+- Stepper
+
+**Screenshots**
+
+<img width="339" alt="Screenshot 2023-12-12 at 3 22 21 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/fb641a39-ad0d-4ae9-8dd7-400a86d1229d">
+<img width="339" alt="Screenshot 2023-12-12 at 3 23 48 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/572b57f6-7c45-4405-afc6-d3ab9b47a844">
+<img width="343" alt="Screenshot 2023-12-12 at 3 26 02 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/e5c47a01-d26e-4b50-a6db-7bdbf42849fd">
+<img width="341" alt="Screenshot 2023-12-12 at 3 26 22 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/7db5d9f5-8e4f-4aa8-91a5-5f0981d3c52b">
 ## 6.0.0 - 2023-12-04
 
 - Changed: Enhanced the customizability of all the components by allowing users
@@ -828,7 +846,6 @@ Changes documentations to sentence case from title casing.
   specified maxlength. The character count will be shown only when the input
   length reaches 90% of maxlength and changes the state to error when input
   exceeds the maxlength
-
 #### TextArea
 
 - Changed: `maxlength` prop logic to allow typing characters beyond the
