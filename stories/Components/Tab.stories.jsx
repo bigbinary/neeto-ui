@@ -4,7 +4,8 @@ import { Favorite, Search, Close } from "neetoicons";
 
 import Tab from "components/Tab";
 
-import TabStoriesDocs from "!raw-loader!./TabStoriesDocs.mdx";
+import TabCSSCustomization from "!raw-loader!./TabStoriesDocs/TabCSSCustomization.mdx";
+import TabDocs from "!raw-loader!./TabStoriesDocs/TabDocs.mdx";
 
 const metadata = {
   title: "Components/Tab",
@@ -12,7 +13,7 @@ const metadata = {
   subcomponents: { "Tab.Item": Tab.Item },
   parameters: {
     layout: "padded",
-    docs: { description: { component: TabStoriesDocs } },
+    docs: { description: { component: TabDocs } },
   },
 };
 
@@ -72,6 +73,26 @@ const MultipleItems = args => {
 };
 MultipleItems.storyName = "Multiple items";
 
-export { Default, Sizes, WithIcon, WithoutUnderline, MultipleItems };
+const CSSCustomization = args => (
+  <Tab className="neetix-tab" {...args}>
+    <Tab.Item active>Label</Tab.Item>
+    <Tab.Item>Label</Tab.Item>
+  </Tab>
+);
+
+CSSCustomization.storyName = "Tab CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TabCSSCustomization } },
+};
+
+export {
+  Default,
+  Sizes,
+  WithIcon,
+  WithoutUnderline,
+  MultipleItems,
+  CSSCustomization,
+};
 
 export default metadata;

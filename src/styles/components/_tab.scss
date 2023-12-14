@@ -1,81 +1,121 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-tab-wrapper-border-width: 2px;
+  --neeto-ui-tab-wrapper-border-color: rgb(var(--neeto-ui-gray-300));
+  --neeto-ui-tab-padding-x: 8px;
+  --neeto-ui-tab-padding-y: 12px;
+  --neeto-ui-tab-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-tab-font-weight: var(--neeto-ui-font-semibold);
+  --neeto-ui-tab-line-height: 1;
+  --neeto-ui-tab-color: rgb(var(--neeto-ui-gray-600));
+  --neeto-ui-tab-border-color: transparent;
+  --neeto-ui-tab-gap: 12px;
+  --neeto-ui-tab-icon-size: 16px;
+  --neeto-ui-tab-text-decoration: none;
+  --neeto-ui-tab-outline: none;
+
+  // Hover
+  --neeto-ui-tab-hover-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-tab-hover-text-decoration: none;
+  --neeto-ui-tab-hover-outline: none;
+
+  // Focus
+  --neeto-ui-tab-focus-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-tab-focus-text-decoration: none;
+  --neeto-ui-tab-focus-outline: none;
+
+  // Active
+  --neeto-ui-tab-active-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tab-active-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tab-active-text-decoration: none;
+  --neeto-ui-tab-active-outline: none;
+
+  // Focus Visible
+  --neeto-ui-tab-focus-visible-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tab-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-tab-focus-visible-outline-offset: 1px;
+  --neeto-ui-tab-focus-visible-box-shadow: none;
+}
+
 .neeto-ui-tab__wrapper {
   width: 100%;
-  border-bottom: 2px solid rgb(var(--neeto-ui-gray-300));
+  border-bottom: var(--neeto-ui-tab-wrapper-border-width) solid var(--neeto-ui-tab-wrapper-border-color);
 
   &--size-large {
     .neeto-ui-tab {
-      font-size: var(--neeto-ui-text-xl);
-      padding-left: 12px;
-      padding-right: 12px;
+      --neeto-ui-tab-font-size: var(--neeto-ui-text-xl);
+      --neeto-ui-tab-padding-x: 12px;
     }
   }
+
   &--underline-none {
-    border-bottom: none;
-    .neeto-ui-tab {
-      &::before {
-        display: none;
-      }
-    }
+    --neeto-ui-tab-wrapper-border-width: 0px;
   }
 }
 
 .neeto-ui-tab {
-  color: rgb(var(--neeto-ui-gray-600));
-  font-weight: var(--neeto-ui-font-semibold);
-  font-size: var(--neeto-ui-text-sm);
-  line-height: 1;
-  padding: 12px 8px;
+  color: var(--neeto-ui-tab-color);
+  font-weight: var(--neeto-ui-tab-font-weight);
+  font-size: var(--neeto-ui-tab-font-size);
+  line-height: var(--neeto-ui-tab-line-height);
+  padding: var(--neeto-ui-tab-padding-y) var(--neeto-ui-tab-padding-x);
   transition: var(--neeto-ui-transition);
+  gap: var(--neeto-ui-tab-gap);
   position: relative;
   cursor: pointer;
-  text-decoration: none;
-  outline: none;
-
-  &:hover,
-  &:focus,
-  &:active{
-    text-decoration: none;
-    outline: none;
-  }
-
-  &:focus-visible{
-    text-decoration: none; 
-    color: rgb(var(--neeto-ui-gray-800));
-    outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-    outline-offset: 1px;
-    box-shadow: none;
-  }
-
-  &__icon {
-    margin-right: 12px;
-  }
+  text-decoration: var(--neeto-ui-tab-text-decoration);
+  outline: var(--neeto-ui-tab-outline);
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: var(--neeto-ui-tab-icon-size);
+    height: var(--neeto-ui-tab-icon-size);
   }
 
   &:hover {
-    color: rgb(var(--neeto-ui-gray-600));
+    color: var(--neeto-ui-tab-hover-color);
+    text-decoration: var(--neeto-ui-tab-hover-text-decoration);
+    outline: var(--neeto-ui-tab-hover-outline);
+  }
+
+  &:focus {
+    color: var(--neeto-ui-tab-focus-color);
+    text-decoration: var(--neeto-ui-tab-focus-text-decoration);
+    outline: var(--neeto-ui-tab-focus-outline);
+  }
+
+  &:active {
+    text-decoration: var(--neeto-ui-tab-active-text-decoration);
+    outline: var(--neeto-ui-tab-active-outline);
+  }
+
+  &:focus-visible {
+    text-decoration: none;
+    color: var(--neeto-ui-tab-focus-visible-color);
+    outline: var(--neeto-ui-tab-focus-visible-outline);
+    outline-offset: var(--neeto-ui-tab-focus-visible-outline-offset);
+    box-shadow: var(--neeto-ui-tab-focus-visible-box-shadow);
   }
 
   &:before {
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px;
-    background-color: transparent;
+    height: var(--neeto-ui-tab-wrapper-border-width);
+    background-color: var(--neeto-ui-tab-border-color);
     left: 0;
     right: 0;
-    bottom: -2px;
+    bottom: calc(var(--neeto-ui-tab-wrapper-border-width) * -1);
     transition: var(--neeto-ui-transition);
   }
 
   &.active {
-    color: rgb(var(--neeto-ui-gray-800));
-
+    color: var(--neeto-ui-tab-active-color);
     &:before {
-      background-color: rgb(var(--neeto-ui-gray-800));
+      background-color: var(--neeto-ui-tab-active-border-color);
     }
   }
+}
+
+.neetix-tab {
+  --neeto-ui-tab-active-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tab-active-border-color: rgb(var(--neeto-ui-primary-500));
 }

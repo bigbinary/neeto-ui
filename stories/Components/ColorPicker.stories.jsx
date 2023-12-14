@@ -6,7 +6,8 @@ import ColorPicker from "components/ColorPicker";
 
 import { PALETTE_PICKER_CODE } from "./constants";
 
-import ColorPickerStoriesDocs from "!raw-loader!./ColorPickerStoriesDocs.mdx";
+import ColorPickerCSSCustomization from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerCSSCustomization.mdx";
+import ColorPickerDocs from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerDocs.mdx";
 
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
@@ -28,7 +29,7 @@ const metadata = {
   component: ColorPicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ColorPickerStoriesDocs } },
+    docs: { description: { component: ColorPickerDocs } },
   },
   argTypes: {
     onChange: {
@@ -54,7 +55,7 @@ const Default = ({ color, ...args }) => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker color={currentColor} onChange={onChange} {...args} />
+      <ColorPicker {...{ onChange }} color={currentColor} {...args} />
     </div>
   );
 };
@@ -77,15 +78,15 @@ const Sizes = args => {
     <div className="flex h-60 w-40 flex-col gap-4">
       <div className="flex flex-col gap-2">
         <span>Small</span>
-        <ColorPicker color={color} size="small" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="small" />
       </div>
       <div className="flex flex-col gap-2">
         <span>Medium</span>
-        <ColorPicker color={color} size="medium" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="medium" />
       </div>
       <div className="flex flex-col gap-2">
         <span>Large</span>
-        <ColorPicker color={color} size="large" onChange={onChange} />
+        <ColorPicker {...{ color, onChange }} size="large" />
       </div>
     </div>
   );
@@ -130,13 +131,12 @@ const WithColorPalette = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={color}
+        {...{ color, onChange }}
         colorPaletteProps={{
           color: selectedColor,
           colorList,
           onChange: handleColorChange,
         }}
-        onChange={onChange}
       />
     </div>
   );
@@ -158,7 +158,7 @@ const WithEyeDropper = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showEyeDropper color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showEyeDropper />
     </div>
   );
 };
@@ -179,7 +179,7 @@ const ShowHexValue = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showHexValue color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showHexValue />
     </div>
   );
 };
@@ -200,7 +200,7 @@ const ShowTransparencyControl = args => {
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker showTransparencyControl color={color} onChange={onChange} />
+      <ColorPicker {...{ color, onChange }} showTransparencyControl />
     </div>
   );
 };
@@ -238,7 +238,7 @@ const OnlyPalettePicker = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={color}
+        {...{ color }}
         showPicker={false}
         colorPaletteProps={{
           color: selectedColor,
@@ -256,6 +256,38 @@ OnlyPalettePicker.parameters = {
   docs: { source: { code: PALETTE_PICKER_CODE } },
 };
 
+const CSSCustomization = ({ color, ...args }) => {
+  const [currentColor, setCurrentColor] = useState("#4558F9");
+
+  const onChange = value => {
+    action("onChange")(value);
+    setCurrentColor(value.hex);
+  };
+
+  useEffect(() => {
+    setCurrentColor(color || "#4558F9");
+  }, [color]);
+
+  return (
+    <div className="h-60 w-40">
+      <div className="neetix-colorpicker">
+        <ColorPicker {...{ onChange }} color={currentColor} {...args} />
+      </div>
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "ColorPicker CSS Customization";
+
+CSSCustomization.args = {
+  color: "#4558F9",
+  className: "neetix-colorpicker",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: ColorPickerCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
@@ -264,6 +296,7 @@ export {
   ShowHexValue,
   ShowTransparencyControl,
   OnlyPalettePicker,
+  CSSCustomization,
 };
 
 export default metadata;

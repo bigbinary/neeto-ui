@@ -22,7 +22,6 @@ import {
 } from "./utils";
 
 import Label from "../Label";
-import Typography from "../Typography";
 
 const MultiEmailInput = forwardRef(
   (
@@ -123,29 +122,28 @@ const MultiEmailInput = forwardRef(
       !!filterInvalidEmails && value.length > getValidEmailsCount(value);
 
     return (
-      <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-email-input">
-        <div className="neeto-ui-flex neeto-ui-justify-between neeto-ui-email-input__title-row">
+      <div className="neeto-ui-input__wrapper neeto-ui-email-input__wrapper">
+        <div className="neeto-ui-email-input__label-wrapper">
           {label && (
             <Label
+              {...{ required }}
               className="neeto-ui-email-input__label"
               data-cy={`${hyphenize(label)}-input-label`}
-              required={required}
               {...labelProps}
             >
               {label}
             </Label>
           )}
           {isCounterVisible && (
-            <Typography
+            <p
               className="neeto-ui-email-input__counter"
               data-cy={`${hyphenize(label)}-email-counter`}
-              style="body2"
             >
               {getValidEmailsCount(value)}{" "}
               {counter.label
                 ? counter.label
                 : renderDefaultText(getValidEmailsCount(value))}
-            </Typography>
+            </p>
           )}
         </div>
         <CreatableSelect
@@ -153,15 +151,9 @@ const MultiEmailInput = forwardRef(
           required
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
-          inputValue={inputValue}
           isDisabled={disabled}
-          isFocused={isFocused}
-          placeholder={placeholder}
-          ref={ref}
-          value={value}
-          visibleEmailsCount={visibleEmailsCount}
           className={classnames(
-            "neeto-ui-react-select__container neeto-ui-email-input__select",
+            "neeto-ui-react-select__container neeto-ui-react-select__container--medium neeto-ui-email-input__select",
             { "neeto-ui-react-select__container--error": !!error }
           )}
           styles={{
@@ -172,45 +164,49 @@ const MultiEmailInput = forwardRef(
             }),
           }}
           onBlur={handleBlur}
-          onChange={onChange}
           onFocus={() => setIsFocused(true)}
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
-          {...(!isOptionsPresent && { menuIsOpen: false })}
-          {...otherProps}
-          {...overrideProps}
+          {...{
+            inputValue,
+            isFocused,
+            onChange,
+            placeholder,
+            ref,
+            value,
+            visibleEmailsCount,
+            ...(!isOptionsPresent && { menuIsOpen: false }),
+            ...otherProps,
+            ...overrideProps,
+          }}
         />
-        <div className="neeto-ui-email-input__bottom-info">
-          {!!error && (
-            <Typography
-              className="neeto-ui-input__error"
-              data-cy={`${hyphenize(label)}-input-error`}
-              style="body3"
-            >
-              {error}
-              {isFilterEmailsLinkVisible && (
-                <span
-                  className="neeto-ui-typography neeto-ui-text-body3 neeto-ui-font-semibold cursor-pointer"
-                  onClick={handleFilterEmails}
-                >
-                  &nbsp;
-                  {filterInvalidEmails.label
-                    ? filterInvalidEmails.label
-                    : "Click here to remove invalid emails."}
-                </span>
-              )}
-            </Typography>
-          )}
-          {!!helpText && (
-            <Typography
-              className="neeto-ui-input__help-text"
-              data-cy={`${hyphenize(label)}-input-help`}
-              style="body3"
-            >
-              {helpText}
-            </Typography>
-          )}
-        </div>
+        {!!error && (
+          <p
+            className="neeto-ui-input__error"
+            data-cy={`${hyphenize(label)}-input-error`}
+          >
+            {error}
+            {isFilterEmailsLinkVisible && (
+              <span
+                className="neeto-ui-font-semibold cursor-pointer"
+                onClick={handleFilterEmails}
+              >
+                &nbsp;
+                {filterInvalidEmails.label
+                  ? filterInvalidEmails.label
+                  : "Click here to remove invalid emails."}
+              </span>
+            )}
+          </p>
+        )}
+        {!!helpText && (
+          <p
+            className="neeto-ui-input__help-text"
+            data-cy={`${hyphenize(label)}-input-help`}
+          >
+            {helpText}
+          </p>
+        )}
       </div>
     );
   }

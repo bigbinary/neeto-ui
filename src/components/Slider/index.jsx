@@ -4,7 +4,6 @@ import { Slider as AntdSlider, ConfigProvider } from "antd";
 import PropTypes from "prop-types";
 
 import Label from "components/Label";
-import Typography from "components/Typography";
 import { useId } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
 
@@ -70,24 +69,22 @@ const Slider = ({
           {...{ defaultValue, max, min, onChange, value, ...otherProps, id }}
         />
         {!!error && (
-          <Typography
+          <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
-            style="body3"
           >
             {error}
-          </Typography>
+          </p>
         )}
         {helpText && (
-          <Typography
+          <p
             className="neeto-ui-input__help-text"
             data-cy={`${hyphenize(label)}-input-help`}
             id={helpTextId}
-            style="body3"
           >
             {helpText}
-          </Typography>
+          </p>
         )}
       </div>
     </ConfigProvider>

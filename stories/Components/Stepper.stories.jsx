@@ -2,14 +2,15 @@ import React, { useState } from "react";
 
 import Stepper from "components/Stepper";
 
-import StepperStoriesDocs from "!raw-loader!./StepperStoriesDocs.mdx";
+import StepperCSSCustomization from "!raw-loader!./StepperStoriesDocs/StepperCSSCustomization.mdx";
+import StepperDocs from "!raw-loader!./StepperStoriesDocs/StepperDocs.mdx";
 
 const metadata = {
   title: "Components/Stepper",
   component: Stepper,
   parameters: {
     layout: "padded",
-    docs: { description: { component: StepperStoriesDocs } },
+    docs: { description: { component: StepperDocs } },
   },
 };
 
@@ -30,25 +31,14 @@ const STEPS_MAX = [
 const Default = args => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  return (
-    <Stepper
-      activeIndex={activeIndex}
-      setActiveIndex={setActiveIndex}
-      {...args}
-    />
-  );
+  return <Stepper {...{ activeIndex, setActiveIndex, ...args }} />;
 };
 
 const Variant = args => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Stepper
-      activeIndex={activeIndex}
-      setActiveIndex={setActiveIndex}
-      steps={STEPS_MAX}
-      {...args}
-    />
+    <Stepper {...{ activeIndex, setActiveIndex }} steps={STEPS_MAX} {...args} />
   );
 };
 
@@ -57,5 +47,21 @@ Default.args = { steps: STEPS };
 Default.storyName = "Stepper";
 Variant.storyName = "Stepper with 5 steps";
 
-export { Default, Variant };
+const CSSCustomization = args => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  return (
+    <div className="neetix-stepper">
+      <Stepper {...{ activeIndex, setActiveIndex }} steps={STEPS} {...args} />
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Stepper CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: StepperCSSCustomization } },
+};
+
+export { Default, Variant, CSSCustomization };
 export default metadata;

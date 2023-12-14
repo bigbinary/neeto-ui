@@ -1,3 +1,39 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-radio-size: 16px;
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-radio-border-width: 2px;
+  --neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-400));
+
+  // Disabled
+  --neeto-ui-radio-disabled-opacity: 0.5;
+
+  // Hover
+  --neeto-ui-radio-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+  // Focus
+  --neeto-ui-radio-focus-outline: transparent;
+  --neeto-ui-radio-focus-outline-offset: 0px;
+
+  // Focus Visible
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-radio-focus-visible-outline-offset: 1px;
+  --neeto-ui-radio-focus-visible-box-shadow: none;
+
+  // Checked
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-500));
+
+  // Error
+  --neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-500));
+  --neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-500));
+  --neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
+
+  // Margin
+  --neeto-ui-radio-wrapper-label-margin: 12px;
+  --neeto-ui-radio-wrapper-error-margin: 4px;
+  --neeto-ui-radio-label-margin: 8px;
+  --neeto-ui-radio-margin: 16px;
+}
+
 .neeto-ui-radio__wrapper {
   display: flex;
   flex-direction: column;
@@ -6,13 +42,13 @@
   flex-grow: 1;
 
   .neeto-ui-radio__label {
-    margin-bottom: 12px;
+    margin-bottom: var(--neeto-ui-radio-wrapper-label-margin);
   }
 
   .neeto-ui-radio-input__error {
-    margin-top: 4px;
-    color: rgb(var(--neeto-ui-error-500));
-    font-size: var(--neeto-ui-text-xs);
+    margin-top: var(--neeto-ui-radio-wrapper-error-margin);
+    color: var(--neeto-ui-radio-error-color);
+    font-size: var(--neeto-ui-radio-error-font-size);
   }
 }
 
@@ -29,53 +65,53 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: 8px;
+      margin-left: var(--neeto-ui-radio-label-margin);
     }
 
     &:not(:last-child) {
-      margin-right: 16px;
+      margin-right: var(--neeto-ui-radio-margin);
     }
   }
 
   .neeto-ui-radio[type="radio"] {
-    width: 16px;
-    height: 16px;
-    color: rgb(var(--neeto-ui-primary-500));
-    border: 2px solid rgb(var(--neeto-ui-gray-400));
-    justify-content: flex-start;
-    align-items: flex-start;
+    width: var(--neeto-ui-radio-size);
+    height: var(--neeto-ui-radio-size);
+    color: var(--neeto-ui-radio-color);
+    border: var(--neeto-ui-radio-border-width) solid var(--neeto-ui-radio-border-color);
 
     &:not(:disabled) {
       cursor: pointer;
     }
 
     &:hover:not(:disabled, :checked) {
-      border-color: rgb(var(--neeto-ui-gray-500));
+      border-color: var(--neeto-ui-radio-hover-border-color);
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: var(--neeto-ui-radio-disabled-opacity);
       cursor: not-allowed;
     }
 
     &:checked {
-      border: none !important;
+      border-color: var(--neeto-ui-radio-checked-border-color);
+      background-size: calc(var(--neeto-ui-radio-size) * 0.375);
     }
 
     &:focus {
-      outline: transparent;
+      outline: var(--neeto-ui-radio-focus-outline);
+      outline-offset: var(--neeto-ui-radio-focus-outline-offset);
     }
 
     &:focus-visible {
-      outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
-      outline-offset: 1px;
-      box-shadow: none;
+      outline: var(--neeto-ui-radio-focus-visible-outline);
+      outline-offset: var(--neeto-ui-radio-focus-visible-outline-offset);
+      box-shadow: var(--neeto-ui-radio-focus-visible-box-shadow);
     }
   }
 
   &.neeto-ui-radio__container--error {
     .neeto-ui-radio[type="radio"] {
-      border-color: rgb(var(--neeto-ui-error-500));
+      border-color: var(--neeto-ui-radio-error-border-color);
     }
   }
 
@@ -84,7 +120,13 @@
     align-items: flex-start;
 
     .neeto-ui-radio__item:not(:last-child) {
-      margin-bottom: 16px;
+      margin-bottom: var(--neeto-ui-radio-margin);
     }
   }
+}
+
+.neetix-radio {
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-gray-800), 50%);
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-gray-800));
 }

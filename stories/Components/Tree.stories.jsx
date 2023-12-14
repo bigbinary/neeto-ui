@@ -13,14 +13,15 @@ import {
 } from "./constants";
 import { handleOnDrop } from "./utils";
 
-import TreeStoriesDocs from "!raw-loader!./TreeStoriesDocs.mdx";
+import TreeCSSCustomization from "!raw-loader!./TreeStoriesDocs/TreeCSSCustomization.mdx";
+import TreeDocs from "!raw-loader!./TreeStoriesDocs/TreeDocs.mdx";
 
 const metadata = {
   title: "Components/Tree",
   component: Tree,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TreeStoriesDocs } },
+    docs: { description: { component: TreeDocs } },
   },
 };
 
@@ -34,7 +35,7 @@ const DraggableTree = () => {
   const [treeData, setTreeData] = useState(TREE_DATA);
   const onDrop = info => handleOnDrop({ info, treeData, setTreeData });
 
-  return <Tree blockNode draggable treeData={treeData} onDrop={onDrop} />;
+  return <Tree {...{ onDrop, treeData }} blockNode draggable />;
 };
 
 DraggableTree.args = {};
@@ -118,19 +119,14 @@ const SearchableTree = () => {
   return (
     <div className="space-y-3">
       <Input
+        {...{ onChange }}
         label="Search"
         placeholder="Input search text"
         prefix={<Search />}
         type="search"
         value={searchValue}
-        onChange={onChange}
       />
-      <Tree
-        autoExpandParent={autoExpandParent}
-        expandedKeys={expandedKeys}
-        treeData={treeData}
-        onExpand={onExpand}
-      />
+      <Tree {...{ autoExpandParent, expandedKeys, onExpand, treeData }} />
     </div>
   );
 };
@@ -140,5 +136,19 @@ SearchableTree.parameters = {
   docs: { source: { code: SEARCHABLE_TREE_CODE } },
 };
 
-export { Default, DraggableTree, SearchableTree };
+const CSSCustomization = args => <Tree {...args} />;
+
+CSSCustomization.storyName = "Tree CSS Customization";
+CSSCustomization.args = {
+  height: 200,
+  treeData: TREE_DATA,
+  checkable: true,
+  className: "neetix-tree",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TreeCSSCustomization } },
+};
+
+export { Default, DraggableTree, SearchableTree, CSSCustomization };
 export default metadata;

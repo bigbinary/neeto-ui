@@ -26,9 +26,10 @@ const Accordion = ({
 
   return (
     <div
-      className={classnames({
-        "neeto-ui-accordions-outer-wrapper": padded,
-        "neeto-ui-bg-gray-100": style === ACCORDION_STYLES.secondary,
+      className={classnames("neeto-ui-accordions-outer-wrapper", {
+        "neeto-ui-accordions-outer-wrapper--padded": padded,
+        "neeto-ui-accordions-outer-wrapper--secondary":
+          style === ACCORDION_STYLES.secondary,
         [className]: className,
       })}
     >

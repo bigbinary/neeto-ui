@@ -1,35 +1,52 @@
-.neeto-ui-email-input {
-  .neeto-ui-label {
-    margin-bottom: 8px;
-  }
-  .neeto-ui-email-input__title-row {
-    gap: 8px;
-    justify-content: space-between;
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  // Label Wrapper
+  --neeto-ui-multi-email-input-label-wrapper-gap: 8px;
+  --neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-multi-email-input-counter-line-height: 1;
+  --neeto-ui-multi-email-input-counter-margin-bottom: 8px;
+
+  // Prefx & Suffix
+  --neeto-ui-multi-email-input-prefix-suffix-icon-size: 16px;
+  --neeto-ui-multi-email-input-prefix-margin-left: 12px;
+}
+
+.neeto-ui-email-input__wrapper {
+  .neeto-ui-email-input__label-wrapper {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--neeto-ui-multi-email-input-label-wrapper-gap);
+
     .neeto-ui-label {
       flex-grow: 1;
       overflow-wrap: break-word;
     }
 
     .neeto-ui-email-input__counter {
-      color: rgb(var(--neeto-ui-gray-700));
-      line-height: 1;
-      margin-bottom: 8px;
+      color: var(--neeto-ui-multi-email-input-counter-color);
+      line-height: var(--neeto-ui-multi-email-input-counter-line-height);
+      margin-bottom: var(--neeto-ui-multi-email-input-counter-margin-bottom);
       margin-left: auto;
     }
   }
 
   .neeto-ui-email-input__prefix {
-    margin-left: 12px;
+    margin-left: var(--neeto-ui-multi-email-input-prefix-margin-left);
+
     svg {
-      width: 16px;
-      height: 16px;
+      width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
+      height: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
     }
   }
+
   .neeto-ui-email-input__suffix {
     svg {
-      width: 16px;
-      height: 16px;
+      width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
+      height: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
     }
   }
+}
+
+.neetix-email-input {
+  --neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-primary-500));
 }

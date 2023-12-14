@@ -1,0 +1,113 @@
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the `Select`
+component.
+
+```css
+// Select
+--neeto-ui-select-padding-x: 0px;
+--neeto-ui-select-padding-y: 0px;
+--neeto-ui-select-min-height: 0px;
+--neeto-ui-select-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-select-border-width: 1px;
+--neeto-ui-select-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-select-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-select-line-height: 1.2;
+
+// Placeholder
+--neeto-ui-select-placeholder-color: rgb(var(--neeto-ui-gray-400));
+
+// Focus
+--neeto-ui-select-focus-outline-color: transparent;
+--neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+--neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-primary-500));
+
+// Hover
+--neeto-ui-select-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+// Error
+--neeto-ui-select-error-border-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-select-error-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+
+// Indicators
+--neeto-ui-select-indicators-padding: 0px;
+--neeto-ui-select-indicators-gap: 8px;
+--neeto-ui-select-indicators-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-indicators-hover-color: rgb(var(--neeto-ui-gray-700));
+
+// Menu
+--neeto-ui-select-menu-border-width: 1px;
+--neeto-ui-select-menu-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-select-menu-margin-top: 6px;
+--neeto-ui-select-menu-margin-bottom: 16px;
+--neeto-ui-select-menu-z-index: 20px;
+--neeto-ui-select-menu-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-select-menu-box-shadow: var(--neeto-ui-shadow-lg);
+--neeto-ui-select-menu-max-height: 480px;
+
+// Menu Option
+--neeto-ui-select-menu-option-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-menu-option-padding-x: 12px;
+--neeto-ui-select-menu-option-padding-y: 8px;
+--neeto-ui-select-menu-option-line-height: 1.1;
+--neeto-ui-select-menu-option-min-height: 32px;
+
+// Menu Option Focus
+--neeto-ui-select-menu-option-focus-bg-color: rgb(var(--neeto-ui-gray-200));
+
+// Menu Option Disabled
+--neeto-ui-select-menu-option-disabled-color: rgb(var(--neeto-ui-gray-200));
+
+// Menu Option Active
+--neeto-ui-select-menu-option-acitve-bg-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-select-menu-option-acitve-color: rgb(var(--neeto-ui-white));
+
+// Menu Fixed Option
+--neeto-ui-select-menu-fixed-option-border-top-width: 1px;
+--neeto-ui-select-menu-fixed-option-border-top-color: rgb(
+  var(--neeto-ui-gray-100)
+);
+--neeto-ui-select-menu-fixed-option-padding-x: 0px;
+--neeto-ui-select-menu-fixed-option-padding-y: 2px;
+--neeto-ui-select-menu-fixed-option-link-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-select-menu-fixed-option-link-padding-x: 12px;
+--neeto-ui-select-menu-fixed-option-link-padding-y: 8px;
+--neeto-ui-select-menu-fixed-option-link-hover-color: rgb(
+  var(--neeto-ui-gray-800)
+);
+
+// Multi Value
+--neeto-ui-select-multi-value-bg-color: transparent;
+--neeto-ui-select-multi-value-border-width: 1px;
+--neeto-ui-select-multi-value-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-multi-value-border-radius: 100px;
+--neeto-ui-select-multi-value-margin-right: 4px;
+--neeto-ui-select-multi-value-margin-y: 4px;
+--neeto-ui-select-multi-value-padding-x: 8px;
+--neeto-ui-select-multi-value-padding-y: 0px;
+--neeto-ui-select-multi-value-color: rgb(var(--neeto-ui-gray-800));
+
+--neeto-ui-select-multi-value-label-margin-right: 6px;
+--neeto-ui-select-multi-value-label-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-select-multi-value-label-line-height: 1;
+--neeto-ui-select-multi-value-label-padding-x: 0px;
+--neeto-ui-select-multi-value-label-padding-y: 2px;
+
+--neeto-ui-select-multi-value-remove-hover-opacity: 0.7;
+```
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+```css
+.neetix-select {
+  --neeto-ui-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded-none);
+}
+```
+
+#### Output

@@ -157,6 +157,33 @@ describe("Table", () => {
     expect(queryParams).toEqual({ page: "2", sort_by: "" });
   });
 
+  it("should navigate to previous page if all the items in the last page are deleted", () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        currentPageNumber={4}
+        defaultPageSize={10}
+        rowData={[]}
+        totalCount={30}
+      />
+    );
+
+    expect(getQueryParams()).toEqual({ page: "3", sort_by: "" });
+
+    const handlePageChange = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, handlePageChange }}
+        currentPageNumber={3}
+        defaultPageSize={10}
+        rowData={[]}
+        totalCount={20}
+      />
+    );
+
+    expect(handlePageChange).toBeCalledWith(2, 10);
+  });
+
   it("should set sorting URL query parameters when column title is clicked", async () => {
     render(
       <NeetoUITable

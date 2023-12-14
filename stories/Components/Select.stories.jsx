@@ -9,14 +9,15 @@ import { Select as FormikSelect } from "components/formik";
 
 import { FORMIK_SELECT } from "../constants";
 
-import SelectStoriesDocs from "!raw-loader!./SelectStoriesDocs.mdx";
+import SelectCSSCustomization from "!raw-loader!./SelectStoriesDocs/SelectCSSCustomization.mdx";
+import SelectDocs from "!raw-loader!./SelectStoriesDocs/SelectDocs.mdx";
 
 const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SelectStoriesDocs } },
+    docs: { description: { component: SelectDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
@@ -55,6 +56,7 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
+          isMulti
           label="Small"
           placeholder="Select placeholder"
           size="small"
@@ -70,8 +72,9 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
-          label="Medium"
+          isMulti
           // size="medium"
+          label="Medium"
           placeholder="Select placeholder"
           options={[
             { value: "value1", label: "Value one" },
@@ -85,6 +88,7 @@ const Sizes = args => (
       <div className="w-full">
         <Select
           {...args}
+          isMulti
           label="Large"
           placeholder="Select placeholder"
           size="large"
@@ -169,13 +173,12 @@ const Creatable = args => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
-        {...args}
+        {...{ ...args, options }}
         isCreateable
         isSearchable
         defaultValue={[{ value: "value3", label: "Value three" }]}
         label="Creatable Select"
         name="ValueList"
-        options={options}
         placeholder="Select an option"
         onCreateOption={inputValue =>
           setOptions([...options, { label: inputValue, value: inputValue }])
@@ -219,16 +222,14 @@ const AsyncCreatable = args => {
   return (
     <div className="mb-2 h-60 p-4">
       <Select
-        {...args}
+        {...{ ...args, loadOptions, value }}
         cacheOptions
         isCreateable
         className="w-full"
         defaultOptions={options}
         label="Select"
-        loadOptions={loadOptions}
         placeholder="Select placeholder"
         size="small"
-        value={value}
         onChange={newValue => setValue(newValue)}
         onCreateOption={inputValue =>
           setOptions(prevOptions => [
@@ -312,7 +313,7 @@ const SelectInModal = args => {
   return (
     <>
       <Button label="Open Modal" onClick={() => setIsOpen(true)} />
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Modal.Header>
           <Typography style="h2">Modal</Typography>
         </Modal.Header>
@@ -351,7 +352,7 @@ const SelectInPane = args => {
   return (
     <>
       <Button label="Open Pane" onClick={() => setIsOpen(true)} />
-      <Pane isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Pane {...{ isOpen }} onClose={() => setIsOpen(false)}>
         <Pane.Header>
           <Typography style="h2">Modal</Typography>
         </Pane.Header>
@@ -477,18 +478,18 @@ const FormikSelectWithValidation = () => (
   >
     <Form className="flex space-x-2">
       <FormikSelect
+        {...{ options }}
         isClearable
         required
         label="Select 1"
         name="select1"
-        options={options}
       />
       <FormikSelect
+        {...{ options }}
         isClearable
         required
         label="Select 2"
         name="select2"
-        options={options}
       />
       <Button className="mt-4 self-end" label="Submit" type="submit" />
     </Form>
@@ -526,10 +527,9 @@ const WithLazyLoadMenuList = args => {
   return (
     <div className="mb-2 h-80 p-4">
       <Select
-        {...args}
+        {...{ ...args, options }}
         isAsyncLoadOptionEnabled
         fetchMore={handleFetchMore}
-        options={options}
         totalOptionsCount={TotalValues}
       />
     </div>
@@ -539,6 +539,20 @@ const WithLazyLoadMenuList = args => {
 WithLazyLoadMenuList.storyName = "Lazy load MenuList options";
 
 WithLazyLoadMenuList.args = {};
+
+const CSSCustomization = args => <Select {...args} />;
+
+CSSCustomization.storyName = "Select CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Select label",
+  placeholder: "Custom Select placeholder",
+  className: "neetix-select",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: SelectCSSCustomization } },
+};
 
 export {
   Default,
@@ -554,6 +568,7 @@ export {
   FormikSelectStory,
   WithLazyLoadMenuList,
   FormikSelectWithValidation,
+  CSSCustomization,
 };
 
 export default metadata;

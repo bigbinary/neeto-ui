@@ -1,0 +1,25 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-label-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-label-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-label-line-height: 1;
+  --neeto-ui-label-color: rgb(var(--neeto-ui-black));
+
+  // Icon
+  --neeto-ui-label-icon-margin-left: 4px;
+}
+
+.neeto-ui-label {
+  font-size: var(--neeto-ui-label-font-size);
+  line-height: var(--neeto-ui-label-line-height);
+  color: var(--neeto-ui-label-color);
+  font-weight: var(--neeto-ui-label-font-weight);
+
+  &__help-icon-wrap {
+    margin-left: var(--neeto-ui-label-icon-margin-left);
+  }
+}
+
+.neetix-label {
+  --neeto-ui-label-font-size: var(--neeto-ui-text-base);
+  --neeto-ui-label-font-weight: var(--neeto-ui-font-normal);
+}

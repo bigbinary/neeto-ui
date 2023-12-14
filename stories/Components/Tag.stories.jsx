@@ -6,7 +6,8 @@ import Tag from "components/Tag";
 
 import { icons } from "../constants";
 
-import TagStoriesDocs from "!raw-loader!./TagStoriesDocs.mdx";
+import TagCSSCustomization from "!raw-loader!./TagStoriesDocs/TagCSSCustomization.mdx";
+import TagDocs from "!raw-loader!./TagStoriesDocs/TagDocs.mdx";
 
 const DEPRECATED_PROPS = {
   color: { table: { type: { summary: null } }, control: false },
@@ -22,7 +23,7 @@ const metadata = {
   component: Tag,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TagStoriesDocs } },
+    docs: { description: { component: TagDocs } },
   },
   argTypes: {
     icon: { options: Object.keys(icons), mapping: icons },
@@ -113,6 +114,28 @@ const WithOnClose = args => (
 );
 WithOnClose.storyName = "With on close";
 
-export { Default, Sizes, Styles, Types, WithIndicator, WithIcon, WithOnClose };
+const CSSCustomization = args => <Tag {...args} />;
+
+CSSCustomization.storyName = "Tag CSS Customization";
+
+CSSCustomization.args = {
+  label: "Custom Tag",
+  className: "neetix-tag--primary",
+};
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TagCSSCustomization } },
+};
+
+export {
+  Default,
+  Sizes,
+  Styles,
+  Types,
+  WithIndicator,
+  WithIcon,
+  WithOnClose,
+  CSSCustomization,
+};
 
 export default metadata;

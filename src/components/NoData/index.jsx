@@ -48,7 +48,7 @@ const NoData = ({
       )}
       {description && (
         <Typography
-          className="neeto-ui-text-center neeto-ui-mt-2"
+          className="neeto-ui-text-center neeto-ui-no-data__description"
           data-cy="no-data-description"
           lineHeight="normal"
           style="body2"
@@ -58,7 +58,7 @@ const NoData = ({
       )}
       {helpText && (
         <Typography
-          className="neeto-ui-mt-2 neeto-ui-text-center"
+          className="neeto-ui-text-center neeto-ui-no-data__help-text"
           data-cy="no-data-help-text"
           lineHeight="normal"
           style="body2"
@@ -67,7 +67,7 @@ const NoData = ({
         </Typography>
       )}
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
-        <div className="neeto-ui-no-data__action-block neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-gap-2">
+        <div className="neeto-ui-no-data__action-block">
           {hasPrimaryButtonProps && (
             <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
           )}

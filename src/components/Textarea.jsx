@@ -7,7 +7,6 @@ import { useSyncedRef, useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Label from "./Label";
-import Typography from "./Typography";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -68,14 +67,13 @@ const Textarea = forwardRef(
             </Label>
           )}
           {isCharacterLimitVisible && (
-            <Typography
-              style="body2"
+            <p
               className={classnames("neeto-ui-input__max-length", {
                 "neeto-ui-input__max-length--error": maxLengthError,
               })}
             >
               {valueLength}/{maxLength}
-            </Typography>
+            </p>
           )}
         </div>
         <div
@@ -102,23 +100,18 @@ const Textarea = forwardRef(
           />
         </div>
         {!!error && (
-          <Typography
+          <p
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-input-error`}
             id={errorId}
-            style="body3"
           >
             {error}
-          </Typography>
+          </p>
         )}
         {helpText && (
-          <Typography
-            className="neeto-ui-input__help-text"
-            id={helpTextId}
-            style="body3"
-          >
+          <p className="neeto-ui-input__help-text" id={helpTextId}>
             {helpText}
-          </Typography>
+          </p>
         )}
       </div>
     );

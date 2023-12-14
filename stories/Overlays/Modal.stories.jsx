@@ -5,7 +5,8 @@ import Input from "components/Input";
 import Modal from "components/Modal";
 import Typography from "components/Typography";
 
-import ModalStoriesDocs from "!raw-loader!./ModalStoriesDocs.mdx";
+import ModalCSSCustomization from "!raw-loader!./ModalStoriesDocs/ModalCSSCustomization.mdx";
+import ModalDocs from "!raw-loader!./ModalStoriesDocs/ModalDocs.mdx";
 
 const metadata = {
   title: "Overlays/Modal",
@@ -17,7 +18,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: ModalStoriesDocs } },
+    docs: { description: { component: ModalDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A20",
@@ -39,8 +40,8 @@ const Default = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -83,8 +84,8 @@ const Sizes = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button
               label="Small"
               onClick={() => setShowModalExtraSmall(true)}
@@ -218,8 +219,8 @@ const ModalFocusTrapping = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -268,8 +269,8 @@ const NestedModals = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
           </div>
         </div>
@@ -344,8 +345,8 @@ const InitialAndFinalFocusRef = args => {
   return (
     <div className="w-full">
       <div className="space-y-6">
-        <div className="w-1/2 space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Show Modal" onClick={() => setShowModal(true)} />
             <Button
               label="Focus here on close"
@@ -394,12 +395,64 @@ const InitialAndFinalFocusRef = args => {
 };
 InitialAndFinalFocusRef.storyName = "Initial and final focus ref";
 
+const CSSCustomization = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <div className="w-full">
+      <div className="space-y-6">
+        <div className="space-y-8">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-6">
+            <Button label="Show Modal" onClick={() => setShowModal(true)} />
+          </div>
+        </div>
+      </div>
+      <Modal
+        className="neetix-modal"
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      >
+        <Modal.Header description="Short description">
+          <Typography id="dialog1Title" style="h2">
+            They're creepy & they're kooky
+          </Typography>
+        </Modal.Header>
+        <Modal.Body className="space-y-2">
+          <Typography lineHeight="normal" style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Modal.Body>
+        <Modal.Footer className="space-x-2">
+          <Button label="Continue" onClick={() => setShowModal(false)} />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowModal(false)}
+          />
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
+CSSCustomization.storyName = "Modal CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: ModalCSSCustomization } },
+};
+
 export {
   Default,
   Sizes,
   ModalFocusTrapping,
   NestedModals,
   InitialAndFinalFocusRef,
+  CSSCustomization,
 };
 
 export default metadata;

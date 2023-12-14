@@ -16,25 +16,6 @@
   padding: 0 24px;
 }
 
-.neeto-ui-scrollable {
-  flex-grow: 1;
-  overflow-y: auto;
-
-  &.neeto-ui-scrollable--small {
-    height: calc(
-      100vh - var(--neeto-ui-main-header-height) - var(--neeto-ui-sub-header-height) - var(--neeto-ui-sub-header-bottom-margin)
-    );
-  }
-
-  &.neeto-ui-scrollable--large {
-    height: calc(100vh - var(--neeto-ui-main-header-height));
-  }
-
-  &.neeto-ui-scrollable--viewport {
-    height: 100vh;
-  }
-}
-
 .neeto-ui-container--header-fixed{
   padding: 0;
 

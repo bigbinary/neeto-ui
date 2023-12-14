@@ -23,26 +23,69 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.0.2 - 2023-12-14
+
+Enhanced the responsiveness of the following components
+
+- Alert
+- Modal
+- Pane
+- Toastr
+- NoData
+- DatePicker
+- Stepper
+
+**Screenshots**
+
+<img width="339" alt="Screenshot 2023-12-12 at 3 22 21 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/fb641a39-ad0d-4ae9-8dd7-400a86d1229d">
+<img width="339" alt="Screenshot 2023-12-12 at 3 23 48 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/572b57f6-7c45-4405-afc6-d3ab9b47a844">
+<img width="343" alt="Screenshot 2023-12-12 at 3 26 02 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/e5c47a01-d26e-4b50-a6db-7bdbf42849fd">
+<img width="341" alt="Screenshot 2023-12-12 at 3 26 22 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/7db5d9f5-8e4f-4aa8-91a5-5f0981d3c52b">
+## 6.0.0 - 2023-12-04
+
+- Changed: Enhanced the customizability of all the components by allowing users
+  to easily override the default styles.
+- Added: Added CSS customization storybook example for all the components.
+- Changed: Updated *Typography* component to be responsive using
+  [RFS](https://github.com/twbs/rfs/tree/v9.0.3).
+- Changed: Updated components using Ant Design to CSS-in-JS approach with
+  improved dark mode support.
+- Removed: Removed Ant Design vendor styles in favor of CSS-in-JS approach.
+- Removed: Removed unused components and styles.
+- Fixed: Fixed *TimePicker* component dark mode issue.
+
+## 5.2.46 - 2023-12-04
+
+- Added: Logic to handle pagination when the last item from the last page is
+  deleted and when applying filters.
+
+## 5.2.45 - 2023-12-01
+
+Fixed: Loading indicator with icon issue in `Button`
+
 ## 5.2.42 - 2023-11-30
 
 Added: DateTimePicker component
 
 ## 5.2.41 - 2023-11-24
 
-Previously onBlur was causing a redundant onChange call. Now onChange will be called only if the value contains leading or trailing whitespaces.
+Previously onBlur was causing a redundant onChange call. Now onChange will be
+called only if the value contains leading or trailing whitespaces.
 
 ## 5.2.40 - 2023-11-23
 
-- Updated the multi select component to not show the `Add` button when no options are selected.
+- Updated the multi select component to not show the `Add` button when no
+  options are selected.
 - Changed the type of the `Add` button from `primary` to `secondary`.
 
 ## 5.2.38 - 2023-11-23
 
-- Updates the logic to calculate table height without considering the pagination height when pagination is set to false
+- Updates the logic to calculate table height without considering the pagination
+  height when pagination is set to false
 
 ## 5.2.37 - 2023-11-22
 
-Added:  `hideCancelButton` prop to **Alert** component.
+Added: `hideCancelButton` prop to **Alert** component.
 
 ## 5.2.36 - 2023-11-22
 
@@ -67,7 +110,8 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 
 ## 5.2.31 - 2023-11-15
 
-- Allowed the component to use its internal state even when the `onChange` prop is passed.
+- Allowed the component to use its internal state even when the `onChange` prop
+  is passed.
 
 ## 5.2.29 - 2023-11-13
 
@@ -84,7 +128,8 @@ Changed: Updated instances of `@reach/autoid` with React `useId`
 ## 5.2.26 - 2023-11-08
 
 - Changed: pagination button size from `32px` to `28px`.
-- Changed: reduced pagination margin top and margin bottom values to make it more compact.
+- Changed: reduced pagination margin top and margin bottom values to make it
+  more compact.
 
 ## 5.2.24 - 2023-11-07
 
@@ -100,8 +145,8 @@ Added: `TimePickerInput` component
 
 ## 5.2.20 - 2023-10-26
 
-Changed: Upgraded `framer-motion` and removed some unused packages.
-Added: neetoCI config for CI checks
+Changed: Upgraded `framer-motion` and removed some unused packages. Added:
+neetoCI config for CI checks
 
 ## 5.2.19 - 2023-10-25
 
@@ -133,12 +178,16 @@ Fixed: scrollToErrorField not working for Select component.
 
 ## 5.2.8 - 2023-10-19
 
-- Fixed:  Button click-ability when disabled
+- Fixed: Button click-ability when disabled
 
 ## 5.2.2 - 2023-10-05
 
-- The bug was due to a layout shift that happens when the formik error message is rendered. Details in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
-- The issue is fixed when we prevent the default behavior on mouseDown events for the cancel button, as suggesed by Sreerag in https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
+- The bug was due to a layout shift that happens when the formik error message
+  is rendered. Details in
+  https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
+- The issue is fixed when we prevent the default behavior on mouseDown events
+  for the cancel button, as suggesed by Sreerag in
+  https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
 
 ## 5.2.0 - 2023-09-24
 
@@ -158,12 +207,15 @@ Fixed: scrollToErrorField not working for Select component.
 
 ## 5.1.16 - 2023-09-12
 
-- Changed: onChange function of `ColorPicker` to output hex-alpha value if the transparency option is turned on
+- Changed: onChange function of `ColorPicker` to output hex-alpha value if the
+  transparency option is turned on
 
 ## 5.1.15 - 2023-09-06
 
-- Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the `handleHeaderClasses` function.
-- Achieved the same behavior of center aligning table header content for sortable columns, without depending on `headerRef` to do so.
+- Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the
+  `handleHeaderClasses` function.
+- Achieved the same behavior of center aligning table header content for
+  sortable columns, without depending on `headerRef` to do so.
 
 ## 5.1.14 - 2023-09-05
 
@@ -171,11 +223,14 @@ Fixed: scrollToErrorField not working for Select component.
 
 ## 5.1.13 - 2023-09-01
 
-- Updated the delay for calculating the height of the table header. This is to ensure that the height of the table is not affected by the flaky animation within the header during render process.
+- Updated the delay for calculating the height of the table header. This is to
+  ensure that the height of the table is not affected by the flaky animation
+  within the header during render process.
 
 ## 5.1.11 - 2023-08-31
 
-Added truncating feature when more than 3 emails are shown on the MultiEmail input.
+Added truncating feature when more than 3 emails are shown on the MultiEmail
+input.
 
 ## 5.1.9 - 2023-08-25
 
@@ -191,7 +246,8 @@ Added: `rejectCharsRegex` prop to *Input* component.
 
 ## 5.1.6 - 2023-08-17
 
-- Added: Mechanism to set the pagination and sorting config in URL query parameters for `Table`.
+- Added: Mechanism to set the pagination and sorting config in URL query
+  parameters for `Table`.
 
 ## 5.1.5 - 2023-08-08
 
@@ -263,7 +319,8 @@ Fixed warnings in jest tests.
 
 ## 5.0.7 - 2023-06-11
 
-- Fixed: Misalignment between input and prefix for large screens. Line break in prefix when hyphens are added.
+- Fixed: Misalignment between input and prefix for large screens. Line break in
+  prefix when hyphens are added.
 
 ## 5.0.6 - 2023-06-06
 
@@ -271,15 +328,18 @@ Fixed warnings in jest tests.
 
 ## 5.0.5 - 2023-06-05
 
-Added: `optionRemapping` prop to map the label and value properties of `options` prop in *Select* component.
+Added: `optionRemapping` prop to map the label and value properties of `options`
+prop in *Select* component.
 
 ## 5.0.4 - 2023-05-29
 
-- Fixed: Overrided `onChange` function to output empty array if value is null in *DatePicker*
+- Fixed: Overrided `onChange` function to output empty array if value is null in
+  *DatePicker*
 
 ## 5.0.3 - 2023-05-29
 
-- Fixed: the issue of filter invalid emails link for valid emails in *MultiEmailInput* component
+- Fixed: the issue of filter invalid emails link for valid emails in
+  *MultiEmailInput* component
 
 ## 5.0.2 - 2023-05-23
 
@@ -305,7 +365,8 @@ Removed following components from `neetoui`:
 
 ## 4.4.27 - 2023-04-24
 
-- Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the behaviour of maxlength prop to the native one.
+- Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the
+  behaviour of maxlength prop to the native one.
 
 ## 4.4.26 - 2023-04-14
 
@@ -342,7 +403,8 @@ Added: `children` prop for button and tag components
 
 ## 4.4.18 - 2023-03-24
 
-- Changed: -the default row size to 30 and hidden the page size changer in the *Table* component.
+- Changed: -the default row size to 30 and hidden the page size changer in the
+  *Table* component.
 
 ## 4.4.17 - 2023-03-22
 
@@ -370,7 +432,9 @@ Added terser plugin to rollup config to minimise bundle size.
 
 This PR adds the following changes to the *Switch* component.
 
-- Added `forwardRef` to the *Switch* component so that it supports adding *Tooltip* to it, as per this [guide](https://github.com/atomiks/tippyjs-react#component-children).
+- Added `forwardRef` to the *Switch* component so that it supports adding
+  *Tooltip* to it, as per this
+  [guide](https://github.com/atomiks/tippyjs-react#component-children).
 
 ## 4.4.11 - 2023-03-14
 
@@ -380,17 +444,18 @@ This PR adds the following changes to the *Switch* component.
 
 ## 4.4.10 - 2023-03-14
 
-- Updated: product title font weight in ProductSwitcher from `normal` to `medium`.
+- Updated: product title font weight in ProductSwitcher from `normal` to
+  `medium`.
 
 <img width="725" alt="Group 6" src="https://user-images.githubusercontent.com/48869249/224666135-be677e88-6e79-4d1d-8cd7-b89842e55c51.png">
 - Updated: Accordion border color from `--neeto-ui-gray-400` to `--neeto-ui-gray-300`.
-- 
+-
 - Updated: Label color from `--neeto-ui-gray-700` to `--neeto-ui-black`.
-- 
+-
 - Updated: Label font weight from `normal` to `medium`.
-- 
+-
 - Updated: Help text color from `--neeto-ui-gray-600` to `--neeto-ui-gray-700`.
-- 
+-
 <img width="725" alt="Group 8" src="https://user-images.githubusercontent.com/48869249/224667904-67512253-f120-4cca-9ec3-a85e6c7e1499.png">
 - Fixed: Modal spacing when there is no footer.
 <img width="725" alt="Group 9" src="https://user-images.githubusercontent.com/48869249/224668860-20a74fb4-2f86-4159-9d49-c6ffa0c178d2.png">
@@ -777,12 +842,16 @@ Changes documentations to sentence case from title casing.
 - Updated `padding-top` and `padding-bottom` to `24px`
 ### Functionality changes 🛠️
 #### Input
-
-- Changed: `maxlength` prop logic to allow typing characters beyond the specified maxlength. The character count will be shown only when the input length reaches 90% of maxlength and changes the state to error when input exceeds the maxlength
-
+- Changed: `maxlength` prop logic to allow typing characters beyond the
+  specified maxlength. The character count will be shown only when the input
+  length reaches 90% of maxlength and changes the state to error when input
+  exceeds the maxlength
 #### TextArea
 
-- Changed: `maxlength` prop logic to allow typing characters beyond the specified maxlength. Character count will be shown only when the input length reaches 90% of maxlength and changes the state to error when input exceeds the maxlength
+- Changed: `maxlength` prop logic to allow typing characters beyond the
+  specified maxlength. Character count will be shown only when the input length
+  reaches 90% of maxlength and changes the state to error when input exceeds the
+  maxlength
 
 #### Dropdown
 
@@ -798,7 +867,8 @@ Changes documentations to sentence case from title casing.
 
 - Changed: **BREAKING** Renamed `style` prop to `type`
 - Removed: **BREAKING** Renamed `color` and `indicatorColor` props
-- Added: **BREAKING** `style` and `indicatorStyle` props with options `"success" | "warning" | "danger" | "primary" | "inactive"`
+- Added: **BREAKING** `style` and `indicatorStyle` props with options
+  `"success" | "warning" | "danger" | "primary" | "inactive"`
 
 #### ColorPicker
 
@@ -811,8 +881,10 @@ Changes documentations to sentence case from title casing.
 #### Modal
 
 - Added: `description` prop in header
-- Added: `initialFocusRef` and `finalFocusRef` to programmatically add focus to custom components.
-- Added: `blockScrollOnMount` prop to enable/disable body scrolling when the modal opens.
+- Added: `initialFocusRef` and `finalFocusRef` to programmatically add focus to
+  custom components.
+- Added: `blockScrollOnMount` prop to enable/disable body scrolling when the
+  modal opens.
 - Added: focus trapping to focusable elements in Modal.
 
 #### Sidebar
@@ -826,11 +898,13 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.16 - 2022-08-17
 
-- Changed: avoided showing duplicate toastr when called multiple times with the same arguments.
+- Changed: avoided showing duplicate toastr when called multiple times with the
+  same arguments.
 
 ## 3.5.15 - 2022-08-05
 
-- Fixed: Fixed false positive ts errors which were thrown since some of the fields were not marked optional.
+- Fixed: Fixed false positive ts errors which were thrown since some of the
+  fields were not marked optional.
 
 ## 3.5.14 - 2022-08-01
 
@@ -838,7 +912,8 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.13 - 2022-07-28
 
-- Added: type support for all exported components. IDE will now auto-predict the component props.
+- Added: type support for all exported components. IDE will now auto-predict the
+  component props.
 - Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
 
 ## 3.5.12 - 2022-07-25
@@ -847,8 +922,13 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.11 - 2022-07-06
 
-- Added: a *Button* component in neetoui/formik that automatically disables itself if the form is not in a submittable state. Example: the form contains any invalid data, the form content has not been changed, or the form is already being submitted. To make this work, you need to import *Button* from "neetoui/formik" as your submit button.
-- Changed: *ActionBlock* will now use the above-mentioned logic internally. So its submit/cancel buttons will also be automatically enabled or disabled.
+- Added: a *Button* component in neetoui/formik that automatically disables
+  itself if the form is not in a submittable state. Example: the form contains
+  any invalid data, the form content has not been changed, or the form is
+  already being submitted. To make this work, you need to import *Button* from
+  "neetoui/formik" as your submit button.
+- Changed: *ActionBlock* will now use the above-mentioned logic internally. So
+  its submit/cancel buttons will also be automatically enabled or disabled.
 
 ## 3.5.10 - 2022-07-05
 
@@ -860,7 +940,8 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.8 - 2022-07-01
 
-- Fixed: Error when handling `axios` error objects with `undefined` response in `Toastr.error`
+- Fixed: Error when handling `axios` error objects with `undefined` response in
+  `Toastr.error`
 
 ## 3.5.7 - 2022-06-24
 
@@ -872,7 +953,8 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.5 - 2022-06-09
 
-- Fixed: issue with `onClose` function reference when closing the *Modal* using `Esc`.
+- Fixed: issue with `onClose` function reference when closing the *Modal* using
+  `Esc`.
 
 ## 3.5.4 - 2022-06-08
 
@@ -884,7 +966,8 @@ Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.5.2 - 2022-06-07
 
-- Fixed : placeholder content extending into multiple lines in *Select* component.
+- Fixed : placeholder content extending into multiple lines in *Select*
+  component.
 
 ## 3.5.1 - 2022-06-07
 
@@ -974,13 +1057,16 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.0
 
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
-- Changed: Implemented *Dropdown* component with Tippy.js and removed `react-popper`
-- Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert* components.
+- Changed: Implemented *Dropdown* component with Tippy.js and removed
+  `react-popper`
+- Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert*
+  components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
 
 #### UI
 
-- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color Palette*
+- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
+  Palette*
 - Changed: the text color in *Table* to `$neeto-ui-black`
 - Changed: UI of *Tag* of component
 - Changed: look and feel of *Danger Button*

@@ -8,6 +8,7 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
+import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
@@ -504,6 +505,27 @@ const TableWithColumnWithHideColumnOption = args => {
 TableWithColumnWithHideColumnOption.storyName = "Table with hide column option";
 TableWithColumnWithHideColumnOption.args = { defaultPageSize: 10 };
 
+const CSSCustomization = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  return (
+    <div className="neetix-table">
+      <Table
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        {...args}
+      />
+    </div>
+  );
+};
+CSSCustomization.storyName = "Table CSS Customization";
+
+CSSCustomization.parameters = {
+  docs: { description: { story: TableCSSCustomization } },
+};
+
 export {
   Default,
   TableWithSpecifiedHorizontalScrolling,
@@ -518,6 +540,7 @@ export {
   TableWithReordableColumns,
   TableWithColumnDescriptionPopover,
   TableWithColumnWithHideColumnOption,
+  CSSCustomization,
 };
 
 export default metadata;

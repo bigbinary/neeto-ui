@@ -1,15 +1,16 @@
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { Table as AntTable } from "antd";
+import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc } from "ramda";
+import { assoc, isEmpty, mergeLeft } from "ramda";
 import ReactDragListView from "react-drag-listview";
+import { useHistory } from "react-router-dom";
 
 import { useQueryParams, useTimeout } from "hooks";
-import { noop } from "utils";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
@@ -55,18 +56,16 @@ const Table = ({
   const [columns, setColumns] = useState(columnData);
   const [sortedInfo, setSortedInfo] = useState({});
 
-  const isPageChangeHandlerDefault = handlePageChange === noop;
+  const isDefaultPageChangeHandler = handlePageChange === noop;
+
+  const history = useHistory();
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
 
   const resizeObserver = useRef(
-    new ResizeObserver(
-      ([
-        {
-          contentRect: { height },
-        },
-      ]) => setContainerHeight(height)
+    new ResizeObserver(([entry]) =>
+      setContainerHeight(entry.contentRect.height)
     )
   );
 
@@ -75,9 +74,12 @@ const Table = ({
       if (!fixedHeight) return;
 
       const observer = resizeObserver.current;
+
       if (table !== null) {
         observer.observe(table?.parentNode);
-      } else if (observer) observer.disconnect();
+      } else if (observer) {
+        observer.disconnect();
+      }
     },
     [resizeObserver.current, fixedHeight]
   );
@@ -86,6 +88,7 @@ const Table = ({
     const headerHeight = headerRef.current
       ? headerRef.current.offsetHeight
       : TABLE_DEFAULT_HEADER_HEIGHT;
+
     setHeaderHeight(headerHeight);
   }, 10);
 
@@ -104,7 +107,7 @@ const Table = ({
     onTableChange: onChange,
     tableOnChangeProps,
     handleTableSortChange,
-    isPageChangeHandlerDefault,
+    isDefaultPageChangeHandler,
   });
 
   const queryParams = useQueryParams();
@@ -116,41 +119,34 @@ const Table = ({
       columnData
     );
 
-  const sortedColumns = isPageChangeHandlerDefault
+  const sortedColumns = isDefaultPageChangeHandler
     ? setSortFromURL(curatedColumnsData)
     : curatedColumnsData;
 
-  const locale = {
-    emptyText: <Typography style="body2">No Data</Typography>,
-  };
+  const locale = { emptyText: <Typography style="body2">No Data</Typography> };
 
   const sortedColumnsWithAlignment = sortedColumns.map(sortedColumn => ({
     ...sortedColumn,
-    onHeaderCell: column => {
-      const col = sortedColumn.onHeaderCell?.(column);
-
-      return { ...col, "data-text-align": column.align };
-    },
+    onHeaderCell: column => ({
+      ...sortedColumn.onHeaderCell?.(column),
+      "data-text-align": column.align,
+    }),
   }));
 
-  const isPaginationVisible =
-    otherProps.pagination !== false && rowData.length > defaultPageSize;
-
-  let rowSelectionProps = false;
-  if (rowSelection) {
-    rowSelectionProps = {
-      type: "checkbox",
-      ...rowSelection,
-      onChange: (selectedRowKeys, selectedRows) =>
-        onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
-      selectedRowKeys,
-    };
-  }
+  const rowSelectionProps = rowSelection
+    ? {
+        type: "checkbox",
+        ...rowSelection,
+        onChange: (selectedRowKeys, selectedRows) =>
+          onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
+        selectedRowKeys,
+      }
+    : false;
 
   // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
   const handleTableChange = (pagination, filters, sorter, extras) => {
     setSortedInfo(sorter);
-    isPageChangeHandlerDefault && handleTableSortChange(pagination, sorter);
+    isDefaultPageChangeHandler && handleTableSortChange(pagination, sorter);
     onChange?.(pagination, filters, sorter, extras);
     tableOnChangeProps.current = { pagination, filters };
   };
@@ -158,35 +154,6 @@ const Table = ({
   const componentOverrides = {
     ...components,
     header: getHeaderCell({ enableColumnResize, enableColumnReorder }),
-  };
-
-  const calculateTableContainerHeight = () =>
-    containerHeight -
-    headerHeight -
-    (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0);
-
-  const itemRender = (_, type, originalElement) => {
-    if (type === "prev") {
-      return <Button className="" icon={Left} size="small" style="text" />;
-    }
-
-    if (type === "next") {
-      return <Button className="" icon={Right} size="small" style="text" />;
-    }
-
-    if (type === "jump-prev") {
-      return (
-        <Button className="" icon={MenuHorizontal} size="small" style="text" />
-      );
-    }
-
-    if (type === "jump-next") {
-      return (
-        <Button className="" icon={MenuHorizontal} size="small" style="text" />
-      );
-    }
-
-    return originalElement;
   };
 
   const calculateRowsPerPage = () => {
@@ -198,76 +165,168 @@ const Table = ({
     return Math.ceil(rowsPerPage / 10) * 10;
   };
 
-  const calculatePageSizeOptions = () => {
-    const rowsPerPage = shouldDynamicallyRenderRowSize
-      ? calculateRowsPerPage()
-      : defaultPageSize;
+  const pageSize = shouldDynamicallyRenderRowSize
+    ? calculateRowsPerPage()
+    : paginationProps.pageSize || defaultPageSize;
 
-    return dynamicArray(5, index => (index + 1) * rowsPerPage);
+  const calculateTableContainerHeight = () => {
+    const isPaginationVisible =
+      otherProps.pagination !== false && rowData.length > pageSize;
+
+    return (
+      containerHeight -
+      headerHeight -
+      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0)
+    );
   };
 
-  const renderTable = () => (
-    <AntTable
-      {...{ bordered, loading, locale }}
-      columns={sortedColumnsWithAlignment}
-      components={componentOverrides}
-      dataSource={rowData}
-      ref={tableRef}
-      rowKey="id"
-      rowSelection={rowSelectionProps}
-      showSorterTooltip={false}
-      pagination={{
-        hideOnSinglePage: true,
-        ...paginationProps,
-        showSizeChanger: false,
-        total: totalCount ?? 0,
-        current: currentPageNumber,
-        defaultPageSize: shouldDynamicallyRenderRowSize
-          ? calculateRowsPerPage()
-          : defaultPageSize,
-        pageSizeOptions: calculatePageSizeOptions(),
-        onChange: handlePageChange,
-        itemRender,
-      }}
-      rowClassName={classnames(
-        "neeto-ui-table--row",
-        { "neeto-ui-table--row_hover": allowRowClick },
-        [className]
-      )}
-      scroll={{
-        x: "max-content",
-        y: calculateTableContainerHeight(),
-        ...scroll,
-      }}
-      onChange={handleTableChange}
-      onHeaderRow={() => ({
-        ref: headerRef,
-        className: classnames("neeto-ui-table__header", {
-          "neeto-ui-table-reorderable": enableColumnReorder,
-        }),
-        id: "neeto-ui-table__header",
-      })}
-      onRow={(record, rowIndex) => ({
-        onClick: event =>
-          allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
-      })}
-      {...otherProps}
-    />
-  );
+  const calculatePageSizeOptions = () =>
+    dynamicArray(5, index => (index + 1) * pageSize);
+
+  const itemRender = (_, type, originalElement) => {
+    const commonProps = { size: "small", style: "text" };
+
+    if (type === "prev") return <Button icon={Left} {...commonProps} />;
+
+    if (type === "next") return <Button icon={Right} {...commonProps} />;
+
+    if (type === "jump-prev" || type === "jump-next") {
+      return <Button icon={MenuHorizontal} {...commonProps} />;
+    }
+
+    return originalElement;
+  };
 
   useEffect(() => {
-    setColumns(columnData);
-  }, [columnData]);
+    const shouldNavigateToLastPage =
+      isEmpty(rowData) && !loading && currentPageNumber !== 1;
 
-  if (enableColumnReorder) {
-    return (
-      <ReactDragListView.DragColumn {...dragProps}>
-        {renderTable()}
-      </ReactDragListView.DragColumn>
-    );
-  }
+    if (!shouldNavigateToLastPage) return;
 
-  return renderTable();
+    const lastPage = Math.ceil(totalCount / pageSize);
+    const page = Math.max(1, lastPage);
+    const pathname = window.location.pathname;
+
+    isDefaultPageChangeHandler
+      ? history.push(buildUrl(pathname, mergeLeft({ page }, queryParams)))
+      : handlePageChange(page, pageSize);
+  }, [rowData]);
+
+  useEffect(() => setColumns(columnData), [columnData]);
+
+  const neetoUIFontBold = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--neeto-ui-font-bold"
+    ),
+    10
+  );
+
+  const renderTable = () => (
+    <ConfigProvider
+      theme={{
+        token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+        components: {
+          Pagination: {
+            itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
+            itemActiveBgDisabled: "rgb(var(--neeto-ui-gray-100))",
+            itemActiveColorDisabled: "rgb(var(--neeto-ui-gray-300))",
+            itemBg: "rgb(var(--neeto-ui-white))",
+            itemInputBg: "rgb(var(--neeto-ui-white))",
+            itemLinkBg: "rgb(var(--neeto-ui-white))",
+
+            // Global overrides
+            colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
+            colorPrimary: "rgb(var(--neeto-ui-white))",
+            colorPrimaryHover: "rgb(var(--neeto-ui-white))",
+            colorBgTextHover: "rgb(var(--neeto-ui-gray-200))",
+            borderRadius: 6,
+          },
+          Table: {
+            headerBorderRadius: 0,
+            bodySortBg: "rgb(var(--neeto-ui-gray-100))",
+            borderColor: "rgb(var(--neeto-ui-gray-200))",
+            expandIconBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownBg: "rgb(var(--neeto-ui-white))",
+            filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
+            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            footerBg: "rgb(var(--neeto-ui-gray-100))",
+            footerColor: "rgb(var(--neeto-ui-gray-800))",
+            headerBg: "rgb(var(--neeto-ui-gray-100))",
+            headerColor: "rgb(var(--neeto-ui-gray-700))",
+            headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSplitColor: "rgb(var(--neeto-ui-gray-200))",
+            rowExpandedBg: "rgb(var(--neeto-ui-gray-200))",
+            rowHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            rowSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+            rowSelectedHoverBg: "rgb(var(--neeto-ui-pastel-purple))",
+            stickyScrollBarBg: "rgb(var(--neeto-ui-primary-100))",
+            cellPaddingBlock: 10,
+
+            // Global overrides
+            colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+            fontSize: 14,
+            fontWeightStrong: neetoUIFontBold,
+            paddingContentVerticalLG: 10,
+          },
+        },
+      }}
+    >
+      <AntTable
+        {...{ bordered, loading, locale }}
+        columns={sortedColumnsWithAlignment}
+        components={componentOverrides}
+        dataSource={rowData}
+        ref={tableRef}
+        rowKey="id"
+        rowSelection={rowSelectionProps}
+        showSorterTooltip={false}
+        pagination={{
+          hideOnSinglePage: true,
+          ...paginationProps,
+          showSizeChanger: false,
+          total: totalCount ?? 0,
+          current: currentPageNumber,
+          defaultPageSize: pageSize,
+          pageSizeOptions: calculatePageSizeOptions(),
+          onChange: handlePageChange,
+          itemRender,
+        }}
+        rowClassName={classnames(
+          "neeto-ui-table--row",
+          { "neeto-ui-table--row_hover": allowRowClick },
+          [className]
+        )}
+        scroll={{
+          x: "max-content",
+          y: calculateTableContainerHeight(),
+          ...scroll,
+        }}
+        onChange={handleTableChange}
+        onHeaderRow={() => ({
+          ref: headerRef,
+          className: classnames("neeto-ui-table__header", {
+            "neeto-ui-table-reorderable": enableColumnReorder,
+          }),
+          id: "neeto-ui-table__header",
+        })}
+        onRow={(record, rowIndex) => ({
+          onClick: event =>
+            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+        })}
+        {...otherProps}
+      />
+    </ConfigProvider>
+  );
+
+  return enableColumnReorder ? (
+    <ReactDragListView.DragColumn {...dragProps}>
+      {renderTable()}
+    </ReactDragListView.DragColumn>
+  ) : (
+    renderTable()
+  );
 };
 
 Table.propTypes = {

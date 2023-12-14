@@ -32,7 +32,7 @@ const Callout = ({
     >
       {icon && (
         <div className="neeto-ui-callout__icon" data-testid="callout-icon">
-          <Icon size={20} />
+          <Icon />
         </div>
       )}
       {children}

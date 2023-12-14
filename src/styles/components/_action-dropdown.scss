@@ -1,17 +1,28 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --neeto-ui-action-dropdown-gap: 1px;
+  --neeto-ui-action-dropdown-border-radius: 0px;
+}
+
 .neeto-ui-action-dropdown {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1px;
-  > .neeto-ui-btn{
-    &:first-child{
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+  gap: var(--neeto-ui-action-dropdown-gap);
+
+  > .neeto-ui-btn {
+    &:first-child {
+      border-top-right-radius: var(--neeto-ui-action-dropdown-border-radius);
+      border-bottom-right-radius: var(--neeto-ui-action-dropdown-border-radius);
     }
   }
-  > .neeto-ui-btn.neeto-ui-btn--icon-only{
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+
+  > .neeto-ui-btn.neeto-ui-btn--icon-only {
+    border-top-left-radius: var(--neeto-ui-action-dropdown-border-radius);
+    border-bottom-left-radius: var(--neeto-ui-action-dropdown-border-radius);
   }
+}
+
+.neetix-actiondropdown {
+  --neeto-ui-action-dropdown-border-radius: 1px;
 }
