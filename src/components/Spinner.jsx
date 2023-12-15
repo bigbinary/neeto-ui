@@ -12,6 +12,7 @@ const Spinner = ({
   className = "",
 }) => (
   <span
+    data-cy="neeto-ui-spinner"
     data-testid="spinner"
     className={classnames(
       "neeto-ui-spinner",
