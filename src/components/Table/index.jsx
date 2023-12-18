@@ -244,7 +244,7 @@ const Table = ({
           Table: {
             headerBorderRadius: 0,
             bodySortBg: "rgb(var(--neeto-ui-gray-100))",
-            borderColor: "rgb(var(--neeto-ui-gray-200))",
+            borderColor: "rgb(var(--neeto-ui-gray-300))",
             expandIconBg: "rgb(var(--neeto-ui-white))",
             filterDropdownBg: "rgb(var(--neeto-ui-white))",
             filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
