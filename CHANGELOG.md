@@ -23,6 +23,35 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.0.3 - 2023-12-15
+
+Added: data-cy to *Spinner*
+
+**Reviewers**
+
+<!---
+------------- FORMAT FOR DESCRIPTION -------------
+
+Prefix the change with one of these keywords:
+- Added: for new features.
+- Changed: for changes in existing functionality.
+- Deprecated: for soon-to-be removed features.
+- Removed: for now removed features.
+- Fixed: for any bug fixes.
+- Security: in case of vulnerabilities.
+
+Points to note:
+- The description shall be represented in bullet points
+- Add the keyword BREAKING in bold style for changes that could potentially break the component, eg: **BREAKING**
+- Represent a component name in italics, eg: _Modal_
+- Enclose a prop name in double backticks, eg: `isLoading`
+
+Example:
+- Changed: **BREAKING** `isLoading` prop of _Table_ to `loading`.
+- Added: `hideOnTargetExit` prop to _Tooltip_ component.
+- Deprecated: **BREAKING** `loading` prop of _Pane_, _Modal_ and _Alert_ components.
+- Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
+--->
 ## 6.0.2 - 2023-12-14
 
 Enhanced the responsiveness of the following components
@@ -42,7 +71,6 @@ Enhanced the responsiveness of the following components
 <img width="343" alt="Screenshot 2023-12-12 at 3 26 02 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/e5c47a01-d26e-4b50-a6db-7bdbf42849fd">
 <img width="341" alt="Screenshot 2023-12-12 at 3 26 22 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/7db5d9f5-8e4f-4aa8-91a5-5f0981d3c52b">
 ## 6.0.0 - 2023-12-04
-
 - Changed: Enhanced the customizability of all the components by allowing users
   to easily override the default styles.
 - Added: Added CSS customization storybook example for all the components.
@@ -847,7 +875,6 @@ Changes documentations to sentence case from title casing.
   length reaches 90% of maxlength and changes the state to error when input
   exceeds the maxlength
 #### TextArea
-
 - Changed: `maxlength` prop logic to allow typing characters beyond the
   specified maxlength. Character count will be shown only when the input length
   reaches 90% of maxlength and changes the state to error when input exceeds the
