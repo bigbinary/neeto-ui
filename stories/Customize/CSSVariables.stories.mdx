@@ -168,16 +168,10 @@ a {
 
 By default, all neetoUI components inherit values from the default theme. You
 may need to customise the theme to match your brand identity or visual style.
-
-<p>
-  <a href="/docs/components-button--default">
-    {" "}
-    neetoUI provides three predefined solid button variants
-  </a>
-  . However, you have the flexibility to create custom-colored buttons using CSS
-  variables. To do so, apply a custom class to your button component and override
-  the CSS variables.
-</p>
+[neetoUI provides three predefined solid button variants](/docs/components-button--styles).
+However, you have the flexibility to create custom-colored buttons using CSS
+variables. To do so, apply a custom class to your button component and override
+the CSS variables.
 
 <Story name="Customize neetoUI">
   <div className="h-screen">
@@ -191,6 +185,50 @@ may need to customise the theme to match your brand identity or visual style.
         overflow: "hidden",
       }}
       title="branding"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
+
+<br />
+
+### Global Customization
+
+<Story name="Global Customization">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/mlxvmt?view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="CSS Customization v2"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
+
+<br />
+
+### Button Customization
+
+<Story name="Button Customization">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/n53f9m?view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="CSS Customization v2"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
