@@ -200,6 +200,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "credit_card_number",
     key: "credit_card_number",
     width: 250,
+    isSystem: false,
     ellipsis: { showTitle: false },
   },
   {
@@ -207,6 +208,7 @@ const getColumns = (fixed = false) => [
     dataIndex: "shirt_size",
     key: "shirt_size",
     width: 150,
+    isSystem: false,
   },
   {
     title: "Action",
@@ -228,16 +230,23 @@ const Default = args => {
 
   return (
     <Table
+      enableAddColumn
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
+      onColumnAdd={args.onColumnAdd}
+      onColumnDelete={args.onColumnDelete}
       {...args}
     />
   );
 };
 
-Default.args = { defaultPageSize: 10 };
+Default.args = {
+  defaultPageSize: 10,
+  onColumnAdd: position => alert(`New Column Position is ${position}`),
+  onColumnDelete: columnKey => alert(`Column to be deleted is ${columnKey}`),
+};
 
 Default.parameters = { docs: { source: { code: getTableSource() } } };
 

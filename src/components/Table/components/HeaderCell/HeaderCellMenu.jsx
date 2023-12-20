@@ -13,8 +13,12 @@ const HeaderCellMenu = ({
   column = {},
   sortedInfo,
   isSortable,
+  isAddEnabled,
+  isColumnDeletable,
   isHidable,
   onColumnHide,
+  onAddColumn,
+  onColumnDelete,
   columnTitle = null,
 }) => {
   const columnInfoButtonReference = useRef();
@@ -74,6 +78,24 @@ const HeaderCellMenu = ({
                   )}
               </MenuItem.Button>
             </>
+          )}
+          {isAddEnabled && (
+            <>
+              <MenuItem.Button onClick={() => onAddColumn(2)}>
+                Insert column right
+              </MenuItem.Button>
+              <MenuItem.Button onClick={() => onAddColumn(0)}>
+                Insert column left
+              </MenuItem.Button>
+            </>
+          )}
+          {isColumnDeletable && (
+            <MenuItem.Button
+              style="danger"
+              onClick={() => onColumnDelete(column.key)}
+            >
+              Delete column
+            </MenuItem.Button>
           )}
           {isPresent(column?.description) && (
             <>
