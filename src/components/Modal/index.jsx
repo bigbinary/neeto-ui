@@ -55,6 +55,8 @@ const Modal = ({
     hasTransitionCompleted,
   });
 
+  const isFullScreenModal = size === SIZES.fullScreen;
+
   return (
     <Portal rootId="neeto-ui-portal">
       <CSSTransition
@@ -73,7 +75,7 @@ const Modal = ({
           className={classnames(
             "neeto-ui-modal__backdrop",
             {
-              "neeto-ui-modal__backdrop--fullscreen": size === SIZES.fullScreen,
+              "neeto-ui-modal__backdrop--fullscreen": isFullScreenModal,
             },
             backdropClassName
           )}
@@ -87,7 +89,7 @@ const Modal = ({
               "neeto-ui-modal__wrapper--small": size === SIZES.small,
               "neeto-ui-modal__wrapper--medium": size === SIZES.medium,
               "neeto-ui-modal__wrapper--large": size === SIZES.large,
-              "neeto-ui-modal__wrapper--fullscreen": size === SIZES.fullScreen,
+              "neeto-ui-modal__wrapper--fullscreen": isFullScreenModal,
               [className]: className,
             })}
             {...otherProps}
@@ -99,8 +101,8 @@ const Modal = ({
                 data-cy="modal-close-button"
                 data-testid="close-button"
                 icon={Close}
-                size="small"
-                style="text"
+                size={isFullScreenModal ? "large" : "small"}
+                style={isFullScreenModal ? "secondary" : "text"}
                 onClick={handleOverlayClose}
               />
             )}
