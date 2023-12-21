@@ -97,14 +97,6 @@ const HeaderCellMenu = ({
               </MenuItem.Button>
             </>
           )}
-          {isColumnDeletable && (
-            <MenuItem.Button
-              style="danger"
-              onClick={() => onColumnDelete(column.id)}
-            >
-              Delete column
-            </MenuItem.Button>
-          )}
           {isPresent(column?.description) && (
             <>
               <MenuItem.Button ref={columnInfoButtonReference}>
@@ -134,6 +126,14 @@ const HeaderCellMenu = ({
           {isHidable && (
             <MenuItem.Button onClick={() => onColumnHide(column)}>
               Hide column
+            </MenuItem.Button>
+          )}
+          {isColumnDeletable && (
+            <MenuItem.Button
+              style="danger"
+              onClick={() => onColumnDelete(column.id)}
+            >
+              Delete column
             </MenuItem.Button>
           )}
         </Menu>
