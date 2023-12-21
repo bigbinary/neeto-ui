@@ -164,14 +164,68 @@ a {
 
 ## Theming
 
-### Customize neetoUI
-
 By default, all neetoUI components inherit values from the default theme. You
 may need to customise the theme to match your brand identity or visual style.
-[neetoUI provides three predefined solid button variants](/docs/components-button--styles).
-However, you have the flexibility to create custom-colored buttons using CSS
-variables. To do so, apply a custom class to your button component and override
-the CSS variables.
+
+<Story name="Global Customization">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/mlxvmt?fontsize=14&view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="CSS Customization v2"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
+
+<br />
+
+### Component Customization
+
+With neetoUI v6, we have taken the customization options to the next level. You
+can now customize each component to your liking. Be it padding, font size,
+border-radius, etc. you can customize each aspect of a component and make it
+your own. You can find the CSS variables used by a component and an example of
+how to override it in their respective stories.
+
+##### Eg: Button Customization
+
+By default, neetoUI provides
+[three predefined solid button variants](/docs/components-button--styles).
+However, you have the flexibility to create custom buttons using CSS variables.
+To do so, just find the
+[CSS variables used by the button component](/docs/components-button--docs#button-css-customization)
+and override it.
+
+<Story name="Button Customization">
+  <div className="h-screen">
+    <iframe
+      src="https://codesandbox.io/embed/n53f9m?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        borderRadius: "4px",
+        overflow: "hidden",
+      }}
+      title="CSS Customization v2"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+  </div>
+</Story>
+
+<br />
+
+You can also create custom classes overriding the CSS variables and use that as
+well.
 
 <Story name="Customize neetoUI">
   <div className="h-screen">
@@ -193,51 +247,9 @@ the CSS variables.
 
 <br />
 
-### Global Customization
-
-<Story name="Global Customization">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/mlxvmt?view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="CSS Customization v2"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
-
-<br />
-
-### Button Customization
-
-<Story name="Button Customization">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/n53f9m?view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="CSS Customization v2"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
-
-<br />
-
 ### Dark mode
+
+neetoUI supports dark mode.
 
 <Story name="Dark mode">
   <div className="h-screen">
@@ -257,16 +269,11 @@ the CSS variables.
   </div>
 </Story>
 
-<br />
-<br />
-
-neetoUI supports dark mode.
-
-#### Toggling dark mode in product
+#### Toggling dark mode in a neeto product
 
 To enable the dark mode for the product, apply the
 
-<code>neeto-ui-theme--dark</code> class to the <code> body </code> tag.
+<code>neeto-ui-theme--dark</code> class to the <code>body</code> tag.
 
 #### Toggling dark mode in Storybook
 
