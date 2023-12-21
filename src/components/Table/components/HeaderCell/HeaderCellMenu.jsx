@@ -32,6 +32,7 @@ const HeaderCellMenu = ({
         appendTo={() => document.body}
         className="flex"
         icon={MenuHorizontal}
+        position="auto"
         strategy="fixed"
         buttonProps={{
           className: "min-h-0 flex-shrink-0",
