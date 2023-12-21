@@ -4,7 +4,10 @@ import { isPresent } from "neetocist";
 import { Check, MenuHorizontal } from "neetoicons";
 
 import { Dropdown, Popover, Typography } from "components";
-import { TABLE_SORT_ORDERS } from "components/Table/constants";
+import {
+  COLUMN_ADD_DIRECTION,
+  TABLE_SORT_ORDERS,
+} from "components/Table/constants";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -81,10 +84,14 @@ const HeaderCellMenu = ({
           )}
           {isAddEnabled && (
             <>
-              <MenuItem.Button onClick={() => onAddColumn(2)}>
+              <MenuItem.Button
+                onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
+              >
                 Insert column right
               </MenuItem.Button>
-              <MenuItem.Button onClick={() => onAddColumn(0)}>
+              <MenuItem.Button
+                onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
+              >
                 Insert column left
               </MenuItem.Button>
             </>
