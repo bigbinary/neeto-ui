@@ -121,6 +121,7 @@ const getColumns = (fixed = false) => [
     key: "id",
     width: 175,
     sorter: (a, b) => a.id - b.id,
+    fixed: fixed ? "left" : false,
     isHidable: false,
     description:
       "An identifier (ID) is a name given to a variable, function, or other programming language entities to uniquely distinguish it from other entities.",
@@ -149,6 +150,7 @@ const getColumns = (fixed = false) => [
         </Tooltip>
       </div>
     ),
+    fixed: fixed ? "left" : false,
     dataIndex: "guid",
     key: "guid",
     width: 150,
