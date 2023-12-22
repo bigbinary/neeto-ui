@@ -89,6 +89,7 @@
   }
 
   &__body {
+    --neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
     width: 100%;
     height: var(--neeto-ui-pane-body-height);
     padding: var(--neeto-ui-pane-body-padding-y) var(--neeto-ui-pane-body-padding-x);
