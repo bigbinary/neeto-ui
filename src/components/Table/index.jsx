@@ -430,7 +430,7 @@ Table.propTypes = {
    */
   onColumnAdd: PropTypes.func,
   /**
-   * Function that gets called when a custom field column is deleted. Gets called with the 'key' of the column getting deleted.
+   * Function that gets called when a custom field column is deleted. Gets called with the 'id' of the column getting deleted as parameter.
    *
    * `onColumnDelete={(key) => {}}`
    */
