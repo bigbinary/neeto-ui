@@ -75,7 +75,7 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>Desceding</span>
+                <span>Descending</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
