@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.0.5 - 2023-12-22
+
+- Fixed: Pane scroll issue.
+
 ## 6.0.3 - 2023-12-15
 
 Added: data-cy to *Spinner*
@@ -81,7 +85,6 @@ Enhanced the responsiveness of the following components
 - Removed: Removed Ant Design vendor styles in favor of CSS-in-JS approach.
 - Removed: Removed unused components and styles.
 - Fixed: Fixed *TimePicker* component dark mode issue.
-
 ## 5.2.46 - 2023-12-04
 
 - Added: Logic to handle pagination when the last item from the last page is
@@ -879,7 +882,6 @@ Changes documentations to sentence case from title casing.
   specified maxlength. Character count will be shown only when the input length
   reaches 90% of maxlength and changes the state to error when input exceeds the
   maxlength
-
 #### Dropdown
 
 - Changed: **BREAKING** Renamed `ulProps` prop to `dropdownProps`
