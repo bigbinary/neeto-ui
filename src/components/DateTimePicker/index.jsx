@@ -78,13 +78,13 @@ const DateTimePicker = ({
           showTime={false}
           type="date"
           onBlur={() => {
-            setOpen(false)
-            onDatePickerBlur()
+            setOpen(false);
+            onDatePickerBlur();
           }}
           onChange={handleDateChange}
           onFocus={() => {
-            setOpen(true)
-            onDatePickerFocus()
+            setOpen(true);
+            onDatePickerFocus();
           }}
           {...datePickerProps}
         />
