@@ -129,10 +129,7 @@ const HeaderCellMenu = ({
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
-            <MenuItem.Button
-              style="danger"
-              onClick={() => onColumnDelete(column.id)}
-            >
+            <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
               Delete column
             </MenuItem.Button>
           )}
