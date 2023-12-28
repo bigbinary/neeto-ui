@@ -26,15 +26,21 @@ const DateTimePicker = ({
   value,
   labelProps,
   required = false,
-  ...otherProps
+  id,
+  onDatePickerBlur,
+  onTimePickerBlur,
+  onDatePickerFocus,
+  onTimePickerFocus,
+  datePickerProps,
+  timePickerProps,
 }) => {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
 
   const timeRef = React.useRef(null);
-  const id = useId(otherProps.id);
-  const errorId = `error_${id}`;
+  const defaultId = useId(id);
+  const errorId = `error_${defaultId}`;
   const handleDateChange = date => {
     setDate(date);
     setTime(date);
@@ -42,14 +48,14 @@ const DateTimePicker = ({
     onChange(date);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
-      .focus();
+      ?.focus();
   };
 
   const handleTimeChange = (_, value) => {
     const currentTime = dayjs(value, "HH:mm");
     setTime(value ? currentTime : null);
-    const dateTIme = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
-    onChange(dateTIme);
+    const dateTime = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
+    onChange(dateTime);
   };
 
   return (
@@ -71,9 +77,16 @@ const DateTimePicker = ({
           picker="date"
           showTime={false}
           type="date"
-          onBlur={() => setOpen(false)}
+          onBlur={() => {
+            setOpen(false)
+            onDatePickerBlur()
+          }}
           onChange={handleDateChange}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            setOpen(true)
+            onDatePickerFocus()
+          }}
+          {...datePickerProps}
         />
         <TimePickerInput
           {...{ error, nakedInput, size }}
@@ -81,6 +94,9 @@ const DateTimePicker = ({
           ref={timeRef}
           value={time}
           onChange={handleTimeChange}
+          onBlur={onTimePickerBlur}
+          onFocus={onTimePickerFocus}
+          {...timePickerProps}
         />
       </div>
       {!!error && (
@@ -148,6 +164,22 @@ DateTimePicker.propTypes = {
    * To specify the default values to be displayed inside the DatePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  /**
+   * The callback function that will be triggered when date picker loses focus (onBlur event).
+   */
+  onDatePickerBlur: PropTypes.func,
+  /**
+   * The callback function that will be triggered when time picker loses focus (onBlur event).
+   */
+  onTimePickerBlur: PropTypes.func,
+  /**
+   * The callback function that will be triggered when date picker gains focus (onFocus event).
+   */
+  onDatePickerFocus: PropTypes.func,
+  /**
+   * The callback function that will be triggered when time picker gains focus (onFocus event).
+   */
+  onTimePickerFocus: PropTypes.func,
 };
 
 export default DateTimePicker;
