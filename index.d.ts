@@ -215,6 +215,12 @@ export type DateTimePickerProps = {
   error?: string;
   id?: string;
   labelProps?: LabelProps;
+  onDatePickerBlur?: (date: Dayjs) => void,
+  onTimePickerBlur?: (time: any) => void,
+  onDatePickerFocus?: (date: Dayjs) => void,
+  onTimePickerFocus?: (time: any) => void,
+  datePickerProps?: { [key: string]: any },
+  timePickerProps?: { [key: string]: any },
   [key: string]: any;
 };
 
