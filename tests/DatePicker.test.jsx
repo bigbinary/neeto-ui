@@ -119,7 +119,7 @@ describe("DatePicker", () => {
   it("should trigger onBlur on losing focus", () => {
     const onDatePickerBlur = jest.fn();
     render(<DatePicker open defaultValue={theDate} onBlur={() => onDatePickerBlur(theDate)} />);
-    const datePickerInput = screen.getByRole('textbox');
+    const datePickerInput = screen.getByRole("textbox");
     fireEvent.blur(datePickerInput);
     expect(onDatePickerBlur).toHaveBeenCalledWith(theDate);
   });
@@ -127,7 +127,7 @@ describe("DatePicker", () => {
   it("should trigger onFocus on gaining focus", () => {
     const onDatePickerFocus = jest.fn();
     render(<DatePicker open defaultValue={theDate} onFocus={() => onDatePickerFocus(theDate)} />);
-    const datePickerInput = screen.getByRole('textbox');
+    const datePickerInput = screen.getByRole("textbox");
     fireEvent.focus(datePickerInput);
     expect(onDatePickerFocus).toHaveBeenCalledWith(theDate);
   });
