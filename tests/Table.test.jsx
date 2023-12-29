@@ -217,7 +217,7 @@ describe("Table", () => {
   });
 });
 
-it("should set call the callback for hiding columns when the hide column menu item is clicked", async () => {
+it("should call the callback for hiding columns when the hide column menu item is clicked", async () => {
   const onColumnHide = jest.fn();
   render(
     <NeetoUITable
@@ -238,7 +238,7 @@ it("should set call the callback for hiding columns when the hide column menu it
   expect(onColumnHide).toBeCalled();
 });
 
-it("should set call the callback for adding columns when the add column menu item is clicked", async () => {
+it("should call the callback for adding columns when the add column menu item is clicked", async () => {
   const handleAddColumn = jest.fn();
   render(
     <NeetoUITable
@@ -266,7 +266,7 @@ it("should set call the callback for adding columns when the add column menu ite
   expect(handleAddColumn).toBeCalledWith(3);
 });
 
-it("should set call the callback for deleting columns when the delete column menu item is clicked", async () => {
+it("should call the callback for deleting columns when the delete column menu item is clicked", async () => {
   const onColumnDelete = jest.fn();
   render(
     <NeetoUITable
