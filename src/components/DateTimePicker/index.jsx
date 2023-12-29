@@ -27,10 +27,10 @@ const DateTimePicker = ({
   labelProps,
   required = false,
   id,
-  onDatePickerBlur,
-  onTimePickerBlur,
-  onDatePickerFocus,
-  onTimePickerFocus,
+  onDatePickerBlur = noop,
+  onTimePickerBlur = noop,
+  onDatePickerFocus = noop,
+  onTimePickerFocus = noop,
   datePickerProps,
   timePickerProps,
 }) => {
@@ -80,11 +80,11 @@ const DateTimePicker = ({
           onChange={handleDateChange}
           onBlur={() => {
             setOpen(false);
-            onDatePickerBlur(date);
+            onDatePickerBlur?.(date);
           }}
           onFocus={() => {
             setOpen(true);
-            onDatePickerFocus(date);
+            onDatePickerFocus?.(date);
           }}
           {...datePickerProps}
         />
@@ -93,9 +93,9 @@ const DateTimePicker = ({
           error={!!error}
           ref={timeRef}
           value={time}
-          onBlur={() => onTimePickerBlur(time)}
+          onBlur={() => onTimePickerBlur?.(time)}
           onChange={handleTimeChange}
-          onFocus={() => onTimePickerFocus(time)}
+          onFocus={() => onTimePickerFocus?.(time)}
           {...timePickerProps}
         />
       </div>
