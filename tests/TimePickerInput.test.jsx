@@ -28,5 +28,3 @@ describe("TimePicker", () => {
     expect(onTimePickerFocus).toHaveBeenCalled();
   });
 });
-
-

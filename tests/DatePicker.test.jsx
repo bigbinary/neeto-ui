@@ -44,7 +44,7 @@ describe("DatePicker", () => {
     expect(await screen.findAllByText("00")).toHaveLength(2);
   });
 
-  it("should return date in the given format", async () => {
+  it("should return date in the given format", () => {
     render(
       <DatePicker
         defaultValue={dayjs("2022-05-24", "YYYY-MM-DD")}
@@ -54,7 +54,7 @@ describe("DatePicker", () => {
     expect(screen.getByRole("textbox")).toHaveValue("24/05/2022");
   });
 
-  it("should return date time in the given format", async () => {
+  it("should return date time in the given format", () => {
     render(
       <DatePicker
         showTime
@@ -118,7 +118,13 @@ describe("DatePicker", () => {
 
   it("should trigger onBlur on losing focus", () => {
     const onDatePickerBlur = jest.fn();
-    render(<DatePicker open defaultValue={theDate} onBlur={() => onDatePickerBlur(theDate)} />);
+    render(
+      <DatePicker
+        open
+        defaultValue={theDate}
+        onBlur={() => onDatePickerBlur(theDate)}
+      />
+    );
     const datePickerInput = screen.getByRole("textbox");
     fireEvent.blur(datePickerInput);
     expect(onDatePickerBlur).toHaveBeenCalledWith(theDate);
@@ -126,7 +132,13 @@ describe("DatePicker", () => {
 
   it("should trigger onFocus on gaining focus", () => {
     const onDatePickerFocus = jest.fn();
-    render(<DatePicker open defaultValue={theDate} onFocus={() => onDatePickerFocus(theDate)} />);
+    render(
+      <DatePicker
+        open
+        defaultValue={theDate}
+        onFocus={() => onDatePickerFocus(theDate)}
+      />
+    );
     const datePickerInput = screen.getByRole("textbox");
     fireEvent.focus(datePickerInput);
     expect(onDatePickerFocus).toHaveBeenCalledWith(theDate);
