@@ -50,7 +50,7 @@ const Table = ({
   components = {},
   onColumnHide,
   onColumnAdd = noop,
-  onColumnDelete = noop,
+  onColumnDelete,
   onChange,
   ...otherProps
 }) => {

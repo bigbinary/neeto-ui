@@ -18,7 +18,7 @@ const CellContent = ({
   ...headerProps
 }) => {
   const isColumnHidable = isHidable && isPresent(onColumnHide);
-  const isColumnDeletable = isPresent(column?.isSystem) && !column?.isSystem;
+  const isColumnDeletable = isPresent(onColumnDelete) && column?.isDeletable;
   const hasMoreMenu =
     isSortable ||
     isPresent(column?.description) ||
