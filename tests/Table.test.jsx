@@ -29,7 +29,7 @@ const columnData = [
     dataIndex: "nickname",
     key: "nickname",
     sorter: true,
-    isSystem: false,
+    isDeletable: true,
     width: 150,
   },
 ];

@@ -198,19 +198,21 @@ const getColumns = (fixed = false) => [
     width: 150,
   },
   {
+    id: "custom-column-id-credit-card-number",
     title: "Credit Card Number",
     dataIndex: "credit_card_number",
     key: "credit_card_number",
     width: 250,
-    isSystem: false,
+    isDeletable: true,
     ellipsis: { showTitle: false },
   },
   {
+    id: "custom-column-id-shirt-size",
     title: "Shirt Size",
     dataIndex: "shirt_size",
     key: "shirt_size",
     width: 150,
-    isSystem: false,
+    isDeletable: true,
   },
   {
     title: "Action",
@@ -237,8 +239,6 @@ const Default = args => {
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
-      onColumnAdd={args.onColumnAdd}
-      onColumnDelete={args.onColumnDelete}
       {...args}
     />
   );
