@@ -77,7 +77,9 @@ describe("DatePicker", () => {
 
   it("should trigger onOk method on clicking on ok button", () => {
     const onOkClick = jest.fn();
-    render(<DatePicker open showTime defaultValue={theDate} onOk={onOkClick} />);
+    render(
+      <DatePicker open showTime defaultValue={theDate} onOk={onOkClick} />
+    );
     fireEvent.click(screen.getByText("OK"));
     expect(onOkClick).toHaveBeenCalled();
   });
