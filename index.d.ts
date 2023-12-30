@@ -221,6 +221,7 @@ export type DateTimePickerProps = {
   onTimePickerFocus?: (time: any) => void,
   datePickerProps?: { [key: string]: any },
   timePickerProps?: { [key: string]: any },
+  autoUpdateTime?: boolean,
   [key: string]: any;
 };
 

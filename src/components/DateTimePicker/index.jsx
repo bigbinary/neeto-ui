@@ -33,21 +33,23 @@ const DateTimePicker = ({
   onTimePickerFocus = noop,
   datePickerProps,
   timePickerProps,
+  autoUpdateTime = true,
 }) => {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
-  const [hourFocused, setHourFocused] = useState(false);
-  const [minuteFocused, setMinuteFocused] = useState(false);
+  const [isHourFocused, setIsHourFocused] = useState(false);
+  const [isMinuteFocused, setIsMinuteFocused] = useState(false);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
   const handleDateChange = date => {
     setDate(date);
-    setTime(date);
+    if (autoUpdateTime) setTime(date);
     setOpen(false);
     onChange(date);
+    onDatePickerBlur(date);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
@@ -61,16 +63,16 @@ const DateTimePicker = ({
   };
 
   const handleTimePickerBlur = () => {
-    if (!hourFocused && !minuteFocused) return;
+    if (!isHourFocused && !isMinuteFocused) return;
     onTimePickerBlur(time);
-    setHourFocused(false);
-    setMinuteFocused(false);
+    setIsHourFocused(false);
+    setIsMinuteFocused(false);
   };
 
   useEffect(() => {
     if (timeRef.current) {
-      const focusHour = () => setHourFocused(true);
-      const focusMinute = () => setMinuteFocused(true);
+      const focusHour = () => setIsHourFocused(true);
+      const focusMinute = () => setIsMinuteFocused(true);
       const hourRef = timeRef.current?.querySelector(
         ".react-time-picker__inputGroup__hour"
       );
@@ -78,12 +80,12 @@ const DateTimePicker = ({
       const minuteRef = timeRef.current?.querySelector(
         ".react-time-picker__inputGroup__minute"
       );
-      hourRef?.addEventListener("change", focusHour);
-      minuteRef?.addEventListener("change", focusMinute);
+      hourRef?.addEventListener("focus", focusHour);
+      minuteRef?.addEventListener("focus", focusMinute);
 
       return () => {
-        hourRef?.removeEventListener("change", focusHour);
-        minuteRef?.removeEventListener("change", focusMinute);
+        hourRef?.removeEventListener("focus", focusHour);
+        minuteRef?.removeEventListener("focus", focusMinute);
       };
     }
 
@@ -109,11 +111,8 @@ const DateTimePicker = ({
           picker="date"
           showTime={false}
           type="date"
+          onBlur={() => setOpen(false)}
           onChange={handleDateChange}
-          onBlur={() => {
-            onDatePickerBlur(date);
-            setOpen(false);
-          }}
           onFocus={() => {
             onDatePickerFocus(date);
             setOpen(true);
@@ -167,7 +166,6 @@ DateTimePicker.propTypes = {
    * To specify whether the Date Time Input is required or not.
    */
   required: PropTypes.bool,
-
   /**
    * To provide external classnames to DateTimePicker component.
    */
@@ -212,6 +210,10 @@ DateTimePicker.propTypes = {
    * The callback function that will be triggered when time picker gains focus (onFocus event).
    */
   onTimePickerFocus: PropTypes.func,
+  /**
+   * Controls whether the time updates on date changes.
+   */
+  autoUpdateTime: PropTypes.bool,
 };
 
 export default DateTimePicker;
