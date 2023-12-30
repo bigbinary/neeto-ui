@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -37,6 +37,8 @@ const DateTimePicker = ({
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
+  const [hourFocused, setHourFocused] = useState(false);
+  const [minuteFocused, setMinuteFocused] = useState(false);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
@@ -57,6 +59,36 @@ const DateTimePicker = ({
     const dateTime = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
     onChange(dateTime);
   };
+
+  const handleTimePickerBlur = () => {
+    if (!hourFocused && !minuteFocused) return;
+    onTimePickerBlur(time);
+    setHourFocused(false);
+    setMinuteFocused(false);
+  };
+
+  useEffect(() => {
+    if (timeRef.current) {
+      const focusHour = () => setHourFocused(true);
+      const focusMinute = () => setMinuteFocused(true);
+      const hourRef = timeRef.current?.querySelector(
+        ".react-time-picker__inputGroup__hour"
+      );
+
+      const minuteRef = timeRef.current?.querySelector(
+        ".react-time-picker__inputGroup__minute"
+      );
+      hourRef?.addEventListener("change", focusHour);
+      minuteRef?.addEventListener("change", focusMinute);
+
+      return () => {
+        hourRef?.removeEventListener("change", focusHour);
+        minuteRef?.removeEventListener("change", focusMinute);
+      };
+    }
+
+    return () => {};
+  }, [timeRef]);
 
   return (
     <div className="neeto-ui-input__wrapper">
@@ -79,12 +111,12 @@ const DateTimePicker = ({
           type="date"
           onChange={handleDateChange}
           onBlur={() => {
+            onDatePickerBlur(date);
             setOpen(false);
-            onDatePickerBlur?.(date);
           }}
           onFocus={() => {
+            onDatePickerFocus(date);
             setOpen(true);
-            onDatePickerFocus?.(date);
           }}
           {...datePickerProps}
         />
@@ -93,9 +125,9 @@ const DateTimePicker = ({
           error={!!error}
           ref={timeRef}
           value={time}
-          onBlur={() => onTimePickerBlur?.(time)}
+          onBlur={handleTimePickerBlur}
           onChange={handleTimeChange}
-          onFocus={() => onTimePickerFocus?.(time)}
+          onFocus={onTimePickerFocus}
           {...timePickerProps}
         />
       </div>
