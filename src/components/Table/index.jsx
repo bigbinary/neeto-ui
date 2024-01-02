@@ -264,7 +264,7 @@ const Table = ({
             headerColor: "rgb(var(--neeto-ui-gray-700))",
             headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
             headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-gray-100))",
             headerSplitColor: "rgb(var(--neeto-ui-gray-200))",
             rowExpandedBg: "rgb(var(--neeto-ui-gray-200))",
             rowHoverBg: "rgb(var(--neeto-ui-gray-100))",
