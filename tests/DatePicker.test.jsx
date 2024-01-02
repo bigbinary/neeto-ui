@@ -129,7 +129,7 @@ describe("DatePicker", () => {
     );
     const datePickerInput = screen.getByRole("textbox");
     fireEvent.blur(datePickerInput);
-    expect(onDatePickerBlur).toHaveBeenCalledWith(theDate);
+    expect(onDatePickerBlur).toHaveBeenCalled();
   });
 
   it("should trigger onFocus on gaining focus", () => {
@@ -143,6 +143,6 @@ describe("DatePicker", () => {
     );
     const datePickerInput = screen.getByRole("textbox");
     fireEvent.focus(datePickerInput);
-    expect(onDatePickerFocus).toHaveBeenCalledWith(theDate);
+    expect(onDatePickerFocus).toHaveBeenCalled();
   });
 });

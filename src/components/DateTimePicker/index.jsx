@@ -33,20 +33,20 @@ const DateTimePicker = ({
   onTimePickerFocus = noop,
   datePickerProps,
   timePickerProps,
-  autoUpdateTime = true,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
-  const [isHourFocused, setIsHourFocused] = useState(false);
-  const [isMinuteFocused, setIsMinuteFocused] = useState(false);
+  const [date, setDate] = useState(value);
+  const [time, setTime] = useState(value);
+  const [isHourChanged, setIsHourChanged] = useState(false);
+  const [isMinuteChanged, setIsMinuteChanged] = useState(false);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
+
   const handleDateChange = date => {
     setDate(date);
-    if (autoUpdateTime) setTime(date);
+    if (!time) setTime(date);
     setOpen(false);
     onChange(date);
     onDatePickerBlur(date);
@@ -58,38 +58,37 @@ const DateTimePicker = ({
   const handleTimeChange = (_, value) => {
     const currentTime = dayjs(value, "HH:mm");
     setTime(value ? currentTime : null);
-    const dateTime = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
+    const currentDate = dayjs(date);
+    const dateTime = dayjs(`${currentDate?.format("YYYY-MM-DD")}
+    ${value || ""}`);
     onChange(dateTime);
   };
 
   const handleTimePickerBlur = () => {
-    if (!isHourFocused && !isMinuteFocused) return;
+    if (!isHourChanged && !isMinuteChanged) return;
     onTimePickerBlur(time);
-    setIsHourFocused(false);
-    setIsMinuteFocused(false);
+    setIsHourChanged(false);
+    setIsMinuteChanged(false);
   };
 
   useEffect(() => {
-    if (timeRef.current) {
-      const focusHour = () => setIsHourFocused(true);
-      const focusMinute = () => setIsMinuteFocused(true);
-      const hourRef = timeRef.current?.querySelector(
-        ".react-time-picker__inputGroup__hour"
-      );
+    if (!timeRef.current) return noop;
+    const changeHour = () => setIsHourChanged(true);
+    const changeMinute = () => setIsMinuteChanged(true);
+    const hourRef = timeRef.current?.querySelector(
+      ".react-time-picker__inputGroup__hour"
+    );
 
-      const minuteRef = timeRef.current?.querySelector(
-        ".react-time-picker__inputGroup__minute"
-      );
-      hourRef?.addEventListener("focus", focusHour);
-      minuteRef?.addEventListener("focus", focusMinute);
+    const minuteRef = timeRef.current?.querySelector(
+      ".react-time-picker__inputGroup__minute"
+    );
+    hourRef?.addEventListener("change", changeHour);
+    minuteRef?.addEventListener("change", changeMinute);
 
-      return () => {
-        hourRef?.removeEventListener("focus", focusHour);
-        minuteRef?.removeEventListener("focus", focusMinute);
-      };
-    }
-
-    return () => {};
+    return () => {
+      hourRef?.removeEventListener("change", changeHour);
+      minuteRef?.removeEventListener("change", changeMinute);
+    };
   }, [timeRef]);
 
   return (
@@ -105,12 +104,12 @@ const DateTimePicker = ({
             open,
             popupClassName,
             size,
-            value,
           }}
           error={!!error}
           picker="date"
           showTime={false}
           type="date"
+          value={date}
           onBlur={() => setOpen(false)}
           onChange={handleDateChange}
           onFocus={() => {
@@ -210,10 +209,6 @@ DateTimePicker.propTypes = {
    * The callback function that will be triggered when time picker gains focus (onFocus event).
    */
   onTimePickerFocus: PropTypes.func,
-  /**
-   * Controls whether the time updates on date changes.
-   */
-  autoUpdateTime: PropTypes.bool,
 };
 
-export default DateTimePicker;
+export default React.memo(DateTimePicker);
