@@ -24,12 +24,31 @@ const columnData = [
     width: 150,
   },
   {
-    id: "custom-column-id",
+    id: "custom-column-id-nickname",
     title: "Nickname",
     dataIndex: "nickname",
     key: "nickname",
     sorter: true,
     isDeletable: true,
+    width: 150,
+  },
+  {
+    id: "custom-column-id-company-name",
+    title: "Company Name",
+    dataIndex: "companyName",
+    key: "company_name",
+    sorter: true,
+    isDeletable: true,
+    isHidable: false,
+    width: 150,
+  },
+  {
+    id: "custom-column-id-position",
+    title: "Position",
+    dataIndex: "position",
+    key: "position",
+    sorter: true,
+    isDeletable: false,
     width: 150,
   },
 ];
@@ -222,7 +241,6 @@ it("should call the callback for hiding columns when the hide column menu item i
   render(
     <NeetoUITable
       {...{ columnData, onColumnHide, rowData }}
-      enable
       defaultPageSize={2}
       shouldDynamicallyRenderRowSize={false}
     />
@@ -236,6 +254,42 @@ it("should call the callback for hiding columns when the hide column menu item i
   await userEvent.click(screen.getByText("Hide column"));
 
   expect(onColumnHide).toBeCalled();
+});
+
+it("should hide the hide column option in the menu when the isHidable key is set to false", async () => {
+  const onColumnHide = jest.fn();
+  render(
+    <NeetoUITable
+      {...{ columnData, onColumnHide, rowData }}
+      defaultPageSize={2}
+      shouldDynamicallyRenderRowSize={false}
+    />
+  );
+  const column = screen.getByText("Company Name");
+  const menuButton = within(column.closest("th")).getByTestId(
+    "column-menu-button"
+  );
+  await userEvent.click(menuButton);
+  const hideButton = await screen.queryAllByText("Hide column");
+  expect(hideButton).toHaveLength(0);
+});
+
+it("should hide the delete column option in the menu when the isDeletable key is set to false", async () => {
+  const onColumnDelete = jest.fn();
+  render(
+    <NeetoUITable
+      {...{ columnData, onColumnDelete, rowData }}
+      defaultPageSize={2}
+      shouldDynamicallyRenderRowSize={false}
+    />
+  );
+  const column = screen.getByText("Position");
+  const menuButton = within(column.closest("th")).getByTestId(
+    "column-menu-button"
+  );
+  await userEvent.click(menuButton);
+  const deleteButton = await screen.queryAllByText("Delete column");
+  expect(deleteButton).toHaveLength(0);
 });
 
 it("should call the callback for adding columns when the add column menu item is clicked", async () => {

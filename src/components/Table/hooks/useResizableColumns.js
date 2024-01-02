@@ -42,6 +42,7 @@ const useResizableColumns = ({
             onAddColumn: positionOffset => onColumnAdd(index + positionOffset),
             onColumnDelete,
             isHidable: col.isHidable,
+            isDeletable: col.isDeletable,
             column: col,
           }),
           sortIcon: SortIcon,

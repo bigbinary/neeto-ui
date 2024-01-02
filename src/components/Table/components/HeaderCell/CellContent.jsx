@@ -11,6 +11,7 @@ const CellContent = ({
   sortedInfo,
   onSort,
   isHidable = true,
+  isDeletable = false,
   onColumnHide,
   onAddColumn,
   onColumnDelete,
@@ -18,12 +19,13 @@ const CellContent = ({
   ...headerProps
 }) => {
   const isColumnHidable = isHidable && isPresent(onColumnHide);
-  const isColumnDeletable = isPresent(onColumnDelete) && column?.isDeletable;
+  const isColumnDeletable = isDeletable && isPresent(onColumnDelete);
   const hasMoreMenu =
     isSortable ||
     isPresent(column?.description) ||
     isColumnHidable ||
-    isAddEnabled;
+    isAddEnabled ||
+    isColumnDeletable;
 
   return (
     <th
