@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from "react";
 
 import { render, screen, within } from "@testing-library/react";
@@ -234,109 +233,109 @@ describe("Table", () => {
       order_by: "asc",
     });
   });
-});
 
-it("should call the callback for hiding columns when the hide column menu item is clicked", async () => {
-  const onColumnHide = jest.fn();
-  render(
-    <NeetoUITable
-      {...{ columnData, onColumnHide, rowData }}
-      defaultPageSize={2}
-      shouldDynamicallyRenderRowSize={false}
-    />
-  );
-  const column = screen.getByText("Last Name");
-  const menuButton = within(column.closest("th")).getByTestId(
-    "column-menu-button"
-  );
-  await userEvent.click(menuButton);
-  expect(await screen.findByText("Hide column")).toBeInTheDocument();
-  await userEvent.click(screen.getByText("Hide column"));
+  it("should call the callback for hiding columns when the hide column menu item is clicked", async () => {
+    const onColumnHide = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, onColumnHide, rowData }}
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+      />
+    );
+    const column = screen.getByText("Last Name");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Hide column")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Hide column"));
 
-  expect(onColumnHide).toBeCalled();
-});
+    expect(onColumnHide).toBeCalled();
+  });
 
-it("should hide the hide column option in the menu when the isHidable key is set to false", async () => {
-  const onColumnHide = jest.fn();
-  render(
-    <NeetoUITable
-      {...{ columnData, onColumnHide, rowData }}
-      defaultPageSize={2}
-      shouldDynamicallyRenderRowSize={false}
-    />
-  );
-  const column = screen.getByText("Company Name");
-  const menuButton = within(column.closest("th")).getByTestId(
-    "column-menu-button"
-  );
-  await userEvent.click(menuButton);
-  const hideButton = await screen.queryAllByText("Hide column");
-  expect(hideButton).toHaveLength(0);
-});
+  it("should hide the hide column option in the menu when the isHidable key is set to false", async () => {
+    const onColumnHide = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, onColumnHide, rowData }}
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+      />
+    );
+    const column = screen.getByText("Company Name");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    const hideButton = await screen.queryAllByText("Hide column");
+    expect(hideButton).toHaveLength(0);
+  });
 
-it("should hide the delete column option in the menu when the isDeletable key is set to false", async () => {
-  const onColumnDelete = jest.fn();
-  render(
-    <NeetoUITable
-      {...{ columnData, onColumnDelete, rowData }}
-      defaultPageSize={2}
-      shouldDynamicallyRenderRowSize={false}
-    />
-  );
-  const column = screen.getByText("Position");
-  const menuButton = within(column.closest("th")).getByTestId(
-    "column-menu-button"
-  );
-  await userEvent.click(menuButton);
-  const deleteButton = await screen.queryAllByText("Delete column");
-  expect(deleteButton).toHaveLength(0);
-});
+  it("should hide the delete column option in the menu when the isDeletable key is set to false", async () => {
+    const onColumnDelete = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, onColumnDelete, rowData }}
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+      />
+    );
+    const column = screen.getByText("Position");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    const deleteButton = await screen.queryAllByText("Delete column");
+    expect(deleteButton).toHaveLength(0);
+  });
 
-it("should call the callback for adding columns when the add column menu item is clicked", async () => {
-  const handleAddColumn = jest.fn();
-  render(
-    <NeetoUITable
-      {...{ columnData, rowData }}
-      enableAddColumn
-      defaultPageSize={2}
-      shouldDynamicallyRenderRowSize={false}
-      onColumnAdd={handleAddColumn}
-    />
-  );
-  const column = screen.getByText("Last Name");
-  const menuButton = within(column.closest("th")).getByTestId(
-    "column-menu-button"
-  );
-  await userEvent.click(menuButton);
-  expect(await screen.findByText("Insert column left")).toBeInTheDocument();
-  await userEvent.click(screen.getByText("Insert column left"));
+  it("should call the callback for adding columns when the add column menu item is clicked", async () => {
+    const handleAddColumn = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, rowData }}
+        enableAddColumn
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+        onColumnAdd={handleAddColumn}
+      />
+    );
+    const column = screen.getByText("Last Name");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Insert column left")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Insert column left"));
 
-  expect(handleAddColumn).toBeCalledWith(2);
+    expect(handleAddColumn).toBeCalledWith(2);
 
-  await userEvent.click(menuButton);
-  expect(await screen.findByText("Insert column right")).toBeInTheDocument();
-  await userEvent.click(screen.getByText("Insert column right"));
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Insert column right")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Insert column right"));
 
-  expect(handleAddColumn).toBeCalledWith(3);
-});
+    expect(handleAddColumn).toBeCalledWith(3);
+  });
 
-it("should call the callback for deleting columns when the delete column menu item is clicked", async () => {
-  const onColumnDelete = jest.fn();
-  render(
-    <NeetoUITable
-      {...{ columnData, onColumnDelete, rowData }}
-      enableAddColumn
-      defaultPageSize={2}
-      shouldDynamicallyRenderRowSize={false}
-    />
-  );
-  const column = screen.getByText("Nickname");
-  const menuButton = within(column.closest("th")).getByTestId(
-    "column-menu-button"
-  );
-  await userEvent.click(menuButton);
-  expect(await screen.findByText("Delete column")).toBeInTheDocument();
-  await userEvent.click(screen.getByText("Delete column"));
+  it("should call the callback for deleting columns when the delete column menu item is clicked", async () => {
+    const onColumnDelete = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, onColumnDelete, rowData }}
+        enableAddColumn
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+      />
+    );
+    const column = screen.getByText("Nickname");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Delete column")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Delete column"));
 
-  expect(onColumnDelete).toBeCalledWith(columnData[3].id);
+    expect(onColumnDelete).toBeCalledWith(columnData[3].id);
+  });
 });

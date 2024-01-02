@@ -17,7 +17,7 @@ const Popover = ({
     {...{ theme }}
     arrow
     interactive
-    className={classnames("neeto-ui-popover", [className])}
+    className={classnames("neeto-ui-popover", className)}
     content={children}
     {...otherProps}
   />
