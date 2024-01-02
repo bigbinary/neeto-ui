@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -27,18 +27,12 @@ const DateTimePicker = ({
   labelProps,
   required = false,
   id,
-  onDatePickerBlur = noop,
-  onTimePickerBlur = noop,
-  onDatePickerFocus = noop,
-  onTimePickerFocus = noop,
   datePickerProps,
   timePickerProps,
 }) => {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState(value);
   const [time, setTime] = useState(value);
-  const [isHourChanged, setIsHourChanged] = useState(false);
-  const [isMinuteChanged, setIsMinuteChanged] = useState(false);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
@@ -48,8 +42,7 @@ const DateTimePicker = ({
     setDate(date);
     if (!time) setTime(date);
     setOpen(false);
-    onChange(date);
-    onDatePickerBlur(date);
+    onChange(date, "date");
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
@@ -61,35 +54,8 @@ const DateTimePicker = ({
     const currentDate = dayjs(date);
     const dateTime = dayjs(`${currentDate?.format("YYYY-MM-DD")}
     ${value || ""}`);
-    onChange(dateTime);
+    onChange(dateTime, "time");
   };
-
-  const handleTimePickerBlur = () => {
-    if (!isHourChanged && !isMinuteChanged) return;
-    onTimePickerBlur(time);
-    setIsHourChanged(false);
-    setIsMinuteChanged(false);
-  };
-
-  useEffect(() => {
-    if (!timeRef.current) return noop;
-    const changeHour = () => setIsHourChanged(true);
-    const changeMinute = () => setIsMinuteChanged(true);
-    const hourRef = timeRef.current?.querySelector(
-      ".react-time-picker__inputGroup__hour"
-    );
-
-    const minuteRef = timeRef.current?.querySelector(
-      ".react-time-picker__inputGroup__minute"
-    );
-    hourRef?.addEventListener("change", changeHour);
-    minuteRef?.addEventListener("change", changeMinute);
-
-    return () => {
-      hourRef?.removeEventListener("change", changeHour);
-      minuteRef?.removeEventListener("change", changeMinute);
-    };
-  }, [timeRef]);
 
   return (
     <div className="neeto-ui-input__wrapper">
@@ -112,10 +78,7 @@ const DateTimePicker = ({
           value={date}
           onBlur={() => setOpen(false)}
           onChange={handleDateChange}
-          onFocus={() => {
-            onDatePickerFocus(date);
-            setOpen(true);
-          }}
+          onFocus={() => setOpen(true)}
           {...datePickerProps}
         />
         <TimePickerInput
@@ -123,9 +86,7 @@ const DateTimePicker = ({
           error={!!error}
           ref={timeRef}
           value={time}
-          onBlur={handleTimePickerBlur}
           onChange={handleTimeChange}
-          onFocus={onTimePickerFocus}
           {...timePickerProps}
         />
       </div>
@@ -193,22 +154,6 @@ DateTimePicker.propTypes = {
    * To specify the default values to be displayed inside the DatePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  /**
-   * The callback function that will be triggered when date picker loses focus (onBlur event).
-   */
-  onDatePickerBlur: PropTypes.func,
-  /**
-   * The callback function that will be triggered when time picker loses focus (onBlur event).
-   */
-  onTimePickerBlur: PropTypes.func,
-  /**
-   * The callback function that will be triggered when date picker gains focus (onFocus event).
-   */
-  onDatePickerFocus: PropTypes.func,
-  /**
-   * The callback function that will be triggered when time picker gains focus (onFocus event).
-   */
-  onTimePickerFocus: PropTypes.func,
 };
 
 export default React.memo(DateTimePicker);
