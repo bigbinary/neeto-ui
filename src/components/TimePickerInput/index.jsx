@@ -40,7 +40,7 @@ const TimePickerInput = forwardRef(
     }, [value]);
 
     const handleChange = value => {
-      const date = dayjs(value, "HH:mm:ss");
+      const date = dayjs(value, "HH:mm");
       setTime(value);
       onChange(date, value);
     };
@@ -52,6 +52,7 @@ const TimePickerInput = forwardRef(
           {...{ id }}
           disableClock
           clearIcon={<HoverIcon {...{ time }} />}
+          format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
