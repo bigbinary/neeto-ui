@@ -1,17 +1,23 @@
 import React from "react";
 
+import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import Title from "./Title";
 
 import Tooltip from "../Tooltip";
 
-const Popover = ({ children, theme = "light", ...otherProps }) => (
+const Popover = ({
+  children,
+  className = "",
+  theme = "light",
+  ...otherProps
+}) => (
   <Tooltip
     {...{ theme }}
+    arrow
     interactive
-    arrow={false}
-    className="neeto-ui-popover"
+    className={classnames("neeto-ui-popover", className)}
     content={children}
     {...otherProps}
   />

@@ -415,9 +415,13 @@ export interface TableProps {
   shouldDynamicallyRenderRowSize?: boolean;
   enableColumnResize?: boolean;
   enableColumnReorder?: boolean;
+  enableAddColumn?: boolean;
   onColumnUpdate?: (columns: any[]) => void;
-  [key: string]: any;
+  onColumnAdd?: (position: number) => void;
+  onColumnDelete?: (key: string) => void;
   preserveTableStateInQuery?: boolean;
+  onColumnHide?: (columnKey: string) => void;
+  [key: string]: any;
 }
 
 export interface TagProps {
@@ -534,6 +538,7 @@ export interface PopoverProps {
   interactive?: boolean;
   hideAfter?: number;
   hideOnTargetExit?: boolean;
+  className?: string;
   [key: string]: any;
 }
 
