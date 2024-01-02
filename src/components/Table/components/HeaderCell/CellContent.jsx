@@ -24,8 +24,7 @@ const CellContent = ({
     isSortable ||
     isPresent(column?.description) ||
     isColumnHidable ||
-    isAddEnabled ||
-    isColumnDeletable;
+    isAddEnabled;
 
   return (
     <th
