@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.1.0 - 2024-01-02
+
+Added: Ability to see info about a table column
+
 ## 6.0.5 - 2023-12-22
 
 - Fixed: Pane scroll issue.
@@ -86,7 +90,6 @@ Enhanced the responsiveness of the following components
 - Removed: Removed unused components and styles.
 - Fixed: Fixed *TimePicker* component dark mode issue.
 ## 5.2.46 - 2023-12-04
-
 - Added: Logic to handle pagination when the last item from the last page is
   deleted and when applying filters.
 
@@ -883,7 +886,6 @@ Changes documentations to sentence case from title casing.
   reaches 90% of maxlength and changes the state to error when input exceeds the
   maxlength
 #### Dropdown
-
 - Changed: **BREAKING** Renamed `ulProps` prop to `dropdownProps`
 - Added: `buttonSize` prop
 
