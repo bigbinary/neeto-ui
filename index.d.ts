@@ -215,9 +215,9 @@ export type DateTimePickerProps = {
   error?: string;
   id?: string;
   labelProps?: LabelProps;
-  datePickerProps?: { [key: string]: any },
-  timePickerProps?: { [key: string]: any },
-  onTimeInputBlur?: () => void,
+  datePickerProps?: { [key: string]: any };
+  timePickerProps?: { [key: string]: any };
+  onTimeInputBlur?: () => void;
   [key: string]: any;
 };
 
