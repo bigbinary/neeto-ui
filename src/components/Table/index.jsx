@@ -13,14 +13,9 @@ import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import { TABLE_SORT_ORDERS } from "./constants";
-import {
-  ResizableHeaderCell,
-  ReorderableHeaderCell,
-  HeaderCell,
-} from "./HeaderCell";
-import useReorderColumns from "./hooks/useReorderColumns";
-import useResizableColumns from "./hooks/useResizableColumns";
+import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
+import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -33,6 +28,7 @@ const Table = ({
   allowRowClick = true,
   enableColumnResize = false,
   enableColumnReorder = false,
+  enableAddColumn = false,
   className = "",
   columnData = [],
   currentPageNumber = 1,
@@ -52,17 +48,23 @@ const Table = ({
   bordered = true,
   onColumnUpdate = noop,
   components = {},
+  onColumnHide,
+  onColumnAdd = noop,
+  onColumnDelete,
+  onChange,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+  const [sortedInfo, setSortedInfo] = useState({});
 
   const isDefaultPageChangeHandler = handlePageChange === noop;
 
   const history = useHistory();
 
   const headerRef = useRef();
+  const tableOnChangeProps = useRef({});
 
   const resizeObserver = useRef(
     new ResizeObserver(([entry]) =>
@@ -93,22 +95,26 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
-  const { dragProps, columns: columnsWithReorderProps } = useReorderColumns({
-    isEnabled: enableColumnReorder,
+  const { handleTableChange: handleTableSortChange } = useTableSort();
+
+  const { dragProps, columns: curatedColumnsData } = useColumns({
+    isReorderEnabled: enableColumnReorder,
+    isResizeEnabled: enableColumnResize,
+    isAddEnabled: enableAddColumn,
+    onTableChange: onChange,
     columns,
     setColumns,
     onColumnUpdate,
     rowSelection,
+    sortedInfo,
+    setSortedInfo,
+    onColumnHide,
+    onColumnAdd,
+    onColumnDelete,
+    tableOnChangeProps,
+    handleTableSortChange,
+    isDefaultPageChangeHandler,
   });
-
-  const { columns: curatedColumnsData } = useResizableColumns({
-    isEnabled: enableColumnResize,
-    columns: columnsWithReorderProps,
-    setColumns,
-    onColumnUpdate,
-  });
-
-  const { handleTableChange } = useTableSort();
 
   const queryParams = useQueryParams();
 
@@ -143,16 +149,20 @@ const Table = ({
       }
     : false;
 
-  const reordableHeader = {
-    header: {
-      cell: enableColumnResize
-        ? enableColumnReorder
-          ? HeaderCell
-          : ResizableHeaderCell
-        : enableColumnReorder
-        ? ReorderableHeaderCell
-        : null,
-    },
+  // eslint-disable-next-line @bigbinary/neeto/no-excess-function-arguments
+  const handleTableChange = (pagination, filters, sorter, extras) => {
+    setSortedInfo(sorter);
+    isDefaultPageChangeHandler && handleTableSortChange(pagination, sorter);
+    onChange?.(pagination, filters, sorter, extras);
+    tableOnChangeProps.current = { pagination, filters };
+  };
+
+  const componentOverrides = {
+    ...components,
+    header: getHeaderCell({
+      enableColumnResize,
+      enableColumnReorder,
+    }),
   };
 
   const calculateRowsPerPage = () => {
@@ -243,7 +253,7 @@ const Table = ({
           Table: {
             headerBorderRadius: 0,
             bodySortBg: "rgb(var(--neeto-ui-gray-100))",
-            borderColor: "rgb(var(--neeto-ui-gray-200))",
+            borderColor: "rgb(var(--neeto-ui-gray-300))",
             expandIconBg: "rgb(var(--neeto-ui-white))",
             filterDropdownBg: "rgb(var(--neeto-ui-white))",
             filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
@@ -254,7 +264,7 @@ const Table = ({
             headerColor: "rgb(var(--neeto-ui-gray-700))",
             headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
             headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-gray-100))",
             headerSplitColor: "rgb(var(--neeto-ui-gray-200))",
             rowExpandedBg: "rgb(var(--neeto-ui-gray-200))",
             rowHoverBg: "rgb(var(--neeto-ui-gray-100))",
@@ -275,7 +285,7 @@ const Table = ({
       <AntTable
         {...{ bordered, loading, locale }}
         columns={sortedColumnsWithAlignment}
-        components={{ ...components, ...reordableHeader }}
+        components={componentOverrides}
         dataSource={rowData}
         ref={tableRef}
         rowKey="id"
@@ -302,9 +312,7 @@ const Table = ({
           y: calculateTableContainerHeight(),
           ...scroll,
         }}
-        onChange={(pagination, _, sorter) => {
-          isDefaultPageChangeHandler && handleTableChange(pagination, sorter);
-        }}
+        onChange={handleTableChange}
         onHeaderRow={() => ({
           ref: headerRef,
           className: classnames("neeto-ui-table__header", {
@@ -406,11 +414,27 @@ Table.propTypes = {
    */
   enableColumnReorder: PropTypes.bool,
   /**
+   * Enables adding of columns to the left or right of the current column. Accepts boolean values.
+   */
+  enableAddColumn: PropTypes.bool,
+  /**
    * Handles column update events. Accepts a callback with `columns` as parameters.
    *
    * `onColumnUpdate={(columns) => {}}`
    */
   onColumnUpdate: PropTypes.func,
+  /**
+   * Function that gets called when a new column is added. Gets called with the 'position' to add the new column to as parameter.
+   *
+   * `onColumnAdd={(position) => {}}`
+   */
+  onColumnAdd: PropTypes.func,
+  /**
+   * Function that gets called when a custom field column is deleted. Gets called with the 'id' of the column getting deleted as parameter.
+   *
+   * `onColumnDelete={(key) => {}}`
+   */
+  onColumnDelete: PropTypes.func,
   /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.
