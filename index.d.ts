@@ -415,7 +415,10 @@ export interface TableProps {
   shouldDynamicallyRenderRowSize?: boolean;
   enableColumnResize?: boolean;
   enableColumnReorder?: boolean;
+  enableAddColumn?: boolean;
   onColumnUpdate?: (columns: any[]) => void;
+  onColumnAdd?: (position: number) => void;
+  onColumnDelete?: (key: string) => void;
   preserveTableStateInQuery?: boolean;
   onColumnHide?: (columnKey: string) => void;
   [key: string]: any;

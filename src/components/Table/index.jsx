@@ -28,6 +28,7 @@ const Table = ({
   allowRowClick = true,
   enableColumnResize = false,
   enableColumnReorder = false,
+  enableAddColumn = false,
   className = "",
   columnData = [],
   currentPageNumber = 1,
@@ -48,6 +49,8 @@ const Table = ({
   onColumnUpdate = noop,
   components = {},
   onColumnHide,
+  onColumnAdd = noop,
+  onColumnDelete,
   onChange,
   ...otherProps
 }) => {
@@ -97,6 +100,8 @@ const Table = ({
   const { dragProps, columns: curatedColumnsData } = useColumns({
     isReorderEnabled: enableColumnReorder,
     isResizeEnabled: enableColumnResize,
+    isAddEnabled: enableAddColumn,
+    onTableChange: onChange,
     columns,
     setColumns,
     onColumnUpdate,
@@ -104,7 +109,8 @@ const Table = ({
     sortedInfo,
     setSortedInfo,
     onColumnHide,
-    onTableChange: onChange,
+    onColumnAdd,
+    onColumnDelete,
     tableOnChangeProps,
     handleTableSortChange,
     isDefaultPageChangeHandler,
@@ -153,7 +159,10 @@ const Table = ({
 
   const componentOverrides = {
     ...components,
-    header: getHeaderCell({ enableColumnResize, enableColumnReorder }),
+    header: getHeaderCell({
+      enableColumnResize,
+      enableColumnReorder,
+    }),
   };
 
   const calculateRowsPerPage = () => {
@@ -405,11 +414,27 @@ Table.propTypes = {
    */
   enableColumnReorder: PropTypes.bool,
   /**
+   * Enables adding of columns to the left or right of the current column. Accepts boolean values.
+   */
+  enableAddColumn: PropTypes.bool,
+  /**
    * Handles column update events. Accepts a callback with `columns` as parameters.
    *
    * `onColumnUpdate={(columns) => {}}`
    */
   onColumnUpdate: PropTypes.func,
+  /**
+   * Function that gets called when a new column is added. Gets called with the 'position' to add the new column to as parameter.
+   *
+   * `onColumnAdd={(position) => {}}`
+   */
+  onColumnAdd: PropTypes.func,
+  /**
+   * Function that gets called when a custom field column is deleted. Gets called with the 'id' of the column getting deleted as parameter.
+   *
+   * `onColumnDelete={(key) => {}}`
+   */
+  onColumnDelete: PropTypes.func,
   /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.

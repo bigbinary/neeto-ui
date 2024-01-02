@@ -9,7 +9,12 @@ const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;
 
   if (!width) {
-    return <CellContent {...restProps} className="drag-handler" />;
+    return (
+      <CellContent
+        {...restProps}
+        className={classNames(className, "drag-handler")}
+      />
+    );
   }
 
   return (

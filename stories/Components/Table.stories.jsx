@@ -121,6 +121,7 @@ const getColumns = (fixed = false) => [
     key: "id",
     width: 175,
     sorter: (a, b) => a.id - b.id,
+    fixed: fixed ? "left" : false,
     isHidable: false,
     description:
       "An identifier (ID) is a name given to a variable, function, or other programming language entities to uniquely distinguish it from other entities.",
@@ -149,6 +150,7 @@ const getColumns = (fixed = false) => [
         </Tooltip>
       </div>
     ),
+    fixed: fixed ? "left" : false,
     dataIndex: "guid",
     key: "guid",
     width: 150,
@@ -196,17 +198,21 @@ const getColumns = (fixed = false) => [
     width: 150,
   },
   {
+    id: "custom-column-id-credit-card-number",
     title: "Credit Card Number",
     dataIndex: "credit_card_number",
     key: "credit_card_number",
     width: 250,
+    isDeletable: true,
     ellipsis: { showTitle: false },
   },
   {
+    id: "custom-column-id-shirt-size",
     title: "Shirt Size",
     dataIndex: "shirt_size",
     key: "shirt_size",
     width: 150,
+    isDeletable: true,
   },
   {
     title: "Action",
@@ -228,6 +234,7 @@ const Default = args => {
 
   return (
     <Table
+      enableAddColumn
       columnData={getColumns()}
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
@@ -237,7 +244,11 @@ const Default = args => {
   );
 };
 
-Default.args = { defaultPageSize: 10 };
+Default.args = {
+  defaultPageSize: 10,
+  onColumnAdd: position => alert(`New Column Position is ${position}`),
+  onColumnDelete: columnKey => alert(`Column to be deleted is ${columnKey}`),
+};
 
 Default.parameters = { docs: { source: { code: getTableSource() } } };
 
