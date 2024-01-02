@@ -27,6 +27,7 @@ const DateTimePicker = ({
   labelProps,
   required = false,
   id,
+  onTimeInputBlur = noop,
   datePickerProps,
   timePickerProps,
 }) => {
@@ -85,6 +86,7 @@ const DateTimePicker = ({
           {...{ error, nakedInput, size }}
           error={!!error}
           ref={timeRef}
+          shouldCloseClock={onTimeInputBlur}
           value={time}
           onChange={handleTimeChange}
           {...timePickerProps}
@@ -154,6 +156,10 @@ DateTimePicker.propTypes = {
    * To specify the default values to be displayed inside the DatePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  /**
+   * The callback function that will be triggered when time picker loses focus (onBlur event).
+   */
+  onTimeInputBlur: PropTypes.func,
 };
 
 export default React.memo(DateTimePicker);

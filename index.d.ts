@@ -217,6 +217,7 @@ export type DateTimePickerProps = {
   labelProps?: LabelProps;
   datePickerProps?: { [key: string]: any },
   timePickerProps?: { [key: string]: any },
+  onTimeInputBlur?: () => void,
   [key: string]: any;
 };
 
