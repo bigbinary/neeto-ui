@@ -1,15 +1,22 @@
 import { useMemo } from "react";
 
+import { isPresent, noop } from "neetocist";
+
+import SortIcon from "../components/SortIcon";
+
 const useResizableColumns = ({
   columns,
   setColumns,
   isEnabled,
+  isAddEnabled,
+  onColumnAdd,
   onColumnUpdate,
+  onColumnDelete,
+  handleSort,
+  sortedInfo,
+  onColumnHide,
+  tableOnChangeProps,
 }) => {
-  if (!isEnabled) {
-    return { components: {}, columns };
-  }
-
   const handleResize =
     index =>
     (_, { size }) => {
@@ -18,7 +25,6 @@ const useResizableColumns = ({
       setColumns(nextColumns);
     };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const computedColumnsData = useMemo(
     () =>
       columns.map((col, index) => {
@@ -26,9 +32,24 @@ const useResizableColumns = ({
           ...col,
           onHeaderCell: column => ({
             width: column.width,
-            onResize: handleResize(index),
-            onResizeStop: () => onColumnUpdate(columns),
+            onResize: isEnabled ? handleResize(index) : noop,
+            onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
+            isSortable: isPresent(col.sorter),
+            onSort: handleSort,
+            sortedInfo,
+            onColumnHide,
+            isAddEnabled: isAddEnabled && !col.fixed,
+            onAddColumn: positionOffset => onColumnAdd(index + positionOffset),
+            onColumnDelete,
+            isHidable: col.isHidable,
+            isDeletable: col.isDeletable,
+            column: col,
           }),
+          sortIcon: SortIcon,
+          sortOrder:
+            sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
+              ? sortedInfo.order
+              : null,
         };
 
         if (!col.ellipsis) {
@@ -37,7 +58,7 @@ const useResizableColumns = ({
 
         return modifiedColumn;
       }),
-    [columns]
+    [columns, sortedInfo, tableOnChangeProps]
   );
 
   return { columns: computedColumnsData };
