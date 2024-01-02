@@ -414,7 +414,7 @@ Table.propTypes = {
    */
   enableColumnReorder: PropTypes.bool,
   /**
-   * Enables adding of columns to the left of right of the current column. Accepts boolean values.
+   * Enables adding of columns to the left or right of the current column. Accepts boolean values.
    */
   enableAddColumn: PropTypes.bool,
   /**
