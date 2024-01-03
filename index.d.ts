@@ -729,6 +729,7 @@ export type TimePickerInputProps = {
   className?: string;
   error?: string;
   required?: boolean;
+  onBlur?: () => void;
 };
 
 // components

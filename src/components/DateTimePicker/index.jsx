@@ -86,8 +86,8 @@ const DateTimePicker = ({
           {...{ error, nakedInput, size }}
           error={!!error}
           ref={timeRef}
-          shouldCloseClock={onTimeInputBlur}
           value={time}
+          onBlur={onTimeInputBlur}
           onChange={handleTimeChange}
           {...timePickerProps}
         />

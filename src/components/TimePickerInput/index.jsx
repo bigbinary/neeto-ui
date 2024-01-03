@@ -8,7 +8,7 @@ import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
 import { useId } from "hooks";
-import { convertToDayjsObjects, hyphenize } from "utils";
+import { convertToDayjsObjects, hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
 
@@ -28,6 +28,7 @@ const TimePickerInput = forwardRef(
       value,
       onChange,
       error = "",
+      onBlur = noop,
       ...otherProps
     },
     ref
@@ -56,6 +57,7 @@ const TimePickerInput = forwardRef(
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
+          shouldCloseClock={onBlur}
           value={convertToDayjsObjects(value)?.toDate()}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
@@ -133,6 +135,10 @@ TimePickerInput.propTypes = {
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
+  /**
+   * The callback function that will be triggered when time picker loses focus.
+   */
+  onBlur: PropTypes.func,
 };
 
 export default TimePickerInput;
