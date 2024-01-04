@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.1.1 - 2024-01-04
+
+Added missing props to the DateTimePicker component.
+Some of the events were not accessible within the parent component required to do some async operations.
+
 ## 6.1.0 - 2024-01-02
 
 Added: Ability to see info about a table column
@@ -92,7 +97,6 @@ Enhanced the responsiveness of the following components
 ## 5.2.46 - 2023-12-04
 - Added: Logic to handle pagination when the last item from the last page is
   deleted and when applying filters.
-
 ## 5.2.45 - 2023-12-01
 
 Fixed: Loading indicator with icon issue in `Button`
@@ -888,7 +892,6 @@ Changes documentations to sentence case from title casing.
 #### Dropdown
 - Changed: **BREAKING** Renamed `ulProps` prop to `dropdownProps`
 - Added: `buttonSize` prop
-
 #### ActionDropdown
 
 - Changed: **BREAKING** Renamed `size` prop to `buttonSize`
