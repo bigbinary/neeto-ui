@@ -57,7 +57,6 @@ const TimePickerInput = forwardRef(
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
-          shouldCloseClock={onBlur}
           value={convertToDayjsObjects(value)?.toDate()}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
@@ -67,6 +66,12 @@ const TimePickerInput = forwardRef(
             "neeto-ui-time-picker--naked": nakedInput,
             "neeto-ui-time-picker--error": !!error,
           })}
+          shouldCloseClock={({ reason }) => {
+            if (reason !== "outsideAction") return true;
+            onBlur(reason);
+
+            return true;
+          }}
           onChange={handleChange}
           {...otherProps}
         />
