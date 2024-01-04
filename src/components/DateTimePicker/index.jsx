@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -32,15 +32,18 @@ const DateTimePicker = ({
   timePickerProps,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = useState(value);
   const [time, setTime] = useState(value);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
 
+  useEffect(() => {
+    if (dayjs(value).isSame(time)) return;
+    setTime(value);
+  }, [value]);
+
   const handleDateChange = date => {
-    setDate(date);
     if (!time) setTime(date);
     setOpen(false);
     onChange(date, "date");
@@ -49,12 +52,16 @@ const DateTimePicker = ({
       ?.focus();
   };
 
-  const handleTimeChange = (_, value) => {
-    const currentTime = dayjs(value, "HH:mm");
-    setTime(value ? currentTime : null);
-    const currentDate = dayjs(date);
+  const handleTimeChange = (_, timeValue) => {
+    if (!timeValue) {
+      setTime(null);
+
+      return;
+    }
+    const currentDate = dayjs(value);
     const dateTime = dayjs(`${currentDate?.format("YYYY-MM-DD")}
-    ${value || ""}`);
+    ${timeValue || ""}`);
+    setTime(dateTime);
     onChange(dateTime, "time");
   };
 
@@ -71,12 +78,12 @@ const DateTimePicker = ({
             open,
             popupClassName,
             size,
+            value,
           }}
           error={!!error}
           picker="date"
           showTime={false}
           type="date"
-          value={date}
           onBlur={() => setOpen(false)}
           onChange={handleDateChange}
           onFocus={() => setOpen(true)}
