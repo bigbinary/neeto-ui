@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -33,17 +33,12 @@ const TimePickerInput = forwardRef(
     },
     ref
   ) => {
-    const [time, setTime] = useState(value);
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
-    useEffect(() => {
-      setTime(value);
-    }, [value]);
 
     const handleChange = value => {
-      const date = dayjs(value, "HH:mm");
-      setTime(value);
-      onChange(date, value);
+      const time = dayjs(value, "HH:mm");
+      onChange(time, value);
     };
 
     return (
@@ -52,7 +47,7 @@ const TimePickerInput = forwardRef(
         <TimePicker
           {...{ id }}
           disableClock
-          clearIcon={<HoverIcon {...{ time }} />}
+          clearIcon={<HoverIcon time={!!value} />}
           format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
@@ -68,7 +63,7 @@ const TimePickerInput = forwardRef(
           })}
           shouldCloseClock={({ reason }) => {
             if (reason !== "outsideAction") return true;
-            onBlur(reason);
+            onBlur();
 
             return true;
           }}
