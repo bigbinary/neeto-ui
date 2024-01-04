@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -26,30 +26,43 @@ const DateTimePicker = ({
   value,
   labelProps,
   required = false,
-  ...otherProps
+  id,
+  onTimeInputBlur = noop,
+  datePickerProps,
+  timePickerProps,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
+  const [time, setTime] = useState(value);
 
   const timeRef = React.useRef(null);
-  const id = useId(otherProps.id);
-  const errorId = `error_${id}`;
+  const defaultId = useId(id);
+  const errorId = `error_${defaultId}`;
+
+  useEffect(() => {
+    if (dayjs(value).isSame(time)) return;
+    setTime(value);
+  }, [value]);
+
   const handleDateChange = date => {
-    setDate(date);
-    setTime(date);
+    if (!time) setTime(date);
     setOpen(false);
-    onChange(date);
+    onChange(date, "date");
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
-      .focus();
+      ?.focus();
   };
 
-  const handleTimeChange = (_, value) => {
-    const currentTime = dayjs(value, "HH:mm");
-    setTime(value ? currentTime : null);
-    const dateTIme = dayjs(`${date?.format("YYYY-MM-DD")} ${value || ""}`);
-    onChange(dateTIme);
+  const handleTimeChange = (_, timeValue) => {
+    if (!timeValue) {
+      setTime(null);
+
+      return;
+    }
+    const currentDate = dayjs(value);
+    const dateTime = dayjs(`${currentDate?.format("YYYY-MM-DD")}
+    ${timeValue || ""}`);
+    setTime(dateTime);
+    onChange(dateTime, "time");
   };
 
   return (
@@ -74,13 +87,16 @@ const DateTimePicker = ({
           onBlur={() => setOpen(false)}
           onChange={handleDateChange}
           onFocus={() => setOpen(true)}
+          {...datePickerProps}
         />
         <TimePickerInput
           {...{ error, nakedInput, size }}
           error={!!error}
           ref={timeRef}
           value={time}
+          onBlur={onTimeInputBlur}
           onChange={handleTimeChange}
+          {...timePickerProps}
         />
       </div>
       {!!error && (
@@ -119,7 +135,6 @@ DateTimePicker.propTypes = {
    * To specify whether the Date Time Input is required or not.
    */
   required: PropTypes.bool,
-
   /**
    * To provide external classnames to DateTimePicker component.
    */
@@ -148,6 +163,10 @@ DateTimePicker.propTypes = {
    * To specify the default values to be displayed inside the DatePicker.
    */
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  /**
+   * The callback function that will be triggered when time picker loses focus (onBlur event).
+   */
+  onTimeInputBlur: PropTypes.func,
 };
 
-export default DateTimePicker;
+export default React.memo(DateTimePicker);

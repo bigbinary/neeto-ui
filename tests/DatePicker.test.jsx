@@ -44,7 +44,7 @@ describe("DatePicker", () => {
     expect(await screen.findAllByText("00")).toHaveLength(2);
   });
 
-  it("should return date in the given format", async () => {
+  it("should return date in the given format", () => {
     render(
       <DatePicker
         defaultValue={dayjs("2022-05-24", "YYYY-MM-DD")}
@@ -54,7 +54,7 @@ describe("DatePicker", () => {
     expect(screen.getByRole("textbox")).toHaveValue("24/05/2022");
   });
 
-  it("should return date time in the given format", async () => {
+  it("should return date time in the given format", () => {
     render(
       <DatePicker
         showTime
@@ -69,17 +69,19 @@ describe("DatePicker", () => {
   });
 
   it("should trigger onChange on selecting a date", () => {
-    const onChange = jest.fn();
-    render(<DatePicker open defaultValue={theDate} onChange={onChange} />);
+    const onDateChange = jest.fn();
+    render(<DatePicker open defaultValue={theDate} onChange={onDateChange} />);
     fireEvent.click(screen.getByText(anotherDate.get("D")));
-    expect(onChange).toHaveBeenCalled();
+    expect(onDateChange).toHaveBeenCalled();
   });
 
   it("should trigger onOk method on clicking on ok button", () => {
-    const onOk = jest.fn();
-    render(<DatePicker open showTime defaultValue={theDate} onOk={onOk} />);
+    const onOkClick = jest.fn();
+    render(
+      <DatePicker open showTime defaultValue={theDate} onOk={onOkClick} />
+    );
     fireEvent.click(screen.getByText("OK"));
-    expect(onOk).toHaveBeenCalled();
+    expect(onOkClick).toHaveBeenCalled();
   });
 
   it("should show 12 hour format if timeFormat is in 12 hr format", () => {

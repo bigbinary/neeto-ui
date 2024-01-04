@@ -210,11 +210,14 @@ export type DateTimePickerProps = {
   size?: "small" | "medium" | "large";
   dropdownClassName?: string;
   dateFormat?: string;
-  onChange?: (dateTime: Dayjs) => void;
+  onChange?: (dateTime: Dayjs, changeType: "date" | "time") => void;
   nakedInput?: boolean;
   error?: string;
   id?: string;
   labelProps?: LabelProps;
+  datePickerProps?: { [key: string]: any };
+  timePickerProps?: { [key: string]: any };
+  onTimeInputBlur?: () => void;
   [key: string]: any;
 };
 
@@ -726,6 +729,7 @@ export type TimePickerInputProps = {
   className?: string;
   error?: string;
   required?: boolean;
+  onBlur?: () => void;
 };
 
 // components

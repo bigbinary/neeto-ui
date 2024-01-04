@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
@@ -8,7 +8,7 @@ import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
 import { useId } from "hooks";
-import { convertToDayjsObjects, hyphenize } from "utils";
+import { convertToDayjsObjects, hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
 
@@ -28,21 +28,17 @@ const TimePickerInput = forwardRef(
       value,
       onChange,
       error = "",
+      onBlur = noop,
       ...otherProps
     },
     ref
   ) => {
-    const [time, setTime] = useState(value);
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
-    useEffect(() => {
-      setTime(value);
-    }, [value]);
 
     const handleChange = value => {
-      const date = dayjs(value, "HH:mm:ss");
-      setTime(value);
-      onChange(date, value);
+      const time = dayjs(value, "HH:mm");
+      onChange(time, value);
     };
 
     return (
@@ -51,7 +47,8 @@ const TimePickerInput = forwardRef(
         <TimePicker
           {...{ id }}
           disableClock
-          clearIcon={<HoverIcon {...{ time }} />}
+          clearIcon={<HoverIcon time={!!value} />}
+          format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
@@ -64,6 +61,12 @@ const TimePickerInput = forwardRef(
             "neeto-ui-time-picker--naked": nakedInput,
             "neeto-ui-time-picker--error": !!error,
           })}
+          shouldCloseClock={({ reason }) => {
+            if (reason !== "outsideAction") return true;
+            onBlur();
+
+            return true;
+          }}
           onChange={handleChange}
           {...otherProps}
         />
@@ -132,6 +135,10 @@ TimePickerInput.propTypes = {
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
+  /**
+   * The callback function that will be triggered when time picker loses focus.
+   */
+  onBlur: PropTypes.func,
 };
 
 export default TimePickerInput;
