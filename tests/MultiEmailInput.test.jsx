@@ -119,20 +119,14 @@ describe("MultiEmailInput", () => {
     render(<MultiEmailInput options={SAMPLE_EMAILS} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "test");
-    const optionsList = document.querySelector(
-      ".neeto-ui-react-select__menu-list"
-    );
-    expect(optionsList).toHaveTextContent('Create "test"');
+    expect(screen.getByText('Create "test"')).toBeInTheDocument();
   });
 
   it("shouldn't show create option when isCreateable is false", async () => {
     render(<MultiEmailInput isCreateable={false} options={SAMPLE_EMAILS} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "test");
-    const optionsList = document.querySelector(
-      ".neeto-ui-react-select__menu-list"
-    );
-    expect(optionsList).not.toHaveTextContent("Create");
+    expect(screen.queryByText('Create "test"')).not.toBeInTheDocument();
   });
 
   it("should call onChange when Enter key is pressed", async () => {
