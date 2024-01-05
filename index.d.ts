@@ -293,6 +293,7 @@ export interface MultiEmailInputProps {
   required?: boolean;
   maxHeight?: number;
   labelProps?: LabelProps;
+  isCreateable?: boolean;
   [key: string]: any;
 }
 
