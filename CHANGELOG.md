@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.1.2 - 2024-01-05
+
+- Added support for disabling the create option for MultiEmailInput from the host application
+
 ## 6.1.1 - 2024-01-04
 
 Added missing props to the DateTimePicker component.
@@ -98,7 +102,6 @@ Enhanced the responsiveness of the following components
 - Added: Logic to handle pagination when the last item from the last page is
   deleted and when applying filters.
 ## 5.2.45 - 2023-12-01
-
 Fixed: Loading indicator with icon issue in `Button`
 
 ## 5.2.42 - 2023-11-30
@@ -893,7 +896,6 @@ Changes documentations to sentence case from title casing.
 - Changed: **BREAKING** Renamed `ulProps` prop to `dropdownProps`
 - Added: `buttonSize` prop
 #### ActionDropdown
-
 - Changed: **BREAKING** Renamed `size` prop to `buttonSize`
 - Changed: **BREAKING** Renamed `style` prop to `buttonStyle`
 
