@@ -40,6 +40,7 @@ const MultiEmailInput = forwardRef(
       required = false,
       labelProps,
       visibleEmailsCount = 3,
+      isCreateable = true,
       ...otherProps
     },
     ref
@@ -101,6 +102,8 @@ const MultiEmailInput = forwardRef(
 
     if (isOptionsPresent) {
       const isValidNewOption = (inputValue, _, selectOptions) => {
+        if (!isCreateable) return false;
+
         const isInputEmpty = isEmpty(inputValue.trim());
         const doesInputContainSeparator =
           inputValue.includes(",") || inputValue.includes(" ");
@@ -285,6 +288,10 @@ MultiEmailInput.propTypes = {
    * To specify the number of email to be displayed in the input field when not in focus.
    */
   visibleEmailsCount: PropTypes.number,
+  /**
+   * To specify whether a new email option can be created or not.
+   */
+  isCreateable: PropTypes.bool,
 };
 
 export default MultiEmailInput;
