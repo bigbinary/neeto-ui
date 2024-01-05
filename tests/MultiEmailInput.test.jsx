@@ -86,7 +86,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onBlur when focus from the input field changes", async () => {
     const onBlur = jest.fn();
-    render(<MultiEmailInput onBlur={onBlur} />);
+    render(<MultiEmailInput {...{ onBlur }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.click(emailInput);
     await userEvent.click(document.body);
@@ -95,7 +95,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onChange when input loses focus after entering email", async () => {
     const onChange = jest.fn();
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     emailInput.focus();
     await userEvent.paste("test@email.com test2@email.com");
@@ -109,7 +109,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onInputChange when email input value changes", async () => {
     const onInputChange = jest.fn();
-    render(<MultiEmailInput onInputChange={onInputChange} />);
+    render(<MultiEmailInput {...{ onInputChange }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "test");
     expect(onInputChange).toHaveBeenCalledTimes(4);
@@ -126,7 +126,7 @@ describe("MultiEmailInput", () => {
   });
 
   it("shouldn't show create option when isCreateable is false", async () => {
-    render(<MultiEmailInput options={SAMPLE_EMAILS} isCreateable={false} />);
+    render(<MultiEmailInput isCreateable={false} options={SAMPLE_EMAILS} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "test");
     const optionsList = document.querySelector(
@@ -137,7 +137,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onChange when Enter key is pressed", async () => {
     const onChange = jest.fn();
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "email@domain.com{enter}");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -148,7 +148,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onChange when Space key is pressed", async () => {
     const onChange = jest.fn();
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "email@domain.com ");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -159,7 +159,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onChange when Tab key is pressed", async () => {
     const onChange = jest.fn();
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "email@domain.com{tab}");
     // await userEvent.tab();
@@ -171,7 +171,7 @@ describe("MultiEmailInput", () => {
 
   it("should call onChange when comma key is pressed", async () => {
     const onChange = jest.fn();
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "email@domain.com,");
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -184,15 +184,13 @@ describe("MultiEmailInput", () => {
     const onChange = jest.fn();
     render(
       <MultiEmailInput
+        {...{ onChange }}
         error="Invalid email"
-        filterInvalidEmails={{
-          label: "Filter invalid emails",
-        }}
+        filterInvalidEmails={{ label: "Filter invalid emails" }}
         value={[
           { label: "test@example.com", value: "test@example.com", valid: true },
           { label: "invalidEmail", value: "invalidEmail" },
         ]}
-        onChange={onChange}
       />
     );
     await userEvent.click(screen.getByText("Filter invalid emails"));
@@ -206,13 +204,13 @@ describe("MultiEmailInput", () => {
     const onChange = jest.fn();
     render(
       <MultiEmailInput
+        {...{ onChange }}
         error="Invalid email"
         filterInvalidEmails={{}}
         value={[
           { label: "test@example.com", value: "test@example.com", valid: true },
           { label: "invalidEmail", value: "invalidEmail" },
         ]}
-        onChange={onChange}
       />
     );
 
@@ -224,7 +222,7 @@ describe("MultiEmailInput", () => {
   it("should accept a generic string containing an email and should pluck out that email", async () => {
     const onChange = jest.fn();
     const user = userEvent.setup({ document });
-    render(<MultiEmailInput onChange={onChange} />);
+    render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
     emailInput.focus();
     await user.paste("John Doe <john@example.com>");
