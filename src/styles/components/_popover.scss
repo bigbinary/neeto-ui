@@ -9,9 +9,10 @@
 }
 
 .neeto-ui-popover {
-
+  --neeto-ui-tooltip-padding-x: var(--neeto-ui-popover-padding-x);
+  --neeto-ui-tooltip-padding-y: var(--neeto-ui-popover-padding-y);
   border: var(--neeto-ui-popover-border-width) solid var(--neeto-ui-popover-border-color);
-  padding: var(--neeto-ui-popover-padding-x) var(--neeto-ui-popover-padding-y);
+
 
   &[data-theme~=light] {
     border-color: var(--neeto-ui-popover-light-theme-border-color);
