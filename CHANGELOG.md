@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.1.3 - 2024-01-17
+
+### After
+
+<img width="691" alt="Screenshot 2024-01-05 at 6 41 38 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/7b1f3e2d-5f35-4089-908f-44c0db4d5601">
+<img width="600" alt="Screenshot 2024-01-05 at 6 59 07 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/0f47e403-83cc-42b2-9637-44dbe2ee5fe7">
 ## 6.1.2 - 2024-01-05
 
 - Added support for disabling the create option for MultiEmailInput from the host application
@@ -103,7 +109,6 @@ Enhanced the responsiveness of the following components
   deleted and when applying filters.
 ## 5.2.45 - 2023-12-01
 Fixed: Loading indicator with icon issue in `Button`
-
 ## 5.2.42 - 2023-11-30
 
 Added: DateTimePicker component
@@ -898,7 +903,6 @@ Changes documentations to sentence case from title casing.
 #### ActionDropdown
 - Changed: **BREAKING** Renamed `size` prop to `buttonSize`
 - Changed: **BREAKING** Renamed `style` prop to `buttonStyle`
-
 #### Tag
 
 - Changed: **BREAKING** Renamed `style` prop to `type`
