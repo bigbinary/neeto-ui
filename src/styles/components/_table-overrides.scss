@@ -4,8 +4,6 @@
   --neeto-ui-table-header-border-bottom-width: 2px;
   --neeto-ui-table-resize-handle-width: 10px;
   --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
-  --neeto-ui-column-info-popover-padding-x: 1rem;
-  --neeto-ui-column-info-popover-padding-y: 1rem;
 }
 
 .ant-table-wrapper {
@@ -97,10 +95,4 @@
 .neetix-table {
   --neeto-ui-table-header-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-table-header-text-transform: capitalize;
-}
-
-.neetoui-column-info-popover {
-  .tippy-content {
-    padding: var(--neeto-ui-column-info-popover-padding-x) var(--neeto-ui-column-info-popover-padding-y);
-  }
 }

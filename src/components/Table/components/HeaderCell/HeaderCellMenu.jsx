@@ -103,7 +103,7 @@ const HeaderCellMenu = ({
                 Column info
               </MenuItem.Button>
               <Popover
-                className="neetoui-column-info-popover cursor-auto"
+                className="cursor-auto"
                 hideOnClick={false}
                 interactiveDebounce={20}
                 offset={[0, 15]}
