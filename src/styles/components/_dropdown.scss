@@ -55,7 +55,7 @@
 .neeto-ui-dropdown {
   margin: var(--neeto-ui-dropdown-margin-y) var(--neeto-ui-dropdown-margin-x);
 
-  .tippy-content {
+  .tippy-content:not(.neeto-ui-popover .tippy-content) {
     position: relative;
     padding: var(--neeto-ui-dropdown-padding-y) var(--neeto-ui-dropdown-padding-x);
     z-index: 1;
