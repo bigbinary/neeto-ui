@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { assoc } from "ramda";
 
 import { MenuHorizontal } from "neetoicons";
 import { BrowserRouter } from "react-router-dom";
@@ -240,9 +241,6 @@ const Default = args => {
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
-      onMoreActionClick={(actionType, columnId) => {
-        console.log(actionType, columnId);
-      }}
       {...args}
     />
   );
@@ -525,13 +523,12 @@ const TableWithMoreActionOnHeader = args => {
 
   const columns = useMemo(
     () =>
-      getColumns().map(column => ({
-        ...column,
-        moreActions: [
+      getColumns().map(
+        assoc("moreActions", [
           { type: "action1", label: "Action 1" },
           { type: "action2", label: "Action 2" },
-        ],
-      })),
+        ])
+      ),
     []
   );
 
@@ -543,8 +540,9 @@ const TableWithMoreActionOnHeader = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onMoreActionClick={(type, column) => {
-          alert(`${type} clicked on ${column.title}`);
+        onMoreActionClick={(type, { title, key }) => {
+          const text = typeof title === "string" ? title : key;
+          alert(`${type} clicked on ${text}`);
         }}
         {...args}
       />
