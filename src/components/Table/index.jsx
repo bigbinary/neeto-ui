@@ -52,6 +52,7 @@ const Table = ({
   onColumnAdd = noop,
   onColumnDelete,
   onChange,
+  onMoreActionClick,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -109,6 +110,7 @@ const Table = ({
     sortedInfo,
     setSortedInfo,
     onColumnHide,
+    onMoreActionClick,
     onColumnAdd,
     onColumnDelete,
     tableOnChangeProps,

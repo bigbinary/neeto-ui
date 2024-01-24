@@ -24,6 +24,7 @@ const columnData = [
     sorter: () => {},
     title: "ID",
     width: 75,
+    moreActions: [{ type: "action1", label: "Action 1" }],
   },
   {
     dataIndex: "guid",

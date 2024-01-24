@@ -22,9 +22,12 @@ const HeaderCellMenu = ({
   onColumnHide,
   onAddColumn,
   onColumnDelete,
+  onMoreActionClick,
   columnTitle = null,
+  moreActions = [],
 }) => {
   const columnInfoButtonReference = useRef();
+  const hasMoreActions = moreActions?.length && isPresent(onMoreActionClick);
 
   return (
     <div onClick={event => event.stopPropagation()}>
@@ -133,6 +136,16 @@ const HeaderCellMenu = ({
               Delete column
             </MenuItem.Button>
           )}
+          {hasMoreActions
+            ? moreActions.map((item, index) => (
+                <MenuItem.Button
+                  key={index}
+                  onClick={() => onMoreActionClick(item.type, column)}
+                >
+                  {item.label}
+                </MenuItem.Button>
+              ))
+            : null}
         </Menu>
       </Dropdown>
     </div>

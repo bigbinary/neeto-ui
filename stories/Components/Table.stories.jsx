@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 import { MenuHorizontal } from "neetoicons";
 import { BrowserRouter } from "react-router-dom";
@@ -13,6 +13,7 @@ import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
 import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
+import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -239,6 +240,9 @@ const Default = args => {
       currentPageNumber={pageNumber}
       handlePageChange={page => setPageNumber(page)}
       rowData={TABLE_DATA}
+      onMoreActionClick={(actionType, columnId) => {
+        console.log(actionType, columnId);
+      }}
       {...args}
     />
   );
@@ -516,6 +520,49 @@ const TableWithColumnWithHideColumnOption = args => {
 TableWithColumnWithHideColumnOption.storyName = "Table with hide column option";
 TableWithColumnWithHideColumnOption.args = { defaultPageSize: 10 };
 
+const TableWithMoreActionOnHeader = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const columns = useMemo(
+    () =>
+      getColumns().map(column => ({
+        ...column,
+        moreActions: [
+          { type: "action1", label: "Action 1" },
+          { type: "action2", label: "Action 2" },
+        ],
+      })),
+    []
+  );
+
+  return (
+    <div className="h-96">
+      <Table
+        enableColumnReorder
+        columnData={columns}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onMoreActionClick={(type, column) => {
+          alert(`${type} clicked on ${column.title}`);
+        }}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithMoreActionOnHeader.storyName = "Table with more actions on header";
+TableWithMoreActionOnHeader.args = { defaultPageSize: 10 };
+TableWithMoreActionOnHeader.parameters = {
+  docs: {
+    description: { story: MoreActionsOnHeaderDocs },
+    source: {
+      code: getTableSource("onMoreActionClick={(type, column) => {}}"),
+    },
+  },
+};
+
 const CSSCustomization = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -551,6 +598,7 @@ export {
   TableWithReordableColumns,
   TableWithColumnDescriptionPopover,
   TableWithColumnWithHideColumnOption,
+  TableWithMoreActionOnHeader,
   CSSCustomization,
 };
 

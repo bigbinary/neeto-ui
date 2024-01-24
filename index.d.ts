@@ -270,10 +270,11 @@ export interface DropdownProps {
   [key: string]: any;
 }
 
-export interface MenuItemProps extends React.DetailedHTMLProps<
-  React.LiHTMLAttributes<HTMLLIElement>,
-  HTMLLIElement
-> {
+export interface MenuItemProps
+  extends React.DetailedHTMLProps<
+    React.LiHTMLAttributes<HTMLLIElement>,
+    HTMLLIElement
+  > {
   tooltipProps?: TooltipProps;
 }
 
@@ -425,6 +426,7 @@ export interface TableProps {
   onColumnDelete?: (key: string) => void;
   preserveTableStateInQuery?: boolean;
   onColumnHide?: (columnKey: string) => void;
+  onMoreActionClick?: (actionType: string, column: any) => void;
   [key: string]: any;
 }
 

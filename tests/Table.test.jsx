@@ -49,6 +49,7 @@ const columnData = [
     sorter: true,
     isDeletable: false,
     width: 150,
+    moreActions: [{ type: "action1", label: "Action 1" }],
   },
 ];
 
@@ -337,5 +338,24 @@ describe("Table", () => {
     await userEvent.click(screen.getByText("Delete column"));
 
     expect(onColumnDelete).toBeCalledWith(columnData[3].id);
+  });
+
+  it("should call the onMoreActionClick when any of the more action item is clicked", async () => {
+    const onMoreActionClick = jest.fn();
+    render(
+      <NeetoUITable
+        {...{ columnData, onMoreActionClick, rowData }}
+        defaultPageSize={2}
+        shouldDynamicallyRenderRowSize={false}
+      />
+    );
+    const column = screen.getByText("Position");
+    const menuButton = within(column.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Action 1")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Action 1"));
+    expect(onMoreActionClick).toBeCalledWith("action1", columnData[5]);
   });
 });
