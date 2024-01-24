@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
+import { has } from "ramda";
 
 import SortIcon from "../components/SortIcon";
 
@@ -55,7 +56,7 @@ const useResizableColumns = ({
               : null,
         };
 
-        if (!col.ellipsis) {
+        if (!has("ellipsis", col)) {
           modifiedColumn.ellipsis = true;
         }
 
