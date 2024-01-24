@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { assoc } from "ramda";
 
 import { MenuHorizontal } from "neetoicons";
+import { assoc } from "ramda";
 import { BrowserRouter } from "react-router-dom";
 
 import { Tooltip, Tag, Avatar, Button, Dropdown, Typography } from "components";
@@ -9,12 +9,12 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
+import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
 import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
 import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
 import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
-import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
 
 const { Menu, MenuItem } = Dropdown;
 

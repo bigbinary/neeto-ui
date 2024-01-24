@@ -1,6 +1,7 @@
 import React from "react";
 
 import { isPresent, noop } from "neetocist";
+import { isEmpty } from "ramda";
 
 import HeaderCellMenu from "./HeaderCellMenu";
 
@@ -22,7 +23,7 @@ const CellContent = ({
 }) => {
   const isColumnHidable = isHidable && isPresent(onColumnHide);
   const isColumnDeletable = isDeletable && isPresent(onColumnDelete);
-  const hasMoreActions = moreActions?.length && isPresent(onMoreActionClick);
+  const hasMoreActions = !isEmpty(moreActions) && isPresent(onMoreActionClick);
   const hasMoreMenu =
     isSortable ||
     isPresent(column?.description) ||
