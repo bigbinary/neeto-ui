@@ -540,9 +540,8 @@ const TableWithMoreActionOnHeader = args => {
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
         rowData={TABLE_DATA}
-        onMoreActionClick={(type, { title, key }) => {
-          const text = typeof title === "string" ? title : key;
-          alert(`${type} clicked on ${text}`);
+        onMoreActionClick={(type, { key }) => {
+          alert(`${type} clicked on ${key}`);
         }}
         {...args}
       />

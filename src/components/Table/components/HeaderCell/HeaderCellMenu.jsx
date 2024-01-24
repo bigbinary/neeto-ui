@@ -22,12 +22,12 @@ const HeaderCellMenu = ({
   onColumnHide,
   onAddColumn,
   onColumnDelete,
+  hasMoreActions,
   onMoreActionClick,
   columnTitle = null,
   moreActions = [],
 }) => {
   const columnInfoButtonReference = useRef();
-  const hasMoreActions = moreActions?.length && isPresent(onMoreActionClick);
 
   return (
     <div onClick={event => event.stopPropagation()}>

@@ -43,6 +43,7 @@ const CellContent = ({
           <HeaderCellMenu
             {...{
               column,
+              hasMoreActions,
               isAddEnabled,
               isColumnDeletable,
               isSortable,
