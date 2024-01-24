@@ -136,16 +136,15 @@ const HeaderCellMenu = ({
               Delete column
             </MenuItem.Button>
           )}
-          {hasMoreActions
-            ? moreActions.map((item, index) => (
-                <MenuItem.Button
-                  key={index}
-                  onClick={() => onMoreActionClick(item.type, column)}
-                >
-                  {item.label}
-                </MenuItem.Button>
-              ))
-            : null}
+          {hasMoreActions &&
+            moreActions.map((item, index) => (
+              <MenuItem.Button
+                key={index}
+                onClick={() => onMoreActionClick(item.type, column)}
+              >
+                {item.label}
+              </MenuItem.Button>
+            ))}
         </Menu>
       </Dropdown>
     </div>
