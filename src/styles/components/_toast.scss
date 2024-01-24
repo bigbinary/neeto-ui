@@ -35,6 +35,7 @@ body {
   .Toastify__toast-container {
     z-index: var(--neeto-ui-toastr-z-index);
     padding: 0;
+    bottom: 60px !important;
 
     width: auto;
     max-width: var(--neeto-ui-toastr-max-width);
