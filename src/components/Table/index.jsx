@@ -438,6 +438,12 @@ Table.propTypes = {
    */
   onColumnDelete: PropTypes.func,
   /**
+   * Function that gets called when a more action item in header is clicked.
+   *
+   * `onMoreActionClick={(type, column) => {}}`
+   */
+  onMoreActionClick: PropTypes.func,
+  /**
    * Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table
    * Make sure to pass `id` in `rowData` for this to work.
    */
