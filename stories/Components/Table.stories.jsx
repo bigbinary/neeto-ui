@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 import { MenuHorizontal } from "neetoicons";
+import { assoc } from "ramda";
 import { BrowserRouter } from "react-router-dom";
 
 import { Tooltip, Tag, Avatar, Button, Dropdown, Typography } from "components";
@@ -8,6 +9,7 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
+import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
 import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
 import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
 import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
@@ -516,6 +518,48 @@ const TableWithColumnWithHideColumnOption = args => {
 TableWithColumnWithHideColumnOption.storyName = "Table with hide column option";
 TableWithColumnWithHideColumnOption.args = { defaultPageSize: 10 };
 
+const TableWithMoreActionOnHeader = args => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const columns = useMemo(
+    () =>
+      getColumns().map(
+        assoc("moreActions", [
+          { type: "action1", label: "Action 1" },
+          { type: "action2", label: "Action 2" },
+        ])
+      ),
+    []
+  );
+
+  return (
+    <div className="h-96">
+      <Table
+        enableColumnReorder
+        columnData={columns}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        onMoreActionClick={(type, { key }) => {
+          alert(`${type} clicked on ${key}`);
+        }}
+        {...args}
+      />
+    </div>
+  );
+};
+
+TableWithMoreActionOnHeader.storyName = "Table with more actions on header";
+TableWithMoreActionOnHeader.args = { defaultPageSize: 10 };
+TableWithMoreActionOnHeader.parameters = {
+  docs: {
+    description: { story: MoreActionsOnHeaderDocs },
+    source: {
+      code: getTableSource("onMoreActionClick={(type, column) => {}}"),
+    },
+  },
+};
+
 const CSSCustomization = args => {
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -551,6 +595,7 @@ export {
   TableWithReordableColumns,
   TableWithColumnDescriptionPopover,
   TableWithColumnWithHideColumnOption,
+  TableWithMoreActionOnHeader,
   CSSCustomization,
 };
 
