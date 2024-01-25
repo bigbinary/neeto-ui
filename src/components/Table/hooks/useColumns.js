@@ -16,6 +16,7 @@ const useColumns = ({
   sortedInfo,
   setSortedInfo,
   onColumnHide,
+  onMoreActionClick,
   onTableChange,
   tableOnChangeProps,
   handleTableSortChange,
@@ -69,6 +70,7 @@ const useColumns = ({
     handleSort,
     sortedInfo,
     onColumnHide,
+    onMoreActionClick,
     tableOnChangeProps,
   });
 
