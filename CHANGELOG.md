@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.2.0 - 2024-01-25
+
+- Add ability to add more actions to the table header.
+
 ## 6.1.3 - 2024-01-17
 
 ### After
@@ -30,7 +34,6 @@ Each change is prefixed with one of these keywords::
 <img width="691" alt="Screenshot 2024-01-05 at 6 41 38 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/7b1f3e2d-5f35-4089-908f-44c0db4d5601">
 <img width="600" alt="Screenshot 2024-01-05 at 6 59 07 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/0f47e403-83cc-42b2-9637-44dbe2ee5fe7">
 ## 6.1.2 - 2024-01-05
-
 - Added support for disabling the create option for MultiEmailInput from the host application
 
 ## 6.1.1 - 2024-01-04
@@ -110,7 +113,6 @@ Enhanced the responsiveness of the following components
 ## 5.2.45 - 2023-12-01
 Fixed: Loading indicator with icon issue in `Button`
 ## 5.2.42 - 2023-11-30
-
 Added: DateTimePicker component
 
 ## 5.2.41 - 2023-11-24
@@ -904,7 +906,6 @@ Changes documentations to sentence case from title casing.
 - Changed: **BREAKING** Renamed `size` prop to `buttonSize`
 - Changed: **BREAKING** Renamed `style` prop to `buttonStyle`
 #### Tag
-
 - Changed: **BREAKING** Renamed `style` prop to `type`
 - Removed: **BREAKING** Renamed `color` and `indicatorColor` props
 - Added: **BREAKING** `style` and `indicatorStyle` props with options
