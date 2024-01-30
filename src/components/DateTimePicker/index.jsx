@@ -14,6 +14,7 @@ const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
 
 const DATE_FORMAT = "YYYY-MM-DD";
+const TIME_FORMAT = "HH:mm";
 
 const DateTimePicker = ({
   className = "",
@@ -34,7 +35,7 @@ const DateTimePicker = ({
   datePickerProps,
   timePickerProps,
 }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [changedField, setChangedField] = useState();
@@ -45,16 +46,26 @@ const DateTimePicker = ({
   useEffect(() => {
     const inputValue = value || defaultValue;
     if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
-      const dateTime = dayjs(inputValue);
+      const dateTime = dayjs.isDayjs(inputValue)
+        ? inputValue
+        : dayjs(inputValue);
       setDate(dateTime);
       setTime(dateTime);
     }
   }, [value, defaultValue]);
 
   useEffect(() => {
-    if (!isPresent(date) || !isPresent(time)) return;
-    onChange(dayjs(`${date.format(DATE_FORMAT)} ${time}`), changedField);
-  }, [date, time]);
+    if (!isPresent(changedField)) return;
+
+    if (isPresent(date) && isPresent(time)) {
+      onChange(
+        dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`),
+        changedField
+      );
+    } else {
+      onChange(null, changedField);
+    }
+  }, [date, time, changedField]);
 
   const handleDateChange = newDate => {
     setOpen(false);
@@ -67,7 +78,7 @@ const DateTimePicker = ({
 
   const handleTimeChange = newTime => {
     setChangedField("time");
-    setTime(newTime);
+    setTime(newTime.isValid() ? newTime : null);
   };
 
   return (
