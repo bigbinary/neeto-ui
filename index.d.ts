@@ -203,8 +203,8 @@ export type DatePickerProps = {
 };
 
 export type DateTimePickerProps = {
-  value: any;
-  defaultValue?: any;
+  value?: string;
+  defaultValue?: string;
   className?: string;
   label?: string;
   size?: "small" | "medium" | "large";
