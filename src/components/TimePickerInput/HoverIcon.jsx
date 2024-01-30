@@ -19,6 +19,6 @@ const HoverIcon = ({ time = false }) => {
 /**
  * time prop is required to find the feild is filled or not
  */
-HoverIcon.propTypes = { time: PropTypes.string.isRequired };
+HoverIcon.propTypes = { time: PropTypes.bool.isRequired };
 
 export default HoverIcon;

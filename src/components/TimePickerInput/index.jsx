@@ -1,20 +1,23 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import { isPresent } from "neetocist";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
 import { useId } from "hooks";
-import { convertToDayjsObjects, hyphenize, noop } from "utils";
+import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
 
 dayjs.extend(customParseFormat);
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
+
+const FORMAT = "HH:mm";
 
 const TimePickerInput = forwardRef(
   (
@@ -25,7 +28,7 @@ const TimePickerInput = forwardRef(
       size = INPUT_SIZES.medium,
       nakedInput = false,
       required = false,
-      value,
+      value: inputValue,
       onChange,
       error = "",
       onBlur = noop,
@@ -33,26 +36,33 @@ const TimePickerInput = forwardRef(
     },
     ref
   ) => {
+    const value = useMemo(() => {
+      if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
+        return inputValue.format(FORMAT);
+      }
+
+      return null;
+    }, [inputValue]);
+
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
 
-    const handleChange = value => {
-      const time = dayjs(value, "HH:mm");
-      onChange(time, value);
+    const handleChange = newValue => {
+      const time = dayjs(newValue, FORMAT);
+      onChange(time, newValue);
     };
 
     return (
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <TimePicker
-          {...{ id }}
+          {...{ id, value }}
           disableClock
           clearIcon={<HoverIcon time={!!value} />}
           format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
-          value={convertToDayjsObjects(value)?.toDate()}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",

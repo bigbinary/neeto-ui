@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import { isPresent } from "neetocist";
 import PropTypes from "prop-types";
 
 import { TimePickerInput, DatePicker, Label } from "components";
@@ -11,6 +12,8 @@ import { hyphenize, noop } from "utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
+
+const DATE_FORMAT = "YYYY-MM-DD";
 
 const DateTimePicker = ({
   className = "",
@@ -31,38 +34,41 @@ const DateTimePicker = ({
   datePickerProps,
   timePickerProps,
 }) => {
-  const [open, setOpen] = React.useState(false);
-  const [time, setTime] = useState(value);
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
+  const [changedField, setChangedField] = useState();
+
+  useEffect(() => {
+    const inputValue = value || defaultValue;
+    if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
+      const dateTime = dayjs(inputValue);
+      setDate(dateTime);
+      setTime(dateTime);
+    }
+  }, [value, defaultValue]);
+
+  useEffect(() => {
+    if (!isPresent(date) || !isPresent(time)) return;
+    onChange(dayjs(`${date.format(DATE_FORMAT)} ${time}`), changedField);
+  }, [date, time]);
 
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
 
-  useEffect(() => {
-    if (dayjs(value).isSame(time)) return;
-    setTime(value);
-  }, [value]);
-
-  const handleDateChange = date => {
-    if (!time) setTime(date);
+  const handleDateChange = newDate => {
     setOpen(false);
-    onChange(date, "date");
+    setChangedField("date");
+    setDate(newDate);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
   };
 
-  const handleTimeChange = (_, timeValue) => {
-    if (!timeValue) {
-      setTime(null);
-
-      return;
-    }
-    const currentDate = dayjs(value);
-    const dateTime = dayjs(`${currentDate?.format("YYYY-MM-DD")}
-    ${timeValue || ""}`);
-    setTime(dateTime);
-    onChange(dateTime, "time");
+  const handleTimeChange = (_, newTime) => {
+    setChangedField("time");
+    setTime(newTime);
   };
 
   return (
@@ -72,18 +78,17 @@ const DateTimePicker = ({
         <DatePicker
           {...{
             dateFormat,
-            defaultValue,
             dropdownClassName,
             nakedInput,
             open,
             popupClassName,
             size,
-            value,
           }}
           error={!!error}
           picker="date"
           showTime={false}
           type="date"
+          value={date}
           onBlur={() => setOpen(false)}
           onChange={handleDateChange}
           onFocus={() => setOpen(true)}
@@ -158,11 +163,11 @@ DateTimePicker.propTypes = {
   /**
    * To specify the values to be displayed inside the DatePicker.
    */
-  value: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  value: PropTypes.string, // PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   /**
    * To specify the default values to be displayed inside the DatePicker.
    */
-  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  defaultValue: PropTypes.string, // PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   /**
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
