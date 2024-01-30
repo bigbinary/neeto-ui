@@ -38,6 +38,9 @@ const DateTimePicker = ({
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [changedField, setChangedField] = useState();
+  const timeRef = React.useRef(null);
+  const defaultId = useId(id);
+  const errorId = `error_${defaultId}`;
 
   useEffect(() => {
     const inputValue = value || defaultValue;
@@ -52,10 +55,6 @@ const DateTimePicker = ({
     if (!isPresent(date) || !isPresent(time)) return;
     onChange(dayjs(`${date.format(DATE_FORMAT)} ${time}`), changedField);
   }, [date, time]);
-
-  const timeRef = React.useRef(null);
-  const defaultId = useId(id);
-  const errorId = `error_${defaultId}`;
 
   const handleDateChange = newDate => {
     setOpen(false);
@@ -163,11 +162,11 @@ DateTimePicker.propTypes = {
   /**
    * To specify the values to be displayed inside the DatePicker.
    */
-  value: PropTypes.string, // PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  value: PropTypes.string,
   /**
    * To specify the default values to be displayed inside the DatePicker.
    */
-  defaultValue: PropTypes.string, // PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  defaultValue: PropTypes.string,
   /**
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
