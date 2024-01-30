@@ -65,7 +65,7 @@ const DateTimePicker = ({
       ?.focus();
   };
 
-  const handleTimeChange = (_, newTime) => {
+  const handleTimeChange = newTime => {
     setChangedField("time");
     setTime(newTime);
   };
