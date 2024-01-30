@@ -29,6 +29,7 @@ describe("DateTimePicker", () => {
     expect(screen.getByRole("textbox")).toHaveValue(
       theDate.format(DATE_DISPLAY_FORMAT)
     );
+
     expect(
       screen.getByDisplayValue(theDate.format(TIME_FORMAT))
     ).toBeInTheDocument();
@@ -38,9 +39,9 @@ describe("DateTimePicker", () => {
     const onChangeMock = jest.fn();
     render(
       <DateTimePicker
+        datePickerProps={{ open: true }}
         value={theDate}
         onChange={onChangeMock}
-        datePickerProps={{ open: true }}
       />
     );
     fireEvent.click(screen.getByText(anotherDate.get("D")));
@@ -69,6 +70,7 @@ describe("DateTimePicker", () => {
     const { container } = render(
       <DateTimePicker value={theDate} onChange={onChangeMock} />
     );
+
     const timeInput = container.querySelector(
       'input[name="time"][type="time"]'
     );

@@ -22,7 +22,7 @@ const metadata = {
   },
 };
 
-const Default = args => <DateTimePicker {...args} onChange={console.log} />;
+const Default = args => <DateTimePicker {...args} />;
 
 const CSSCustomization = args => <DateTimePicker {...args} />;
 
