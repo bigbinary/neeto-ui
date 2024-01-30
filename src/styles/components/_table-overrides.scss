@@ -96,3 +96,15 @@
   --neeto-ui-table-header-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-table-header-text-transform: capitalize;
 }
+
+.ant-table-wrapper {
+  .ant-table-cell {
+    .neeto-ui-btn--icon-only {
+      flex-shrink: 0;
+    }
+    .neeto-ui-btn--style-link {
+      white-space: normal;
+      text-align: left;
+    }
+  }
+}
