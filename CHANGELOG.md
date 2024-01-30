@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.2.1 - 2024-01-30
+
+- Fixed: Icon button shrinking issue in table cell.
+- Fixed: Updated table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef) text alignment to left.
+- Added: `white-space: normal` to table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef).
+
 ## 6.2.0 - 2024-01-25
 
 - Add ability to add more actions to the table header.
@@ -35,7 +41,6 @@ Each change is prefixed with one of these keywords::
 <img width="600" alt="Screenshot 2024-01-05 at 6 59 07 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/0f47e403-83cc-42b2-9637-44dbe2ee5fe7">
 ## 6.1.2 - 2024-01-05
 - Added support for disabling the create option for MultiEmailInput from the host application
-
 ## 6.1.1 - 2024-01-04
 
 Added missing props to the DateTimePicker component.
@@ -114,7 +119,6 @@ Enhanced the responsiveness of the following components
 Fixed: Loading indicator with icon issue in `Button`
 ## 5.2.42 - 2023-11-30
 Added: DateTimePicker component
-
 ## 5.2.41 - 2023-11-24
 
 Previously onBlur was causing a redundant onChange call. Now onChange will be
@@ -910,7 +914,6 @@ Changes documentations to sentence case from title casing.
 - Removed: **BREAKING** Renamed `color` and `indicatorColor` props
 - Added: **BREAKING** `style` and `indicatorStyle` props with options
   `"success" | "warning" | "danger" | "primary" | "inactive"`
-
 #### ColorPicker
 
 - Added: `Size` prop
