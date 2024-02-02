@@ -1,10 +1,10 @@
 import React from "react";
 
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import dayjs from "dayjs";
 
 import DateTimePicker from "components/DateTimePicker";
-import userEvent from "@testing-library/user-event";
 
 const theDate = dayjs("2024-12-24 12:30");
 const anotherDate = theDate.add(1, "day");
@@ -66,7 +66,7 @@ describe("DateTimePicker", () => {
     );
   });
 
-  it("onChange is called with null if time is removed", async () => {
+  it("onChange is called with null if time is removed", () => {
     const onChangeMock = jest.fn();
     const { container } = render(
       <DateTimePicker value={theDate} onChange={onChangeMock} />
