@@ -6,7 +6,9 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import { isPresent } from "neetocist";
 import PropTypes from "prop-types";
 
-import { TimePickerInput, DatePicker, Label } from "components";
+import DatePicker from "components/DatePicker";
+import Label from "components/Label";
+import TimePickerInput from "components/TimePickerInput";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
@@ -15,6 +17,14 @@ dayjs.extend(customParseFormat);
 
 const DATE_FORMAT = "YYYY-MM-DD";
 const TIME_FORMAT = "HH:mm";
+
+const getDateTime = (date, time) => {
+  if (isPresent(date) && isPresent(time)) {
+    return dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`);
+  }
+
+  return null;
+};
 
 const DateTimePicker = ({
   className = "",
@@ -38,7 +48,6 @@ const DateTimePicker = ({
   const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
-  const [changedField, setChangedField] = useState();
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
@@ -54,31 +63,19 @@ const DateTimePicker = ({
     }
   }, [value, defaultValue]);
 
-  useEffect(() => {
-    if (!isPresent(changedField)) return;
-
-    if (isPresent(date) && isPresent(time)) {
-      onChange(
-        dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`),
-        changedField
-      );
-    } else {
-      onChange(null, changedField);
-    }
-  }, [date, time, changedField]);
-
   const handleDateChange = newDate => {
     setOpen(false);
-    setChangedField("date");
     setDate(newDate);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
+
+    onChange(getDateTime(newDate, time), "date");
   };
 
   const handleTimeChange = newTime => {
-    setChangedField("time");
     setTime(newTime.isValid() ? newTime : null);
+    onChange(getDateTime(date, newTime), "time");
   };
 
   return (
