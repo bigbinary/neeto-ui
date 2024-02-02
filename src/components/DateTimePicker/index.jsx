@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent } from "neetocist";
+import { isPresent, isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
@@ -17,14 +17,6 @@ dayjs.extend(customParseFormat);
 
 const DATE_FORMAT = "YYYY-MM-DD";
 const TIME_FORMAT = "HH:mm";
-
-const getDateTime = (date, time) => {
-  if (isPresent(date) && isPresent(time)) {
-    return dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`);
-  }
-
-  return null;
-};
 
 const DateTimePicker = ({
   className = "",
@@ -48,6 +40,7 @@ const DateTimePicker = ({
   const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
+  const [changedField, setChangedField] = useState();
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
@@ -63,19 +56,35 @@ const DateTimePicker = ({
     }
   }, [value, defaultValue]);
 
+  useEffect(() => {
+    if (isNotPresent(changedField)) return;
+
+    if (isPresent(date) && isPresent(time)) {
+      onChange(
+        dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`),
+        changedField
+      );
+    } else {
+      onChange(null, changedField);
+    }
+    setChangedField(); // reset to avoid unnecessary trigger on rerender
+  }, [date, time, changedField]);
+
   const handleDateChange = newDate => {
     setOpen(false);
-    setDate(newDate);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
 
-    onChange(getDateTime(newDate, time), "date");
+    setDate(newDate);
+    if (!time) setTime(newDate);
+    setChangedField("date");
   };
 
   const handleTimeChange = newTime => {
     setTime(newTime.isValid() ? newTime : null);
-    onChange(getDateTime(date, newTime), "time");
+    if (newTime.isValid() && !date) setDate(newTime);
+    setChangedField("time");
   };
 
   return (
@@ -170,11 +179,11 @@ DateTimePicker.propTypes = {
   /**
    * To specify the values to be displayed inside the DatePicker.
    */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * To specify the default values to be displayed inside the DatePicker.
    */
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */

@@ -1,9 +1,10 @@
 import React from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import dayjs from "dayjs";
 
 import DateTimePicker from "components/DateTimePicker";
+import userEvent from "@testing-library/user-event";
 
 const theDate = dayjs("2024-12-24 12:30");
 const anotherDate = theDate.add(1, "day");
@@ -65,7 +66,7 @@ describe("DateTimePicker", () => {
     );
   });
 
-  it("onChange is called with null if time is not set", () => {
+  it("onChange is called with null if time is removed", async () => {
     const onChangeMock = jest.fn();
     const { container } = render(
       <DateTimePicker value={theDate} onChange={onChangeMock} />
@@ -78,13 +79,18 @@ describe("DateTimePicker", () => {
     expect(onChangeMock).toHaveBeenCalledWith(null, "time");
   });
 
-  it("onChange is called with null if date is not set", () => {
+  it("onChange is called with null if date is removed", async () => {
     const onChangeMock = jest.fn();
-    const { container } = render(<DateTimePicker onChange={onChangeMock} />);
-    const timeInput = container.querySelector(
-      'input[name="time"][type="time"]'
+    const { container } = render(
+      <DateTimePicker value={theDate} onChange={onChangeMock} />
     );
-    fireEvent.change(timeInput, { target: { value: "12:30" } }); // set only time
-    expect(onChangeMock).toHaveBeenCalledWith(null, "time");
+    const clearButton = container.querySelector(".ant-picker-clear");
+    userEvent.click(clearButton);
+
+    await userEvent.type(
+      document.querySelector(".ant-picker input"),
+      "{Enter}"
+    );
+    expect(onChangeMock).toHaveBeenCalledWith(null, "date");
   });
 });
