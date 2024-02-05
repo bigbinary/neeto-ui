@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.2.2 - 2024-02-05
+
+If the value prop is invalid date or date string, the value is converted to null.
+
 ## 6.2.1 - 2024-01-30
 
 - Fixed: Icon button shrinking issue in table cell.
@@ -42,7 +46,6 @@ Each change is prefixed with one of these keywords::
 ## 6.1.2 - 2024-01-05
 - Added support for disabling the create option for MultiEmailInput from the host application
 ## 6.1.1 - 2024-01-04
-
 Added missing props to the DateTimePicker component.
 Some of the events were not accessible within the parent component required to do some async operations.
 
@@ -120,7 +123,6 @@ Fixed: Loading indicator with icon issue in `Button`
 ## 5.2.42 - 2023-11-30
 Added: DateTimePicker component
 ## 5.2.41 - 2023-11-24
-
 Previously onBlur was causing a redundant onChange call. Now onChange will be
 called only if the value contains leading or trailing whitespaces.
 
@@ -915,7 +917,6 @@ Changes documentations to sentence case from title casing.
 - Added: **BREAKING** `style` and `indicatorStyle` props with options
   `"success" | "warning" | "danger" | "primary" | "inactive"`
 #### ColorPicker
-
 - Added: `Size` prop
 
 #### Typography
