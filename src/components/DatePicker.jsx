@@ -151,13 +151,9 @@ const DatePicker = forwardRef(
             superNextIcon={<IconOverride icon={Right} />}
             superPrevIcon={<IconOverride icon={Left} />}
             allowClear={
-              allowClear === true
-                ? {
-                    clearIcon: (
-                      <Close data-cy="date-time-clear-icon" size={16} />
-                    ),
-                  }
-                : allowClear
+              allowClear && {
+                clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+              }
             }
           />
           {!!error && typeof error === "string" && (
