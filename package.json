@@ -23,8 +23,8 @@
     "managers.*"
   ],
   "lint-staged": {
-    "src/**/*.{html,md,js,jsx,json}": [
-      "eslint --fix"
+    "**/*.{html,md,js,jsx,json}": [
+      ".scripts/fix-lints.sh"
     ]
   },
   "engines": {
