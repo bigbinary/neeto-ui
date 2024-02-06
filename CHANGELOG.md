@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.2.3 - 2024-02-06
+
+Added: Support for `allowClear` prop in *DatePicker* to be `false`
+
 ## 6.2.2 - 2024-02-05
 
 If the value prop is invalid date or date string, the value is converted to null.
@@ -48,7 +52,6 @@ If the value prop is invalid date or date string, the value is converted to null
 ## 6.1.1 - 2024-01-04
 Added missing props to the DateTimePicker component.
 Some of the events were not accessible within the parent component required to do some async operations.
-
 ## 6.1.0 - 2024-01-02
 
 Added: Ability to see info about a table column
@@ -125,7 +128,6 @@ Added: DateTimePicker component
 ## 5.2.41 - 2023-11-24
 Previously onBlur was causing a redundant onChange call. Now onChange will be
 called only if the value contains leading or trailing whitespaces.
-
 ## 5.2.40 - 2023-11-23
 
 - Updated the multi select component to not show the `Add` button when no
@@ -918,7 +920,6 @@ Changes documentations to sentence case from title casing.
   `"success" | "warning" | "danger" | "primary" | "inactive"`
 #### ColorPicker
 - Added: `Size` prop
-
 #### Typography
 
 - Added: new variant **nano**
