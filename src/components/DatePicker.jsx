@@ -48,6 +48,7 @@ const DatePicker = forwardRef(
       value,
       labelProps,
       required = false,
+      allowClear = true,
       ...otherProps
     },
     ref
@@ -149,9 +150,11 @@ const DatePicker = forwardRef(
             suffixIcon={<Calendar size={16} />}
             superNextIcon={<IconOverride icon={Right} />}
             superPrevIcon={<IconOverride icon={Left} />}
-            allowClear={{
-              clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
-            }}
+            allowClear={
+              allowClear && {
+                clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+              }
+            }
           />
           {!!error && typeof error === "string" && (
             <p
@@ -244,6 +247,10 @@ DatePicker.propTypes = {
    * To specify whether the Date picker is required or not.
    */
   required: PropTypes.bool,
+  /**
+   * To specify whether the Date picker value can be cleared or not.
+   */
+  allowClear: PropTypes.bool,
 };
 
 export default DatePicker;

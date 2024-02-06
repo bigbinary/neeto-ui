@@ -199,6 +199,7 @@ export type DatePickerProps = {
   id?: string;
   disabled?: boolean;
   labelProps?: LabelProps;
+  allowClear?: boolean;
   [key: string]: any;
 };
 
