@@ -247,7 +247,7 @@ const Default = args => {
 };
 
 Default.args = {
-  defaultPageSize: 10,
+  defaultPageSize: 30,
   onColumnAdd: position => alert(`New Column Position is ${position}`),
   onColumnDelete: columnKey => alert(`Column to be deleted is ${columnKey}`),
 };
@@ -322,7 +322,7 @@ const TableWithSelectedRowKeys = ({
 };
 TableWithSelectedRowKeys.storyName = "Table with selected row keys";
 TableWithSelectedRowKeys.args = {
-  defaultPageSize: 10,
+  defaultPageSize: 30,
   selectedRowKeys: [1, 2, 3],
 };
 
@@ -369,7 +369,7 @@ const TableWithFixedHeight = args => {
 };
 TableWithFixedHeight.storyName = "Table with fixed height";
 TableWithFixedHeight.args = {
-  defaultPageSize: 10,
+  defaultPageSize: 30,
   fixedHeight: true,
 };
 
