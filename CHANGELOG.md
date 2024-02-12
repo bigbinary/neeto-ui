@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.2.4 - 2024-02-12
+
+- Updated: Avatar theme.
+
+<img width="1440" alt="Theme 3" src="https://github.com/bigbinary/neeto-ui/assets/48869249/b2fb1559-2e34-492d-b839-57ec32f3061d">
 ## 6.2.3 - 2024-02-06
 
 Added: Support for `allowClear` prop in *DatePicker* to be `false`
@@ -53,7 +58,6 @@ If the value prop is invalid date or date string, the value is converted to null
 Added missing props to the DateTimePicker component.
 Some of the events were not accessible within the parent component required to do some async operations.
 ## 6.1.0 - 2024-01-02
-
 Added: Ability to see info about a table column
 
 ## 6.0.5 - 2023-12-22
@@ -129,7 +133,6 @@ Added: DateTimePicker component
 Previously onBlur was causing a redundant onChange call. Now onChange will be
 called only if the value contains leading or trailing whitespaces.
 ## 5.2.40 - 2023-11-23
-
 - Updated the multi select component to not show the `Add` button when no
   options are selected.
 - Changed the type of the `Add` button from `primary` to `secondary`.
@@ -921,7 +924,6 @@ Changes documentations to sentence case from title casing.
 #### ColorPicker
 - Added: `Size` prop
 #### Typography
-
 - Added: new variant **nano**
 
 #### Modal
