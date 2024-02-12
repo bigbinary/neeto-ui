@@ -42,8 +42,9 @@ const Tag = forwardRef(
 
     return (
       <div
+        {...{ ref }}
+        data-cy="tag-container"
         data-testid="tag-container"
-        ref={ref}
         className={classnames(
           "neeto-ui-tag",
           {
