@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TimePickerInput from "components/TimePickerInput";
 
@@ -14,7 +14,16 @@ const metadata = {
   },
 };
 
-const Default = args => <TimePickerInput {...args} />;
+const Default = args => {
+  const [value, setValue] = useState("12:45");
+
+  const onChangeHandler = (_, newValue) => {
+    console.log(newValue);
+    setValue(newValue);
+  };
+
+  return <TimePickerInput {...{ ...args, value }} onBlur={onChangeHandler} />;
+};
 
 Default.args = { label: "Time picker" };
 

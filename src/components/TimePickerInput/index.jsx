@@ -1,9 +1,9 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent } from "neetocist";
+import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
@@ -36,20 +36,35 @@ const TimePickerInput = forwardRef(
     },
     ref
   ) => {
-    const value = useMemo(() => {
-      if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
-        return inputValue.format(FORMAT);
-      }
+    const [value, setValue] = useState(null);
 
-      return null;
+    useEffect(() => {
+      if (isNotPresent(inputValue)) return setValue(null);
+
+      if (dayjs.isDayjs(inputValue)) {
+        setValue(inputValue.format(FORMAT));
+      } else if (dayjs(inputValue, FORMAT).isValid()) {
+        setValue(inputValue);
+      }
     }, [inputValue]);
 
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
 
     const handleChange = newValue => {
-      const time = dayjs(newValue, FORMAT);
-      onChange(time, newValue);
+      setValue(newValue);
+      onChange(dayjs(newValue, FORMAT), newValue);
+    };
+
+    const handleShouldCloseClock = () => {
+      onBlur(dayjs(value, FORMAT), value);
+
+      return true;
+    };
+
+    const handleKeyDown = ({ code }) => {
+      if (!(code === "Enter")) return;
+      onBlur(dayjs(value, FORMAT), value);
     };
 
     return (
@@ -63,6 +78,7 @@ const TimePickerInput = forwardRef(
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
+          shouldCloseClock={handleShouldCloseClock}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
@@ -71,13 +87,8 @@ const TimePickerInput = forwardRef(
             "neeto-ui-time-picker--naked": nakedInput,
             "neeto-ui-time-picker--error": !!error,
           })}
-          shouldCloseClock={({ reason }) => {
-            if (reason !== "outsideAction") return true;
-            onBlur();
-
-            return true;
-          }}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           {...otherProps}
         />
         {!!error && typeof error === "string" && (
