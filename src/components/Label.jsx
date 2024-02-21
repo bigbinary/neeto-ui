@@ -1,7 +1,7 @@
 import React from "react";
 
 import classnames from "classnames";
-import { Info } from "neetoicons";
+import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Tooltip from "./Tooltip";
@@ -21,7 +21,7 @@ const Label = ({
     ...otherHelpIconProps
   } = helpIconProps || {};
 
-  const HelpIcon = icon || Info;
+  const HelpIcon = icon || Help;
 
   return (
     <label
