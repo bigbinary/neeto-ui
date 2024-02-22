@@ -16,10 +16,8 @@ const useTableSort = () => {
     const params = {
       sort_by: sorter.order ? camelToSnakeCase(sorter.field) : undefined,
       order_by: URL_SORT_ORDERS[sorter.order],
+      page: pagination.current,
     };
-    if (pagination.current) {
-      params.page = pagination.current;
-    }
 
     const pathname = window.location.pathname;
     history.push(buildUrl(pathname, mergeLeft(params, queryParams)));
