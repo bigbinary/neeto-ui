@@ -14,7 +14,7 @@ const useTableSort = () => {
 
   const handleTableChange = (pagination, sorter) => {
     const params = {
-      sort_by: sorter.order && camelToSnakeCase(sorter.field),
+      sort_by: sorter.order ? camelToSnakeCase(sorter.field) : undefined,
       order_by: URL_SORT_ORDERS[sorter.order],
       page: pagination.current,
     };
