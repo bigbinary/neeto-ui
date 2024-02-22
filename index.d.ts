@@ -728,12 +728,12 @@ export type TreeProps = {
 export type TimePickerInputProps = {
   label?: string;
   value?: string | Date;
-  onChange?: (date: any, value: string) => void;
+  onChange?: (date: Dayjs, value: string) => void;
   labelProps?: object;
   className?: string;
   error?: string;
   required?: boolean;
-  onBlur?: (date: any, value: string) => void;
+  onBlur?: (date: Dayjs, value: string) => void;
 };
 
 // components
