@@ -18,7 +18,7 @@ describe("TimePickerInput", () => {
     expect(getByText("Select Time")).toBeInTheDocument();
   });
 
-  it("should trigger onChange for time picker", async () => {
+  it("should trigger onChange for time picker", () => {
     const onChangeFn = jest.fn();
     render(
       <TimePickerInput
@@ -33,7 +33,7 @@ describe("TimePickerInput", () => {
     expect(onChangeFn).toHaveBeenCalledWith(expect.anything(), "11:15");
   });
 
-  it("should trigger onChange for time range picker", async () => {
+  it("should trigger onChange for time range picker", () => {
     const onChangeFn = jest.fn();
     render(
       <TimePickerInput

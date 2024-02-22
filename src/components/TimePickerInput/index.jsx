@@ -45,10 +45,11 @@ const TimePickerInput = forwardRef(
 
     useEffect(() => {
       if (isNotPresent(inputValue)) return setValue(null);
-      setValue(
+
+      return setValue(
         (type === "range" ? getFormattedRange : getFormattedTime)(inputValue)
       );
-    }, [inputValue]);
+    }, [type, inputValue]);
 
     const handleChange = newValue => {
       setValue(newValue);
