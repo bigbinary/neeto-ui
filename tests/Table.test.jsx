@@ -182,7 +182,7 @@ describe("Table", () => {
     await userEvent.click(pages[2]);
     const queryParams = getQueryParams();
 
-    expect(queryParams).toEqual({ page: "2", sort_by: "" });
+    expect(queryParams).toEqual({ page: "2" });
   });
 
   it("should navigate to previous page if all the items in the last page are deleted", () => {
@@ -196,7 +196,7 @@ describe("Table", () => {
       />
     );
 
-    expect(getQueryParams()).toEqual({ page: "3", sort_by: "" });
+    expect(getQueryParams()).toEqual({ page: "3" });
 
     const handlePageChange = jest.fn();
     render(
