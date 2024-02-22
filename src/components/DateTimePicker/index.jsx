@@ -34,7 +34,7 @@ const DateTimePicker = ({
   id,
   datePickerProps,
   timePickerProps,
-  onBlur = noop,
+  onTimeInputBlur = noop,
 }) => {
   const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
@@ -79,7 +79,7 @@ const DateTimePicker = ({
   };
 
   const handleTimeBlur = () => {
-    onBlur(getDateTime(date, time));
+    onTimeInputBlur(getDateTime(date, time));
   };
 
   return (
@@ -182,7 +182,7 @@ DateTimePicker.propTypes = {
   /**
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
-  onBlur: PropTypes.func,
+  onTimeInputBlur: PropTypes.func,
 };
 
 export default React.memo(DateTimePicker);
