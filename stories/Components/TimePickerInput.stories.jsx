@@ -51,6 +51,8 @@ const Sizes = args => (
   </div>
 );
 
+const Range = args => <TimePickerInput type="range" />;
+
 const CSSCustomization = args => (
   <TimePickerInput
     className="neetix-time-input"
@@ -65,5 +67,5 @@ CSSCustomization.parameters = {
   docs: { description: { story: TimePickerInputCSSCustomization } },
 };
 
-export { Default, Sizes, CSSCustomization };
+export { Default, Sizes, Range, CSSCustomization };
 export default metadata;

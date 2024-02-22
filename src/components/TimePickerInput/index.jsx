@@ -1,5 +1,6 @@
 import React, { forwardRef, useState, useEffect } from "react";
 
+import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -19,9 +20,12 @@ const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
 const FORMAT = "HH:mm";
 
+const timeComponents = { range: TimeRangePicker, time: TimePicker };
+
 const TimePickerInput = forwardRef(
   (
     {
+      type = "time",
       className = "",
       label,
       labelProps,
@@ -29,7 +33,7 @@ const TimePickerInput = forwardRef(
       nakedInput = false,
       required = false,
       value: inputValue,
-      onChange,
+      onChange = noop,
       error = "",
       onBlur = noop,
       ...otherProps
@@ -67,10 +71,12 @@ const TimePickerInput = forwardRef(
       onBlur(dayjs(value, FORMAT), value);
     };
 
+    const Component = timeComponents[type];
+
     return (
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-        <TimePicker
+        <Component
           {...{ id, value }}
           disableClock
           clearIcon={<HoverIcon time={!!value} />}
@@ -160,6 +166,7 @@ TimePickerInput.propTypes = {
    * The callback function that will be triggered when time picker loses focus.
    */
   onBlur: PropTypes.func,
+  type: PropTypes.oneOf(Object.keys(timeComponents)),
 };
 
 export default TimePickerInput;
