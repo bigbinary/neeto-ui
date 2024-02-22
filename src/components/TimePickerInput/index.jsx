@@ -161,6 +161,9 @@ TimePickerInput.propTypes = {
    * The callback function that will be triggered when time picker loses focus.
    */
   onBlur: PropTypes.func,
+  /**
+   * To specify the type of the TimePickerInput.
+   */
   type: PropTypes.oneOf(Object.keys(timeComponents)),
 };
 

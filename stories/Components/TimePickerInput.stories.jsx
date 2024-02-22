@@ -18,11 +18,10 @@ const Default = args => {
   const [value, setValue] = useState("12:45");
 
   const onChangeHandler = (_, newValue) => {
-    console.log(newValue);
     setValue(newValue);
   };
 
-  return <TimePickerInput {...{ ...args, value }} onBlur={onChangeHandler} />;
+  return <TimePickerInput {...{ ...args, value }} onChange={onChangeHandler} />;
 };
 
 Default.args = { label: "Time picker" };
@@ -51,16 +50,19 @@ const Sizes = args => (
   </div>
 );
 
-const Range = args => {
+const TimeRange = args => {
   const [value, setValue] = useState(["12:15", "12:45"]);
 
   const onChangeHandler = (_, newValue) => {
-    console.log(newValue);
     setValue(newValue);
   };
 
   return (
-    <TimePickerInput {...{ value }} type="range" onChange={onChangeHandler} />
+    <TimePickerInput
+      {...{ ...args, value }}
+      type="range"
+      onChange={onChangeHandler}
+    />
   );
 };
 
@@ -78,5 +80,5 @@ CSSCustomization.parameters = {
   docs: { description: { story: TimePickerInputCSSCustomization } },
 };
 
-export { Default, Sizes, Range, CSSCustomization };
+export { Default, Sizes, TimeRange, CSSCustomization };
 export default metadata;

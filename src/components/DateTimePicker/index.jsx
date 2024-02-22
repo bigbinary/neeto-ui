@@ -12,19 +12,10 @@ import TimePickerInput from "components/TimePickerInput";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
+import { getDateTime } from "./utils";
+
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
-
-const DATE_FORMAT = "YYYY-MM-DD";
-const TIME_FORMAT = "HH:mm";
-
-const getDateTime = (date, time) => {
-  if (isPresent(date) && isPresent(time)) {
-    return dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`);
-  }
-
-  return null;
-};
 
 const DateTimePicker = ({
   className = "",
@@ -41,10 +32,9 @@ const DateTimePicker = ({
   labelProps,
   required = false,
   id,
-  onTimeInputBlur = noop,
   datePickerProps,
   timePickerProps,
-  onBlur,
+  onBlur = noop,
 }) => {
   const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
@@ -192,8 +182,6 @@ DateTimePicker.propTypes = {
   /**
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
-  onTimeInputBlur: PropTypes.func,
-
   onBlur: PropTypes.func,
 };
 
