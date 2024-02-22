@@ -13,12 +13,11 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
+import { getFormattedTime, getFormattedRange, toDayJs } from "./utils";
 
 dayjs.extend(customParseFormat);
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
-
-const FORMAT = "HH:mm";
 
 const timeComponents = { range: TimeRangePicker, time: TimePicker };
 
@@ -41,34 +40,30 @@ const TimePickerInput = forwardRef(
     ref
   ) => {
     const [value, setValue] = useState(null);
-
-    useEffect(() => {
-      if (isNotPresent(inputValue)) return setValue(null);
-
-      if (dayjs.isDayjs(inputValue)) {
-        setValue(inputValue.format(FORMAT));
-      } else if (dayjs(inputValue, FORMAT).isValid()) {
-        setValue(inputValue);
-      }
-    }, [inputValue]);
-
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
 
+    useEffect(() => {
+      if (isNotPresent(inputValue)) return setValue(null);
+      setValue(
+        (type === "range" ? getFormattedRange : getFormattedTime)(inputValue)
+      );
+    }, [inputValue]);
+
     const handleChange = newValue => {
       setValue(newValue);
-      onChange(dayjs(newValue, FORMAT), newValue);
+      onChange(toDayJs(newValue), newValue);
     };
 
     const handleShouldCloseClock = () => {
-      onBlur(dayjs(value, FORMAT), value);
+      onBlur(toDayJs(value), value);
 
       return true;
     };
 
     const handleKeyDown = ({ code }) => {
       if (!(code === "Enter")) return;
-      onBlur(dayjs(value, FORMAT), value);
+      onBlur(toDayJs(value), value);
     };
 
     const Component = timeComponents[type];

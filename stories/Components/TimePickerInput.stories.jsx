@@ -51,7 +51,18 @@ const Sizes = args => (
   </div>
 );
 
-const Range = args => <TimePickerInput type="range" />;
+const Range = args => {
+  const [value, setValue] = useState(["12:15", "12:45"]);
+
+  const onChangeHandler = (_, newValue) => {
+    console.log(newValue);
+    setValue(newValue);
+  };
+
+  return (
+    <TimePickerInput {...{ value }} type="range" onChange={onChangeHandler} />
+  );
+};
 
 const CSSCustomization = args => (
   <TimePickerInput
