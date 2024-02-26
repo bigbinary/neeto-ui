@@ -47,7 +47,7 @@ const TimePickerInput = forwardRef(
     useEffect(() => {
       if (isNotPresent(inputValue) && isNotPresent(defaultValue)) return;
 
-      return setValue(
+      setValue(
         (type === "range" ? getFormattedRange : getFormattedTime)(
           inputValue || defaultValue
         )
