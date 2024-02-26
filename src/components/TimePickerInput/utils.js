@@ -4,8 +4,8 @@ export const FORMAT = "HH:mm";
 
 export const getFormattedTime = value => {
   if (dayjs.isDayjs(value)) {
-    return value.format(FORMAT);
-  } else if (dayjs(value, FORMAT).isValid()) {
+    return value.toDate();
+  } else if (value instanceof Date || dayjs(value, FORMAT).isValid()) {
     return value;
   }
 

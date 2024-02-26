@@ -4,7 +4,7 @@ import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isNotPresent } from "neetocist";
+import { isPresent } from "neetocist";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
@@ -32,6 +32,7 @@ const TimePickerInput = forwardRef(
       nakedInput = false,
       required = false,
       value: inputValue,
+      defaultValue,
       onChange = noop,
       error = "",
       onBlur = noop,
@@ -44,11 +45,13 @@ const TimePickerInput = forwardRef(
     const errorId = `error_${id}`;
 
     useEffect(() => {
-      if (isNotPresent(inputValue)) return setValue(null);
-
-      return setValue(
-        (type === "range" ? getFormattedRange : getFormattedTime)(inputValue)
-      );
+      if (isPresent(inputValue) || isPresent(defaultValue)) {
+        return setValue(
+          (type === "range" ? getFormattedRange : getFormattedTime)(
+            inputValue || defaultValue
+          )
+        );
+      }
     }, [type, inputValue]);
 
     const handleChange = newValue => {
@@ -129,7 +132,11 @@ TimePickerInput.propTypes = {
   /**
    * To specify the values to be displayed inside the TimePicker.
    */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /**
+   * To specify the values to be displayed inside the TimePicker.
+   */
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * The callback function that will be triggered when value changes.
    */
