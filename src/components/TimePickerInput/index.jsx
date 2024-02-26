@@ -66,7 +66,7 @@ const TimePickerInput = forwardRef(
     };
 
     const handleKeyDown = ({ code }) => {
-      if (!(code === "Enter")) return;
+      if (code !== "Enter") return;
       onBlur(toDayJs(value), value);
     };
 
