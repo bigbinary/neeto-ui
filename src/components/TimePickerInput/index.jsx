@@ -4,7 +4,7 @@ import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent } from "neetocist";
+import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
@@ -45,13 +45,13 @@ const TimePickerInput = forwardRef(
     const errorId = `error_${id}`;
 
     useEffect(() => {
-      if (isPresent(inputValue) || isPresent(defaultValue)) {
-        return setValue(
-          (type === "range" ? getFormattedRange : getFormattedTime)(
-            inputValue || defaultValue
-          )
-        );
-      }
+      if (isNotPresent(inputValue) && isNotPresent(defaultValue)) return;
+
+      return setValue(
+        (type === "range" ? getFormattedRange : getFormattedTime)(
+          inputValue || defaultValue
+        )
+      );
     }, [type, inputValue]);
 
     const handleChange = newValue => {
