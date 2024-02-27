@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "6.2.6",
+  "version": "6.3.0",
   "main": "./index.cjs.js",
   "module": "./index.js",
   "types": "./index.d.ts",
@@ -170,6 +170,7 @@
   },
   "peerDependencies": {
     "@bigbinary/neeto-cist": "1.0.3",
+    "@bigbinary/neeto-commons-frontend": "latest",
     "@bigbinary/neeto-icons": "latest",
     "antd": "5.9.2",
     "formik": "2.2.0",
@@ -178,8 +179,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "5.3.3",
-    "react-toastify": "8.0.2",
-    "@bigbinary/neeto-commons-frontend": "latest"
+    "react-toastify": "8.0.2"
   },
   "resolutions": {
     "@storybook/addon-essentials/**/glob-parent": "5.1.2",
