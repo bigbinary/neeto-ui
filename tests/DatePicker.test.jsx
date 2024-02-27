@@ -134,6 +134,7 @@ describe("DatePicker", () => {
     await waitFor(() => {
       expect(onDateChange).toBeCalledWith(
         expect.anything(),
+        // eslint-disable-next-line no-console @bigbinary/neeto/use-standard-date-time-formats
         dayjs().format("DD/MM/YYYY")
       );
     });
