@@ -62,7 +62,6 @@ const DatePicker = forwardRef(
       labelProps,
       required = false,
       allowClear = true,
-      // open = false,
       ...otherProps
     },
     ref
