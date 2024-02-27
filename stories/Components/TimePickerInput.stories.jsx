@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TimePickerInput from "components/TimePickerInput";
 
@@ -14,7 +14,15 @@ const metadata = {
   },
 };
 
-const Default = args => <TimePickerInput {...args} />;
+const Default = args => {
+  const [value, setValue] = useState("12:45");
+
+  const onChangeHandler = (_, newValue) => {
+    setValue(newValue);
+  };
+
+  return <TimePickerInput {...{ ...args, value }} onChange={onChangeHandler} />;
+};
 
 Default.args = { label: "Time picker" };
 
@@ -42,6 +50,22 @@ const Sizes = args => (
   </div>
 );
 
+const TimeRange = args => {
+  const [value, setValue] = useState(["12:15", "12:45"]);
+
+  const onChangeHandler = (_, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <TimePickerInput
+      {...{ ...args, value }}
+      type="range"
+      onChange={onChangeHandler}
+    />
+  );
+};
+
 const CSSCustomization = args => (
   <TimePickerInput
     className="neetix-time-input"
@@ -56,5 +80,5 @@ CSSCustomization.parameters = {
   docs: { description: { story: TimePickerInputCSSCustomization } },
 };
 
-export { Default, Sizes, CSSCustomization };
+export { Default, Sizes, TimeRange, CSSCustomization };
 export default metadata;

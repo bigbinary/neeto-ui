@@ -1,4 +1,6 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   --neeto-ui-time-input-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded);
   --neeto-ui-time-input-border-width: 1px;
@@ -12,14 +14,20 @@
   // Clear Button
   --neeto-ui-time-input-clear-btn-margin-left: 8px;
 
+  // TimeRange divider spacing
+  --neeto-ui-timerange-divider-spacing: 8px;
+
   // Focus Within
-  --neeto-ui-time-input-focus-within-border-color: rgb(var(--neeto-ui-primary-500));
-  --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-time-input-focus-within-border-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
+  --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-primary-500), 15%);
 }
 
 .neeto-ui-time-picker {
-
-  .react-time-picker__wrapper {
+  .react-time-picker__wrapper,
+  .react-timerange-picker__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -27,19 +35,23 @@
     font-size: var(--neeto-ui-time-input-font-size);
     transition: var(--neeto-ui-transition);
     border-radius: var(--neeto-ui-time-input-border-radius);
-    border: var(--neeto-ui-time-input-border-width) solid var(--neeto-ui-time-input-border-color);
+    border: var(--neeto-ui-time-input-border-width) solid
+      var(--neeto-ui-time-input-border-color);
     background-color: var(--neeto-ui-time-input-bg-color);
     color: var(--neeto-ui-time-input-color);
-    padding: var(--neeto-ui-time-input-padding-y) var(--neeto-ui-time-input-padding-x);
+    padding: var(--neeto-ui-time-input-padding-y)
+      var(--neeto-ui-time-input-padding-x);
     min-height: var(--neeto-ui-time-input-min-height);
   }
 
-  .react-time-picker__clear-button {
+  .react-time-picker__clear-button,
+  .react-timerange-picker__clear-button {
     margin-left: var(--neeto-ui-time-input-clear-btn-margin-left);
   }
 
   &:focus-within:not(.neeto-ui-time-picker--naked) {
-    .react-time-picker__wrapper {
+    .react-time-picker__wrapper,
+    .react-timerange-picker__wrapper {
       border-color: var(--neeto-ui-time-input-focus-within-border-color);
       box-shadow: var(--neeto-ui-time-input-focus-within-box-shadow);
     }
@@ -47,14 +59,18 @@
 
   &--error {
     --neeto-ui-time-input-border-color: rgb(var(--neeto-ui-error-500));
-    --neeto-ui-time-input-focus-within-border-color: rgb(var(--neeto-ui-error-500));
-    --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+    --neeto-ui-time-input-focus-within-border-color: rgb(
+      var(--neeto-ui-error-500)
+    );
+    --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px
+      rgb(var(--neeto-ui-error-100));
   }
 
   &--disabled {
     --neeto-ui-time-input-bg-color: rgb(var(--neeto-ui-gray-100));
 
-    .react-time-picker__wrapper{
+    .react-time-picker__wrapper,
+    .react-timerange-picker__wrapper {
       cursor: not-allowed;
 
       * {
@@ -85,24 +101,36 @@
     --neeto-ui-time-input-border-width: 0px;
   }
 
-  .react-time-picker__inputGroup__divider {
+  .react-time-picker__inputGroup__divider,
+  .react-timerange-picker__inputGroup__divider {
     padding: 1px;
   }
 
-  .react-time-picker__inputGroup__input {
-    outline: none;
-    border: 0;
-    background: none;
-    font: inherit;
-    box-sizing: content-box;
+  .react-time-picker__inputGroup__,
+  .react-timerange-picker__inputGroup__ {
+    &hour,
+    &minute {
+      outline: none;
+      border: 0;
+      background: none;
+      font: inherit;
+      box-sizing: content-box;
+    }
   }
 
   .react-time-picker__inputGroup__input::-webkit-outer-spin-button,
-  .react-time-picker__inputGroup__input::-webkit-inner-spin-button {
+  .react-time-picker__inputGroup__input::-webkit-inner-spin-button,
+  .react-timerange-picker__inputGroup__input::-webkit-outer-spin-button,
+  .react-timerange-picker__inputGroup__input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 0;
+  }
+
+  .react-timerange-picker__range-divider {
+    margin-left: var(--neeto-ui-timerange-divider-spacing);
+    margin-right: var(--neeto-ui-timerange-divider-spacing);
   }
 }
 
@@ -111,5 +139,6 @@
   --neeto-ui-time-input-focus-within-border-color: rgb(
     var(--neeto-ui-success-500)
   );
-  --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-time-input-focus-within-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-success-500), 15%);
 }

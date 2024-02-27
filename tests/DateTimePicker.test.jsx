@@ -93,4 +93,14 @@ describe("DateTimePicker", () => {
     );
     expect(onChangeMock).toHaveBeenCalledWith(null, "date");
   });
+
+  it("should trigger onBlur on losing focus", async () => {
+    const onBlurFn = jest.fn();
+    render(<DateTimePicker value={theDate} onBlur={onBlurFn} />);
+    const timePickerInputs = screen.getAllByRole("spinbutton");
+    await userEvent.click(timePickerInputs[0]);
+    await userEvent.click(timePickerInputs[1]);
+    await userEvent.click(document.body);
+    expect(onBlurFn).toHaveBeenCalledWith(theDate);
+  });
 });

@@ -1,9 +1,10 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 
+import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent } from "neetocist";
+import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 import TimePicker from "react-time-picker";
 
@@ -12,16 +13,18 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
+import { getFormattedTime, getFormattedRange, toDayJs } from "./utils";
 
 dayjs.extend(customParseFormat);
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
-const FORMAT = "HH:mm";
+const timeComponents = { range: TimeRangePicker, time: TimePicker };
 
 const TimePickerInput = forwardRef(
   (
     {
+      type = "time",
       className = "",
       label,
       labelProps,
@@ -29,33 +32,50 @@ const TimePickerInput = forwardRef(
       nakedInput = false,
       required = false,
       value: inputValue,
-      onChange,
+      defaultValue,
+      onChange = noop,
       error = "",
       onBlur = noop,
       ...otherProps
     },
     ref
   ) => {
-    const value = useMemo(() => {
-      if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
-        return inputValue.format(FORMAT);
-      }
-
-      return null;
-    }, [inputValue]);
-
+    const [value, setValue] = useState(null);
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
 
+    useEffect(() => {
+      if (isNotPresent(inputValue) && isNotPresent(defaultValue)) return;
+
+      setValue(
+        (type === "range" ? getFormattedRange : getFormattedTime)(
+          inputValue || defaultValue
+        )
+      );
+    }, [type, inputValue]);
+
     const handleChange = newValue => {
-      const time = dayjs(newValue, FORMAT);
-      onChange(time, newValue);
+      setValue(newValue);
+      onChange(toDayJs(newValue), newValue);
     };
+
+    const handleShouldCloseClock = () => {
+      onBlur(toDayJs(value), value);
+
+      return true;
+    };
+
+    const handleKeyDown = ({ code }) => {
+      if (code !== "Enter") return;
+      onBlur(toDayJs(value), value);
+    };
+
+    const Component = timeComponents[type];
 
     return (
       <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-        <TimePicker
+        <Component
           {...{ id, value }}
           disableClock
           clearIcon={<HoverIcon time={!!value} />}
@@ -63,6 +83,7 @@ const TimePickerInput = forwardRef(
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
+          shouldCloseClock={handleShouldCloseClock}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
@@ -71,13 +92,8 @@ const TimePickerInput = forwardRef(
             "neeto-ui-time-picker--naked": nakedInput,
             "neeto-ui-time-picker--error": !!error,
           })}
-          shouldCloseClock={({ reason }) => {
-            if (reason !== "outsideAction") return true;
-            onBlur();
-
-            return true;
-          }}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           {...otherProps}
         />
         {!!error && typeof error === "string" && (
@@ -116,7 +132,11 @@ TimePickerInput.propTypes = {
   /**
    * To specify the values to be displayed inside the TimePicker.
    */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /**
+   * To specify the values to be displayed inside the TimePicker.
+   */
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * The callback function that will be triggered when value changes.
    */
@@ -149,6 +169,10 @@ TimePickerInput.propTypes = {
    * The callback function that will be triggered when time picker loses focus.
    */
   onBlur: PropTypes.func,
+  /**
+   * To specify the type of the TimePickerInput.
+   */
+  type: PropTypes.oneOf(Object.keys(timeComponents)),
 };
 
 export default TimePickerInput;
