@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { DatePicker as AntDatePicker, ConfigProvider } from "antd";
 import classnames from "classnames";
@@ -27,6 +27,15 @@ const IconOverride = ({ icon: Icon }) => (
   </span>
 );
 
+// size="small" style="text"
+const Today = ({ onClick }) => (
+  <div className="text-center">
+    <button {...{ onClick }} className="text-xs">
+      Today
+    </button>
+  </div>
+);
+
 const DatePicker = forwardRef(
   (
     {
@@ -49,10 +58,14 @@ const DatePicker = forwardRef(
       labelProps,
       required = false,
       allowClear = true,
+      // open = false,
       ...otherProps
     },
     ref
   ) => {
+    const [mode, setMode] = useState("date");
+    // const [isOpen, setIsOpen] = useState(open);
+    // const [value, setValue] = useState(value);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -62,9 +75,26 @@ const DatePicker = forwardRef(
     const errorId = `error_${id}`;
 
     const handleOnChange = (date, dateString) => {
+      console.log(date, dateString);
       type === "range" && !date
         ? onChange([], dateString)
         : onChange(date, dateString);
+    };
+
+    const renderExtraFooter = () => {
+      if (mode === "date") return null;
+
+      return (
+        <Today
+          onClick={() => {
+            setMode("date");
+            // document.querySelector(".ant-picker-today-btn").click();
+            setTimeout(() => {
+              document.querySelector(".ant-picker-today-btn").click();
+            });
+          }}
+        />
+      );
     };
 
     return (
@@ -125,7 +155,6 @@ const DatePicker = forwardRef(
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
-            {...{ format, onOk, picker }}
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
             defaultValue={convertToDayjsObjects(defaultValue)}
             ref={datePickerRef}
@@ -144,7 +173,14 @@ const DatePicker = forwardRef(
               popupClassName,
             ])}
             onChange={handleOnChange}
-            {...otherProps}
+            {...{
+              format,
+              onOk,
+              picker,
+              ...otherProps,
+              mode,
+              renderExtraFooter,
+            }}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
             suffixIcon={<Calendar size={16} />}
@@ -155,6 +191,9 @@ const DatePicker = forwardRef(
                 clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
               }
             }
+            // open={isOpen}
+            // onOpenChange={setIsOpen}
+            onPanelChange={(_, mode) => setMode(mode)}
           />
           {!!error && typeof error === "string" && (
             <p
