@@ -727,13 +727,17 @@ export type TreeProps = {
 
 export type TimePickerInputProps = {
   label?: string;
-  value?: string | Date;
+  value?: string | Dayjs;
+  defaultValue?: string | Dayjs;
   onChange?: (date: Dayjs, value: string) => void;
   labelProps?: object;
   className?: string;
   error?: string;
   required?: boolean;
   onBlur?: (date: Dayjs, value: string) => void;
+  clearIcon?: string | Function | ReactNode;
+  disabled?: boolean;
+  type?: "range" | "date";
 };
 
 // components
