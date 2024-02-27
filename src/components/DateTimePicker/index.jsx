@@ -12,11 +12,10 @@ import TimePickerInput from "components/TimePickerInput";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
+import { getDateTime } from "./utils";
+
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
-
-const DATE_FORMAT = "YYYY-MM-DD";
-const TIME_FORMAT = "HH:mm";
 
 const DateTimePicker = ({
   className = "",
@@ -33,9 +32,10 @@ const DateTimePicker = ({
   labelProps,
   required = false,
   id,
-  onTimeInputBlur = noop,
   datePickerProps,
   timePickerProps,
+  onTimeInputBlur = noop,
+  onBlur = noop,
 }) => {
   const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
@@ -58,15 +58,7 @@ const DateTimePicker = ({
 
   useEffect(() => {
     if (isNotPresent(changedField)) return;
-
-    if (isPresent(date) && isPresent(time)) {
-      onChange(
-        dayjs(`${date.format(DATE_FORMAT)} ${time.format(TIME_FORMAT)}`),
-        changedField
-      );
-    } else {
-      onChange(null, changedField);
-    }
+    onChange(getDateTime(date, time), changedField);
     setChangedField(); // reset to avoid unnecessary trigger on rerender
   }, [date, time, changedField]);
 
@@ -85,6 +77,11 @@ const DateTimePicker = ({
     setTime(newTime.isValid() ? newTime : null);
     if (newTime.isValid() && !date) setDate(newTime);
     setChangedField("time");
+  };
+
+  const handleTimeBlur = () => {
+    onTimeInputBlur(getDateTime(date, time));
+    onBlur(getDateTime(date, time));
   };
 
   return (
@@ -115,7 +112,7 @@ const DateTimePicker = ({
           error={!!error}
           ref={timeRef}
           value={time}
-          onBlur={onTimeInputBlur}
+          onBlur={handleTimeBlur}
           onChange={handleTimeChange}
           {...timePickerProps}
         />
@@ -185,9 +182,13 @@ DateTimePicker.propTypes = {
    */
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
-   * The callback function that will be triggered when time picker loses focus (onBlur event).
+   * @deprecated The callback function that will be triggered when time picker loses focus (onBlur event).
    */
   onTimeInputBlur: PropTypes.func,
+  /**
+   * The callback function that will be triggered when time picker loses focus (onBlur event).
+   */
+  onBlur: PropTypes.func,
 };
 
 export default React.memo(DateTimePicker);
