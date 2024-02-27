@@ -27,10 +27,13 @@ const IconOverride = ({ icon: Icon }) => (
   </span>
 );
 
-// size="small" style="text"
 const Today = ({ onClick }) => (
   <div className="text-center">
-    <button {...{ onClick }} className="text-xs">
+    <button
+      {...{ onClick }}
+      className="neeto-ui-rounded-md hover:neeto-ui-bg-gray-200 px-2 py-1 text-xs font-medium transition duration-300 ease-in-out"
+      data-cy="year-month-mode-today"
+    >
       Today
     </button>
   </div>
@@ -49,6 +52,7 @@ const DatePicker = forwardRef(
       onChange = noop,
       onOk = noop,
       picker = "date",
+      mode: inputMode = "date",
       showTime = false,
       type = "date",
       nakedInput = false,
@@ -63,9 +67,7 @@ const DatePicker = forwardRef(
     },
     ref
   ) => {
-    const [mode, setMode] = useState("date");
-    // const [isOpen, setIsOpen] = useState(open);
-    // const [value, setValue] = useState(value);
+    const [mode, setMode] = useState(inputMode);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -75,20 +77,18 @@ const DatePicker = forwardRef(
     const errorId = `error_${id}`;
 
     const handleOnChange = (date, dateString) => {
-      console.log(date, dateString);
       type === "range" && !date
         ? onChange([], dateString)
         : onChange(date, dateString);
     };
 
     const renderExtraFooter = () => {
-      if (mode === "date") return null;
+      if (type === "range" || mode === "date") return null;
 
       return (
         <Today
           onClick={() => {
             setMode("date");
-            // document.querySelector(".ant-picker-today-btn").click();
             setTimeout(() => {
               document.querySelector(".ant-picker-today-btn").click();
             });
@@ -178,8 +178,11 @@ const DatePicker = forwardRef(
               onOk,
               picker,
               ...otherProps,
-              mode,
-              renderExtraFooter,
+              ...(type === "date" && {
+                mode,
+                renderExtraFooter,
+                onPanelChange: (_, mode) => setMode(mode),
+              }),
             }}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
@@ -191,9 +194,6 @@ const DatePicker = forwardRef(
                 clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
               }
             }
-            // open={isOpen}
-            // onOpenChange={setIsOpen}
-            onPanelChange={(_, mode) => setMode(mode)}
           />
           {!!error && typeof error === "string" && (
             <p
