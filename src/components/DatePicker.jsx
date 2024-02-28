@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { DatePicker as AntDatePicker, ConfigProvider } from "antd";
 import classnames from "classnames";
@@ -27,6 +27,18 @@ const IconOverride = ({ icon: Icon }) => (
   </span>
 );
 
+const Today = ({ onClick }) => (
+  <div className="text-center">
+    <button
+      {...{ onClick }}
+      className="neeto-ui-rounded-md hover:neeto-ui-bg-gray-200 px-2 py-1 text-xs font-medium transition duration-300 ease-in-out"
+      data-cy="year-month-mode-today"
+    >
+      Today
+    </button>
+  </div>
+);
+
 const DatePicker = forwardRef(
   (
     {
@@ -40,6 +52,7 @@ const DatePicker = forwardRef(
       onChange = noop,
       onOk = noop,
       picker = "date",
+      mode: inputMode = "date",
       showTime = false,
       type = "date",
       nakedInput = false,
@@ -53,6 +66,7 @@ const DatePicker = forwardRef(
     },
     ref
   ) => {
+    const [mode, setMode] = useState(inputMode);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -65,6 +79,21 @@ const DatePicker = forwardRef(
       type === "range" && !date
         ? onChange([], dateString)
         : onChange(date, dateString);
+    };
+
+    const renderExtraFooter = () => {
+      if (type === "range" || mode === "date") return null;
+
+      return (
+        <Today
+          onClick={() => {
+            setMode("date");
+            setTimeout(() => {
+              document.querySelector(".ant-picker-today-btn").click();
+            });
+          }}
+        />
+      );
     };
 
     return (
@@ -125,7 +154,6 @@ const DatePicker = forwardRef(
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
-            {...{ format, onOk, picker }}
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
             defaultValue={convertToDayjsObjects(defaultValue)}
             ref={datePickerRef}
@@ -144,7 +172,17 @@ const DatePicker = forwardRef(
               popupClassName,
             ])}
             onChange={handleOnChange}
-            {...otherProps}
+            {...{
+              format,
+              onOk,
+              picker,
+              ...otherProps,
+              ...(type === "date" && {
+                mode,
+                renderExtraFooter,
+                onPanelChange: (_, mode) => setMode(mode),
+              }),
+            }}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
             suffixIcon={<Calendar size={16} />}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import dayjs from "dayjs";
 
 import DatePicker from "components/DatePicker";
@@ -116,5 +116,27 @@ describe("DatePicker", () => {
     const { getByText } = render(<DatePicker required label="Input" />);
     const asterisk = getByText("*");
     expect(asterisk).toBeInTheDocument();
+  });
+
+  it("should show today button in month and year mode", () => {
+    const { getByText } = render(
+      <DatePicker open label="Input" mode="month" />
+    );
+    expect(getByText("Today")).toBeInTheDocument();
+  });
+
+  it("onChange should trigger with today date when today is clicked", async () => {
+    const onDateChange = jest.fn();
+    const { getByText } = render(
+      <DatePicker open label="Input" mode="month" onChange={onDateChange} />
+    );
+    fireEvent.click(getByText("Today"));
+    await waitFor(() => {
+      expect(onDateChange).toBeCalledWith(
+        expect.anything(),
+        // eslint-disable-next-line @bigbinary/neeto/use-standard-date-time-formats
+        dayjs().format("DD/MM/YYYY")
+      );
+    });
   });
 });
