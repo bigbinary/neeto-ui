@@ -23,6 +23,27 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.2 - 2024-02-28
+
+Before
+
+![Screenshot 2024-02-15 at 5 47 48 PM](https://github.com/bigbinary/neeto-form-web/assets/16187886/b57929f4-5aec-433f-b4e0-f0aad47760cf)
+
+After
+
+![2a-after](https://github.com/bigbinary/neeto-ui/assets/16187886/a4b009a5-b372-4677-aa1d-cc80217ad5b2)
+
+
+---
+
+Before
+
+![3-before](https://github.com/bigbinary/neeto-site-web/assets/16187886/aa68d9c2-a960-48aa-a94f-d325b30f5e1b)
+
+After
+
+![Screenshot 2024-02-21 at 11 32 00 PM](https://github.com/bigbinary/neeto-ui/assets/16187886/2fe7d125-b701-4513-b44e-f19801c8ca25)
+
 ## 6.3.0 - 2024-02-27
 
 - Added: `range` prop to allow time range picking.
@@ -46,7 +67,6 @@ Added:  `data-cy` to Tag container div.
 Added: Support for `allowClear` prop in *DatePicker* to be `false`
 ## 6.2.2 - 2024-02-05
 If the value prop is invalid date or date string, the value is converted to null.
-
 ## 6.2.1 - 2024-01-30
 
 - Fixed: Icon button shrinking issue in table cell.
@@ -73,7 +93,6 @@ Added: Ability to see info about a table column
 ## 6.0.5 - 2023-12-22
 - Fixed: Pane scroll issue.
 ## 6.0.3 - 2023-12-15
-
 Added: data-cy to *Spinner*
 
 **Reviewers**
@@ -148,7 +167,6 @@ called only if the value contains leading or trailing whitespaces.
 - Updates the logic to calculate table height without considering the pagination
   height when pagination is set to false
 ## 5.2.37 - 2023-11-22
-
 Added: `hideCancelButton` prop to **Alert** component.
 
 ## 5.2.36 - 2023-11-22
@@ -938,7 +956,6 @@ Changes documentations to sentence case from title casing.
   modal opens.
 - Added: focus trapping to focusable elements in Modal.
 #### Sidebar
-
 - Removed: **BREAKING** `footerLinks` props
 - Removed: **BREAKING** `isCollapsed` prop and **expanded state** of sidebar
 
