@@ -39,10 +39,10 @@ const metadata = {
   },
 };
 
-const DateInput = args => <DatePicker {...args} />;
+const Default = args => <DatePicker {...args} />;
 
-DateInput.storyName = "DatePicker";
-DateInput.args = {
+Default.storyName = "DatePicker";
+Default.args = {
   label: "Date",
   type: "date",
   picker: "date",
@@ -218,7 +218,7 @@ CSSCustomization.parameters = {
 };
 
 export {
-  DateInput,
+  Default,
   RequiredDatePicker,
   DatePickerWithRef,
   DatePickerInModal,

@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.0 - 2024-02-27
+
+- Added: `range` prop to allow time range picking.
+- Added: Selected values will be available on `onBlur`.
+- Fixed: Error while string value is passed.
+
 ## 6.2.6 - 2024-02-22
 
 - Removed sort_by query param from URL when it takes no value
@@ -39,7 +45,6 @@ Added:  `data-cy` to Tag container div.
 ## 6.2.3 - 2024-02-06
 Added: Support for `allowClear` prop in *DatePicker* to be `false`
 ## 6.2.2 - 2024-02-05
-
 If the value prop is invalid date or date string, the value is converted to null.
 
 ## 6.2.1 - 2024-01-30
@@ -67,7 +72,6 @@ Some of the events were not accessible within the parent component required to d
 Added: Ability to see info about a table column
 ## 6.0.5 - 2023-12-22
 - Fixed: Pane scroll issue.
-
 ## 6.0.3 - 2023-12-15
 
 Added: data-cy to *Spinner*
@@ -143,7 +147,6 @@ called only if the value contains leading or trailing whitespaces.
 ## 5.2.38 - 2023-11-23
 - Updates the logic to calculate table height without considering the pagination
   height when pagination is set to false
-
 ## 5.2.37 - 2023-11-22
 
 Added: `hideCancelButton` prop to **Alert** component.
@@ -934,7 +937,6 @@ Changes documentations to sentence case from title casing.
 - Added: `blockScrollOnMount` prop to enable/disable body scrolling when the
   modal opens.
 - Added: focus trapping to focusable elements in Modal.
-
 #### Sidebar
 
 - Removed: **BREAKING** `footerLinks` props
