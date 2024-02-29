@@ -158,6 +158,7 @@ const DatePicker = forwardRef(
             defaultValue={convertToDayjsObjects(defaultValue)}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat }}
+            suffixIcon={<Calendar size={16} />}
             value={convertToDayjsObjects(value)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
@@ -185,7 +186,6 @@ const DatePicker = forwardRef(
             }}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
-            suffixIcon={<Calendar size={16} />}
             superNextIcon={<IconOverride icon={Right} />}
             superPrevIcon={<IconOverride icon={Left} />}
             allowClear={

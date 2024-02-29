@@ -101,6 +101,11 @@
     --neeto-ui-time-input-border-width: 0px;
   }
 
+  .react-time-picker__inputGroup {
+    display: flex;
+    align-items: center;
+  }
+
   .react-time-picker__inputGroup__divider,
   .react-timerange-picker__inputGroup__divider {
     padding: 1px;
@@ -131,6 +136,24 @@
   .react-timerange-picker__range-divider {
     margin-left: var(--neeto-ui-timerange-divider-spacing);
     margin-right: var(--neeto-ui-timerange-divider-spacing);
+  }
+}
+
+.ant-picker-range-separator {
+  margin-top: -5px;
+  margin-bottom: -5px;
+  .react-time-picker__wrapper {
+    border-radius: 0;
+  }
+}
+.ant-picker-suffix {
+  margin-right: -5px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  .react-time-picker__wrapper {
+    border-right-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 

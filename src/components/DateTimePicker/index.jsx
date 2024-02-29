@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent, isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
-import Label from "components/Label";
 import TimePickerInput from "components/TimePickerInput";
-import { useId } from "hooks";
-import { hyphenize, noop } from "utils";
+import { noop } from "utils";
 
-import { getDateTime } from "./utils";
+import useDateTime from "./useDateTime";
+import { getDateTime, getDateTimeRange } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
@@ -31,101 +29,81 @@ const DateTimePicker = ({
   value,
   labelProps,
   required = false,
-  id,
   datePickerProps,
   timePickerProps,
   onTimeInputBlur = noop,
   onBlur = noop,
+  type = "date",
 }) => {
-  const [open, setOpen] = useState(datePickerProps?.open);
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
-  const [changedField, setChangedField] = useState();
+  const { date, time, onDateChange, onTimeChange, onStartTimeChange } =
+    useDateTime({ value, defaultValue, onChange, type });
   const timeRef = React.useRef(null);
-  const defaultId = useId(id);
-  const errorId = `error_${defaultId}`;
-
-  useEffect(() => {
-    const inputValue = value || defaultValue;
-    if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
-      const dateTime = dayjs.isDayjs(inputValue)
-        ? inputValue
-        : dayjs(inputValue);
-      setDate(dateTime);
-      setTime(dateTime);
-    }
-  }, [value, defaultValue]);
-
-  useEffect(() => {
-    if (isNotPresent(changedField)) return;
-    onChange(getDateTime(date, time), changedField);
-    setChangedField(); // reset to avoid unnecessary trigger on rerender
-  }, [date, time, changedField]);
+  const startTimeRef = React.useRef(null);
 
   const handleDateChange = newDate => {
-    setOpen(false);
-    timeRef.current
+    (type === "date" ? timeRef : startTimeRef).current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
-
-    setDate(newDate);
-    if (!time) setTime(newDate);
-    setChangedField("date");
-  };
-
-  const handleTimeChange = newTime => {
-    setTime(newTime.isValid() ? newTime : null);
-    if (newTime.isValid() && !date) setDate(newTime);
-    setChangedField("time");
+    onDateChange(newDate);
   };
 
   const handleTimeBlur = () => {
-    onTimeInputBlur(getDateTime(date, time));
-    onBlur(getDateTime(date, time));
+    const value = (type === "date" ? getDateTime : getDateTimeRange)(
+      date,
+      time
+    );
+    onTimeInputBlur(value);
+    onBlur(value);
+  };
+
+  const handleStartTimeBlur = () => {
+    timeRef.current
+      ?.querySelector(".react-time-picker__inputGroup__hour")
+      ?.focus();
   };
 
   return (
-    <div className="neeto-ui-input__wrapper">
-      {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-      <div className={classnames("neeto-ui-date-time-input", className)}>
-        <DatePicker
-          {...{
-            dateFormat,
-            dropdownClassName,
-            nakedInput,
-            open,
-            popupClassName,
-            size,
-          }}
-          error={!!error}
-          picker="date"
-          showTime={false}
-          type="date"
-          value={date}
-          onBlur={() => setOpen(false)}
-          onChange={handleDateChange}
-          onFocus={() => setOpen(true)}
-          {...datePickerProps}
-        />
-        <TimePickerInput
-          {...{ error, nakedInput, size }}
-          error={!!error}
-          ref={timeRef}
-          value={time}
-          onBlur={handleTimeBlur}
-          onChange={handleTimeChange}
-          {...timePickerProps}
-        />
-      </div>
-      {!!error && (
-        <p
-          className="neeto-ui-input__error"
-          data-cy={`${hyphenize(label)}-input-error`}
-          id={errorId}
-        >
-          {error}
-        </p>
-      )}
+    <div className={classnames("neeto-ui-date-time-input", className)}>
+      <DatePicker
+        {...{
+          dateFormat,
+          dropdownClassName,
+          label,
+          labelProps,
+          nakedInput,
+          popupClassName,
+          required,
+          size,
+          type,
+        }}
+        error={!!error}
+        picker="date"
+        showTime={false}
+        value={date}
+        onChange={handleDateChange}
+        {...(type === "range" && {
+          separator: (
+            <TimePickerInput
+              ref={startTimeRef}
+              value={time && time[0]}
+              onBlur={handleStartTimeBlur}
+              onChange={onStartTimeChange}
+            />
+          ),
+        })}
+        suffixIcon={
+          <TimePickerInput
+            {...{ error, nakedInput, size }}
+            error={!!error}
+            ref={timeRef}
+            value={type === "date" ? time : time && time[1]}
+            onBlur={handleTimeBlur}
+            onChange={onTimeChange}
+            {...timePickerProps}
+          />
+        }
+        {...datePickerProps}
+      />
     </div>
   );
 };
