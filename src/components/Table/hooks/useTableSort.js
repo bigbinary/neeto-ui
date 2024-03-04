@@ -31,11 +31,6 @@ const useTableSort = () => {
 
   const history = useHistory();
 
-  const tt = {
-    field: queryParams.sort_by,
-    order: TABLE_SORT_ORDERS[queryParams.order_by],
-  };
-
   const handleTableChange = (pagination, sorter) => {
     const params = {
       sort_by: sorter.order ? camelToSnakeCase(sorter.field) : undefined,
