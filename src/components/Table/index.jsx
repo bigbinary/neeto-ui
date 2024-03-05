@@ -58,7 +58,11 @@ const Table = ({
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
-  const [sortedInfo, setSortedInfo] = useState({});
+  const {
+    handleTableChange: handleTableSortChange,
+    sortedInfo,
+    setSortedInfo,
+  } = useTableSort();
 
   const isDefaultPageChangeHandler = handlePageChange === noop;
 
@@ -95,8 +99,6 @@ const Table = ({
 
     setHeaderHeight(headerHeight);
   }, 10);
-
-  const { handleTableChange: handleTableSortChange } = useTableSort();
 
   const { dragProps, columns: curatedColumnsData } = useColumns({
     isReorderEnabled: enableColumnReorder,
