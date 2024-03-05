@@ -44,9 +44,11 @@ const DateTimePicker = ({
   const startTimeRef = React.useRef(null);
 
   const handleDateChange = newDate => {
-    (type === "date" ? timeRef : startTimeRef).current
-      ?.querySelector(".react-time-picker__inputGroup__hour")
-      ?.focus();
+    setTimeout(() => {
+      (type === "date" ? timeRef : startTimeRef).current
+        ?.querySelector(".react-time-picker__inputGroup__hour")
+        ?.focus();
+    });
     onDateChange(newDate);
   };
 
@@ -67,7 +69,10 @@ const DateTimePicker = ({
   };
 
   return (
-    <div className={classnames("neeto-ui-date-time-input", className)}>
+    <div
+      className={classnames("neeto-ui-date-time-input", className)}
+      onBlur={() => setTimeFocused(false)}
+    >
       <DatePicker
         {...{
           dateFormat,
@@ -80,6 +85,7 @@ const DateTimePicker = ({
           size,
           type,
         }}
+        allowClear={false}
         className={classnames({ "ant-picker-focused": timeFocused })}
         error={!!error}
         picker="date"
@@ -105,9 +111,8 @@ const DateTimePicker = ({
           <div className="flex items-center">
             <Calendar className="mr-2" size={16} />
             <TimePickerInput
-              {...{ error, nakedInput, size }}
+              {...{ nakedInput, size }}
               nakedInput
-              error={!!error}
               ref={timeRef}
               value={type === "date" ? time : time && time[1]}
               onBlur={handleTimeBlur}
@@ -182,6 +187,10 @@ DateTimePicker.propTypes = {
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
   onBlur: PropTypes.func,
+  /**
+   * To specify the type of the TimePickerInput.
+   */
+  type: PropTypes.oneOf(["date", "range"]),
 };
 
 export default React.memo(DateTimePicker);

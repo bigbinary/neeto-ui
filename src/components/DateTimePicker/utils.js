@@ -15,13 +15,13 @@ export const getDateTime = (date, time) => {
   return null;
 };
 
-export const getDateTimeRange = (date, time) => {
-  if (isPresent(date) && isPresent(time)) {
-    return [
-      dayjs(`${date[0].format(DATE_FORMAT)} ${time[0].format(TIME_FORMAT)}`),
-      dayjs(`${date[1].format(DATE_FORMAT)} ${time[1].format(TIME_FORMAT)}`),
-    ];
-  }
+export const getDateTimeRange = (dates, times) => {
+  if (!Array.isArray(dates) || !Array.isArray(times)) return null;
 
-  return null;
+  return dates.map(
+    (date, index) =>
+      isPresent(date) &&
+      isPresent(times[index]) &&
+      dayjs(`${date.format(DATE_FORMAT)} ${times[index].format(TIME_FORMAT)}`)
+  );
 };

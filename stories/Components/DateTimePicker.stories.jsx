@@ -1,7 +1,5 @@
 import React from "react";
 
-import dayjs from "dayjs";
-
 import { DateTimePicker } from "components";
 
 import DateTimePickerCSSCustomization from "!raw-loader!./DateTimePickerStoriesDocs/DateTimePickerCSSCustomization.mdx";
@@ -27,11 +25,7 @@ const metadata = {
 const Default = args => <DateTimePicker {...args} label="Date time picker" />;
 
 const Range = args => (
-  <DateTimePicker
-    defaultValue={[dayjs(), dayjs()]}
-    label="Date range picker"
-    type="range"
-  />
+  <DateTimePicker label="Date range picker" type="range" {...args} />
 );
 
 const CSSCustomization = args => <DateTimePicker {...args} />;

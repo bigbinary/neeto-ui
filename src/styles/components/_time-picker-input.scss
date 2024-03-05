@@ -101,7 +101,13 @@
     --neeto-ui-time-input-border-width: 0px;
   }
 
-  .react-time-picker__inputGroup {
+  .react-time-picker__inputGroup__leadingZero,
+  .react-timerange-picker__inputGroup__leadingZero {
+    margin-top: 1px;
+  }
+
+  .react-time-picker__inputGroup,
+  .react-timerange-picker__inputGroup {
     display: flex;
     align-items: center;
   }
@@ -151,6 +157,7 @@
   margin-right: -5px;
   margin-top: -5px;
   margin-bottom: -5px;
+  // margin-right: 50px;
   .react-time-picker__wrapper {
     border-right-width: 0;
     border-top-left-radius: 0;
