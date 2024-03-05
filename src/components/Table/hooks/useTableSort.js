@@ -25,7 +25,7 @@ const getSortInfoFromQueryParams = queryParams => {
 
 const useTableSort = () => {
   const queryParams = useQueryParams();
-  const [sortedInfo, setSortedInfo] = useState(
+  const [sortedInfo, setSortedInfo] = useState(() =>
     getSortInfoFromQueryParams(queryParams)
   );
 
