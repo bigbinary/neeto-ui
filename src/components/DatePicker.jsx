@@ -300,6 +300,10 @@ DatePicker.propTypes = {
    * To specify whether the Date picker value can be cleared or not.
    */
   allowClear: PropTypes.bool,
+  /**
+   * To specify additional suffix component.
+   */
+  suffix: PropTypes.node,
 };
 
 export default DatePicker;

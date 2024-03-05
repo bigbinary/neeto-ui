@@ -201,6 +201,7 @@ export type DatePickerProps = {
   labelProps?: LabelProps;
   allowClear?: boolean;
   [key: string]: any;
+  suffix?: React.ReactNode;
 };
 
 export type DateTimePickerProps = {
@@ -220,6 +221,7 @@ export type DateTimePickerProps = {
   timePickerProps?: { [key: string]: any };
   onBlur?: (dateTime: Dayjs) => void;
   [key: string]: any;
+  type?: "range" | "date";
 };
 
 export interface DropdownProps {

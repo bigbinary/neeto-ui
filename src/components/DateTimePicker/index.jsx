@@ -30,6 +30,7 @@ const DateTimePicker = ({
   value,
   labelProps,
   required = false,
+  id,
   datePickerProps,
   timePickerProps,
   onTimeInputBlur = noop,
@@ -77,6 +78,7 @@ const DateTimePicker = ({
         {...{
           dateFormat,
           dropdownClassName,
+          id,
           label,
           labelProps,
           nakedInput,
@@ -96,6 +98,7 @@ const DateTimePicker = ({
             <div className="flex items-center">
               <Calendar className="mr-2" size={16} />
               <TimePickerInput
+                {...{ size }}
                 nakedInput
                 ref={startTimeRef}
                 value={time && time[0]}
