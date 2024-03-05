@@ -158,6 +158,7 @@ const DatePicker = forwardRef(
           <div
             className={classnames("neeto-ui-datepicker-input-wrapper", {
               "neeto-ui-datepicker-focused": focused,
+              "neeto-ui-date-input--naked": nakedInput,
             })}
             onBlur={() => setFocused(false)}
             onFocus={() => setFocused(true)}

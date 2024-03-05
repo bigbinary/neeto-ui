@@ -159,6 +159,12 @@
   }
 }
 
+.neeto-ui-date-input--naked {
+  .react-time-picker__wrapper {
+    border-left-width: 0px;
+  }
+}
+
 .neetix-time-input {
   --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
   --neeto-ui-time-input-focus-within-border-color: rgb(

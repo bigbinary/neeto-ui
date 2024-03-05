@@ -729,9 +729,13 @@
     var(--neeto-ui-date-input-border-color);
   border-radius: var(--neeto-ui-rounded);
 }
-.neeto-ui-datepicker-focused {
+.neeto-ui-datepicker-focused:not(.neeto-ui-date-input--naked) {
   border: 1px solid var(--neeto-ui-date-input-focus-border-color) !important;
   box-shadow: var(--neeto-ui-date-input-focus-box-shadow) !important;
+}
+
+.neeto-ui-date-input--naked {
+  border-width: 0;
 }
 
 .neetix-datepicker {
