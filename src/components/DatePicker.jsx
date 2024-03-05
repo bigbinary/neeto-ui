@@ -13,7 +13,7 @@ import {
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
 } from "utils";
 
-import Label from "../Label";
+import Label from "./Label";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 

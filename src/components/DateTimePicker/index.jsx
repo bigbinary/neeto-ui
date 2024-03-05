@@ -108,22 +108,6 @@ const DateTimePicker = ({
           ),
           allowClear: false,
         })}
-        superNextIcon={<div>hello</div>}
-        // suffixIcon={
-        //   <div className="flex items-center">
-        //     <Calendar className="mr-2" size={16} />
-        //     <TimePickerInput
-        //       {...{ nakedInput, size }}
-        //       nakedInput
-        //       ref={timeRef}
-        //       value={type === "date" ? time : time && time[1]}
-        //       onBlur={handleTimeBlur}
-        //       onChange={onTimeChange}
-        //       onFocus={() => setTimeFocused(true)}
-        //       {...timePickerProps}
-        //     />
-        //   </div>
-        // }
         suffix={
           <TimePickerInput
             {...{ size }}
