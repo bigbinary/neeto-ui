@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import { Calendar } from "neetoicons";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
@@ -37,6 +38,8 @@ const DateTimePicker = ({
 }) => {
   const { date, time, onDateChange, onTimeChange, onStartTimeChange } =
     useDateTime({ value, defaultValue, onChange, type });
+  const [timeFocused, setTimeFocused] = useState(false);
+
   const timeRef = React.useRef(null);
   const startTimeRef = React.useRef(null);
 
@@ -48,6 +51,7 @@ const DateTimePicker = ({
   };
 
   const handleTimeBlur = () => {
+    setTimeFocused(false);
     const value = (type === "date" ? getDateTime : getDateTimeRange)(
       date,
       time
@@ -76,6 +80,7 @@ const DateTimePicker = ({
           size,
           type,
         }}
+        className={classnames({ "ant-picker-focused": timeFocused })}
         error={!!error}
         picker="date"
         showTime={false}
@@ -83,24 +88,34 @@ const DateTimePicker = ({
         onChange={handleDateChange}
         {...(type === "range" && {
           separator: (
-            <TimePickerInput
-              ref={startTimeRef}
-              value={time && time[0]}
-              onBlur={handleStartTimeBlur}
-              onChange={onStartTimeChange}
-            />
+            <div className="flex items-center">
+              <Calendar className="mr-2" size={16} />
+              <TimePickerInput
+                nakedInput
+                ref={startTimeRef}
+                value={time && time[0]}
+                onBlur={handleStartTimeBlur}
+                onChange={onStartTimeChange}
+                onFocus={() => setTimeFocused(true)}
+              />
+            </div>
           ),
         })}
         suffixIcon={
-          <TimePickerInput
-            {...{ error, nakedInput, size }}
-            error={!!error}
-            ref={timeRef}
-            value={type === "date" ? time : time && time[1]}
-            onBlur={handleTimeBlur}
-            onChange={onTimeChange}
-            {...timePickerProps}
-          />
+          <div className="flex items-center">
+            <Calendar className="mr-2" size={16} />
+            <TimePickerInput
+              {...{ error, nakedInput, size }}
+              nakedInput
+              error={!!error}
+              ref={timeRef}
+              value={type === "date" ? time : time && time[1]}
+              onBlur={handleTimeBlur}
+              onChange={onTimeChange}
+              onFocus={() => setTimeFocused(true)}
+              {...timePickerProps}
+            />
+          </div>
         }
         {...datePickerProps}
       />
