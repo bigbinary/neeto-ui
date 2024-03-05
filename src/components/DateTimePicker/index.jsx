@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { Calendar } from "neetoicons";
+import { Calendar, RightArrow } from "neetoicons";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
@@ -85,7 +85,6 @@ const DateTimePicker = ({
           size,
           type,
         }}
-        allowClear={false}
         className={classnames({ "ant-picker-focused": timeFocused })}
         error={!!error}
         picker="date"
@@ -104,23 +103,38 @@ const DateTimePicker = ({
                 onChange={onStartTimeChange}
                 onFocus={() => setTimeFocused(true)}
               />
+              <RightArrow size={16} />
             </div>
           ),
+          allowClear: false,
         })}
-        suffixIcon={
-          <div className="flex items-center">
-            <Calendar className="mr-2" size={16} />
-            <TimePickerInput
-              {...{ nakedInput, size }}
-              nakedInput
-              ref={timeRef}
-              value={type === "date" ? time : time && time[1]}
-              onBlur={handleTimeBlur}
-              onChange={onTimeChange}
-              onFocus={() => setTimeFocused(true)}
-              {...timePickerProps}
-            />
-          </div>
+        superNextIcon={<div>hello</div>}
+        // suffixIcon={
+        //   <div className="flex items-center">
+        //     <Calendar className="mr-2" size={16} />
+        //     <TimePickerInput
+        //       {...{ nakedInput, size }}
+        //       nakedInput
+        //       ref={timeRef}
+        //       value={type === "date" ? time : time && time[1]}
+        //       onBlur={handleTimeBlur}
+        //       onChange={onTimeChange}
+        //       onFocus={() => setTimeFocused(true)}
+        //       {...timePickerProps}
+        //     />
+        //   </div>
+        // }
+        suffix={
+          <TimePickerInput
+            {...{ size }}
+            nakedInput
+            ref={timeRef}
+            value={type === "date" ? time : time && time[1]}
+            onBlur={handleTimeBlur}
+            onChange={onTimeChange}
+            onFocus={() => setTimeFocused(true)}
+            {...timePickerProps}
+          />
         }
         {...datePickerProps}
       />

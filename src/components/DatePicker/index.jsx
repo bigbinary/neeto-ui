@@ -13,7 +13,7 @@ import {
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
 } from "utils";
 
-import Label from "./Label";
+import Label from "../Label";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -62,11 +62,13 @@ const DatePicker = forwardRef(
       labelProps,
       required = false,
       allowClear = true,
+      suffix: SuffixComponent,
       ...otherProps
     },
     ref
   ) => {
     const [mode, setMode] = useState(inputMode);
+    const [focused, setFocused] = useState(false);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -153,47 +155,56 @@ const DatePicker = forwardRef(
       >
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
-          <Component
-            data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
-            defaultValue={convertToDayjsObjects(defaultValue)}
-            ref={datePickerRef}
-            showTime={showTime && { format: timeFormat }}
-            suffixIcon={<Calendar size={16} />}
-            value={convertToDayjsObjects(value)}
-            className={classnames("neeto-ui-date-input", [className], {
-              "neeto-ui-date-input--small": size === "small",
-              "neeto-ui-date-input--medium": size === "medium",
-              "neeto-ui-date-input--large": size === "large",
-              "neeto-ui-date-input--disabled": otherProps.disabled,
-              "neeto-ui-date-input--naked": nakedInput,
-              "neeto-ui-date-input--error": !!error,
+          <div
+            className={classnames("neeto-ui-datepicker-input-wrapper", {
+              "neeto-ui-datepicker-focused": focused,
             })}
-            popupClassName={classnames("neeto-ui-date-time-dropdown", [
-              dropdownClassName, // Will be removed in the next major version
-              popupClassName,
-            ])}
-            onChange={handleOnChange}
-            {...{
-              format,
-              onOk,
-              picker,
-              ...otherProps,
-              ...(type === "date" && {
-                mode,
-                renderExtraFooter,
-                onPanelChange: (_, mode) => setMode(mode),
-              }),
-            }}
-            nextIcon={<IconOverride icon={Right} />}
-            prevIcon={<IconOverride icon={Left} />}
-            superNextIcon={<IconOverride icon={Right} />}
-            superPrevIcon={<IconOverride icon={Left} />}
-            allowClear={
-              allowClear && {
-                clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+            onBlur={() => setFocused(false)}
+            onFocus={() => setFocused(true)}
+          >
+            <Component
+              data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+              defaultValue={convertToDayjsObjects(defaultValue)}
+              ref={datePickerRef}
+              showTime={showTime && { format: timeFormat }}
+              suffixIcon={<Calendar size={16} />}
+              value={convertToDayjsObjects(value)}
+              className={classnames("neeto-ui-date-input", [className], {
+                "neeto-ui-date-input--small": size === "small",
+                "neeto-ui-date-input--medium": size === "medium",
+                "neeto-ui-date-input--large": size === "large",
+                "neeto-ui-date-input--disabled": otherProps.disabled,
+                "neeto-ui-date-input--naked": nakedInput,
+                "neeto-ui-date-input--error": !!error,
+              })}
+              popupClassName={classnames("neeto-ui-date-time-dropdown", [
+                dropdownClassName, // Will be removed in the next major version
+                popupClassName,
+              ])}
+              onChange={handleOnChange}
+              {...{
+                format,
+                onOk,
+                picker,
+                ...otherProps,
+                ...(type === "date" && {
+                  mode,
+                  renderExtraFooter,
+                  onPanelChange: (_, mode) => setMode(mode),
+                }),
+              }}
+              nextIcon={<IconOverride icon={Right} />}
+              prevIcon={<IconOverride icon={Left} />}
+              superNextIcon={<IconOverride icon={Right} />}
+              superPrevIcon={<IconOverride icon={Left} />}
+              allowClear={
+                allowClear && {
+                  clearIcon: <Close data-cy="date-clear-icon" size={16} />,
+                }
               }
-            }
-          />
+            />
+            {SuffixComponent}
+          </div>
           {!!error && typeof error === "string" && (
             <p
               className="neeto-ui-input__error"

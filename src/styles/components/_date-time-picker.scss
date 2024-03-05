@@ -169,9 +169,10 @@
   font-size: var(--neeto-ui-date-input-font-size);
   transition: var(--neeto-ui-transition);
   color: var(--neeto-ui-date-input-color);
-  background-color: var(--neeto-ui-date-input-bg-color);
-  border: var(--neeto-ui-date-input-border-width) solid
-    var(--neeto-ui-date-input-border-color);
+  border: none;
+  // background-color: var(--neeto-ui-date-input-bg-color);
+  // border: var(--neeto-ui-date-input-border-width) solid
+  //   var(--neeto-ui-date-input-border-color);
   border-radius: var(--neeto-ui-date-input-border-radius);
   overflow: hidden;
   line-height: var(--neeto-ui-date-input-line-height);
@@ -224,8 +225,8 @@
   }
 
   &.ant-picker-focused:not(.neeto-ui-date-input--naked) {
-    border-color: var(--neeto-ui-date-input-focus-border-color) !important;
-    box-shadow: var(--neeto-ui-date-input-focus-box-shadow) !important;
+    // border-color: var(--neeto-ui-date-input-focus-border-color) !important;
+    // box-shadow: var(--neeto-ui-date-input-focus-box-shadow) !important;
 
     .ant-picker-suffix {
       color: var(--neeto-ui-date-input-focus-prefix-suffix-color);
@@ -237,7 +238,7 @@
   }
 
   .ant-picker-clear {
-    background-color: transparent;
+    background-color: white;
 
     svg {
       width: var(--neeto-ui-date-input-prefix-suffix-size);
@@ -256,6 +257,7 @@
 
   &.ant-picker-range .ant-picker-clear {
     right: 8px;
+    background-color: white;
   }
 }
 
@@ -710,15 +712,28 @@
   align-items: center;
   justify-content: center;
 
-  // .neeto-ui-date-input {
-  //   border-top-right-radius: var(--neeto-ui-date-time-picker-border-radius);
-  //   border-bottom-right-radius: var(--neeto-ui-date-time-picker-border-radius);
-  // }
-  // .neeto-ui-time-picker .react-time-picker__wrapper {
-  //   border-top-left-radius: var(--neeto-ui-date-time-picker-border-radius);
-  //   border-bottom-left-radius: var(--neeto-ui-date-time-picker-border-radius);
-  //   margin-left: var(--neeto-ui-date-time-picker-gap);
-  // }
+  .neeto-ui-date-input {
+    border-top-right-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-bottom-right-radius: var(--neeto-ui-date-time-picker-border-radius);
+  }
+  .neeto-ui-time-picker .react-time-picker__wrapper {
+    border-top-left-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-bottom-left-radius: var(--neeto-ui-date-time-picker-border-radius);
+    // margin-left: var(--neeto-ui-date-time-picker-gap);
+  }
+}
+
+.neeto-ui-datepicker-input-wrapper {
+  display: flex;
+  background-color: var(--neeto-ui-date-input-bg-color);
+  border: var(--neeto-ui-date-input-border-width) solid
+    var(--neeto-ui-date-input-border-color);
+  border-radius: var(--neeto-ui-rounded);
+}
+.neeto-ui-datepicker-focused {
+  border: 1px solid var(--neeto-ui-date-input-focus-border-color) !important;
+
+  box-shadow: var(--neeto-ui-date-input-focus-box-shadow) !important;
 }
 
 .neetix-datepicker {

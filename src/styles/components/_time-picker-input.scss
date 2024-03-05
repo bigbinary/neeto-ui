@@ -153,16 +153,17 @@
     border-left-width: 1px;
   }
 }
-.ant-picker-suffix {
-  margin-right: -5px;
-  margin-top: -5px;
-  margin-bottom: -5px;
-  // margin-right: 50px;
+.neeto-ui-datepicker-input-wrapper {
+  // margin-right: -5px;
+  // margin-top: -5px;
+  // margin-bottom: -5px;
+  // margin-left: -5px;
   .react-time-picker__wrapper {
-    border-right-width: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    // border-right-width: 0;
+    // border-top-left-radius: 0;
+    // border-bottom-left-radius: 0;
     border-left-width: 1px;
+    // margin-left: 1px;
   }
 }
 
