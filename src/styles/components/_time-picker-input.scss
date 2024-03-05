@@ -126,6 +126,16 @@
       background: none;
       font: inherit;
       box-sizing: content-box;
+
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      -moz-appearance: textfield;
+    }
+    &amPm {
+      background: transparent;
     }
   }
 
