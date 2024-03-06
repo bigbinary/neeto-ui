@@ -73,15 +73,24 @@ const CustomInput = props => {
   );
 };
 
-const CustomOption = props => (
-  <components.Option
-    {...props}
-    innerProps={{
-      ...props.innerProps,
-      "data-cy": `${hyphenize(props.label)}-select-option`,
-    }}
-  />
-);
+const CustomOption = props => {
+  const ref = useRef();
+
+  useEffect(() => {
+    props.isSelected && ref.current.scrollIntoView();
+  }, [props.isSelected]);
+
+  return (
+    <components.Option
+      {...props}
+      innerRef={ref}
+      innerProps={{
+        ...props.innerProps,
+        "data-cy": `${hyphenize(props.label)}-select-option`,
+      }}
+    />
+  );
+};
 
 const Placeholder = props => {
   const { selectProps } = props;

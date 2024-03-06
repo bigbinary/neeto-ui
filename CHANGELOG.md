@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.4 - 2024-03-05
+
+Fixed: TimpickerInput firefox ui issue
+
 ## 6.3.3 - 2024-03-05
 
 Fixed: update sortedInfo from queryParams in table on refresh.
@@ -75,7 +79,6 @@ If the value prop is invalid date or date string, the value is converted to null
 - Fixed: Icon button shrinking issue in table cell.
 - Fixed: Updated table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef) text alignment to left.
 - Added: `white-space: normal` to table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef).
-
 ## 6.2.0 - 2024-01-25
 
 - Add ability to add more actions to the table header.
@@ -98,7 +101,6 @@ Added: Ability to see info about a table column
 ## 6.0.3 - 2023-12-15
 Added: data-cy to *Spinner*
 **Reviewers**
-
 <!---
 ------------- FORMAT FOR DESCRIPTION -------------
 
@@ -171,7 +173,6 @@ called only if the value contains leading or trailing whitespaces.
 ## 5.2.37 - 2023-11-22
 Added: `hideCancelButton` prop to **Alert** component.
 ## 5.2.36 - 2023-11-22
-
 - Fixed: `undefined` options issue in *Select*
 
 ## 5.2.35 - 2023-11-22
@@ -960,7 +961,6 @@ Changes documentations to sentence case from title casing.
 - Removed: **BREAKING** `footerLinks` props
 - Removed: **BREAKING** `isCollapsed` prop and **expanded state** of sidebar
 ## 3.5.17 - 2022-08-25
-
 - Fixed: false positive type errors for tooltip
 
 ## 3.5.16 - 2022-08-17
