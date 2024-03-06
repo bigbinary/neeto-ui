@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
+import { SwapRightOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { Calendar, RightArrow } from "neetoicons";
+import { Calendar } from "neetoicons";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
@@ -109,7 +110,7 @@ const DateTimePicker = ({
                 onFocus={() => setTimeFocused(true)}
                 {...startTimePickerProps}
               />
-              <RightArrow size={16} />
+              <SwapRightOutlined />
             </div>
           ),
           allowClear: false,
