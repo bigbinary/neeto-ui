@@ -31,7 +31,7 @@ const Template = args => (
   </div>
 );
 
-const OPTIONS = Array.from({ length: 100 }, (_, index) => ({
+const OPTIONS = Array.from({ length: 20 }, (_, index) => ({
   value: `value${index}`,
   label: `Value ${index}`,
 }));
@@ -39,7 +39,7 @@ const OPTIONS = Array.from({ length: 100 }, (_, index) => ({
 const Default = Template.bind({});
 Default.args = {
   label: "Select",
-  defaultValue: { value: "value50", label: "Value 50" },
+  defaultValue: { value: "value15", label: "Value 15" },
   placeholder: "Select an option",
   isDisabled: false,
   isClearable: true,
@@ -47,6 +47,7 @@ Default.args = {
   name: "ValueList",
   optionRemapping: {},
   options: OPTIONS,
+  strategy: "fixed",
 };
 
 const Sizes = args => (
