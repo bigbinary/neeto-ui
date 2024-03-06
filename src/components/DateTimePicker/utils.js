@@ -18,10 +18,5 @@ export const getDateTime = (date, time) => {
 export const getDateTimeRange = (dates, times) => {
   if (!Array.isArray(dates) || !Array.isArray(times)) return null;
 
-  return dates.map(
-    (date, index) =>
-      isPresent(date) &&
-      isPresent(times[index]) &&
-      dayjs(`${date.format(DATE_FORMAT)} ${times[index].format(TIME_FORMAT)}`)
-  );
+  return dates.map((date, index) => getDateTime(date, times[index]));
 };

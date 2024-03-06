@@ -40,8 +40,7 @@ const useDateTime = ({ value, defaultValue, onChange, type }) => {
     if (type === "date") {
       setTime(value);
     } else {
-      const timeArr = Array.isArray(time) ? [...time] : [null, null];
-      timeArr[0] = value;
+      const timeArr = Array.isArray(time) ? [time[0], value] : [value, null];
       setTime(timeArr);
     }
     setChangedField("time");
@@ -49,8 +48,7 @@ const useDateTime = ({ value, defaultValue, onChange, type }) => {
 
   const onStartTimeChange = newTime => {
     const value = newTime.isValid() ? newTime : null;
-    const timeArr = Array.isArray(time) ? [...time] : [null, null];
-    timeArr[1] = value;
+    const timeArr = Array.isArray(time) ? [value, time[1]] : [null, value];
     setTime(timeArr);
     setChangedField("time");
   };

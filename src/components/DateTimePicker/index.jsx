@@ -101,7 +101,7 @@ const DateTimePicker = ({
                 {...{ size }}
                 nakedInput
                 ref={startTimeRef}
-                value={time && time[0]}
+                value={time?.[0]}
                 onBlur={handleStartTimeBlur}
                 onChange={onStartTimeChange}
                 onFocus={() => setTimeFocused(true)}
@@ -116,7 +116,7 @@ const DateTimePicker = ({
             {...{ size }}
             nakedInput
             ref={timeRef}
-            value={type === "date" ? time : time && time[1]}
+            value={type === "date" ? time : time?.[1]}
             onBlur={handleTimeBlur}
             onChange={onTimeChange}
             onFocus={() => setTimeFocused(true)}
