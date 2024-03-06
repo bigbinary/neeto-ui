@@ -31,23 +31,22 @@ const Template = args => (
   </div>
 );
 
+const OPTIONS = Array.from({ length: 100 }, (_, index) => ({
+  value: `value${index}`,
+  label: `Value ${index}`,
+}));
+
 const Default = Template.bind({});
 Default.args = {
   label: "Select",
-  defaultValue: { value: "value3", label: "Value three" },
+  defaultValue: { value: "value50", label: "Value 50" },
   placeholder: "Select an option",
   isDisabled: false,
   isClearable: true,
   isSearchable: true,
   name: "ValueList",
   optionRemapping: {},
-  options: [
-    { value: "value1", label: "Value one" },
-    { value: "value2", label: "Value two" },
-    { value: "value3", label: "Value three" },
-    { value: "value4", label: "Value four" },
-    { value: "value5", label: "Value five" },
-  ],
+  options: OPTIONS,
 };
 
 const Sizes = args => (
