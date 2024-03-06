@@ -88,9 +88,9 @@ const Textarea = forwardRef(
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,
             "neeto-ui-input--naked": !!nakedTextarea,
-            "neeto-ui-input--small": size === "small",
-            "neeto-ui-input--medium": size === "medium",
-            "neeto-ui-input--large": size === "large",
+            "neeto-ui-input--small": size === SIZES.small,
+            "neeto-ui-input--medium": size === SIZES.medium,
+            "neeto-ui-input--large": size === SIZES.large,
             "neeto-ui-input--resize--vertical": resize === RESIZE.vertical,
             "neeto-ui-input--resize--none": resize === RESIZE.none,
           })}
