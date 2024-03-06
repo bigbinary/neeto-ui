@@ -10,11 +10,17 @@ import Label from "./Label";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
+const ROWS = { small: 1, medium: 3, large: 4 };
+
+const RESIZE = { vertical: "vertical", none: "none" };
+
 const Textarea = forwardRef(
   (
     {
       size = SIZES.medium,
-      rows = 3,
+      resize = RESIZE.vertical,
+      suffix = null,
+      prefix = null,
       disabled = false,
       required = false,
       nakedTextarea = false,
@@ -82,22 +88,26 @@ const Textarea = forwardRef(
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,
             "neeto-ui-input--naked": !!nakedTextarea,
-            "neeto-ui-input--small": size === "small",
-            "neeto-ui-input--medium": size === "medium",
-            "neeto-ui-input--large": size === "large",
+            "neeto-ui-input--small": size === SIZES.small,
+            "neeto-ui-input--medium": size === SIZES.medium,
+            "neeto-ui-input--large": size === SIZES.large,
+            "neeto-ui-input--resize--vertical": resize === RESIZE.vertical,
+            "neeto-ui-input--resize--none": resize === RESIZE.none,
           })}
         >
+          {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <textarea
             ref={textareaRef}
+            rows={ROWS[size]}
             {...{
               disabled,
-              rows,
               ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
               ...otherProps,
               onChange,
               value,
             }}
           />
+          {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
         {!!error && (
           <p
@@ -158,9 +168,13 @@ Textarea.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * To provide additional classnames to the Textarea.
+   * To provide additional classnames to the Textarea container.
    */
   className: PropTypes.string,
+  /**
+   * The resize property sets whether the Textarea is resizable.
+   */
+  resize: PropTypes.oneOf(Object.values(RESIZE)),
   /**
    * To specify the text that appears below the Textarea.
    */
@@ -177,6 +191,14 @@ Textarea.propTypes = {
    * To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.
    */
   unlimitedChars: PropTypes.bool,
+  /**
+   * To specify the content to be added at the end of the Textarea.
+   */
+  suffix: PropTypes.node,
+  /**
+   * To specify the content to be added at the beginning of the Textarea.
+   */
+  prefix: PropTypes.node,
 };
 
 export default Textarea;
