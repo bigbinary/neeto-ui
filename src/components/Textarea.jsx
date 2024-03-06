@@ -91,8 +91,8 @@ const Textarea = forwardRef(
             "neeto-ui-input--small": size === "small",
             "neeto-ui-input--medium": size === "medium",
             "neeto-ui-input--large": size === "large",
-            "neeto-ui-input--resize--vertical": resize === "vertical",
-            "neeto-ui-input--resize--none": resize === "none",
+            "neeto-ui-input--resize--vertical": resize === RESIZE.vertical,
+            "neeto-ui-input--resize--none": resize === RESIZE.none,
           })}
         >
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
