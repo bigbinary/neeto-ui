@@ -33,6 +33,7 @@ const DateTimePicker = ({
   id,
   datePickerProps,
   timePickerProps,
+  startTimePickerProps,
   onTimeInputBlur = noop,
   onBlur = noop,
   type = "date",
@@ -100,11 +101,13 @@ const DateTimePicker = ({
               <TimePickerInput
                 {...{ size }}
                 nakedInput
+                data-cy="start-time-picker-input"
                 ref={startTimeRef}
                 value={time?.[0]}
                 onBlur={handleStartTimeBlur}
                 onChange={onStartTimeChange}
                 onFocus={() => setTimeFocused(true)}
+                {...startTimePickerProps}
               />
               <RightArrow size={16} />
             </div>
@@ -115,6 +118,7 @@ const DateTimePicker = ({
           <TimePickerInput
             {...{ size }}
             nakedInput
+            data-cy="time-picker-input"
             ref={timeRef}
             value={type === "date" ? time : time?.[1]}
             onBlur={handleTimeBlur}
@@ -192,6 +196,18 @@ DateTimePicker.propTypes = {
    * To specify the type of the TimePickerInput.
    */
   type: PropTypes.oneOf(["date", "range"]),
+  /**
+   * To specify the  props to be passed to the DatePicker component.
+   */
+  datePickerProps: PropTypes.object,
+  /**
+   * To specify the  props to be passed to the TimePickerInput component.
+   */
+  timePickerProps: PropTypes.object,
+  /**
+   * To specify the  props to be passed to the start TimePickerInput component.
+   */
+  startTimePickerProps: PropTypes.object,
 };
 
 export default React.memo(DateTimePicker);

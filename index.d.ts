@@ -219,6 +219,7 @@ export type DateTimePickerProps = {
   labelProps?: LabelProps;
   datePickerProps?: { [key: string]: any };
   timePickerProps?: { [key: string]: any };
+  startTimePickerProps?: { [key: string]: any };
   onBlur?: (dateTime: Dayjs) => void;
   [key: string]: any;
   type?: "range" | "date";
