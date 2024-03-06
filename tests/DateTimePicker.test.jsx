@@ -103,4 +103,46 @@ describe("DateTimePicker", () => {
     await userEvent.click(document.body);
     expect(onBlurFn).toHaveBeenCalledWith(theDate);
   });
+
+  describe('DateTimePicker type="range"', () => {
+    it("should render without error", () => {
+      render(
+        <DateTimePicker defaultValue={[theDate, anotherDate]} type="range" />
+      );
+
+      expect(screen.getAllByRole("textbox")[0]).toHaveValue(
+        theDate.format(DATE_DISPLAY_FORMAT)
+      );
+
+      expect(screen.getAllByRole("textbox")[1]).toHaveValue(
+        anotherDate.format(DATE_DISPLAY_FORMAT)
+      );
+
+      expect(
+        screen.getAllByDisplayValue(theDate.format(TIME_FORMAT)).length
+      ).toEqual(2);
+    });
+  });
+
+  it("should able to select a date time range", () => {
+    const onChangeMock = jest.fn();
+    render(
+      <DateTimePicker
+        type="range"
+        value={[dayjs("2024-12-24 12:30"), dayjs("2024-12-25 12:30")]}
+        onChange={onChangeMock}
+      />
+    );
+    const timePickerInput = screen.getAllByDisplayValue("12:30");
+    fireEvent.change(timePickerInput[0], { target: { value: "11:15" } });
+    fireEvent.change(timePickerInput[1], { target: { value: "12:45" } });
+
+    expect(onChangeMock).toHaveBeenCalledWith(
+      [
+        expect.objectContaining(simpleDayJsObj(dayjs("2024-12-24 11:15"))),
+        expect.objectContaining(simpleDayJsObj(dayjs("2024-12-25 12:45"))),
+      ],
+      "time"
+    );
+  });
 });
