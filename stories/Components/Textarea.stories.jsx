@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Check, Message } from "neetoicons";
+
 import Textarea from "components/Textarea";
 
 import TextareaCSSCustomization from "!raw-loader!./TextareaStoriesDocs/TextareaCSSCustomization.mdx";
@@ -64,11 +66,78 @@ HelpText.args = {
   helpText: "This is help text props to the component",
 };
 
+const Sizes = args => (
+  <div className="flex w-full flex-col gap-3">
+    <Textarea
+      {...args}
+      label="Small"
+      placeholder="Input placeholder"
+      size="small"
+    />
+    <Textarea
+      {...args}
+      label="Medium"
+      placeholder="Input placeholder"
+      size="medium"
+    />
+    <Textarea
+      {...args}
+      label="Large"
+      placeholder="Input placeholder"
+      size="large"
+    />
+  </div>
+);
+
+const ResizeDisabled = args => (
+  <div className="flex w-full flex-col gap-3">
+    <Textarea
+      {...args}
+      label="Small"
+      placeholder="Input placeholder"
+      resize="none"
+      size="small"
+    />
+    <Textarea
+      {...args}
+      label="Medium"
+      placeholder="Input placeholder"
+      resize="none"
+      size="medium"
+    />
+    <Textarea
+      {...args}
+      label="Large"
+      placeholder="Input placeholder"
+      resize="none"
+      size="large"
+    />
+  </div>
+);
+
 const NakedInput = Template.bind({});
 NakedInput.args = {
   label: "Naked Textarea field",
   placeholder: "Enter text",
   nakedTextarea: true,
+};
+
+const WithPrefix = Template.bind({});
+WithPrefix.storyName = "Prefix";
+WithPrefix.args = {
+  label: "Name",
+  placeholder: "Enter text",
+  prefix: <Message />,
+  textareaClassName: "resize-none",
+};
+
+const WithSuffix = Template.bind({});
+WithSuffix.storyName = "Suffix";
+WithSuffix.args = {
+  label: "Name",
+  placeholder: "Enter text",
+  suffix: <Check />,
+  textareaClassName: "resize-none",
 };
 
 const TextareaWithMaxLength = args => (
@@ -84,14 +153,14 @@ const TextareaWithMaxLength = args => (
       label="Textarea with max length"
       maxLength={10}
       placeholder="Enter text"
-      value="Sample i"
+      value="Sample input"
     />
     <Textarea
       {...args}
       label="Textarea with max length"
       maxLength={10}
       placeholder="Enter text"
-      value="Sample in"
+      value="Sample input"
     />
     <Textarea
       {...args}
@@ -99,7 +168,7 @@ const TextareaWithMaxLength = args => (
       label="Textarea with max length and unlimited characters"
       maxLength={10}
       placeholder="Enter text"
-      value="Sample Input"
+      value="Sample input"
     />
   </div>
 );
@@ -128,6 +197,10 @@ export {
   HelpText,
   NakedInput,
   TextareaWithMaxLength,
+  WithPrefix,
+  WithSuffix,
+  Sizes,
+  ResizeDisabled,
   CSSCustomization,
 };
 

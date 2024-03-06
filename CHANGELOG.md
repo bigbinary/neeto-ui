@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.5 - 2024-03-06
+
+Fixed: Select strategy="fixed"` not scrolling to selected
+
 ## 6.3.4 - 2024-03-05
 
 Fixed: TimpickerInput firefox ui issue
@@ -80,7 +84,6 @@ If the value prop is invalid date or date string, the value is converted to null
 - Fixed: Updated table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef) text alignment to left.
 - Added: `white-space: normal` to table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef).
 ## 6.2.0 - 2024-01-25
-
 - Add ability to add more actions to the table header.
 
 ## 6.1.3 - 2024-01-17
@@ -103,8 +106,8 @@ Added: data-cy to *Spinner*
 **Reviewers**
 <!---
 ------------- FORMAT FOR DESCRIPTION -------------
-
 Prefix the change with one of these keywords:
+
 - Added: for new features.
 - Changed: for changes in existing functionality.
 - Deprecated: for soon-to-be removed features.
@@ -113,17 +116,21 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 Points to note:
+
 - The description shall be represented in bullet points
 - Add the keyword BREAKING in bold style for changes that could potentially break the component, eg: **BREAKING**
-- Represent a component name in italics, eg: _Modal_
+- Represent a component name in italics, eg: *Modal*
 - Enclose a prop name in double backticks, eg: `isLoading`
 
 Example:
-- Changed: **BREAKING** `isLoading` prop of _Table_ to `loading`.
-- Added: `hideOnTargetExit` prop to _Tooltip_ component.
-- Deprecated: **BREAKING** `loading` prop of _Pane_, _Modal_ and _Alert_ components.
-- Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
---->
+
+- Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
+- Added: `hideOnTargetExit` prop to *Tooltip* component.
+- Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert* components.
+- Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
+  --->
+
+
 ## 6.0.2 - 2023-12-14
 
 Enhanced the responsiveness of the following components
@@ -174,7 +181,6 @@ called only if the value contains leading or trailing whitespaces.
 Added: `hideCancelButton` prop to **Alert** component.
 ## 5.2.36 - 2023-11-22
 - Fixed: `undefined` options issue in *Select*
-
 ## 5.2.35 - 2023-11-22
 
 Added: data cy to close select/multiSelect icon
@@ -962,7 +968,6 @@ Changes documentations to sentence case from title casing.
 - Removed: **BREAKING** `isCollapsed` prop and **expanded state** of sidebar
 ## 3.5.17 - 2022-08-25
 - Fixed: false positive type errors for tooltip
-
 ## 3.5.16 - 2022-08-17
 
 - Changed: avoided showing duplicate toastr when called multiple times with the
