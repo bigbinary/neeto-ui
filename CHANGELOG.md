@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.7 - 2024-03-11
+
+- Added: Additional dropdown triggers
+
 ## 6.3.6 - 2024-03-06
 
 - Added: support for resize, suffix, prefix and sizing for textarea.
@@ -92,7 +96,6 @@ If the value prop is invalid date or date string, the value is converted to null
 ## 6.2.0 - 2024-01-25
 - Add ability to add more actions to the table header.
 ## 6.1.3 - 2024-01-17
-
 ### After
 
 <img width="691" alt="Screenshot 2024-01-05 at 6 41 38 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/7b1f3e2d-5f35-4089-908f-44c0db4d5601">
@@ -118,7 +121,6 @@ Prefix the change with one of these keywords:
 - Removed: for now removed features.
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
-
 Points to note:
 
 - The description shall be represented in bullet points
@@ -187,7 +189,6 @@ Added: `hideCancelButton` prop to **Alert** component.
 - Fixed: `undefined` options issue in *Select*
 ## 5.2.35 - 2023-11-22
 Added: data cy to close select/multiSelect icon
-
 ## 5.2.34 - 2023-11-21
 
 This PR will migrate the package from `react-linkify` to `linkify-react`
@@ -974,7 +975,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.16 - 2022-08-17
 - Changed: avoided showing duplicate toastr when called multiple times with the
   same arguments.
-
 ## 3.5.15 - 2022-08-05
 
 - Fixed: Fixed false positive ts errors which were thrown since some of the
