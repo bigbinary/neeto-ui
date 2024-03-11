@@ -159,7 +159,7 @@ describe("Dropdown", () => {
   it("should call onClose when Dropdown is closed", async () => {
     const onClose = jest.fn();
     const { getByText } = render(
-      <Dropdown closeOnOutsideClick label="Dropdown" onClose={onClose}>
+      <Dropdown {...{ onClose }} closeOnOutsideClick label="Dropdown">
         {options}
       </Dropdown>
     );
@@ -187,5 +187,20 @@ describe("Dropdown", () => {
     expect(getByText("Enabled button's tooltip")).toBeInTheDocument();
     await userEvent.hover(getByText("Disabled button"));
     expect(getByText("Disabled button's tooltip")).toBeInTheDocument();
+  });
+
+  it("should open menu on click and hover when trigger is all", async () => {
+    const { findByText } = render(
+      <Dropdown closeOnOutsideClick label="Dropdown" trigger="all">
+        {options}
+      </Dropdown>
+    );
+    await userEvent.hover(await findByText("Dropdown"));
+    expect(await findByText("option 1")).toBeInTheDocument();
+    await userEvent.click(document.body);
+
+    await userEvent.click(await findByText("Dropdown"));
+    expect(await findByText("option 1")).toBeInTheDocument();
+    await userEvent.click(document.body);
   });
 });
