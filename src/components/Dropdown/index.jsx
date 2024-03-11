@@ -48,7 +48,12 @@ const PLACEMENT = {
   leftEnd: "left-end",
 };
 
-const TRIGGERS = { click: "click", hover: "mouseenter focus" };
+const TRIGGERS = {
+  click: "click",
+  hover: "mouseenter focus",
+  all: "mouseenter focus click",
+  manual: "manual",
+};
 
 const hideOnEsc = {
   name: "hideOnEsc",
@@ -121,7 +126,6 @@ const Dropdown = ({
       maxWidth="none"
       offset={0}
       placement={position || PLACEMENT.bottomEnd}
-      plugins={plugins}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
       role="dropdown"
       theme="light"
@@ -149,23 +153,21 @@ const Dropdown = ({
         onClose();
         setMounted(false);
       }}
-      {...otherProps}
-      {...controlledProps}
+      {...{ plugins, ...otherProps, ...controlledProps }}
     >
       {customTarget ? (
-        <span onClick={onClick}>
+        <span {...{ onClick }}>
           {typeof customTarget === "function" ? customTarget() : customTarget}
         </span>
       ) : (
         <Button
+          {...{ label, onClick }}
           data-cy={`${hyphenize(label)}-dropdown-icon`}
           disabled={disabled || buttonProps?.disabled}
           icon={icon || Down}
           iconPosition="right"
-          label={label}
           size={size ?? buttonSize}
           style={style ?? buttonStyle}
-          onClick={onClick}
           {...buttonProps}
         />
       )}

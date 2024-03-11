@@ -260,7 +260,7 @@ export interface DropdownProps {
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
   dropdownModifiers?: any[];
-  trigger?: "click" | "hover";
+  trigger?: "click" | "hover" | "all" | "manual";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
   /** @deprecated Prop deprecated. Use `dropdownProps` prop instead*/
