@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.6 - 2024-03-06
+
+- Added: support for resize, suffix, prefix and sizing for textarea.
+
+@ajmaln _a Please review.
+
 ## 6.3.5 - 2024-03-06
 
 Fixed: Select strategy="fixed"` not scrolling to selected
@@ -85,7 +91,6 @@ If the value prop is invalid date or date string, the value is converted to null
 - Added: `white-space: normal` to table cell [link button](https://neeto-ui.neeto.com/?path=/story/components-button--styles&hash=710ee799a61abebfaa6923e81c35d2d46aa793ef).
 ## 6.2.0 - 2024-01-25
 - Add ability to add more actions to the table header.
-
 ## 6.1.3 - 2024-01-17
 
 ### After
@@ -107,7 +112,6 @@ Added: data-cy to *Spinner*
 <!---
 ------------- FORMAT FOR DESCRIPTION -------------
 Prefix the change with one of these keywords:
-
 - Added: for new features.
 - Changed: for changes in existing functionality.
 - Deprecated: for soon-to-be removed features.
@@ -182,7 +186,6 @@ Added: `hideCancelButton` prop to **Alert** component.
 ## 5.2.36 - 2023-11-22
 - Fixed: `undefined` options issue in *Select*
 ## 5.2.35 - 2023-11-22
-
 Added: data cy to close select/multiSelect icon
 
 ## 5.2.34 - 2023-11-21
@@ -969,7 +972,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.17 - 2022-08-25
 - Fixed: false positive type errors for tooltip
 ## 3.5.16 - 2022-08-17
-
 - Changed: avoided showing duplicate toastr when called multiple times with the
   same arguments.
 
