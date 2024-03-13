@@ -42,6 +42,7 @@ const HeaderCellMenu = ({
           style: "text",
           size: "medium",
           "data-testid": "column-menu-button",
+          "data-dropdown-button-style": "more-dropdown",
         }}
       >
         <Menu
