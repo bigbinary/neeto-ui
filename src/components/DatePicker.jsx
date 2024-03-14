@@ -89,7 +89,7 @@ const DatePicker = forwardRef(
           onClick={() => {
             setMode("date");
             setTimeout(() => {
-              document.querySelector(".ant-picker-today-btn").click();
+              document.querySelector(".ant-picker-now-btn").click();
             });
           }}
         />

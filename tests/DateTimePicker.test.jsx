@@ -104,7 +104,7 @@ describe("DateTimePicker", () => {
     expect(onBlurFn).toHaveBeenCalledWith(theDate);
   });
 
-  it("if time selected is before minDateTime should round up to minDateTime", async () => {
+  it("if time selected is before minDateTime should round up to minDateTime", () => {
     const value = dayjs("2024-03-15 11:00");
     const minDateTime = dayjs("2024-03-14 11:15");
     const onChangeMock = jest.fn();
@@ -124,7 +124,7 @@ describe("DateTimePicker", () => {
     );
   });
 
-  it("if time selected is after maxDateTime should round up to maxDateTime", async () => {
+  it("if time selected is after maxDateTime should round up to maxDateTime", () => {
     const value = dayjs("2024-03-13 11:30", "YYYY-MM-DD HH:mm");
     const maxDateTime = dayjs("2024-03-14 11:15", "YYYY-MM-DD HH:mm");
     const onChangeMock = jest.fn();

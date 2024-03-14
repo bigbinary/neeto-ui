@@ -106,6 +106,7 @@ describe("DatePicker", () => {
       />
     );
     fireEvent.click(screen.getAllByText("11")[0]);
+    fireEvent.click(screen.getAllByText("11")[0]);
     fireEvent.click(screen.getAllByText("16")[1]);
     const dateInputBox = screen.getAllByRole("textbox");
     expect(dateInputBox[0]).toHaveValue("11/04/2022");
