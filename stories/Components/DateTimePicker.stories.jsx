@@ -1,5 +1,7 @@
 import React from "react";
 
+import dayjs from "dayjs";
+
 import { DateTimePicker } from "components";
 
 import DateTimePickerCSSCustomization from "!raw-loader!./DateTimePickerStoriesDocs/DateTimePickerCSSCustomization.mdx";
@@ -24,6 +26,14 @@ const metadata = {
 
 const Default = args => <DateTimePicker {...args} />;
 
+const MinAndMaxDateTime = args => <DateTimePicker {...args} />;
+
+MinAndMaxDateTime.args = {
+  defaultValue: dayjs("2024-03-14 09:15"),
+  minDateTime: dayjs("2024-03-13 10:00"),
+  maxDateTime: dayjs("2024-03-16 18:00"),
+};
+
 const CSSCustomization = args => <DateTimePicker {...args} />;
 
 CSSCustomization.storyName = "DateTimePicker CSS Customization";
@@ -37,6 +47,6 @@ CSSCustomization.parameters = {
   docs: { description: { story: DateTimePickerCSSCustomization } },
 };
 
-export { Default, CSSCustomization };
+export { Default, MinAndMaxDateTime, CSSCustomization };
 
 export default metadata;

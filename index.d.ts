@@ -204,8 +204,8 @@ export type DatePickerProps = {
 };
 
 export type DateTimePickerProps = {
-  value?: string;
-  defaultValue?: string;
+  value?: string | Dayjs;
+  defaultValue?: string | Dayjs;
   className?: string;
   label?: string;
   size?: "small" | "medium" | "large";
@@ -220,6 +220,8 @@ export type DateTimePickerProps = {
   timePickerProps?: { [key: string]: any };
   onBlur?: (dateTime: Dayjs) => void;
   [key: string]: any;
+  minDateTime?: Dayjs;
+  maxDateTime?: Dayjs;
 };
 
 export interface DropdownProps {

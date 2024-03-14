@@ -11,3 +11,24 @@ export const getDateTime = (date, time) => {
 
   return null;
 };
+
+export const getAllowedTime = (date, time, minDateTime, maxDateTime) => {
+  const newTime = getDateTime(date, time || dayjs());
+  if (
+    isPresent(minDateTime) &&
+    date?.isSame(minDateTime, "day") &&
+    newTime?.isBefore(minDateTime)
+  ) {
+    return minDateTime;
+  }
+
+  if (
+    isPresent(maxDateTime) &&
+    date?.isSame(maxDateTime, "day") &&
+    newTime?.isAfter(maxDateTime)
+  ) {
+    return maxDateTime;
+  }
+
+  return newTime;
+};
