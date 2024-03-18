@@ -146,6 +146,7 @@ const Table = ({
   const rowSelectionProps = rowSelection
     ? {
         type: "checkbox",
+        preserveSelectedRowKeys: true,
         ...rowSelection,
         onChange: (selectedRowKeys, selectedRows) =>
           onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
