@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc, isEmpty, mergeLeft } from "ramda";
+import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
 import { useHistory } from "react-router-dom";
 
@@ -18,6 +18,7 @@ import useTableSort from "./hooks/useTableSort";
 import { getHeaderCell } from "./utils";
 
 import Button from "../Button";
+import Callout from "../Callout";
 import Typography from "../Typography";
 
 const TABLE_PAGINATION_HEIGHT = 64;
@@ -39,9 +40,10 @@ const Table = ({
   onRowSelect,
   rowData = [],
   totalCount = 0,
-  selectedRowKeys = [],
+  selectedRowKeys: initialSelectedRowKeys = [],
   fixedHeight = false,
   paginationProps = {},
+  rowKey = "id",
   scroll,
   rowSelection,
   shouldDynamicallyRenderRowSize = false,
@@ -58,6 +60,7 @@ const Table = ({
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+  const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
   const {
     handleTableChange: handleTableSortChange,
     sortedInfo,
@@ -143,12 +146,22 @@ const Table = ({
     }),
   }));
 
+  //TODO: Check if there's better way to accomplish this
+  const selectedRowKeys = bulkSelectedAllRows
+    ? pluck(rowKey, rowData)
+    : initialSelectedRowKeys;
+
+  const handleRowChange = (selectedRowKeys, selectedRows) => {
+    //TODO: Match the keys with the selected rows
+    setBulkSelectedAllRows(selectedRowKeys.length === rowData.length);
+    onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
+  };
+
   const rowSelectionProps = rowSelection
     ? {
         type: "checkbox",
         ...rowSelection,
-        onChange: (selectedRowKeys, selectedRows) =>
-          onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
+        onChange: handleRowChange,
         selectedRowKeys,
       }
     : false;
@@ -234,6 +247,10 @@ const Table = ({
     10
   );
 
+  const testRowClick = (event, record, index) => {
+    console.log(event, record, index);
+  };
+
   const renderTable = () => (
     <ConfigProvider
       theme={{
@@ -286,13 +303,26 @@ const Table = ({
         },
       }}
     >
+      {bulkSelectedAllRows && (
+        <Callout className="my-2">
+          <div className="flex space-x-3">
+            <Typography style="body2">
+              All 2 submissions on this page are selected
+            </Typography>
+            <Button
+              label="Select all 6 submissions"
+              style="link"
+              onClick={noop}
+            />
+          </div>
+        </Callout>
+      )}
       <AntTable
-        {...{ bordered, loading, locale }}
+        {...{ bordered, loading, locale, rowKey }}
         columns={sortedColumnsWithAlignment}
         components={componentOverrides}
         dataSource={rowData}
         ref={tableRef}
-        rowKey="id"
         rowSelection={rowSelectionProps}
         showSorterTooltip={false}
         pagination={{
