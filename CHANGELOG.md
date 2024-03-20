@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.10 - 2024-03-20
+
+While changing the page for multi-paged table, the selected rows will not be deselected.
+
 ## 6.3.9 - 2024-03-20
 
 - Added: Support for overriding the dropdown props in the *ColorPicker* component so that it can be further customised.
@@ -134,7 +138,6 @@ Points to note:
 - Represent a component name in italics, eg: *Modal*
 - Enclose a prop name in double backticks, eg: `isLoading`
 Example:
-
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
 - Added: `hideOnTargetExit` prop to *Tooltip* component.
 - Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert* components.
@@ -197,7 +200,6 @@ Added: data cy to close select/multiSelect icon
 ## 5.2.34 - 2023-11-21
 This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.33 - 2023-11-20
-
 - Fixed: Grouped select `defaultValue` not being set issue
 
 ## 5.2.32 - 2023-11-15
@@ -982,7 +984,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: Fixed false positive ts errors which were thrown since some of the
   fields were not marked optional.
 ## 3.5.14 - 2022-08-01
-
 - Added: neetoTestify and neetoSite to AppSwitcher
 
 ## 3.5.13 - 2022-07-28
