@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.9 - 2024-03-20
+
+- Added: Support for overriding the dropdown props in the *ColorPicker* component so that it can be further customised.
+
 ## 6.3.8 - 2024-03-13
 
 - Added: data attribute to table triple dots.
@@ -129,7 +133,6 @@ Points to note:
 - Add the keyword BREAKING in bold style for changes that could potentially break the component, eg: **BREAKING**
 - Represent a component name in italics, eg: *Modal*
 - Enclose a prop name in double backticks, eg: `isLoading`
-
 Example:
 
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
@@ -193,7 +196,6 @@ Added: `hideCancelButton` prop to **Alert** component.
 Added: data cy to close select/multiSelect icon
 ## 5.2.34 - 2023-11-21
 This PR will migrate the package from `react-linkify` to `linkify-react`
-
 ## 5.2.33 - 2023-11-20
 
 - Fixed: Grouped select `defaultValue` not being set issue
@@ -979,7 +981,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.15 - 2022-08-05
 - Fixed: Fixed false positive ts errors which were thrown since some of the
   fields were not marked optional.
-
 ## 3.5.14 - 2022-08-01
 
 - Added: neetoTestify and neetoSite to AppSwitcher
