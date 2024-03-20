@@ -334,6 +334,49 @@ TableWithSelectedRowKeys.parameters = {
   },
 };
 
+const TableWithBulkSelectAllRowsOption = ({
+  selectedRowKeys: selectedRowKeysProp,
+  defaultPageSize,
+  ...args
+}) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [selectedRowKeys, setSelectedRowKeys] = useState(selectedRowKeysProp);
+  const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
+
+  return (
+    <>
+      <Typography className="mb-2" style="h4">
+        Selected{" "}
+        {bulkSelectedAllRows ? TABLE_DATA.length : selectedRowKeys.length} of{" "}
+        {TABLE_DATA.length} users
+      </Typography>
+      <Table
+        columnData={getColumns()}
+        currentPageNumber={pageNumber}
+        handlePageChange={page => setPageNumber(page)}
+        rowData={TABLE_DATA}
+        {...{ ...args, defaultPageSize, selectedRowKeys }}
+        rowSelection
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows,
+          selectAllRowMessage: `All ${defaultPageSize} users on this page are selected`,
+          selectAllRowButtonLabel: `Select all ${TABLE_DATA.length} users`,
+        }}
+        onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
+      />
+    </>
+  );
+};
+
+TableWithBulkSelectAllRowsOption.storyName =
+  "Table with bulk select all rows option";
+
+TableWithBulkSelectAllRowsOption.args = {
+  defaultPageSize: 15,
+  selectedRowKeys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  bulkSelectAllRowsProps: {},
+};
+
 const TableWithSorting = args => (
   <Table
     columnData={getColumns()}
@@ -587,6 +630,7 @@ export {
   TableWithTooltipsOnHeader,
   TableWithFixedRightColumn,
   TableWithSelectedRowKeys,
+  TableWithBulkSelectAllRowsOption,
   TableWithSorting,
   TableWithFixedHeight,
   TableWithoutCheckbox,

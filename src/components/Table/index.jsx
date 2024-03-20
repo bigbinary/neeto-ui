@@ -18,13 +18,13 @@ import { useHistory } from "react-router-dom";
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
+import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
 import { getHeaderCell, isIncludedIn } from "./utils";
 
 import Button from "../Button";
-import Callout from "../Callout";
 import Typography from "../Typography";
 
 const TABLE_PAGINATION_HEIGHT = 64;
@@ -61,6 +61,7 @@ const Table = ({
   onColumnDelete,
   onChange,
   onMoreActionClick,
+  bulkSelectAllRowsProps,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
@@ -72,6 +73,9 @@ const Table = ({
     sortedInfo,
     setSortedInfo,
   } = useTableSort();
+
+  const { setBulkSelectedAllRows: setSelectedAllRows } =
+    bulkSelectAllRowsProps ?? {};
 
   const isDefaultPageChangeHandler = handlePageChange === noop;
 
@@ -189,6 +193,7 @@ const Table = ({
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
+    setSelectedAllRows && setSelectedAllRows(false);
     onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
   };
 
@@ -335,19 +340,14 @@ const Table = ({
         },
       }}
     >
-      {showBulkSelectionCallout && (
-        <Callout className="my-2">
-          <div className="flex space-x-3">
-            <Typography style="body2">
-              All {selectedRowKeys.length} submissions on this page are selected
-            </Typography>
-            <Button
-              label={`Select all ${totalCount || rowData.length} submissions`}
-              style="link"
-              onClick={() => setBulkSelectedAllRows(true)}
-            />
-          </div>
-        </Callout>
+      {bulkSelectAllRowsProps && showBulkSelectionCallout && (
+        <SelectAllRowsCallout
+          {...bulkSelectAllRowsProps}
+          onBulkSelectAllRows={() => {
+            setBulkSelectedAllRows(true);
+            setSelectedAllRows && setSelectedAllRows(true);
+          }}
+        />
       )}
       <AntTable
         {...{ bordered, loading, locale, rowKey }}
@@ -512,6 +512,14 @@ Table.propTypes = {
    * Make sure to pass `id` in `rowData` for this to work.
    */
   rowSelection: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  /**
+   * Props for adding `Select all rows` option for multi-page table.
+   */
+  bulkSelectAllRowsProps: PropTypes.shape({
+    selectAllRowMessage: PropTypes.string.isRequired,
+    selectAllRowButtonLabel: PropTypes.string.isRequired,
+    setBulkSelectedAllRows: PropTypes.func.isRequired,
+  }),
 };
 
 export default Table;
