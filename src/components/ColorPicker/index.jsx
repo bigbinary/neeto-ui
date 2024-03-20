@@ -28,6 +28,7 @@ const ColorPicker = ({
   size = TARGET_SIZES.large,
   onChange = noop,
   colorPaletteProps,
+  dropdownProps,
   showEyeDropper = false,
   showHexValue = false,
   showTransparencyControl = false,
@@ -35,14 +36,7 @@ const ColorPicker = ({
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
-  const { open, isSupported } = useEyeDropper({
-    pickRadius: 3,
-    // cursorActive: CSS Cursors,
-    // cursorInactive: CSS Cursors,
-    // onPickStart?: () => void
-    // onPickEnd?: () => void
-    // onPickCancel?: () => void
-  });
+  const { open, isSupported } = useEyeDropper({ pickRadius: 3 });
 
   const PickerComponent = showTransparencyControl
     ? HexAlphaColorPicker
@@ -121,9 +115,10 @@ const ColorPicker = ({
     <Dropdown
       className="neeto-ui-colorpicker__dropdown"
       closeOnSelect={false}
-      customTarget={<Target size={size} />}
+      customTarget={<Target {...{ size }} />}
       label={colorValue}
       position="bottom-start"
+      {...dropdownProps}
     >
       <div className="neeto-ui-colorpicker__popover">
         {showPicker && (
@@ -151,9 +146,9 @@ const ColorPicker = ({
                   data-cy="colorpicker-editable-input"
                 >
                   <HexColorInput
+                    {...{ onBlur }}
                     alpha={!!showTransparencyControl}
                     color={colorValue}
-                    onBlur={onBlur}
                     onChange={onColorInputChange}
                   />
                 </div>
