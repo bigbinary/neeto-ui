@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
@@ -15,7 +21,7 @@ import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell } from "./utils";
+import { getHeaderCell, isIncludedIn } from "./utils";
 
 import Button from "../Button";
 import Callout from "../Callout";
@@ -148,12 +154,42 @@ const Table = ({
 
   //TODO: Check if there's better way to accomplish this
   const selectedRowKeys = bulkSelectedAllRows
-    ? pluck(rowKey, rowData)
+    ? pluck(
+        rowKey,
+        rowData.slice(
+          (currentPageNumber - 1) * defaultPageSize,
+          currentPageNumber * defaultPageSize
+        )
+      )
     : initialSelectedRowKeys;
+
+  const showBulkSelectionCallout = useMemo(
+    () =>
+      isIncludedIn(
+        selectedRowKeys,
+        pluck(
+          rowKey,
+          rowData.slice(
+            (currentPageNumber - 1) * defaultPageSize,
+            currentPageNumber * defaultPageSize
+          )
+        )
+      ) &&
+      selectedRowKeys.length !== totalCount &&
+      !bulkSelectedAllRows,
+    [
+      selectedRowKeys,
+      rowKey,
+      rowData,
+      defaultPageSize,
+      totalCount,
+      bulkSelectedAllRows,
+    ]
+  );
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     //TODO: Match the keys with the selected rows
-    setBulkSelectedAllRows(selectedRowKeys.length === rowData.length);
+    selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
     onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
   };
 
@@ -248,10 +284,6 @@ const Table = ({
     10
   );
 
-  const testRowClick = (event, record, index) => {
-    console.log(event, record, index);
-  };
-
   const renderTable = () => (
     <ConfigProvider
       theme={{
@@ -304,16 +336,16 @@ const Table = ({
         },
       }}
     >
-      {bulkSelectedAllRows && (
+      {showBulkSelectionCallout && (
         <Callout className="my-2">
           <div className="flex space-x-3">
             <Typography style="body2">
-              All 2 submissions on this page are selected
+              All {selectedRowKeys.length} submissions on this page are selected
             </Typography>
             <Button
-              label="Select all 6 submissions"
+              label={`Select all ${totalCount} submissions`}
               style="link"
-              onClick={noop}
+              onClick={() => setBulkSelectedAllRows(true)}
             />
           </div>
         </Callout>
