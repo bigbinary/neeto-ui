@@ -354,7 +354,11 @@ const TableWithBulkSelectAllRowsOption = ({
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
-        rowData={TABLE_DATA}
+        // Mimicking data-source coming from api call and at a time only defaultPageSize rows are present
+        rowData={TABLE_DATA.slice(
+          (pageNumber - 1) * defaultPageSize,
+          pageNumber * defaultPageSize
+        )}
         {...{ ...args, defaultPageSize, selectedRowKeys }}
         rowSelection
         bulkSelectAllRowsProps={{
@@ -375,6 +379,7 @@ TableWithBulkSelectAllRowsOption.args = {
   defaultPageSize: 15,
   selectedRowKeys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   bulkSelectAllRowsProps: {},
+  totalCount: TABLE_DATA.length,
 };
 
 const TableWithSorting = args => (

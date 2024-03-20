@@ -157,38 +157,15 @@ const Table = ({
   }));
 
   const selectedRowKeys = bulkSelectedAllRows
-    ? pluck(
-        rowKey,
-        rowData.slice(
-          (currentPageNumber - 1) * defaultPageSize,
-          currentPageNumber * defaultPageSize
-        )
-      )
+    ? pluck(rowKey, rowData)
     : initialSelectedRowKeys;
 
   const showBulkSelectionCallout = useMemo(
     () =>
-      isIncludedIn(
-        selectedRowKeys,
-        pluck(
-          rowKey,
-          rowData.slice(
-            (currentPageNumber - 1) * defaultPageSize,
-            currentPageNumber * defaultPageSize
-          )
-        )
-      ) &&
-      selectedRowKeys.length !== (totalCount || rowData.length) &&
+      isIncludedIn(selectedRowKeys, pluck(rowKey, rowData)) &&
+      selectedRowKeys.length !== totalCount &&
       !bulkSelectedAllRows,
-    [
-      selectedRowKeys,
-      rowKey,
-      rowData,
-      currentPageNumber,
-      defaultPageSize,
-      totalCount,
-      bulkSelectedAllRows,
-    ]
+    [selectedRowKeys, rowKey, rowData, totalCount, bulkSelectedAllRows]
   );
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
