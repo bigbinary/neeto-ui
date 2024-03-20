@@ -152,7 +152,6 @@ const Table = ({
     }),
   }));
 
-  //TODO: Check if there's better way to accomplish this
   const selectedRowKeys = bulkSelectedAllRows
     ? pluck(
         rowKey,
@@ -175,12 +174,13 @@ const Table = ({
           )
         )
       ) &&
-      selectedRowKeys.length !== totalCount &&
+      selectedRowKeys.length !== (totalCount || rowData.length) &&
       !bulkSelectedAllRows,
     [
       selectedRowKeys,
       rowKey,
       rowData,
+      currentPageNumber,
       defaultPageSize,
       totalCount,
       bulkSelectedAllRows,
@@ -188,7 +188,6 @@ const Table = ({
   );
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
-    //TODO: Match the keys with the selected rows
     selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
     onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
   };
@@ -343,7 +342,7 @@ const Table = ({
               All {selectedRowKeys.length} submissions on this page are selected
             </Typography>
             <Button
-              label={`Select all ${totalCount} submissions`}
+              label={`Select all ${totalCount || rowData.length} submissions`}
               style="link"
               onClick={() => setBulkSelectedAllRows(true)}
             />
