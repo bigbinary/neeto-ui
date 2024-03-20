@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.3.8 - 2024-03-13
+
+- Added: data attribute to table triple dots.
+
 ## 6.3.7 - 2024-03-11
 
 - Added: Additional dropdown triggers
@@ -97,7 +101,6 @@ If the value prop is invalid date or date string, the value is converted to null
 - Add ability to add more actions to the table header.
 ## 6.1.3 - 2024-01-17
 ### After
-
 <img width="691" alt="Screenshot 2024-01-05 at 6 41 38 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/7b1f3e2d-5f35-4089-908f-44c0db4d5601">
 <img width="600" alt="Screenshot 2024-01-05 at 6 59 07 PM" src="https://github.com/bigbinary/neeto-ui/assets/16187886/0f47e403-83cc-42b2-9637-44dbe2ee5fe7">
 ## 6.1.2 - 2024-01-05
@@ -122,7 +125,6 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 Points to note:
-
 - The description shall be represented in bullet points
 - Add the keyword BREAKING in bold style for changes that could potentially break the component, eg: **BREAKING**
 - Represent a component name in italics, eg: *Modal*
@@ -190,7 +192,6 @@ Added: `hideCancelButton` prop to **Alert** component.
 ## 5.2.35 - 2023-11-22
 Added: data cy to close select/multiSelect icon
 ## 5.2.34 - 2023-11-21
-
 This PR will migrate the package from `react-linkify` to `linkify-react`
 
 ## 5.2.33 - 2023-11-20
@@ -976,7 +977,6 @@ Changes documentations to sentence case from title casing.
 - Changed: avoided showing duplicate toastr when called multiple times with the
   same arguments.
 ## 3.5.15 - 2022-08-05
-
 - Fixed: Fixed false positive ts errors which were thrown since some of the
   fields were not marked optional.
 
