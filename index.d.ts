@@ -34,6 +34,7 @@ export interface ColorPickerProps {
   showHexValue?: boolean;
   showTransparencyControl?: boolean;
   showPicker?: boolean;
+  dropdownProps?: DropdownProps;
 }
 
 interface PopupProps {
