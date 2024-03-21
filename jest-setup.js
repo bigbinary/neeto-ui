@@ -22,3 +22,6 @@ Object.defineProperty(window, "matchMedia", {
 
 //Fixes TypeError: errorFormElement?.scrollIntoView is not a function
 Element.prototype.scrollIntoView = jest.fn();
+
+Element.prototype.scrollTo = jest.fn();
+HTMLCanvasElement.prototype.getContext = jest.fn();
