@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.4.0 - 2024-03-21
+
+Added: minDateTime and maxDateTime prop.
+
 ## 6.3.10 - 2024-03-20
 
 While changing the page for multi-paged table, the selected rows will not be deselected.
@@ -143,8 +147,6 @@ Example:
 - Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert* components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
   --->
-
-
 ## 6.0.2 - 2023-12-14
 
 Enhanced the responsiveness of the following components
@@ -201,7 +203,6 @@ Added: data cy to close select/multiSelect icon
 This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.33 - 2023-11-20
 - Fixed: Grouped select `defaultValue` not being set issue
-
 ## 5.2.32 - 2023-11-15
 
 - Updated pagination URL param handling in the *Table*.
@@ -985,7 +986,6 @@ Changes documentations to sentence case from title casing.
   fields were not marked optional.
 ## 3.5.14 - 2022-08-01
 - Added: neetoTestify and neetoSite to AppSwitcher
-
 ## 3.5.13 - 2022-07-28
 
 - Added: type support for all exported components. IDE will now auto-predict the
