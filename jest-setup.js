@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import "@testing-library/jest-dom";
 
 // Fixes element.getTotalLength is not a function. Refer: https://github.com/framer/motion/issues/204
@@ -22,3 +23,6 @@ Object.defineProperty(window, "matchMedia", {
 
 //Fixes TypeError: errorFormElement?.scrollIntoView is not a function
 Element.prototype.scrollIntoView = jest.fn();
+
+Element.prototype.scrollTo = jest.fn();
+HTMLCanvasElement.prototype.getContext = jest.fn();

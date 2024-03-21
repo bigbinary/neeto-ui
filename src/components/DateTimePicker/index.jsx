@@ -12,7 +12,7 @@ import TimePickerInput from "components/TimePickerInput";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
-import { getDateTime } from "./utils";
+import { getDateTime, getAllowedTime } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
@@ -34,10 +34,11 @@ const DateTimePicker = ({
   id,
   datePickerProps,
   timePickerProps,
+  minDateTime,
+  maxDateTime,
   onTimeInputBlur = noop,
   onBlur = noop,
 }) => {
-  const [open, setOpen] = useState(datePickerProps?.open);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [changedField, setChangedField] = useState();
@@ -63,13 +64,12 @@ const DateTimePicker = ({
   }, [date, time, changedField]);
 
   const handleDateChange = newDate => {
-    setOpen(false);
     timeRef.current
       ?.querySelector(".react-time-picker__inputGroup__hour")
       ?.focus();
 
     setDate(newDate);
-    if (!time) setTime(newDate);
+    setTime(getAllowedTime(newDate, time, minDateTime, maxDateTime));
     setChangedField("date");
   };
 
@@ -80,8 +80,9 @@ const DateTimePicker = ({
   };
 
   const handleTimeBlur = () => {
-    onTimeInputBlur(getDateTime(date, time));
-    onBlur(getDateTime(date, time));
+    const dateTime = getDateTime(date, time);
+    onTimeInputBlur(dateTime);
+    onBlur(dateTime);
   };
 
   return (
@@ -93,23 +94,24 @@ const DateTimePicker = ({
             dateFormat,
             dropdownClassName,
             nakedInput,
-            open,
             popupClassName,
             size,
           }}
           error={!!error}
+          maxDate={maxDateTime}
+          minDate={minDateTime}
           picker="date"
           showTime={false}
           type="date"
           value={date}
-          onBlur={() => setOpen(false)}
           onChange={handleDateChange}
-          onFocus={() => setOpen(true)}
           {...datePickerProps}
         />
         <TimePickerInput
           {...{ error, nakedInput, size }}
           error={!!error}
+          maxTime={date?.isSame(maxDateTime, "day") && maxDateTime?.toDate()}
+          minTime={date?.isSame(minDateTime, "day") && minDateTime?.toDate()}
           ref={timeRef}
           value={time}
           onBlur={handleTimeBlur}
@@ -189,6 +191,14 @@ DateTimePicker.propTypes = {
    * The callback function that will be triggered when time picker loses focus (onBlur event).
    */
   onBlur: PropTypes.func,
+  /**
+   * To specify minimum allowed date time
+   */
+  minDateTime: PropTypes.object,
+  /**
+   * To specify maximum allowed date time
+   */
+  maxDateTime: PropTypes.object,
 };
 
 export default React.memo(DateTimePicker);
