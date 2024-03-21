@@ -10,10 +10,15 @@ const SelectAllRowsCallout = ({
   selectAllRowButtonLabel,
   selectAllRowMessage,
 }) => (
-  <Callout className="my-2" {...calloutProps}>
+  <Callout
+    className="my-2"
+    {...calloutProps}
+    data-testid="select-all-rows-callout"
+  >
     <div className="flex space-x-3">
       <Typography style="body2">{selectAllRowMessage}</Typography>
       <Button
+        data-testid="select-all-rows-button"
         label={selectAllRowButtonLabel}
         style="link"
         onClick={onBulkSelectAllRows}
