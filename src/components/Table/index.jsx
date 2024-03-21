@@ -74,7 +74,7 @@ const Table = ({
     setSortedInfo,
   } = useTableSort();
 
-  const { setBulkSelectedAllRows: setSelectedAllRows } =
+  const { setBulkSelectedAllRows: handleSetBulkSelectedAllRows } =
     bulkSelectAllRowsProps ?? {};
 
   const isDefaultPageChangeHandler = handlePageChange === noop;
@@ -170,7 +170,7 @@ const Table = ({
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
-    setSelectedAllRows && setSelectedAllRows(false);
+    handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(false);
     onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
   };
 
@@ -322,7 +322,7 @@ const Table = ({
           {...bulkSelectAllRowsProps}
           onBulkSelectAllRows={() => {
             setBulkSelectedAllRows(true);
-            setSelectedAllRows && setSelectedAllRows(true);
+            handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(true);
           }}
         />
       )}
