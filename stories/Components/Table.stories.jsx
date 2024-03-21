@@ -343,6 +343,11 @@ const TableWithBulkSelectAllRowsOption = ({
   const [selectedRowKeys, setSelectedRowKeys] = useState(selectedRowKeysProp);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
 
+  const rowData = TABLE_DATA.slice(
+    (pageNumber - 1) * defaultPageSize,
+    pageNumber * defaultPageSize
+  );
+
   return (
     <>
       <Typography className="mb-2" style="h4">
@@ -353,17 +358,13 @@ const TableWithBulkSelectAllRowsOption = ({
       <Table
         columnData={getColumns()}
         currentPageNumber={pageNumber}
-        handlePageChange={page => setPageNumber(page)}
         // Mimicking data-source coming from api call and at a time only defaultPageSize rows are present
-        rowData={TABLE_DATA.slice(
-          (pageNumber - 1) * defaultPageSize,
-          pageNumber * defaultPageSize
-        )}
-        {...{ ...args, defaultPageSize, selectedRowKeys }}
+        handlePageChange={page => setPageNumber(page)}
+        {...{ ...args, defaultPageSize, rowData, selectedRowKeys }}
         rowSelection
         bulkSelectAllRowsProps={{
           setBulkSelectedAllRows,
-          selectAllRowMessage: `All ${defaultPageSize} users on this page are selected`,
+          selectAllRowMessage: `All ${rowData.length} users on this page are selected`,
           selectAllRowButtonLabel: `Select all ${TABLE_DATA.length} users`,
         }}
         onRowSelect={selectedRowKeys => setSelectedRowKeys(selectedRowKeys)}
