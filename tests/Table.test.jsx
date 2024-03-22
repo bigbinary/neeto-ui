@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -357,5 +357,70 @@ describe("Table", () => {
     expect(await screen.findByText("Action 1")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Action 1"));
     expect(onMoreActionClick).toBeCalledWith("action1", columnData[5]);
+  });
+
+  it("should have select all callout when all rows are selected and bulkSelectAllRowsProps are passed in multipage table", () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        rowSelection
+        defaultPageSize={2}
+        rowData={[rowData[0], rowData[1]]}
+        selectedRowKeys={[rowData[0].id, rowData[1].id]}
+        totalCount={rowData.length}
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows: () => {},
+          selectAllRowButtonLabel: "Select all",
+          selectAllRowMessage: "Selected 2 rows in this page",
+        }}
+      />
+    );
+    const selectAllCallout = screen.getByTestId("select-all-rows-callout");
+    expect(selectAllCallout).toBeInTheDocument();
+  });
+
+  it("should select all rows of all pages and call the callback when the select all button is clicked from the callout", async () => {
+    const setBulkSelectedAllRows = jest.fn();
+    const NeetoUITableWithWrapper = () => {
+      const [selectedRowKeys, setSelectedRowKeys] = useState([
+        rowData[0].id,
+        rowData[1].id,
+      ]);
+      const [page, setPage] = useState(1);
+      const PAGE_SIZE = 2;
+
+      return (
+        <NeetoUITable
+          {...{ columnData, selectedRowKeys }}
+          rowSelection
+          currentPageNumber={page}
+          defaultPageSize={2}
+          handlePageChange={(page, _) => setPage(page)}
+          rowData={rowData.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)}
+          totalCount={rowData.length}
+          bulkSelectAllRowsProps={{
+            setBulkSelectedAllRows,
+            selectAllRowButtonLabel: "Select all rows",
+            selectAllRowMessage: "Selected 2 rows in this page",
+          }}
+          onRowSelect={setSelectedRowKeys}
+        />
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+    const pages = screen.getAllByRole("listitem");
+    await userEvent.click(pages[2]);
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    checkboxes.forEach(checkbox => {
+      expect(checkbox).toBeChecked();
+    });
+
+    expect(setBulkSelectedAllRows).toBeCalledTimes(1);
   });
 });

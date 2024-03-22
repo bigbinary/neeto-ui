@@ -1,21 +1,28 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc, isEmpty, mergeLeft } from "ramda";
+import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
 import { useHistory } from "react-router-dom";
 
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
+import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell } from "./utils";
+import { getHeaderCell, isIncludedIn } from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -39,9 +46,10 @@ const Table = ({
   onRowSelect,
   rowData = [],
   totalCount = 0,
-  selectedRowKeys = [],
+  selectedRowKeys: initialSelectedRowKeys = [],
   fixedHeight = false,
   paginationProps = {},
+  rowKey = "id",
   scroll,
   rowSelection,
   shouldDynamicallyRenderRowSize = false,
@@ -53,16 +61,21 @@ const Table = ({
   onColumnDelete,
   onChange,
   onMoreActionClick,
+  bulkSelectAllRowsProps,
   ...otherProps
 }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
+  const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
   const {
     handleTableChange: handleTableSortChange,
     sortedInfo,
     setSortedInfo,
   } = useTableSort();
+
+  const { setBulkSelectedAllRows: handleSetBulkSelectedAllRows } =
+    bulkSelectAllRowsProps ?? {};
 
   const isDefaultPageChangeHandler = handlePageChange === noop;
 
@@ -143,13 +156,30 @@ const Table = ({
     }),
   }));
 
+  const selectedRowKeys = bulkSelectedAllRows
+    ? pluck(rowKey, rowData)
+    : initialSelectedRowKeys;
+
+  const showBulkSelectionCallout = useMemo(
+    () =>
+      isIncludedIn(selectedRowKeys, pluck(rowKey, rowData)) &&
+      selectedRowKeys.length !== totalCount &&
+      !bulkSelectedAllRows,
+    [selectedRowKeys, rowKey, rowData, totalCount, bulkSelectedAllRows]
+  );
+
+  const handleRowChange = (selectedRowKeys, selectedRows) => {
+    selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
+    handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(false);
+    onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
+  };
+
   const rowSelectionProps = rowSelection
     ? {
         type: "checkbox",
         preserveSelectedRowKeys: true,
         ...rowSelection,
-        onChange: (selectedRowKeys, selectedRows) =>
-          onRowSelect && onRowSelect(selectedRowKeys, selectedRows),
+        onChange: handleRowChange,
         selectedRowKeys,
       }
     : false;
@@ -287,13 +317,21 @@ const Table = ({
         },
       }}
     >
+      {bulkSelectAllRowsProps && showBulkSelectionCallout && (
+        <SelectAllRowsCallout
+          {...bulkSelectAllRowsProps}
+          onBulkSelectAllRows={() => {
+            setBulkSelectedAllRows(true);
+            handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(true);
+          }}
+        />
+      )}
       <AntTable
-        {...{ bordered, loading, locale }}
+        {...{ bordered, loading, locale, rowKey }}
         columns={sortedColumnsWithAlignment}
         components={componentOverrides}
         dataSource={rowData}
         ref={tableRef}
-        rowKey="id"
         rowSelection={rowSelectionProps}
         showSorterTooltip={false}
         pagination={{
@@ -451,6 +489,14 @@ Table.propTypes = {
    * Make sure to pass `id` in `rowData` for this to work.
    */
   rowSelection: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  /**
+   * Props for adding `Select all rows` option for multi-page table.
+   */
+  bulkSelectAllRowsProps: PropTypes.shape({
+    selectAllRowMessage: PropTypes.string.isRequired,
+    selectAllRowButtonLabel: PropTypes.string.isRequired,
+    setBulkSelectedAllRows: PropTypes.func.isRequired,
+  }),
 };
 
 export default Table;

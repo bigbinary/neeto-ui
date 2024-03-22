@@ -1,3 +1,5 @@
+import { __, all, includes } from "ramda";
+
 import {
   CellContent,
   HeaderCell,
@@ -14,3 +16,6 @@ export const getHeaderCell = ({ enableColumnResize, enableColumnReorder }) => {
 
   return { cell: CellContent };
 };
+
+export const isIncludedIn = (array1, array2) =>
+  all(includes(__, array1), array2);
