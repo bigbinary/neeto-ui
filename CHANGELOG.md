@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.0 - 2024-03-22
+
+Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
+
 ## 6.4.0 - 2024-03-21
 
 Added: minDateTime and maxDateTime prop.
@@ -148,7 +152,6 @@ Example:
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
   --->
 ## 6.0.2 - 2023-12-14
-
 Enhanced the responsiveness of the following components
 
 - Alert
@@ -204,7 +207,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.33 - 2023-11-20
 - Fixed: Grouped select `defaultValue` not being set issue
 ## 5.2.32 - 2023-11-15
-
 - Updated pagination URL param handling in the *Table*.
 - Implemented pagination URL param handling in the *Pagination* component.
 
@@ -987,7 +989,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.14 - 2022-08-01
 - Added: neetoTestify and neetoSite to AppSwitcher
 ## 3.5.13 - 2022-07-28
-
 - Added: type support for all exported components. IDE will now auto-predict the
   component props.
 - Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
