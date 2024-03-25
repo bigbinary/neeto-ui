@@ -8,7 +8,7 @@
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
   "scripts": {
-    "bundle": "NODE_ENV=production rollup -c rollup.config.js",
+    "bundle": "NODE_ENV=production rollup -c rollup.config2.js",
     "build": "NODE_ENV=production storybook build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -17,10 +17,8 @@
     "test": "jest"
   },
   "files": [
-    "index.*",
-    "formik.*",
-    "layouts.*",
-    "managers.*"
+    "dist",
+    "types"
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
@@ -34,25 +32,25 @@
   },
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js",
       "style": "./index.css",
-      "types": "./index.d.ts"
+      "types": "./types/index.d.ts"
     },
     "./layouts": {
-      "import": "./layouts.js",
-      "require": "./layouts.cjs.js",
-      "types": "./layouts.d.ts"
+      "import": "./dist/layouts.js",
+      "require": "./dist/layouts.cjs.js",
+      "types": "./types/layouts.d.ts"
     },
     "./formik": {
-      "import": "./formik.js",
-      "require": "./formik.cjs.js",
-      "types": "./formik.d.ts"
+      "import": "./dist/formik.js",
+      "require": "./dist/formik.cjs.js",
+      "types": "./types/formik.d.ts"
     },
     "./managers": {
-      "import": "./managers.js",
-      "require": "./managers.cjs.js",
-      "types": "./managers.d.ts"
+      "import": "./dist/managers.js",
+      "require": "./dist/managers.cjs.js",
+      "types": "./types/managers.d.ts"
     }
   },
   "devDependencies": {
@@ -155,6 +153,7 @@
     "react-toastify": "9.0.1",
     "rfs": "^10.0.0",
     "rollup": "^2.73.0",
+    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-styles": "^4.0.0",
