@@ -30,23 +30,23 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs.js",
+      "require": "./dist/cjs/index.js",
       "style": "./dist/index.css",
       "types": "./index.d.ts"
     },
     "./layouts": {
       "import": "./dist/layouts.js",
-      "require": "./dist/layouts.cjs.js",
+      "require": "./dist/cjs/layouts.js",
       "types": "./layouts.d.ts"
     },
     "./formik": {
       "import": "./dist/formik.js",
-      "require": "./dist/formik.cjs.js",
+      "require": "./dist/cjs/formik.js",
       "types": "./formik.d.ts"
     },
     "./managers": {
       "import": "./dist/managers.js",
-      "require": "./dist/managers.cjs.js",
+      "require": "./dist/cjs/managers.js",
       "types": "./managers.d.ts"
     }
   },
