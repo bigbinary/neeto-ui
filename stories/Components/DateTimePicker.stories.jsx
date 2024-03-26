@@ -26,12 +26,24 @@ const metadata = {
 
 const Default = args => <DateTimePicker {...args} />;
 
-const MinAndMaxDateTime = args => <DateTimePicker {...args} />;
+const MinAndMaxDateTime = ({
+  minDateTime,
+  maxDateTime,
+  defaultValue,
+  ...args
+}) => (
+  <DateTimePicker
+    {...args}
+    defaultValue={dayjs(defaultValue)}
+    maxDateTime={dayjs(maxDateTime)}
+    minDateTime={dayjs(minDateTime)}
+  />
+);
 
 MinAndMaxDateTime.args = {
-  defaultValue: dayjs("2024-03-14 09:15"),
-  minDateTime: dayjs("2024-03-13 10:00"),
-  maxDateTime: dayjs("2024-03-16 18:00"),
+  defaultValue: "2024-03-14 09:15",
+  minDateTime: "2024-03-13 10:00",
+  maxDateTime: "2024-03-16 18:00",
 };
 
 const CSSCustomization = args => <DateTimePicker {...args} />;

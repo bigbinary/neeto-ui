@@ -15,13 +15,20 @@ const metadata = {
 };
 
 const Default = args => {
-  const [value, setValue] = useState("12:45");
+  const [value, setValue] = useState("10:15");
 
   const onChangeHandler = (_, newValue) => {
+    console.log("newValue", newValue);
     setValue(newValue);
   };
 
-  return <TimePickerInput {...{ ...args, value }} onChange={onChangeHandler} />;
+  return (
+    <TimePickerInput
+      {...{ ...args, value }}
+      minTime="10:00"
+      onChange={onChangeHandler}
+    />
+  );
 };
 
 Default.args = { label: "Time picker" };

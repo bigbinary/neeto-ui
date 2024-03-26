@@ -13,7 +13,13 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
-import { getFormattedTime, getFormattedRange, toDayJs } from "./utils";
+import {
+  getFormattedTime,
+  getFormattedRange,
+  toDayJs,
+  isValid,
+  getValid,
+} from "./utils";
 
 dayjs.extend(customParseFormat);
 
@@ -36,6 +42,8 @@ const TimePickerInput = forwardRef(
       onChange = noop,
       error = "",
       onBlur = noop,
+      minTime,
+      maxTime,
       ...otherProps
     },
     ref
@@ -56,11 +64,20 @@ const TimePickerInput = forwardRef(
 
     const handleChange = newValue => {
       setValue(newValue);
-      onChange(toDayJs(newValue), newValue);
+      if (isValid(minTime, maxTime, newValue)) {
+        onChange(toDayJs(newValue), newValue);
+      }
     };
 
-    const handleShouldCloseClock = () => {
-      onBlur(toDayJs(value), value);
+    const onBlurHandle = () => {
+      if (isValid(minTime, maxTime, value)) {
+        onBlur(toDayJs(value), value);
+      } else {
+        const newValue = getValid(minTime, maxTime, value);
+        setValue(newValue);
+        onChange(toDayJs(newValue), newValue);
+        onBlur(toDayJs(newValue), value);
+      }
 
       return true;
     };
@@ -73,17 +90,20 @@ const TimePickerInput = forwardRef(
     const Component = timeComponents[type];
 
     return (
-      <div {...{ ref }} className="neeto-ui-input__wrapper">
+      <div
+        {...{ ref }}
+        className="neeto-ui-input__wrapper"
+        onBlur={onBlurHandle}
+      >
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
-          {...{ id, value }}
+          {...{ id, maxTime, minTime, value }}
           disableClock
           clearIcon={<HoverIcon time={!!value} />}
           format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
-          shouldCloseClock={handleShouldCloseClock}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
