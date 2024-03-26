@@ -16,7 +16,6 @@ import styles from "rollup-plugin-styles";
 import packageJson from "./package.json";
 
 const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
-
 const projectResolve = require("./resolve.js");
 
 const { alias: aliasEntries } = mergeDeepLeft(projectResolve, commonResolve);
@@ -53,7 +52,9 @@ const config = args => {
       copy({
         targets: [
           { src: "package.json", dest: destination },
-          { src: "types/", dest: destination },
+          { src: "index.d.ts", dest: destination },
+          { src: "formik.d.ts", dest: destination },
+          { src: "managers.d.ts", dest: destination },
         ],
       }),
   ];

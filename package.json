@@ -14,7 +14,8 @@
     "test": "jest"
   },
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
