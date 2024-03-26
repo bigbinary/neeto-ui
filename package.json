@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
   "scripts": {
-    "bundle": "NODE_ENV=production rollup -c rollup.config2.js",
+    "bundle": "NODE_ENV=production rollup -c rollup.config.js",
     "build": "NODE_ENV=production storybook build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
