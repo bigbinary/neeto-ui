@@ -1,9 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
   "version": "6.5.0",
-  "main": "./index.cjs.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
@@ -34,23 +31,22 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js",
-      "style": "./index.css",
-      "types": "./types/index.d.ts"
+      "types": "./index.d.ts"
     },
     "./layouts": {
       "import": "./dist/layouts.js",
       "require": "./dist/layouts.cjs.js",
-      "types": "./types/layouts.d.ts"
+      "types": "./layouts.d.ts"
     },
     "./formik": {
       "import": "./dist/formik.js",
       "require": "./dist/formik.cjs.js",
-      "types": "./types/formik.d.ts"
+      "types": "./formik.d.ts"
     },
     "./managers": {
       "import": "./dist/managers.js",
       "require": "./dist/managers.cjs.js",
-      "types": "./types/managers.d.ts"
+      "types": "./managers.d.ts"
     }
   },
   "devDependencies": {
