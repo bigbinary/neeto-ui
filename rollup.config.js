@@ -72,6 +72,7 @@ const config = args => {
       format,
       sourcemap: true,
       exports: "auto",
+      assetFileNames: "[name][extname]",
     })),
     plugins,
   };

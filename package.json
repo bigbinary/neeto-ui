@@ -14,8 +14,7 @@
     "test": "jest"
   },
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
@@ -31,6 +30,7 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js",
+      "style": "./dist/index.css",
       "types": "./index.d.ts"
     },
     "./layouts": {
