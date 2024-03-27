@@ -90,20 +90,17 @@ const TimePickerInput = forwardRef(
     const Component = timeComponents[type];
 
     return (
-      <div
-        {...{ ref }}
-        className="neeto-ui-input__wrapper"
-        onBlur={onBlurHandle}
-      >
+      <div {...{ ref }} className="neeto-ui-input__wrapper">
         {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
         <Component
-          {...{ id, maxTime, minTime, value }}
+          {...{ id, value }}
           disableClock
           clearIcon={<HoverIcon time={!!value} />}
           format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
+          shouldCloseClock={onBlurHandle}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
