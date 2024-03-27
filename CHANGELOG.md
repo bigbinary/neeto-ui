@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.4 - 2024-03-27
+
+Fixed: DatePicker unable to switch to different month or year.
+
 ## 6.5.3 - 2024-03-27
 
 Added: Styles for *ActionBlock* wrapper
@@ -34,7 +38,6 @@ Added: Styles for *ActionBlock* wrapper
 <img width="104" alt="Screenshot 2024-03-27 at 5 44 48 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/e02cb5cc-3633-444f-b0ce-71004dda55bb">
 ## 6.5.1 - 2024-03-26
 - Added: `isSubmitting` prop for *ActionBlock*
-
 ## 6.5.0 - 2024-03-22
 
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
@@ -222,7 +225,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 - Allowed the component to use its internal state even when the `onChange` prop
   is passed.
 ## 5.2.29 - 2023-11-13
-
 Added: `Add` button in *Select*
 
 ## 5.2.28 - 2023-11-08
@@ -1001,7 +1003,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.12 - 2022-07-25
 - Security: Bump moment from 2.29.3 to 2.29.4
 ## 3.5.11 - 2022-07-06
-
 - Added: a *Button* component in neetoui/formik that automatically disables
   itself if the form is not in a submittable state. Example: the form contains
   any invalid data, the form content has not been changed, or the form is
