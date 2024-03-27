@@ -23,7 +23,7 @@ const ActionBlock = ({
   const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
 
   return (
-    <div className={classnames(["flex items-center gap-x-2", className])}>
+    <div className={classnames(["neeto-ui-action-block__wrapper", className])}>
       <SubmitButton
         data-cy="save-changes-button"
         data-test-id="save-changes-button"
