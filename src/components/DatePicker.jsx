@@ -67,6 +67,7 @@ const DatePicker = forwardRef(
     ref
   ) => {
     const [mode, setMode] = useState(inputMode);
+    const [pickerValue, setPickerValue] = useState();
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -179,8 +180,12 @@ const DatePicker = forwardRef(
               ...otherProps,
               ...(type === "date" && {
                 mode,
+                pickerValue,
                 renderExtraFooter,
-                onPanelChange: (_, mode) => setMode(mode),
+                onPanelChange: (pickerValue, mode) => {
+                  setPickerValue(pickerValue);
+                  setMode(mode);
+                },
               }),
             }}
             nextIcon={<IconOverride icon={Right} />}
