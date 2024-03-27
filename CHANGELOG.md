@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.1 - 2024-03-26
+
+- Added: `isSubmitting` prop for *ActionBlock*
+
 ## 6.5.0 - 2024-03-22
 
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
@@ -153,7 +157,6 @@ Example:
   --->
 ## 6.0.2 - 2023-12-14
 Enhanced the responsiveness of the following components
-
 - Alert
 - Modal
 - Pane
@@ -209,7 +212,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.32 - 2023-11-15
 - Updated pagination URL param handling in the *Table*.
 - Implemented pagination URL param handling in the *Pagination* component.
-
 ## 5.2.31 - 2023-11-15
 
 - Allowed the component to use its internal state even when the `onChange` prop
@@ -992,7 +994,6 @@ Changes documentations to sentence case from title casing.
 - Added: type support for all exported components. IDE will now auto-predict the
   component props.
 - Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
-
 ## 3.5.12 - 2022-07-25
 
 - Security: Bump moment from 2.29.3 to 2.29.4
