@@ -16,6 +16,7 @@ import MenuItem from "./MenuItem";
 const BTN_STYLES = {
   primary: "primary",
   secondary: "secondary",
+  tertiary: "tertiary",
   danger: "danger",
   danger_text: "danger-text",
   text: "text",

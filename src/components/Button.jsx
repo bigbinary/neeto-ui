@@ -12,6 +12,7 @@ import Tooltip from "./Tooltip";
 const BUTTON_STYLES = {
   primary: "primary",
   secondary: "secondary",
+  tertiary: "tertiary",
   danger: "danger",
   danger_text: "danger-text",
   text: "text",
@@ -80,6 +81,7 @@ const Button = React.forwardRef(
           className={classnames("neeto-ui-btn", [className], {
             "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
             "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
+            "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
             "neeto-ui-btn--style-danger": style === BUTTON_STYLES.danger,
             "neeto-ui-btn--style-danger-text":
               style === BUTTON_STYLES.danger_text,
