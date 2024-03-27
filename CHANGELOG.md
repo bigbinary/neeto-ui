@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.2 - 2024-03-27
+
+- Added: tertiary variant Button.
+
+<img width="104" alt="Screenshot 2024-03-27 at 5 44 48 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/e02cb5cc-3633-444f-b0ce-71004dda55bb">
 ## 6.5.1 - 2024-03-26
 
 - Added: `isSubmitting` prop for *ActionBlock*
@@ -164,7 +169,6 @@ Enhanced the responsiveness of the following components
 - NoData
 - DatePicker
 - Stepper
-
 **Screenshots**
 
 <img width="339" alt="Screenshot 2023-12-12 at 3 22 21 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/fb641a39-ad0d-4ae9-8dd7-400a86d1229d">
@@ -213,7 +217,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 - Updated pagination URL param handling in the *Table*.
 - Implemented pagination URL param handling in the *Pagination* component.
 ## 5.2.31 - 2023-11-15
-
 - Allowed the component to use its internal state even when the `onChange` prop
   is passed.
 
@@ -995,7 +998,6 @@ Changes documentations to sentence case from title casing.
   component props.
 - Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
 ## 3.5.12 - 2022-07-25
-
 - Security: Bump moment from 2.29.3 to 2.29.4
 
 ## 3.5.11 - 2022-07-06
