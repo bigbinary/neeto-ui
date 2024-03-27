@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.5 - 2024-03-27
+
+- Fixed: Table sort state persisting when the query param is removed
+
 ## 6.5.4 - 2024-03-27
 
 Fixed: DatePicker unable to switch to different month or year.
@@ -39,7 +43,6 @@ Added: Styles for *ActionBlock* wrapper
 ## 6.5.1 - 2024-03-26
 - Added: `isSubmitting` prop for *ActionBlock*
 ## 6.5.0 - 2024-03-22
-
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
 
 ## 6.4.0 - 2024-03-21
@@ -226,7 +229,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
   is passed.
 ## 5.2.29 - 2023-11-13
 Added: `Add` button in *Select*
-
 ## 5.2.28 - 2023-11-08
 
 Added: *Stepper* component.
@@ -1010,7 +1012,6 @@ Changes documentations to sentence case from title casing.
   "neetoui/formik" as your submit button.
 - Changed: *ActionBlock* will now use the above-mentioned logic internally. So
   its submit/cancel buttons will also be automatically enabled or disabled.
-
 ## 3.5.10 - 2022-07-05
 
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
