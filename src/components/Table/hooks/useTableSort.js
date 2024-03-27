@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { camelToSnakeCase, isPresent, snakeToCamelCase } from "neetocist";
 import { mergeLeft } from "ramda";
@@ -28,6 +28,10 @@ const useTableSort = () => {
   const [sortedInfo, setSortedInfo] = useState(() =>
     getSortInfoFromQueryParams(queryParams)
   );
+
+  useEffect(() => {
+    setSortedInfo(getSortInfoFromQueryParams(queryParams));
+  }, [queryParams?.sort_by, queryParams?.order_by]);
 
   const history = useHistory();
 
