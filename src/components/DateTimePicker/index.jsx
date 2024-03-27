@@ -12,7 +12,7 @@ import TimePickerInput from "components/TimePickerInput";
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
-import { getDateTime, getAllowedTime } from "./utils";
+import { getDateTime, getAllowedTime, getTime } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 dayjs.extend(customParseFormat);
@@ -110,8 +110,8 @@ const DateTimePicker = ({
         <TimePickerInput
           {...{ error, nakedInput, size }}
           error={!!error}
-          maxTime={date?.isSame(maxDateTime, "day") && maxDateTime?.toDate()}
-          minTime={date?.isSame(minDateTime, "day") && minDateTime?.toDate()}
+          maxTime={date?.isSame(maxDateTime, "day") && getTime(maxDateTime)}
+          minTime={date?.isSame(minDateTime, "day") && getTime(minDateTime)}
           ref={timeRef}
           value={time}
           onBlur={handleTimeBlur}

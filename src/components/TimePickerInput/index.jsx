@@ -13,7 +13,13 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
-import { getFormattedTime, getFormattedRange, toDayJs } from "./utils";
+import {
+  getFormattedTime,
+  getFormattedRange,
+  toDayJs,
+  // isValid,
+  getValid,
+} from "./utils";
 
 dayjs.extend(customParseFormat);
 
@@ -36,6 +42,8 @@ const TimePickerInput = forwardRef(
       onChange = noop,
       error = "",
       onBlur = noop,
+      minTime,
+      maxTime,
       ...otherProps
     },
     ref
@@ -55,11 +63,12 @@ const TimePickerInput = forwardRef(
     }, [type, inputValue]);
 
     const handleChange = newValue => {
-      setValue(newValue);
-      onChange(toDayJs(newValue), newValue);
+      const validValue = getValid(minTime, maxTime, newValue);
+      setValue(validValue);
+      onChange(toDayJs(validValue), validValue);
     };
 
-    const handleShouldCloseClock = () => {
+    const onBlurHandle = () => {
       onBlur(toDayJs(value), value);
 
       return true;
@@ -83,7 +92,7 @@ const TimePickerInput = forwardRef(
           hourPlaceholder="HH"
           minutePlaceholder="mm"
           secondAriaLabel="ss"
-          shouldCloseClock={handleShouldCloseClock}
+          shouldCloseClock={onBlurHandle}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
