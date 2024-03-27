@@ -17,7 +17,7 @@ import {
   getFormattedTime,
   getFormattedRange,
   toDayJs,
-  isValid,
+  // isValid,
   getValid,
 } from "./utils";
 
@@ -63,21 +63,13 @@ const TimePickerInput = forwardRef(
     }, [type, inputValue]);
 
     const handleChange = newValue => {
-      setValue(newValue);
-      if (isValid(minTime, maxTime, newValue)) {
-        onChange(toDayJs(newValue), newValue);
-      }
+      const validValue = getValid(minTime, maxTime, newValue);
+      setValue(validValue);
+      onChange(toDayJs(validValue), validValue);
     };
 
     const onBlurHandle = () => {
-      if (isValid(minTime, maxTime, value)) {
-        onBlur(toDayJs(value), value);
-      } else {
-        const newValue = getValid(minTime, maxTime, value);
-        setValue(newValue);
-        onChange(toDayJs(newValue), newValue);
-        onBlur(toDayJs(newValue), value);
-      }
+      onBlur(toDayJs(value), value);
 
       return true;
     };

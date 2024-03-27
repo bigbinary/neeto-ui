@@ -25,6 +25,7 @@ const Default = args => {
   return (
     <TimePickerInput
       {...{ ...args, value }}
+      maxTime="18:00"
       minTime="10:00"
       onChange={onChangeHandler}
     />
