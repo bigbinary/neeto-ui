@@ -24,10 +24,7 @@ const TestActionBlock = ({
       }}
     >
       <Input label="Input label" name="input" />
-      <ActionBlock
-        cancelButtonProps={cancelButtonProps}
-        submitButtonProps={submitButtonProps}
-      />
+      <ActionBlock {...{ cancelButtonProps, submitButtonProps }} />
     </Form>
   );
 };
@@ -80,16 +77,14 @@ describe("formik/ActionBlock", () => {
 
   it("should submit with correct values", async () => {
     const onSubmit = jest.fn();
-    render(<TestActionBlock onSubmit={onSubmit} />);
+    render(<TestActionBlock {...{ onSubmit }} />);
 
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
     const input = screen.getByRole("textbox");
     await userEvent.type(input, "test");
     await userEvent.click(submitButton);
     await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
-        input: "test",
-      })
+      expect(onSubmit).toHaveBeenCalledWith({ input: "test" })
     );
   });
 
@@ -103,17 +98,17 @@ describe("formik/ActionBlock", () => {
     await waitFor(() => expect(input).toHaveValue(""));
   });
 
-  it("Cancel button should be disabled if form value is same", async () => {
+  it("Cancel button should not be disabled if form value is same", async () => {
     const onSubmit = jest.fn();
-    render(<TestActionBlock input="Oliver" onSubmit={onSubmit} />);
+    render(<TestActionBlock {...{ onSubmit }} input="Oliver" />);
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
-    expect(cancelButton).toBeDisabled();
+    expect(cancelButton).not.toBeDisabled();
     const input = screen.getByRole("textbox");
     await userEvent.type(input, "test");
     await waitFor(() => expect(cancelButton).not.toBeDisabled());
     await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
-    await waitFor(() => expect(cancelButton).toBeDisabled());
+    await waitFor(() => expect(cancelButton).not.toBeDisabled());
     await userEvent.click(cancelButton);
     await waitFor(() => expect(onSubmit).not.toBeCalled());
   });
@@ -126,7 +121,7 @@ describe("formik/ActionBlock", () => {
 
     const cancelButton = screen.getByRole("button", { name: /Cancel/i });
     const submitButton = screen.getByRole("button", { name: /Save changes/i });
-    expect(cancelButton).toBeDisabled();
+    expect(cancelButton).not.toBeDisabled();
     const input = screen.getByRole("textbox");
     await userEvent.type(input, "test");
     await waitFor(() => expect(cancelButton).not.toBeDisabled());

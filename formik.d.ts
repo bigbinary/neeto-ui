@@ -19,6 +19,7 @@ export interface ActionBlockProps {
   className?: string;
   submitButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
+  isSubmitting?: boolean;
 }
 export interface BlockNavigationProps {
   isDirty?: boolean;
