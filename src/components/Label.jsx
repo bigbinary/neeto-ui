@@ -24,21 +24,22 @@ const Label = ({
   const HelpIcon = icon || Help;
 
   return (
-    <label className={classnames("neeto-ui-label", className)} {...otherProps}>
-      {children}
-      {required && (
-        <span aria-hidden className="neeto-ui-inline-flex">
-          *
-        </span>
+    <label
+      className={classnames(
+        "neeto-ui-label neeto-ui-flex neeto-ui-items-center",
+        className
       )}
+      {...otherProps}
+    >
+      {children}
+      {required && <span aria-hidden>*</span>}
       {helpIconProps && (
         <Tooltip {...tooltipProps} disabled={!tooltipProps}>
           <span
             {...{ onClick }}
-            className={classnames(
-              "neeto-ui-label__help-icon-wrap neeto-ui-inline-flex",
-              { [helpIconClassName]: helpIconClassName }
-            )}
+            className={classnames("neeto-ui-label__help-icon-wrap", {
+              [helpIconClassName]: helpIconClassName,
+            })}
           >
             <HelpIcon size={16} {...otherHelpIconProps} />
           </span>
