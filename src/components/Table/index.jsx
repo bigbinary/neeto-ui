@@ -8,7 +8,12 @@ import React, {
 
 import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
-import { dynamicArray, modifyBy, snakeToCamelCase } from "neetocist";
+import {
+  dynamicArray,
+  isNotEmpty,
+  modifyBy,
+  snakeToCamelCase,
+} from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
@@ -170,7 +175,9 @@ const Table = ({
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
-    handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(false);
+    selectedRowKeys.length !== defaultPageSize &&
+      handleSetBulkSelectedAllRows &&
+      handleSetBulkSelectedAllRows(false);
     onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
   };
 
@@ -240,6 +247,13 @@ const Table = ({
 
     return originalElement;
   };
+
+  useEffect(() => {
+    if (isNotEmpty(initialSelectedRowKeys)) return;
+
+    setBulkSelectedAllRows(false);
+    handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(false);
+  }, [handleSetBulkSelectedAllRows, initialSelectedRowKeys]);
 
   useEffect(() => {
     const shouldNavigateToLastPage =
