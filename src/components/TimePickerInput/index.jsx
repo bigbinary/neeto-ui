@@ -13,6 +13,7 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
+import useAmPmChange from "./useAmPmChange";
 import {
   getFormattedTime,
   getFormattedRange,
@@ -81,6 +82,8 @@ const TimePickerInput = forwardRef(
 
       return true;
     };
+    // If you just make amPm select change onBlurHandle is not triggering, this hook is work around
+    useAmPmChange(value, onBlurHandle);
 
     const handleKeyDown = ({ code }) => {
       if (code !== "Enter") return;
