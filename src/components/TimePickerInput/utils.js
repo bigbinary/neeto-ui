@@ -25,21 +25,19 @@ export const toDayJs = value => {
   return dayjs(value, FORMAT);
 };
 
-// const isValidTime = (minTime, maxTime, value) => {
-//   if (isPresent(minTime) && toDayJs(value).isBefore(toDayJs(minTime)))
-//     return false;
+const isValidTime = (minTime, maxTime, value) => {
+  if (isPresent(minTime) && toDayJs(value).isBefore(toDayJs(minTime))) {
+    return false;
+  }
 
-//   if (isPresent(maxTime) && toDayJs(value).isAfter(toDayJs(maxTime)))
-//     return false;
+  return !(isPresent(maxTime) && toDayJs(value).isAfter(toDayJs(maxTime)));
+};
 
-//   return true;
-// };
+const isValidRange = (minTime, maxTime, value) =>
+  value.every(item => isValid(minTime, maxTime, item));
 
-// const isValidRange = (minTime, maxTime, value) =>
-//   value.every(item => isValid(minTime, maxTime, item));
-
-// export const isValid = (minTime, maxTime, value) =>
-//   (Array.isArray(value) ? isValidRange : isValidTime)(minTime, maxTime, value);
+export const isValid = (minTime, maxTime, value) =>
+  (Array.isArray(value) ? isValidRange : isValidTime)(minTime, maxTime, value);
 
 const getValidTime = (minTime, maxTime, value) => {
   if (isPresent(minTime) && toDayJs(value).isBefore(toDayJs(minTime))) {
