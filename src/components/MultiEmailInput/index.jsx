@@ -41,6 +41,7 @@ const MultiEmailInput = forwardRef(
       labelProps,
       visibleEmailsCount = 3,
       isCreateable = true,
+      maxCount = 10,
       ...otherProps
     },
     ref
@@ -57,6 +58,9 @@ const MultiEmailInput = forwardRef(
     const handleFilterEmails = () => onChange(renderValidEmails(value));
 
     const handleEmailChange = () => {
+      if (value.length >= maxCount) {
+        return setInputValue("");
+      }
       const inputValues = inputValue.match(EMAIL_SEPARATION_REGEX);
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
@@ -123,6 +127,8 @@ const MultiEmailInput = forwardRef(
 
     const isFilterEmailsLinkVisible =
       !!filterInvalidEmails && value.length > getValidEmailsCount(value);
+
+    console.log("inputValue", inputValue);
 
     return (
       <div className="neeto-ui-input__wrapper neeto-ui-email-input__wrapper">

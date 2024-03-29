@@ -137,6 +137,7 @@ const Counter = _args => {
   return (
     <MultiEmailInput
       counter={{ startsFrom: 3 }}
+      maxCount={4}
       value={emails}
       onChange={emails => setEmails(emails)}
     />
