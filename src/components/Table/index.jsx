@@ -174,11 +174,11 @@ const Table = ({
   );
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
-    selectedRowKeys.length !== defaultPageSize && setBulkSelectedAllRows(false);
-    selectedRowKeys.length !== defaultPageSize &&
-      handleSetBulkSelectedAllRows &&
-      handleSetBulkSelectedAllRows(false);
-    onRowSelect && onRowSelect(selectedRowKeys, selectedRows);
+    if (selectedRowKeys.length !== defaultPageSize) {
+      setBulkSelectedAllRows(false);
+      handleSetBulkSelectedAllRows?.(false);
+    }
+    onRowSelect?.(selectedRowKeys, selectedRows);
   };
 
   const rowSelectionProps = rowSelection
@@ -252,7 +252,7 @@ const Table = ({
     if (isNotEmpty(initialSelectedRowKeys)) return;
 
     setBulkSelectedAllRows(false);
-    handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(false);
+    handleSetBulkSelectedAllRows?.(false);
   }, [handleSetBulkSelectedAllRows, initialSelectedRowKeys]);
 
   useEffect(() => {
@@ -336,7 +336,7 @@ const Table = ({
           {...bulkSelectAllRowsProps}
           onBulkSelectAllRows={() => {
             setBulkSelectedAllRows(true);
-            handleSetBulkSelectedAllRows && handleSetBulkSelectedAllRows(true);
+            handleSetBulkSelectedAllRows?.(true);
           }}
         />
       )}
