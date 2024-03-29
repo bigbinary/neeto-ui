@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.7 - 2024-03-29
+
+Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when `bulkSelectedAllRowsProps` is passed.
+
 ## 6.5.5 - 2024-03-27
 
 - Fixed: Table sort state persisting when the query param is removed
@@ -44,7 +48,6 @@ Added: Styles for *ActionBlock* wrapper
 - Added: `isSubmitting` prop for *ActionBlock*
 ## 6.5.0 - 2024-03-22
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
-
 ## 6.4.0 - 2024-03-21
 
 Added: minDateTime and maxDateTime prop.
@@ -230,7 +233,6 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.29 - 2023-11-13
 Added: `Add` button in *Select*
 ## 5.2.28 - 2023-11-08
-
 Added: *Stepper* component.
 
 ## 5.2.27 - 2023-11-08
@@ -1013,7 +1015,6 @@ Changes documentations to sentence case from title casing.
 - Changed: *ActionBlock* will now use the above-mentioned logic internally. So
   its submit/cancel buttons will also be automatically enabled or disabled.
 ## 3.5.10 - 2022-07-05
-
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
 
 ## 3.5.9 - 2022-07-05
