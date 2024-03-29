@@ -15,21 +15,13 @@ const metadata = {
 };
 
 const Default = args => {
-  const [value, setValue] = useState("10:15");
+  const [value, setValue] = useState("12:45");
 
   const onChangeHandler = (_, newValue) => {
-    console.log("newValue", newValue);
     setValue(newValue);
   };
 
-  return (
-    <TimePickerInput
-      {...{ ...args, value }}
-      maxTime="18:00"
-      minTime="10:00"
-      onChange={onChangeHandler}
-    />
-  );
+  return <TimePickerInput {...{ ...args, value }} onChange={onChangeHandler} />;
 };
 
 Default.args = { label: "Time picker" };
@@ -74,6 +66,18 @@ const TimeRange = args => {
   );
 };
 
+const MinAndMaxTime = args => {
+  const [value, setValue] = useState("10:15");
+
+  const onChangeHandler = (_, newValue) => {
+    setValue(newValue);
+  };
+
+  return <TimePickerInput {...{ ...args, value }} onChange={onChangeHandler} />;
+};
+
+MinAndMaxTime.args = { maxTime: "18:00", minTime: "10:00" };
+
 const CSSCustomization = args => (
   <TimePickerInput
     className="neetix-time-input"
@@ -88,5 +92,5 @@ CSSCustomization.parameters = {
   docs: { description: { story: TimePickerInputCSSCustomization } },
 };
 
-export { Default, Sizes, TimeRange, CSSCustomization };
+export { Default, Sizes, TimeRange, MinAndMaxTime, CSSCustomization };
 export default metadata;

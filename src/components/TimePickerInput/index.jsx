@@ -76,6 +76,7 @@ const TimePickerInput = forwardRef(
         const validValue = getValid(minTime, maxTime, value);
         setValue(validValue);
         onChange(toDayJs(validValue), validValue);
+        onBlur(toDayJs(validValue), validValue);
       }
 
       return true;
@@ -189,6 +190,14 @@ TimePickerInput.propTypes = {
    * To specify the type of the TimePickerInput.
    */
   type: PropTypes.oneOf(Object.keys(timeComponents)),
+  /**
+   * To specify the minimum time of the TimePickerInput.
+   */
+  minTime: PropTypes.string,
+  /**
+   * To specify the maximum time of the TimePickerInput.
+   */
+  maxTime: PropTypes.string,
 };
 
 export default TimePickerInput;
