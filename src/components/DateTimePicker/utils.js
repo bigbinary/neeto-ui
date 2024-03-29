@@ -33,4 +33,4 @@ export const getAllowedTime = (date, time, minDateTime, maxDateTime) => {
   return newTime;
 };
 
-export const getTime = date => date.format(TIME_FORMAT);
+export const getTime = date => date?.format(TIME_FORMAT);
