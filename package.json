@@ -1,9 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
   "version": "6.5.7",
-  "main": "./index.cjs.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
@@ -17,10 +14,8 @@
     "test": "jest"
   },
   "files": [
-    "index.*",
-    "formik.*",
-    "layouts.*",
-    "managers.*"
+    "dist",
+    "*.d.ts"
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
@@ -34,24 +29,24 @@
   },
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs.js",
-      "style": "./index.css",
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js",
+      "style": "./dist/index.css",
       "types": "./index.d.ts"
     },
     "./layouts": {
-      "import": "./layouts.js",
-      "require": "./layouts.cjs.js",
+      "import": "./dist/layouts.js",
+      "require": "./dist/cjs/layouts.js",
       "types": "./layouts.d.ts"
     },
     "./formik": {
-      "import": "./formik.js",
-      "require": "./formik.cjs.js",
+      "import": "./dist/formik.js",
+      "require": "./dist/cjs/formik.js",
       "types": "./formik.d.ts"
     },
     "./managers": {
-      "import": "./managers.js",
-      "require": "./managers.cjs.js",
+      "import": "./dist/managers.js",
+      "require": "./dist/cjs/managers.js",
       "types": "./managers.d.ts"
     }
   },
@@ -155,6 +150,7 @@
     "react-toastify": "9.0.1",
     "rfs": "^10.0.0",
     "rollup": "^2.73.0",
+    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-styles": "^4.0.0",

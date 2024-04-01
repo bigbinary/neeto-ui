@@ -3,11 +3,13 @@ import React, { useRef } from "react";
 import { isPresent } from "neetocist";
 import { Check, MenuHorizontal } from "neetoicons";
 
-import { Dropdown, Popover, Typography } from "components";
+import Dropdown from "components/Dropdown";
+import Popover from "components/Popover";
 import {
   COLUMN_ADD_DIRECTION,
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
+import Typography from "components/Typography";
 
 const { Menu, MenuItem } = Dropdown;
 
