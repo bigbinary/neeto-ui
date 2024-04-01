@@ -2,8 +2,10 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Radio, Form } from "formik";
 import * as yup from "yup";
+
+import Form from "formikcomponents/Form";
+import Radio from "formikcomponents/Radio";
 
 const TestRadioForm = ({ onSubmit }) => {
   const handleSubmit = values => {

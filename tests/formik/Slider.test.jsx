@@ -3,8 +3,9 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Formik, Form } from "formik";
-import { Slider } from "formik";
 import * as yup from "yup";
+
+import Slider from "formikcomponents/Slider";
 
 describe("Slider", () => {
   it("should display validation error", async () => {

@@ -5,7 +5,7 @@ import { times } from "ramda";
 import * as yup from "yup";
 
 import { Select, Button, Modal, Pane, Typography } from "components";
-import { Select as FormikSelect } from "components/formik";
+import { Select as FormikSelect } from "formikcomponents";
 
 import { FORMIK_SELECT } from "../constants";
 

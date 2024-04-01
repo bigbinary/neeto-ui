@@ -2,8 +2,10 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Checkbox, Form } from "formik";
 import * as yup from "yup";
+
+import Checkbox from "formikcomponents/Checkbox";
+import Form from "formikcomponents/Form";
 
 const TestCheckboxForm = ({ onSubmit }) => {
   const handleSubmit = values => {

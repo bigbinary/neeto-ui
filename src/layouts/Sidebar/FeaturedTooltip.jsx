@@ -1,6 +1,6 @@
 import React from "react";
 
-import Typography from "src/Typography";
+import Typography from "components/Typography";
 
 const FeaturedTooltip = ({ label, description }) => (
   <div className="neeto-ui-flex neeto-ui-flex-col sidebar-featured-tooltip">

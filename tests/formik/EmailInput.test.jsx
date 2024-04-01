@@ -2,8 +2,10 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MultiEmailInput, Form } from "formik";
 import * as yup from "yup";
+
+import Form from "formikcomponents/Form";
+import MultiEmailInput from "formikcomponents/MultiEmailInput";
 
 const TestMultiEmailInputForm = ({ onSubmit }) => {
   const handleSubmit = values => {

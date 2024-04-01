@@ -2,7 +2,9 @@ import React from "react";
 
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Select as FormikSelect, Form } from "formik";
+
+import Form from "formikcomponents/Form";
+import FormikSelect from "formikcomponents/Select";
 
 const SELECT_OPTIONS = [
   { label: "Option 1", value: "fselect-opt1" },

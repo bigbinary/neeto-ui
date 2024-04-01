@@ -2,8 +2,10 @@ import React from "react";
 
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TreeSelect as FormikTreeSelect, Form } from "formik";
 import * as yup from "yup";
+
+import Form from "formikcomponents/Form";
+import FormikTreeSelect from "formikcomponents/TreeSelect";
 
 const treeData = [
   { id: 1, value: 1, label: "Category 1", pId: null },

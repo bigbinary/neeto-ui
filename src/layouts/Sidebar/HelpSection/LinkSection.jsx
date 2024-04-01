@@ -1,6 +1,6 @@
 import React from "react";
 
-import Typography from "src/Typography";
+import Typography from "components/Typography";
 import { noop } from "utils";
 
 const HelpLinkSection = ({ links }) => (

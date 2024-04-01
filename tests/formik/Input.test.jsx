@@ -2,8 +2,10 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Input, Form } from "formik";
 import * as yup from "yup";
+
+import Form from "formikcomponents/Form";
+import Input from "formikcomponents/Input";
 
 const TestForm = ({ onSubmit }) => {
   const handleSubmit = values => {

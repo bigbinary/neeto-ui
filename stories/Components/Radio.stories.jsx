@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Formik, Form } from "formik";
 
 import Button from "components/Button";
-import { Radio as FormikRadio } from "components/formik";
 import Radio from "components/Radio";
 import Typography from "components/Typography";
+import { Radio as FormikRadio } from "formikcomponents";
 
 import RadioCSSCustomization from "!raw-loader!./RadioStoriesDocs/RadioCSSCustomization.mdx";
 import RadioDocs from "!raw-loader!./RadioStoriesDocs/RadioDocs.mdx";

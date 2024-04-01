@@ -4,10 +4,11 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Field } from "formik";
-import { BlockNavigation, Form } from "formik";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { Input } from "components";
+import BlockNavigation from "formikcomponents/BlockNavigation";
+import Form from "formikcomponents/Form";
 
 const TestComponent = () => <div>test page</div>;
 
