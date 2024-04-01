@@ -148,7 +148,7 @@ export interface ButtonProps {
   loading?: boolean;
   to?: string;
   type?: "button" | "reset" | "submit";
-  style?: "primary" | "secondary" | "danger" | "danger-text" | "text" | "link";
+  style?: "primary" | "secondary" | "tertiary" | "danger" | "danger-text" | "text" | "link";
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;
@@ -251,6 +251,7 @@ export interface DropdownProps {
   buttonStyle?:
     | "primary"
     | "secondary"
+    | "tertiary"
     | "text"
     | "danger"
     | "danger-text"

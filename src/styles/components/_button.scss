@@ -169,6 +169,17 @@
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
   }
 
+  &-tertiary {
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-bg-color: rgb(var(--neeto-ui-white));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-100));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
+    --neeto-ui-btn-box-shadow: inset 0 0 0 1px rgba(var(--neeto-ui-gray-400));
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
+  }
+
   &-text {
     --neeto-ui-btn-color: rgb(var(--neeto-ui-gray-800));
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-gray-800));

@@ -8,6 +8,7 @@
 ** Represent a version as second level heading and write the version number inside a square bracket, eg: ##  [3.3.2]
 
 --->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -16,28 +17,52 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Each change is prefixed with one of these keywords::
 
-- *Added*: Describes new features.
-- *Changed*: Highlights modifications to existing functionality.
-- *Deprecated*: Marks features that will be removed in the future.
-- *Removed*: Indicates features that have been taken out.
-- *Fixed*: Denotes bug fixes.
-- *Security*: Pertains to actions taken in response to vulnerabilities.
+- _Added_: Describes new features.
+- _Changed_: Highlights modifications to existing functionality.
+- _Deprecated_: Marks features that will be removed in the future.
+- _Removed_: Indicates features that have been taken out.
+- _Fixed_: Denotes bug fixes.
+- _Security_: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.7 - 2024-03-29
+
+Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
+`bulkSelectedAllRowsProps` is passed.
+
+## 6.5.5 - 2024-03-27
+
+- Fixed: Table sort state persisting when the query param is removed
+
+## 6.5.4 - 2024-03-27
+
+Fixed: DatePicker unable to switch to different month or year.
+
+## 6.5.3 - 2024-03-27
+
+Added: Styles for _ActionBlock_ wrapper
+
+## 6.5.2 - 2024-03-27
+
+- Added: tertiary variant Button.
+
+<img width="104" alt="Screenshot 2024-03-27 at 5 44 48 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/e02cb5cc-3633-444f-b0ce-71004dda55bb">
+## 6.5.1 - 2024-03-26
+- Added: `isSubmitting` prop for *ActionBlock*
 ## 6.5.0 - 2024-03-22
-
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
-
 ## 6.4.0 - 2024-03-21
 
 Added: minDateTime and maxDateTime prop.
 
 ## 6.3.10 - 2024-03-20
 
-While changing the page for multi-paged table, the selected rows will not be deselected.
+While changing the page for multi-paged table, the selected rows will not be
+deselected.
 
 ## 6.3.9 - 2024-03-20
 
-- Added: Support for overriding the dropdown props in the *ColorPicker* component so that it can be further customised.
+- Added: Support for overriding the dropdown props in the _ColorPicker_
+  component so that it can be further customised.
 
 ## 6.3.8 - 2024-03-13
 
@@ -51,7 +76,7 @@ While changing the page for multi-paged table, the selected rows will not be des
 
 - Added: support for resize, suffix, prefix and sizing for textarea.
 
-@ajmaln _a Please review.
+@ajmaln \_a Please review.
 
 ## 6.3.5 - 2024-03-06
 
@@ -75,7 +100,6 @@ After
 
 ![2a-after](https://github.com/bigbinary/neeto-ui/assets/16187886/a4b009a5-b372-4677-aa1d-cc80217ad5b2)
 
-
 ---
 
 Before
@@ -98,7 +122,7 @@ After
 
 ## 6.2.5 - 2024-02-12
 
-Added:  `data-cy` to Tag container div.
+Added: `data-cy` to Tag container div.
 
 ## 6.2.4 - 2024-02-12
 
@@ -153,7 +177,6 @@ Example:
   --->
 ## 6.0.2 - 2023-12-14
 Enhanced the responsiveness of the following components
-
 - Alert
 - Modal
 - Pane
@@ -161,9 +184,7 @@ Enhanced the responsiveness of the following components
 - NoData
 - DatePicker
 - Stepper
-
 **Screenshots**
-
 <img width="339" alt="Screenshot 2023-12-12 at 3 22 21 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/fb641a39-ad0d-4ae9-8dd7-400a86d1229d">
 <img width="339" alt="Screenshot 2023-12-12 at 3 23 48 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/572b57f6-7c45-4405-afc6-d3ab9b47a844">
 <img width="343" alt="Screenshot 2023-12-12 at 3 26 02 AM" src="https://github.com/bigbinary/neeto-ui/assets/24496302/e5c47a01-d26e-4b50-a6db-7bdbf42849fd">
@@ -209,18 +230,12 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 ## 5.2.32 - 2023-11-15
 - Updated pagination URL param handling in the *Table*.
 - Implemented pagination URL param handling in the *Pagination* component.
-
 ## 5.2.31 - 2023-11-15
-
 - Allowed the component to use its internal state even when the `onChange` prop
   is passed.
-
 ## 5.2.29 - 2023-11-13
-
 Added: `Add` button in *Select*
-
 ## 5.2.28 - 2023-11-08
-
 Added: *Stepper* component.
 
 ## 5.2.27 - 2023-11-08
@@ -260,7 +275,7 @@ Added: Support for lazy loading for the `Select` component
 
 ## 5.2.17 - 2023-10-24
 
-Added: New *TreeSelect* component.
+Added: New _TreeSelect_ component.
 
 ## 5.2.15 - 2023-10-23
 
@@ -340,11 +355,11 @@ Fixed: scroll to error is not triggered on submitting form with enter key.
 
 ## 5.1.8 - 2023-08-24
 
-Added `type = "button"` attribute to *Tab.Item* component
+Added `type = "button"` attribute to _Tab.Item_ component
 
 ## 5.1.7 - 2023-08-21
 
-Added: `rejectCharsRegex` prop to *Input* component.
+Added: `rejectCharsRegex` prop to _Input_ component.
 
 ## 5.1.6 - 2023-08-17
 
@@ -353,11 +368,11 @@ Added: `rejectCharsRegex` prop to *Input* component.
 
 ## 5.1.5 - 2023-08-08
 
-- Added: `initialFocusRef` prop to *Alert*
+- Added: `initialFocusRef` prop to _Alert_
 
 ## 5.1.4 - 2023-08-04
 
-- Fixed: Handled dot paths in *ScrollToErrorField*.
+- Fixed: Handled dot paths in _ScrollToErrorField_.
 
 ## 5.1.3 - 2023-08-02
 
@@ -369,7 +384,7 @@ Added: `rejectCharsRegex` prop to *Input* component.
 
 ## 5.1.1 - 2023-08-02
 
-- Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
+- Fixed: issue with onClose in _Dropdown_ not getting called on trigger click.
 
 ## 5.1.0 - 2023-08-02
 
@@ -397,15 +412,15 @@ Fixed warnings in jest tests.
 
 ## 5.0.12 - 2023-06-29
 
-- Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
+- Changed: Default value of`scrollToErrorField` prop of formik _Form_ to false.
 
 ## 5.0.11 - 2023-06-27
 
-- Added: `hasScrollToErrorField` prop to formik *Form* component.
+- Added: `hasScrollToErrorField` prop to formik _Form_ component.
 
 ## 5.0.10 - 2023-06-20
 
-- Removed: condition to disable *FormikButton* when the form is invalid.
+- Removed: condition to disable _FormikButton_ when the form is invalid.
 
 ## 5.0.9 - 2023-06-17
 
@@ -426,30 +441,30 @@ Fixed warnings in jest tests.
 
 ## 5.0.6 - 2023-06-06
 
-- Fixes janky animation in *Pane* when form fields have the `autoFocus` prop.
+- Fixes janky animation in _Pane_ when form fields have the `autoFocus` prop.
 
 ## 5.0.5 - 2023-06-05
 
 Added: `optionRemapping` prop to map the label and value properties of `options`
-prop in *Select* component.
+prop in _Select_ component.
 
 ## 5.0.4 - 2023-05-29
 
 - Fixed: Overrided `onChange` function to output empty array if value is null in
-  *DatePicker*
+  _DatePicker_
 
 ## 5.0.3 - 2023-05-29
 
 - Fixed: the issue of filter invalid emails link for valid emails in
-  *MultiEmailInput* component
+  _MultiEmailInput_ component
 
 ## 5.0.2 - 2023-05-23
 
-- Added: `required` prop to *MultiEmailInput*.
+- Added: `required` prop to _MultiEmailInput_.
 
 ## 5.0.1 - 2023-05-07
 
-- Added: resize and reorder columns functionality to *Table* component.
+- Added: resize and reorder columns functionality to _Table_ component.
 
 ## 5.0.0 - 2023-04-28
 
@@ -467,7 +482,7 @@ Removed following components from `neetoui`:
 
 ## 4.4.27 - 2023-04-24
 
-- Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the
+- Added: `unlmitedChars` prop to _Input_ and _Textarea_ and reverted the
   behaviour of maxlength prop to the native one.
 
 ## 4.4.26 - 2023-04-14
@@ -489,7 +504,7 @@ Removed following components from `neetoui`:
 
 ## 4.4.22 - 2023-04-04
 
-Added: Support for children array in *Tooltip* component.
+Added: Support for children array in _Tooltip_ component.
 
 ## 4.4.21 - 2023-03-28
 
@@ -506,11 +521,11 @@ Added: `children` prop for button and tag components
 ## 4.4.18 - 2023-03-24
 
 - Changed: -the default row size to 30 and hidden the page size changer in the
-  *Table* component.
+  _Table_ component.
 
 ## 4.4.17 - 2023-03-22
 
-- Fixed: weird behavior or create new option in *MultiEmailInput*.
+- Fixed: weird behavior or create new option in _MultiEmailInput_.
 
 ## 4.4.16 - 2023-03-20
 
@@ -532,15 +547,15 @@ Added terser plugin to rollup config to minimise bundle size.
 
 ## 4.4.12 - 2023-03-15
 
-This PR adds the following changes to the *Switch* component.
+This PR adds the following changes to the _Switch_ component.
 
-- Added `forwardRef` to the *Switch* component so that it supports adding
-  *Tooltip* to it, as per this
+- Added `forwardRef` to the _Switch_ component so that it supports adding
+  _Tooltip_ to it, as per this
   [guide](https://github.com/atomiks/tippyjs-react#component-children).
 
 ## 4.4.11 - 2023-03-14
 
-- Added: `liveChat` prop to *HelpSection* component.
+- Added: `liveChat` prop to _HelpSection_ component.
 - Added: data-cy to `helpLink` prop.
 - Changed: label into an optional value in LinkType.
 
@@ -992,13 +1007,9 @@ Changes documentations to sentence case from title casing.
 - Added: type support for all exported components. IDE will now auto-predict the
   component props.
 - Changed: Deprecated babel-eslint was replaced with @babel/eslint-parser
-
 ## 3.5.12 - 2022-07-25
-
 - Security: Bump moment from 2.29.3 to 2.29.4
-
 ## 3.5.11 - 2022-07-06
-
 - Added: a *Button* component in neetoui/formik that automatically disables
   itself if the form is not in a submittable state. Example: the form contains
   any invalid data, the form content has not been changed, or the form is
@@ -1006,14 +1017,12 @@ Changes documentations to sentence case from title casing.
   "neetoui/formik" as your submit button.
 - Changed: *ActionBlock* will now use the above-mentioned logic internally. So
   its submit/cancel buttons will also be automatically enabled or disabled.
-
 ## 3.5.10 - 2022-07-05
-
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
 
 ## 3.5.9 - 2022-07-05
 
-- Fixed: Checkbox in *Table* component cut off in lower screen resolutions.
+- Fixed: Checkbox in _Table_ component cut off in lower screen resolutions.
 
 ## 3.5.8 - 2022-07-01
 
@@ -1022,7 +1031,7 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.7 - 2022-06-24
 
-- Added: `startsFrom` to `counter` prop of *EmailInput* component.
+- Added: `startsFrom` to `counter` prop of _EmailInput_ component.
 
 ## 3.5.6 - 2022-06-13
 
@@ -1030,20 +1039,20 @@ Changes documentations to sentence case from title casing.
 
 ## 3.5.5 - 2022-06-09
 
-- Fixed: issue with `onClose` function reference when closing the *Modal* using
+- Fixed: issue with `onClose` function reference when closing the _Modal_ using
   `Esc`.
 
 ## 3.5.4 - 2022-06-08
 
-Fixed: `TypeError` issue in *Toastr* component.
+Fixed: `TypeError` issue in _Toastr_ component.
 
 ## 3.5.3 - 2022-06-07
 
-- Fixed: issue with `closeOnEsc` prop when the *Dropdown* is controlled.
+- Fixed: issue with `closeOnEsc` prop when the _Dropdown_ is controlled.
 
 ## 3.5.2 - 2022-06-07
 
-- Fixed : placeholder content extending into multiple lines in *Select*
+- Fixed : placeholder content extending into multiple lines in _Select_
   component.
 
 ## 3.5.1 - 2022-06-07
@@ -1064,22 +1073,22 @@ Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.4.3
 
-- Added: `prefix` and `suffix` to *EmailInput*.
+- Added: `prefix` and `suffix` to _EmailInput_.
 
 ## 3.4.2
 
-- Fixed: issue with search not working with `isCreatable` *Select*.
+- Fixed: issue with search not working with `isCreatable` _Select_.
 
 ## 3.4.1
 
-- Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
+- Fixed: issue with `autoFocus` not working on _Input_ when inside _Dropdown_.
 
 ## 3.4.0
 
 - Removed: all instances of TailwindCSS.
-- Added: `label` prop in *Tags* molecule.
-- Changed: Added `neetoCal` into *AppSwitcher* app list .
-- Removed: `count` limiting (to 99) logic from *MenuBar.Block*.
+- Added: `label` prop in _Tags_ molecule.
+- Changed: Added `neetoCal` into _AppSwitcher_ app list .
+- Removed: `count` limiting (to 99) logic from _MenuBar.Block_.
 
 ## 3.3.13
 
@@ -1087,20 +1096,20 @@ Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.3.12
 
-- Fixed: loading state in *ActionBlock* component.
+- Fixed: loading state in _ActionBlock_ component.
 
 ## 3.3.11
 
-- Added: New input format for the *EmailInput* component.
+- Added: New input format for the _EmailInput_ component.
 
 ## 3.3.10
 
-- Fixed: Removed unnecessary scrollbar in *Table* component.
-- Added: `maxHeight` prop to the *EmailInput* component.
+- Fixed: Removed unnecessary scrollbar in _Table_ component.
+- Added: `maxHeight` prop to the _EmailInput_ component.
 
 ## 3.3.9
 
-- Fixed: *ActionDropdown* issues with common props for button and dropdown
+- Fixed: _ActionDropdown_ issues with common props for button and dropdown
 
 ## 3.3.7
 
@@ -1108,47 +1117,47 @@ Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.3.6
 
-- Fixed: Reset Formik data on continue action in *BlockNavigation* component.
+- Fixed: Reset Formik data on continue action in _BlockNavigation_ component.
 
 ## 3.3.5
 
-- Added: active state to `NavLink` in *Sidebar* component.
+- Added: active state to `NavLink` in _Sidebar_ component.
 
 ## 3.3.4
 
-- Added: `hideOnTargetExit` prop to *Tooltip* component
+- Added: `hideOnTargetExit` prop to _Tooltip_ component
 
 ## 3.3.3
 
-- Added: data-cy for in *Alert* component elements
+- Added: data-cy for in _Alert_ component elements
 
 ## 3.3.2
 
-- Fixed: Added override for `onClick` prop in *Dropdown* component
+- Fixed: Added override for `onClick` prop in _Dropdown_ component
 
 ## 3.3.1
 
-- Fixed: Typography of Header in *Alert* component.
-- Fixed: Max width issue in *Dropdown* component.
+- Fixed: Typography of Header in _Alert_ component.
+- Fixed: Max width issue in _Dropdown_ component.
 
 ## 3.3.0
 
-- Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
-- Changed: Implemented *Dropdown* component with Tippy.js and removed
+- Changed: **BREAKING** `isLoading` prop of _Table_ to `loading`.
+- Changed: Implemented _Dropdown_ component with Tippy.js and removed
   `react-popper`
-- Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert*
+- Deprecated: **BREAKING** `loading` prop of _Pane_, _Modal_ and _Alert_
   components.
-- Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
+- Removed: **BREAKING** `placement` prop from _Tooltip_ (Use position instead).
 
 #### UI
 
-- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
-  Palette*
-- Changed: the text color in *Table* to `$neeto-ui-black`
-- Changed: UI of *Tag* of component
-- Changed: look and feel of *Danger Button*
-- Changed: Contrast of *Avatar*, *Accordian*, *Toastr* and *Callout*
-- Changed: Made *Modal* Header text and Close icon aligned in a line
-- Added: new variant for *Danger Button* -`danger-text`
+- Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in _Color
+  Palette_
+- Changed: the text color in _Table_ to `$neeto-ui-black`
+- Changed: UI of _Tag_ of component
+- Changed: look and feel of _Danger Button_
+- Changed: Contrast of _Avatar_, _Accordian_, _Toastr_ and _Callout_
+- Changed: Made _Modal_ Header text and Close icon aligned in a line
+- Added: new variant for _Danger Button_ -`danger-text`
 - Added: new accent colors
 - ![accent-colors](https://user-images.githubusercontent.com/48869249/160755429-d2830f42-3086-4cbe-b9f5-4f0bca4f1a32.png)

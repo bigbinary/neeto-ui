@@ -58,6 +58,7 @@ const Styles = args => (
       <div className="flex flex-wrap items-center gap-4">
         <Button {...args} label="Primary" style="primary" />
         <Button {...args} label="Secondary" style="secondary" />
+        <Button {...args} label="Tertiary" style="tertiary" />
         <Button {...args} label="Text" style="text" />
         <Button {...args} label="Link" style="link" />
       </div>

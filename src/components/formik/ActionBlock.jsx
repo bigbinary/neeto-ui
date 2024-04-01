@@ -3,22 +3,33 @@ import React from "react";
 import classnames from "classnames";
 import { useFormikContext } from "formik";
 import PropTypes from "prop-types";
-import { equals } from "ramda";
 
 import Button from "components/Button";
 
 import SubmitButton from "./Button";
 
-const ActionBlock = ({ className, submitButtonProps, cancelButtonProps }) => {
-  const { handleReset, isSubmitting, values, initialValues } =
-    useFormikContext();
+const ActionBlock = ({
+  className,
+  submitButtonProps,
+  cancelButtonProps,
+  isSubmitting: isFormSubmitting,
+}) => {
+  const {
+    handleReset,
+    isSubmitting: isFormikSubmitting,
+    dirty,
+  } = useFormikContext();
+
+  const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
 
   return (
     <div className={classnames(["neeto-ui-action-block__wrapper", className])}>
       <SubmitButton
         data-cy="save-changes-button"
         data-test-id="save-changes-button"
+        disabled={isSubmitting || !dirty}
         label="Save changes"
+        loading={isSubmitting}
         style="primary"
         type="submit"
         {...submitButtonProps}
@@ -26,7 +37,7 @@ const ActionBlock = ({ className, submitButtonProps, cancelButtonProps }) => {
       <Button
         data-cy="cancel-button"
         data-test-id="cancel-button"
-        disabled={isSubmitting || equals(values, initialValues)}
+        disabled={isSubmitting}
         label="Cancel"
         style="text"
         onClick={handleReset}
@@ -50,6 +61,10 @@ ActionBlock.propTypes = {
    *  To provide props for cancel button.
    */
   cancelButtonProps: PropTypes.object,
+  /**
+   *  Optional prop to specify the state of form submission, typically used to provide React Query mutation loading state. If not provided, Formik's `isSubmitting` prop is used.
+   */
+  isSubmitting: PropTypes.bool,
 };
 
 export default ActionBlock;
