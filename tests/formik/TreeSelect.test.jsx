@@ -2,9 +2,8 @@ import React from "react";
 
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { TreeSelect as FormikTreeSelect, Form } from "formik";
 import * as yup from "yup";
-
-import { TreeSelect as FormikTreeSelect, Form } from "components/formik";
 
 const treeData = [
   { id: 1, value: 1, label: "Category 1", pId: null },
@@ -25,10 +24,10 @@ const TreeSelectComponent = ({ onSubmit }) => (
     }}
   >
     <FormikTreeSelect
+      {...{ treeData }}
       showSearch
       label="Formik TreeSelect"
       name="formikTreeSelect"
-      treeData={treeData}
     />
     <button type="submit">Submit</button>
   </Form>
@@ -62,7 +61,7 @@ describe("formik/TreeSelect", () => {
 
   it("should submit with the chosen option", async () => {
     const onSubmit = jest.fn();
-    render(<TreeSelectComponent onSubmit={onSubmit} />);
+    render(<TreeSelectComponent {...{ onSubmit }} />);
 
     const select = screen.getByRole("combobox");
     await userEvent.click(select);

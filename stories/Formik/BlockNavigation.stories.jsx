@@ -1,8 +1,8 @@
 import React from "react";
 
+import { Input, BlockNavigation } from "formik";
 import Button from "formik/Button";
-import { Input, BlockNavigation } from "formik/formik";
-import Form from "formik/formik/Form";
+import Form from "formik/Form";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as yup from "yup";
 

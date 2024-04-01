@@ -2,9 +2,8 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Button, Input, Form, Textarea } from "formik";
 import * as yup from "yup";
-
-import { Button, Input, Form, Textarea } from "components/formik";
 
 const FormikForm = ({
   onSubmit,
@@ -18,8 +17,8 @@ const FormikForm = ({
 
   return (
     <Form
+      {...{ scrollToErrorField }}
       className="nui-form-wrapper"
-      scrollToErrorField={scrollToErrorField}
       formikProps={{
         initialValues: { name: "Oliver Smith" },
         validationSchema: yup.object().shape({
@@ -71,7 +70,7 @@ describe("formik/Form", () => {
 
   it("should submit form", async () => {
     const onSubmit = jest.fn();
-    render(<FormikForm onSubmit={onSubmit} />);
+    render(<FormikForm {...{ onSubmit }} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     await userEvent.clear(input);
@@ -94,7 +93,7 @@ describe("formik/Form", () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    render(<FormikForm onSubmit={onSubmit} />);
+    render(<FormikForm {...{ onSubmit }} />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     await userEvent.clear(input);
@@ -110,7 +109,7 @@ describe("formik/Form", () => {
     const onSubmit = jest.fn();
     const scrollIntoView = jest.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    render(<FormikForm scrollToErrorField onSubmit={onSubmit} />);
+    render(<FormikForm {...{ onSubmit }} scrollToErrorField />);
     const input = screen.getByLabelText("First Name");
     const button = screen.getByRole("button");
     await userEvent.clear(input);
@@ -127,7 +126,7 @@ describe("formik/Form", () => {
 
   it("should not validate the form until form is dirty", async () => {
     const onSubmit = jest.fn();
-    render(<EmptyMultiLineForm onSubmit={onSubmit} />);
+    render(<EmptyMultiLineForm {...{ onSubmit }} />);
 
     const addressInput = screen.getByLabelText("Address");
 
@@ -151,7 +150,7 @@ describe("formik/Form", () => {
 
   it("should not call submit on hitting enter with EmptyMultiLineForm", async () => {
     const onSubmit = jest.fn();
-    render(<EmptyMultiLineForm onSubmit={onSubmit} />);
+    render(<EmptyMultiLineForm {...{ onSubmit }} />);
 
     const addressInput = screen.getByLabelText("Address");
 

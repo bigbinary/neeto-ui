@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ActionBlock, Input } from "formik/formik";
-import Form from "formik/formik/Form";
+import { ActionBlock, Input } from "formik";
+import Form from "formik/Form";
 import * as yup from "yup";
 
 import ActionBlockDocs from "!raw-loader!./ActionBlockStories.mdx";

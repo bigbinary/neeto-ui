@@ -2,9 +2,8 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { ActionBlock, Input, Form } from "formik";
 import { repeat } from "ramda";
-
-import { ActionBlock, Input, Form } from "components/formik";
 
 const TestActionBlock = ({
   input = "",

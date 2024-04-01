@@ -4,10 +4,10 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Field } from "formik";
+import { BlockNavigation, Form } from "formik";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { Input } from "components";
-import { BlockNavigation, Form } from "components/formik";
 
 const TestComponent = () => <div>test page</div>;
 
@@ -15,7 +15,7 @@ const TestForm = ({ isDirty }) => (
   <>
     <Link to="/test">Navigate</Link>
     <Form formikProps={{ initialValues: { formikInput: "test" } }}>
-      <BlockNavigation isDirty={isDirty} />
+      <BlockNavigation {...{ isDirty }} />
       <Field name="formikInput">
         {({ field }) => (
           <Input
@@ -34,7 +34,7 @@ const TestBlockNavigation = ({ isDirty }) => (
   <Router>
     <Switch>
       <Route exact path="/">
-        <TestForm isDirty={isDirty} />
+        <TestForm {...{ isDirty }} />
       </Route>
       <Route component={TestComponent} path="/test" />
     </Switch>

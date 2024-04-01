@@ -2,18 +2,11 @@ import React from "react";
 
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import { Select as FormikSelect, Form } from "components/formik";
+import { Select as FormikSelect, Form } from "formik";
 
 const SELECT_OPTIONS = [
-  {
-    label: "Option 1",
-    value: "fselect-opt1",
-  },
-  {
-    label: "Option 2",
-    value: "fselect-opt2",
-  },
+  { label: "Option 1", value: "fselect-opt1" },
+  { label: "Option 2", value: "fselect-opt2" },
 ];
 
 const validate = values => {
@@ -50,12 +43,7 @@ const SelectTest = ({ onSubmit }) => (
 describe("formik/Select", () => {
   it("should render without error", () => {
     const { getByLabelText } = render(
-      <Form
-        formikProps={{
-          initialValues: {},
-          onSubmit: () => {},
-        }}
-      >
+      <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <FormikSelect
           label="Formik Select"
           name="formikSelect"
@@ -69,12 +57,7 @@ describe("formik/Select", () => {
 
   it("should show available options when clicked", async () => {
     render(
-      <Form
-        formikProps={{
-          initialValues: {},
-          onSubmit: () => {},
-        }}
-      >
+      <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <FormikSelect
           label="Formik Select"
           name="formikSelect"
@@ -92,12 +75,7 @@ describe("formik/Select", () => {
 
   it("should should show no options if the input deosn't match any options", async () => {
     render(
-      <Form
-        formikProps={{
-          initialValues: {},
-          onSubmit: () => {},
-        }}
-      >
+      <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <FormikSelect
           label="Formik Select"
           name="formikSelect"
@@ -113,7 +91,7 @@ describe("formik/Select", () => {
 
   it("should submit with the chosen option", async () => {
     const onSubmit = jest.fn();
-    render(<SelectTest onSubmit={onSubmit} />);
+    render(<SelectTest {...{ onSubmit }} />);
 
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
     await userEvent.click(selectInput);

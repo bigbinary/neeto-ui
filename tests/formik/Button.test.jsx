@@ -2,9 +2,8 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Button, Input, Form } from "formik";
 import * as yup from "yup";
-
-import { Button, Input, Form } from "components/formik";
 
 const TestButtonForm = ({ onSubmit }) => {
   const handleSubmit = values => {
@@ -29,7 +28,7 @@ const TestButtonForm = ({ onSubmit }) => {
 
 const renderTestComponent = () => {
   const onSubmit = jest.fn();
-  render(<TestButtonForm onSubmit={onSubmit} />);
+  render(<TestButtonForm {...{ onSubmit }} />);
   const input = screen.getByRole("textbox");
   const button = screen.getByRole("button");
 
