@@ -1,11 +1,10 @@
 import React from "react";
 
+import Button from "formik/Button";
+import { Input, BlockNavigation } from "formik/formik";
+import Form from "formik/formik/Form";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as yup from "yup";
-
-import Button from "components/Button";
-import { Input, BlockNavigation } from "components/formik";
-import Form from "components/formik/Form";
 
 import BlockNavigationStoriesDocs from "!raw-loader!./BlockNavigationStories.mdx";
 
