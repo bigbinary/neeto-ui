@@ -27,7 +27,7 @@ const config = args => {
 
   const plugins = [
     cleaner({
-      targets: [path.resolve(__dirname, `${destination}dist/`)],
+      targets: [path.resolve(__dirname, destination, `dist`)],
     }),
     peerDepsExternal(),
     alias({ entries: aliasEntries }),
