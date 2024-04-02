@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect } from "react";
+import React, { forwardRef, useRef, useEffect } from "react";
 
 import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import classnames from "classnames";
@@ -13,7 +13,14 @@ import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
-import { getFormattedTime, getFormattedRange, toDayJs } from "./utils";
+import useRefState from "./useRefState";
+import {
+  getFormattedTime,
+  getFormattedRange,
+  toDayJs,
+  isValid,
+  getValid,
+} from "./utils";
 
 dayjs.extend(customParseFormat);
 
@@ -36,11 +43,14 @@ const TimePickerInput = forwardRef(
       onChange = noop,
       error = "",
       onBlur = noop,
+      minTime,
+      maxTime,
       ...otherProps
     },
     ref
   ) => {
-    const [value, setValue] = useState(null);
+    const [value, valueRef, setValue] = useRefState(null);
+    const componentRef = useRef(null);
     const id = useId(otherProps.id);
     const errorId = `error_${id}`;
 
@@ -56,18 +66,46 @@ const TimePickerInput = forwardRef(
 
     const handleChange = newValue => {
       setValue(newValue);
-      onChange(toDayJs(newValue), newValue);
+      if (isValid(minTime, maxTime, newValue)) {
+        onChange(toDayJs(newValue), newValue);
+      }
     };
 
-    const handleShouldCloseClock = () => {
-      onBlur(toDayJs(value), value);
+    const onBlurHandle = () => {
+      const value = valueRef.current;
+      if (isValid(minTime, maxTime, value)) {
+        onBlur(toDayJs(value), value);
+      } else {
+        const validValue = getValid(minTime, maxTime, value);
+        setValue(validValue);
+        onChange(toDayJs(validValue), validValue);
+        onBlur(toDayJs(validValue), validValue);
+      }
 
       return true;
     };
 
+    // If you just make amPm select change, onBlurHandle is not triggering. A work around
+    useEffect(() => {
+      const amPmChange = () => setTimeout(onBlurHandle);
+      const selectElements = document
+        .getElementById(id)
+        ?.querySelectorAll("[name='amPm']");
+
+      selectElements?.forEach(element =>
+        element.addEventListener("change", amPmChange)
+      );
+
+      return () => {
+        selectElements?.forEach(element =>
+          element.removeEventListener("change", amPmChange)
+        );
+      };
+    }, [value]);
+
     const handleKeyDown = ({ code }) => {
       if (code !== "Enter") return;
-      onBlur(toDayJs(value), value);
+      onBlurHandle();
     };
 
     const Component = timeComponents[type];
@@ -82,8 +120,9 @@ const TimePickerInput = forwardRef(
           format="hh:mm a"
           hourPlaceholder="HH"
           minutePlaceholder="mm"
+          ref={componentRef}
           secondAriaLabel="ss"
-          shouldCloseClock={handleShouldCloseClock}
+          shouldCloseClock={onBlurHandle}
           className={classnames("neeto-ui-time-picker", [className], {
             "neeto-ui-time-picker--small": size === "small",
             "neeto-ui-time-picker--medium": size === "medium",
@@ -173,6 +212,14 @@ TimePickerInput.propTypes = {
    * To specify the type of the TimePickerInput.
    */
   type: PropTypes.oneOf(Object.keys(timeComponents)),
+  /**
+   * To specify the minimum time of the TimePickerInput.
+   */
+  minTime: PropTypes.string,
+  /**
+   * To specify the maximum time of the TimePickerInput.
+   */
+  maxTime: PropTypes.string,
 };
 
 export default TimePickerInput;
