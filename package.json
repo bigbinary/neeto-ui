@@ -48,6 +48,16 @@
       "import": "./dist/managers.js",
       "require": "./dist/cjs/managers.js",
       "types": "./managers.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/cjs/*.js",
+      "types": "./index.d.ts"
+    },
+    "./formik/*": {
+      "import": "./dist/formik/*.js",
+      "require": "./dist/cjs/formik/*.js",
+      "types": "./formik.d.ts"
     }
   },
   "devDependencies": {
