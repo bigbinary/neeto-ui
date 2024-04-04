@@ -11,3 +11,17 @@ export * from "./types/formik/Slider";
 export * from "./types/formik/Switch";
 export * from "./types/formik/Textarea";
 export * from "./types/formik/TreeSelect";
+
+export { default as ActionBlock } from "./types/formik/ActionBlock";
+export { default as BlockNavigation } from "./types/formik/BlockNavigation";
+export { default as Button } from "./types/formik/Button";
+export { default as Checkbox } from "./types/formik/Checkbox";
+export { default as Form } from "./types/formik/Form";
+export { default as Input } from "./types/formik/Input";
+export { default as MultiEmailInput } from "./types/formik/MultiEmailInput";
+export { default as Radio } from "./types/formik/Radio";
+export { default as Select } from "./types/formik/Select";
+export { default as Slider } from "./types/formik/Slider";
+export { default as Switch } from "./types/formik/Switch";
+export { default as Textarea } from "./types/formik/Textarea";
+export { default as TreeSelect } from "./types/formik/TreeSelect";
