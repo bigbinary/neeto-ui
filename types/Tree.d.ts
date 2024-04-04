@@ -59,3 +59,4 @@ export type TreeProps = {
 };
 
 export const Tree: React.FC<TreeProps>;
+export default Tree;

@@ -36,4 +36,5 @@ export type TreeSelectProps = {
   treeData: Array<TreeItemNested> | Array<TreeItem>;
 };
 
-export const TreeSelect: React.FC<TreeSelectProps>;
+const TreeSelect: React.FC<TreeSelectProps>;
+export default TreeSelect;

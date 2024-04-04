@@ -15,4 +15,5 @@ export type LabelProps = {
   HTMLLabelElement
 > & { [key: string]: any };
 
-export const Label: React.FC<LabelProps>;
+const Label: React.FC<LabelProps>;
+export default Label;

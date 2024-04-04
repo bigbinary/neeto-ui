@@ -23,4 +23,5 @@ export interface InputProps
   rejectCharsRegex?: RegExp;
 }
 
-export const Input: React.ForwardRefExoticComponent<InputProps>;
+const Input: React.ForwardRefExoticComponent<InputProps>;
+export default Input;

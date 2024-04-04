@@ -16,4 +16,5 @@ export type SwitchProps = {
   HTMLInputElement
 > & { [key: string]: any };
 
-export const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+const Switch: React.ForwardRefExoticComponent<SwitchProps>;
+export default Switch;

@@ -22,4 +22,5 @@ export type DateTimePickerProps = {
   maxDateTime?: Dayjs;
 };
 
-export const DateTimePicker: React.FC<DateTimePickerProps>;
+const DateTimePicker: React.FC<DateTimePickerProps>;
+export default DateTimePicker;

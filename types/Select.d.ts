@@ -23,4 +23,5 @@ export type SelectProps = {
   addButtonLabel?: string;
 };
 
-export const Select: React.ForwardRefExoticComponent<SelectProps>;
+const Select: React.ForwardRefExoticComponent<SelectProps>;
+export default Select;

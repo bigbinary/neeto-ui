@@ -1,3 +1,1 @@
-import { Switch as PlainSwitch } from "../Switch";
-
-export const Switch: typeof PlainSwitch;
+export { default } from "../Switch";

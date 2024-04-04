@@ -17,4 +17,5 @@ export interface ActionDropdownProps {
   size?: "small" | "medium" | "large";
 }
 
-export const ActionDropdown: React.FC<ActionDropdownProps>;
+const ActionDropdown: React.FC<ActionDropdownProps>;
+export default ActionDropdown;

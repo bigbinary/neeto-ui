@@ -6,4 +6,5 @@ export type StepperProps = {
   setActiveIndex: (index: number) => void;
 };
 
-export const Stepper: React.FC<StepperProps>;
+const Stepper: React.FC<StepperProps>;
+export default Stepper;

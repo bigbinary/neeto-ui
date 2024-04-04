@@ -1,3 +1,1 @@
-import { Input as PlainInput } from "../Input";
-
-export const Input: typeof PlainInput;
+export { default } from "../Input";

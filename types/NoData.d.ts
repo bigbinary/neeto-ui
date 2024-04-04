@@ -10,4 +10,5 @@ export type NoDataProps = {
   className?: string;
 };
 
-export const NoData: React.FC<NoDataProps>;
+const NoData: React.FC<NoDataProps>;
+export default NoData;

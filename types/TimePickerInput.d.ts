@@ -16,4 +16,5 @@ export type TimePickerInputProps = {
   type?: "range" | "date";
 };
 
-export const TimePickerInput: React.FC<TimePickerInputProps>;
+const TimePickerInput: React.FC<TimePickerInputProps>;
+export default TimePickerInput;

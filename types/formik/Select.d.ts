@@ -1,3 +1,1 @@
-import { Select as PlainSelect } from "../Select";
-
-export const Select: typeof PlainSelect;
+export { default } from "../Select";

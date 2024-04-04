@@ -8,4 +8,5 @@ export type SliderProps = {
   value?: number | number[];
 };
 
-export const Slider: React.ForwardRefExoticComponent<SliderProps>;
+const Slider: React.ForwardRefExoticComponent<SliderProps>;
+export default Slider;

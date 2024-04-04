@@ -17,4 +17,5 @@ export interface ColorPickerProps {
   dropdownProps?: DropdownProps;
 }
 
-export const ColorPicker: React.FC<ColorPickerProps>;
+const ColorPicker: React.FC<ColorPickerProps>;
+export default ColorPicker;

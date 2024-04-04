@@ -19,4 +19,5 @@ export interface AlertProps {
   hideCancelButton?: boolean;
 }
 
-export const Alert: React.FC<AlertProps>;
+const Alert: React.FC<AlertProps>;
+export default Alert;

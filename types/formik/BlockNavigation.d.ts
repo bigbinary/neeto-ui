@@ -5,6 +5,5 @@ export interface BlockNavigationProps {
   isDirty?: boolean;
 }
 
-export const BlockNavigation: React.FC<
-  BlockNavigationProps & Partial<AlertProps>
->;
+const BlockNavigation: React.FC<BlockNavigationProps & Partial<AlertProps>>;
+export default BlockNavigation;

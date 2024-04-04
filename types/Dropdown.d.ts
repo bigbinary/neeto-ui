@@ -59,7 +59,7 @@ export interface DropdownProps {
   [key: string]: any;
 }
 
-export const Dropdown: React.FC<DropdownProps> & {
+const Dropdown: React.FC<DropdownProps> & {
   Menu: React.FC<
     React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLUListElement>,
@@ -74,3 +74,4 @@ export const Dropdown: React.FC<DropdownProps> & {
     >
   >;
 };
+export default Dropdown;

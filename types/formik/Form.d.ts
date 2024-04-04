@@ -9,4 +9,5 @@ export interface Form {
   scrollToErrorField?: boolean;
 }
 
-export const Form: React.FC<Form>;
+const Form: React.FC<Form>;
+export default Form;

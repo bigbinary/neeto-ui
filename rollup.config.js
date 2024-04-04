@@ -56,6 +56,7 @@ const config = args => {
           { src: "index.d.ts", dest: destination },
           { src: "formik.d.ts", dest: destination },
           { src: "managers.d.ts", dest: destination },
+          { src: "types/", dest: destination },
         ],
       }),
   ];

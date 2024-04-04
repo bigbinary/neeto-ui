@@ -5,4 +5,5 @@ export type SpinnerProps = {
   className?: string;
 };
 
-export const Spinner: React.FC<SpinnerProps>;
+const Spinner: React.FC<SpinnerProps>;
+export default Spinner;

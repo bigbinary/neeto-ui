@@ -28,4 +28,5 @@ export interface ButtonProps {
   [key: string]: any;
 }
 
-export const Button: React.FC<ButtonProps>;
+const Button: React.FC<ButtonProps>;
+export default Button;

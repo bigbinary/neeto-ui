@@ -7,4 +7,5 @@ export interface ActionBlockProps {
   cancelButtonProps?: ButtonProps;
   isSubmitting?: boolean;
 }
-export const ActionBlock: React.FC<ActionBlockProps>;
+const ActionBlock: React.FC<ActionBlockProps>;
+export default ActionBlock;

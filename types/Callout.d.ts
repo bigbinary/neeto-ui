@@ -9,4 +9,5 @@ export type CalloutProps = {
   HTMLDivElement
 > & { [key: string]: any };
 
-export const Callout: React.FC<CalloutProps>;
+const Callout: React.FC<CalloutProps>;
+export default Callout;

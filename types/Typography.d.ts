@@ -60,4 +60,5 @@ export type TypographyProps = {
     [key: string]: any;
   };
 
-export const Typography: React.ForwardRefExoticComponent<TypographyProps>;
+const Typography: React.ForwardRefExoticComponent<TypographyProps>;
+export default Typography;

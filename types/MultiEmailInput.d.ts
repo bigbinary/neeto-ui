@@ -21,4 +21,5 @@ export interface MultiEmailInputProps {
   [key: string]: any;
 }
 
-export const MultiEmailInput: React.FC<MultiEmailInputProps>;
+const MultiEmailInput: React.FC<MultiEmailInputProps>;
+export default MultiEmailInput;

@@ -6,7 +6,7 @@ type ToastrFunction = (
   onClick?: () => void
 ) => void;
 
-export const Toastr: {
+const Toastr: {
   show: ToastrFunction;
   info: ToastrFunction;
   success: ToastrFunction;
@@ -17,3 +17,4 @@ export const Toastr: {
   ) => void;
   warning: ToastrFunction;
 };
+export default Toastr;

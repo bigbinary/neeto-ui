@@ -14,4 +14,5 @@ export type CheckboxProps = {
   HTMLInputElement
 > & { [key: string]: any };
 
-export const Checkbox: React.FC<CheckboxProps>;
+const Checkbox: React.FC<CheckboxProps>;
+export default Checkbox;

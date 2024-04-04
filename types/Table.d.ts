@@ -37,4 +37,5 @@ export interface TableProps {
   onMoreActionClick?: (actionType: string, column: any) => void;
   [key: string]: any;
 }
-export const Table: React.FC<TableProps>;
+const Table: React.FC<TableProps>;
+export default Table;

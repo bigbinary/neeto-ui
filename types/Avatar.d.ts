@@ -13,4 +13,5 @@ export type AvatarProps = {
   HTMLSpanElement
 > & { [key: string]: any };
 
-export const Avatar: React.FC<AvatarProps>;
+const Avatar: React.FC<AvatarProps>;
+export default Avatar;

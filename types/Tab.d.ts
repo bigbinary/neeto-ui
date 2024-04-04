@@ -18,6 +18,7 @@ export type TabItemProps<S> = {
   [key: string]: any;
 };
 
-export const Tab: React.FC<TabProps> & {
+const Tab: React.FC<TabProps> & {
   Item: React.FC<TabItemProps<any>>;
 };
+export default Tab;

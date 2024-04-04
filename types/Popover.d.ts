@@ -28,4 +28,5 @@ export interface PopoverProps {
   [key: string]: any;
 }
 
-export const Popover: React.ForwardRefExoticComponent<PopoverProps>;
+const Popover: React.ForwardRefExoticComponent<PopoverProps>;
+export default Popover;

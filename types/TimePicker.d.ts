@@ -24,4 +24,5 @@ export type TimePickerProps = {
   [key: string]: any;
 };
 
-export const TimePicker: React.FC<TimePickerProps>;
+const TimePicker: React.FC<TimePickerProps>;
+export default TimePicker;

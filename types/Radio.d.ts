@@ -18,6 +18,7 @@ export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
   HTMLInputElement
 > & { [key: string]: any };
 
-export const Radio: React.FC<RadioProps> & {
+const Radio: React.FC<RadioProps> & {
   Item: React.FC<RadioItemProps>;
 };
+export default Radio;

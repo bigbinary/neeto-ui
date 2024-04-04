@@ -24,4 +24,5 @@ export type DatePickerProps = {
   [key: string]: any;
 };
 
-export const DatePicker: React.FC<DatePickerProps>;
+const DatePicker: React.FC<DatePickerProps>;
+export default DatePicker;

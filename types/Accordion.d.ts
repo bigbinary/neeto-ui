@@ -20,6 +20,7 @@ export interface AccordionItemProps {
   iconProps?: React.SVGProps<SVGSVGElement>;
 }
 
-export const Accordion: React.FC<AccordionProps> & {
+const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>;
 };
+export default Accordion;

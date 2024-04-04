@@ -18,4 +18,5 @@ export type TextareaProps = {
   HTMLTextAreaElement
 > & { [key: string]: any };
 
-export const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
+const Textarea: React.ForwardRefExoticComponent<TextareaProps>;
+export default Textarea;

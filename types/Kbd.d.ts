@@ -7,4 +7,5 @@ export type KbdProps = {
   tooltipProps?: TooltipProps;
 };
 
-export const Kbd: React.FC<KbdProps>;
+const Kbd: React.FC<KbdProps>;
+export default Kbd;

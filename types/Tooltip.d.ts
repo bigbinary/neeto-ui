@@ -27,4 +27,5 @@ export interface TooltipProps {
   [key: string]: any;
 }
 
-export const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
+const Tooltip: React.ForwardRefExoticComponent<TooltipProps>;
+export default Tooltip;
