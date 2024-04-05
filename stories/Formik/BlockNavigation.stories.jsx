@@ -56,6 +56,7 @@ const FormikStory = args => (
           </Form>
         </div>
       </Route>
+      {/* eslint-disable-next-line @bigbinary/neeto/use-common-routes */}
       <Route component={<div>Test</div>} path="/test" />
     </Switch>
   </Router>
