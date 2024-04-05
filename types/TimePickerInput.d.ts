@@ -14,6 +14,8 @@ export type TimePickerInputProps = {
   clearIcon?: string | Function | React.ReactNode;
   disabled?: boolean;
   type?: "range" | "date";
+  minTime?: string;
+  maxTime?: string;
 };
 
 const TimePickerInput: React.FC<TimePickerInputProps>;
