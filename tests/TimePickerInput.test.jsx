@@ -67,4 +67,44 @@ describe("TimePickerInput", () => {
     await userEvent.click(document.body);
     expect(onTimeInputBlur).toHaveBeenCalledWith(expect.anything(), "12:45");
   });
+
+  it("should not allow time before minTime", async () => {
+    const onChange = jest.fn();
+    render(
+      <TimePickerInput
+        {...{ onChange }}
+        label="Select Time"
+        minTime="11:00"
+        value="12:45"
+      />
+    );
+    const timePickerInput = screen.getByDisplayValue("12:45");
+    fireEvent.change(timePickerInput, { target: { value: "10:00" } });
+
+    const timePickerInputs = screen.getAllByRole("spinbutton");
+    await userEvent.click(timePickerInputs[0]);
+    await userEvent.click(timePickerInputs[1]);
+    await userEvent.click(document.body);
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), "11:00");
+  });
+
+  it("should not allow time after maxTime", async () => {
+    const onChange = jest.fn();
+    render(
+      <TimePickerInput
+        {...{ onChange }}
+        label="Select Time"
+        maxTime="11:00"
+        value="10:00"
+      />
+    );
+    const timePickerInput = screen.getByDisplayValue("10:00");
+    fireEvent.change(timePickerInput, { target: { value: "11:30" } });
+
+    const timePickerInputs = screen.getAllByRole("spinbutton");
+    await userEvent.click(timePickerInputs[0]);
+    await userEvent.click(timePickerInputs[1]);
+    await userEvent.click(document.body);
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), "11:00");
+  });
 });
