@@ -5,7 +5,8 @@ import { Close } from "neetoicons";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 
-import { Portal, Backdrop } from "atoms";
+import Backdrop from "atoms/Backdrop";
+import Portal from "atoms/Portal";
 import Button from "components/Button";
 import { useOverlayManager, useOverlay } from "hooks";
 

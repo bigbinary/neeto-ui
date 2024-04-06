@@ -38,7 +38,6 @@ const input = {
 ["components", "formik", "layouts", "managers"].forEach(group => {
   const components = getAllFilesInsideComponents(`src/${group}`);
   components.forEach(({ inputPath, outputName }) => {
-    // input[group === "formik" ? `Formik${outputName}` : outputName] = inputPath;
     const name = group === "formik" ? `formik/${outputName}` : outputName;
     input[name] = inputPath;
   });

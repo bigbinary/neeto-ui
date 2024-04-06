@@ -26,13 +26,3 @@ Element.prototype.scrollIntoView = jest.fn();
 
 Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
-
-global.console = {
-  ...console,
-  // uncomment to ignore a specific log level
-  log: jest.fn(),
-  debug: jest.fn(),
-  info: jest.fn(),
-  // warn: jest.fn(),
-  error: jest.fn(),
-};
