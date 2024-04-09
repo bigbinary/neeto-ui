@@ -243,11 +243,11 @@ DatePicker.propTypes = {
   /**
    * To specify the minimum date of the DatePicker.
    */
-  minTime: PropTypes.object,
+  minDate: PropTypes.object,
   /**
    * To specify the maximum date of the DatePicker.
    */
-  maxTime: PropTypes.object,
+  maxDate: PropTypes.object,
 };
 
 export default DatePicker;
