@@ -66,12 +66,13 @@ const DatePicker = forwardRef(
     }, [inputValue]);
 
     const handleOnChange = (date, dateString) => {
-      if (type == "range" && isNotPresent(date)) {
+      if (type === "range" && isNotPresent(date)) {
         return onChange([], dateString);
       }
       const allowed = getAllowed(date, minDate, maxDate);
       setValue(allowed);
-      onChange(allowed, formattedString(allowed, dateFormat));
+
+      return onChange(allowed, formattedString(allowed, dateFormat));
     };
 
     const renderExtraFooter = () => {
@@ -239,6 +240,14 @@ DatePicker.propTypes = {
    * To specify whether the Date picker value can be cleared or not.
    */
   allowClear: PropTypes.bool,
+  /**
+   * To specify the minimum date of the DatePicker.
+   */
+  minTime: PropTypes.object,
+  /**
+   * To specify the maximum date of the DatePicker.
+   */
+  maxTime: PropTypes.object,
 };
 
 export default DatePicker;

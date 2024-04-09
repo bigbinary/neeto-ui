@@ -207,7 +207,6 @@ const MinAndMaxDate = ({ minDate, maxDate, defaultValue, ...args }) => (
     defaultValue={dayjs(defaultValue)}
     maxDate={dayjs(maxDate)}
     minDate={dayjs(minDate)}
-    onChange={date => console.log(date.format("DD-MM-YYYY"))}
   />
 );
 

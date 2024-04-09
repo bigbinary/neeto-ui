@@ -148,7 +148,14 @@ export interface ButtonProps {
   loading?: boolean;
   to?: string;
   type?: "button" | "reset" | "submit";
-  style?: "primary" | "secondary" | "tertiary" | "danger" | "danger-text" | "text" | "link";
+  style?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "danger"
+    | "danger-text"
+    | "text"
+    | "link";
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;
@@ -201,6 +208,8 @@ export type DatePickerProps = {
   disabled?: boolean;
   labelProps?: LabelProps;
   allowClear?: boolean;
+  minDate?: Dayjs;
+  maxDate?: Dayjs;
   [key: string]: any;
 };
 
