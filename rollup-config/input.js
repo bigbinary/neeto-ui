@@ -30,7 +30,7 @@ const getAllFilesInsideComponents = basePath => {
 
 const input = {
   index: "./src/components/index.js",
-  "formik/index.js": "./src/formik/index.js",
+  "formik/index": "./src/formik/index.js",
   layouts: "./src/layouts/index.js",
   managers: "./src/managers/index.js",
 };
