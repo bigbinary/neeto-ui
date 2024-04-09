@@ -13,7 +13,7 @@ import { convertToDayjsObjects, noop, hyphenize } from "utils";
 import IconOverride from "./IconOverride";
 import Provider from "./Provider";
 import Today from "./Today";
-import { getAllowed } from "./utils";
+import { getAllowed, formattedString } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -71,7 +71,7 @@ const DatePicker = forwardRef(
       }
       const allowed = getAllowed(date, minDate, maxDate);
       setValue(allowed);
-      onChange(allowed, dateString);
+      onChange(allowed, formattedString(allowed, dateFormat));
     };
 
     const renderExtraFooter = () => {
@@ -95,10 +95,9 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
-            defaultValue={convertToDayjsObjects(defaultValue)}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat }}
-            value={convertToDayjsObjects(value)}
+            value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
               "neeto-ui-date-input--medium": size === "medium",
@@ -107,6 +106,11 @@ const DatePicker = forwardRef(
               "neeto-ui-date-input--naked": nakedInput,
               "neeto-ui-date-input--error": !!error,
             })}
+            defaultValue={getAllowed(
+              convertToDayjsObjects(defaultValue),
+              minDate,
+              maxDate
+            )}
             popupClassName={classnames("neeto-ui-date-time-dropdown", [
               dropdownClassName, // Will be removed in the next major version
               popupClassName,

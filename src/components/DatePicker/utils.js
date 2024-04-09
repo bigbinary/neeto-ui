@@ -13,7 +13,7 @@ const getAllowedDate = (date, minDate, maxDate) => {
 };
 
 const getAllowedRange = (dates, minDate, maxDate) =>
-  dates.map(item => getAllowedDate(minDate, maxDate, item));
+  dates.map(item => getAllowedDate(item, minDate, maxDate));
 
 const getAllowed = (date, minDate, maxDate) =>
   (Array.isArray(date) ? getAllowedRange : getAllowedDate)(
@@ -22,4 +22,9 @@ const getAllowed = (date, minDate, maxDate) =>
     maxDate
   );
 
-export { getAllowed };
+const formattedString = (date, dateFormat) =>
+  Array.isArray(date)
+    ? date.map(item => item.format(dateFormat))
+    : date.format(dateFormat);
+
+export { getAllowed, formattedString };

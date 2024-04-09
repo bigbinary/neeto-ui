@@ -140,4 +140,42 @@ describe("DatePicker", () => {
       );
     });
   });
+
+  it("if date selected is before minDate should round up to minDate", async () => {
+    const value = dayjs("2024-03-15");
+    const minDate = dayjs("2024-03-14");
+    const onChangeMock = jest.fn();
+    render(<DatePicker {...{ minDate, value }} onChange={onChangeMock} />);
+
+    const input = screen.getByPlaceholderText("Select date");
+    fireEvent.change(input, { target: { value: "10/10/2000" } });
+    fireEvent.blur(input);
+
+    await waitFor(() => {
+      expect(onChangeMock).toHaveBeenCalledWith(
+        expect.anything(),
+        // eslint-disable-next-line @bigbinary/neeto/use-standard-date-time-formats
+        minDate.format("DD/MM/YYYY")
+      );
+    });
+  });
+
+  it("if date selected is before maxDate should round up to maxDate", async () => {
+    const value = dayjs("2024-03-11");
+    const maxDate = dayjs("2024-03-14");
+    const onChangeMock = jest.fn();
+    render(<DatePicker {...{ maxDate, value }} onChange={onChangeMock} />);
+
+    const input = screen.getByPlaceholderText("Select date");
+    fireEvent.change(input, { target: { value: "10/10/2025" } });
+    fireEvent.blur(input);
+
+    await waitFor(() => {
+      expect(onChangeMock).toHaveBeenCalledWith(
+        expect.anything(),
+        // eslint-disable-next-line @bigbinary/neeto/use-standard-date-time-formats
+        maxDate.format("DD/MM/YYYY")
+      );
+    });
+  });
 });
