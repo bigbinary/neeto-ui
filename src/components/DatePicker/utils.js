@@ -24,7 +24,7 @@ const getAllowed = (date, minDate, maxDate) =>
 
 const formattedString = (date, dateFormat) =>
   Array.isArray(date)
-    ? date.map(item => item.format(dateFormat))
-    : date.format(dateFormat);
+    ? date.map(item => item?.format(dateFormat))
+    : date?.format(dateFormat);
 
 export { getAllowed, formattedString };
