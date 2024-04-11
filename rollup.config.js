@@ -14,6 +14,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import styles from "rollup-plugin-styles";
 
 import packageJson from "./package.json";
+import input from "./rollup-config/input";
 
 const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
 const projectResolve = require("./resolve.js");
@@ -55,16 +56,10 @@ const config = args => {
           { src: "index.d.ts", dest: destination },
           { src: "formik.d.ts", dest: destination },
           { src: "managers.d.ts", dest: destination },
+          { src: "types/", dest: destination },
         ],
       }),
   ];
-
-  const input = {
-    index: "./src/components/index.js",
-    layouts: "./src/components/layouts/index.js",
-    formik: "./src/components/formik/index.js",
-    managers: "./src/managers/index.js",
-  };
 
   return {
     input,

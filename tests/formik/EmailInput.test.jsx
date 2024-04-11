@@ -4,7 +4,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
 
-import { MultiEmailInput, Form } from "components/formik";
+import Form from "formikcomponents/Form";
+import MultiEmailInput from "formikcomponents/MultiEmailInput";
 
 const TestMultiEmailInputForm = ({ onSubmit }) => {
   const handleSubmit = values => {
@@ -38,12 +39,7 @@ const TestMultiEmailInputForm = ({ onSubmit }) => {
 describe("formik/EmailInput", () => {
   it("should render without error", () => {
     render(
-      <Form
-        formikProps={{
-          initialValues: {},
-          onSubmit: () => {},
-        }}
-      >
+      <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <MultiEmailInput name="emails" />
       </Form>
     );
@@ -52,7 +48,7 @@ describe("formik/EmailInput", () => {
 
   it("should return entered values when used inside a formik form", async () => {
     const onSubmit = jest.fn();
-    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm {...{ onSubmit }} />);
 
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(
@@ -85,7 +81,7 @@ describe("formik/EmailInput", () => {
 
   it("should display validation error when invalid email is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm {...{ onSubmit }} />);
     const emailInput = screen.getByRole("combobox");
     await userEvent.type(emailInput, "sam.doeemail.com");
     await userEvent.click(document.body);
@@ -100,7 +96,7 @@ describe("formik/EmailInput", () => {
 
   it("should display error when no email is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestMultiEmailInputForm onSubmit={onSubmit} />);
+    render(<TestMultiEmailInputForm {...{ onSubmit }} />);
     await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>
       expect(

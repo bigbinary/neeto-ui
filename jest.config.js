@@ -24,6 +24,8 @@ module.exports = () => ({
     ),
     "^atoms/(.*)$": path.resolve(__dirname, "src/atoms", "$1"),
     "^components/(.*)$": path.resolve(__dirname, "src/components", "$1"),
+    "^formikcomponents/(.*)$": path.resolve(__dirname, "src/formik", "$1"),
+    "^layouts/(.*)$": path.resolve(__dirname, "src/layouts", "$1"),
     "^constants/(.*)$": path.resolve(__dirname, "src/constants", "$1"),
     "^hooks/(.*)$": path.resolve(__dirname, "src/hooks", "$1"),
     "^managers/(.*)$": path.resolve(__dirname, "src/hooks", "$1"),

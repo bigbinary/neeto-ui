@@ -72,7 +72,6 @@ const TimePickerInput = forwardRef(
     };
 
     const onBlurHandle = () => {
-      const value = valueRef.current;
       if (isValid(minTime, maxTime, value)) {
         onBlur(toDayJs(value), value);
       } else {
@@ -85,9 +84,18 @@ const TimePickerInput = forwardRef(
       return true;
     };
 
+    const onAmPmChange = () => {
+      const value = valueRef.current;
+      if (!isValid(minTime, maxTime, value)) {
+        const validValue = getValid(minTime, maxTime, value);
+        setValue(validValue);
+        onChange(toDayJs(validValue), validValue);
+      }
+    };
+
     // If you just make amPm select change, onBlurHandle is not triggering. A work around
     useEffect(() => {
-      const amPmChange = () => setTimeout(onBlurHandle);
+      const amPmChange = () => setTimeout(onAmPmChange);
       const selectElements = document
         .getElementById(id)
         ?.querySelectorAll("[name='amPm']");

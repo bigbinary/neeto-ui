@@ -5,7 +5,8 @@ import { Close } from "neetoicons";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 
-import { Portal, Backdrop } from "atoms";
+import Backdrop from "atoms/Backdrop";
+import Portal from "atoms/Portal";
 import Button from "components/Button";
 import { useOverlay, useOverlayManager } from "hooks";
 
@@ -51,14 +52,13 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (hasTransitionCompleted) {
-      const headerHeight = getHeaderHeight(paneWrapper);
-      if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
-        paneWrapper.current.style.setProperty(
-          "--neeto-ui-pane-header-height",
-          `${headerHeight}px`
-        );
-      }
+    if (!hasTransitionCompleted) return;
+    const headerHeight = getHeaderHeight(paneWrapper);
+    if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
+      paneWrapper.current.style.setProperty(
+        "--neeto-ui-pane-header-height",
+        `${headerHeight}px`
+      );
     }
   }, [hasTransitionCompleted]);
 

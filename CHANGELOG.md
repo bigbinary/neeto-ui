@@ -24,6 +24,15 @@ Each change is prefixed with one of these keywords::
 - _Fixed_: Denotes bug fixes.
 - _Security_: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.11 - 2024-04-11
+
+Fixed: `antd` Datepicker not validating minDate and maxDate on input date
+changes.
+
+## 6.5.10 - 2024-04-11
+
+Fixed: Remove unnecessary onBlur trigger on amPm change in TimePickerInput
+
 ## 6.5.7 - 2024-03-29
 
 Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
@@ -51,9 +60,7 @@ Added: Styles for _ActionBlock_ wrapper
 ## 6.5.0 - 2024-03-22
 Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multipage tables
 ## 6.4.0 - 2024-03-21
-
 Added: minDateTime and maxDateTime prop.
-
 ## 6.3.10 - 2024-03-20
 
 While changing the page for multi-paged table, the selected rows will not be
@@ -237,9 +244,7 @@ This PR will migrate the package from `react-linkify` to `linkify-react`
 Added: `Add` button in *Select*
 ## 5.2.28 - 2023-11-08
 Added: *Stepper* component.
-
 ## 5.2.27 - 2023-11-08
-
 Changed: Updated instances of `@reach/autoid` with React `useId`
 
 ## 5.2.26 - 2023-11-08
@@ -1019,10 +1024,8 @@ Changes documentations to sentence case from title casing.
   its submit/cancel buttons will also be automatically enabled or disabled.
 ## 3.5.10 - 2022-07-05
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
-
 ## 3.5.9 - 2022-07-05
-
-- Fixed: Checkbox in _Table_ component cut off in lower screen resolutions.
+- Fixed: Checkbox in *Table* component cut off in lower screen resolutions.
 
 ## 3.5.8 - 2022-07-01
 

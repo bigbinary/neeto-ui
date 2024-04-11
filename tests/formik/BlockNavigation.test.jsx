@@ -7,7 +7,8 @@ import { Field } from "formik";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { Input } from "components";
-import { BlockNavigation, Form } from "components/formik";
+import BlockNavigation from "formikcomponents/BlockNavigation";
+import Form from "formikcomponents/Form";
 
 const TestComponent = () => <div>test page</div>;
 
@@ -15,7 +16,7 @@ const TestForm = ({ isDirty }) => (
   <>
     <Link to="/test">Navigate</Link>
     <Form formikProps={{ initialValues: { formikInput: "test" } }}>
-      <BlockNavigation isDirty={isDirty} />
+      <BlockNavigation {...{ isDirty }} />
       <Field name="formikInput">
         {({ field }) => (
           <Input
@@ -34,7 +35,7 @@ const TestBlockNavigation = ({ isDirty }) => (
   <Router>
     <Switch>
       <Route exact path="/">
-        <TestForm isDirty={isDirty} />
+        <TestForm {...{ isDirty }} />
       </Route>
       <Route component={TestComponent} path="/test" />
     </Switch>

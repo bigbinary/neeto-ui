@@ -5,12 +5,12 @@ import { pluck, prop } from "ramda";
 import * as yup from "yup";
 
 import Button from "components/Button";
+import MultiEmailInput from "components/MultiEmailInput";
+import Typography from "components/Typography";
 import {
   MultiEmailInput as FormikMultiEmailInput,
   Form,
-} from "components/formik";
-import MultiEmailInput from "components/MultiEmailInput";
-import Typography from "components/Typography";
+} from "formikcomponents";
 
 import { suffixes, prefixes } from "../constants";
 

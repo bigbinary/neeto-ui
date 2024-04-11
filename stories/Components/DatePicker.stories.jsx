@@ -201,6 +201,21 @@ const ShowTime = args => (
 );
 ShowTime.storyName = "Show time";
 
+const MinAndMaxDate = ({ minDate, maxDate, defaultValue, ...args }) => (
+  <DatePicker
+    {...args}
+    defaultValue={dayjs(defaultValue)}
+    maxDate={dayjs(maxDate)}
+    minDate={dayjs(minDate)}
+  />
+);
+
+MinAndMaxDate.args = {
+  defaultValue: "2024-03-14",
+  minDate: "2024-03-13",
+  maxDate: "2024-03-16",
+};
+
 const CSSCustomization = args => <DatePicker {...args} />;
 
 CSSCustomization.storyName = "DatePicker CSS Customization";
@@ -227,6 +242,7 @@ export {
   DateRangePicker,
   DateRangePickerWithPresetRanges,
   ShowTime,
+  MinAndMaxDate,
   CSSCustomization,
 };
 
