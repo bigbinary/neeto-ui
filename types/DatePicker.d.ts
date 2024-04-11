@@ -21,6 +21,8 @@ export type DatePickerProps = {
   disabled?: boolean;
   labelProps?: LabelProps;
   allowClear?: boolean;
+  minDate?: Dayjs;
+  maxDate?: Dayjs;
   [key: string]: any;
 };
 
