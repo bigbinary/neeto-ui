@@ -3,9 +3,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as yup from "yup";
 
-import Button from "components/Button";
-import { Input, BlockNavigation } from "components/formik";
-import Form from "components/formik/Form";
+import { Input, BlockNavigation } from "formikcomponents";
+import Button from "formikcomponents/Button";
+import Form from "formikcomponents/Form";
 
 import BlockNavigationStoriesDocs from "!raw-loader!./BlockNavigationStories.mdx";
 
@@ -56,6 +56,7 @@ const FormikStory = args => (
           </Form>
         </div>
       </Route>
+      {/* eslint-disable-next-line @bigbinary/neeto/use-common-routes */}
       <Route component={<div>Test</div>} path="/test" />
     </Switch>
   </Router>

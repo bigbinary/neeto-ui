@@ -2,8 +2,8 @@ import React from "react";
 
 import * as yup from "yup";
 
-import { Input, Button } from "components/formik";
-import Form from "components/formik/Form";
+import { Input, Button } from "formikcomponents";
+import Form from "formikcomponents/Form";
 
 import FormStoriesDocs from "!raw-loader!./FormStories.mdx";
 

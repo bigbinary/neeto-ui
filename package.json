@@ -15,6 +15,7 @@
   },
   "files": [
     "dist",
+    "types",
     "*.d.ts"
   ],
   "lint-staged": {
@@ -40,14 +41,24 @@
       "types": "./layouts.d.ts"
     },
     "./formik": {
-      "import": "./dist/formik.js",
-      "require": "./dist/cjs/formik.js",
+      "import": "./dist/formik/index.js",
+      "require": "./dist/cjs/formik/index.js",
       "types": "./formik.d.ts"
     },
     "./managers": {
       "import": "./dist/managers.js",
       "require": "./dist/cjs/managers.js",
       "types": "./managers.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/cjs/*.js",
+      "types": "./types/*.d.ts"
+    },
+    "./formik/*": {
+      "import": "./dist/formik/*.js",
+      "require": "./dist/cjs/formik/*.js",
+      "types": "./types/formik/*.d.ts"
     }
   },
   "devDependencies": {

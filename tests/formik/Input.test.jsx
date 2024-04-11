@@ -4,7 +4,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
 
-import { Input, Form } from "components/formik";
+import Form from "formikcomponents/Form";
+import Input from "formikcomponents/Input";
 
 const TestForm = ({ onSubmit }) => {
   const handleSubmit = values => {
@@ -53,7 +54,7 @@ describe("formik/Input", () => {
 
   it("should return entered values when used inside a formik form", async () => {
     const onSubmit = jest.fn();
-    render(<TestForm onSubmit={onSubmit} />);
+    render(<TestForm {...{ onSubmit }} />);
     await userEvent.type(screen.getByLabelText("First Name"), "John");
     await userEvent.type(screen.getByLabelText("Last Name"), "Doe");
     await userEvent.type(screen.getByLabelText("Email"), "john.doe@email.com");
@@ -69,7 +70,7 @@ describe("formik/Input", () => {
 
   it("should display validation error when invalid input is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestForm onSubmit={onSubmit} />);
+    render(<TestForm {...{ onSubmit }} />);
     await userEvent.type(screen.getByLabelText("Email"), "john.doemail.com");
     await userEvent.click(screen.getByText("Submit"));
     expect(
@@ -79,7 +80,7 @@ describe("formik/Input", () => {
 
   it("should display validation error when string having only rejected characters is provided", async () => {
     const onSubmit = jest.fn();
-    render(<TestForm onSubmit={onSubmit} />);
+    render(<TestForm {...{ onSubmit }} />);
     await userEvent.type(screen.getByLabelText("First Name"), "123");
     await userEvent.click(screen.getByText("Submit"));
 

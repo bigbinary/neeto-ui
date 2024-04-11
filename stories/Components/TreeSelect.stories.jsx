@@ -4,8 +4,8 @@ import { DownArrow, DownArrowCircle } from "neetoicons";
 import * as yup from "yup";
 
 import Button from "components/Button";
-import { TreeSelect as FormikTreeSelect, Form } from "components/formik";
 import TreeSelect from "components/TreeSelect";
+import { TreeSelect as FormikTreeSelect, Form } from "formikcomponents";
 
 import TreeSelectCSSCustomization from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectCSSCustomization.mdx";
 import TreeSelectDocs from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectDocs.mdx";
