@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import { Spinner } from "atoms";
+import Spinner from "atoms/Spinner";
 
 import Tooltip from "./Tooltip";
 

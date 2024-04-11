@@ -4,8 +4,9 @@ import { Search } from "neetoicons";
 import * as yup from "yup";
 
 import Button from "components/Button";
-import { Input as FormikInput, Form } from "components/formik";
 import Input from "components/Input";
+import Form from "formikcomponents/Form";
+import FormikInput from "formikcomponents/Input";
 
 import InputCSSCustomization from "!raw-loader!./InputStoriesDocs/InputCSSCustomization.mdx";
 import InputDocs from "!raw-loader!./InputStoriesDocs/InputDocs.mdx";

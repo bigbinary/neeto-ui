@@ -4,7 +4,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
 
-import { Textarea, Form } from "components/formik";
+import Form from "formikcomponents/Form";
+import Textarea from "formikcomponents/Textarea";
 
 const TestTextarea = ({ onSubmit }) => {
   const handleSubmit = values => {
@@ -38,7 +39,7 @@ describe("formik/Textarea", () => {
 
   it("should submit with the correct values", async () => {
     const onSubmit = jest.fn();
-    render(<TestTextarea onSubmit={onSubmit} />);
+    render(<TestTextarea {...{ onSubmit }} />);
     await userEvent.type(screen.getByRole("textbox"), "Test input");
     await userEvent.click(screen.getByText("Submit"));
     await waitFor(() =>

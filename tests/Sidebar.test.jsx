@@ -12,7 +12,7 @@ import {
 } from "neetoicons";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Sidebar } from "components/layouts";
+import Sidebar from "layouts/Sidebar";
 
 import { STORYBOOK_NAV_LINKS } from "../stories/constants";
 
@@ -26,20 +26,8 @@ const sidebarProps = {
     name: "Kieran Miller",
     email: "kieran.miller@email.com",
     imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    topLinks: [
-      {
-        label: "Profile",
-        onClick: () => {},
-        icon: Settings,
-      },
-    ],
-    bottomLinks: [
-      {
-        label: "Logout",
-        onClick: () => {},
-        icon: LeftArrow,
-      },
-    ],
+    topLinks: [{ label: "Profile", onClick: () => {}, icon: Settings }],
+    bottomLinks: [{ label: "Logout", onClick: () => {}, icon: LeftArrow }],
   },
   helpLinks: {
     documentationProps: {
@@ -160,9 +148,8 @@ describe("Sidebar", () => {
     const { container } = render(
       <Router>
         <Sidebar
-          {...sidebarProps}
+          {...{ ...sidebarProps, onAppSwitcherToggle }}
           showAppSwitcher
-          onAppSwitcherToggle={onAppSwitcherToggle}
         />
       </Router>
     );
