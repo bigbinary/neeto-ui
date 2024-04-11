@@ -141,7 +141,7 @@ describe("DatePicker", () => {
     });
   });
 
-  it("if date selected is before minDate should round up to minDate", async () => {
+  it("if selected date is before minDate then it should round to minDate", async () => {
     const value = dayjs("2024-03-15");
     const minDate = dayjs("2024-03-14");
     const onChangeMock = jest.fn();
@@ -160,7 +160,7 @@ describe("DatePicker", () => {
     });
   });
 
-  it("if date selected is before maxDate should round up to maxDate", async () => {
+  it("if selected date is after maxDate then it should round to maxDate", async () => {
     const value = dayjs("2024-03-11");
     const maxDate = dayjs("2024-03-14");
     const onChangeMock = jest.fn();
