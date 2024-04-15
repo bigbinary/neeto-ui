@@ -78,7 +78,7 @@ const Button = React.forwardRef(
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
         <Parent
-          className={classnames("neeto-ui-btn", [className], {
+          className={classnames("neeto-ui-btn", "bg-red-500", [className], {
             "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
             "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
             "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
