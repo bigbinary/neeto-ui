@@ -23,6 +23,17 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.12 - 2024-04-15
+
+- Added: Customizable border to Popover arrow.
+
+<img width="469" alt="Screenshot 2024-04-15 at 7 25 08 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/70358c5b-6376-476c-a366-6171f4461e0d">
+<img width="567" alt="Screenshot 2024-04-15 at 7 24 56 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/2a179dd2-0dbe-4583-9e96-c12dddb3480b">
+<img width="496" alt="Screenshot 2024-04-15 at 7 27 10 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/35a20f00-13f2-469a-b00f-5848a4c100e2">
+<img width="479" alt="Screenshot 2024-04-15 at 7 25 54 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/1c1505de-be74-4253-8721-774e33737917">
+Darkmode
+
+<img width="527" alt="Screenshot 2024-04-15 at 7 40 37 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/297a9cd4-e56c-4582-82a3-c104a254afc0">
 ## 6.5.11 - 2024-04-11
 
 Fixed: `antd` Datepicker not validating minDate and maxDate on input date changes.
@@ -60,7 +71,6 @@ Added: `bulkSelectAllRowsProps` for tables to allow selecting all rows for multi
 ## 6.4.0 - 2024-03-21
 Added: minDateTime and maxDateTime prop.
 ## 6.3.10 - 2024-03-20
-
 While changing the page for multi-paged table, the selected rows will not be
 deselected.
 
@@ -245,7 +255,6 @@ Added: `Add` button in *Select*
 Added: *Stepper* component.
 ## 5.2.27 - 2023-11-08
 Changed: Updated instances of `@reach/autoid` with React `useId`
-
 ## 5.2.26 - 2023-11-08
 
 - Changed: pagination button size from `32px` to `28px`.
@@ -1025,7 +1034,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: issue with closeOnEsc prop when the Pane is controlled.
 ## 3.5.9 - 2022-07-05
 - Fixed: Checkbox in *Table* component cut off in lower screen resolutions.
-
 ## 3.5.8 - 2022-07-01
 
 - Fixed: Error when handling `axios` error objects with `undefined` response in
