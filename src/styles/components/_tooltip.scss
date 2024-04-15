@@ -1,4 +1,6 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   --neeto-ui-tooltip-max-width: calc(100vw - 10px);
   --neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
@@ -12,6 +14,8 @@
 
   // Arrow
   --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tooltip-arrow-size: 6px;
+  --neeto-ui-tooltip-arrow-offset: 12px;
 
   // Light theme
   --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
@@ -200,7 +204,8 @@
   border-top-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
-.tippy-box[data-theme~="light"][data-placement^="bottom"] > .tippy-arrow:before {
+.tippy-box[data-theme~="light"][data-placement^="bottom"]
+  > .tippy-arrow:before {
   border-bottom-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
@@ -224,4 +229,62 @@
   --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-800));
   --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-800));
   --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-primary-800));
+}
+
+// Adding border to popover
+
+.tippy-box[data-theme~="light"] {
+  .tippy-arrow {
+    transform-style: preserve-3d;
+    width: 0;
+    height: 0;
+    border: var(--neeto-ui-tooltip-arrow-size) solid transparent;
+    color: rgb(var(--neeto-ui-white));
+
+    &::before {
+      transform: translateZ(-1px);
+      border: var(--neeto-ui-tooltip-arrow-size) solid transparent;
+    }
+  }
+  &[data-placement^="right"] .tippy-arrow {
+    border-right-color: rgb(var(--neeto-ui-white));
+    left: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+
+    &::before {
+      left: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
+      top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      border-right-color: var(--neeto-ui-popover-light-theme-border-color);
+    }
+  }
+  &[data-placement^="left"] .tippy-arrow {
+    border-left-color: rgb(var(--neeto-ui-white));
+    right: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+
+    &::before {
+      right: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
+      top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      border-left-color: var(--neeto-ui-popover-light-theme-border-color);
+    }
+  }
+  &[data-placement^="bottom"] .tippy-arrow {
+    border-bottom-color: rgb(var(--neeto-ui-white));
+    top: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+
+    &::before {
+      top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
+      left: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      bottom: auto;
+      border-bottom-color: var(--neeto-ui-popover-light-theme-border-color);
+    }
+  }
+  &[data-placement^="top"] .tippy-arrow {
+    border-top-color: rgb(var(--neeto-ui-white));
+    bottom: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+
+    &::before {
+      left: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) - 1px));
+      border-top-color: var(--neeto-ui-popover-light-theme-border-color);
+    }
+  }
 }

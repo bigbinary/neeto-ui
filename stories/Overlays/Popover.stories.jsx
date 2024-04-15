@@ -25,11 +25,17 @@ const ShowPopover = args => {
   return (
     <div className="space-y-8 p-10">
       <Button
+        className="m-80"
         label="Show Popover"
         ref={popoverReferenceElement}
         style="secondary"
       />
-      <Popover reference={popoverReferenceElement} {...args}>
+      <Popover
+        reference={popoverReferenceElement}
+        {...args}
+        arrowType="sharp"
+        trigger="click"
+      >
         <Popover.Title>What is KB keywords?</Popover.Title>
         <Typography lineHeight="normal" style="body2">
           Keywords represent the key concepts of an article. These will be shown
