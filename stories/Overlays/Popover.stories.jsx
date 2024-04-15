@@ -29,7 +29,7 @@ const ShowPopover = args => {
         ref={popoverReferenceElement}
         style="secondary"
       />
-      <Popover reference={popoverReferenceElement} {...args} arrowType="sharp">
+      <Popover reference={popoverReferenceElement} {...args}>
         <Popover.Title>What is KB keywords?</Popover.Title>
         <Typography lineHeight="normal" style="body2">
           Keywords represent the key concepts of an article. These will be shown
