@@ -9,6 +9,8 @@ import Spinner from "atoms/Spinner";
 
 import Tooltip from "./Tooltip";
 
+import "styles/components/_button.scss";
+
 const BUTTON_STYLES = {
   primary: "primary",
   secondary: "secondary",

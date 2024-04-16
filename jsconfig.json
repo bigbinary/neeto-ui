@@ -33,7 +33,9 @@
       "constants": ["src/constants"],
       "constants/*": ["src/constants/*"],
       "managers": ["src/managers"],
-      "managers/*": ["src/managers/*"]
+      "managers/*": ["src/managers/*"],
+      "styles": ["src/styles/"],
+      "styles/*": ["src/styles/*"]
     },
     "pretty": true,
     "experimentalDecorators": true,

@@ -1,4 +1,8 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../common";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   --neeto-ui-btn-padding-x: 8px;
   --neeto-ui-btn-padding-y: 6px;
   --neeto-ui-btn-font-size: var(--neeto-ui-text-sm);
@@ -30,7 +34,8 @@
 
   // Focus Visible
   --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
-  --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-btn-focus-visible-outline: 3px solid
+    rgba(var(--neeto-ui-primary-500), 50%);
   --neeto-ui-btn-focus-visible-outline-offset: 1px;
   --neeto-ui-btn-focus-visible-box-shadow: none;
 }
@@ -155,7 +160,8 @@
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-primary-600));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-primary-500), 15%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
   }
 
@@ -165,7 +171,8 @@
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-black));
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-300));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 25%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-gray-800), 25%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
   }
 
@@ -176,7 +183,8 @@
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-100));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
     --neeto-ui-btn-box-shadow: inset 0 0 0 1px rgba(var(--neeto-ui-gray-400));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-gray-800), 15%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
   }
 
@@ -185,7 +193,8 @@
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-gray-800));
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-gray-200));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-gray-800));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-800), 15%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-gray-800), 15%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-gray-800));
   }
 
@@ -197,7 +206,7 @@
     --neeto-ui-btn-hover-opacity: 0.8;
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-primary-800));
     --neeto-ui-btn-focus-opacity: 0.8;
-    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-800));;
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-800));
   }
 
   &-danger {
@@ -206,7 +215,8 @@
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-error-600));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-error-500), 15%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
   }
 
@@ -215,7 +225,8 @@
     --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-error-800));
     --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-error-100));
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-error-800));
-    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-500), 15%);
+    --neeto-ui-btn-focus-box-shadow: 0 0 0 3px
+      rgba(var(--neeto-ui-error-500), 15%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-error-800));
   }
 }

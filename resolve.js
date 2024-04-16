@@ -7,5 +7,6 @@ module.exports = {
     managers: path.resolve(__dirname, "./src/managers"),
     formikcomponents: path.resolve(__dirname, "./src/formik"),
     layouts: path.resolve(__dirname, "./src/layouts"),
+    styles: path.resolve(__dirname, "./src/styles"),
   },
 };

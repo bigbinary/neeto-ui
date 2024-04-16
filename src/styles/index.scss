@@ -1,24 +1,9 @@
-//Abstracts
-@import "~rfs/scss";
-@import "./abstracts/mixins";
-@import "./abstracts/normalize";
-@import "./abstracts/variables";
-@import "./abstracts/root";
-@import "./abstracts/theme";
-
-//Base
-@import "./base/base";
-
-//Utilities
-@import "./utilities/animations";
-@import "./utilities/helpers";
-@import "./utilities/utilities";
+@import "./common";
 
 //Components
 @import "./components/accordion";
 @import "./components/action-dropdown";
 @import "./components/avatar";
-@import "./components/button";
 @import "./components/callout";
 @import "./components/checkbox";
 @import "./components/color-picker";
