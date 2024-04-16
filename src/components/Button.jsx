@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Spinner from "atoms/Spinner";
-import "styles/components/_button.scss";
+import "styles/components/_button";
 
 import Tooltip from "./Tooltip";
 

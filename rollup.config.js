@@ -40,7 +40,7 @@ const config = args => {
     babel({ exclude: "node_modules/**", babelHelpers: "runtime" }),
     resolve({
       preferBuiltins: true,
-      extensions: [".js", ".jsx", ".svg"],
+      extensions: [".js", ".jsx", ".svg", ".scss"],
       moduleDirectories: ["node_modules"],
     }),
     commonjs({ include: /\**node_modules\**/ }),
