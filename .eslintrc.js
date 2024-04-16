@@ -10,7 +10,11 @@ module.exports = mergeDeepLeft(
       "@bigbinary/neeto/no-dangling-constants": "off",
       "@bigbinary/neeto/prefix-neeto-ui-import-alias": "off",
       "@bigbinary/neeto/no-missing-localization": "off",
-      "import/extensions": ["error", "never", { pattern: { mdx: "always" } }],
+      "import/extensions": [
+        "error",
+        "never",
+        { pattern: { mdx: "always" } },
+      ]
     },
   },
   defaultConfig
