@@ -25,10 +25,13 @@ module.exports = {
   ],
 
   webpackFinal: async config => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      ...rootResolve.alias,
-      "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
+    config.resolve = {
+      extensions: [".js", ".jsx", ".svg", ".scss"],
+      alias: {
+        ...config.resolve.alias,
+        ...rootResolve.alias,
+        "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
+      },
     };
 
     return config;
@@ -36,10 +39,10 @@ module.exports = {
 
   framework: {
     name: "@storybook/react-webpack5",
-    options: {}
+    options: {},
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 };
