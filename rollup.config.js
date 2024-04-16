@@ -48,7 +48,6 @@ const config = args => {
     styles({
       extensions: [".css", ".scss", ".min.css"],
       minimize: true,
-      // mode: ["extract", "index.css"],
     }),
     args.app &&
       copy({
