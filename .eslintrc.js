@@ -13,8 +13,8 @@ module.exports = mergeDeepLeft(
       "import/extensions": [
         "error",
         "never",
-        { pattern: { mdx: "always" } },
-      ]
+        { pattern: { mdx: "always", scss: "always" } },
+      ],
     },
   },
   defaultConfig

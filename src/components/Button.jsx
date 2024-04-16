@@ -6,10 +6,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Spinner from "atoms/Spinner";
+import "styles/components/_button.scss";
 
 import Tooltip from "./Tooltip";
-
-import "styles/components/_button.scss";
 
 const BUTTON_STYLES = {
   primary: "primary",
