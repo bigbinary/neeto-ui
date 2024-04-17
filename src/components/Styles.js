@@ -1,2 +1,2 @@
-import "styles/index";
 import "styles/common";
+import "styles/index";

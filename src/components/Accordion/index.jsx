@@ -4,8 +4,8 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
-import "styles/components/_accordion";
 import "styles/common";
+import "styles/components/_accordion";
 
 import Item from "./Item";
 
