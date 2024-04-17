@@ -5,6 +5,7 @@ module.exports = () => ({
   moduleDirectories: ["node_modules", "src"],
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "identity-obj-proxy",
+    "styles/*": "identity-obj-proxy",
     "^@bigbinary/neetoui/(.*)$": path.resolve(__dirname, "src", "$1"),
     "neetoicons/logos": path.resolve(
       __dirname,
@@ -33,6 +34,7 @@ module.exports = () => ({
   },
   transformIgnorePatterns: [
     "/node_modules/(?!(@babel|@bigbinary/neeto-icons|rc-picker|rc-util))",
+    "^.+\\.scss$", // Ignore SCSS files by default
   ],
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["./jest-setup.js"],

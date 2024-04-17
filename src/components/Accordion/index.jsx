@@ -4,6 +4,9 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
+import "styles/components/_accordion";
+import "styles/common";
+
 import Item from "./Item";
 
 const ACCORDION_STYLES = {

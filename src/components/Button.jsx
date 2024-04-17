@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import Spinner from "atoms/Spinner";
 import "styles/components/_button";
+import "styles/common";
 
 import Tooltip from "./Tooltip";
 

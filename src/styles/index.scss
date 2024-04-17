@@ -1,7 +1,7 @@
-@import "./common";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
 
 //Components
-@import "./components/accordion";
 @import "./components/action-dropdown";
 @import "./components/avatar";
 @import "./components/callout";

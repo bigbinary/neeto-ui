@@ -35,8 +35,7 @@ import Tooltip from "./Tooltip";
 import Tree from "./Tree";
 import TreeSelect from "./TreeSelect";
 import Typography from "./Typography";
-
-import "../styles/index.scss";
+import "./Styles";
 
 export {
   Accordion,
