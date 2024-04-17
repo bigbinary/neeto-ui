@@ -34,7 +34,6 @@ module.exports = () => ({
   },
   transformIgnorePatterns: [
     "/node_modules/(?!(@babel|@bigbinary/neeto-icons|rc-picker|rc-util))",
-    "^.+\\.scss$", // Ignore SCSS files by default
   ],
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["./jest-setup.js"],
