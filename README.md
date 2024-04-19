@@ -23,11 +23,8 @@ working, please import the neetoUI stylesheet to your main `scss` entry point.
 ## Dependencies
 
 **neetoUI** has few peer dependencies which are required to use neetoUI
-properly. Install the peer dependencies using the below command:
-
-```
-yarn add react-toastify@9.0.1 formik@2.2.0 react-router-dom@5.2.0 @bigbinary/neeto-icons antd@5.9.2 i18next@21.7.0
-```
+properly. Make sure you install all the peerDependencies mentioned in the
+[package.json](./package.json)
 
 ### `react-toastify`
 
