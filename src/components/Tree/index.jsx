@@ -4,9 +4,9 @@ import { ConfigProvider, Tree as TreeComponent } from "antd";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 import "styles/common";
 import "styles/components/_tree";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import SwitcherIcon from "./SwitcherIcon";
 

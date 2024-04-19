@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 
 import Label from "components/Label";
 import { useId } from "hooks";
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
 import "styles/common";
 import "styles/components/_slider";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
 
 import { NEETO_UI_PRIMARY_500 } from "./constants";
 

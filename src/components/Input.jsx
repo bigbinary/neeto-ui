@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { replace } from "ramda";
 
 import { useId } from "hooks";
-import { hyphenize } from "utils";
 import "styles/common";
 import "styles/components/_input";
+import { hyphenize } from "utils";
 
 import Label from "./Label";
 

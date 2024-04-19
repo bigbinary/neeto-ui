@@ -6,7 +6,6 @@ import { followCursor } from "tippy.js";
 
 import "styles/common";
 import "styles/components/_tooltip";
-// import "tippy.js/animations/scale-subtle.css";
 
 import { ARROW } from "./constants";
 
@@ -43,6 +42,11 @@ const Tooltip = ({
     return undefined;
   }, [instance, hideOnTargetExit]);
 
+  const handleOnCreate = instance => {
+    setInstance(instance);
+    instance.popper.firstElementChild?.setAttribute("data-cy", "tooltip-box");
+  };
+
   return (
     <Tippy
       animation="scale-subtle"
@@ -52,13 +56,7 @@ const Tooltip = ({
       plugins={[followCursor]}
       role="tooltip"
       zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
-      }}
+      onCreate={handleOnCreate}
       {...{
         content,
         disabled,

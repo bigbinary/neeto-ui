@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { mergeLeft, isEmpty } from "ramda";
 import CreatableSelect from "react-select/creatable";
 
-import { noop, hyphenize } from "utils";
 import "styles/common";
 import "styles/components/_email-input";
+import { noop, hyphenize } from "utils";
 
 import {
   EMAIL_SEPARATION_REGEX,

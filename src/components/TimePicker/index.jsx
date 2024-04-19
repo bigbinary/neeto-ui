@@ -7,14 +7,14 @@ import PropTypes from "prop-types";
 
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
+import "styles/common";
+import "styles/components/_date-time-picker";
 import {
   convertToDayjsObjects,
   noop,
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
 } from "utils";
-import "styles/common";
-import "styles/components/_date-time-picker";
 
 import { TIME_PICKER_TYPES } from "./constants";
 

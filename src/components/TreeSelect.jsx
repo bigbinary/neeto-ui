@@ -5,9 +5,9 @@ import classnames from "classnames";
 import { Down } from "neetoicons";
 import PropTypes from "prop-types";
 
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 import "styles/common";
 import "styles/components/_tree-select";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import Label from "./Label";
 

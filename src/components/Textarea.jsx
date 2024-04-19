@@ -4,9 +4,9 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import { useSyncedRef, useId } from "hooks";
-import { hyphenize } from "utils";
 import "styles/common";
 import "styles/components/_input";
+import { hyphenize } from "utils";
 
 import Label from "./Label";
 

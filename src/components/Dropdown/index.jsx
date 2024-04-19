@@ -7,9 +7,9 @@ import PropTypes from "prop-types";
 import { isNil } from "ramda";
 
 import Button from "components/Button";
-import { hyphenize, noop } from "utils";
 import "styles/common";
 import "styles/components/_dropdown";
+import { hyphenize, noop } from "utils";
 
 import Divider from "./Divider";
 import Menu from "./Menu";

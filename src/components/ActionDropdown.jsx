@@ -3,9 +3,9 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-import { noop } from "utils";
 import "styles/common";
 import "styles/components/_action-dropdown";
+import { noop } from "utils";
 
 import Button from "./Button";
 import Dropdown from "./Dropdown";

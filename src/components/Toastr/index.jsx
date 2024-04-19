@@ -4,9 +4,9 @@ import { t } from "i18next";
 import { CheckCircle, Warning, CloseCircle, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
 
-import { UniqueArray } from "utils";
 import "styles/common";
 import "styles/components/_toast";
+import { UniqueArray } from "utils";
 
 import Toast from "./Toast";
 

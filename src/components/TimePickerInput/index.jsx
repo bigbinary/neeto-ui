@@ -10,9 +10,9 @@ import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
 import { useId } from "hooks";
-import { hyphenize, noop } from "utils";
 import "styles/common";
 import "styles/components/_time-picker-input";
+import { hyphenize, noop } from "utils";
 
 import HoverIcon from "./HoverIcon";
 import useRefState from "./useRefState";

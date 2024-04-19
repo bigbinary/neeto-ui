@@ -11,9 +11,9 @@ import AsyncCreatable from "react-select/async-creatable";
 import Creatable from "react-select/creatable";
 
 import { useId } from "hooks";
-import { hyphenize } from "utils";
 import "styles/common";
 import "styles/components/_select";
+import { hyphenize } from "utils";
 
 import Label from "./Label";
 import Spinner from "./Spinner";
