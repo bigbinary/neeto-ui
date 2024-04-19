@@ -4,14 +4,13 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import { noop } from "utils";
+import "styles/common";
+import "styles/components/_action-dropdown";
 
 import Button from "./Button";
 import Dropdown from "./Dropdown";
 
-const BTN_STYLES = {
-  primary: "primary",
-  secondary: "secondary",
-};
+const BTN_STYLES = { primary: "primary", secondary: "secondary" };
 
 const BTN_SIZES = {
   small: "small",
@@ -32,18 +31,16 @@ const ActionDropdown = ({
 }) => (
   <div className={classnames(["neeto-ui-action-dropdown", className])}>
     <Button
+      {...{ disabled, label, onClick }}
       data-testid="action-dropdown-btn"
-      disabled={disabled}
-      label={label}
       size={size ?? buttonSize}
       style={style ?? buttonStyle}
-      onClick={onClick}
       {...buttonProps}
     />
     <Dropdown
+      {...{ disabled }}
       buttonProps={{ size: size ?? buttonSize }}
       buttonStyle={style ?? buttonStyle}
-      disabled={disabled}
       {...dropdownProps}
     >
       {children}

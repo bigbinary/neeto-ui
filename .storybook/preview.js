@@ -1,5 +1,4 @@
 import "./style.scss";
-import "../src/styles/index.scss";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
 
@@ -50,14 +49,7 @@ export const parameters = {
         ],
         "Molecules",
         "Overlays",
-        [
-          "Alert",
-          "Modal",
-          "Pane",
-          "Toastr",
-          "Tooltip",
-          "Popover"
-        ],
+        ["Alert", "Modal", "Pane", "Toastr", "Tooltip", "Popover"],
         "Formik",
         ["Form"],
         "Customize",

@@ -4,6 +4,9 @@ import classnames from "classnames";
 import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_label";
+
 import Tooltip from "./Tooltip";
 
 const Label = ({

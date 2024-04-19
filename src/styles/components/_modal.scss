@@ -1,4 +1,9 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   --neeto-ui-modal-spacing: 24px;
 
   // Backdrop
@@ -124,7 +129,9 @@
     }
 
     .neeto-ui-modal__header {
-      padding: var(--neeto-ui-modal-header-padding-top) var(--neeto-ui-modal-header-padding-right) var(--neeto-ui-modal-header-padding-bottom)
+      padding: var(--neeto-ui-modal-header-padding-top)
+        var(--neeto-ui-modal-header-padding-right)
+        var(--neeto-ui-modal-header-padding-bottom)
         var(--neeto-ui-modal-header-padding-left);
       overflow-wrap: break-word;
     }
@@ -135,14 +142,18 @@
     }
 
     .neeto-ui-modal__body {
-      padding: var(--neeto-ui-modal-body-padding-top) var(--neeto-ui-modal-body-padding-x) var(--neeto-ui-modal-body-padding-bottom);
+      padding: var(--neeto-ui-modal-body-padding-top)
+        var(--neeto-ui-modal-body-padding-x)
+        var(--neeto-ui-modal-body-padding-bottom);
       font-size: var(--neeto-ui-modal-body-font-size);
       line-height: var(--neeto-ui-modal-body-line-height);
       word-wrap: break-word;
     }
 
     .neeto-ui-modal__footer {
-      padding: var(--neeto-ui-modal-footer-padding-top) var(--neeto-ui-modal-footer-padding-x) var(--neeto-ui-modal-footer-padding-bottom);
+      padding: var(--neeto-ui-modal-footer-padding-top)
+        var(--neeto-ui-modal-footer-padding-x)
+        var(--neeto-ui-modal-footer-padding-bottom);
     }
   }
 }
@@ -175,7 +186,8 @@
   }
 }
 
-.neetix-alert, .neetix-modal {
+.neetix-alert,
+.neetix-modal {
   --neeto-ui-modal-close-btn-top: 32px;
   --neeto-ui-modal-close-btn-right: 32px;
   --neeto-ui-modal-header-padding-top: 32px;

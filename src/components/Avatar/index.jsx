@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
+import "styles/common";
+import "styles/components/_avatar";
 
 import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
 

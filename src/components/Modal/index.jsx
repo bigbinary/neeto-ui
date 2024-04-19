@@ -9,6 +9,8 @@ import Backdrop from "atoms/Backdrop";
 import Portal from "atoms/Portal";
 import Button from "components/Button";
 import { useOverlayManager, useOverlay } from "hooks";
+import "styles/common";
+import "styles/components/_modal";
 
 import Body from "./Body";
 import Footer from "./Footer";

@@ -4,6 +4,9 @@ import classnames from "classnames";
 import { Left, Right } from "neetoicons";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_pagination";
+
 import { DOTS } from "./constants";
 import usePaginationQueryParams from "./hooks/usePaginationQueryParams";
 import { usePagination } from "./utils";

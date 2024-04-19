@@ -1,4 +1,9 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   // Description
   --neeto-ui-no-data-description-margin-top: 0.5rem;
 

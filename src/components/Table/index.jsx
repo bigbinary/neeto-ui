@@ -22,6 +22,8 @@ import { useHistory } from "react-router-dom";
 
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
+import "styles/common";
+import "styles/components/_table-overrides";
 
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";

@@ -6,6 +6,8 @@ import { isEmpty } from "ramda";
 
 import Button from "components/Button";
 import Typography from "components/Typography";
+import "styles/common";
+import "styles/components/_no-data";
 
 import { renderImage } from "./utils";
 

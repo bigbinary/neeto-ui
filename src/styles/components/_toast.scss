@@ -1,4 +1,9 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   // Container
   --neeto-ui-toastr-min-width: 320px;
   --neeto-ui-toastr-max-width: 640px;
@@ -64,8 +69,9 @@ body {
       box-shadow: var(--neeto-ui-toastr-box-shadow);
       border-radius: var(--neeto-ui-toastr-border-radius);
 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif !important;
 
       @include viewport(xs-mob) {
         width: 95%;
@@ -114,7 +120,10 @@ body {
 
       .neeto-ui-toastr__close-button {
         opacity: 0.8;
-        margin: var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-right) var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-left);
+        margin: var(--neeto-ui-toastr-close-btn-margin-y)
+          var(--neeto-ui-toastr-close-btn-margin-right)
+          var(--neeto-ui-toastr-close-btn-margin-y)
+          var(--neeto-ui-toastr-close-btn-margin-left);
         flex-shrink: 0;
         color: var(--neeto-ui-toastr-close-btn-color);
         transition: var(--neeto-ui-transition);

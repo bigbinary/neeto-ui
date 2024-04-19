@@ -6,6 +6,8 @@ import { replace } from "ramda";
 
 import { useId } from "hooks";
 import { hyphenize } from "utils";
+import "styles/common";
+import "styles/components/_input";
 
 import Label from "./Label";
 

@@ -9,6 +9,8 @@ import Backdrop from "atoms/Backdrop";
 import Portal from "atoms/Portal";
 import Button from "components/Button";
 import { useOverlay, useOverlayManager } from "hooks";
+import "styles/common";
+import "styles/components/_pane";
 
 import Body from "./Body";
 import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";

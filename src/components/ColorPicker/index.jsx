@@ -13,6 +13,8 @@ import useEyeDropper from "use-eye-dropper";
 
 import Button from "components/Button";
 import Dropdown from "components/Dropdown";
+import "styles/common";
+import "styles/components/_color-picker";
 import { noop } from "utils";
 
 import Palette from "./Palette";

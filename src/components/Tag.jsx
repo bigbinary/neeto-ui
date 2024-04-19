@@ -4,6 +4,9 @@ import classnames from "classnames";
 import { Close } from "neetoicons";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_tag";
+
 const SIZES = { small: "small", large: "large" };
 
 const TYPES = { outline: "outline", solid: "solid" };

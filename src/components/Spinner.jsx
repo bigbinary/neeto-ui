@@ -3,6 +3,9 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_spinner";
+
 const SPINNER_THEMES = { dark: "dark", light: "light" };
 const SPINNER_SIZES = { small: "small", medium: "medium" };
 

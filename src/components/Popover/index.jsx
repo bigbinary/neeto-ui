@@ -3,6 +3,9 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_popover";
+
 import Title from "./Title";
 
 import Tooltip from "../Tooltip";

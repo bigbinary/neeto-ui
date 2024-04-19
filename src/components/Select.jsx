@@ -12,6 +12,8 @@ import Creatable from "react-select/creatable";
 
 import { useId } from "hooks";
 import { hyphenize } from "utils";
+import "styles/common";
+import "styles/components/_select";
 
 import Label from "./Label";
 import Spinner from "./Spinner";

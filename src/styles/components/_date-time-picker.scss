@@ -1,4 +1,9 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   // Date Input
   --neeto-ui-date-input-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-date-input-color: rgb(var(--neeto-ui-gray-800));
@@ -17,13 +22,16 @@
 
   // Focus
   --neeto-ui-date-input-focus-outline-color: transparent;
-  --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-primary-500), 15%);
   --neeto-ui-date-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
 
   // Prefix & Suffix
   --neeto-ui-date-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-date-input-prefix-suffix-size: 16px;
-  --neeto-ui-date-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-date-input-focus-prefix-suffix-color: rgb(
+    var(--neeto-ui-gray-700)
+  );
 
   // Cell
   --neeto-ui-date-input-cell-font-size: var(--neeto-ui-text-sm);
@@ -34,11 +42,17 @@
   --neeto-ui-date-input-cell-border-width: 1px;
   --neeto-ui-date-input-cell-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-date-input-today-cell-border-width: 1px;
-  --neeto-ui-date-input-today-cell-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-today-cell-border-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
   --neeto-ui-date-input-selected-cell-color: rgb(var(--neeto-ui-white));
-  --neeto-ui-date-input-selected-cell-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-selected-cell-bg-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
   --neeto-ui-date-input-cell-range-bg-color: rgb(var(--neeto-ui-gray-200));
-  --neeto-ui-date-input-cell-range-hover-bg-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-date-input-cell-range-hover-bg-color: rgb(
+    var(--neeto-ui-gray-400)
+  );
 
   // Footer
   --neeto-ui-date-input-footer-bg-color: rgb(var(--neeto-ui-gray-100));
@@ -49,14 +63,26 @@
   --neeto-ui-date-input-footer-btn-font-weight: var(--neeto-ui-font-medium);
   --neeto-ui-date-input-footer-btn-line-height: 16px;
   --neeto-ui-date-input-footer-btn-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-date-input-footer-today-now-btn-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-date-input-footer-today-now-btn-hover-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-date-input-footer-today-now-btn-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-date-input-footer-today-now-btn-color: rgb(
+    var(--neeto-ui-gray-800)
+  );
+  --neeto-ui-date-input-footer-today-now-btn-hover-color: rgb(
+    var(--neeto-ui-gray-800)
+  );
+  --neeto-ui-date-input-footer-today-now-btn-hover-bg-color: rgb(
+    var(--neeto-ui-gray-200)
+  );
   --neeto-ui-date-input-footer-ok-btn-color: rgb(var(--neeto-ui-white));
-  --neeto-ui-date-input-footer-ok-btn-bg-color: rgb(var(--neeto-ui-primary-500));
-  --neeto-ui-date-input-footer-ok-btn-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-date-input-footer-ok-btn-bg-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
+  --neeto-ui-date-input-footer-ok-btn-border-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
   --neeto-ui-date-input-footer-ok-btn-hover-color: rgb(var(--neeto-ui-white));
-  --neeto-ui-date-input-footer-ok-btn-hover-bg-color: rgb(var(--neeto-ui-primary-600));
+  --neeto-ui-date-input-footer-ok-btn-hover-bg-color: rgb(
+    var(--neeto-ui-primary-600)
+  );
   --neeto-ui-date-input-footer-ok-btn-disabled-opacity: 0.5;
 
   // Date Panel
@@ -64,7 +90,6 @@
   --neeto-ui-date-panel-content-width: 272px;
   --neeto-ui-date-panel-content-header-color: rgb(var(--neeto-ui-gray-600));
   --neeto-ui-date-panel-content-header-font-size: var(--neeto-ui-text-xs);
-
 
   // Date Panel Dropdown
   --neeto-ui-date-panel-dropdown-padding-y: 2px;
@@ -83,7 +108,9 @@
   --neeto-ui-date-panel-header-padding-x: 24px;
   --neeto-ui-date-panel-header-border-bottom-width: 0px;
   --neeto-ui-date-panel-header-nav-btn-font-size: var(--neeto-ui-text-base);
-  --neeto-ui-date-panel-header-nav-btn-font-weight: var(--neeto-ui-font-semibold);
+  --neeto-ui-date-panel-header-nav-btn-font-weight: var(
+    --neeto-ui-font-semibold
+  );
   --neeto-ui-date-panel-header-nav-btn-padding-right: 24px;
   --neeto-ui-date-panel-header-btn-color: rgb(var(--neeto-ui-gray-800));
 
@@ -120,13 +147,16 @@
 
   // Focus
   --neeto-ui-time-input-focus-outline-color: transparent;
-  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-primary-500), 15%);
   --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-primary-500));
 
   // Prefix & Suffix
   --neeto-ui-time-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-time-input-prefix-suffix-size: 16px;
-  --neeto-ui-time-input-focus-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-time-input-focus-prefix-suffix-color: rgb(
+    var(--neeto-ui-gray-700)
+  );
 
   // Date Time Picker
   --neeto-ui-date-time-picker-gap: -1px;
@@ -143,11 +173,13 @@
   transition: var(--neeto-ui-transition);
   color: var(--neeto-ui-date-input-color);
   background-color: var(--neeto-ui-date-input-bg-color);
-  border: var(--neeto-ui-date-input-border-width) solid var(--neeto-ui-date-input-border-color);
+  border: var(--neeto-ui-date-input-border-width) solid
+    var(--neeto-ui-date-input-border-color);
   border-radius: var(--neeto-ui-date-input-border-radius);
   overflow: hidden;
   line-height: var(--neeto-ui-date-input-line-height);
-  padding: var(--neeto-ui-date-input-padding-y) var(--neeto-ui-date-input-padding-x);
+  padding: var(--neeto-ui-date-input-padding-y)
+    var(--neeto-ui-date-input-padding-x);
   box-shadow: var(--neeto-ui-date-input-box-shadow);
 
   &.neeto-ui-date-input--large {
@@ -177,7 +209,8 @@
     --neeto-ui-date-input-border-color: rgb(var(--neeto-ui-error-500));
     --neeto-ui-date-input-hover-border-color: rgb(var(--neeto-ui-error-500));
     --neeto-ui-date-input-focus-border-color: rgb(var(--neeto-ui-error-500));
-    --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+    --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px
+      rgb(var(--neeto-ui-error-100));
   }
 
   &.neeto-ui-date-input--disabled {
@@ -235,10 +268,12 @@
   font-size: var(--neeto-ui-time-input-font-size);
   color: var(--neeto-ui-time-input-color);
   background-color: var(--neeto-ui-time-input-bg-color);
-  border: var(--neeto-ui-time-input-border-width) solid var(--neeto-ui-time-input-border-color);
+  border: var(--neeto-ui-time-input-border-width) solid
+    var(--neeto-ui-time-input-border-color);
   border-radius: var(--neeto-ui-time-input-border-radius);
   line-height: var(--neeto-ui-time-input-line-height);
-  padding: var(--neeto-ui-time-input-padding-y) var(--neeto-ui-time-input-padding-x);
+  padding: var(--neeto-ui-time-input-padding-y)
+    var(--neeto-ui-time-input-padding-x);
   box-shadow: var(--neeto-ui-time-input-box-shadow);
 
   &.neeto-ui-time-input--large {
@@ -264,7 +299,8 @@
     --neeto-ui-time-input-border-color: rgb(var(--neeto-ui-error-500));
     --neeto-ui-time-input-hover-border-color: rgb(var(--neeto-ui-error-500));
     --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-error-500));
-    --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+    --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px
+      rgb(var(--neeto-ui-error-100));
   }
 
   &.neeto-ui-time-input--disabled {
@@ -362,7 +398,6 @@
     }
 
     .ant-picker-body {
-
       @include viewport(xs-mob) {
         padding-left: 8px;
         padding-right: 8px;
@@ -372,14 +407,16 @@
         .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
           .ant-picker-cell-inner {
             &::before {
-              border: var(--neeto-ui-date-input-today-cell-border-width) solid var(--neeto-ui-date-input-today-cell-border-color);
+              border: var(--neeto-ui-date-input-today-cell-border-width) solid
+                var(--neeto-ui-date-input-today-cell-border-color);
             }
           }
         }
 
         .ant-picker-cell.ant-picker-cell-in-view {
           &::after {
-            border: var(--neeto-ui-date-input-cell-border-width) solid var(--neeto-ui-date-input-cell-border-width);
+            border: var(--neeto-ui-date-input-cell-border-width) solid
+              var(--neeto-ui-date-input-cell-border-width);
           }
         }
 
@@ -424,7 +461,8 @@
       position: relative;
       display: inline-flex !important;
       align-items: center;
-      padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+      padding: var(--neeto-ui-date-input-footer-btn-padding-y)
+        var(--neeto-ui-date-input-footer-btn-padding-x);
       gap: var(--neeto-ui-date-input-footer-btn-gap);
       color: var(--neeto-ui-date-input-footer-today-now-btn-color);
       font-size: var(--neeto-ui-date-input-footer-btn-font-size);
@@ -436,7 +474,9 @@
 
       &:hover {
         color: var(--neeto-ui-date-input-footer-today-now-btn-hover-color);
-        background-color: var(--neeto-ui-date-input-footer-today-now-btn-hover-bg-color);
+        background-color: var(
+          --neeto-ui-date-input-footer-today-now-btn-hover-bg-color
+        );
       }
     }
 
@@ -445,7 +485,8 @@
         position: relative;
         display: inline-flex !important;
         align-items: center;
-        padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+        padding: var(--neeto-ui-date-input-footer-btn-padding-y)
+          var(--neeto-ui-date-input-footer-btn-padding-x);
         gap: var(--neeto-ui-date-input-footer-btn-gap);
         color: var(--neeto-ui-date-input-footer-ok-btn-color);
         background: var(--neeto-ui-date-input-footer-ok-btn-bg-color);
@@ -459,7 +500,9 @@
 
         &:not([disabled]):hover {
           color: var(--neeto-ui-date-input-footer-ok-btn-hover-color);
-          background-color: var(--neeto-ui-date-input-footer-ok-btn-hover-bg-color);
+          background-color: var(
+            --neeto-ui-date-input-footer-ok-btn-hover-bg-color
+          );
         }
         &[disabled] {
           cursor: not-allowed;
@@ -470,7 +513,8 @@
   }
 
   .ant-picker-panel-container {
-    border: var(--neeto-ui-date-panel-container-border-width) solid var(--neeto-ui-date-panel-container-border-color);
+    border: var(--neeto-ui-date-panel-container-border-width) solid
+      var(--neeto-ui-date-panel-container-border-color);
     /* Elevation/S */
     box-shadow: var(--neeto-ui-date-panel-container-box-shadow);
     border-radius: var(--neeto-ui-date-panel-container-border-radius);
@@ -484,7 +528,10 @@
 .neeto-ui-date-time-dropdown {
   .ant-picker-header {
     min-height: var(--neeto-ui-date-panel-header-min-height);
-    padding: var(--neeto-ui-date-panel-header-padding-top) var(--neeto-ui-date-panel-header-padding-x) var(--neeto-ui-date-panel-header-padding-bottom) var(--neeto-ui-date-panel-header-padding-x);
+    padding: var(--neeto-ui-date-panel-header-padding-top)
+      var(--neeto-ui-date-panel-header-padding-x)
+      var(--neeto-ui-date-panel-header-padding-bottom)
+      var(--neeto-ui-date-panel-header-padding-x);
     white-space: nowrap;
     align-items: center;
     border-bottom: var(--neeto-ui-date-panel-header-border-bottom-width);
@@ -586,13 +633,16 @@
     padding-left: var(--neeto-ui-time-panel-cell-padding-x) !important;
     padding-right: var(--neeto-ui-time-panel-cell-padding-x) !important;
     text-align: center;
-    color: var(--neeto-ui-time-panel-cell-color)
+    color: var(--neeto-ui-time-panel-cell-color);
   }
 
   .neeto-ui-date-input-custom-panel__header {
     display: flex;
     flex-direction: column;
-    padding: var(--neeto-ui-time-panel-header-padding-top) var(--neeto-ui-time-panel-header-padding-x) var(--neeto-ui-time-panel-header-padding-bottom) var(--neeto-ui-time-panel-header-padding-x);
+    padding: var(--neeto-ui-time-panel-header-padding-top)
+      var(--neeto-ui-time-panel-header-padding-x)
+      var(--neeto-ui-time-panel-header-padding-bottom)
+      var(--neeto-ui-time-panel-header-padding-x);
   }
 
   .neeto-ui-date-input-custom-panel__header-now-btn {
@@ -638,7 +688,8 @@
 
 .ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
   height: auto;
-  padding: var(--neeto-ui-date-input-footer-btn-padding-y) var(--neeto-ui-date-input-footer-btn-padding-x);
+  padding: var(--neeto-ui-date-input-footer-btn-padding-y)
+    var(--neeto-ui-date-input-footer-btn-padding-x);
   color: var(--neeto-ui-date-input-footer-today-now-btn-color);
   font-size: var(--neeto-ui-date-input-footer-btn-font-size);
   font-weight: var(--neeto-ui-date-input-footer-btn-font-weight);
@@ -673,26 +724,38 @@
   }
 }
 
-
 .neetix-datepicker {
   --neeto-ui-date-input-border-radius: var(--neeto-ui-rounded-none);
   --neeto-ui-date-input-active-bar-bg-color: rgb(var(--neeto-ui-success-500));
-  --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-date-input-focus-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-success-500), 15%);
   --neeto-ui-date-input-focus-border-color: rgb(var(--neeto-ui-success-500));
-  --neeto-ui-date-input-today-cell-border-color: rgb(var(--neeto-ui-success-500));
-  --neeto-ui-date-input-selected-cell-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-date-input-today-cell-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-date-input-selected-cell-bg-color: rgb(
+    var(--neeto-ui-success-500)
+  );
   --neeto-ui-date-input-footer-btn-border-radius: var(--neeto-ui-rounded-none);
-  --neeto-ui-date-input-footer-ok-btn-bg-color: rgb(var(--neeto-ui-success-500));
-  --neeto-ui-date-input-footer-ok-btn-border-color: rgb(var(--neeto-ui-success-500));
-  --neeto-ui-date-input-footer-ok-btn-hover-bg-color: rgb(var(--neeto-ui-success-600));
+  --neeto-ui-date-input-footer-ok-btn-bg-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-date-input-footer-ok-btn-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-date-input-footer-ok-btn-hover-bg-color: rgb(
+    var(--neeto-ui-success-600)
+  );
   --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
-  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-success-500), 15%);
   --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-success-500));
 }
 
 .neetix-timepicker {
   --neeto-ui-time-input-border-radius: var(--neeto-ui-rounded-none);
-  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-time-input-focus-box-shadow: 0 0 0 3px
+    rgba(var(--neeto-ui-success-500), 15%);
   --neeto-ui-time-input-focus-border-color: rgb(var(--neeto-ui-success-500));
 }
 

@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 
 import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
+import "styles/common";
+import "styles/components/_switch";
 
 import Label from "./Label";
 

@@ -4,6 +4,8 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import { noop } from "utils";
+import "styles/common";
+import "styles/layout/_common";
 
 import Footer from "./Footer";
 import Header from "./Header";

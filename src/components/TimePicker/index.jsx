@@ -13,6 +13,8 @@ import {
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
 } from "utils";
+import "styles/common";
+import "styles/components/_date-time-picker";
 
 import { TIME_PICKER_TYPES } from "./constants";
 

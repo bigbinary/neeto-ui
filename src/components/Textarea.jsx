@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 
 import { useSyncedRef, useId } from "hooks";
 import { hyphenize } from "utils";
+import "styles/common";
+import "styles/components/_input";
 
 import Label from "./Label";
 

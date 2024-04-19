@@ -3,6 +3,8 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
+import "styles/common";
+
 const FONT_WEIGHTS = {
   thin: "thin",
   extralight: "extralight",
@@ -108,7 +110,7 @@ const Typography = React.forwardRef(
 
     return (
       <Component
-        ref={ref}
+        {...{ ref }}
         className={classnames({
           "neeto-ui-typography": true,
           "neeto-ui-text-h1": style === STYLES.h1,

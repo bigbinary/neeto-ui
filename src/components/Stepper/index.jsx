@@ -3,6 +3,9 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
+import "styles/common";
+import "styles/components/_stepper";
+
 const Stepper = ({ steps, activeIndex, setActiveIndex }) => (
   <div className="neeto-ui-stepper__wrapper">
     {steps.map(({ id, label }, index) => (

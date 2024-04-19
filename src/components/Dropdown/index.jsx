@@ -8,6 +8,8 @@ import { isNil } from "ramda";
 
 import Button from "components/Button";
 import { hyphenize, noop } from "utils";
+import "styles/common";
+import "styles/components/_dropdown";
 
 import Divider from "./Divider";
 import Menu from "./Menu";

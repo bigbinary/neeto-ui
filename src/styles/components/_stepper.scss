@@ -1,4 +1,9 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   // Wrapper
   --neeto-ui-stepper-wrapper-gap: 8px;
 
@@ -8,12 +13,15 @@
 
   // Item Separator
   --neeto-ui-stepper-item-separator-width: 48px;
-  --neeto-ui-stepper-item-separator-border-top: 2px dashed rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-stepper-item-separator-border-top: 2px dashed
+    rgb(var(--neeto-ui-gray-400));
   --neeto-ui-stepper-item-separator-margin-left: 8px;
 
   // Item - Done Separator
   --neeto-ui-stepper-item-done-separator-border-top-style: solid;
-  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
 
   // Stage
   --neeto-ui-stepper-stage-width: 28px;
@@ -25,12 +33,18 @@
   --neeto-ui-stepper-item-done-stage-bg-color: rgb(var(--neeto-ui-success-800));
 
   // Stage Active
-  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(
+    var(--neeto-ui-primary-500)
+  );
   --neeto-ui-stepper-item-active-stage-inner-width: 18px;
   --neeto-ui-stepper-item-active-stage-inner-height: 18px;
   --neeto-ui-stepper-item-active-stage-inner-border-width: 2px;
-  --neeto-ui-stepper-item-active-stage-inner-border-color: rgb(var(--neeto-ui-white));
-  --neeto-ui-stepper-item-active-stage-inner-border-radius: var(--neeto-ui-rounded-full);
+  --neeto-ui-stepper-item-active-stage-inner-border-color: rgb(
+    var(--neeto-ui-white)
+  );
+  --neeto-ui-stepper-item-active-stage-inner-border-radius: var(
+    --neeto-ui-rounded-full
+  );
 
   // Label
   --neeto-ui-stepper-label-color: rgb(var(--neeto-ui-gray-800));
@@ -144,8 +158,12 @@
 
       &:not(:last-child) {
         &::after {
-          border-top-style: var(--neeto-ui-stepper-item-done-separator-border-top-style);
-          border-color: var(--neeto-ui-stepper-item-done-separator-border-color);
+          border-top-style: var(
+            --neeto-ui-stepper-item-done-separator-border-top-style
+          );
+          border-color: var(
+            --neeto-ui-stepper-item-done-separator-border-color
+          );
         }
       }
     }
@@ -165,8 +183,11 @@
           right: 0;
           width: var(--neeto-ui-stepper-item-active-stage-inner-width);
           height: var(--neeto-ui-stepper-item-active-stage-inner-height);
-          border: var(--neeto-ui-stepper-item-active-stage-inner-border-width) solid var(--neeto-ui-stepper-item-active-stage-inner-border-color);
-          border-radius: var(--neeto-ui-stepper-item-active-stage-inner-border-radius);
+          border: var(--neeto-ui-stepper-item-active-stage-inner-border-width)
+            solid var(--neeto-ui-stepper-item-active-stage-inner-border-color);
+          border-radius: var(
+            --neeto-ui-stepper-item-active-stage-inner-border-radius
+          );
           margin: auto;
         }
 
@@ -185,6 +206,10 @@
 
 .neetix-stepper {
   --neeto-ui-stepper-stage-bg-color: rgb(var(--neeto-ui-success-100));
-  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-success-800));
-  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-success-800));
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(
+    var(--neeto-ui-success-800)
+  );
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(
+    var(--neeto-ui-success-800)
+  );
 }

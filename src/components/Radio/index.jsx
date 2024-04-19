@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import Label from "components/Label";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
+import "styles/common";
+import "styles/components/_radio";
 
 import Item from "./Item";
 
