@@ -16,6 +16,7 @@
   "files": [
     "dist",
     "types",
+    "index.css",
     "*.d.ts"
   ],
   "lint-staged": {
@@ -32,6 +33,7 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/cjs/index.js",
+      "style": "./index.css",
       "types": "./index.d.ts"
     },
     "./layouts": {
