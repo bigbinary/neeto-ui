@@ -58,7 +58,7 @@ const Textarea = forwardRef(
       textareaRef.current.style.minHeight = "22px";
       textareaRef.current.style.height = "auto";
       const scrollHeight = textareaRef.current.scrollHeight;
-      textareaRef.current.style.height = `${scrollHeight}px`;
+      textareaRef.current.style.height = `${scrollHeight + 1}px`;
     }, [value]);
 
     return (
