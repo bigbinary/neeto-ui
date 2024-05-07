@@ -14,7 +14,7 @@ const Toastr: {
     message: React.ReactNode | Error,
     buttonLabel?: React.ReactNode,
     onClick?: () => void
-  ) => void;
+  ) => string | null;
   warning: ToastrFunction;
 };
 export default Toastr;
