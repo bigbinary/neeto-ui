@@ -375,9 +375,10 @@ describe("Toastr", () => {
     testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should return toastId when toastr is called", () => {
-    const successMessage = "This is a success toastr.";
-    const toastId = Toastr.success(successMessage);
-    expect(toastId).toBeDefined();
+  ["Success", "Info", "Warning", "Error"].forEach(type => {
+    it(`should return toastId when ${type} Toastr is called`, () => {
+      const toastId = Toastr[type.toLowerCase()](`This is a ${type} toastr.`);
+      expect(toastId).toBeDefined();
+    });
   });
 });
