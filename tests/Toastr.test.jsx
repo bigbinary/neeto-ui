@@ -15,7 +15,7 @@ const renderToastrButton = (
   render(
     <>
       <ToastContainer />
-      <Button label={`${type} Toastr`} onClick={onClick} />
+      <Button {...{ onClick }} label={`${type} Toastr`} />
     </>
   );
 
@@ -40,7 +40,7 @@ const renderCustomConfigToastrButton = type => {
   render(
     <>
       <ToastContainer />
-      <Button label={`${type} Toastr`} onClick={onClick} />
+      <Button {...{ onClick }} label={`${type} Toastr`} />
     </>
   );
 
@@ -52,7 +52,7 @@ const renderCustomMessageToastrButton = (type, message) => {
   render(
     <>
       <ToastContainer />
-      <Button label={`${type} Toastr`} onClick={onClick} />
+      <Button {...{ onClick }} label={`${type} Toastr`} />
     </>
   );
 
@@ -213,7 +213,7 @@ describe("Toastr", () => {
     expect(errorToastr).toBeInTheDocument();
   });
 
-  it("should render Axios Error Toastr when response is undefined", async () => {
+  it("should render Axios Error Toastr when response is undefined", () => {
     const errorResponse = undefined;
     const expectedMessage = "Default Message";
     testToastrErrorMessages(errorResponse, expectedMessage);
@@ -373,5 +373,11 @@ describe("Toastr", () => {
     };
     const expectedMessage = "This is a Error toastr.";
     testToastrErrorMessages(errorResponse, expectedMessage);
+  });
+
+  it("should return toastId when toastr is called", () => {
+    const successMessage = "This is a success toastr.";
+    const toastId = Toastr.success(successMessage);
+    expect(toastId).toBeDefined();
   });
 });
