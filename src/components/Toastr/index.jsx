@@ -172,7 +172,7 @@ const withParsedErrorMsg =
     const { buttonLabel, onClick, customConfig } =
       parseToastrConfig(toastrConfig);
 
-    toastrFunc(errorMessage, {
+    return toastrFunc(errorMessage, {
       buttonLabel,
       onClick,
       role: "alert",
