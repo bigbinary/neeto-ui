@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.14 - 2024-05-07
+
+Added: Logic to return `toastId` when calling **Toastr**.
+
 ## 6.5.13 - 2024-04-16
 
 Fixes the occasional scrollbar that appears when the input height is calculated based on the content in the value change handler.
@@ -39,7 +43,6 @@ Darkmode
 <img width="527" alt="Screenshot 2024-04-15 at 7 40 37 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/297a9cd4-e56c-4582-82a3-c104a254afc0">
 ## 6.5.11 - 2024-04-11
 Fixed: `antd` Datepicker not validating minDate and maxDate on input date changes.
-
 ## 6.5.10 - 2024-04-11
 
 Fixed: Remove unnecessary onBlur trigger on amPm change in TimePickerInput
@@ -76,7 +79,6 @@ Added: minDateTime and maxDateTime prop.
 While changing the page for multi-paged table, the selected rows will not be
 deselected.
 ## 6.3.9 - 2024-03-20
-
 - Added: Support for overriding the dropdown props in the *ColorPicker*
   component so that it can be further customised.
 
@@ -260,7 +262,6 @@ Changed: Updated instances of `@reach/autoid` with React `useId`
 - Changed: pagination button size from `32px` to `28px`.
 - Changed: reduced pagination margin top and margin bottom values to make it
   more compact.
-
 ## 5.2.24 - 2023-11-07
 
 Added: data-cy attribute to TextArea
@@ -1037,7 +1038,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.8 - 2022-07-01
 - Fixed: Error when handling `axios` error objects with `undefined` response in
   `Toastr.error`
-
 ## 3.5.7 - 2022-06-24
 
 - Added: `startsFrom` to `counter` prop of *EmailInput* component.
