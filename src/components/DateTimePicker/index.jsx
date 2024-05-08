@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent, isNotPresent } from "neetocist";
+import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
+import { isNil } from "ramda";
 
 import DatePicker from "components/DatePicker";
 import Label from "components/Label";
@@ -39,22 +40,20 @@ const DateTimePicker = ({
   onTimeInputBlur = noop,
   onBlur = noop,
 }) => {
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
   const [changedField, setChangedField] = useState();
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
   const errorId = `error_${defaultId}`;
 
   useEffect(() => {
-    const inputValue = value || defaultValue;
-    if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
-      const dateTime = dayjs.isDayjs(inputValue)
-        ? inputValue
-        : dayjs(inputValue);
-      setDate(dateTime);
-      setTime(dateTime);
-    }
+    const inputValue = isNil(value || defaultValue) ? null : value;
+    const dateTime = dayjs.isDayjs(inputValue) ? inputValue : dayjs(inputValue);
+
+    const isValidDateTime = !isNil(dateTime) && dayjs(dateTime).isValid();
+    setDate(isValidDateTime ? dateTime : null);
+    setTime(isValidDateTime ? dateTime : null);
   }, [value, defaultValue]);
 
   useEffect(() => {
