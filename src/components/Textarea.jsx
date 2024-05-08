@@ -31,6 +31,8 @@ const Textarea = forwardRef(
       maxLength,
       unlimitedChars = false,
       labelProps,
+      onBlur,
+      disableTrimOnBlur = false,
       ...otherProps
     },
     ref
@@ -58,6 +60,21 @@ const Textarea = forwardRef(
       const scrollHeight = textareaRef.current.scrollHeight;
       textareaRef.current.style.height = `${scrollHeight + 1}px`;
     }, [value]);
+
+    const handleTrimmedChangeOnBlur = e => {
+      if (disableTrimOnBlur || typeof value !== "string") return;
+
+      const trimmedValue = value.trim();
+      if (value === trimmedValue) return;
+
+      e.target.value = trimmedValue;
+      onChange(e);
+    };
+
+    const handleOnBlur = e => {
+      handleTrimmedChangeOnBlur(e);
+      onBlur?.(e);
+    };
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -106,6 +123,7 @@ const Textarea = forwardRef(
               onChange,
               value,
             }}
+            onBlur={handleOnBlur}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
