@@ -98,6 +98,7 @@
     "@wojtekmaj/react-timerange-picker": "^5.5.0",
     "antd": "5.15.2",
     "autoprefixer": "9.0.0",
+    "avvvatars-react": "^0.4.2",
     "babel-loader": "^8.2.5",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-import": "^1.13.5",
