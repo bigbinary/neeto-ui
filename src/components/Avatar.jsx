@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
-import FallbackAvatar from "boring-avatars";
+import Avvvatars from "avvvatars-react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
-
-import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
 
 const SIZE = { small: 24, medium: 32, large: 40, extraLarge: 64 };
 
@@ -61,7 +59,6 @@ const Avatar = ({
       <span className={statusClasses} data-testid="indicator" />
     );
 
-  const avatarString = name.replace("", "-");
   const shouldDisplayFallbackAvatar = !(imageUrl && !isLoadingFailed);
 
   return (
@@ -79,16 +76,10 @@ const Avatar = ({
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
-          <FallbackAvatar
-            {...{ name }}
-            className="neeto-ui-avatar__svg"
-            colors={COLOR_PALLETE}
-            size={SIZE[size]}
-            variant={AVATAR_VARIANT}
-          />
+          <Avvvatars size={SIZE[size]} value={name} />
         ) : (
           <img
-            alt={`avatar-${avatarString}`}
+            alt={`avatar-${name}`}
             className={imageClasses}
             src={imageUrl}
             onError={() => setIsLoadingFailed(true)}
