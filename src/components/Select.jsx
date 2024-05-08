@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import classnames from "classnames";
-import { _existsBy } from "neetocist";
+import { _existsBy, isPresent } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
 import { prop, assoc, flatten, pluck } from "ramda";
@@ -248,7 +248,8 @@ const Select = ({
   };
 
   const findInOptions = value => {
-    if (!value || otherProps.isMulti) {
+    const { fetchMore, isMulti } = otherProps;
+    if (!value || isMulti || isPresent(fetchMore)) {
       return value;
     }
 
