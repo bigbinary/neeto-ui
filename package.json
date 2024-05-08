@@ -109,7 +109,6 @@
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "babel-preset-react": "6.24.1",
     "babel-preset-typescript": "^7.0.0-alpha.19",
-    "boring-avatars": "^1.7.0",
     "classnames": "2.2.6",
     "css-loader": "4.3.0",
     "cssnano": "4.1.11",
