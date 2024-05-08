@@ -217,6 +217,10 @@ Textarea.propTypes = {
    * To specify the content to be added at the beginning of the Textarea.
    */
   prefix: PropTypes.node,
+  /**
+   * To disable leading and trailing white spaces onBlur.
+   */
+  disableTrimOnBlur: PropTypes.bool,
 };
 
 export default Textarea;

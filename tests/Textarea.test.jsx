@@ -21,10 +21,18 @@ describe("Textarea", () => {
   it("should call onChange when textarea value changes", async () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <Textarea id="text" label="Textarea" onChange={onChange} />
+      <Textarea {...{ onChange }} id="text" label="Textarea" />
     );
     await userEvent.type(getByLabelText("Textarea"), "Test");
     expect(onChange).toHaveBeenCalledTimes(4);
+  });
+
+  it("should properly handle disableTrimOnBlur", async () => {
+    const { getByLabelText } = render(<Textarea id="text" label="Textarea" />);
+
+    await userEvent.type(getByLabelText("Textarea"), "  Test  ");
+    await userEvent.tab(); // go out of focus
+    expect(getByLabelText("Textarea")).toHaveValue("Test");
   });
 
   it("should display helpText", () => {
