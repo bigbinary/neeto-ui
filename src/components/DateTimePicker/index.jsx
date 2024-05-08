@@ -5,7 +5,6 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
-import { isNil } from "ramda";
 
 import DatePicker from "components/DatePicker";
 import Label from "components/Label";
@@ -50,7 +49,7 @@ const DateTimePicker = ({
   useEffect(() => {
     const inputValue = value || defaultValue;
 
-    if (isNil(inputValue) || isNotPresent(inputValue)) {
+    if (isNotPresent(inputValue)) {
       setDate(null);
       setTime(null);
 
