@@ -48,12 +48,22 @@ const DateTimePicker = ({
   const errorId = `error_${defaultId}`;
 
   useEffect(() => {
-    const inputValue = isNil(value || defaultValue) ? null : value;
-    const dateTime = dayjs.isDayjs(inputValue) ? inputValue : dayjs(inputValue);
+    const inputValue = value || defaultValue;
 
-    const isValidDateTime = !isNil(dateTime) && dayjs(dateTime).isValid();
-    setDate(isValidDateTime ? dateTime : null);
-    setTime(isValidDateTime ? dateTime : null);
+    if (isNil(inputValue) || isNotPresent(inputValue)) {
+      setDate(null);
+      setTime(null);
+
+      return;
+    }
+
+    if (dayjs(inputValue).isValid()) {
+      const dateTime = dayjs.isDayjs(inputValue)
+        ? inputValue
+        : dayjs(inputValue);
+      setDate(dateTime);
+      setTime(dateTime);
+    }
   }, [value, defaultValue]);
 
   useEffect(() => {
