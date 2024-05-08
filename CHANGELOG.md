@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.16 - 2024-05-08
+
+- Added: onBlur handler for textarea to trim leading and trailing spaces
+
 ## 6.5.15 - 2024-05-07
 
 - Fixed: `toastId` returning `undefined` when using **Toastr.error**
@@ -49,7 +53,6 @@ Darkmode
 Fixed: `antd` Datepicker not validating minDate and maxDate on input date changes.
 ## 6.5.10 - 2024-04-11
 Fixed: Remove unnecessary onBlur trigger on amPm change in TimePickerInput
-
 ## 6.5.7 - 2024-03-29
 
 Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
@@ -85,7 +88,6 @@ deselected.
 - Added: Support for overriding the dropdown props in the *ColorPicker*
   component so that it can be further customised.
 ## 6.3.8 - 2024-03-13
-
 - Added: data attribute to table triple dots.
 
 ## 6.3.7 - 2024-03-11
@@ -266,7 +268,6 @@ Changed: Updated instances of `@reach/autoid` with React `useId`
   more compact.
 ## 5.2.24 - 2023-11-07
 Added: data-cy attribute to TextArea
-
 ## 5.2.23 - 2023-11-06
 
 Added: data-cy attributes to Select, DatePicker and Tags
@@ -1041,7 +1042,6 @@ Changes documentations to sentence case from title casing.
   `Toastr.error`
 ## 3.5.7 - 2022-06-24
 - Added: `startsFrom` to `counter` prop of *EmailInput* component.
-
 ## 3.5.6 - 2022-06-13
 
 - Fixed: Calendar icon overflowing under the clear icon in Date Range picker
