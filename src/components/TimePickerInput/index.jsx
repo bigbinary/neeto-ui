@@ -6,7 +6,6 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
-import { isNil } from "ramda";
 import TimePicker from "react-time-picker";
 
 import Label from "components/Label";
@@ -57,7 +56,7 @@ const TimePickerInput = forwardRef(
 
     useEffect(() => {
       const value = inputValue || defaultValue;
-      if (isNil(value) || isNotPresent(value)) {
+      if (isNotPresent(value)) {
         setValue(null);
 
         return;
