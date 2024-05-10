@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { isPresent, isNotPresent } from "neetocist";
+import { isNotPresent } from "neetocist";
 import PropTypes from "prop-types";
 
 import DatePicker from "components/DatePicker";
@@ -39,8 +39,8 @@ const DateTimePicker = ({
   onTimeInputBlur = noop,
   onBlur = noop,
 }) => {
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
   const [changedField, setChangedField] = useState();
   const timeRef = React.useRef(null);
   const defaultId = useId(id);
@@ -48,7 +48,15 @@ const DateTimePicker = ({
 
   useEffect(() => {
     const inputValue = value || defaultValue;
-    if (isPresent(inputValue) && dayjs(inputValue).isValid()) {
+
+    if (isNotPresent(inputValue)) {
+      setDate(null);
+      setTime(null);
+
+      return;
+    }
+
+    if (dayjs(inputValue).isValid()) {
       const dateTime = dayjs.isDayjs(inputValue)
         ? inputValue
         : dayjs(inputValue);

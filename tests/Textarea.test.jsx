@@ -27,6 +27,14 @@ describe("Textarea", () => {
     expect(onChange).toHaveBeenCalledTimes(4);
   });
 
+  it("should properly handle disableTrimOnBlur", async () => {
+    const { getByLabelText } = render(<Textarea id="text" label="Textarea" />);
+
+    await userEvent.type(getByLabelText("Textarea"), "  Test  ");
+    await userEvent.tab(); // go out of focus
+    expect(getByLabelText("Textarea")).toHaveValue("Test");
+  });
+
   it("should display helpText", () => {
     const { getByText } = render(
       <Textarea helpText="Help text" id="text" label="Textarea" />
