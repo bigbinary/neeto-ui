@@ -63,12 +63,12 @@ const Default = args => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
         </Modal.Footer>
       </Modal>
     </div>
@@ -116,12 +116,12 @@ const Sizes = args => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            label="Continue"
+            label="Cancel"
+            style="tertiary"
             onClick={() => setShowModalExtraSmall(false)}
           />
           <Button
-            label="Cancel"
-            style="text"
+            label="Continue"
             onClick={() => setShowModalExtraSmall(false)}
           />
         </Modal.Footer>
@@ -142,12 +142,12 @@ const Sizes = args => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModalMedium(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModalMedium(false)}
           />
+          <Button label="Continue" onClick={() => setShowModalMedium(false)} />
         </Modal.Footer>
       </Modal>
       <Modal
@@ -170,12 +170,12 @@ const Sizes = args => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModalLarge(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModalLarge(false)}
           />
+          <Button label="Continue" onClick={() => setShowModalLarge(false)} />
         </Modal.Footer>
       </Modal>
       <Modal
@@ -199,12 +199,12 @@ const Sizes = args => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            label="Continue"
+            label="Cancel"
+            style="tertiary"
             onClick={() => setShowModalFullScreen(false)}
           />
           <Button
-            label="Cancel"
-            style="text"
+            label="Continue"
             onClick={() => setShowModalFullScreen(false)}
           />
         </Modal.Footer>
@@ -249,12 +249,12 @@ const ModalFocusTrapping = args => {
           <Input label="Email" type="email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
         </Modal.Footer>
       </Modal>
     </div>
@@ -297,13 +297,13 @@ const NestedModals = args => {
         </Modal.Body>
         <Modal.Footer className="space-x-2">
           <Button
-            label="Open second Modal"
-            onClick={() => setShowModal2(true)}
+            label="Cancel"
+            style="tertiary"
+            onClick={() => setShowModal(false)}
           />
           <Button
-            label="Cancel"
-            style="text"
-            onClick={() => setShowModal(false)}
+            label="Open second Modal"
+            onClick={() => setShowModal2(true)}
           />
         </Modal.Footer>
       </Modal>
@@ -324,12 +324,12 @@ const NestedModals = args => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal2(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal2(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal2(false)} />
         </Modal.Footer>
       </Modal>
     </div>
@@ -382,12 +382,12 @@ const InitialAndFinalFocusRef = args => {
           <Input label="Email" type="email" />
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
         </Modal.Footer>
       </Modal>
     </div>
@@ -428,12 +428,12 @@ const CSSCustomization = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal(false)} />
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
         </Modal.Footer>
       </Modal>
     </div>

@@ -36,9 +36,10 @@
   --neeto-ui-modal-body-line-height: 1.5;
 
   // Footer
-  --neeto-ui-modal-footer-padding-top: 0;
-  --neeto-ui-modal-footer-padding-bottom: var(--neeto-ui-modal-spacing);
+  --neeto-ui-modal-footer-padding-y: 16px;
   --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
+  --neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 }
 
 .neeto-ui-modal__backdrop {
@@ -142,7 +143,11 @@
     }
 
     .neeto-ui-modal__footer {
-      padding: var(--neeto-ui-modal-footer-padding-top) var(--neeto-ui-modal-footer-padding-x) var(--neeto-ui-modal-footer-padding-bottom);
+      text-align: right;
+      background: var(--neeto-ui-modal-footer-bg);
+      border-bottom-left-radius: var(--neeto-ui-modal-footer-border-radius);
+      border-bottom-right-radius: var(--neeto-ui-modal-footer-border-radius);
+      padding: var(--neeto-ui-modal-footer-padding-y) var(--neeto-ui-modal-footer-padding-x);
     }
   }
 }
