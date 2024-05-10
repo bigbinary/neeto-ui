@@ -65,7 +65,16 @@ const Alert = ({
           {message}
         </Typography>
       </Modal.Body>
-      <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-items-center">
+      <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
+        {!hideCancelButton && (
+          <Button
+            data-cy="alert-cancel-button"
+            label={cancelButtonLabel}
+            ref={cancelButtonRef}
+            style="tertiary"
+            onClick={onClose}
+          />
+        )}
         <Button
           data-cy="alert-submit-button"
           disabled={!isOpen}
@@ -75,15 +84,6 @@ const Alert = ({
           style="danger"
           onClick={onSubmit}
         />
-        {!hideCancelButton && (
-          <Button
-            data-cy="alert-cancel-button"
-            label={cancelButtonLabel}
-            ref={cancelButtonRef}
-            style="text"
-            onClick={onClose}
-          />
-        )}
       </Modal.Footer>
     </Modal>
   );
