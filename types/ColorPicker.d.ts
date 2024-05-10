@@ -4,7 +4,10 @@ import { DropdownProps } from "./Dropdown";
 export interface ColorPickerProps {
   color: string;
   size: "small" | "medium" | "large";
-  onChange: (color: string) => void;
+  onChange: (color: {
+    hex: string;
+    rgb: { r: number; g: number; b: number, a: number };
+  }) => void;
   colorPaletteProps?: {
     color: { from: string; to: string };
     colorList: { from: string; to: string }[];
