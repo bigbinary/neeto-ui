@@ -97,7 +97,16 @@ const Button = React.forwardRef(
           onClick={handleClick}
           {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >
-          {renderLabel && <span>{renderLabel}</span>}
+          {renderLabel && (
+            <span
+              className={classnames({
+                "opacity-100": !loading,
+                "opacity-0": loading,
+              })}
+            >
+              {renderLabel}
+            </span>
+          )}
           {/* eslint-disable-next-line no-nested-ternary */}
           {icon ? (
             loading ? (

@@ -125,6 +125,13 @@
     cursor: not-allowed;
     opacity: var(--neeto-ui-btn-disabled-opacity);
   }
+  
+  .neeto-ui-btn__spinner{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .neeto-ui-btn--icon-left {
