@@ -8,14 +8,12 @@ import Button from "components/Button";
 
 import SubmitButton from "./Button";
 
-const BUTTON_ALIGNMENT = { left: "left", right: "right" };
-
 const ActionBlock = ({
   className,
   submitButtonProps,
   cancelButtonProps,
   isSubmitting: isFormSubmitting,
-  buttonAlignment = BUTTON_ALIGNMENT.left,
+  isOverlayComponent,
 }) => {
   const {
     handleReset,
@@ -25,17 +23,15 @@ const ActionBlock = ({
 
   const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
 
-  const isButtonAlignmentRight = buttonAlignment === BUTTON_ALIGNMENT.right;
-
   return (
     <div
       className={classnames([
         "neeto-ui-action-block__wrapper",
-        { "justify-end": isButtonAlignmentRight },
+        { "justify-end": isOverlayComponent },
         className,
       ])}
     >
-      {isButtonAlignmentRight ? (
+      {isOverlayComponent ? (
         <>
           <Button
             data-cy="cancel-button"
@@ -104,9 +100,9 @@ ActionBlock.propTypes = {
    */
   isSubmitting: PropTypes.bool,
   /**
-   *  To provide props for button alignment.
+   *  To provide options for changing the button alignment and style of overlay components: if not specified, left alignment with text style for the cancel button will be applied, otherwise, right alignment and tertiary style for the cancel button will be used.
    */
-  buttonAlignment: PropTypes.oneOf(Object.values(BUTTON_ALIGNMENT)),
+  isOverlayComponent: PropTypes.bool,
 };
 
 export default ActionBlock;
