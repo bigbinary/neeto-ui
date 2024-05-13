@@ -8,11 +8,14 @@ import Button from "components/Button";
 
 import SubmitButton from "./Button";
 
+const BUTTON_ALIGNMENT = { left: "left", right: "right" };
+
 const ActionBlock = ({
   className,
   submitButtonProps,
   cancelButtonProps,
   isSubmitting: isFormSubmitting,
+  buttonAlignment = BUTTON_ALIGNMENT.left,
 }) => {
   const {
     handleReset,
@@ -22,28 +25,63 @@ const ActionBlock = ({
 
   const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
 
+  const isButtonAlignmentRight = buttonAlignment === BUTTON_ALIGNMENT.right;
+
   return (
-    <div className={classnames(["neeto-ui-action-block__wrapper", className])}>
-      <SubmitButton
-        data-cy="save-changes-button"
-        data-test-id="save-changes-button"
-        disabled={isSubmitting || !dirty}
-        label="Save changes"
-        loading={isSubmitting}
-        style="primary"
-        type="submit"
-        {...submitButtonProps}
-      />
-      <Button
-        data-cy="cancel-button"
-        data-test-id="cancel-button"
-        disabled={isSubmitting}
-        label="Cancel"
-        style="text"
-        onClick={handleReset}
-        onMouseDown={e => e.preventDefault()}
-        {...cancelButtonProps}
-      />
+    <div
+      className={classnames([
+        "neeto-ui-action-block__wrapper",
+        { "justify-end": isButtonAlignmentRight },
+        className,
+      ])}
+    >
+      {isButtonAlignmentRight ? (
+        <>
+          <Button
+            data-cy="cancel-button"
+            data-test-id="cancel-button"
+            disabled={isSubmitting}
+            label="Cancel"
+            style="tertiary"
+            onClick={handleReset}
+            onMouseDown={e => e.preventDefault()}
+            {...cancelButtonProps}
+          />
+          <SubmitButton
+            data-cy="save-changes-button"
+            data-test-id="save-changes-button"
+            disabled={isSubmitting || !dirty}
+            label="Save changes"
+            loading={isSubmitting}
+            style="primary"
+            type="submit"
+            {...submitButtonProps}
+          />
+        </>
+      ) : (
+        <>
+          <SubmitButton
+            data-cy="save-changes-button"
+            data-test-id="save-changes-button"
+            disabled={isSubmitting || !dirty}
+            label="Save changes"
+            loading={isSubmitting}
+            style="primary"
+            type="submit"
+            {...submitButtonProps}
+          />
+          <Button
+            data-cy="cancel-button"
+            data-test-id="cancel-button"
+            disabled={isSubmitting}
+            label="Cancel"
+            style="text"
+            onClick={handleReset}
+            onMouseDown={e => e.preventDefault()}
+            {...cancelButtonProps}
+          />
+        </>
+      )}
     </div>
   );
 };
@@ -65,6 +103,10 @@ ActionBlock.propTypes = {
    *  Optional prop to specify the state of form submission, typically used to provide React Query mutation loading state. If not provided, Formik's `isSubmitting` prop is used.
    */
   isSubmitting: PropTypes.bool,
+  /**
+   *  To provide props for button alignment.
+   */
+  buttonAlignment: PropTypes.oneOf(Object.values(BUTTON_ALIGNMENT)),
 };
 
 export default ActionBlock;
