@@ -11,6 +11,23 @@ const SIZE = { small: 24, medium: 32, large: 40, extraLarge: 64 };
 
 const STATUS = { online: "online", idle: "idle", offline: "offline" };
 
+const getInitials = fullName => {
+  if (fullName && typeof fullName === "string") {
+    const allNames = fullName.trim().split(" ");
+    if (allNames.length === 1) return fullName.substring(0, 2).toUpperCase();
+
+    return allNames.reduce((acc, curr, index) => {
+      if (index === 0 || index === allNames.length - 1) {
+        acc = `${acc}${curr.charAt(0).toUpperCase()}`;
+      }
+
+      return acc;
+    }, "");
+  }
+
+  return "";
+};
+
 const Avatar = ({
   size = "medium",
   user = {},
@@ -76,7 +93,7 @@ const Avatar = ({
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
-          <Avvvatars size={SIZE[size]} value={name} />
+          <Avvvatars displayValue={getInitials(name)} size={SIZE[size]} />
         ) : (
           <img
             alt={`avatar-${name}`}
