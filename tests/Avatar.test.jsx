@@ -8,7 +8,7 @@ import { Avatar } from "components";
 describe("Avatar", () => {
   it("should render without error", () => {
     render(<Avatar user={{ name: "neeto UI" }} />);
-    const avatarFallback = screen.getByText("ne");
+    const avatarFallback = screen.getByText("NU");
     expect(avatarFallback).toBeInTheDocument();
   });
 
