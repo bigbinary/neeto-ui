@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Avvvatars from "avvvatars-react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { isNil } from "ramda";
+import { isEmpty, isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
 
@@ -12,7 +12,7 @@ const SIZE = { small: 24, medium: 32, large: 40, extraLarge: 64 };
 const STATUS = { online: "online", idle: "idle", offline: "offline" };
 
 const getInitials = fullName => {
-  if (typeof fullName !== "string") return "";
+  if (typeof fullName !== "string" || isEmpty(fullName)) return " ";
   const allNames = fullName.trim().split(" ");
   if (allNames.length === 1) return fullName.substring(0, 2).toUpperCase();
 
