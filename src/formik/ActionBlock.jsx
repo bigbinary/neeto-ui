@@ -13,7 +13,7 @@ const ActionBlock = ({
   submitButtonProps,
   cancelButtonProps,
   isSubmitting: isFormSubmitting,
-  isOverlayComponent,
+  isOverlayComponent = false,
 }) => {
   const {
     handleReset,
@@ -22,6 +22,32 @@ const ActionBlock = ({
   } = useFormikContext();
 
   const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
+
+  const cancelButton = (
+    <Button
+      data-cy="cancel-button"
+      data-test-id="cancel-button"
+      disabled={isSubmitting}
+      label="Cancel"
+      style={isOverlayComponent ? "tertiary" : "text"}
+      onClick={handleReset}
+      onMouseDown={e => e.preventDefault()}
+      {...cancelButtonProps}
+    />
+  );
+
+  const submitButton = (
+    <SubmitButton
+      data-cy="save-changes-button"
+      data-test-id="save-changes-button"
+      disabled={isSubmitting || !dirty}
+      label="Save changes"
+      loading={isSubmitting}
+      style="primary"
+      type="submit"
+      {...submitButtonProps}
+    />
+  );
 
   return (
     <div
@@ -33,49 +59,13 @@ const ActionBlock = ({
     >
       {isOverlayComponent ? (
         <>
-          <Button
-            data-cy="cancel-button"
-            data-test-id="cancel-button"
-            disabled={isSubmitting}
-            label="Cancel"
-            style="tertiary"
-            onClick={handleReset}
-            onMouseDown={e => e.preventDefault()}
-            {...cancelButtonProps}
-          />
-          <SubmitButton
-            data-cy="save-changes-button"
-            data-test-id="save-changes-button"
-            disabled={isSubmitting || !dirty}
-            label="Save changes"
-            loading={isSubmitting}
-            style="primary"
-            type="submit"
-            {...submitButtonProps}
-          />
+          {cancelButton}
+          {submitButton}
         </>
       ) : (
         <>
-          <SubmitButton
-            data-cy="save-changes-button"
-            data-test-id="save-changes-button"
-            disabled={isSubmitting || !dirty}
-            label="Save changes"
-            loading={isSubmitting}
-            style="primary"
-            type="submit"
-            {...submitButtonProps}
-          />
-          <Button
-            data-cy="cancel-button"
-            data-test-id="cancel-button"
-            disabled={isSubmitting}
-            label="Cancel"
-            style="text"
-            onClick={handleReset}
-            onMouseDown={e => e.preventDefault()}
-            {...cancelButtonProps}
-          />
+          {submitButton}
+          {cancelButton}
         </>
       )}
     </div>
@@ -100,7 +90,7 @@ ActionBlock.propTypes = {
    */
   isSubmitting: PropTypes.bool,
   /**
-   *  To provide options for changing the button alignment and style of overlay components: if not specified, left alignment with text style for the cancel button will be applied, otherwise, right alignment and tertiary style for the cancel button will be used.
+   *  Determines the alignment and style of buttons in ActionBlock components. Set to `true` when using ActionBlock in an overlay to right-align both buttons, with the cancel button styled as tertiary. Defaults to `false`, left-aligning both buttons, with the cancel button styled as text.
    */
   isOverlayComponent: PropTypes.bool,
 };
