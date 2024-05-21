@@ -8,12 +8,14 @@ import Button from "components/Button";
 
 import SubmitButton from "./Button";
 
+const POSITIONS = { left: "left", right: "right" };
+
 const ActionBlock = ({
   className,
   submitButtonProps,
   cancelButtonProps,
   isSubmitting: isFormSubmitting,
-  isOverlayComponent = false,
+  position = POSITIONS.left,
 }) => {
   const {
     handleReset,
@@ -22,6 +24,7 @@ const ActionBlock = ({
   } = useFormikContext();
 
   const isSubmitting = isFormSubmitting ?? isFormikSubmitting;
+  const isButtonPositionRight = position === POSITIONS.right;
 
   const cancelButton = (
     <Button
@@ -29,7 +32,7 @@ const ActionBlock = ({
       data-test-id="cancel-button"
       disabled={isSubmitting}
       label="Cancel"
-      style={isOverlayComponent ? "tertiary" : "text"}
+      style="text"
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
       {...cancelButtonProps}
@@ -53,11 +56,11 @@ const ActionBlock = ({
     <div
       className={classnames([
         "neeto-ui-action-block__wrapper",
-        { "justify-end": isOverlayComponent },
+        { "justify-end": isButtonPositionRight },
         className,
       ])}
     >
-      {isOverlayComponent ? (
+      {isButtonPositionRight ? (
         <>
           {cancelButton}
           {submitButton}
@@ -90,9 +93,9 @@ ActionBlock.propTypes = {
    */
   isSubmitting: PropTypes.bool,
   /**
-   *  Determines the alignment and style of buttons in ActionBlock components. Set to `true` when using ActionBlock in an overlay to right-align both buttons, with the cancel button styled as tertiary. Defaults to `false`, left-aligning both buttons, with the cancel button styled as text.
+   *  Determines the alignment of buttons in ActionBlock components. Set to `right` when using ActionBlock to right-align both buttons. Defaults to `left`, left-aligning both buttons.
    */
-  isOverlayComponent: PropTypes.bool,
+  position: PropTypes.oneOf(Object.values(POSITIONS)),
 };
 
 export default ActionBlock;
