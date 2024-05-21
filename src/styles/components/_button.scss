@@ -125,6 +125,13 @@
     cursor: not-allowed;
     opacity: var(--neeto-ui-btn-disabled-opacity);
   }
+
+  .neeto-ui-btn__spinner{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .neeto-ui-btn--icon-left {
@@ -228,4 +235,15 @@
   --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
   --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-500), 15%);
   --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
+}
+
+.neeto-ui-btn--loading{
+  & > *{
+    opacity: 0;
+    visibility: hidden;
+  }
+  .neeto-ui-btn__spinner{
+    opacity: 1;
+    visibility: visible;
+  }
 }

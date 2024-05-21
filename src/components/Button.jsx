@@ -1,7 +1,6 @@
 import React from "react";
 
 import classnames from "classnames";
-import { AnimatePresence, motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -45,7 +44,7 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    let Parent = motion.button;
+    let Parent = "button";
     let elementSpecificProps = { type };
 
     const renderLabel = label || children;
@@ -55,7 +54,7 @@ const Button = React.forwardRef(
         Parent = Link;
         elementSpecificProps = { to };
       } else if (href) {
-        Parent = motion.a;
+        Parent = "a";
         elementSpecificProps = { href };
       }
     }
@@ -92,47 +91,28 @@ const Button = React.forwardRef(
             "neeto-ui-btn--width-full": fullWidth,
             "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
             "neeto-ui-btn--icon-only": !renderLabel,
+            "neeto-ui-btn--loading": loading,
             disabled,
           })}
           onClick={handleClick}
           {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >
-          {renderLabel && <span>{renderLabel}</span>}
-          {/* eslint-disable-next-line no-nested-ternary */}
-          {icon ? (
-            loading ? (
-              <Spinner
-                aria-hidden="true"
-                className="neeto-ui-btn__spinner"
-                size={16}
-              />
-            ) : (
-              <Icon
-                aria-hidden="true"
-                className="neeto-ui-btn__icon"
-                size={iconSize}
-              />
-            )
-          ) : (
-            <AnimatePresence>
-              {/* When Icon is not present, animate the margin from 0 to the needed value*/}
-              {loading && (
-                <motion.div
-                  animate={{ width: "auto", scale: 1 }}
-                  className="neeto-ui-btn__spinner-wrapper"
-                  exit={{ width: 0, scale: 0 }}
-                  initial={{ width: 0, scale: 0 }}
-                  transition={{ bounce: false }}
-                >
-                  <Spinner
-                    aria-hidden="true"
-                    className="neeto-ui-btn__spinner"
-                    key="3"
-                    size={16}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {renderLabel && (
+            <span className="neeto-ui-btn__label">{renderLabel}</span>
+          )}
+          {icon && (
+            <Icon
+              aria-hidden="true"
+              className="neeto-ui-btn__icon"
+              size={iconSize}
+            />
+          )}
+          {loading && (
+            <Spinner
+              aria-hidden="true"
+              className="neeto-ui-btn__spinner"
+              size={16}
+            />
           )}
         </Parent>
       </Tooltip>
