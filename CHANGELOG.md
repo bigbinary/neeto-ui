@@ -23,6 +23,16 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.5.20 - 2024-05-16
+
+- Fixed: color picker dropdown height.
+
+Before
+<img width="267" alt="Screenshot 2024-05-16 at 7 56 51 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/2c2e0a4e-6113-40cc-9b92-281bf35639e3">
+
+After
+<img width="249" alt="Screenshot 2024-05-16 at 7 55 58 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/2c841c91-06e8-4c78-b9b1-614b2676cf6a">
+
 ## 6.5.18 - 2024-05-10
 
 - Updated: onChange handler types of ColorPicker
@@ -65,7 +75,6 @@ Fixed: Remove unnecessary onBlur trigger on amPm change in TimePickerInput
 Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
 `bulkSelectedAllRowsProps` is passed.
 ## 6.5.5 - 2024-03-27
-
 - Fixed: Table sort state persisting when the query param is removed
 
 ## 6.5.4 - 2024-03-27
@@ -97,7 +106,6 @@ deselected.
 - Added: data attribute to table triple dots.
 ## 6.3.7 - 2024-03-11
 - Added: Additional dropdown triggers
-
 ## 6.3.6 - 2024-03-06
 
 - Added: support for resize, suffix, prefix and sizing for textarea.
@@ -275,7 +283,6 @@ Added: data-cy attribute to TextArea
 ## 5.2.23 - 2023-11-06
 Added: data-cy attributes to Select, DatePicker and Tags
 ## 5.2.21 - 2023-10-27
-
 Added: `TimePickerInput` component
 
 ## 5.2.20 - 2023-10-26
@@ -1047,7 +1054,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.6 - 2022-06-13
 - Fixed: Calendar icon overflowing under the clear icon in Date Range picker
 ## 3.5.5 - 2022-06-09
-
 - Fixed: issue with `onClose` function reference when closing the *Modal* using
   `Esc`.
 
