@@ -2,8 +2,11 @@ import React from "react";
 
 import { Help } from "neetoicons";
 
+import Button from "components/Button";
 import Label from "components/Label";
+import Popover from "components/Popover";
 import Tooltip from "components/Tooltip";
+import Typography from "components/Typography";
 
 import LabelCSSCustomization from "!raw-loader!./LabelStoriesDocs/LabelCSSCustomization.mdx";
 import LabelDocs from "!raw-loader!./LabelStoriesDocs/LabelDocs.mdx";
@@ -36,7 +39,25 @@ WithHelpIcon.args = {
   helpIconProps: {
     onClick: () => window.open("https://neetoui.onrender.com"),
     icon: Help,
-    tooltipProps: { content: "Help icon tooltip", position: "auto" },
+    tooltipProps: {
+      content: (
+        <>
+          <Popover.Title>What is KB keywords?</Popover.Title>
+          <Typography lineHeight="normal" style="body2">
+            Keywords represent the key concepts of an article. These will be
+            shown on the KB and will be used for SEO
+          </Typography>
+          <Button
+            className="neeto-ui-mt-3"
+            label="View help article"
+            size="small"
+            style="link"
+            onClick={() => window.open("https://neetoui.onrender.com")}
+          />
+        </>
+      ),
+      position: "auto",
+    },
   },
 };
 WithHelpIcon.storyName = "With help icon";
