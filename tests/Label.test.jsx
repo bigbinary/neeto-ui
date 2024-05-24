@@ -30,11 +30,11 @@ describe("Label", () => {
     expect(getByTestId("icon")).toBeInTheDocument();
   });
 
-  it("should show tooltip when provided in helpIconProps", async () => {
+  it("should show popover when provided in helpIconProps", async () => {
     const { getByText, getByTestId } = render(
       <Label
         helpIconProps={{
-          tooltipProps: { content: "Tooltip" },
+          tooltipProps: { content: "Popover" },
           "data-testid": "icon",
         }}
       >
@@ -42,18 +42,13 @@ describe("Label", () => {
       </Label>
     );
     await userEvent.hover(getByTestId("icon"));
-    expect(getByText("Tooltip")).toBeInTheDocument();
+    expect(getByText("Popover")).toBeInTheDocument();
   });
 
   it("should trigger onClick when provided in helpIconProps", async () => {
     const onClick = jest.fn();
     const { getByTestId } = render(
-      <Label
-        helpIconProps={{
-          onClick,
-          "data-testid": "icon",
-        }}
-      >
+      <Label helpIconProps={{ onClick, "data-testid": "icon" }}>
         <p>Content</p>
       </Label>
     );
