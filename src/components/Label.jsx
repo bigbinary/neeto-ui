@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import classnames from "classnames";
 import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
-import Tooltip from "./Tooltip";
+import Popover from "./Popover";
 
 const Label = ({
   children,
@@ -23,6 +23,8 @@ const Label = ({
 
   const HelpIcon = icon || Help;
 
+  const popoverReferenceElement = useRef();
+
   return (
     <label
       className={classnames(
@@ -34,16 +36,22 @@ const Label = ({
       {children}
       {required && <span aria-hidden>*</span>}
       {helpIconProps && (
-        <Tooltip {...tooltipProps} disabled={!tooltipProps}>
+        <>
           <span
             {...{ onClick }}
+            ref={popoverReferenceElement}
             className={classnames("neeto-ui-label__help-icon-wrap", {
               [helpIconClassName]: helpIconClassName,
             })}
           >
             <HelpIcon size={16} {...otherHelpIconProps} />
           </span>
-        </Tooltip>
+          <Popover
+            reference={popoverReferenceElement}
+            {...tooltipProps}
+            disabled={!tooltipProps}
+          />
+        </>
       )}
     </label>
   );
@@ -68,7 +76,7 @@ Label.propTypes = {
   helpIconProps: PropTypes.shape({
     onClick: PropTypes.func,
     icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+    tooltipProps: PropTypes.shape({ ...Popover.propTypes }),
   }),
 };
 
