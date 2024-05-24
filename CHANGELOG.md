@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.6.0 - 2024-05-24
+
+- Added: a new component `ProgressBar`
+
 ## 6.5.20 - 2024-05-16
 
 - Fixed: color picker dropdown height.
@@ -76,7 +80,6 @@ Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
 `bulkSelectedAllRowsProps` is passed.
 ## 6.5.5 - 2024-03-27
 - Fixed: Table sort state persisting when the query param is removed
-
 ## 6.5.4 - 2024-03-27
 
 Fixed: DatePicker unable to switch to different month or year.
@@ -107,7 +110,6 @@ deselected.
 ## 6.3.7 - 2024-03-11
 - Added: Additional dropdown triggers
 ## 6.3.6 - 2024-03-06
-
 - Added: support for resize, suffix, prefix and sizing for textarea.
 
 @ajmaln _a Please review.
@@ -284,7 +286,6 @@ Added: data-cy attribute to TextArea
 Added: data-cy attributes to Select, DatePicker and Tags
 ## 5.2.21 - 2023-10-27
 Added: `TimePickerInput` component
-
 ## 5.2.20 - 2023-10-26
 
 Changed: Upgraded `framer-motion` and removed some unused packages. Added:
@@ -1056,7 +1057,6 @@ Changes documentations to sentence case from title casing.
 ## 3.5.5 - 2022-06-09
 - Fixed: issue with `onClose` function reference when closing the *Modal* using
   `Esc`.
-
 ## 3.5.4 - 2022-06-08
 
 Fixed: `TypeError` issue in *Toastr* component.
