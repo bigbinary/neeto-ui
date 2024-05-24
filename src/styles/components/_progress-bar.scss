@@ -1,0 +1,30 @@
+:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+  --progress-bar-background: rgb(var(--neeto-ui-gray-200));
+  --progress-bar-color: rgb(var(--neeto-ui-primary-600));
+  --progress-value-text-color: rgb(var(--neeto-ui-primary-100));
+}
+
+.neeto-ui-progress-bar__wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 12px;
+  background-color: var(--progress-bar-background);
+
+  .neeto-ui-progress-bar {
+    height: 100%;
+    font-weight: 500;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--progress-value-text-color);
+    background-color: var(--progress-bar-color);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+.neetix-progress-bar {
+  --progress-bar-background: rgb(var(--neeto-ui-success-100));
+  --progress-bar-color: rgb(var(--neeto-ui-success-600));
+  --progress-value-text-color: rgb(var(--neeto-ui-primary-100));
+}
