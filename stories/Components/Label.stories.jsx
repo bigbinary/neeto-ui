@@ -32,14 +32,14 @@ Required.args = {
   required: true,
 };
 
-const WithHelpIcon = Template.bind({});
-WithHelpIcon.args = {
+const WithHelpIconAndPopover = Template.bind({});
+WithHelpIconAndPopover.args = {
   children: "This is a Label with a help icon",
   required: true,
   helpIconProps: {
     onClick: () => window.open("https://neetoui.onrender.com"),
     icon: Help,
-    tooltipProps: {
+    popoverProps: {
       content: (
         <>
           <Popover.Title>What is KB keywords?</Popover.Title>
@@ -60,7 +60,19 @@ WithHelpIcon.args = {
     },
   },
 };
-WithHelpIcon.storyName = "With help icon";
+WithHelpIconAndPopover.storyName = "With help icon and Popover";
+
+const WithHelpIconAndTooltip = Template.bind({});
+WithHelpIconAndTooltip.args = {
+  children: "This is a Label with a help icon",
+  required: true,
+  helpIconProps: {
+    onClick: () => window.open("https://neetoui.onrender.com"),
+    icon: Help,
+    tooltipProps: { content: "Help icon tooltip", position: "auto" },
+  },
+};
+WithHelpIconAndTooltip.storyName = "With help icon and Tooltip";
 
 const CSSCustomization = args => <Label {...args} />;
 
@@ -75,6 +87,12 @@ CSSCustomization.parameters = {
   docs: { description: { story: LabelCSSCustomization } },
 };
 
-export { Default, Required, WithHelpIcon, CSSCustomization };
+export {
+  Default,
+  Required,
+  WithHelpIconAndTooltip,
+  WithHelpIconAndPopover,
+  CSSCustomization,
+};
 
 export default metadata;

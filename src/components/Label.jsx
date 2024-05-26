@@ -5,6 +5,7 @@ import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
 import Popover from "./Popover";
+import Tooltip from "./Tooltip";
 
 const Label = ({
   children,
@@ -17,13 +18,25 @@ const Label = ({
     onClick,
     icon,
     tooltipProps,
+    popoverProps,
     className: helpIconClassName,
     ...otherHelpIconProps
   } = helpIconProps || {};
 
   const HelpIcon = icon || Help;
-
   const popoverReferenceElement = useRef();
+
+  const renderHelpIcon = () => (
+    <span
+      {...{ onClick }}
+      ref={popoverProps ? popoverReferenceElement : undefined}
+      className={classnames("neeto-ui-label__help-icon-wrap", {
+        [helpIconClassName]: helpIconClassName,
+      })}
+    >
+      <HelpIcon size={16} {...otherHelpIconProps} />
+    </span>
+  );
 
   return (
     <label
@@ -37,20 +50,16 @@ const Label = ({
       {required && <span aria-hidden>*</span>}
       {helpIconProps && (
         <>
-          <span
-            {...{ onClick }}
-            ref={popoverReferenceElement}
-            className={classnames("neeto-ui-label__help-icon-wrap", {
-              [helpIconClassName]: helpIconClassName,
-            })}
-          >
-            <HelpIcon size={16} {...otherHelpIconProps} />
-          </span>
-          <Popover
-            reference={popoverReferenceElement}
-            {...tooltipProps}
-            disabled={!tooltipProps}
-          />
+          {tooltipProps ? (
+            <Tooltip {...tooltipProps}>{renderHelpIcon()}</Tooltip>
+          ) : popoverProps ? (
+            <>
+              {renderHelpIcon()}
+              <Popover reference={popoverReferenceElement} {...popoverProps} />
+            </>
+          ) : (
+            renderHelpIcon()
+          )}
         </>
       )}
     </label>
@@ -76,7 +85,9 @@ Label.propTypes = {
   helpIconProps: PropTypes.shape({
     onClick: PropTypes.func,
     icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-    tooltipProps: PropTypes.shape({ ...Popover.propTypes }),
+    tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+    popoverProps: PropTypes.shape({ ...Popover.propTypes }),
+    className: PropTypes.string,
   }),
 };
 
