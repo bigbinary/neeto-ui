@@ -1,5 +1,6 @@
 import React from "react";
 import { TooltipProps } from "./Tooltip";
+import { ButtonProps } from "./Button";
 
 export type LabelProps = {
   className?: string;
@@ -8,6 +9,11 @@ export type LabelProps = {
     onClick?: () => void;
     icon?: any;
     tooltipProps?: TooltipProps;
+    popoverProps?: {
+      title?: string;
+      description?: React.ReactNode;
+      helpLinkProps?: ButtonProps;
+    };
     className?: string;
   } & React.SVGProps<SVGSVGElement>;
 } & React.DetailedHTMLProps<

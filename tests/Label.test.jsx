@@ -30,11 +30,26 @@ describe("Label", () => {
     expect(getByTestId("icon")).toBeInTheDocument();
   });
 
+  it("should show tooltip when provided in helpIconProps", async () => {
+    const { getByText, getByTestId } = render(
+      <Label
+        helpIconProps={{
+          tooltipProps: { content: "Tooltip" },
+          "data-testid": "icon",
+        }}
+      >
+        <p>Content</p>
+      </Label>
+    );
+    await userEvent.hover(getByTestId("icon"));
+    expect(getByText("Tooltip")).toBeInTheDocument();
+  });
+
   it("should show popover when provided in helpIconProps", async () => {
     const { getByText, getByTestId } = render(
       <Label
         helpIconProps={{
-          tooltipProps: { content: "Popover" },
+          popoverProps: { description: "Popover" },
           "data-testid": "icon",
         }}
       >

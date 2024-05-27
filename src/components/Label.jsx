@@ -1,11 +1,16 @@
 import React, { useRef } from "react";
 
 import classnames from "classnames";
+import { isNotPresent } from "neetocist";
 import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
+import Button from "./Button";
 import Popover from "./Popover";
 import Tooltip from "./Tooltip";
+import Typography from "./Typography";
+
+const { Title } = Popover;
 
 const Label = ({
   children,
@@ -23,8 +28,12 @@ const Label = ({
     ...otherHelpIconProps
   } = helpIconProps || {};
 
+  const { title, description, helpLinkProps } = popoverProps || {};
+
   const HelpIcon = icon || Help;
   const popoverReferenceElement = useRef();
+
+  const isCompact = isNotPresent(title) && isNotPresent(helpLinkProps);
 
   const renderHelpIcon = () => (
     <span
@@ -55,7 +64,42 @@ const Label = ({
           ) : popoverProps ? (
             <>
               {renderHelpIcon()}
-              <Popover reference={popoverReferenceElement} {...popoverProps} />
+              <Popover reference={popoverReferenceElement}>
+                <div className="flex flex-col">
+                  {title && (
+                    <Title
+                      data-cy="help-popover-title"
+                      data-testid="help-popover-title"
+                    >
+                      {title}
+                    </Title>
+                  )}
+                  {typeof description === "string" && !isCompact ? (
+                    <Typography
+                      data-cy="help-popover-description"
+                      data-testid="help-popover-description"
+                      lineHeight="normal"
+                      style="body2"
+                      weight="normal"
+                    >
+                      {description}
+                    </Typography>
+                  ) : (
+                    description
+                  )}
+                  {helpLinkProps && (
+                    <Button
+                      className="neeto-ui-mt-3"
+                      data-cy="help-popover-link-button"
+                      size="small"
+                      {...helpLinkProps}
+                      data-testid="help-popover-link-button"
+                      style="link"
+                      target="_blank"
+                    />
+                  )}
+                </div>
+              </Popover>
             </>
           ) : (
             renderHelpIcon()
@@ -86,7 +130,11 @@ Label.propTypes = {
     onClick: PropTypes.func,
     icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
-    popoverProps: PropTypes.shape({ ...Popover.propTypes }),
+    popoverProps: PropTypes.shape({
+      title: PropTypes.node,
+      description: PropTypes.node,
+      helpLinkProps: PropTypes.shape({ ...Button.propTypes }),
+    }),
     className: PropTypes.string,
   }),
 };
