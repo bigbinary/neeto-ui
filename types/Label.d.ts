@@ -1,6 +1,7 @@
 import React from "react";
 import { TooltipProps } from "./Tooltip";
 import { ButtonProps } from "./Button";
+import { PopoverProps } from "./Popover";
 
 export type LabelProps = {
   className?: string;
