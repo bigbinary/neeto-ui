@@ -84,7 +84,11 @@ const Avatar = ({
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
-          <Avvvatars displayValue={getInitials(name)} size={SIZE[size]} />
+          <Avvvatars
+            displayValue={getInitials(name)}
+            size={SIZE[size]}
+            value={name}
+          />
         ) : (
           <img
             alt={`avatar-${name}`}
