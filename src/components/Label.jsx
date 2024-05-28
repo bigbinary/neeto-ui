@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 
 import classnames from "classnames";
-import { isNotPresent } from "neetocist";
 import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
@@ -28,12 +27,11 @@ const Label = ({
     ...otherHelpIconProps
   } = helpIconProps || {};
 
-  const { title, description, helpLinkProps } = popoverProps || {};
+  const { title, description, helpLinkProps, ...otherPopoverProps } =
+    popoverProps || {};
 
   const HelpIcon = icon || Help;
   const popoverReferenceElement = useRef();
-
-  const isCompact = isNotPresent(title) && isNotPresent(helpLinkProps);
 
   const renderHelpIcon = () => (
     <span
@@ -64,7 +62,10 @@ const Label = ({
           ) : popoverProps ? (
             <>
               {renderHelpIcon()}
-              <Popover reference={popoverReferenceElement}>
+              <Popover
+                reference={popoverReferenceElement}
+                {...otherPopoverProps}
+              >
                 <div className="flex flex-col">
                   {title && (
                     <Title
@@ -74,7 +75,7 @@ const Label = ({
                       {title}
                     </Title>
                   )}
-                  {typeof description === "string" && !isCompact ? (
+                  {typeof description === "string" ? (
                     <Typography
                       data-cy="help-popover-description"
                       data-testid="help-popover-description"

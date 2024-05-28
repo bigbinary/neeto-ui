@@ -13,7 +13,7 @@ export type LabelProps = {
       title?: string;
       description?: React.ReactNode;
       helpLinkProps?: ButtonProps;
-    };
+    } & PopoverProps;
     className?: string;
   } & React.SVGProps<SVGSVGElement>;
 } & React.DetailedHTMLProps<
