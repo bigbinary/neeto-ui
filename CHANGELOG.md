@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.6.1 - 2024-05-28
+
+Before
+<img width="724" alt="image" src="https://github.com/bigbinary/neeto-ui/assets/8749438/f9139e23-11fe-4b11-8144-464dd9077424">
+
+After
+<img width="719" alt="image" src="https://github.com/bigbinary/neeto-ui/assets/8749438/ad364385-9818-47c4-9c63-9d8ea5a0418c">
+
 ## 6.6.0 - 2024-05-24
 
 - Added: a new component `ProgressBar`
@@ -81,7 +89,6 @@ Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
 ## 6.5.5 - 2024-03-27
 - Fixed: Table sort state persisting when the query param is removed
 ## 6.5.4 - 2024-03-27
-
 Fixed: DatePicker unable to switch to different month or year.
 
 ## 6.5.3 - 2024-03-27
@@ -111,7 +118,6 @@ deselected.
 - Added: Additional dropdown triggers
 ## 6.3.6 - 2024-03-06
 - Added: support for resize, suffix, prefix and sizing for textarea.
-
 @ajmaln _a Please review.
 
 ## 6.3.5 - 2024-03-06
@@ -287,7 +293,6 @@ Added: data-cy attributes to Select, DatePicker and Tags
 ## 5.2.21 - 2023-10-27
 Added: `TimePickerInput` component
 ## 5.2.20 - 2023-10-26
-
 Changed: Upgraded `framer-motion` and removed some unused packages. Added:
 neetoCI config for CI checks
 
@@ -1058,7 +1063,6 @@ Changes documentations to sentence case from title casing.
 - Fixed: issue with `onClose` function reference when closing the *Modal* using
   `Esc`.
 ## 3.5.4 - 2022-06-08
-
 Fixed: `TypeError` issue in *Toastr* component.
 
 ## 3.5.3 - 2022-06-07
