@@ -6249,6 +6249,13 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
+avvvatars-react@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/avvvatars-react/-/avvvatars-react-0.4.2.tgz#9569c16ae9a4925f898539ff98c6f734b6a4fe1b"
+  integrity sha512-D/bnSM+P6pQi71dFeFVqQsqmv+ct5XG7uO2lvJoiksALpXLd6kPgpRR1SUQxFZJkJNrkmg0NPgbhIgJgOsDYRQ==
+  dependencies:
+    goober "^2.1.8"
+
 babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
   resolved "https://registry.npmjs.org/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
@@ -6627,11 +6634,6 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
-
-boring-avatars@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/boring-avatars/-/boring-avatars-1.7.0.tgz#70ac7146bbf37d8e69a35544b24f1d75558f868a"
-  integrity sha512-ZNHd8J7C/V0IjQMGQowLJ5rScEFU23WxePigH6rqKcT2Esf0qhYvYxw8s9i3srmlfCnCV00ddBjaoGey1eNOfA==
 
 bplist-parser@^0.2.0:
   version "0.2.0"
@@ -8028,9 +8030,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 ejs@^3.1.8:
-  version "3.1.9"
-  resolved "https://registry.npmjs.org/ejs/-/ejs-3.1.9.tgz#03c9e8777fe12686a9effcef22303ca3d8eeb361"
-  integrity sha512-rC+QVNMJWv+MtPgkt0y+0rVEIdbtxVADApW9JXrUVlzHetgcyczP/E7DJmWJ4fJCZF2cPcBk0laWO9ZHMG3DmQ==
+  version "3.1.10"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-3.1.10.tgz#69ab8358b14e896f80cc39e62087b88500c3ac3b"
+  integrity sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==
   dependencies:
     jake "^10.8.5"
 
@@ -9258,6 +9260,11 @@ globby@^11.0.1, globby@^11.0.2, globby@^11.1.0:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
+
+goober@^2.1.8:
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.14.tgz#4a5c94fc34dc086a8e6035360ae1800005135acd"
+  integrity sha512-4UpC0NdGyAFqLNPnhCT2iHpza2q+RAY3GV85a/mRPdzyPQMsj0KmMMuetdIkzWRbJ+Hgau1EZztq8ImmiMGhsg==
 
 gopd@^1.0.1:
   version "1.0.1"

@@ -6,6 +6,7 @@ export interface ActionBlockProps {
   submitButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
   isSubmitting?: boolean;
+  position?: "left" | "right";
 }
 const ActionBlock: React.FC<ActionBlockProps>;
 export default ActionBlock;

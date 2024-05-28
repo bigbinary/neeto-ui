@@ -4,7 +4,7 @@ type ToastrFunction = (
   message: React.ReactNode,
   buttonLabel?: React.ReactNode,
   onClick?: () => void
-) => void;
+) => string | null;
 
 const Toastr: {
   show: ToastrFunction;
@@ -14,7 +14,7 @@ const Toastr: {
     message: React.ReactNode | Error,
     buttonLabel?: React.ReactNode,
     onClick?: () => void
-  ) => void;
+  ) => string | null;
   warning: ToastrFunction;
 };
 export default Toastr;

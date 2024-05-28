@@ -55,14 +55,17 @@ const TimePickerInput = forwardRef(
     const errorId = `error_${id}`;
 
     useEffect(() => {
-      if (isNotPresent(inputValue) && isNotPresent(defaultValue)) return;
+      const value = inputValue || defaultValue;
+      if (isNotPresent(value)) {
+        setValue(null);
+
+        return;
+      }
 
       setValue(
-        (type === "range" ? getFormattedRange : getFormattedTime)(
-          inputValue || defaultValue
-        )
+        (type === "range" ? getFormattedRange : getFormattedTime)(value)
       );
-    }, [type, inputValue]);
+    }, [type, inputValue, defaultValue]);
 
     const handleChange = newValue => {
       setValue(newValue);

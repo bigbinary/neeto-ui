@@ -18,6 +18,7 @@ import NoData from "./NoData";
 import Pagination from "./Pagination";
 import Pane from "./Pane";
 import Popover from "./Popover";
+import ProgressBar from "./ProgressBar";
 import Radio from "./Radio";
 import Select from "./Select";
 import Slider from "./Slider";
@@ -59,6 +60,7 @@ export {
   Pagination,
   Pane,
   Popover,
+  ProgressBar,
   Radio,
   Select,
   Slider,

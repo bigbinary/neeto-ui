@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 
-import FallbackAvatar from "boring-avatars";
+import Avvvatars from "avvvatars-react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { isNil } from "ramda";
+import { isEmpty, isNil } from "ramda";
 
 import Tooltip from "components/Tooltip";
-
-import { COLOR_PALLETE, AVATAR_VARIANT } from "./constants";
 
 const SIZE = { small: 24, medium: 32, large: 40, extraLarge: 64 };
 
 const STATUS = { online: "online", idle: "idle", offline: "offline" };
+
+const getInitials = fullName => {
+  if (typeof fullName !== "string" || isEmpty(fullName)) return " ";
+  const allNames = fullName.trim().split(" ");
+  if (allNames.length === 1) return fullName.substring(0, 2).toUpperCase();
+
+  return `${allNames[0][0]}${allNames[allNames.length - 1][0]}`.toUpperCase();
+};
 
 const Avatar = ({
   size = "medium",
@@ -61,7 +67,6 @@ const Avatar = ({
       <span className={statusClasses} data-testid="indicator" />
     );
 
-  const avatarString = name.replace("", "-");
   const shouldDisplayFallbackAvatar = !(imageUrl && !isLoadingFailed);
 
   return (
@@ -79,16 +84,14 @@ const Avatar = ({
       >
         <Indicator />
         {shouldDisplayFallbackAvatar ? (
-          <FallbackAvatar
-            {...{ name }}
-            className="neeto-ui-avatar__svg"
-            colors={COLOR_PALLETE}
+          <Avvvatars
+            displayValue={getInitials(name)}
             size={SIZE[size]}
-            variant={AVATAR_VARIANT}
+            value={name}
           />
         ) : (
           <img
-            alt={`avatar-${avatarString}`}
+            alt={`avatar-${name}`}
             className={imageClasses}
             src={imageUrl}
             onError={() => setIsLoadingFailed(true)}

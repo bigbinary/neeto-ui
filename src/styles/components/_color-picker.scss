@@ -51,6 +51,12 @@
   --neeto-ui-colorpicker-target-hexcode-min-width: 72px;
 }
 
+.neeto-ui-colorpicker__dropdown{
+  .neeto-ui-dropdown__popup{
+    max-height: var(--neeto-ui-dropdown-popup-max-height);
+  }
+}
+
 .neeto-ui-colorpicker__popover {
   width: var(--neeto-ui-colorpicker-popover-width);
   padding: var(--neeto-ui-colorpicker-popover-padding);

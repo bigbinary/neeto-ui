@@ -73,6 +73,8 @@ const withUniqueCheck =
       customConfig = {},
     } = parseToastrConfig(toastrConfig);
 
+    let toastId = null;
+
     if (toastrList.add({ type, message, buttonLabel })) {
       const config = {
         ...TOAST_CONFIG,
@@ -80,20 +82,18 @@ const withUniqueCheck =
         onClose: () => toastrList.remove({ type, message, buttonLabel }),
         ...customConfig,
       };
-      toastFunc({ message, buttonLabel, onClick, config });
+
+      toastId = toastFunc({ message, buttonLabel, onClick, config });
     }
+
+    return toastId;
   };
 
 const showSuccessToastr = withUniqueCheck(
   "success",
   ({ message, buttonLabel, onClick, config }) =>
     toast.success(
-      <Toast
-        buttonLabel={buttonLabel}
-        message={message}
-        type="success"
-        onClick={onClick}
-      />,
+      <Toast {...{ buttonLabel, message, onClick }} type="success" />,
       config
     )
 );
@@ -102,12 +102,7 @@ const showInfoToastr = withUniqueCheck(
   "info",
   ({ message, buttonLabel, onClick, config }) =>
     toast.info(
-      <Toast
-        buttonLabel={buttonLabel}
-        message={message}
-        type="info"
-        onClick={onClick}
-      />,
+      <Toast {...{ buttonLabel, message, onClick }} type="info" />,
       config
     )
 );
@@ -116,12 +111,7 @@ const showWarningToastr = withUniqueCheck(
   "warning",
   ({ message, buttonLabel, onClick, config }) =>
     toast.warning(
-      <Toast
-        buttonLabel={buttonLabel}
-        message={message}
-        type="warning"
-        onClick={onClick}
-      />,
+      <Toast {...{ buttonLabel, message, onClick }} type="warning" />,
       config
     )
 );
@@ -182,7 +172,7 @@ const withParsedErrorMsg =
     const { buttonLabel, onClick, customConfig } =
       parseToastrConfig(toastrConfig);
 
-    toastrFunc(errorMessage, {
+    return toastrFunc(errorMessage, {
       buttonLabel,
       onClick,
       role: "alert",
@@ -194,12 +184,7 @@ const withParsedErrorMsg =
 const showErrorToastr = withParsedErrorMsg(
   withUniqueCheck("error", ({ message, buttonLabel, onClick, config }) =>
     toast.error(
-      <Toast
-        buttonLabel={buttonLabel}
-        message={message}
-        type="error"
-        onClick={onClick}
-      />,
+      <Toast {...{ buttonLabel, message, onClick }} type="error" />,
       config
     )
   )
