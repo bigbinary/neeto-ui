@@ -8,7 +8,7 @@
   --neeto-ui-colorpicker-pointer-height: 20px;
 
   // Palette Wrapper
-  --neeto-ui-colorpicker-palette-wrapper-margin-top: 12px;
+  --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 12px;
 
   // Palette Item
   --neeto-ui-colorpicker-palette-item-width: 32px;
@@ -68,10 +68,10 @@
   }
 
   .neeto-ui-colorpicker__palette-wrapper {
-    margin-top: var(--neeto-ui-colorpicker-palette-wrapper-margin-top);
+    margin-bottom: var(--neeto-ui-colorpicker-palette-wrapper-margin-bottom);
 
     &--hidden-picker {
-      --neeto-ui-colorpicker-palette-wrapper-margin-top: 0px;
+      --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 0px;
     }
   }
 
