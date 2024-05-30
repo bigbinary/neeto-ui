@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.7.3 - 2024-05-30
+
+- Fixed: mobile responsiveness of the Stepper component.
+
 ## 6.7.2 - 2024-05-30
 
 Repositions color palette to top
@@ -106,7 +110,6 @@ Fixed: DatePicker unable to switch to different month or year.
 ## 6.5.3 - 2024-03-27
 Added: Styles for *ActionBlock* wrapper
 ## 6.5.2 - 2024-03-27
-
 - Added: tertiary variant Button.
 
 <img width="104" alt="Screenshot 2024-03-27 at 5 44 48 PM" src="https://github.com/bigbinary/neeto-ui/assets/48869249/e02cb5cc-3633-444f-b0ce-71004dda55bb">
@@ -132,7 +135,6 @@ deselected.
 ## 6.3.5 - 2024-03-06
 Fixed: Select strategy="fixed"` not scrolling to selected
 ## 6.3.4 - 2024-03-05
-
 Fixed: TimpickerInput firefox ui issue
 
 ## 6.3.3 - 2024-03-05
@@ -305,7 +307,6 @@ neetoCI config for CI checks
 ## 5.2.19 - 2023-10-25
 Fixed: Trim issue in number inputs
 ## 5.2.18 - 2023-10-25
-
 Added: Support for lazy loading for the `Select` component
 
 ## 5.2.17 - 2023-10-24
@@ -1071,7 +1072,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.5.3 - 2022-06-07
 - Fixed: issue with `closeOnEsc` prop when the *Dropdown* is controlled.
 ## 3.5.2 - 2022-06-07
-
 - Fixed : placeholder content extending into multiple lines in *Select*
   component.
 
