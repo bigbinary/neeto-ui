@@ -10,13 +10,13 @@
   --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
 
   // Status
-  --neeto-ui-avatar-status-width: 0.4rem;
-  --neeto-ui-avatar-status-height: 0.4rem;
+  --neeto-ui-avatar-status-width: 12px;
+  --neeto-ui-avatar-status-height: 12px;
   --neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
-  --neeto-ui-avatar-status-border-width: 0.5px;
+  --neeto-ui-avatar-status-border-width: 2px;
   --neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
   --neeto-ui-avatar-status-border-radius: var(--neeto-ui-rounded-full);
-  --neeto-ui-avatar-status-transform: translateX(-40%);
+  --neeto-ui-avatar-status-transform: translate(0, 0);
 }
 
 .neeto-ui-avatar__container {
@@ -51,28 +51,28 @@
   .neeto-ui-avatar__status {
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 0;
     width: var(--neeto-ui-avatar-status-width);
     height: var(--neeto-ui-avatar-status-width);
     background-color: var(--neeto-ui-avatar-status-bg-color);
     border: var(--neeto-ui-avatar-status-border-width) solid var(--neeto-ui-avatar-status-border-color);
     border-radius: var(--neeto-ui-avatar-status-border-radius);
     transform: var(--neeto-ui-avatar-status-transform);
+    z-index: 4;
 
     &.neeto-ui-avatar__status-medium {
-      --neeto-ui-avatar-status-width: 0.465rem;
-      --neeto-ui-avatar-status-height: 0.465rem;
+      --neeto-ui-avatar-status-width: 12px;
+      --neeto-ui-avatar-status-height: 12px;
     }
 
     &.neeto-ui-avatar__status-large {
-      --neeto-ui-avatar-status-width: 0.563rem;
-      --neeto-ui-avatar-status-height: 0.563rem;
+      --neeto-ui-avatar-status-width: 14px;
+      --neeto-ui-avatar-status-height: 14px;
     }
 
     &.neeto-ui-avatar__status-xlarge {
-      --neeto-ui-avatar-status-width: 0.75rem;
-      --neeto-ui-avatar-status-height: 0.75rem;
-      --neeto-ui-avatar-status-transform: translateX(-65%);
+      --neeto-ui-avatar-status-width: 16px;
+      --neeto-ui-avatar-status-height: 16px;
     }
 
     &.online {
