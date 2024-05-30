@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.7.2 - 2024-05-30
+
+Repositions color palette to top
+
 ## 6.7.1 - 2024-05-28
 
 - Changed: Removed react-select and framer-motion from peer dependencies.
@@ -101,7 +105,6 @@ Fixed: Clearing all rows by directly changing `selectedRowKeys` not working when
 Fixed: DatePicker unable to switch to different month or year.
 ## 6.5.3 - 2024-03-27
 Added: Styles for *ActionBlock* wrapper
-
 ## 6.5.2 - 2024-03-27
 
 - Added: tertiary variant Button.
@@ -128,7 +131,6 @@ deselected.
 @ajmaln _a Please review.
 ## 6.3.5 - 2024-03-06
 Fixed: Select strategy="fixed"` not scrolling to selected
-
 ## 6.3.4 - 2024-03-05
 
 Fixed: TimpickerInput firefox ui issue
@@ -302,7 +304,6 @@ Changed: Upgraded `framer-motion` and removed some unused packages. Added:
 neetoCI config for CI checks
 ## 5.2.19 - 2023-10-25
 Fixed: Trim issue in number inputs
-
 ## 5.2.18 - 2023-10-25
 
 Added: Support for lazy loading for the `Select` component
@@ -1069,7 +1070,6 @@ Changes documentations to sentence case from title casing.
 Fixed: `TypeError` issue in *Toastr* component.
 ## 3.5.3 - 2022-06-07
 - Fixed: issue with `closeOnEsc` prop when the *Dropdown* is controlled.
-
 ## 3.5.2 - 2022-06-07
 
 - Fixed : placeholder content extending into multiple lines in *Select*
