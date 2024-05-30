@@ -121,6 +121,17 @@ const ColorPicker = ({
       {...dropdownProps}
     >
       <div className="neeto-ui-colorpicker__popover">
+        {colorPaletteProps && (
+          <div
+            data-testid="color-palette"
+            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                !showPicker,
+            })}
+          >
+            <Palette {...colorPaletteProps} />
+          </div>
+        )}
         {showPicker && (
           <>
             <div
@@ -155,17 +166,6 @@ const ColorPicker = ({
               </div>
             </div>
           </>
-        )}
-        {colorPaletteProps && (
-          <div
-            data-testid="color-palette"
-            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
-              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                !showPicker,
-            })}
-          >
-            <Palette {...colorPaletteProps} />
-          </div>
         )}
       </div>
     </Dropdown>
