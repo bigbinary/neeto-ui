@@ -43,6 +43,10 @@
   // Label Active
   --neeto-ui-stepper-label-active-color: rgb(var(--neeto-ui-black));
   --neeto-ui-stepper-label-active-font-weight: var(--neeto-ui-font-semibold);
+
+  @include viewport(mob) {
+    --neeto-ui-stepper-item-separator-width: 20px;
+  }
 }
 
 .neeto-ui-stepper {
@@ -51,11 +55,6 @@
     align-items: center;
     gap: var(--neeto-ui-stepper-wrapper-gap);
     flex-wrap: wrap;
-
-    @include viewport(mob) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   }
 
   &-item {
@@ -85,6 +84,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      text-align: left;
+
+      @include viewport(mob) {
+        display: none;
+        --neeto-ui-stepper-item-separator-width: 24px;
+      }
 
       &:hover {
         color: var(--neeto-ui-stepper-label-hover-color);
@@ -110,24 +115,12 @@
     display: flex;
     align-items: center;
 
-    @include viewport(mob) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
     &:not(:last-child) {
       &::after {
         content: "";
         width: var(--neeto-ui-stepper-item-separator-width);
         border-top: var(--neeto-ui-stepper-item-separator-border-top);
         margin-left: var(--neeto-ui-stepper-item-separator-margin-left);
-
-        @include viewport(mob) {
-          width: 1px;
-          height: var(--neeto-ui-stepper-item-separator-width);
-          border-left: var(--neeto-ui-stepper-item-separator-border-top);
-          margin-left: 22px;
-        }
       }
     }
 
