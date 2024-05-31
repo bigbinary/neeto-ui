@@ -24,7 +24,6 @@ const TOAST_CONFIG = {
     />
   ),
   role: "log",
-  className: "neeto-ui-toastr",
 };
 
 const TOAST_ICON = {
