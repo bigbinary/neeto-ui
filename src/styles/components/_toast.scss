@@ -61,7 +61,7 @@ body {
       left: 12px !important;
     }
 
-    .Toastify__toast{
+    .Toastify__toast, .neeto-ui-toastr{
       min-height: var(--neeto-ui-toastr-min-height);
       padding: var(--neeto-ui-toastr-padding-y) var(--neeto-ui-toastr-padding-x);
       margin: var(--neeto-ui-toastr-margin-y) var(--neeto-ui-toastr-margin-x);
