@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import classnames from "classnames";
 import { Help } from "neetoicons";
 import PropTypes from "prop-types";
 
+import Button from "./Button";
+import Popover from "./Popover";
 import Tooltip from "./Tooltip";
+import Typography from "./Typography";
+
+const { Title } = Popover;
 
 const Label = ({
   children,
@@ -17,11 +22,28 @@ const Label = ({
     onClick,
     icon,
     tooltipProps,
+    popoverProps,
     className: helpIconClassName,
     ...otherHelpIconProps
   } = helpIconProps || {};
 
+  const { title, description, helpLinkProps, ...otherPopoverProps } =
+    popoverProps || {};
+
   const HelpIcon = icon || Help;
+  const popoverReferenceElement = useRef();
+
+  const renderHelpIcon = () => (
+    <span
+      {...{ onClick }}
+      ref={popoverProps ? popoverReferenceElement : undefined}
+      className={classnames("neeto-ui-label__help-icon-wrap", {
+        [helpIconClassName]: helpIconClassName,
+      })}
+    >
+      <HelpIcon size={16} {...otherHelpIconProps} />
+    </span>
+  );
 
   return (
     <label
@@ -34,16 +56,56 @@ const Label = ({
       {children}
       {required && <span aria-hidden>*</span>}
       {helpIconProps && (
-        <Tooltip {...tooltipProps} disabled={!tooltipProps}>
-          <span
-            {...{ onClick }}
-            className={classnames("neeto-ui-label__help-icon-wrap", {
-              [helpIconClassName]: helpIconClassName,
-            })}
-          >
-            <HelpIcon size={16} {...otherHelpIconProps} />
-          </span>
-        </Tooltip>
+        <>
+          {tooltipProps ? (
+            <Tooltip {...tooltipProps}>{renderHelpIcon()}</Tooltip>
+          ) : popoverProps ? (
+            <>
+              {renderHelpIcon()}
+              <Popover
+                reference={popoverReferenceElement}
+                {...otherPopoverProps}
+              >
+                <div className="flex flex-col">
+                  {title && (
+                    <Title
+                      data-cy="help-popover-title"
+                      data-testid="help-popover-title"
+                    >
+                      {title}
+                    </Title>
+                  )}
+                  {typeof description === "string" ? (
+                    <Typography
+                      data-cy="help-popover-description"
+                      data-testid="help-popover-description"
+                      lineHeight="normal"
+                      style="body2"
+                      weight="normal"
+                    >
+                      {description}
+                    </Typography>
+                  ) : (
+                    description
+                  )}
+                  {helpLinkProps && (
+                    <Button
+                      className="neeto-ui-mt-3"
+                      data-cy="help-popover-link-button"
+                      size="small"
+                      {...helpLinkProps}
+                      data-testid="help-popover-link-button"
+                      style="link"
+                      target="_blank"
+                    />
+                  )}
+                </div>
+              </Popover>
+            </>
+          ) : (
+            renderHelpIcon()
+          )}
+        </>
       )}
     </label>
   );
@@ -69,6 +131,12 @@ Label.propTypes = {
     onClick: PropTypes.func,
     icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+    popoverProps: PropTypes.shape({
+      title: PropTypes.node,
+      description: PropTypes.node,
+      helpLinkProps: PropTypes.shape({ ...Button.propTypes }),
+    }),
+    className: PropTypes.string,
   }),
 };
 

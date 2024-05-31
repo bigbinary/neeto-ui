@@ -29,8 +29,24 @@ Required.args = {
   required: true,
 };
 
-const WithHelpIcon = Template.bind({});
-WithHelpIcon.args = {
+const WithHelpIconAndPopover = Template.bind({});
+WithHelpIconAndPopover.args = {
+  children: "This is a Label with a help icon",
+  required: true,
+  helpIconProps: {
+    icon: Help,
+    popoverProps: {
+      title: "What is KB keywords?",
+      description:
+        "Keywords represent the key concepts of an article. These will be shown on the KB and will be used for SEO",
+      helpLinkProps: { label: "KB", href: "https://google.com/kb" },
+    },
+  },
+};
+WithHelpIconAndPopover.storyName = "With help icon and Popover";
+
+const WithHelpIconAndTooltip = Template.bind({});
+WithHelpIconAndTooltip.args = {
   children: "This is a Label with a help icon",
   required: true,
   helpIconProps: {
@@ -39,7 +55,7 @@ WithHelpIcon.args = {
     tooltipProps: { content: "Help icon tooltip", position: "auto" },
   },
 };
-WithHelpIcon.storyName = "With help icon";
+WithHelpIconAndTooltip.storyName = "With help icon and Tooltip";
 
 const CSSCustomization = args => <Label {...args} />;
 
@@ -54,6 +70,12 @@ CSSCustomization.parameters = {
   docs: { description: { story: LabelCSSCustomization } },
 };
 
-export { Default, Required, WithHelpIcon, CSSCustomization };
+export {
+  Default,
+  Required,
+  WithHelpIconAndTooltip,
+  WithHelpIconAndPopover,
+  CSSCustomization,
+};
 
 export default metadata;
