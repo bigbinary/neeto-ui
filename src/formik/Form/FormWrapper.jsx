@@ -13,7 +13,7 @@ const FormWrapper = forwardRef(
       validateForm,
       setErrors,
       setTouched,
-      submitForm,
+      setSubmitting,
       ...formikBag
     } = useFormikContext();
 
@@ -46,7 +46,8 @@ const FormWrapper = forwardRef(
             setTouched(errors);
             scrollToErrorField && scrollToError(formRef, errors);
           } else {
-            submitForm();
+            setSubmitting(true);
+            await onSubmit(values, formikBag);
           }
         } catch (error) {
           // eslint-disable-next-line no-console
