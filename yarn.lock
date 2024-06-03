@@ -2734,10 +2734,10 @@
     uuid "^9.0.0"
     zustand "4.3.2"
 
-"@bigbinary/neeto-hotkeys@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-hotkeys/-/neeto-hotkeys-1.0.1.tgz#5aef3a6c814e997b3a0c4e2d6cb4ff8875ecf488"
-  integrity sha512-1cKB2vKQ7GfY2CFTjQWfgk5Uplgb3MZxWy/KCWKQDTjRhovsSpxwaI0e4PVoDoDvZBFOP7/wbppO8sgNHDTSZw==
+"@bigbinary/neeto-hotkeys@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-hotkeys/-/neeto-hotkeys-1.0.4.tgz#03358c7eb27c430b69d8bf786a4a278fdf7a280f"
+  integrity sha512-/DEbXYPeg/Pbljd/k2GhRvCaDEpQG2JTnSWz0soSlw5m6VkPY7NdC0PR+PIwvHFZUjGtRU7liSBZoWPTleTtHA==
 
 "@bigbinary/neeto-icons@^1.9.22":
   version "1.17.4"
