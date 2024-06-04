@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.8.0 - 2024-06-04
+
+- Changed: **BREAKING**: Added @babel/runtime, @bigbinary/neeto-hotkeys, @tippyjs/react, classnames, dayjs, linkify-react, and qs and peer dependencies.
+
 ## 6.7.5 - 2024-06-04
 
 Adds logic to prevent multiple submissions when enter is pressed
@@ -149,7 +153,6 @@ Fixed: Select strategy="fixed"` not scrolling to selected
 Fixed: TimpickerInput firefox ui issue
 ## 6.3.3 - 2024-03-05
 Fixed: update sortedInfo from queryParams in table on refresh.
-
 ## 6.3.2 - 2024-02-28
 
 Before
@@ -319,7 +322,6 @@ Fixed: Trim issue in number inputs
 Added: Support for lazy loading for the `Select` component
 ## 5.2.17 - 2023-10-24
 Added: New *TreeSelect* component.
-
 ## 5.2.15 - 2023-10-23
 
 Add onBlur handler to `Input` component to trim leading and trailing spaces
@@ -1083,7 +1085,6 @@ Fixed: `TypeError` issue in *Toastr* component.
   component.
 ## 3.5.1 - 2022-06-07
 - Fixed: `useInsertionEffect` export issue due to `terser` compression.
-
 ## 3.5.0 - 2022-05-25
 
 - Changed: Replaced webpack with rollup for bundling the package.
