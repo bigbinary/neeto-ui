@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.7.5 - 2024-06-04
+
+Adds logic to prevent multiple submissions when enter is pressed
+Video: https://navaneeth-d.neetorecord.com/watch/91e0358f-dbaf-468a-a615-09bf4cfc90dc
+
 ## 6.7.4 - 2024-05-30
 
 - Changed: status position to the bottom right.
@@ -143,7 +148,6 @@ Fixed: Select strategy="fixed"` not scrolling to selected
 ## 6.3.4 - 2024-03-05
 Fixed: TimpickerInput firefox ui issue
 ## 6.3.3 - 2024-03-05
-
 Fixed: update sortedInfo from queryParams in table on refresh.
 
 ## 6.3.2 - 2024-02-28
@@ -314,7 +318,6 @@ Fixed: Trim issue in number inputs
 ## 5.2.18 - 2023-10-25
 Added: Support for lazy loading for the `Select` component
 ## 5.2.17 - 2023-10-24
-
 Added: New *TreeSelect* component.
 
 ## 5.2.15 - 2023-10-23
@@ -1079,7 +1082,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed : placeholder content extending into multiple lines in *Select*
   component.
 ## 3.5.1 - 2022-06-07
-
 - Fixed: `useInsertionEffect` export issue due to `terser` compression.
 
 ## 3.5.0 - 2022-05-25
