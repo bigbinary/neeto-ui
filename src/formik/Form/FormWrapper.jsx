@@ -7,15 +7,9 @@ import ScrollToErrorField from "./ScrollToErrorField";
 import { scrollToError } from "./ScrollToErrorField/utils";
 
 const FormWrapper = forwardRef(
-  ({ className, formProps, children, onSubmit, scrollToErrorField }, ref) => {
-    const {
-      values,
-      validateForm,
-      setErrors,
-      setTouched,
-      submitForm,
-      ...formikBag
-    } = useFormikContext();
+  ({ className, formProps, children, scrollToErrorField }, ref) => {
+    const { validateForm, setErrors, setTouched, submitForm, ...formikBag } =
+      useFormikContext();
 
     const { dirty: isFormDirty, isSubmitting } = formikBag;
 
@@ -57,13 +51,12 @@ const FormWrapper = forwardRef(
         }
       },
       [
-        values,
         validateForm,
         setErrors,
         setTouched,
-        onSubmit,
         isFormDirty,
         isSubmitting,
+        submitForm,
       ]
     );
 
@@ -88,7 +81,6 @@ FormWrapper.displayName = "FormWrapper";
 FormWrapper.propTypes = {
   children: PropTypes.node,
   formProps: PropTypes.object,
-  onSubmit: PropTypes.func,
   scrollToErrorField: PropTypes.bool,
 };
 
