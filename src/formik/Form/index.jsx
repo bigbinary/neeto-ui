@@ -12,10 +12,7 @@ const Form = forwardRef(
   ) => (
     <Formik {...formikProps}>
       {props => (
-        <FormWrapper
-          {...{ className, formProps, ref, scrollToErrorField }}
-          onSubmit={formikProps?.onSubmit}
-        >
+        <FormWrapper {...{ className, formProps, ref, scrollToErrorField }}>
           {typeof children === "function" ? children(props) : children}
         </FormWrapper>
       )}
