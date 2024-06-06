@@ -47,11 +47,18 @@
     }
   }
 
-  .neeto-ui-react-select__indicators{
+  .neeto-ui-react-select__indicators,
+  .neeto-ui-email-input__prefix{
     align-self: flex-start;
     position: sticky;
     top: 50%;
     transform: translateY(-50%);
+    line-height: 1.1;
+  }
+  .neeto-ui-email-input__suffix,
+  .neeto-ui-email-input__prefix{
+    line-height: 1.1;
+    min-height: 16px;
   }
 }
 
