@@ -18,6 +18,7 @@ export interface MultiEmailInputProps {
   maxHeight?: number;
   labelProps?: LabelProps;
   isCreateable?: boolean;
+  shouldAlwaysExpanded?: boolean;
   [key: string]: any;
 }
 

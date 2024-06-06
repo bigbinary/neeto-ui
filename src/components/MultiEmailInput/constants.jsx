@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { Close } from "neetoicons";
 import { assoc } from "ramda";
@@ -19,10 +19,38 @@ const STYLES = {
 };
 
 const CustomControl = ({ children, ...props }) => {
-  const { prefix } = props.selectProps;
+  const { getValue } = props;
+  const { isFocused, prefix } = props.selectProps;
+
+  const prevValue = useRef([]);
+  const controlRef = useRef(null);
+
+  const value = getValue();
+
+  const scrollToBottom = () => {
+    const scrollContainer = controlRef.current;
+    if (!scrollContainer) return;
+
+    const { scrollHeight, clientHeight } = scrollContainer;
+
+    scrollContainer.scrollTo({ top: scrollHeight - clientHeight });
+  };
+
+  useEffect(() => {
+    if (isFocused) scrollToBottom();
+  }, [isFocused]);
+
+  useEffect(() => {
+    if (value.length > prevValue.current.length) scrollToBottom();
+
+    prevValue.current = value;
+  }, [value]);
 
   return (
-    <components.Control {...props}>
+    <components.Control
+      {...props}
+      innerProps={{ ...props.innerProps, ref: controlRef }}
+    >
       {prefix && <div className="neeto-ui-email-input__prefix">{prefix}</div>}
       {children}
     </components.Control>
@@ -54,12 +82,13 @@ const MultiValueRemove = props => (
 const CustomValueContainer = ({ children, ...props }) => {
   const {
     getValue,
-    selectProps: { isFocused, visibleEmailsCount },
+    selectProps: { isFocused, visibleEmailsCount, shouldAlwaysExpanded },
   } = props;
   const value = getValue();
   const [firstChild, ...rest] = children;
 
-  const shouldCollapse = !isFocused && value.length > visibleEmailsCount;
+  const shouldCollapse =
+    !shouldAlwaysExpanded && !isFocused && value.length > visibleEmailsCount;
 
   return (
     <components.ValueContainer
@@ -84,7 +113,10 @@ const CustomValueContainer = ({ children, ...props }) => {
 const CustomClearIndicator = props => (
   <components.ClearIndicator
     {...props}
-    innerProps={{ ...props.innerProps, ["data-cy"]: "clear-all-button" }}
+    innerProps={{
+      ...props.innerProps,
+      ["data-cy"]: "clear-all-button",
+    }}
   >
     <Close className="cursor-pointer" size={16} />
   </components.ClearIndicator>
@@ -101,7 +133,15 @@ const SelectContainer = props => (
 );
 
 const Input = props => (
-  <components.Input {...props} data-cy="email-select-input-field" />
+  <components.Input
+    {...props}
+    data-cy="email-select-input-field"
+    onPaste={e => {
+      const clipboardData = e.clipboardData.getData("Text");
+
+      setTimeout(() => props.selectProps.handleEmailChange(clipboardData));
+    }}
+  />
 );
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
