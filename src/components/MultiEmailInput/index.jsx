@@ -41,7 +41,7 @@ const MultiEmailInput = forwardRef(
       labelProps,
       visibleEmailsCount = 3,
       isCreateable = true,
-      shouldAlwaysExpanded = false,
+      isAlwaysExpanded = false,
       ...otherProps
     },
     ref
@@ -174,11 +174,11 @@ const MultiEmailInput = forwardRef(
           {...{
             handleEmailChange,
             inputValue,
+            isAlwaysExpanded,
             isFocused,
             onChange,
             placeholder,
             ref,
-            shouldAlwaysExpanded,
             value,
             visibleEmailsCount,
             ...(!isOptionsPresent && { menuIsOpen: false }),
@@ -296,9 +296,9 @@ MultiEmailInput.propTypes = {
    */
   isCreateable: PropTypes.bool,
   /**
-   * To specify whether the input field should always be expanded or not.
+   * To specify whether the input field should always be shown in an expanded state or not.
    */
-  shouldAlwaysExpanded: PropTypes.bool,
+  isAlwaysExpanded: PropTypes.bool,
 };
 
 export default MultiEmailInput;

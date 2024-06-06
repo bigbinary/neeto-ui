@@ -81,13 +81,13 @@ const MultiValueRemove = props => (
 const CustomValueContainer = ({ children, ...props }) => {
   const {
     getValue,
-    selectProps: { isFocused, visibleEmailsCount, shouldAlwaysExpanded },
+    selectProps: { isFocused, visibleEmailsCount, isAlwaysExpanded },
   } = props;
   const value = getValue();
   const [firstChild, ...rest] = children;
 
   const shouldCollapse =
-    !shouldAlwaysExpanded && !isFocused && value.length > visibleEmailsCount;
+    !isAlwaysExpanded && !isFocused && value.length > visibleEmailsCount;
 
   return (
     <components.ValueContainer

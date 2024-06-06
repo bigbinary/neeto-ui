@@ -123,10 +123,7 @@ const AlwaysExpandedInput = args => {
   );
 };
 
-AlwaysExpandedInput.args = {
-  value: EMAILS,
-  shouldAlwaysExpanded: true,
-};
+AlwaysExpandedInput.args = { value: EMAILS, isAlwaysExpanded: true };
 AlwaysExpandedInput.storyName = "Always expanded input";
 
 const FormikEmail = _args => {
