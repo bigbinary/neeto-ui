@@ -41,6 +41,7 @@ const MultiEmailInput = forwardRef(
       labelProps,
       visibleEmailsCount = 3,
       isCreateable = true,
+      isAlwaysExpanded = false,
       ...otherProps
     },
     ref
@@ -56,7 +57,7 @@ const MultiEmailInput = forwardRef(
 
     const handleFilterEmails = () => onChange(renderValidEmails(value));
 
-    const handleEmailChange = () => {
+    const handleEmailChange = inputValue => {
       const inputValues = inputValue.match(EMAIL_SEPARATION_REGEX);
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
@@ -71,7 +72,7 @@ const MultiEmailInput = forwardRef(
 
       switch (event.key) {
         case "Enter": {
-          handleEmailChange();
+          handleEmailChange(inputValue);
           !isOptionsPresent && event.preventDefault();
           event.stopPropagation();
 
@@ -80,7 +81,7 @@ const MultiEmailInput = forwardRef(
         case "Tab":
         case ",":
         case " ": {
-          handleEmailChange();
+          handleEmailChange(inputValue);
           event.preventDefault();
           event.stopPropagation();
         }
@@ -94,7 +95,7 @@ const MultiEmailInput = forwardRef(
     };
 
     const handleBlur = event => {
-      inputValue ? handleEmailChange() : onBlur(event);
+      inputValue ? handleEmailChange(inputValue) : onBlur(event);
       setIsFocused(false);
     };
 
@@ -171,7 +172,9 @@ const MultiEmailInput = forwardRef(
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
           {...{
+            handleEmailChange,
             inputValue,
+            isAlwaysExpanded,
             isFocused,
             onChange,
             placeholder,
@@ -292,6 +295,10 @@ MultiEmailInput.propTypes = {
    * To specify whether a new email option can be created or not.
    */
   isCreateable: PropTypes.bool,
+  /**
+   * To specify whether the input field should always be shown in an expanded state or not.
+   */
+  isAlwaysExpanded: PropTypes.bool,
 };
 
 export default MultiEmailInput;

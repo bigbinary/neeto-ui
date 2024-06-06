@@ -26,3 +26,4 @@ Element.prototype.scrollIntoView = jest.fn();
 
 Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
+window.scrollTo = jest.fn();

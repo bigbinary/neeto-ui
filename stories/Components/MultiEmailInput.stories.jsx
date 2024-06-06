@@ -12,6 +12,8 @@ import {
   Form,
 } from "formikcomponents";
 
+import { EMAILS } from "./constants";
+
 import { suffixes, prefixes } from "../constants";
 
 import MultiEmailInputCounterDocs from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputCounterDocs.mdx";
@@ -53,53 +55,14 @@ const Controlled = args => {
   return (
     <MultiEmailInput
       {...args}
+      options={EMAILS}
       value={emails}
-      options={[
-        {
-          label: "Daniel Ferry (daniel.ferry@example.com)",
-          value: "daniel.ferry@example.com",
-          valid: true,
-        },
-        {
-          label: "Daniel Grady (daniel.grady@example.com)",
-          value: "daniel.grady@example.com",
-          valid: true,
-        },
-        {
-          label: "Daniel Gutkowski (daniel.gutkowski@example.com)",
-          value: "daniel.gutkowski@example.com",
-          valid: true,
-        },
-        {
-          label: "Daniel Langosh (daniel.langosh@example.com)",
-          value: "daniel.langosh@example.com",
-          valid: true,
-        },
-        {
-          label: "Daniel Newton (daniel.newton@example.com)",
-          value: "daniel.newton@example.com",
-          valid: true,
-        },
-        {
-          label: "Daniel Schiller (daniel.schiller@example.com)",
-          value: "daniel.schiller@example.com",
-          valid: true,
-        },
-      ]}
       onChange={emails => setEmails(emails)}
     />
   );
 };
 
-Controlled.args = {
-  value: [
-    {
-      label: "test@example.com",
-      value: "test@example.com",
-      valid: true,
-    },
-  ],
-};
+Controlled.args = { value: [EMAILS[0]] };
 
 const Error = args => <MultiEmailInput {...args} />;
 
@@ -116,23 +79,7 @@ const HelpText = _args => (
 HelpText.storyName = "Help text";
 
 const Counter = _args => {
-  const [emails, setEmails] = useState([
-    {
-      label: "test@example.com",
-      value: "test@example.com",
-      valid: true,
-    },
-    {
-      label: "test2@example.com",
-      value: "test2@example.com",
-      valid: true,
-    },
-    {
-      label: "test3@example.com",
-      value: "test3@example.com",
-      valid: true,
-    },
-  ]);
+  const [emails, setEmails] = useState(EMAILS.slice(0, 3));
 
   return (
     <MultiEmailInput
@@ -161,16 +108,23 @@ const WithPrefixAndSuffix = args => {
   );
 };
 
-WithPrefixAndSuffix.args = {
-  value: [
-    {
-      label: "test@example.com",
-      value: "test@example.com",
-      valid: true,
-    },
-  ],
-};
+WithPrefixAndSuffix.args = { value: [EMAILS[0]] };
 WithPrefixAndSuffix.storyName = "With prefix and suffix";
+
+const AlwaysExpandedInput = args => {
+  const [emails, setEmails] = useState(args.value);
+
+  return (
+    <MultiEmailInput
+      {...args}
+      value={emails}
+      onChange={emails => setEmails(emails)}
+    />
+  );
+};
+
+AlwaysExpandedInput.args = { value: EMAILS, isAlwaysExpanded: true };
+AlwaysExpandedInput.storyName = "Always expanded input";
 
 const FormikEmail = _args => {
   const [emails, setEmails] = useState([]);
@@ -227,39 +181,8 @@ const CSSCustomization = args => {
       <MultiEmailInput
         {...args}
         counter
+        options={EMAILS}
         value={emails}
-        options={[
-          {
-            label: "Daniel Ferry (daniel.ferry@example.com)",
-            value: "daniel.ferry@example.com",
-            valid: true,
-          },
-          {
-            label: "Daniel Grady (daniel.grady@example.com)",
-            value: "daniel.grady@example.com",
-            valid: true,
-          },
-          {
-            label: "Daniel Gutkowski (daniel.gutkowski@example.com)",
-            value: "daniel.gutkowski@example.com",
-            valid: true,
-          },
-          {
-            label: "Daniel Langosh (daniel.langosh@example.com)",
-            value: "daniel.langosh@example.com",
-            valid: true,
-          },
-          {
-            label: "Daniel Newton (daniel.newton@example.com)",
-            value: "daniel.newton@example.com",
-            valid: true,
-          },
-          {
-            label: "Daniel Schiller (daniel.schiller@example.com)",
-            value: "daniel.schiller@example.com",
-            valid: true,
-          },
-        ]}
         onChange={emails => setEmails(emails)}
       />
     </div>
@@ -268,15 +191,7 @@ const CSSCustomization = args => {
 
 CSSCustomization.storyName = "MultiEmailInput CSS Customization";
 
-CSSCustomization.args = {
-  value: [
-    {
-      label: "test@example.com",
-      value: "test@example.com",
-      valid: true,
-    },
-  ],
-};
+CSSCustomization.args = { value: [EMAILS[0]] };
 
 CSSCustomization.parameters = {
   docs: { description: { story: MultiEmailInputCSSCustomization } },
@@ -289,6 +204,7 @@ export {
   HelpText,
   Counter,
   WithPrefixAndSuffix,
+  AlwaysExpandedInput,
   FormikEmail,
   CSSCustomization,
 };
