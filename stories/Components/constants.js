@@ -276,3 +276,36 @@ export const disabledDateTime = () => ({
   disabledMinutes: () => range(30, 60),
   disabledSeconds: () => [55, 56],
 });
+
+export const EMAILS = [
+  {
+    label: "Daniel Ferry (daniel.ferry@example.com)",
+    value: "daniel.ferry@example.com",
+    valid: true,
+  },
+  {
+    label: "Daniel Grady (daniel.grady@example.com)",
+    value: "daniel.grady@example.com",
+    valid: true,
+  },
+  {
+    label: "Daniel Gutkowski (daniel.gutkowski@example.com)",
+    value: "daniel.gutkowski@example.com",
+    valid: true,
+  },
+  {
+    label: "Daniel Langosh (daniel.langosh@example.com)",
+    value: "daniel.langosh@example.com",
+    valid: true,
+  },
+  {
+    label: "Daniel Newton (daniel.newton@example.com)",
+    value: "daniel.newton@example.com",
+    valid: true,
+  },
+  {
+    label: "Daniel Schiller (daniel.schiller@example.com)",
+    value: "daniel.schiller@example.com",
+    valid: true,
+  },
+];

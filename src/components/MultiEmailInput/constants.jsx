@@ -37,14 +37,13 @@ const CustomControl = ({ children, ...props }) => {
   };
 
   useEffect(() => {
-    if (isFocused) scrollToBottom();
-  }, [isFocused]);
+    const isItemAdded = value.length > prevValue.current.length;
+    const isItemDeleted = value.length < prevValue.current.length;
 
-  useEffect(() => {
-    if (value.length > prevValue.current.length) scrollToBottom();
+    if ((isFocused && !isItemDeleted) || isItemAdded) scrollToBottom();
 
     prevValue.current = value;
-  }, [value]);
+  }, [isFocused, value]);
 
   return (
     <components.Control
@@ -143,6 +142,7 @@ const Input = props => (
     }}
   />
 );
+
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
   "i"
