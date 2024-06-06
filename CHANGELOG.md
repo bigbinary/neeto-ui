@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.8.1 - 2024-06-06
+
+- Added: Autoscroll and autoformatting features in the *MultiEmailInput* component.
+
 ## 6.8.0 - 2024-06-04
 
 - Changed: **BREAKING**: Added @babel/runtime, @bigbinary/neeto-hotkeys, @tippyjs/react, classnames, dayjs, linkify-react, and qs and peer dependencies.
@@ -154,7 +158,6 @@ Fixed: TimpickerInput firefox ui issue
 ## 6.3.3 - 2024-03-05
 Fixed: update sortedInfo from queryParams in table on refresh.
 ## 6.3.2 - 2024-02-28
-
 Before
 
 ![Screenshot 2024-02-15 at 5 47 48 PM](https://github.com/bigbinary/neeto-form-web/assets/16187886/b57929f4-5aec-433f-b4e0-f0aad47760cf)
@@ -323,7 +326,6 @@ Added: Support for lazy loading for the `Select` component
 ## 5.2.17 - 2023-10-24
 Added: New *TreeSelect* component.
 ## 5.2.15 - 2023-10-23
-
 Add onBlur handler to `Input` component to trim leading and trailing spaces
 
 ## 5.2.13 - 2023-10-20
@@ -1086,7 +1088,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.5.1 - 2022-06-07
 - Fixed: `useInsertionEffect` export issue due to `terser` compression.
 ## 3.5.0 - 2022-05-25
-
 - Changed: Replaced webpack with rollup for bundling the package.
 
 ## 3.4.6 - 2022-05-19
