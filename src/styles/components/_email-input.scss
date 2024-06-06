@@ -28,6 +28,7 @@
       margin-bottom: var(--neeto-ui-multi-email-input-counter-margin-bottom);
       margin-left: auto;
     }
+
   }
 
   .neeto-ui-email-input__prefix {
@@ -44,6 +45,13 @@
       width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
       height: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);
     }
+  }
+
+  .neeto-ui-react-select__indicators{
+    align-self: flex-start;
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
