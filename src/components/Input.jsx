@@ -104,6 +104,7 @@ const Input = forwardRef(
           )}
         </div>
         <div
+          data-cy={`${hyphenize(label)}-input`}
           className={classnames("neeto-ui-input", {
             "neeto-ui-input--naked": !!nakedInput,
             "neeto-ui-input--error": !!error,
