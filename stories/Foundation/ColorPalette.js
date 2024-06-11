@@ -4,12 +4,12 @@ export const colorPalette = {
       {
         name: "neeto-ui-white",
         text: "black",
-        value: { light: "255, 255, 255", dark: "18, 18, 18" },
+        value: { light: "255, 255, 255", dark: "0, 0, 0" },
         usage: "Use for headings",
       },
       {
         name: "neeto-ui-black",
-        value: { light: "18, 18, 18", dark: "224, 224, 224" },
+        value: { light: "0, 0, 0", dark: "224, 224, 224" },
         usage: "Use for default background",
       },
     ],
@@ -247,12 +247,10 @@ export const getColorPaletteList = colorItemNames => {
     return colorItem;
   });
 
-  const colorList = colorItems.flatMap(colorItem =>
+  return colorItems.flatMap(colorItem =>
     colorItem.colors.map(color => ({
       name: `--${color.name}`,
       usage: color.usage,
     }))
   );
-
-  return colorList;
 };
