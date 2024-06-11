@@ -68,41 +68,64 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-primary-800",
-        value: { light: "45, 54, 212", dark: "209, 213, 254" },
+        value: { light: "0, 102, 83", dark: "209, 213, 254" },
         usage: "Use for link buttons",
       },
       {
         name: "neeto-ui-primary-600",
-        value: { light: "54, 66, 223", dark: "166, 170, 254" },
+        value: { light: "0, 122, 100", dark: "166, 170, 254" },
         usage: "Use for primary button hover",
       },
       {
         name: "neeto-ui-primary-500",
-        value: { light: "69, 88, 249", dark: "137, 147, 254" },
+        value: { light: "0, 128, 104", dark: "137, 147, 254" },
         usage:
           "Use for primary actions or elements that communicate the brand.",
       },
       {
         name: "neeto-ui-primary-100",
         text: "black",
-        value: { light: "235, 236, 254", dark: "27, 28, 37" },
+        value: { light: "225, 243, 238", dark: "23, 85, 65" },
       },
     ],
     title: "PRIMARY",
+  },
+  ACCENT: {
+    colors: [
+      {
+        name: "neeto-ui-accent-800",
+        value: { light: "9, 90, 186", dark: "75, 156, 245" },
+      },
+      {
+        name: "neeto-ui-accent-600",
+        value: { light: "13, 102, 208", dark: "55, 142, 240" },
+      },
+      {
+        name: "neeto-ui-accent-500",
+        value: { light: "20, 115, 230", dark: "38, 128, 235" },
+        usage: "Use for information",
+      },
+      {
+        name: "neeto-ui-accent-100",
+        text: "black",
+        value: { light: "226, 242, 255", dark: "11, 69, 137" },
+      },
+    ],
+    title: "ACCENT",
   },
   SUCCESS: {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: { light: "16, 113, 84", dark: "57, 185, 144" },
+        value: { light: "0, 102, 83", dark: "57, 185, 144" },
       },
       {
         name: "neeto-ui-success-600",
-        value: { light: "18, 128, 92", dark: "51, 171, 132" },
+        value: { light: "0, 122, 100", dark: "51, 171, 132" },
       },
       {
         name: "neeto-ui-success-500",
-        value: { light: "38, 142, 108", dark: "45, 157, 120" },
+        value: { light: "0, 128, 104", dark: "45, 157, 120" },
         usage: "Use to emphasize a positive message",
       },
       {
