@@ -52,13 +52,19 @@ export const colorPalette = {
       {
         name: "neeto-ui-gray-200",
         text: "black",
-        value: { light: "233, 235, 237", dark: "44, 44, 44" },
+        value: { light: "238, 238, 238", dark: "44, 44, 44" },
         usage: "Use for secondary button background",
       },
       {
         name: "neeto-ui-gray-100",
         text: "black",
-        value: { light: "248, 249, 249", dark: "27, 27, 27" },
+        value: { light: "245, 245, 245", dark: "27, 27, 27" },
+        usage: "Use for sidebar background, table header",
+      },
+      {
+        name: "neeto-ui-gray-50",
+        text: "black",
+        value: { light: "250, 250, 250", dark: "27, 27, 27" },
         usage: "Use for sidebar background, table header",
       },
     ],
