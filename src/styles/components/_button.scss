@@ -199,12 +199,12 @@
   &-link {
     --neeto-ui-btn-padding-x: 0px;
     --neeto-ui-btn-padding-y: 0px;
-    --neeto-ui-btn-color: rgb(var(--neeto-ui-primary-800));
-    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-primary-800));
+    --neeto-ui-btn-color: rgb(var(--neeto-ui-accent-800));
+    --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-accent-800));
     --neeto-ui-btn-hover-opacity: 0.8;
-    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-primary-800));
+    --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-accent-800));
     --neeto-ui-btn-focus-opacity: 0.8;
-    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-800));;
+    --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-accent-800));
   }
 
   &-danger {
