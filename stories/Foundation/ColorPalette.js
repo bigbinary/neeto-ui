@@ -19,7 +19,7 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-gray-800",
-        value: { light: "31, 31, 31", dark: "200, 200, 200" },
+        value: { light: "18, 18, 18", dark: "200, 200, 200" },
         usage: "Use for default text",
       },
       {
