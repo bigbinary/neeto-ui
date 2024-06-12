@@ -1,7 +1,8 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-table-header-font-size: var(--neeto-ui-text-xs);
+  --neeto-ui-table-header-font-size: 13px;
+  --neeto-ui-table-header-font-weight: 600;
   --neeto-ui-table-header-text-transform: uppercase;
-  --neeto-ui-table-header-border-bottom-width: 2px;
+  --neeto-ui-table-header-border-bottom-width: 1px;
   --neeto-ui-table-resize-handle-width: 10px;
   --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
 }
@@ -12,6 +13,7 @@
       tr {
         th {
           font-size: var(--neeto-ui-table-header-font-size);
+          font-weight: var(--neeto-ui-table-header-font-weight) !important;
           text-transform: var(--neeto-ui-table-header-text-transform);
           border-bottom-width: var(--neeto-ui-table-header-border-bottom-width) !important;
 
