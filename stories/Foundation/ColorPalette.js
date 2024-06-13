@@ -5,12 +5,12 @@ export const colorPalette = {
         name: "neeto-ui-white",
         text: "black",
         value: { light: "255, 255, 255", dark: "0, 0, 0" },
-        usage: "Use for headings",
+        usage: "Use for default page background",
       },
       {
         name: "neeto-ui-black",
-        value: { light: "0, 0, 0", dark: "224, 224, 224" },
-        usage: "Use for default background",
+        value: { light: "12, 17, 29", dark: "224, 224, 224" },
+        usage: "Use for headings",
       },
     ],
     title: "BASE",
@@ -19,17 +19,17 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-gray-800",
-        value: { light: "18, 18, 18", dark: "200, 200, 200" },
+        value: { light: "16, 24, 40", dark: "200, 200, 200" },
         usage: "Use for default text",
       },
       {
         name: "neeto-ui-gray-700",
-        value: { light: "47, 57, 65", dark: "162, 162, 162" },
+        value: { light: "29, 41, 57", dark: "162, 162, 162" },
         usage: "Use for secondary text",
       },
       {
         name: "neeto-ui-gray-600",
-        value: { light: "104, 115, 125", dark: "124, 124, 124" },
+        value: { light: "52, 64, 84", dark: "124, 124, 124" },
         usage: "Use for default icon",
       },
       {
@@ -52,20 +52,20 @@ export const colorPalette = {
       {
         name: "neeto-ui-gray-200",
         text: "black",
-        value: { light: "238, 238, 238", dark: "44, 44, 44" },
+        value: { light: "233, 235, 237", dark: "44, 44, 44" },
         usage: "Use for secondary button background",
       },
       {
         name: "neeto-ui-gray-100",
         text: "black",
-        value: { light: "245, 245, 245", dark: "27, 27, 27" },
-        usage: "Use for sidebar background, table header",
+        value: { light: "246, 247, 248", dark: "27, 27, 27" },
+        usage: "Use for sidebar menu item hover, table row hover",
       },
       {
         name: "neeto-ui-gray-50",
         text: "black",
         value: { light: "250, 250, 250", dark: "27, 27, 27" },
-        usage: "Use for sidebar background, table header",
+        usage: "Use for metadata background, table header",
       },
     ],
     title: "GRAY",
@@ -93,6 +93,11 @@ export const colorPalette = {
         text: "black",
         value: { light: "225, 243, 238", dark: "23, 85, 65" },
       },
+      {
+        name: "neeto-ui-primary-50",
+        text: "black",
+        value: { light: "240, 249, 247", dark: "23, 85, 65" },
+      },
     ],
     title: "PRIMARY",
   },
@@ -114,7 +119,12 @@ export const colorPalette = {
       {
         name: "neeto-ui-accent-100",
         text: "black",
-        value: { light: "226, 242, 255", dark: "11, 69, 137" },
+        value: { light: "230, 244, 255", dark: "11, 69, 137" },
+      },
+      {
+        name: "neeto-ui-accent-50",
+        text: "black",
+        value: { light: "239, 248, 255", dark: "11, 69, 137" },
       },
     ],
     title: "ACCENT",
@@ -206,7 +216,7 @@ export const colorPalette = {
       {
         name: "neeto-ui-info-100",
         text: "black",
-        value: { light: "226, 242, 255", dark: "11, 69, 137" },
+        value: { light: "230, 244, 255", dark: "11, 69, 137" },
       },
     ],
     title: "INFO",

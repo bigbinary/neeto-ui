@@ -317,8 +317,8 @@ const Table = ({
             headerSplitColor: "rgb(var(--neeto-ui-gray-100))",
             rowExpandedBg: "rgb(var(--neeto-ui-gray-100))",
             rowHoverBg: "rgb(var(--neeto-ui-gray-50))",
-            rowSelectedBg: "rgb(var(--neeto-ui-accent-100))",
-            rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-100))",
+            rowSelectedBg: "rgb(var(--neeto-ui-accent-50))",
+            rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-50))",
             stickyScrollBarBg: "rgb(var(--neeto-ui-gray-100))",
             cellPaddingBlock: 11,
 
