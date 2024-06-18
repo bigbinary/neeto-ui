@@ -243,18 +243,13 @@ $neeto-ui-rounded-full: 999px;
 $neeto-ui-transition: all 0.3s linear;
 
 // Box Shadows
-$neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
-$neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12),
-  0px 2px 4px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-sm: 0px 3px 12px -1px rgba(28, 52, 84, 0.12),
-  0px 2px 4px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12),
-  0px 2px 6px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-md: 0px 8px 24px -4px rgba(28, 50, 79, 0.12),
-  0px 2px 6px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-l: 0 8px 24px rgba(140,149,159,0.2),
-  0px 3px 18px -2px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-lg: 0 8px 24px rgba(140,149,159,0.2);
+$neeto-ui-shadow-xs: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+$neeto-ui-shadow-s: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+$neeto-ui-shadow-sm: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+$neeto-ui-shadow-m: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+$neeto-ui-shadow-md: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+$neeto-ui-shadow-l: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+$neeto-ui-shadow-lg: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 
 // neeto-ui-shadows-map
 $neeto-ui-shadows: (
