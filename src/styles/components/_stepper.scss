@@ -13,7 +13,7 @@
 
   // Item - Done Separator
   --neeto-ui-stepper-item-done-separator-border-top-style: solid;
-  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-success-500));
 
   // Stage
   --neeto-ui-stepper-stage-width: 28px;
@@ -22,10 +22,10 @@
   --neeto-ui-stepper-stage-border-radius: var(--neeto-ui-rounded-full);
 
   // Stage Done
-  --neeto-ui-stepper-item-done-stage-bg-color: rgb(var(--neeto-ui-success-800));
+  --neeto-ui-stepper-item-done-stage-bg-color: rgb(var(--neeto-ui-success-500));
 
   // Stage Active
-  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-accent-500));
   --neeto-ui-stepper-item-active-stage-inner-width: 18px;
   --neeto-ui-stepper-item-active-stage-inner-height: 18px;
   --neeto-ui-stepper-item-active-stage-inner-border-width: 2px;
@@ -178,6 +178,6 @@
 
 .neetix-stepper {
   --neeto-ui-stepper-stage-bg-color: rgb(var(--neeto-ui-success-100));
-  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-success-800));
-  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-success-800));
+  --neeto-ui-stepper-item-active-stage-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-stepper-item-done-separator-border-color: rgb(var(--neeto-ui-success-500));
 }
