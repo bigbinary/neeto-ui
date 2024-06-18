@@ -58,13 +58,13 @@ export const colorPalette = {
       {
         name: "neeto-ui-gray-100",
         text: "black",
-        value: { light: "246, 247, 248", dark: "27, 27, 27" },
+        value: { light: "246, 247, 248", dark: "30, 30, 30" },
         usage: "Use for sidebar menu item hover, table row hover",
       },
       {
         name: "neeto-ui-gray-50",
         text: "black",
-        value: { light: "250, 250, 250", dark: "27, 27, 27" },
+        value: { light: "250, 250, 250", dark: "10, 10, 10" },
         usage: "Use for metadata background, table header",
       },
     ],
@@ -74,29 +74,29 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-primary-800",
-        value: { light: "0, 102, 83", dark: "209, 213, 254" },
+        value: { light: "0, 102, 83", dark: "0, 245, 200" },
         usage: "Use for link buttons",
       },
       {
         name: "neeto-ui-primary-600",
-        value: { light: "0, 122, 100", dark: "166, 170, 254" },
+        value: { light: "0, 122, 100", dark: "0, 224, 183" },
         usage: "Use for primary button hover",
       },
       {
         name: "neeto-ui-primary-500",
-        value: { light: "0, 128, 104", dark: "137, 147, 254" },
+        value: { light: "0, 128, 104", dark: "0, 204, 167" },
         usage:
           "Use for primary actions or elements that communicate the brand.",
       },
       {
         name: "neeto-ui-primary-100",
         text: "black",
-        value: { light: "225, 243, 238", dark: "23, 85, 65" },
+        value: { light: "225, 243, 238", dark: "0, 61, 49" },
       },
       {
         name: "neeto-ui-primary-50",
         text: "black",
-        value: { light: "240, 249, 247", dark: "23, 85, 65" },
+        value: { light: "240, 249, 247", dark: "0, 41, 33" },
       },
     ],
     title: "PRIMARY",
@@ -105,26 +105,26 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-accent-800",
-        value: { light: "9, 90, 186", dark: "75, 156, 245" },
+        value: { light: "9, 90, 186", dark: "142, 189, 245" },
       },
       {
         name: "neeto-ui-accent-600",
-        value: { light: "13, 102, 208", dark: "55, 142, 240" },
+        value: { light: "13, 102, 208", dark: "105, 167, 242" },
       },
       {
         name: "neeto-ui-accent-500",
-        value: { light: "20, 115, 230", dark: "38, 128, 235" },
+        value: { light: "20, 115, 230", dark: "67, 144, 239" },
         usage: "Use for information",
       },
       {
         name: "neeto-ui-accent-100",
         text: "black",
-        value: { light: "230, 244, 255", dark: "11, 69, 137" },
+        value: { light: "230, 244, 255", dark: "10, 56, 113" },
       },
       {
         name: "neeto-ui-accent-50",
         text: "black",
-        value: { light: "239, 248, 255", dark: "11, 69, 137" },
+        value: { light: "239, 248, 255", dark: "7, 37, 75" },
       },
     ],
     title: "ACCENT",
@@ -133,21 +133,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: { light: "0, 102, 83", dark: "57, 185, 144" },
+        value: { light: "0, 102, 83", dark: "0, 245, 200" },
       },
       {
         name: "neeto-ui-success-600",
-        value: { light: "0, 122, 100", dark: "51, 171, 132" },
+        value: { light: "0, 122, 100", dark: "0, 224, 183" },
       },
       {
         name: "neeto-ui-success-500",
-        value: { light: "0, 128, 104", dark: "45, 157, 120" },
+        value: { light: "0, 128, 104", dark: "0, 204, 167" },
         usage: "Use to emphasize a positive message",
       },
       {
         name: "neeto-ui-success-100",
         text: "black",
-        value: { light: "225, 243, 238", dark: "23, 85, 65" },
+        value: { light: "225, 243, 238", dark: "0, 61, 49" },
       },
     ],
     title: "SUCCESS",
@@ -202,21 +202,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-info-800",
-        value: { light: "9, 90, 186", dark: "75, 156, 245" },
+        value: { light: "9, 90, 186", dark: "142, 189, 245" },
       },
       {
         name: "neeto-ui-info-600",
-        value: { light: "13, 102, 208", dark: "55, 142, 240" },
+        value: { light: "13, 102, 208", dark: "105, 167, 242" },
       },
       {
         name: "neeto-ui-info-500",
-        value: { light: "20, 115, 230", dark: "38, 128, 235" },
+        value: { light: "20, 115, 230", dark: "67, 144, 239" },
         usage: "Use for information",
       },
       {
         name: "neeto-ui-info-100",
         text: "black",
-        value: { light: "230, 244, 255", dark: "11, 69, 137" },
+        value: { light: "230, 244, 255", dark: "10, 56, 113" },
       },
     ],
     title: "INFO",
