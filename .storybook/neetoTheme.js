@@ -11,10 +11,11 @@ export default create({
   appBg: "#000000",
   appContentBg: "#1e202e",
   appBorderColor: "#121212",
-  appBorderRadius: 30,
+  appBorderRadius: 12,
 
   // Typography
-  fontBase: '"Inter", sans-serif',
+  fontBase:
+    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   fontCode: "monospace",
 
   // Text colors
