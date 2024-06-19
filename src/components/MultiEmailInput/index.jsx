@@ -227,7 +227,8 @@ const MultiEmailInput = forwardRef(
             className="neeto-ui-input__warning"
             data-cy={`${hyphenize(label)}-duplicate-emails-warning`}
           >
-            Duplicate emails removed: {duplicateEmails.join(", ")}
+            Duplicate emails that were removed case insensitively:{" "}
+            {duplicateEmails.join(", ")}
           </p>
         )}
       </div>

@@ -261,10 +261,12 @@ describe("MultiEmailInput", () => {
     render(<MultiEmailInput counter value={SAMPLE_EMAILS} />);
     const emailInput = screen.getByRole("combobox");
 
-    await userEvent.type(emailInput, "test@example.com{enter}");
+    await userEvent.type(emailInput, "test@Example.com{enter}");
 
     expect(
-      screen.getByText("Duplicate emails removed: test@example.com")
+      screen.getByText(
+        "Duplicate emails that were removed case insensitively: test@Example.com"
+      )
     ).toBeInTheDocument();
   });
 });
