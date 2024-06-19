@@ -256,4 +256,15 @@ describe("MultiEmailInput", () => {
       expect(screen.getByText(email.label)).toBeInTheDocument();
     });
   });
+
+  it("should provide feedback when duplicate emails are pruned", async () => {
+    render(<MultiEmailInput counter value={SAMPLE_EMAILS} />);
+    const emailInput = screen.getByRole("combobox");
+
+    await userEvent.type(emailInput, "test@example.com{enter}");
+
+    expect(
+      screen.getByText("Duplicate emails removed: test@example.com")
+    ).toBeInTheDocument();
+  });
 });
