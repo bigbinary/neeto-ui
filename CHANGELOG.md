@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.8.2 - 2024-06-19
+
+https://navaneeth-d.neetorecord.com/watch/f777bc32-f8f1-4dd0-85bb-04be9c369c7b
+
 ## 6.8.1 - 2024-06-06
 
 - Added: Autoscroll and autoformatting features in the *MultiEmailInput* component.
@@ -159,7 +163,6 @@ Fixed: TimpickerInput firefox ui issue
 Fixed: update sortedInfo from queryParams in table on refresh.
 ## 6.3.2 - 2024-02-28
 Before
-
 ![Screenshot 2024-02-15 at 5 47 48 PM](https://github.com/bigbinary/neeto-form-web/assets/16187886/b57929f4-5aec-433f-b4e0-f0aad47760cf)
 
 After
@@ -327,7 +330,6 @@ Added: Support for lazy loading for the `Select` component
 Added: New *TreeSelect* component.
 ## 5.2.15 - 2023-10-23
 Add onBlur handler to `Input` component to trim leading and trailing spaces
-
 ## 5.2.13 - 2023-10-20
 
 Fixed: scrollToErrorField not working for Select component.
@@ -1089,7 +1091,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: `useInsertionEffect` export issue due to `terser` compression.
 ## 3.5.0 - 2022-05-25
 - Changed: Replaced webpack with rollup for bundling the package.
-
 ## 3.4.6 - 2022-05-19
 
 - Updated: `react-toastify` to `9.0.1`
