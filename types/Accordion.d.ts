@@ -5,6 +5,7 @@ export interface AccordionProps {
   defaultActiveKey?: number;
   padded?: boolean;
   style?: "primary" | "secondary";
+  [key: string]: any;
 }
 
 export interface AccordionItemProps {

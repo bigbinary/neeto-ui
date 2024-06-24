@@ -17,6 +17,7 @@ const Accordion = ({
   padded = false,
   style = ACCORDION_STYLES.primary,
   className = "",
+  ...otherProps
 }) => {
   const [openTab, setOpenTab] = useState(defaultActiveKey);
 
@@ -32,6 +33,7 @@ const Accordion = ({
           style === ACCORDION_STYLES.secondary,
         [className]: className,
       })}
+      {...otherProps}
     >
       {React.Children.map(children, (child, index) => {
         const isSingleOrLastChild =
