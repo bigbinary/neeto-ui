@@ -10,9 +10,24 @@ export const formatEmailInputOptions = label => ({
 
 export const pruneDuplicates = inputValues => {
   const values = pluck("value", inputValues);
-  const uniqueValues = [...new Set(values)];
+  const caseInsensitiveValues = values.map(value => value.toLowerCase());
+  const uniqueValuesSet = new Set();
+  const duplicates = [];
 
-  return uniqueValues.map(email => formatEmailInputOptions(email));
+  caseInsensitiveValues.forEach((value, index) => {
+    if (uniqueValuesSet.has(value)) {
+      duplicates.push(values[index]);
+    } else {
+      uniqueValuesSet.add(value);
+    }
+  });
+
+  const uniqueValues = Array.from(uniqueValuesSet);
+  const uniqueEmails = uniqueValues.map(email =>
+    formatEmailInputOptions(email)
+  );
+
+  return { uniqueEmails, duplicates };
 };
 
 export const renderValidEmails = values =>

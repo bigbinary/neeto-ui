@@ -48,6 +48,7 @@ const MultiEmailInput = forwardRef(
   ) => {
     const [inputValue, setInputValue] = useState("");
     const [isFocused, setIsFocused] = useState(false);
+    const [duplicateEmails, setDuplicateEmails] = useState([]);
 
     const isCounterVisible =
       !!counter &&
@@ -63,7 +64,12 @@ const MultiEmailInput = forwardRef(
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
 
       const emails = emailMatches.map(email => formatEmailInputOptions(email));
-      onChange(pruneDuplicates([...value, ...emails]));
+      const { uniqueEmails, duplicates } = pruneDuplicates([
+        ...value,
+        ...emails,
+      ]);
+      onChange(uniqueEmails);
+      setDuplicateEmails(duplicates);
       setInputValue("");
     };
 
@@ -90,13 +96,16 @@ const MultiEmailInput = forwardRef(
 
     const onCreateOption = input => {
       const email = formatEmailInputOptions(input);
-      onChange(pruneDuplicates([...value, email]));
+      const { uniqueEmails, duplicates } = pruneDuplicates([...value, email]);
+      onChange(uniqueEmails);
+      setDuplicateEmails(duplicates);
       otherProps?.onCreateOption?.(input);
     };
 
     const handleBlur = event => {
       inputValue ? handleEmailChange(inputValue) : onBlur(event);
       setIsFocused(false);
+      setDuplicateEmails([]);
     };
 
     let overrideProps = {};
@@ -211,6 +220,15 @@ const MultiEmailInput = forwardRef(
             data-cy={`${hyphenize(label)}-input-help`}
           >
             {helpText}
+          </p>
+        )}
+        {!!duplicateEmails.length && (
+          <p
+            className="neeto-ui-input__warning"
+            data-cy={`${hyphenize(label)}-duplicate-emails-warning`}
+          >
+            Duplicate emails that were removed case insensitively:{" "}
+            {duplicateEmails.join(", ")}
           </p>
         )}
       </div>

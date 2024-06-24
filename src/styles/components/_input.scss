@@ -62,6 +62,12 @@
   --neeto-ui-input-help-text-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-help-text-line-height: 1.1;
 
+  // Warning Text
+  --neeto-ui-input-warning-text-margin: 8px;
+  --neeto-ui-input-warning-text-font-size: var(--neeto-ui-text-xs);
+  --neeto-ui-input-warning-text-color: rgb(var(--neeto-ui-warning-800));
+  --neeto-ui-input-warning-text-line-height: 1.1;
+
   // Error Text
   --neeto-ui-input-error-text-margin: 8px;
   --neeto-ui-input-error-text-font-size: var(--neeto-ui-text-xs);
@@ -302,6 +308,13 @@
   font-size: var(--neeto-ui-input-error-text-font-size);
   color: var(--neeto-ui-input-error-text-color);
   line-height: var(--neeto-ui-input-error-text-line-height);
+}
+
+.neeto-ui-input__warning {
+  margin-top: var(--neeto-ui-input-warning-text-margin);
+  font-size: var(--neeto-ui-input-warning-text-font-size);
+  color: var(--neeto-ui-input-warning-text-color);
+  line-height: var(--neeto-ui-input-warning-text-line-height);
 }
 
 .neetix-input {
