@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 6.8.3 - 2024-06-24
+
+- Added option to pass data-cy to accordion
+
 ## 6.8.2 - 2024-06-19
 
 https://navaneeth-d.neetorecord.com/watch/f777bc32-f8f1-4dd0-85bb-04be9c369c7b
@@ -164,7 +168,6 @@ Fixed: update sortedInfo from queryParams in table on refresh.
 ## 6.3.2 - 2024-02-28
 Before
 ![Screenshot 2024-02-15 at 5 47 48 PM](https://github.com/bigbinary/neeto-form-web/assets/16187886/b57929f4-5aec-433f-b4e0-f0aad47760cf)
-
 After
 
 ![2a-after](https://github.com/bigbinary/neeto-ui/assets/16187886/a4b009a5-b372-4677-aa1d-cc80217ad5b2)
@@ -331,7 +334,6 @@ Added: New *TreeSelect* component.
 ## 5.2.15 - 2023-10-23
 Add onBlur handler to `Input` component to trim leading and trailing spaces
 ## 5.2.13 - 2023-10-20
-
 Fixed: scrollToErrorField not working for Select component.
 
 ## 5.2.11 - 2023-10-20
@@ -1092,7 +1094,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.5.0 - 2022-05-25
 - Changed: Replaced webpack with rollup for bundling the package.
 ## 3.4.6 - 2022-05-19
-
 - Updated: `react-toastify` to `9.0.1`
 
 ## 3.4.4
