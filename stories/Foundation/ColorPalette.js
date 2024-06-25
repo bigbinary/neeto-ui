@@ -133,21 +133,21 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: { light: "0, 102, 83", dark: "0, 245, 200" },
+        value: { light: "25, 118, 34", dark: "0, 224, 180" },
       },
       {
         name: "neeto-ui-success-600",
-        value: { light: "0, 122, 100", dark: "0, 224, 183" },
+        value: { light: "32, 151, 44", dark: "0, 184, 147" },
       },
       {
         name: "neeto-ui-success-500",
-        value: { light: "0, 128, 104", dark: "0, 204, 167" },
+        value: { light: "39, 187, 54", dark: "0, 143, 114" },
         usage: "Use to emphasize a positive message",
       },
       {
         name: "neeto-ui-success-100",
         text: "black",
-        value: { light: "225, 243, 238", dark: "0, 61, 49" },
+        value: { light: "238, 251, 239", dark: "14, 67, 20" },
       },
     ],
     title: "SUCCESS",
