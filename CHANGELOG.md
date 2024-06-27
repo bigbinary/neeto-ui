@@ -23,6 +23,117 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 7.0.0 - 2024-06-27
+
+### Color palette
+
+- Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
+  
+- Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
+  
+- Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
+  
+- Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
+  
+- Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
+  
+- Added: `--neeto-ui-gray-50` - `#fafafa`.
+  
+- Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
+  
+- Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
+  
+- Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
+  
+- Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
+  
+- Added: `--neeto-ui-primary-50` - `#f0f9f7`.
+  
+- Added: `--neeto-ui-accent-800` - `#095aba`.
+  
+- Added: `--neeto-ui-accent-600` - `#0d66d0`.
+  
+- Added: `--neeto-ui-accent-500` - `#1473e6`.
+  
+- Added: `--neeto-ui-accent-100` - `#e6f4ff`.
+  
+- Added: `--neeto-ui-accent-50` - `#eff8ff`.
+  
+- Updated: `--neeto-ui-success-800` from `#107154` to `#01795d`.
+  
+- Updated: `--neeto-ui-success-600` from `#12805c` to `#018d6d`.
+  
+- Updated: `--neeto-ui-success-500` from `#268e6c` to `#02a27c`.
+  
+- Updated: `--neeto-ui-success-100` from `#e1f3ee` to `#ebfffa`.
+  
+
+### Dark mode
+
+- Added: `--neeto-ui-gray-50` - `#0a0a0a`.
+  
+- Updated: `--neeto-ui-primary-800` from `#39b990` to `#00f5c8`.
+  
+- Updated: `--neeto-ui-primary-600` from `#33ab84` to `#00e0b7`.
+  
+- Updated: `--neeto-ui-primary-500` from `#2d9d78` to `#00cca7`.
+  
+- Updated: `--neeto-ui-primary-100` from `#175541` to `#003d31`.
+  
+- Added: `--neeto-ui-primary-50` - `#002921`.
+  
+- Added: `--neeto-ui-accent-800` - `#8ebdf5`.
+  
+- Added: `--neeto-ui-accent-600` - `#69a7f2`.
+  
+- Added: `--neeto-ui-accent-500` - `#4390ef`.
+  
+- Added: `--neeto-ui-accent-100` - `#0a3871`.
+  
+- Added: `--neeto-ui-accent-50` - `#07254b`.
+  
+- Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
+  
+- Updated: `--neeto-ui-success-600` from `#33ab84` to `#00e0b7`.
+  
+- Updated: `--neeto-ui-success-500` from `#2d9d78` to `#00cca7`.
+  
+- Updated: `--neeto-ui-success-100` from `#175541` to `#003d31`.
+  
+- Updated: `--neeto-ui-info-800` from `#4b9cf5` to `#8ebdf5`.
+  
+- Updated: `--neeto-ui-info-600` from `#378ef0` to `#69a7f2`.
+  
+- Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
+  
+- Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
+  
+
+### Utility classes
+
+- Added: Utility classes for the newly added colors.
+
+### Box shadows
+
+- Updated: `--neeto-ui-shadow-xs` to `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
+- Updated: `--neeto-ui-shadow-sm` to `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
+- Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
+- Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
+
+### Component updates
+
+- Updated: Button hover/focus states.
+- Improved: Callout styles.
+- Improved: Table styles.
+- Improved: Toast bg.
+- Updated: Toast button style to tertiary.
+- Updated: Tab border color.
+
+### Storybook updates
+
+- Updated: Storybook theme to match the branding.
+- Improved: Documentation readability.
+
 ## 6.8.3 - 2024-06-24
 
 - Added option to pass data-cy to accordion
@@ -169,7 +280,6 @@ Fixed: update sortedInfo from queryParams in table on refresh.
 Before
 ![Screenshot 2024-02-15 at 5 47 48 PM](https://github.com/bigbinary/neeto-form-web/assets/16187886/b57929f4-5aec-433f-b4e0-f0aad47760cf)
 After
-
 ![2a-after](https://github.com/bigbinary/neeto-ui/assets/16187886/a4b009a5-b372-4677-aa1d-cc80217ad5b2)
 
 
@@ -335,7 +445,6 @@ Added: New *TreeSelect* component.
 Add onBlur handler to `Input` component to trim leading and trailing spaces
 ## 5.2.13 - 2023-10-20
 Fixed: scrollToErrorField not working for Select component.
-
 ## 5.2.11 - 2023-10-20
 
 - Fixed: Memory leaks in overlay manager
@@ -1095,7 +1204,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Changed: Replaced webpack with rollup for bundling the package.
 ## 3.4.6 - 2022-05-19
 - Updated: `react-toastify` to `9.0.1`
-
 ## 3.4.4
 
 - Fixed: import for molecule components.
