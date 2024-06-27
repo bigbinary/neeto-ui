@@ -7,8 +7,6 @@ import Label from "components/Label";
 import { useId } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
 
-import { NEETO_UI_PRIMARY_500 } from "./constants";
-
 const Slider = ({
   min = 0,
   max = 100,
@@ -63,9 +61,7 @@ const Slider = ({
         </div>
         <AntdSlider
           className="neeto-ui-w-full"
-          handleStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}
           tooltip={{ formatter: null }}
-          trackStyle={{ backgroundColor: NEETO_UI_PRIMARY_500 }}
           {...{ defaultValue, max, min, onChange, value, ...otherProps, id }}
         />
         {!!error && (

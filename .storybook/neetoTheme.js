@@ -1,39 +1,39 @@
-import { create } from '@storybook/theming';
-import neetoLogo from './neetoLogo.svg';
-
+import { create } from "@storybook/theming";
+import neetoLogo from "./neetoLogo.svg";
 
 export default create({
-  base: 'dark',
+  base: "dark",
 
-  colorPrimary: '#0043ac',
-  colorSecondary: '#0043ac',
+  colorPrimary: "#008068",
+  colorSecondary: "#008068",
 
   // UI
-  appBg: '#1b1b1b',
-  appContentBg: '#1e202e',
-  appBorderColor: '#121212',
+  appBg: "#000000",
+  appContentBg: "#1e202e",
+  appBorderColor: "#121212",
   appBorderRadius: 12,
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
-  fontCode: 'monospace',
+  fontBase:
+    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+  fontCode: "monospace",
 
   // Text colors
   // textColor: 'white',
   // textInverseColor: 'black',
 
   // Toolbar default and active colors
-  barTextColor: 'white',
-  barSelectedColor: 'white',
-  barBg: '#333647',
+  barTextColor: "white",
+  barSelectedColor: "white",
+  barBg: "#333647",
 
   // Form colors
-  inputBg: 'transparent',
-  inputBorder: 'silver',
-  inputTextColor: 'white',
+  inputBg: "transparent",
+  inputBorder: "silver",
+  inputTextColor: "white",
   inputBorderRadius: 4,
 
-  brandTitle: 'neeto',
-  brandUrl: 'https://neeto.com/',
+  brandTitle: "neeto",
+  brandUrl: "https://neeto.com/",
   brandImage: neetoLogo,
 });

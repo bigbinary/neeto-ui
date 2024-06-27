@@ -1,6 +1,6 @@
 :root, .neeto-ui-theme--light{
   // Body
-  --neeto-ui-body-color: 31, 31, 31;
+  --neeto-ui-body-color: 16, 24, 40;
   --neeto-ui-body-bg: 255, 255, 255;
   // Color
   @each $color, $value in $neeto-ui-theme-colors {

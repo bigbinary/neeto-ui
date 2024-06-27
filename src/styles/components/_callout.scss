@@ -3,7 +3,7 @@
   --neeto-ui-callout-padding-y: 9px;
   --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
-  --neeto-ui-callout-line-height: 16px;
+  --neeto-ui-callout-line-height: 1.5;
   --neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-callout-bg-color: transparent;
   --neeto-ui-callout-border-width: 1px;
@@ -41,31 +41,31 @@
 
   &--info {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-info-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-info-500));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-info-100));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-info-500));
   }
 
   &--warning {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-warning-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-warning-500));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-warning-100));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-warning-500));
   }
 
   &--danger {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-error-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-error-500));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-error-100));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-error-500));
   }
 
   &--success {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-500));
+    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-100));
     --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
   }
 }
 
 .neetix-callout--success {
-  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-primary-100));
-  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-primary-500));
-  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
+  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-100));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
 }

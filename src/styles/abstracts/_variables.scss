@@ -12,29 +12,38 @@ $neeto-ui-body-line-height: 1.3;
 
 // base
 $neeto-ui-white: 255, 255, 255;
-$neeto-ui-black: 18, 18, 18;
+$neeto-ui-black: 12, 17, 29;
 
 // gray
-$neeto-ui-gray-800: 31, 31, 31;
-$neeto-ui-gray-700: 47, 57, 65;
-$neeto-ui-gray-600: 104, 115, 125;
+$neeto-ui-gray-800: 16, 24, 40;
+$neeto-ui-gray-700: 29, 41, 57;
+$neeto-ui-gray-600: 52, 64, 84;
 $neeto-ui-gray-500: 135, 146, 157;
 $neeto-ui-gray-400: 194, 200, 204;
 $neeto-ui-gray-300: 216, 220, 222;
 $neeto-ui-gray-200: 233, 235, 237;
-$neeto-ui-gray-100: 248, 249, 249;
+$neeto-ui-gray-100: 246, 247, 248;
+$neeto-ui-gray-50: 250, 250, 250;
 
 // primary
-$neeto-ui-primary-800: 45, 54, 212;
-$neeto-ui-primary-600: 54, 66, 223;
-$neeto-ui-primary-500: 69, 88, 249;
-$neeto-ui-primary-100: 235, 236, 254;
+$neeto-ui-primary-800: 0, 102, 83;
+$neeto-ui-primary-600: 0, 122, 100;
+$neeto-ui-primary-500: 0, 128, 104;
+$neeto-ui-primary-100: 225, 243, 238;
+$neeto-ui-primary-50: 240, 249, 247;
+
+// accent
+$neeto-ui-accent-800: 9, 90, 186;
+$neeto-ui-accent-600: 13, 102, 208;
+$neeto-ui-accent-500: 20, 115, 230;
+$neeto-ui-accent-100: 230, 244, 255;
+$neeto-ui-accent-50: 239, 248, 255;
 
 // success
-$neeto-ui-success-800: 16, 113, 84;
-$neeto-ui-success-600: 18, 128, 92;
-$neeto-ui-success-500: 38, 142, 108;
-$neeto-ui-success-100: 225, 243, 238;
+$neeto-ui-success-800: 1, 121, 93;
+$neeto-ui-success-600: 1, 141, 109;
+$neeto-ui-success-500: 2, 162, 124;
+$neeto-ui-success-100: 235, 255, 250;
 
 // error
 $neeto-ui-error-800: 187, 18, 26;
@@ -78,11 +87,19 @@ $neeto-ui-theme-colors: (
   "gray-300": $neeto-ui-gray-300,
   "gray-200": $neeto-ui-gray-200,
   "gray-100": $neeto-ui-gray-100,
+  "gray-50": $neeto-ui-gray-50,
   // primary
   "primary-800": $neeto-ui-primary-800,
   "primary-600": $neeto-ui-primary-600,
   "primary-500": $neeto-ui-primary-500,
   "primary-100": $neeto-ui-primary-100,
+  "primary-50": $neeto-ui-primary-50,
+  // accent
+  "accent-800": $neeto-ui-accent-800,
+  "accent-600": $neeto-ui-accent-600,
+  "accent-500": $neeto-ui-accent-500,
+  "accent-100": $neeto-ui-accent-100,
+  "accent-50": $neeto-ui-accent-50,
   // error
   "error-800": $neeto-ui-error-800,
   "error-600": $neeto-ui-error-600,
@@ -226,18 +243,13 @@ $neeto-ui-rounded-full: 999px;
 $neeto-ui-transition: all 0.3s linear;
 
 // Box Shadows
-$neeto-ui-shadow-xs: 0px 1px 4px -1px rgba(28, 48, 74, 0.12);
-$neeto-ui-shadow-s: 0px 3px 12px -1px rgba(28, 52, 84, 0.12),
-  0px 2px 4px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-sm: 0px 3px 12px -1px rgba(28, 52, 84, 0.12),
-  0px 2px 4px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-m: 0px 8px 24px -4px rgba(28, 50, 79, 0.12),
-  0px 2px 6px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-md: 0px 8px 24px -4px rgba(28, 50, 79, 0.12),
-  0px 2px 6px -1px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-l: 0 8px 24px rgba(140,149,159,0.2),
-  0px 3px 18px -2px rgba(28, 55, 90, 0.08);
-$neeto-ui-shadow-lg: 0 8px 24px rgba(140,149,159,0.2);
+$neeto-ui-shadow-xs: rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px;
+$neeto-ui-shadow-s: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+$neeto-ui-shadow-sm: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+$neeto-ui-shadow-m: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+$neeto-ui-shadow-md: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+$neeto-ui-shadow-l: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+$neeto-ui-shadow-lg: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 
 // neeto-ui-shadows-map
 $neeto-ui-shadows: (

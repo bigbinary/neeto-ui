@@ -21,7 +21,7 @@ const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
     {buttonLabel && (
       <div className="toastr-message-container__btn-wrapper">
         <button
-          className="neeto-ui-btn neeto-ui-btn--style-secondary"
+          className="neeto-ui-btn neeto-ui-btn--style-tertiary"
           data-cy={`toastr-${type}-button`}
           onClick={e => {
             e.stopPropagation();
