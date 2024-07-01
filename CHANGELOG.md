@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 7.0.1 - 2024-07-01
+
+- Fixed the scrollbar visibility issue in Tables
+
 ## 7.0.0 - 2024-06-27
 
 ### Color palette
@@ -282,7 +286,6 @@ Before
 After
 ![2a-after](https://github.com/bigbinary/neeto-ui/assets/16187886/a4b009a5-b372-4677-aa1d-cc80217ad5b2)
 
-
 ---
 
 Before
@@ -446,7 +449,6 @@ Add onBlur handler to `Input` component to trim leading and trailing spaces
 ## 5.2.13 - 2023-10-20
 Fixed: scrollToErrorField not working for Select component.
 ## 5.2.11 - 2023-10-20
-
 - Fixed: Memory leaks in overlay manager
 
 ## 5.2.10 - 2023-10-20
@@ -1205,7 +1207,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.6 - 2022-05-19
 - Updated: `react-toastify` to `9.0.1`
 ## 3.4.4
-
 - Fixed: import for molecule components.
 
 ## 3.4.3
