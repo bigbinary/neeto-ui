@@ -319,7 +319,7 @@ const Table = ({
             rowHoverBg: "rgb(var(--neeto-ui-gray-50))",
             rowSelectedBg: "rgb(var(--neeto-ui-accent-50))",
             rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-50))",
-            stickyScrollBarBg: "rgb(var(--neeto-ui-gray-100))",
+            stickyScrollBarBg: "rgb(var(--neeto-ui-gray-300))",
             cellPaddingBlock: 11,
 
             // Global overrides
