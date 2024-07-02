@@ -20,8 +20,8 @@ const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
 const TIME_PICKER_INTERVAL = {
   hourStep: 1,
-  minuteStep: 1,
-  secondStep: 1,
+  minuteStep: 15,
+  secondStep: 10,
 };
 
 const TimePicker = forwardRef(
@@ -43,6 +43,7 @@ const TimePicker = forwardRef(
       value,
       labelProps,
       required = false,
+      placeholder,
       ...otherProps
     },
     ref
@@ -126,6 +127,7 @@ const TimePicker = forwardRef(
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
+            format={{ format, type: "mask" }}
             hourStep={interval.hourStep}
             minuteStep={interval.minuteStep}
             ref={timePickerRef}
@@ -143,10 +145,11 @@ const TimePicker = forwardRef(
               popupClassName,
             ])}
             onChange={handleOnChange}
-            {...{ disabled, format, ...otherProps, panelRender }}
+            {...{ disabled, ...otherProps, panelRender }}
             defaultValue={convertToDayjsObjects(defaultValue)}
             mode={undefined}
             picker="time"
+            placeholder={placeholder ?? format}
             suffixIcon={<Clock size={16} />}
             value={convertToDayjsObjects(value)}
           />
@@ -196,6 +199,10 @@ TimePicker.propTypes = {
    * To specify the time format.
    */
   format: PropTypes.string,
+  /**
+   * To set the placeholder text for the TimePicker, if not provided, the format will be used as placeholder.
+   */
+  placeholder: PropTypes.string,
   /**
    * To specify the time interval.
    */
