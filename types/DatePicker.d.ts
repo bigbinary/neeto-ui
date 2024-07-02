@@ -10,10 +10,12 @@ export type DatePickerProps = {
   dropdownClassName?: string;
   dateFormat?: string;
   timeFormat?: string;
+  placeholder?: string;
   onChange?: (date: any, dateString: string) => void;
   onOk?: () => void;
   picker?: "date" | "week" | "month" | "quarter" | "year";
   showTime?: boolean;
+  timePickerProps?: any;
   type?: "range" | "date";
   nakedInput?: boolean;
   error?: string;

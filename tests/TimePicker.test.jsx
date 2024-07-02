@@ -40,7 +40,7 @@ describe("TimePicker", () => {
 
   it("should trigger onChange function on clicking ok button", () => {
     const onChange = jest.fn();
-    render(<TimePicker open defaultValue={currentTime} onChange={onChange} />);
+    render(<TimePicker {...{ onChange }} open defaultValue={currentTime} />);
     fireEvent.click(getAllByText("12")[0]);
     fireEvent.click(getAllByText("30")[0]);
     fireEvent.click(getByText("OK"));
@@ -49,7 +49,7 @@ describe("TimePicker", () => {
 
   it("should trigger onChange function on typing in textbox", async () => {
     const onChange = jest.fn();
-    render(<TimePicker open format="HH:mm" onChange={onChange} />);
+    render(<TimePicker {...{ onChange }} open format="HH:mm" />);
     await userEvent.type(getByRole("textbox"), "11:01");
     await fireEvent.click(getByText("OK"));
     expect(onChange).toHaveBeenCalledWith(
@@ -67,7 +67,14 @@ describe("TimePicker", () => {
 
   it("should be able to select time in a range", async () => {
     const onChange = jest.fn();
-    render(<TimePicker format="HH:mm:ss" type="range" onChange={onChange} />);
+    render(
+      <TimePicker
+        {...{ onChange }}
+        format="HH:mm:ss"
+        interval={{ hourStep: 1, minuteStep: 1, secondStep: 1 }}
+        type="range"
+      />
+    );
     const startTimeInput = getAllByRole("textbox")[0];
     const endTimeInput = getAllByRole("textbox")[1];
     await userEvent.click(startTimeInput);

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import dayjs from "dayjs";
 
 import DatePicker from "components/DatePicker";
@@ -142,13 +143,19 @@ describe("DatePicker", () => {
   });
 
   it("if selected date is before minDate then it should round to minDate", async () => {
-    const value = dayjs("2024-03-15");
     const minDate = dayjs("2024-03-14");
     const onChangeMock = jest.fn();
-    render(<DatePicker {...{ minDate, value }} onChange={onChangeMock} />);
+    render(
+      <DatePicker
+        {...{ minDate }}
+        placeholder="Select date"
+        onChange={onChangeMock}
+      />
+    );
 
     const input = screen.getByPlaceholderText("Select date");
-    fireEvent.change(input, { target: { value: "10/10/2000" } });
+    await userEvent.type(input, "10102000");
+    // fireEvent.change(input, { target: { value: "10/10/2000" } });
     fireEvent.blur(input);
 
     await waitFor(() => {
@@ -161,13 +168,18 @@ describe("DatePicker", () => {
   });
 
   it("if selected date is after maxDate then it should round to maxDate", async () => {
-    const value = dayjs("2024-03-11");
     const maxDate = dayjs("2024-03-14");
     const onChangeMock = jest.fn();
-    render(<DatePicker {...{ maxDate, value }} onChange={onChangeMock} />);
+    render(
+      <DatePicker
+        {...{ maxDate }}
+        placeholder="Select date"
+        onChange={onChangeMock}
+      />
+    );
 
     const input = screen.getByPlaceholderText("Select date");
-    fireEvent.change(input, { target: { value: "10/10/2025" } });
+    await userEvent.type(input, "10102025");
     fireEvent.blur(input);
 
     await waitFor(() => {
