@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 7.0.2 - 2024-07-03
+
+- Added: placeholder for TimePicker and DateTimePicker
+- Added: enabled masked format
+
 ## 7.0.1 - 2024-07-01
 
 - Fixed the scrollbar visibility issue in Tables
@@ -450,7 +455,6 @@ Add onBlur handler to `Input` component to trim leading and trailing spaces
 Fixed: scrollToErrorField not working for Select component.
 ## 5.2.11 - 2023-10-20
 - Fixed: Memory leaks in overlay manager
-
 ## 5.2.10 - 2023-10-20
 
 - Added: Tooltip to `Kbd` component
@@ -1208,7 +1212,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Updated: `react-toastify` to `9.0.1`
 ## 3.4.4
 - Fixed: import for molecule components.
-
 ## 3.4.3
 
 - Added: `prefix` and `suffix` to *EmailInput*.
