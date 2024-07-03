@@ -5,6 +5,7 @@ import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
 
+import { Tag } from "components";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import {
@@ -44,6 +45,7 @@ const TimePicker = forwardRef(
       labelProps,
       required = false,
       placeholder,
+      timezone,
       ...otherProps
     },
     ref
@@ -150,8 +152,10 @@ const TimePicker = forwardRef(
             mode={undefined}
             picker="time"
             placeholder={placeholder ?? format}
-            suffixIcon={<Clock size={16} />}
             value={convertToDayjsObjects(value)}
+            suffixIcon={
+              timezone ? <Tag label={timezone} /> : <Clock size={16} />
+            }
           />
           {!!error && (
             <p
@@ -199,6 +203,10 @@ TimePicker.propTypes = {
    * To specify the time format.
    */
   format: PropTypes.string,
+  /**
+   * To specify the timezone.
+   */
+  timezone: PropTypes.string,
   /**
    * To set the placeholder text for the TimePicker, if not provided, the format will be used as placeholder.
    */

@@ -6,6 +6,7 @@ import { isNotPresent } from "neetocist";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
+import { Tag } from "components";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import { convertToDayjsObjects, noop, hyphenize } from "utils";
@@ -53,6 +54,7 @@ const DatePicker = forwardRef(
       maxDate,
       minDate,
       timePickerProps,
+      timezone,
       ...otherProps
     },
     ref
@@ -150,13 +152,15 @@ const DatePicker = forwardRef(
             }}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
-            suffixIcon={<Calendar size={16} />}
             superNextIcon={<IconOverride icon={Right} />}
             superPrevIcon={<IconOverride icon={Left} />}
             allowClear={
               allowClear && {
                 clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
               }
+            }
+            suffixIcon={
+              timezone ? <Tag label={timezone} /> : <Calendar size={16} />
             }
           />
           {!!error && typeof error === "string" && (
@@ -225,6 +229,10 @@ DatePicker.propTypes = {
    * To specify props to be passed to the time picker.
    */
   timePickerProps: PropTypes.object,
+  /**
+   * To specify the timezone.
+   */
+  timezone: PropTypes.string,
   /**
    * For `DateInput`,(date, dateString) => {} <br />
    * For `DateRange`, (date, [startDate, endDate]) => {}
