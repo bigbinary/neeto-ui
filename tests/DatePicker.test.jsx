@@ -155,7 +155,6 @@ describe("DatePicker", () => {
 
     const input = screen.getByPlaceholderText("Select date");
     await userEvent.type(input, "10102000");
-    // fireEvent.change(input, { target: { value: "10/10/2000" } });
     fireEvent.blur(input);
 
     await waitFor(() => {
