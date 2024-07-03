@@ -5,6 +5,7 @@ export type TimePickerProps = {
   className?: string;
   label?: string;
   format?: string;
+  placeholder?: string;
   size?: "small" | "medium" | "large";
   interval?: {
     hourStep: number;

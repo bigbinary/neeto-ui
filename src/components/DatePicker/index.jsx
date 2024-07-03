@@ -16,6 +16,11 @@ import Today from "./Today";
 import { getAllowed, formattedString } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
+const DEFAULT_TIME_PICKER_PROPS = {
+  hourStep: 1,
+  minuteStep: 15,
+  secondStep: 10,
+};
 
 const { RangePicker } = AntDatePicker;
 
@@ -31,6 +36,7 @@ const DatePicker = forwardRef(
       popupClassName = "",
       dateFormat = "DD/MM/YYYY",
       timeFormat = "HH:mm:ss",
+      placeholder,
       onChange = noop,
       onOk = noop,
       picker = "date",
@@ -46,6 +52,7 @@ const DatePicker = forwardRef(
       allowClear = true,
       maxDate,
       minDate,
+      timePickerProps,
       ...otherProps
     },
     ref
@@ -96,8 +103,9 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            format={{ format, type: "mask" }}
+            placeholder={placeholder ?? format}
             ref={datePickerRef}
-            showTime={showTime && { format: timeFormat }}
             value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
@@ -116,9 +124,15 @@ const DatePicker = forwardRef(
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
             ])}
+            showTime={
+              showTime && {
+                format: timeFormat,
+                ...DEFAULT_TIME_PICKER_PROPS,
+                ...timePickerProps,
+              }
+            }
             onChange={handleOnChange}
             {...{
-              format,
               maxDate,
               minDate,
               onOk,
@@ -203,6 +217,14 @@ DatePicker.propTypes = {
    * To specify the time format.
    */
   timeFormat: PropTypes.string,
+  /**
+   * To specify the placeholder text for the DatePicker, if not provided, the format will be used as placeholder.
+   */
+  placeholder: PropTypes.string,
+  /**
+   * To specify props to be passed to the time picker.
+   */
+  timePickerProps: PropTypes.object,
   /**
    * For `DateInput`,(date, dateString) => {} <br />
    * For `DateRange`, (date, [startDate, endDate]) => {}
