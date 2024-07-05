@@ -16,6 +16,7 @@ export type DatePickerProps = {
   picker?: "date" | "week" | "month" | "quarter" | "year";
   showTime?: boolean;
   timePickerProps?: any;
+  timezone?: string;
   type?: "range" | "date";
   nakedInput?: boolean;
   error?: string;

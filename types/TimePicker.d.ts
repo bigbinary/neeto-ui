@@ -21,6 +21,7 @@ export type TimePickerProps = {
   value?: any;
   id?: string;
   labelProps?: LabelProps;
+  timezone?: string;
   required: boolean;
   [key: string]: any;
 };
