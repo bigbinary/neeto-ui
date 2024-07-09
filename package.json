@@ -174,7 +174,8 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tinycolor2": "^1.4.2",
     "use-eye-dropper": "^1.4.3",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "zustand": "4.3.2"
   },
   "peerDependencies": {
     "@babel/runtime": "7.19.0",
@@ -204,7 +205,8 @@
     "react-time-picker": "6.5.2",
     "react-toastify": "8.0.2",
     "tippy.js": "6.3.7",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "zustand": "4.3.2"
   },
   "resolutions": {
     "@storybook/addon-essentials/**/glob-parent": "5.1.2",
