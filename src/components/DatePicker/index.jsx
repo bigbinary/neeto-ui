@@ -17,11 +17,6 @@ import Today from "./Today";
 import { getAllowed, formattedString } from "./utils";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
-const DEFAULT_TIME_PICKER_PROPS = {
-  hourStep: 1,
-  minuteStep: 15,
-  secondStep: 10,
-};
 
 const { RangePicker } = AntDatePicker;
 
@@ -105,9 +100,9 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
-            format={{ format, type: "mask" }}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
+            showTime={showTime && { format: timeFormat, ...timePickerProps }}
             value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
@@ -126,15 +121,9 @@ const DatePicker = forwardRef(
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
             ])}
-            showTime={
-              showTime && {
-                format: timeFormat,
-                ...DEFAULT_TIME_PICKER_PROPS,
-                ...timePickerProps,
-              }
-            }
             onChange={handleOnChange}
             {...{
+              format,
               maxDate,
               minDate,
               onOk,

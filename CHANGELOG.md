@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 7.0.3 - 2024-07-11
+
+- Disabled mask format in DatePicker and TimePicker
+
 ## 7.0.2 - 2024-07-03
 
 - Added: placeholder for TimePicker and DateTimePicker
@@ -456,7 +460,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.2.11 - 2023-10-20
 - Fixed: Memory leaks in overlay manager
 ## 5.2.10 - 2023-10-20
-
 - Added: Tooltip to `Kbd` component
 
 ## 5.2.8 - 2023-10-19
@@ -1213,7 +1216,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.4
 - Fixed: import for molecule components.
 ## 3.4.3
-
 - Added: `prefix` and `suffix` to *EmailInput*.
 
 ## 3.4.2
