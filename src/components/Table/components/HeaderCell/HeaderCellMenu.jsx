@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 
 import { isPresent } from "neetocist";
 import { Check, MenuHorizontal } from "neetoicons";
+import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
 import Popover from "components/Popover";
@@ -29,6 +30,7 @@ const HeaderCellMenu = ({
   columnTitle = null,
   moreActions = [],
 }) => {
+  const { t } = useTranslation();
   const columnInfoButtonReference = useRef();
 
   return (
@@ -64,7 +66,7 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>Ascending</span>
+                <span>{t("neetoui.table.ascending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -81,7 +83,7 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>Descending</span>
+                <span>{t("neetoui.table.descending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -94,19 +96,19 @@ const HeaderCellMenu = ({
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               >
-                Insert column right
+                {t("neetoui.table.insertColRight")}
               </MenuItem.Button>
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               >
-                Insert column left
+                {t("neetoui.table.insertColLeft")}
               </MenuItem.Button>
             </>
           )}
           {isPresent(column?.description) && (
             <>
               <MenuItem.Button ref={columnInfoButtonReference}>
-                Column info
+                {t("neetoui.table.columnInfo")}
               </MenuItem.Button>
               <Popover
                 className="cursor-auto"
@@ -131,12 +133,12 @@ const HeaderCellMenu = ({
           )}
           {isHidable && (
             <MenuItem.Button onClick={() => onColumnHide(column)}>
-              Hide column
+              {t("neetoui.table.hideColumn")}
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
             <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
-              Delete column
+              {t("neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
           {hasMoreActions &&

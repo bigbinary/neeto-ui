@@ -1,7 +1,20 @@
 import "./style.scss";
 import "../src/styles/index.scss";
+import ConfigProvider from "../src/components/ConfigProvider";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
+
+export const decorators = [
+  Story => {
+    return (
+      <>
+        <ConfigProvider>
+          <Story />
+        </ConfigProvider>
+      </>
+    );
+  },
+];
 
 export const parameters = {
   layout: "fullscreen",

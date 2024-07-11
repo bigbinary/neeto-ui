@@ -4,6 +4,7 @@ import { ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 import { Tag } from "components";
 import Label from "components/Label";
@@ -50,6 +51,7 @@ const TimePicker = forwardRef(
     },
     ref
   ) => {
+    const { t } = useTranslation();
     const id = useId(otherProps.id);
     const timePickerRef = useSyncedRef(ref);
 
@@ -82,17 +84,17 @@ const TimePicker = forwardRef(
           <ul className="neeto-ui-date-input-custom-panel__header-cols">
             {showTimeLabels.hour && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Hour
+                {t("neetoui.timePicker.hours")}
               </li>
             )}
             {showTimeLabels.minute && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Minutes
+                {t("neetoui.timePicker.minutes")}
               </li>
             )}
             {showTimeLabels.second && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Seconds
+                {t("neetoui.timePicker.seconds")}
               </li>
             )}
           </ul>

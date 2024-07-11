@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "All of your unsaved changes will be lost. This can't be undone.",
+      "submitButtonLabel": "Discard changes",
+      "alertTitle": "You have unsaved changes"
+    },
+    "actionBlock": {
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes"
+    },
+    "datePicker": {
+      "today": "Today"
+    },
+    "table": {
+      "insertColRight": "Insert column right",
+      "insertColLeft": "Insert column left",
+      "columnInfo": "Column Info",
+      "hideColumn": "Hide Column",
+      "deleteColumn": "Delete Column",
+      "ascending": "Ascending",
+      "descending": "Descending"
+    },
+    "timePicker": {
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "treeSelect": {
+      "noOptions": "No options"
+    }
+  }
+}

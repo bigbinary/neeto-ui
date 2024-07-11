@@ -1,12 +1,15 @@
+/* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
 import React from "react";
 
 import { useFormikContext } from "formik";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 import Alert from "components/Alert";
 import { useNavPrompt } from "hooks";
 
 const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
+  const { t } = useTranslation();
   const formikContext = useFormikContext();
   const shouldBlock =
     isDirty || (Boolean(formikContext) && Boolean(formikContext.dirty));
@@ -23,9 +26,9 @@ const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
   return (
     <Alert
       isOpen={isBlocked}
-      message="All of your unsaved changes will be lost. This can't be undone."
-      submitButtonLabel="Discard changes"
-      title="You have unsaved changes"
+      message={t("neetoui.blockNavigation.alertMessage")}
+      submitButtonLabel={t("neetoui.blockNavigation.submitButtonLabel")}
+      title={t("neetoui.blockNavigation.alertTitle")}
       onClose={hidePrompt}
       onSubmit={continueAction}
       {...otherProps}

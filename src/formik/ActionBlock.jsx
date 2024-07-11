@@ -1,8 +1,10 @@
+/* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
 import React from "react";
 
 import classnames from "classnames";
 import { useFormikContext } from "formik";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 import Button from "components/Button";
 
@@ -17,6 +19,7 @@ const ActionBlock = ({
   isSubmitting: isFormSubmitting,
   position = POSITIONS.left,
 }) => {
+  const { t } = useTranslation();
   const {
     handleReset,
     isSubmitting: isFormikSubmitting,
@@ -31,7 +34,7 @@ const ActionBlock = ({
       data-cy="cancel-button"
       data-test-id="cancel-button"
       disabled={isSubmitting}
-      label="Cancel"
+      label={t("neetoui.actionBlock.cancel")}
       style="text"
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
@@ -44,7 +47,7 @@ const ActionBlock = ({
       data-cy="save-changes-button"
       data-test-id="save-changes-button"
       disabled={isSubmitting || !dirty}
-      label="Save changes"
+      label={t("neetoui.actionBlock.saveChanges")}
       loading={isSubmitting}
       style="primary"
       type="submit"
