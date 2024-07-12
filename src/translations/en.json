@@ -7,7 +7,7 @@
     },
     "actionBlock": {
       "cancel": "Cancel",
-      "saveChanges": "Save Changes"
+      "saveChanges": "Save changes"
     },
     "datePicker": {
       "today": "Today"
@@ -15,9 +15,9 @@
     "table": {
       "insertColRight": "Insert column right",
       "insertColLeft": "Insert column left",
-      "columnInfo": "Column Info",
-      "hideColumn": "Hide Column",
-      "deleteColumn": "Delete Column",
+      "columnInfo": "Column info",
+      "hideColumn": "Hide column",
+      "deleteColumn": "Delete column",
       "ascending": "Ascending",
       "descending": "Descending"
     },

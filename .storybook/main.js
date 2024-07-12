@@ -28,6 +28,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...rootResolve.alias,
+      src: path.resolve(__dirname, "..", "src"),
       "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
     };
 
@@ -36,10 +37,10 @@ module.exports = {
 
   framework: {
     name: "@storybook/react-webpack5",
-    options: {}
+    options: {},
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 };

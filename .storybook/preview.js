@@ -7,11 +7,9 @@ import neetoTheme from "./neetoTheme";
 export const decorators = [
   Story => {
     return (
-      <>
-        <ConfigProvider>
-          <Story />
-        </ConfigProvider>
-      </>
+      <ConfigProvider>
+        <Story />
+      </ConfigProvider>
     );
   },
 ];

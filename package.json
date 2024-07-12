@@ -16,7 +16,8 @@
   "files": [
     "dist",
     "types",
-    "*.d.ts"
+    "*.d.ts",
+    "src/translations"
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [

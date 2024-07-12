@@ -6,7 +6,6 @@ import Button from "./Button";
 import Callout from "./Callout";
 import Checkbox from "./Checkbox";
 import ColorPicker from "./ColorPicker";
-import ConfigProvider from "./ConfigProvider";
 import DatePicker from "./DatePicker";
 import DateTimePicker from "./DateTimePicker";
 import Dropdown from "./Dropdown";
@@ -79,5 +78,4 @@ export {
   Tree,
   TreeSelect,
   Typography,
-  ConfigProvider,
 };

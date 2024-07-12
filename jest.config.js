@@ -30,6 +30,7 @@ module.exports = () => ({
     "^hooks/(.*)$": path.resolve(__dirname, "src/hooks", "$1"),
     "^managers/(.*)$": path.resolve(__dirname, "src/hooks", "$1"),
     "^utils/(.*)$": path.resolve(__dirname, "src/utils", "$1"),
+    "^src/(.*)$": path.resolve(__dirname, "src", "$1"),
   },
   transformIgnorePatterns: [
     "/node_modules/(?!(@babel|@bigbinary/neeto-icons|rc-picker|rc-util))",
