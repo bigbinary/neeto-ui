@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Todos los cambios no guardados se perderán. Esto no se puede deshacer.",
+      "submitButtonLabel": "Descartar los cambios",
+      "alertTitle": "Tiene cambios sin guardar"
+    },
+    "actionBlock": {
+      "cancel": "Cancelar",
+      "saveChanges": "Guardar cambios"
+    },
+    "datePicker": {
+      "today": "Hoy"
+    },
+    "table": {
+      "insertColRight": "Insertar columna a la derecha",
+      "insertColLeft": "Insertar columna a la izquierda",
+      "columnInfo": "Información de la columna",
+      "hideColumn": "Ocultar columna",
+      "deleteColumn": "Eliminar columna",
+      "ascending": "Ascendente",
+      "descending": "Descendente"
+    },
+    "timePicker": {
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "treeSelect": {
+      "noOptions": "Sin opciones"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Toutes vos modifications non enregistrées seront perdues. Cela ne peut pas être annulé.",
+      "submitButtonLabel": "Annuler les modifications",
+      "alertTitle": "Vous avez des changements non enregistrés"
+    },
+    "actionBlock": {
+      "cancel": "Annuler",
+      "saveChanges": "Sauvegarder les modifications"
+    },
+    "datePicker": {
+      "today": "Aujourd'hui"
+    },
+    "table": {
+      "insertColRight": "Insérer une colonne à droite",
+      "insertColLeft": "Insérer une colonne à gauche",
+      "columnInfo": "Informations sur la colonne",
+      "hideColumn": "Masquer la colonne",
+      "deleteColumn": "Supprimer la colonne",
+      "ascending": "Ascendant",
+      "descending": "Descendant"
+    },
+    "timePicker": {
+      "hours": "Heures",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "treeSelect": {
+      "noOptions": "Aucune option"
+    }
+  }
+}
