@@ -2,13 +2,11 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { init } from "i18next";
 import { repeat } from "ramda";
 
 import ActionBlock from "formikcomponents/ActionBlock";
 import Form from "formikcomponents/Form";
 import Input from "formikcomponents/Input";
-import en from "src/translations/en.json";
 
 const TestActionBlock = ({
   input = "",
@@ -32,14 +30,6 @@ const TestActionBlock = ({
     </Form>
   );
 };
-
-beforeAll(() =>
-  init({
-    lng: "en",
-    debug: true,
-    resources: { en: { translation: en } },
-  })
-);
 
 describe("formik/ActionBlock", () => {
   it("should render without any errors", () => {
