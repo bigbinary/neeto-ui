@@ -4,7 +4,7 @@ import { I18nextProvider } from "react-i18next";
 
 import i18n from "./i18n";
 
-const ConfigProvider = ({ children, language, translationResources }) => {
+const TranslationProvider = ({ children, language, translationResources }) => {
   useEffect(() => {
     translationResources &&
       language &&
@@ -21,4 +21,4 @@ const ConfigProvider = ({ children, language, translationResources }) => {
   return <I18nextProvider {...{ i18n }}>{children}</I18nextProvider>;
 };
 
-export default ConfigProvider;
+export default TranslationProvider;

@@ -1,15 +1,15 @@
 import "./style.scss";
 import "../src/styles/index.scss";
-import ConfigProvider from "../src/components/ConfigProvider";
+import TranslationProvider from "../src/components/TranslationProvider";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
 
 export const decorators = [
   Story => {
     return (
-      <ConfigProvider>
+      <TranslationProvider>
         <Story />
-      </ConfigProvider>
+      </TranslationProvider>
     );
   },
 ];

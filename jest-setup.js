@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import "@testing-library/jest-dom";
 
-import "./src/components/ConfigProvider/i18n";
+import "./src/components/TranslationProvider/i18n";
 
 // Fixes element.getTotalLength is not a function. Refer: https://github.com/framer/motion/issues/204
 if (!SVGElement.prototype.getTotalLength) {
