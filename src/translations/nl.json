@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Al uw niet-opgeslagen wijzigingen gaan verloren. Dit kan niet ongedaan worden gemaakt.",
+      "submitButtonLabel": "Veranderingen ongedaan maken",
+      "alertTitle": "U heeft niet-opgeslagen wijzigingen"
+    },
+    "actionBlock": {
+      "cancel": "Annuleren",
+      "saveChanges": "Wijzigingen opslaan"
+    },
+    "datePicker": {
+      "today": "Vandaag"
+    },
+    "table": {
+      "insertColRight": "Kolom rechts invoegen",
+      "insertColLeft": "Kolom links invoegen",
+      "columnInfo": "Kolominformatie",
+      "hideColumn": "Kolom verbergen",
+      "deleteColumn": "Kolom verwijderen",
+      "ascending": "Oplopend",
+      "descending": "Aflopend"
+    },
+    "timePicker": {
+      "hours": "Uur",
+      "minutes": "Minuten",
+      "seconds": "Seconden"
+    },
+    "treeSelect": {
+      "noOptions": "Geen opties"
+    }
+  }
+}
