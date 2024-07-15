@@ -7,6 +7,7 @@ export type NoDataProps = {
   helpText?: React.ReactNode;
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
+  showTooltipWhenButtonDisabled?: boolean;
   className?: string;
 };
 
