@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 7.0.5 - 2024-07-15
+
+- Added support for displaying tooltips for disabled buttons in NoData component
+
 ## 7.0.4 - 2024-07-11
 
 - Updated framer-motion to 11.2.14
@@ -466,7 +470,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.2.10 - 2023-10-20
 - Added: Tooltip to `Kbd` component
 ## 5.2.8 - 2023-10-19
-
 - Fixed: Button click-ability when disabled
 
 ## 5.2.2 - 2023-10-05
@@ -1221,7 +1224,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.3
 - Added: `prefix` and `suffix` to *EmailInput*.
 ## 3.4.2
-
 - Fixed: issue with search not working with `isCreatable` *Select*.
 
 ## 3.4.1
