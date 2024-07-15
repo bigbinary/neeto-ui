@@ -2,9 +2,10 @@ import React from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { isEmpty } from "ramda";
+import { isEmpty, isNil, omit } from "ramda";
 
 import Button from "components/Button";
+import Tooltip from "components/Tooltip";
 import Typography from "components/Typography";
 
 import { renderImage } from "./utils";
@@ -18,6 +19,7 @@ const NoData = ({
   primaryButtonProps = {},
   secondaryButtonProps = {},
   buttonSeparatorText = "",
+  showTooltipWhenButtonDisabled = false,
   ...otherProps
 }) => {
   const hasPrimaryButtonProps = !isEmpty(primaryButtonProps);
@@ -69,7 +71,21 @@ const NoData = ({
       {(hasPrimaryButtonProps || hasSecondaryButtonProps) && (
         <div className="neeto-ui-no-data__action-block">
           {hasPrimaryButtonProps && (
-            <Button data-cy="no-data-primary-button" {...primaryButtonProps} />
+            <Tooltip
+              {...primaryButtonProps?.tooltipProps}
+              disabled={
+                isNil(primaryButtonProps?.tooltipProps) ||
+                (!showTooltipWhenButtonDisabled && primaryButtonProps?.disabled)
+              }
+            >
+              <div>
+                <Button
+                  data-cy="no-data-primary-button"
+                  data-testid="no-data-primary-button"
+                  {...omit(["tooltipProps"], primaryButtonProps)}
+                />
+              </div>
+            </Tooltip>
           )}
           {showButtonSeparator && (
             <Typography lineHeight="normal" style="body2">
@@ -77,11 +93,23 @@ const NoData = ({
             </Typography>
           )}
           {hasSecondaryButtonProps && (
-            <Button
-              data-cy="no-data-secondary-button"
-              style="secondary"
-              {...secondaryButtonProps}
-            />
+            <Tooltip
+              {...secondaryButtonProps?.tooltipProps}
+              disabled={
+                isNil(secondaryButtonProps?.tooltipProps) ||
+                (!showTooltipWhenButtonDisabled &&
+                  secondaryButtonProps?.disabled)
+              }
+            >
+              <div>
+                <Button
+                  data-cy="no-data-secondary-button"
+                  data-testid="no-data-secondary-button"
+                  style="secondary"
+                  {...omit(["tooltipProps"], secondaryButtonProps)}
+                />
+              </div>
+            </Tooltip>
           )}
         </div>
       )}
@@ -118,6 +146,10 @@ NoData.propTypes = {
    * To specify the props to be passed to the secondary button.
    */
   secondaryButtonProps: PropTypes.object,
+  /**
+   * To specify if the tooltip should be shown when the button is disabled.
+   */
+  showTooltipWhenButtonDisabled: PropTypes.bool,
   /**
    * To specify the text that appears between the primary and secondary buttons.
    * */
