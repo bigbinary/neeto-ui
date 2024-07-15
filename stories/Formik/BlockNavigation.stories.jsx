@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as yup from "yup";
 
+import { Button as NeetoUIButton } from "components";
 import { Input, BlockNavigation } from "formikcomponents";
 import Button from "formikcomponents/Button";
 import Form from "formikcomponents/Form";
@@ -23,7 +24,7 @@ const FormikStory = args => (
     <Switch>
       <Route exact path="*">
         <div className="sp space-y-5 space-x-5 p-10">
-          <Button
+          <NeetoUIButton
             iconPosition="left"
             label="Go back"
             style="secondary"
