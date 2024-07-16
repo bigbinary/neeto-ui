@@ -1,6 +1,5 @@
 import "./style.scss";
 import "../src/styles/index.scss";
-import TranslationProvider from "../src/components/TranslationProvider";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
 

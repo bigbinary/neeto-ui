@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/addon-docs";
 
 <Meta
-  title="Providers/TranslationProvider"
+  title="Internationalization"
   parameters={{
     viewMode: "docs",
     previewTabs: {
@@ -10,14 +10,17 @@ import { Meta, Story } from "@storybook/addon-docs";
   }}
 />
 
-# TranslationProvider
+# Internationalization
+
+The default language of NeetoUI is currently English(en). If you wish to use other languages, follow the instructions below.
+
+## TranslationProvider
 
 The `TranslationProvider` component integrates internationalization (i18n) support for NeetoUI components in your React application using `react-i18next`.
-It dynamically loads translation resources and switches languages based on the provided props.
 
 NeetoUI supports multiple languages internally, including English (en), Spanish (es), French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
 
-## Usage
+### Usage
 
 To use the `TranslationProvider`, wrap your application using the `TranslationProvider` component and provide the required props.
 
@@ -29,7 +32,6 @@ const App = () => {
   return (
     <TranslationProvider
       language="en" // Specify the selected language
-      translationResources={{ en: { translation: { /* English translations */ } } }} // Optional prop for translation resources for selected language
     >
       {/* Your application components */}
       <div>
@@ -48,41 +50,35 @@ The `TranslationProvider` component accepts the following props:
 - `language` (string): The language to use.
   >> Note: The `language` prop is optional. If not provided, the default language is set to `en`.
 
-- `translationResources` (object): An object containing translation resources for selected language.
-If provided with the `language` prop, the component will use the corresponding translation resources for the given language.
-
-## Using translation files from NeetoUI
+# Using translation files from NeetoUI
 
 NeetoUI supports multiple languages internally, including English (en), Spanish (es), French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
-You can import the translation files for these languages from `@bigbinary/neetoui/{{language_code}}.json` and integrate them into your existing `react-i18next` setup
-to enable multilingual support for NeetoUI components.
+
+You can integrate resources from NeetoUI found in the `@bigbinary/neetoui/translations` directory by merging them with your current resources.
 
 
 ### Integration Example:
-
-If your application already uses react-i18next, follow these steps to incorporate NeetoUI translations:
-
->> Import the translation files (en.json used as an example below) from NeetoUI:
 
 ```jsx
 import React from "react";
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
-import en from "@bigbinary/neetoui/translations/en.json"; // Spanish translations from NeetoUI
+import { resources as NeetoUIResources } from "@bigbinary/neetoui/translations";
+
+const resources = {
+  en: {
+    translation: {
+      // Your application's existing translations
+    }
+  }
+  ...NeetoUIResources // Merge NeetoUI translations with your existing translations
+};
 
 // Initialize i18next
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    resources: {
-      en: {
-        translation: {
-          // Your application's existing translations
-          ...en // Merge NeetoUI translations with your existing translations
-        }
-      },
-      // Add other languages as needed
-    },
+    resources: resources,
     // Other i18next configuration options
   });
 
@@ -98,6 +94,10 @@ const App = () => {
 export default App;
 
 ```
-### Using NeetoUI Components:
 
-After initialization, NeetoUI components will use the imported translations automatically based on the user's language preference.
+
+# Adding new language
+
+NeetoUI supports multiple languages internally, including English (en), Spanish (es), French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
+
+If your language is not in above list, feel free to create a locale package based on the [en](https://github.com/bigbinary/neeto-ui/blob/src/translations/en.json) language pack and send us a pull request.
