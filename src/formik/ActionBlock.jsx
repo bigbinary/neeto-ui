@@ -36,7 +36,7 @@ const ActionBlock = ({
       data-cy="cancel-button"
       data-test-id="cancel-button"
       disabled={isSubmitting}
-      label={getLocale(i18n, t)}
+      label={getLocale(i18n, t, "neetoui.actionBlock.cancel")}
       style="text"
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
