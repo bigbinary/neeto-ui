@@ -15,7 +15,7 @@ dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(utc);
 
-const enTranslationValue = translationKey =>
+const getEnTranslationValue = translationKey =>
   translationKey.split(".").reduce((acc, key) => acc[key], en);
 
 const getScrollbarWidth = () => {
@@ -170,9 +170,9 @@ export const buildUrl = (route, params) => {
 };
 
 export const getLocale = (i18n, t, translationKey) => {
-  if (isEmpty(i18n)) return enTranslationValue(translationKey);
+  if (isEmpty(i18n)) return getEnTranslationValue(translationKey);
 
   return i18n.exists(translationKey)
     ? t(translationKey)
-    : enTranslationValue(translationKey);
+    : getEnTranslationValue(translationKey);
 };

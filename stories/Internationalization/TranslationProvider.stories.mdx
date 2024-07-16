@@ -51,15 +51,15 @@ export default App;
 
 The `TranslationProvider` component accepts the following prop:
 
-- `language` (string): The language to use. The `language` prop is optional. If
-  not provided, the default language is set to `en`.
+- `language` (string): Specifies the language to be used. The `language` prop is
+  optional. If not provided, the default language is set to `en`.
 
 # Using translation files from NeetoUI
 
-If your React application uses `react-i18next` for internationalization, instead
-of using the `TranslationProvider` component, you can merge the resources from
-NeetoUI located in the `@bigbinary/neetoui/translations` path with your current
-resources. This merged set can then be used to initialize i18next.
+If your React application uses `react-i18next` for internationalization, then
+you can merge NeetoUI's resources from `@bigbinary/neetoui/translations` path
+with your current resources to initialize i18next, thereby bypassing the need
+for the `TranslationProvider` component.
 
 ### Integration Example:
 
