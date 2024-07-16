@@ -19,6 +19,8 @@ export const parameters = {
         "Getting started",
         "Changelog",
         "Older versions",
+        "Internationalization",
+        ["TranslationProvider"],
         "Foundation",
         ["Colors", "Typography", "Iconography", "Helpers", "Language"],
         "Components",

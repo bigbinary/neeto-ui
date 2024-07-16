@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Wszystkie niezapisane zmiany zostaną utracone. Tego nie można cofnąć.",
+      "submitButtonLabel": "Odrzucać zmiany",
+      "alertTitle": "masz niezapisane zmiany"
+    },
+    "actionBlock": {
+      "cancel": "Anulować",
+      "saveChanges": "Zapisz zmiany"
+    },
+    "datePicker": {
+      "today": "Dzisiaj"
+    },
+    "table": {
+      "insertColRight": "Wstaw kolumnę po prawej stronie",
+      "insertColLeft": "Wstaw kolumnę po lewej stronie",
+      "columnInfo": "Informacje o kolumnie",
+      "hideColumn": "Ukryj kolumnę",
+      "deleteColumn": "Usuń kolumnę",
+      "ascending": "Rosnąco",
+      "descending": "Malejąco"
+    },
+    "timePicker": {
+      "hours": "godziny",
+      "minutes": "Minuty",
+      "seconds": "sekundy"
+    },
+    "treeSelect": {
+      "noOptions": "Brak opcji"
+    }
+  }
+}

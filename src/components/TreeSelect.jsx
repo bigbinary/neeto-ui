@@ -4,8 +4,9 @@ import { TreeSelect as AntdTreeSelect, ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Down } from "neetoicons";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
+import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, getLocale } from "utils";
 
 import Label from "./Label";
 
@@ -32,6 +33,7 @@ const TreeSelect = forwardRef(
     },
     ref
   ) => {
+    const { t, i18n } = useTranslation();
     const SuffixIcon = suffixIcon ?? Down;
 
     const SwitcherIcon = switcherIcon ?? Down;
@@ -82,7 +84,7 @@ const TreeSelect = forwardRef(
             notFoundContent={
               // eslint-disable-next-line @bigbinary/neeto/hard-coded-strings-should-be-localized
               <div className="neeto-ui-text-center neeto-ui-p-1">
-                No options
+                {getLocale(i18n, t, "neetoui.treeSelect.noOptions")}
               </div>
             }
             switcherIcon={props => (
