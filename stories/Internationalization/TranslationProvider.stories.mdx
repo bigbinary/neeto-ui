@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/addon-docs";
 
 <Meta
-  title="Internationalization"
+  title="Internationalization/TranslationProvider"
   parameters={{
     viewMode: "docs",
     previewTabs: {
@@ -12,17 +12,21 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # Internationalization
 
-NeetoUI supports multiple languages internally, including English (en), Spanish (es), French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
+NeetoUI internally supports multiple languages: English (en), Spanish (es),
+French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
 
-The default language of NeetoUI is currently English(en). If you wish to use other languages, follow the instructions below.
+The default language of NeetoUI is English (en). If you wish to use other
+languages, follow the instructions below.
 
 ## TranslationProvider
 
-The `TranslationProvider` component integrates internationalization (i18n) support for NeetoUI components in your React application using `react-i18next`.
+The `TranslationProvider` component integrates internationalization (i18n)
+support for NeetoUI components in your React application using `react-i18next`.
 
 ### Usage
 
-To use the `TranslationProvider`, wrap your application using the `TranslationProvider` component and provide the required props.
+To use the `TranslationProvider`, wrap your application using the
+`TranslationProvider` component and provide the required props.
 
 ```jsx
 import React from "react";
@@ -45,15 +49,17 @@ const App = () => {
 export default App;
 ```
 
-The `TranslationProvider` component accepts the following props:
+The `TranslationProvider` component accepts the following prop:
 
-- `language` (string): The language to use. The `language` prop is optional. If not provided, the default language is set to `en`.
+- `language` (string): The language to use. The `language` prop is optional. If
+  not provided, the default language is set to `en`.
 
 # Using translation files from NeetoUI
 
-If your react application is using `react-i18next` for internationalization, you can integrate resources from NeetoUI found in the
-`@bigbinary/neetoui/translations` directory by merging them with your current resources.
-
+If your React application uses `react-i18next` for internationalization, instead
+of using the `TranslationProvider` component, you can merge the resources from
+NeetoUI located in the `@bigbinary/neetoui/translations` path with your current
+resources. This merged set can then be used to initialize i18next.
 
 ### Integration Example:
 
@@ -67,7 +73,7 @@ import { resources as NeetoUIResources } from "@bigbinary/neetoui/translations";
 const HOST_RESOURCES = {
   en: {
     translation: {
-      "welcome": "Welcome to My App",
+      welcome: "Welcome to My App",
       // Add your custom translations here
     },
   },
@@ -93,11 +99,11 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
+# Adding a new language
 
-# Adding new language
-
-If your language is not in the supported list, feel free to create a locale package based on the
-[en](https://github.com/bigbinary/neeto-ui/blob/src/translations/en.json) language pack and send us a pull request.
+If your language is not in the supported list, feel free to create a locale
+package based on the
+[en](https://github.com/bigbinary/neeto-ui/blob/src/translations/en.json)
+language pack and send us a pull request.
