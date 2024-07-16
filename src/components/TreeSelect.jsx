@@ -86,9 +86,9 @@ const TreeSelect = forwardRef(
               <div className="neeto-ui-text-center neeto-ui-p-1">
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.treeSelect.noOptions",
                   defaultValue: "No options",
-                  t,
                 })}
               </div>
             }

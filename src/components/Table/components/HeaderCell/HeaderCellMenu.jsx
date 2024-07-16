@@ -79,10 +79,10 @@ const HeaderCellMenu = ({
               >
                 <span>
                   {getLocale({
+                    t,
                     i18n,
                     translationKey: "neetoui.table.ascending",
                     defaultValue: LOCALE.ascending,
-                    t,
                   })}
                 </span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
@@ -104,9 +104,9 @@ const HeaderCellMenu = ({
                 <span>
                   {getLocale({
                     i18n,
+                    t,
                     translationKey: "neetoui.table.descending",
                     defaultValue: LOCALE.descending,
-                    t,
                   })}
                 </span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
@@ -123,9 +123,9 @@ const HeaderCellMenu = ({
               >
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.table.insertColRight",
                   defaultValue: LOCALE.insertColRight,
-                  t,
                 })}
               </MenuItem.Button>
               <MenuItem.Button
@@ -133,9 +133,9 @@ const HeaderCellMenu = ({
               >
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.table.insertColLeft",
                   defaultValue: LOCALE.insertColLeft,
-                  t,
                 })}
               </MenuItem.Button>
             </>
@@ -145,9 +145,9 @@ const HeaderCellMenu = ({
               <MenuItem.Button ref={columnInfoButtonReference}>
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.table.columnInfo",
                   defaultValue: LOCALE.columnInfo,
-                  t,
                 })}
               </MenuItem.Button>
               <Popover
@@ -175,9 +175,9 @@ const HeaderCellMenu = ({
             <MenuItem.Button onClick={() => onColumnHide(column)}>
               {getLocale({
                 i18n,
+                t,
                 translationKey: "neetoui.table.hideColumn",
                 defaultValue: LOCALE.hideColumn,
-                t,
               })}
             </MenuItem.Button>
           )}
@@ -185,9 +185,9 @@ const HeaderCellMenu = ({
             <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
               {getLocale({
                 i18n,
+                t,
                 translationKey: "neetoui.table.deleteColumn",
                 defaultValue: LOCALE.deleteColumn,
-                t,
               })}
             </MenuItem.Button>
           )}

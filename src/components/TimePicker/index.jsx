@@ -93,9 +93,9 @@ const TimePicker = forwardRef(
               <li className="neeto-ui-date-input-custom-panel__header-col">
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.timePicker.hours",
                   defaultValue: LOCALE.hours,
-                  t,
                 })}
               </li>
             )}
@@ -103,9 +103,9 @@ const TimePicker = forwardRef(
               <li className="neeto-ui-date-input-custom-panel__header-col">
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.timePicker.minutes",
                   defaultValue: LOCALE.minutes,
-                  t,
                 })}
               </li>
             )}
@@ -113,9 +113,9 @@ const TimePicker = forwardRef(
               <li className="neeto-ui-date-input-custom-panel__header-col">
                 {getLocale({
                   i18n,
+                  t,
                   translationKey: "neetoui.timePicker.seconds",
                   defaultValue: LOCALE.seconds,
-                  t,
                 })}
               </li>
             )}

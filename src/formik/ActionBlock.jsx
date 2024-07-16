@@ -41,9 +41,9 @@ const ActionBlock = ({
       style="text"
       label={getLocale({
         i18n,
+        t,
         translationKey: "neetoui.actionBlock.cancel",
         defaultValue: LOCALE.cancel,
-        t,
       })}
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
@@ -61,9 +61,9 @@ const ActionBlock = ({
       type="submit"
       label={getLocale({
         i18n,
+        t,
         translationKey: "neetoui.actionBlock.saveChanges",
         defaultValue: LOCALE.saveChanges,
-        t,
       })}
       {...submitButtonProps}
     />

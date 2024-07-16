@@ -36,21 +36,21 @@ const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
       isOpen={isBlocked}
       message={getLocale({
         i18n,
+        t,
         translationKey: "neetoui.blockNavigation.alertMessage",
         defaultValue: LOCALE.alertMessage,
-        t,
       })}
       submitButtonLabel={getLocale({
         i18n,
+        t,
         translationKey: "neetoui.blockNavigation.submitButtonLabel",
         defaultValue: LOCALE.submitButtonLabel,
-        t,
       })}
       title={getLocale({
         i18n,
+        t,
         translationKey: "neetoui.blockNavigation.alertTitle",
         defaultValue: LOCALE.alertTitle,
-        t,
       })}
       onClose={hidePrompt}
       onSubmit={continueAction}

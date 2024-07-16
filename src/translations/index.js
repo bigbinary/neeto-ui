@@ -1,11 +1,11 @@
 /* eslint-disable import/extensions */
-import deTranslations from "src/translations/de.json";
-import enTranslations from "src/translations/en.json";
-import esTranslations from "src/translations/es.json";
-import frTranslations from "src/translations/fr.json";
-import nlTranslations from "src/translations/nl.json";
-import plTranslations from "src/translations/pl.json";
-import ptTranslations from "src/translations/pt.json";
+import deTranslations from "./de.json";
+import enTranslations from "./en.json";
+import esTranslations from "./es.json";
+import frTranslations from "./fr.json";
+import nlTranslations from "./nl.json";
+import plTranslations from "./pl.json";
+import ptTranslations from "./pt.json";
 
 export const resources = {
   en: { translation: enTranslations },

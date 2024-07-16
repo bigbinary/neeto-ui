@@ -17,9 +17,9 @@ const Today = ({ onClick }) => {
       >
         {getLocale({
           i18n,
+          t,
           translationKey: "neetoui.datePicker.today",
           defaultValue: "Today",
-          t,
         })}
       </button>
     </div>
