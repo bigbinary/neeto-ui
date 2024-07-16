@@ -6,11 +6,7 @@ import neetoTheme from "./neetoTheme";
 
 export const decorators = [
   Story => {
-    return (
-      <TranslationProvider>
-        <Story />
-      </TranslationProvider>
-    );
+    return <Story />;
   },
 ];
 

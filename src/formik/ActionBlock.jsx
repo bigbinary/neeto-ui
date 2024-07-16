@@ -7,10 +7,13 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 import Button from "components/Button";
+import { getLocale } from "utils";
 
 import SubmitButton from "./Button";
 
 const POSITIONS = { left: "left", right: "right" };
+
+const LOCALE = { cancel: "Cancel", saveChanges: "Save changes" };
 
 const ActionBlock = ({
   className,
@@ -19,7 +22,8 @@ const ActionBlock = ({
   isSubmitting: isFormSubmitting,
   position = POSITIONS.left,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   const {
     handleReset,
     isSubmitting: isFormikSubmitting,
@@ -34,8 +38,13 @@ const ActionBlock = ({
       data-cy="cancel-button"
       data-test-id="cancel-button"
       disabled={isSubmitting}
-      label={t("neetoui.actionBlock.cancel")}
       style="text"
+      label={getLocale({
+        i18n,
+        translationKey: "neetoui.actionBlock.cancel",
+        defaultValue: LOCALE.cancel,
+        t,
+      })}
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
       {...cancelButtonProps}
@@ -47,10 +56,15 @@ const ActionBlock = ({
       data-cy="save-changes-button"
       data-test-id="save-changes-button"
       disabled={isSubmitting || !dirty}
-      label={t("neetoui.actionBlock.saveChanges")}
       loading={isSubmitting}
       style="primary"
       type="submit"
+      label={getLocale({
+        i18n,
+        translationKey: "neetoui.actionBlock.saveChanges",
+        defaultValue: LOCALE.saveChanges,
+        t,
+      })}
       {...submitButtonProps}
     />
   );

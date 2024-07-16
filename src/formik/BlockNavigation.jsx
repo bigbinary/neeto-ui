@@ -7,9 +7,17 @@ import { useTranslation } from "react-i18next";
 
 import Alert from "components/Alert";
 import { useNavPrompt } from "hooks";
+import { getLocale } from "utils";
+
+const LOCALE = {
+  alertMessage:
+    "All of your unsaved changes will be lost. This can't be undone.",
+  submitButtonLabel: "Discard changes",
+  alertTitle: "You have unsaved changes",
+};
 
 const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const formikContext = useFormikContext();
   const shouldBlock =
     isDirty || (Boolean(formikContext) && Boolean(formikContext.dirty));
@@ -26,9 +34,24 @@ const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
   return (
     <Alert
       isOpen={isBlocked}
-      message={t("neetoui.blockNavigation.alertMessage")}
-      submitButtonLabel={t("neetoui.blockNavigation.submitButtonLabel")}
-      title={t("neetoui.blockNavigation.alertTitle")}
+      message={getLocale({
+        i18n,
+        translationKey: "neetoui.blockNavigation.alertMessage",
+        defaultValue: LOCALE.alertMessage,
+        t,
+      })}
+      submitButtonLabel={getLocale({
+        i18n,
+        translationKey: "neetoui.blockNavigation.submitButtonLabel",
+        defaultValue: LOCALE.submitButtonLabel,
+        t,
+      })}
+      title={getLocale({
+        i18n,
+        translationKey: "neetoui.blockNavigation.alertTitle",
+        defaultValue: LOCALE.alertTitle,
+        t,
+      })}
       onClose={hidePrompt}
       onSubmit={continueAction}
       {...otherProps}

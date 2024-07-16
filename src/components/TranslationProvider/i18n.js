@@ -4,26 +4,12 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import deTranslations from "src/translations/de.json";
-import enTranslations from "src/translations/en.json";
-import esTranslations from "src/translations/es.json";
-import frTranslations from "src/translations/fr.json";
-import nlTranslations from "src/translations/nl.json";
-import plTranslations from "src/translations/pl.json";
-import ptTranslations from "src/translations/pt.json";
+import { resources } from "src/translations";
 
-export const initializeI18n = () => {
+export const initializeI18n = (language = "en") => {
   i18n.use(initReactI18next).init({
-    resources: {
-      en: { translation: enTranslations },
-      es: { translation: esTranslations },
-      fr: { translation: frTranslations },
-      de: { translation: deTranslations },
-      nl: { translation: nlTranslations },
-      pl: { translation: plTranslations },
-      pt: { translation: ptTranslations },
-    },
-    lang: "en",
+    resources,
+    lang: language,
     fallbackLng: "en",
     interpolation: { escapeValue: false },
   });

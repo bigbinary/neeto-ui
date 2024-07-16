@@ -11,8 +11,19 @@ import {
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
 import Typography from "components/Typography";
+import { getLocale } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
+
+const LOCALE = {
+  insertColRight: "Insert column right",
+  insertColLeft: "Insert column left",
+  columnInfo: "Column info",
+  hideColumn: "Hide column",
+  deleteColumn: "Delete column",
+  ascending: "Ascending",
+  descending: "Descending",
+};
 
 const HeaderCellMenu = ({
   onSort,
@@ -30,7 +41,7 @@ const HeaderCellMenu = ({
   columnTitle = null,
   moreActions = [],
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const columnInfoButtonReference = useRef();
 
   return (
@@ -66,7 +77,14 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>{t("neetoui.table.ascending")}</span>
+                <span>
+                  {getLocale({
+                    i18n,
+                    translationKey: "neetoui.table.ascending",
+                    defaultValue: LOCALE.ascending,
+                    t,
+                  })}
+                </span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -83,7 +101,14 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>{t("neetoui.table.descending")}</span>
+                <span>
+                  {getLocale({
+                    i18n,
+                    translationKey: "neetoui.table.descending",
+                    defaultValue: LOCALE.descending,
+                    t,
+                  })}
+                </span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -96,19 +121,34 @@ const HeaderCellMenu = ({
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               >
-                {t("neetoui.table.insertColRight")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.table.insertColRight",
+                  defaultValue: LOCALE.insertColRight,
+                  t,
+                })}
               </MenuItem.Button>
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               >
-                {t("neetoui.table.insertColLeft")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.table.insertColLeft",
+                  defaultValue: LOCALE.insertColLeft,
+                  t,
+                })}
               </MenuItem.Button>
             </>
           )}
           {isPresent(column?.description) && (
             <>
               <MenuItem.Button ref={columnInfoButtonReference}>
-                {t("neetoui.table.columnInfo")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.table.columnInfo",
+                  defaultValue: LOCALE.columnInfo,
+                  t,
+                })}
               </MenuItem.Button>
               <Popover
                 className="cursor-auto"
@@ -133,12 +173,22 @@ const HeaderCellMenu = ({
           )}
           {isHidable && (
             <MenuItem.Button onClick={() => onColumnHide(column)}>
-              {t("neetoui.table.hideColumn")}
+              {getLocale({
+                i18n,
+                translationKey: "neetoui.table.hideColumn",
+                defaultValue: LOCALE.hideColumn,
+                t,
+              })}
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
             <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
-              {t("neetoui.table.deleteColumn")}
+              {getLocale({
+                i18n,
+                translationKey: "neetoui.table.deleteColumn",
+                defaultValue: LOCALE.deleteColumn,
+                t,
+              })}
             </MenuItem.Button>
           )}
           {hasMoreActions &&

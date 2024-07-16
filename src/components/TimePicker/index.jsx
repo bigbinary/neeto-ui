@@ -14,6 +14,7 @@ import {
   noop,
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+  getLocale,
 } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
@@ -24,6 +25,12 @@ const TIME_PICKER_INTERVAL = {
   hourStep: 1,
   minuteStep: 1,
   secondStep: 1,
+};
+
+const LOCALE = {
+  hours: "Hours",
+  minutes: "Minutes",
+  seconds: "Seconds",
 };
 
 const TimePicker = forwardRef(
@@ -51,7 +58,7 @@ const TimePicker = forwardRef(
     },
     ref
   ) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const id = useId(otherProps.id);
     const timePickerRef = useSyncedRef(ref);
 
@@ -84,17 +91,32 @@ const TimePicker = forwardRef(
           <ul className="neeto-ui-date-input-custom-panel__header-cols">
             {showTimeLabels.hour && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {t("neetoui.timePicker.hours")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.timePicker.hours",
+                  defaultValue: LOCALE.hours,
+                  t,
+                })}
               </li>
             )}
             {showTimeLabels.minute && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {t("neetoui.timePicker.minutes")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.timePicker.minutes",
+                  defaultValue: LOCALE.minutes,
+                  t,
+                })}
               </li>
             )}
             {showTimeLabels.second && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {t("neetoui.timePicker.seconds")}
+                {getLocale({
+                  i18n,
+                  translationKey: "neetoui.timePicker.seconds",
+                  defaultValue: LOCALE.seconds,
+                  t,
+                })}
               </li>
             )}
           </ul>

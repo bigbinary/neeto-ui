@@ -162,3 +162,9 @@ export const buildUrl = (route, params) => {
 
   return isEmpty(queryParams) ? route : `${route}?${queryParams}`;
 };
+
+export const getLocale = ({ i18n, translationKey, defaultValue, t }) => {
+  if (isEmpty(i18n)) return defaultValue;
+
+  return i18n.exists(translationKey) ? t(translationKey) : defaultValue;
+};
