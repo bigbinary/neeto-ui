@@ -3,12 +3,6 @@ import "../src/styles/index.scss";
 import { themes } from "@storybook/theming";
 import neetoTheme from "./neetoTheme";
 
-export const decorators = [
-  Story => {
-    return <Story />;
-  },
-];
-
 export const parameters = {
   layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
