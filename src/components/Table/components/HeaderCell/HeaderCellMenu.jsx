@@ -15,16 +15,6 @@ import { getLocale } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
 
-const LOCALE = {
-  insertColRight: "Insert column right",
-  insertColLeft: "Insert column left",
-  columnInfo: "Column info",
-  hideColumn: "Hide column",
-  deleteColumn: "Delete column",
-  ascending: "Ascending",
-  descending: "Descending",
-};
-
 const HeaderCellMenu = ({
   onSort,
   column = {},
@@ -77,14 +67,7 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>
-                  {getLocale({
-                    t,
-                    i18n,
-                    translationKey: "neetoui.table.ascending",
-                    defaultValue: LOCALE.ascending,
-                  })}
-                </span>
+                <span>{getLocale(i18n, t, "neetoui.table.ascending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -101,14 +84,7 @@ const HeaderCellMenu = ({
                   })
                 }
               >
-                <span>
-                  {getLocale({
-                    i18n,
-                    t,
-                    translationKey: "neetoui.table.descending",
-                    defaultValue: LOCALE.descending,
-                  })}
-                </span>
+                <span>{getLocale(i18n, t, "neetoui.table.descending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
                   sortedInfo.field === column.dataIndex && (
                     <Check className="neeto-ui-text-success-500" size={20} />
@@ -121,34 +97,19 @@ const HeaderCellMenu = ({
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               >
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.table.insertColRight",
-                  defaultValue: LOCALE.insertColRight,
-                })}
+                {getLocale(i18n, t, "neetoui.table.insertColRight")}
               </MenuItem.Button>
               <MenuItem.Button
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               >
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.table.insertColLeft",
-                  defaultValue: LOCALE.insertColLeft,
-                })}
+                {getLocale(i18n, t, "neetoui.table.insertColLeft")}
               </MenuItem.Button>
             </>
           )}
           {isPresent(column?.description) && (
             <>
               <MenuItem.Button ref={columnInfoButtonReference}>
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.table.columnInfo",
-                  defaultValue: LOCALE.columnInfo,
-                })}
+                {getLocale(i18n, t, "neetoui.table.columnInfo")}
               </MenuItem.Button>
               <Popover
                 className="cursor-auto"
@@ -173,22 +134,12 @@ const HeaderCellMenu = ({
           )}
           {isHidable && (
             <MenuItem.Button onClick={() => onColumnHide(column)}>
-              {getLocale({
-                i18n,
-                t,
-                translationKey: "neetoui.table.hideColumn",
-                defaultValue: LOCALE.hideColumn,
-              })}
+              {getLocale(i18n, t, "neetoui.table.hideColumn")}
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
             <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
-              {getLocale({
-                i18n,
-                t,
-                translationKey: "neetoui.table.deleteColumn",
-                defaultValue: LOCALE.deleteColumn,
-              })}
+              {getLocale(i18n, t, "neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
           {hasMoreActions &&

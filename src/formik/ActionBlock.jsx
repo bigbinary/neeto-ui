@@ -13,8 +13,6 @@ import SubmitButton from "./Button";
 
 const POSITIONS = { left: "left", right: "right" };
 
-const LOCALE = { cancel: "Cancel", saveChanges: "Save changes" };
-
 const ActionBlock = ({
   className,
   submitButtonProps,
@@ -38,13 +36,8 @@ const ActionBlock = ({
       data-cy="cancel-button"
       data-test-id="cancel-button"
       disabled={isSubmitting}
+      label={getLocale(i18n, t)}
       style="text"
-      label={getLocale({
-        i18n,
-        t,
-        translationKey: "neetoui.actionBlock.cancel",
-        defaultValue: LOCALE.cancel,
-      })}
       onClick={handleReset}
       onMouseDown={e => e.preventDefault()}
       {...cancelButtonProps}
@@ -56,15 +49,10 @@ const ActionBlock = ({
       data-cy="save-changes-button"
       data-test-id="save-changes-button"
       disabled={isSubmitting || !dirty}
+      label={getLocale(i18n, t, "neetoui.actionBlock.saveChanges")}
       loading={isSubmitting}
       style="primary"
       type="submit"
-      label={getLocale({
-        i18n,
-        t,
-        translationKey: "neetoui.actionBlock.saveChanges",
-        defaultValue: LOCALE.saveChanges,
-      })}
       {...submitButtonProps}
     />
   );

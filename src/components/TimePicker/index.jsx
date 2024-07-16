@@ -27,12 +27,6 @@ const TIME_PICKER_INTERVAL = {
   secondStep: 1,
 };
 
-const LOCALE = {
-  hours: "Hours",
-  minutes: "Minutes",
-  seconds: "Seconds",
-};
-
 const TimePicker = forwardRef(
   (
     {
@@ -91,32 +85,17 @@ const TimePicker = forwardRef(
           <ul className="neeto-ui-date-input-custom-panel__header-cols">
             {showTimeLabels.hour && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.timePicker.hours",
-                  defaultValue: LOCALE.hours,
-                })}
+                {getLocale(i18n, t, "neetoui.timePicker.hours")}
               </li>
             )}
             {showTimeLabels.minute && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.timePicker.minutes",
-                  defaultValue: LOCALE.minutes,
-                })}
+                {getLocale(i18n, t, "neetoui.timePicker.minutes")}
               </li>
             )}
             {showTimeLabels.second && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.timePicker.seconds",
-                  defaultValue: LOCALE.seconds,
-                })}
+                {getLocale(i18n, t, "neetoui.timePicker.seconds")}
               </li>
             )}
           </ul>

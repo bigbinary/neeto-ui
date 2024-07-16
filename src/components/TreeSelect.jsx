@@ -84,12 +84,7 @@ const TreeSelect = forwardRef(
             notFoundContent={
               // eslint-disable-next-line @bigbinary/neeto/hard-coded-strings-should-be-localized
               <div className="neeto-ui-text-center neeto-ui-p-1">
-                {getLocale({
-                  i18n,
-                  t,
-                  translationKey: "neetoui.treeSelect.noOptions",
-                  defaultValue: "No options",
-                })}
+                {getLocale(i18n, t, "neetoui.treeSelect.noOptions")}
               </div>
             }
             switcherIcon={props => (

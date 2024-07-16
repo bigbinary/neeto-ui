@@ -15,12 +15,7 @@ const Today = ({ onClick }) => {
         className="neeto-ui-rounded-md hover:neeto-ui-bg-gray-200 px-2 py-1 text-xs font-medium transition duration-300 ease-in-out"
         data-cy="year-month-mode-today"
       >
-        {getLocale({
-          i18n,
-          t,
-          translationKey: "neetoui.datePicker.today",
-          defaultValue: "Today",
-        })}
+        {getLocale(i18n, t, "neetoui.datePicker.today")}
       </button>
     </div>
   );
