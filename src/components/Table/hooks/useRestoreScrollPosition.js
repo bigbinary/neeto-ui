@@ -18,14 +18,18 @@ export const useRestoreScrollPosition = ({ tableRef, scrollRef, loading }) => {
 
   useEffect(() => {
     if (loading) {
-      setScrollPosition(key, 1);
+      setScrollPosition(key, 0);
 
       return;
     }
 
     if (scrollRef.current === null || isNil(scrollPositions[key])) return;
 
-    setTimeout(() => scrollRef.current.scrollTo({ top: scrollPositions[key] }));
+    setTimeout(() => {
+      const position = scrollPositions[key];
+      const config = position === 0 ? { index: 0 } : { top: position };
+      scrollRef.current.scrollTo(config);
+    });
   }, [key, tableRef, loading]);
 
   const handleScroll = useFuncDebounce(event => {
