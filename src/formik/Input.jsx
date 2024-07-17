@@ -1,19 +1,32 @@
 import React, { forwardRef } from "react";
 
-import { Field } from "formik";
+import { Field, getIn } from "formik";
 import PropTypes from "prop-types";
 
 import Input from "components/Input";
 
 const FormikInput = forwardRef(({ name, ...rest }, ref) => (
   <Field {...{ name }}>
-    {({ field, meta }) => (
-      <Input
-        {...{ ref, ...field }}
-        error={meta.touched ? meta.error : ""}
-        {...rest}
-      />
-    )}
+    {({ field, meta, form }) => {
+      const { status, setStatus } = form;
+      const apiError = getIn(status, name);
+
+      const fieldProps = {
+        ...field,
+        onChange: e => {
+          setStatus({ ...status, [name]: null });
+          field.onChange(e);
+        },
+      };
+
+      return (
+        <Input
+          {...{ ref, ...fieldProps }}
+          error={meta.touched ? meta.error || apiError : ""}
+          {...rest}
+        />
+      );
+    }}
   </Field>
 ));
 
