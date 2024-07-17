@@ -12,59 +12,54 @@ import { Meta, Story } from "@storybook/addon-docs";
 
 # Internationalization
 
-NeetoUI internally supports multiple languages: English (en), Spanish (es),
-French (fr), German (de), Dutch (nl), Polish (pl), and Portuguese (pt).
-
-The default language of NeetoUI is English (en). If you wish to use other
-languages, follow the instructions below.
+The default language of NeetoUI is English (en). However, NeetoUI also supports
+other languages internally, including Spanish (es), French (fr), German (de),
+Dutch (nl), Polish (pl), and Portuguese (pt). If you wish to switch to any of
+these languages, please follow the instructions below.
 
 ## TranslationProvider
 
-The `TranslationProvider` component integrates internationalization (i18n)
-support for NeetoUI components in your React application using `react-i18next`.
-
-### Usage
-
-To use the `TranslationProvider`, wrap your application using the
-`TranslationProvider` component and provide the required props.
+NeetoUI provides the `TranslationProvider` component to seamlessly integrate
+internationalization (i18n) support for NeetoUI components within your React
+application. NeetoUI internally uses `i18next` and `react-i18next` packages for
+internationalization. To enable internationalization for NeetoUI components in
+your application, simply wrap your entire application with the
+`TranslationProvider` component as shown below.
 
 ```jsx
-import React from "react";
 import TranslationProvider from "@bigbinary/neetoui/TranslationProvider";
 
-const App = () => {
-  return (
-    <TranslationProvider
-      language="en" // Specify the selected language
-    >
-      {/* Your application components */}
-      <div>
-        <h1>Welcome to My App</h1>
-        {/* Other components */}
-      </div>
-    </TranslationProvider>
-  );
-};
-
-export default App;
+const App = () => (
+  <TranslationProvider>
+    <Main />
+  </TranslationProvider>
+);
 ```
 
-The `TranslationProvider` component accepts the following prop:
-
-- `language` (string): Specifies the language to be used. The `language` prop is
-  optional. If not provided, the default language is set to `en`.
-
-# Using translation files from NeetoUI
-
-If your React application uses `react-i18next` for internationalization, then
-you can merge NeetoUI's resources from `@bigbinary/neetoui/translations` path
-with your current resources to initialize i18next, thereby bypassing the need
-for the `TranslationProvider` component.
-
-### Integration Example:
+By default, the `TranslationProvider` component selects the English (en)
+language. To switch to another language, use the `language` prop and provide the
+corresponding language code. For example, to select Spanish, pass the "es" code
+to the `language` prop of the `TranslationProvider` component as show below.
 
 ```jsx
-import React from "react";
+import TranslationProvider from "@bigbinary/neetoui/TranslationProvider";
+
+const App = () => (
+  <TranslationProvider language="es">
+    <Main />
+  </TranslationProvider>
+);
+```
+
+## Using translation resources from NeetoUI
+
+If your React application uses `i18next` and `react-i18next` for internationalization, you can
+merge NeetoUI's resources from the `@bigbinary/neetoui/translations` path with
+the host application's resources to initialize `i18next`. This allows you to
+bypass the need for the `TranslationProvider` component. An example of this is
+shown below.
+
+```jsx
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
 import { mergeDeepRight } from "ramda";
@@ -74,7 +69,6 @@ const HOST_RESOURCES = {
   en: {
     translation: {
       welcome: "Welcome to My App",
-      // Add your custom translations here
     },
   },
 };
@@ -82,26 +76,10 @@ const HOST_RESOURCES = {
 const resources = mergeDeepRight(NeetoUIResources, HOST_RESOURCES);
 
 // Initialize i18next
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    resources: resources,
-    // Other i18next configuration options
-  });
-
-const App = () => {
-  return (
-    <div>
-      <h1>Welcome to My App</h1>
-      {/* Your application components */}
-    </div>
-  );
-};
-
-export default App;
+i18n.use(initReactI18next).init({ resources });
 ```
 
-# Adding a new language
+## Adding a new language
 
 If your language is not in the supported list, feel free to create a locale
 package based on the
