@@ -9,7 +9,7 @@ const FormikInput = forwardRef(({ name, ...rest }, ref) => (
   <Field {...{ name }}>
     {({ field, meta, form }) => {
       const { status, setStatus } = form;
-      const apiError = getIn(status, name);
+      const fieldStatus = getIn(status, name);
 
       const fieldProps = {
         ...field,
@@ -22,7 +22,7 @@ const FormikInput = forwardRef(({ name, ...rest }, ref) => (
       return (
         <Input
           {...{ ref, ...fieldProps }}
-          error={meta.touched ? meta.error || apiError : ""}
+          error={meta.touched ? meta.error || fieldStatus : ""}
           {...rest}
         />
       );
