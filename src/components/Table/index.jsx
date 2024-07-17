@@ -16,18 +16,17 @@ import {
 } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc, isEmpty, isNil, mergeLeft, pluck, prop } from "ramda";
+import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
 import { useHistory } from "react-router-dom";
 
 import { useQueryParams, useTimeout } from "hooks";
-import useFuncDebounce from "hooks/useFuncDebounce";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
-import { useScrollStore } from "./hooks/useScrollStore";
+import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
 import { getHeaderCell, isIncludedIn } from "./utils";
 
@@ -97,14 +96,15 @@ const Table = ({
     )
   );
 
-  const tableScrollRef = useRef(null);
+  const scrollRef = useRef(null);
   const tableRef = useCallback(
     table => {
-      tableScrollRef.current = table;
+      scrollRef.current = table;
 
       if (!fixedHeight) return;
 
       const observer = resizeObserver.current;
+
       if (table !== null) {
         observer.observe(table?.parentNode);
       } else if (observer) {
@@ -114,28 +114,10 @@ const Table = ({
     [resizeObserver.current, fixedHeight]
   );
 
-  const key = window.location.pathname; // pathname without page, search, and filters
-  const scrollPositions = useScrollStore(prop("scrollPositions"));
-  useEffect(() => {
-    if (loading) {
-      setScrollPosition(key, 1);
-
-      return;
-    }
-
-    if (tableScrollRef.current === null || isNil(scrollPositions[key])) {
-      return;
-    }
-
-    setTimeout(() => {
-      tableScrollRef.current.scrollTo({ top: scrollPositions[key] });
-    });
-  }, [key, tableRef, loading]);
-
-  // TODO: Throttle this .
-  const setScrollPosition = useScrollStore(prop("setScrollPosition"));
-  const handleScroll = useFuncDebounce(event => {
-    setScrollPosition(key, parseInt(event.target.scrollTop));
+  const { handleScroll } = useRestoreScrollPosition({
+    tableRef,
+    scrollRef,
+    loading,
   });
 
   useTimeout(() => {
