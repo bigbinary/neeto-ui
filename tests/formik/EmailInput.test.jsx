@@ -8,8 +8,8 @@ import Form from "formikcomponents/Form";
 import MultiEmailInput from "formikcomponents/MultiEmailInput";
 
 const TestMultiEmailInputForm = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   return (
@@ -58,8 +58,9 @@ describe("formik/EmailInput", () => {
     await userEvent.click(document.body);
     await userEvent.click(screen.getByText("Submit"));
 
-    expect(onSubmit).toHaveBeenCalledWith({
-      emails: [
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData.emails).toStrictEqual([
         {
           label: "john.doe@email.com",
           valid: true,
@@ -75,7 +76,7 @@ describe("formik/EmailInput", () => {
           valid: true,
           value: "oliver.doe@email.com",
         },
-      ],
+      ]);
     });
   });
 
@@ -103,5 +104,21 @@ describe("formik/EmailInput", () => {
         screen.getByText("Atleast one email is required.")
       ).toBeInTheDocument()
     );
+  });
+
+  it("should display inline error the status is set", async () => {
+    const serverErrorMessage = "Email(s) already used";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ emails: serverErrorMessage });
+    };
+    render(<TestMultiEmailInputForm {...{ onSubmit }} />);
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.type(emailInput, "sam.doe@email.com");
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.type(emailInput, "john.doe@email.com");
+    await userEvent.click(document.body);
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });
