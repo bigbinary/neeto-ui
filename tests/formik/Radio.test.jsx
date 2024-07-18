@@ -8,8 +8,8 @@ import Form from "formikcomponents/Form";
 import Radio from "formikcomponents/Radio";
 
 const TestRadioForm = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   return (
@@ -50,9 +50,10 @@ describe("formik/Radio", () => {
     await userEvent.click(radio[0]);
     await userEvent.click(radio[1]);
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({ options: "option2" })
-    );
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({ options: "option2" });
+    });
   });
 
   it("should display error when no option is selected", async () => {
@@ -62,5 +63,20 @@ describe("formik/Radio", () => {
     expect(
       await screen.findByText("Selecting an option is required.")
     ).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Not a valid option";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ options: serverErrorMessage });
+    };
+    render(<TestRadioForm {...{ onSubmit }} />);
+    const radio = screen.getAllByRole("radio");
+    await userEvent.click(radio[1]);
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.click(radio[0]);
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });
