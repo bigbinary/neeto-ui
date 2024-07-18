@@ -8,8 +8,8 @@ import Form from "formikcomponents/Form";
 import Input from "formikcomponents/Input";
 
 const TestForm = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   return (
@@ -59,13 +59,14 @@ describe("formik/Input", () => {
     await userEvent.type(screen.getByLabelText("Last Name"), "Doe");
     await userEvent.type(screen.getByLabelText("Email"), "john.doe@email.com");
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({
         firstName: "John",
         lastName: "Doe",
         email: "john.doe@email.com",
-      })
-    );
+      });
+    });
   });
 
   it("should display validation error when invalid input is provided", async () => {
@@ -87,5 +88,22 @@ describe("formik/Input", () => {
     expect(
       await screen.findByText("First name is required")
     ).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Email already taken";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ email: serverErrorMessage });
+    };
+    render(<TestForm {...{ onSubmit }} />);
+    await userEvent.type(screen.getByLabelText("First Name"), "John");
+    await userEvent.type(screen.getByLabelText("Last Name"), "Doe");
+    const emailInput = screen.getByLabelText("Email");
+    await userEvent.type(emailInput, "sam.doe@email.com");
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.type(emailInput, "john.doe@email.com");
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });

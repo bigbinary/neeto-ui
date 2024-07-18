@@ -63,7 +63,7 @@ describe("formik/Checkbox", () => {
     ).toBeVisible();
   });
 
-  it("should display inline error the status is set", async () => {
+  it("should display inline error when the status is set", async () => {
     const onSubmit = (_, setStatus) => {
       setStatus({ formikCheckbox: "Please agree to terms and conditions" });
     };

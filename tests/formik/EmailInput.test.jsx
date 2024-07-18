@@ -106,7 +106,7 @@ describe("formik/EmailInput", () => {
     );
   });
 
-  it("should display inline error the status is set", async () => {
+  it("should display inline error when the status is set", async () => {
     const serverErrorMessage = "Email(s) already used";
     const onSubmit = (_, setStatus) => {
       setStatus({ emails: serverErrorMessage });
