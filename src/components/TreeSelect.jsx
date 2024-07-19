@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, getLocale } from "utils";
 
+import { ANTD_LOCALE } from "./constants";
 import Label from "./Label";
 
 const TreeSelect = forwardRef(
@@ -40,6 +41,7 @@ const TreeSelect = forwardRef(
 
     return (
       <ConfigProvider
+        locale={ANTD_LOCALE[i18n.language || "en"]}
         theme={{
           token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
           components: {
