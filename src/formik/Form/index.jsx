@@ -1,23 +1,42 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 
 import FormWrapper from "./FormWrapper";
+import { getFieldsWithServerError } from "./ScrollToErrorField/utils";
 
 const Form = forwardRef(
   (
     { className, children, formikProps, formProps, scrollToErrorField = false },
     ref
-  ) => (
-    <Formik {...formikProps}>
-      {props => (
-        <FormWrapper {...{ className, formProps, ref, scrollToErrorField }}>
-          {typeof children === "function" ? children(props) : children}
-        </FormWrapper>
-      )}
-    </Formik>
-  )
+  ) => {
+    const formikRef = useRef();
+
+    const handleSubmit = (values, actions) => {
+      const fieldsWithServerError = getFieldsWithServerError(
+        formikRef.current?.status
+      );
+
+      if (fieldsWithServerError.length > 0) {
+        actions.setSubmitting(false);
+
+        return;
+      }
+
+      formikProps.onSubmit(values, actions);
+    };
+
+    return (
+      <Formik innerRef={formikRef} {...formikProps} onSubmit={handleSubmit}>
+        {props => (
+          <FormWrapper {...{ className, formProps, ref, scrollToErrorField }}>
+            {typeof children === "function" ? children(props) : children}
+          </FormWrapper>
+        )}
+      </Formik>
+    );
+  }
 );
 
 Form.displayName = "Form";
