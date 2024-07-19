@@ -1,3 +1,4 @@
+import { isPresent } from "neetocist";
 import { is } from "ramda";
 
 const transformObjectToDotNotation = (object, prefix = "") => {
@@ -19,12 +20,18 @@ const transformObjectToDotNotation = (object, prefix = "") => {
 const getErrorFieldName = formikErrors =>
   transformObjectToDotNotation(formikErrors)?.[0];
 
-export const scrollToError = (formRef, errors) => {
-  const fieldErrorName = getErrorFieldName(errors);
-  if (!fieldErrorName) return;
+export const getFieldsWithServerError = (status = {}) =>
+  Object.keys(status).filter(fieldName => isPresent(status[fieldName]));
 
+export const scrollToError = (formRef, errors, status) => {
+  const fieldErrorName = getErrorFieldName(errors);
+  const [fieldWithServerError] = getFieldsWithServerError(status);
+
+  if (!fieldErrorName && !fieldWithServerError) return;
+
+  const errorFieldName = fieldErrorName || fieldWithServerError;
   const errorFormElement = formRef.current.querySelector(
-    `[name="${fieldErrorName}"]`
+    `[name="${errorFieldName}"]`
   );
 
   errorFormElement?.scrollIntoView({
