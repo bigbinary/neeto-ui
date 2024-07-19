@@ -2,15 +2,18 @@ import { useEffect } from "react";
 
 import { useFormikContext } from "formik";
 
-import { scrollToError } from "./utils";
+import { getFieldsWithServerError, scrollToError } from "./utils";
 
 const ScrollToErrorField = ({ formRef }) => {
-  const { submitCount, isValid, errors } = useFormikContext();
+  const { submitCount, isValid, errors, status } = useFormikContext();
 
   useEffect(() => {
-    if (!formRef.current || isValid) return;
+    const fieldsWithServerError = getFieldsWithServerError(status);
+    if (!formRef.current || (isValid && fieldsWithServerError.length > 0)) {
+      return;
+    }
 
-    scrollToError(formRef, errors);
+    scrollToError(formRef, errors, status);
   }, [submitCount]);
 
   return null;
