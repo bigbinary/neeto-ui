@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.0.0 - 2024-07-19
+
+- Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
+
 ## 7.1.0 - 2024-07-16
 
 - Added a new TranslationProvider for initializing translations for external use of NeetoUI
@@ -476,7 +480,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.2.8 - 2023-10-19
 - Fixed: Button click-ability when disabled
 ## 5.2.2 - 2023-10-05
-
 - The bug was due to a layout shift that happens when the formik error message
   is rendered. Details in
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
@@ -1229,7 +1232,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.2
 - Fixed: issue with search not working with `isCreatable` *Select*.
 ## 3.4.1
-
 - Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
 
 ## 3.4.0
