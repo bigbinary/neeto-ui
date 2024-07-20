@@ -3,32 +3,39 @@ import React from "react";
 import { ConfigProvider, Tree as TreeComponent } from "antd";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
+import { ANTD_LOCALE } from "components/constants";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import SwitcherIcon from "./SwitcherIcon";
 
-const Tree = props => (
-  <ConfigProvider
-    theme={{
-      token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
-      components: {
-        Tree: {
-          directoryNodeSelectedBg: "rgb(var(--neeto-ui-primary-500))",
-          directoryNodeSelectedColor: "rgb(var(--neeto-ui-white))",
-          nodeHoverBg: "rgb(var(--neeto-ui-gray-100))",
-          nodeSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+const Tree = props => {
+  const { i18n } = useTranslation();
+
+  return (
+    <ConfigProvider
+      locale={ANTD_LOCALE[i18n.language || "en"]}
+      theme={{
+        token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+        components: {
+          Tree: {
+            directoryNodeSelectedBg: "rgb(var(--neeto-ui-primary-500))",
+            directoryNodeSelectedColor: "rgb(var(--neeto-ui-white))",
+            nodeHoverBg: "rgb(var(--neeto-ui-gray-100))",
+            nodeSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+          },
         },
-      },
-    }}
-  >
-    <TreeComponent
-      switcherIcon={SwitcherIcon}
-      {...props}
-      className={classnames("neeto-ui-tree", props.className)}
-    />
-  </ConfigProvider>
-);
+      }}
+    >
+      <TreeComponent
+        switcherIcon={SwitcherIcon}
+        {...props}
+        className={classnames("neeto-ui-tree", props.className)}
+      />
+    </ConfigProvider>
+  );
+};
 
 Tree.propTypes = {
   /**

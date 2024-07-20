@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 import { Tag } from "components";
+import { ANTD_LOCALE } from "components/constants";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import {
@@ -108,6 +109,7 @@ const TimePicker = forwardRef(
 
     return (
       <ConfigProvider
+        locale={ANTD_LOCALE[i18n.language || "en"]}
         theme={{
           token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
           components: {
