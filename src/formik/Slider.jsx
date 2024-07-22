@@ -7,7 +7,7 @@ import Slider from "components/Slider";
 
 const FormikSlider = forwardRef(({ name, ...otherProps }, ref) => {
   const [field, meta, { setValue, setTouched }] = useField(name);
-  const { status, setStatus } = useFormikContext();
+  const { status = {}, setStatus } = useFormikContext();
 
   const fieldStatus = getIn(status, name);
 
@@ -17,7 +17,7 @@ const FormikSlider = forwardRef(({ name, ...otherProps }, ref) => {
       {...{ ref, ...field, name }}
       onBlur={() => setTouched(true)}
       onChange={value => {
-        setStatus(dissoc(name));
+        setStatus(dissoc(name, status));
         setValue(value);
       }}
       {...otherProps}

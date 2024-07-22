@@ -7,7 +7,7 @@ import TreeSelect from "components/TreeSelect";
 
 const FormikTreeSelect = forwardRef(({ name, ...otherProps }, ref) => {
   const [field, meta, { setValue, setTouched }] = useField(name);
-  const { status, setStatus } = useFormikContext();
+  const { status = {}, setStatus } = useFormikContext();
 
   const fieldStatus = getIn(status, name);
 
@@ -19,7 +19,7 @@ const FormikTreeSelect = forwardRef(({ name, ...otherProps }, ref) => {
       value={field.value}
       onBlur={() => setTouched(true)}
       onChange={value => {
-        setStatus(dissoc(name));
+        setStatus(dissoc(name, status));
         setValue(value);
       }}
       {...otherProps}

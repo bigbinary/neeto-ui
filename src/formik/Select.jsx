@@ -15,7 +15,7 @@ const SelectField = forwardRef((props, ref) => {
     ...otherProps
   } = props;
   const [field, meta, { setValue, setTouched }] = useField(name);
-  const { status, setStatus } = useFormikContext();
+  const { status = {}, setStatus } = useFormikContext();
   const fieldStatus = getIn(status, name);
 
   const isMenuOpen = useRef(otherProps.defaultMenuIsOpen);
@@ -53,7 +53,7 @@ const SelectField = forwardRef((props, ref) => {
         })
       }
       onChange={value => {
-        setStatus(dissoc(name));
+        setStatus(dissoc(name, status));
         setValue(value);
       }}
       {...otherProps}

@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.1.0 - 2024-07-22
+
+Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
+
 ## 8.0.0 - 2024-07-19
 
 - Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
@@ -486,7 +490,6 @@ Fixed: scrollToErrorField not working for Select component.
 - The issue is fixed when we prevent the default behavior on mouseDown events
   for the cancel button, as suggesed by Sreerag in
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
-
 ## 5.2.0 - 2023-09-24
 
 - Updated: `antd` and `dayjs` version.
@@ -1233,7 +1236,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: issue with search not working with `isCreatable` *Select*.
 ## 3.4.1
 - Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
-
 ## 3.4.0
 
 - Removed: all instances of TailwindCSS.

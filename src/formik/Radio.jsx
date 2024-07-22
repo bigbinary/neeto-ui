@@ -6,7 +6,7 @@ import { dissoc } from "ramda";
 import Radio from "components/Radio";
 
 const RadioGroup = ({ label, name, className = "", ...props }) => {
-  const { setFieldValue, status, setStatus } = useFormikContext();
+  const { setFieldValue, status = {}, setStatus } = useFormikContext();
   const [field, meta] = useField({ name });
 
   const fieldStatus = getIn(status, name);
@@ -14,7 +14,7 @@ const RadioGroup = ({ label, name, className = "", ...props }) => {
   const fieldProps = {
     ...field,
     onChange: event => {
-      setStatus(dissoc(name));
+      setStatus(dissoc(name, status));
       setFieldValue(name, event.target.value);
     },
   };
