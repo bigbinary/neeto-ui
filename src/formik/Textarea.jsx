@@ -9,13 +9,13 @@ import Textarea from "components/Textarea";
 const FormikTextarea = forwardRef(({ name, ...rest }, ref) => (
   <Field {...{ name }}>
     {({ field, meta, form }) => {
-      const { status, setStatus } = form;
+      const { status = {}, setStatus } = form;
       const fieldStatus = getIn(status, name);
 
       const fieldProps = {
         ...field,
         onChange: e => {
-          setStatus(dissoc(name));
+          setStatus(dissoc(name, status));
           field.onChange(e);
         },
       };
