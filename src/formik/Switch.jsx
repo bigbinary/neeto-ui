@@ -9,13 +9,13 @@ import Switch from "components/Switch";
 const FormikSwitch = ({ name, ...rest }) => (
   <Field {...{ name }}>
     {({ field, meta: { error }, form }) => {
-      const { status, setStatus } = form;
+      const { status = {}, setStatus } = form;
       const fieldStatus = getIn(status, name);
 
       const fieldProps = {
         ...field,
         onChange: e => {
-          setStatus(dissoc(name));
+          setStatus(dissoc(name, status));
           field.onChange(e);
         },
       };
