@@ -28,7 +28,7 @@ const SelectTest = ({ onSubmit }) => (
     formikProps={{
       initialValues: { formikSelect: {} },
       validate,
-      onSubmit: values => onSubmit(values),
+      onSubmit: (values, { setStatus }) => onSubmit(values, setStatus),
     }}
   >
     <FormikSelect
@@ -99,11 +99,12 @@ describe("formik/Select", () => {
     await userEvent.click(selectInput);
     await userEvent.click(screen.getByText(SELECT_OPTIONS[0].label));
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({
         formikSelect: SELECT_OPTIONS[0],
-      })
-    );
+      });
+    });
   });
 
   it("should display validation error when invalid input is provided", async () => {
@@ -112,5 +113,22 @@ describe("formik/Select", () => {
     expect(
       await screen.findByText(/Invalid option selected/i)
     ).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Option not valid";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ formikSelect: serverErrorMessage });
+    };
+    render(<SelectTest {...{ onSubmit }} />);
+    const selectInput = screen.getByLabelText("Formik Select").closest("input");
+    await userEvent.click(selectInput);
+    await userEvent.click(screen.getByText(SELECT_OPTIONS[0].label));
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.click(selectInput);
+    await userEvent.click(screen.getByText(SELECT_OPTIONS[1].label));
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });

@@ -8,8 +8,8 @@ import Form from "formikcomponents/Form";
 import FormikSwitch from "formikcomponents/Switch";
 
 const TestSwitch = ({ onSubmit, schema }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   const validationSchema =
@@ -40,9 +40,10 @@ describe("formik/Switch", () => {
     render(<TestSwitch {...{ onSubmit }} />);
     await userEvent.click(screen.getByRole("checkbox"));
     await userEvent.click(screen.getByText(/Submit/i));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({ formikSwitch: true })
-    );
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({ formikSwitch: true });
+    });
   });
 
   it("should display error message if submission doesn't pass validationScehma", async () => {
@@ -54,5 +55,20 @@ describe("formik/Switch", () => {
     render(<TestSwitch {...{ onSubmit }} schema={validationScehma} />);
     await userEvent.click(screen.getByText(/Submit/i));
     expect(await screen.findByText(/Switch must be on/i)).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Not valid state";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ formikSwitch: serverErrorMessage });
+    };
+    render(<TestSwitch {...{ onSubmit }} />);
+    const switchComponent = screen.getByRole("checkbox");
+    await userEvent.click(switchComponent);
+    await userEvent.click(screen.getByText(/Submit/i));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.click(switchComponent);
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });

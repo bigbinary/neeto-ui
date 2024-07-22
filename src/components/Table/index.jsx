@@ -18,8 +18,10 @@ import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
+import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
+import { ANTD_LOCALE } from "components/constants";
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
@@ -69,6 +71,7 @@ const Table = ({
   bulkSelectAllRowsProps,
   ...otherProps
 }) => {
+  const { i18n } = useTranslation();
   const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
@@ -281,6 +284,7 @@ const Table = ({
 
   const renderTable = () => (
     <ConfigProvider
+      locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
         components: {
