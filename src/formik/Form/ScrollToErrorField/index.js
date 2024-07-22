@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { useFormikContext } from "formik";
+import { isEmpty } from "ramda";
 
 import { getFieldsWithServerError, scrollToError } from "./utils";
 
@@ -9,7 +10,7 @@ const ScrollToErrorField = ({ formRef }) => {
 
   useEffect(() => {
     const fieldsWithServerError = getFieldsWithServerError(status);
-    if (!formRef.current || (isValid && fieldsWithServerError.length > 0)) {
+    if (!formRef.current || (isValid && isEmpty(fieldsWithServerError))) {
       return;
     }
 
