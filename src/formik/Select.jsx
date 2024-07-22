@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, startTransition } from "react";
 
 import { getIn, useFormikContext, useField } from "formik";
 import PropTypes from "prop-types";
-import { prop, either, isNil, isEmpty } from "ramda";
+import { prop, either, isNil, isEmpty, dissoc } from "ramda";
 
 import Select from "components/Select";
 
@@ -53,7 +53,7 @@ const SelectField = forwardRef((props, ref) => {
         })
       }
       onChange={value => {
-        setStatus({ ...status, [name]: null });
+        setStatus(dissoc(name));
         setValue(value);
       }}
       {...otherProps}

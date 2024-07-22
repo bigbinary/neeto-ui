@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 
 import { Field, getIn } from "formik";
 import PropTypes from "prop-types";
+import { dissoc } from "ramda";
 
 import Input from "components/Input";
 
@@ -14,7 +15,7 @@ const FormikInput = forwardRef(({ name, ...rest }, ref) => (
       const fieldProps = {
         ...field,
         onChange: e => {
-          setStatus({ ...status, [name]: null });
+          setStatus(dissoc(name));
           field.onChange(e);
         },
       };

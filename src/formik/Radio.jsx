@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useField, useFormikContext, getIn } from "formik";
+import { dissoc } from "ramda";
 
 import Radio from "components/Radio";
 
@@ -13,7 +14,7 @@ const RadioGroup = ({ label, name, className = "", ...props }) => {
   const fieldProps = {
     ...field,
     onChange: event => {
-      setStatus({ ...status, [name]: null });
+      setStatus(dissoc(name));
       setFieldValue(name, event.target.value);
     },
   };

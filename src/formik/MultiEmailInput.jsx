@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 
 import { useField, useFormikContext, getIn } from "formik";
 import PropTypes from "prop-types";
+import { dissoc } from "ramda";
 
 import EmailInput from "components/MultiEmailInput";
 
@@ -19,7 +20,7 @@ const FormikMultiEmailInput = forwardRef(({ name, ...otherProps }, ref) => {
       value={field.value}
       onBlur={() => setTouched(true)}
       onChange={value => {
-        setStatus({ ...status, [name]: null });
+        setStatus(dissoc(name));
         setValue(value);
       }}
       {...otherProps}

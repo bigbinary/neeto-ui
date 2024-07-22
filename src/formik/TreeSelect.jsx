@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 
 import { useField, getIn, useFormikContext } from "formik";
+import { dissoc } from "ramda";
 
 import TreeSelect from "components/TreeSelect";
 
@@ -18,7 +19,7 @@ const FormikTreeSelect = forwardRef(({ name, ...otherProps }, ref) => {
       value={field.value}
       onBlur={() => setTouched(true)}
       onChange={value => {
-        setStatus({ ...status, [name]: null });
+        setStatus(dissoc(name));
         setValue(value);
       }}
       {...otherProps}

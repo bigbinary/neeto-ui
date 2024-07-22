@@ -2,6 +2,7 @@ import React from "react";
 
 import { Field, getIn } from "formik";
 import PropTypes from "prop-types";
+import { dissoc } from "ramda";
 
 import Switch from "components/Switch";
 
@@ -14,7 +15,7 @@ const FormikSwitch = ({ name, ...rest }) => (
       const fieldProps = {
         ...field,
         onChange: e => {
-          setStatus({ ...status, [name]: null });
+          setStatus(dissoc(name));
           field.onChange(e);
         },
       };

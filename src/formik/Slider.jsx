@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 
 import { getIn, useField, useFormikContext } from "formik";
+import { dissoc } from "ramda";
 
 import Slider from "components/Slider";
 
@@ -16,7 +17,7 @@ const FormikSlider = forwardRef(({ name, ...otherProps }, ref) => {
       {...{ ref, ...field, name }}
       onBlur={() => setTouched(true)}
       onChange={value => {
-        setStatus({ ...status, [name]: null });
+        setStatus(dissoc(name));
         setValue(value);
       }}
       {...otherProps}
