@@ -4,8 +4,7 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import Spinner from "atoms/Spinner";
-
+import Spinner from "./Spinner";
 import Tooltip from "./Tooltip";
 
 const BUTTON_STYLES = {
@@ -108,11 +107,9 @@ const Button = React.forwardRef(
             />
           )}
           {loading && (
-            <Spinner
-              aria-hidden="true"
-              className="neeto-ui-btn__spinner"
-              size={16}
-            />
+            <span className="neeto-ui-btn__spinner">
+              <Spinner aria-hidden="true" size="small" />
+            </span>
           )}
         </Parent>
       </Tooltip>

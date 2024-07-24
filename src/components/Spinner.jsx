@@ -24,12 +24,7 @@ const Spinner = ({
       },
       [className]
     )}
-  >
-    <i className="neeto-ui-spinner__item" />
-    <i className="neeto-ui-spinner__item" />
-    <i className="neeto-ui-spinner__item" />
-    <i className="neeto-ui-spinner__item" />
-  </span>
+  />
 );
 
 Spinner.propTypes = {
