@@ -68,8 +68,7 @@ body {
       box-shadow: var(--neeto-ui-toastr-box-shadow);
       border-radius: var(--neeto-ui-toastr-border-radius);
 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+      font-family: var(--neeto-ui-body-font-family) !important;
 
       @include viewport(xs-mob) {
         max-width: calc(100% - 24px);
