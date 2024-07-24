@@ -131,6 +131,10 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    .neeto-ui-spinner{
+      border-color: currentColor !important;
+    }
   }
 }
 

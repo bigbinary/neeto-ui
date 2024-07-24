@@ -1,91 +1,116 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-spinner-size: 20px;
-  --neeto-ui-spinner-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-spinner-border-width: 3px;
+  --neeto-ui-spinner-color: rgb(var(--neeto-ui-gray-600));
 }
 
 .neeto-ui-spinner {
   position: relative;
   display: inline-block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: var(--neeto-ui-spinner-border-width);
+  border-color: var(--neeto-ui-spinner-color);
   font-size: var(--neeto-ui-spinner-size);
   width: var(--neeto-ui-spinner-size);
   height: var(--neeto-ui-spinner-size);
+  animation: neeto-ui-spanner-anim1 0.8s infinite linear alternate,
+  neeto-ui-spanner-anim2 1.6s infinite linear;
 
   &--light {
     --neeto-ui-spinner-color: rgb(var(--neeto-ui-white));
   }
 
   &--size-small {
-    --neeto-ui-spinner-size: 14px;
+    --neeto-ui-spinner-size: 16px;
+    --neeto-ui-spinner-border-width: 3px;
   }
 }
 
-.neeto-ui-spinner__item {
-  position: absolute;
-  display: block;
-  width: calc(var(--neeto-ui-spinner-size) * 0.45);
-  height: calc(var(--neeto-ui-spinner-size) * 0.45);
-  border-radius: 100%;
-  transform: scale(0.75);
-  transform-origin: 50% 50%;
-  opacity: 0.3;
-  -webkit-animation: neetoUISpinnerMove 1s infinite linear alternate;
-  animation: neetoUISpinnerMove 1s infinite linear alternate;
-  background-color: var(--neeto-ui-spinner-color);
-}
-
-.neeto-ui-spinner__item:nth-child(1) {
-  top: 0;
-  left: 0;
-}
-
-.neeto-ui-spinner__item:nth-child(2) {
-  top: 0;
-  right: 0;
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-}
-
-.neeto-ui-spinner__item:nth-child(3) {
-  right: 0;
-  bottom: 0;
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-}
-
-.neeto-ui-spinner__item:nth-child(4) {
-  bottom: 0;
-  left: 0;
-  -webkit-animation-delay: 1.2s;
-  animation-delay: 1.2s;
-}
-
-.neeto-ui-spinner {
-  transform: rotate(45deg);
-  -webkit-animation: neetoUISpinnerRotate 1.2s infinite linear;
-  animation: neetoUISpinnerRotate 1.2s infinite linear;
-}
-
-@-webkit-keyframes neetoUISpinnerMove {
-  to {
-    opacity: 1;
+@keyframes neeto-ui-spanner-anim1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+  12.5% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%
+    );
+  }
+  25% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  62.5% {
+    clip-path: polygon(
+      50% 50%,
+      100% 0,
+      100% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  75% {
+    clip-path: polygon(
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      50% 50%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0% 100%
+    );
   }
 }
-
-@keyframes neetoUISpinnerMove {
-  to {
-    opacity: 1;
+@keyframes neeto-ui-spanner-anim2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
   }
-}
-
-@-webkit-keyframes neetoUISpinnerRotate {
-  to {
-    transform: rotate(405deg);
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
   }
-}
-
-@keyframes neetoUISpinnerRotate {
-  to {
-    transform: rotate(405deg);
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
   }
 }
 
