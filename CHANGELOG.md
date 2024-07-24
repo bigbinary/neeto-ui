@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.1.4 - 2024-07-24
+
+- Changed: default font family to Inter on Windows.
+- Removed: font family overrides in Storybook.
+- Fixed: the usage of CSS font variable.
+
+@praveen-murali-ind _a
+
 ## 8.1.0 - 2024-07-22
 
 Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
@@ -491,7 +499,6 @@ Fixed: scrollToErrorField not working for Select component.
   for the cancel button, as suggesed by Sreerag in
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
 ## 5.2.0 - 2023-09-24
-
 - Updated: `antd` and `dayjs` version.
 
 ## 5.1.19 - 2023-09-22
@@ -1237,7 +1244,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.1
 - Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
 ## 3.4.0
-
 - Removed: all instances of TailwindCSS.
 - Added: `label` prop in *Tags* molecule.
 - Changed: Added `neetoCal` into *AppSwitcher* app list .
