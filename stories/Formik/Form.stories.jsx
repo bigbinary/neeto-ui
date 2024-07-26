@@ -6,6 +6,7 @@ import { Input, Button } from "formikcomponents";
 import Form from "formikcomponents/Form";
 
 import FormStoriesDocs from "!raw-loader!./FormStories.mdx";
+import ServerValidationErrorDocs from "!raw-loader!./ServerValidationErrors.mdx";
 
 const metadata = {
   title: "Formik/Form",
@@ -33,10 +34,10 @@ const FormikStory = args => (
     }}
     {...args}
   >
-    <div className="flex h-40 w-full flex-col items-center space-y-4 p-10">
-      <Input required className="w-40" label="First name" name="firstName" />
-      <Input required className="w-40" label="Last name" name="lastName" />
-      <Input required className="w-40" label="Email" name="email" />
+    <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
+      <Input required className="w-80" label="First name" name="firstName" />
+      <Input required className="w-80" label="Last name" name="lastName" />
+      <Input required className="w-80" label="Email" name="email" />
       <Button className="w-20" disabled={false} label="Submit" type="submit" />
     </div>
   </Form>
@@ -45,6 +46,49 @@ const FormikStory = args => (
 FormikStory.storyName = "Form";
 FormikStory.args = { scrollToErrorField: true };
 
-export { FormikStory };
+const HandlingServerValidationErrors = () => {
+  const handleSubmit = (_, actions) =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        actions.setStatus({ username: "Username is already taken!" });
+        actions.setSubmitting(false);
+        resolve();
+      }, 2000);
+    });
+
+  return (
+    <Form
+      formikProps={{
+        initialValues: { firstName: "", lastName: "", username: "" },
+        validationSchema: yup.object().shape({
+          firstName: yup.string().required(),
+          username: yup.string().required(),
+        }),
+        onSubmit: handleSubmit,
+      }}
+    >
+      <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
+        <Input required className="w-80" label="First name" name="firstName" />
+        <Input required className="w-80" label="Last name" name="lastName" />
+        <Input required className="w-80" label="Username" name="username" />
+        <Button
+          className="w-20"
+          disabled={false}
+          label="Submit"
+          type="submit"
+        />
+      </div>
+    </Form>
+  );
+};
+
+HandlingServerValidationErrors.storyName =
+  "Handling server side validation errors";
+
+HandlingServerValidationErrors.parameters = {
+  docs: { description: { story: ServerValidationErrorDocs } },
+};
+
+export { FormikStory, HandlingServerValidationErrors };
 
 export default metadata;
