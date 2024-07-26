@@ -23,6 +23,16 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.1.6 - 2024-07-26
+
+<img width="1020" alt="image" src="https://github.com/user-attachments/assets/298408c6-60dc-4e29-a0c7-efb1c3350a29">
+Main story UI
+Before
+<img width="914" alt="image" src="https://github.com/user-attachments/assets/d7121a93-ad2d-4ac7-9353-6c5706ab1752">
+
+After
+<img width="1010" alt="image" src="https://github.com/user-attachments/assets/a322fb68-023c-4a3c-9ec1-d3a02238b5a6">
+
 ## 8.1.4 - 2024-07-24
 
 - Changed: default font family to Inter on Windows.
@@ -500,7 +510,6 @@ Fixed: scrollToErrorField not working for Select component.
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
 ## 5.2.0 - 2023-09-24
 - Updated: `antd` and `dayjs` version.
-
 ## 5.1.19 - 2023-09-22
 
 - Added: Support for overriding props to `Alert` in `BlockNavigation`
@@ -1248,7 +1257,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Added: `label` prop in *Tags* molecule.
 - Changed: Added `neetoCal` into *AppSwitcher* app list .
 - Removed: `count` limiting (to 99) logic from *MenuBar.Block*.
-
 ## 3.3.13
 
 - Added: Tags in the molecule section.
