@@ -33,10 +33,10 @@ const FormikStory = args => (
     }}
     {...args}
   >
-    <div className="flex h-40 w-full flex-col items-center space-y-4 p-10">
-      <Input required className="w-40" label="First name" name="firstName" />
-      <Input required className="w-40" label="Last name" name="lastName" />
-      <Input required className="w-40" label="Email" name="email" />
+    <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
+      <Input required className="w-80" label="First name" name="firstName" />
+      <Input required className="w-80" label="Last name" name="lastName" />
+      <Input required className="w-80" label="Email" name="email" />
       <Button className="w-20" disabled={false} label="Submit" type="submit" />
     </div>
   </Form>
