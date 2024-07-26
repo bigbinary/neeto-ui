@@ -46,7 +46,7 @@ const FormikStory = args => (
 FormikStory.storyName = "Form";
 FormikStory.args = { scrollToErrorField: true };
 
-const HandlingServerValidationErrors = args => {
+const HandlingServerValidationErrors = () => {
   const handleSubmit = (_, actions) =>
     new Promise(resolve => {
       setTimeout(() => {
@@ -59,14 +59,13 @@ const HandlingServerValidationErrors = args => {
   return (
     <Form
       formikProps={{
-        initialValues: { firstName: "", lastName: "", email: "" },
+        initialValues: { firstName: "", lastName: "", username: "" },
         validationSchema: yup.object().shape({
           firstName: yup.string().required(),
           username: yup.string().required(),
         }),
         onSubmit: handleSubmit,
       }}
-      {...args}
     >
       <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
         <Input required className="w-80" label="First name" name="firstName" />
