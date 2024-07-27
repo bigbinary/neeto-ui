@@ -8,8 +8,8 @@ import Checkbox from "formikcomponents/Checkbox";
 import Form from "formikcomponents/Form";
 
 const TestCheckboxForm = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   return (
@@ -48,9 +48,10 @@ describe("formik/Checkbox", () => {
     const checkbox = getByRole("checkbox");
     await userEvent.click(checkbox);
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({ formikCheckbox: true })
-    );
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData.formikCheckbox).toBe(true);
+    });
   });
 
   it("should display error when checkbox is not checked", async () => {
@@ -60,5 +61,23 @@ describe("formik/Checkbox", () => {
     expect(
       await screen.findByText("Checking the formik checkbox is checked.")
     ).toBeVisible();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const onSubmit = (_, setStatus) => {
+      setStatus({ formikCheckbox: "Please agree to terms and conditions" });
+    };
+    render(<TestCheckboxForm {...{ onSubmit }} />);
+    const checkbox = screen.getByRole("checkbox");
+    await userEvent.click(checkbox);
+    await userEvent.click(screen.getByText("Submit"));
+    expect(
+      await screen.findByText("Please agree to terms and conditions")
+    ).toBeVisible();
+
+    await userEvent.click(checkbox);
+    expect(
+      screen.queryByText("Please agree to terms and conditions")
+    ).not.toBeInTheDocument();
   });
 });

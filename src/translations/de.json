@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Alle Ihre nicht gespeicherten Änderungen gehen verloren. Dies kann nicht rückgängig gemacht werden.",
+      "submitButtonLabel": "Änderungen verwerfen",
+      "alertTitle": "Du hast nicht gespeicherte Änderungen"
+    },
+    "actionBlock": {
+      "cancel": "Stornieren",
+      "saveChanges": "Änderungen speichern"
+    },
+    "datePicker": {
+      "today": "Heute"
+    },
+    "table": {
+      "insertColRight": "Spalte rechts einfügen",
+      "insertColLeft": "Spalte links einfügen",
+      "columnInfo": "Spalteninformationen",
+      "hideColumn": "Spalte ausblenden",
+      "deleteColumn": "Spalte löschen",
+      "ascending": "Aufsteigend",
+      "descending": "Absteigend"
+    },
+    "timePicker": {
+      "hours": "Stunden",
+      "minutes": "Minuten",
+      "seconds": "Sekunden"
+    },
+    "treeSelect": {
+      "noOptions": "Keine Optionen"
+    }
+  }
+}

@@ -1,20 +1,34 @@
 import React, { forwardRef } from "react";
 
-import { Field } from "formik";
+import { Field, getIn } from "formik";
 import PropTypes from "prop-types";
+import { dissoc } from "ramda";
 
 import CheckboxField from "components/Checkbox";
 
 const Checkbox = forwardRef(({ name, ...rest }, ref) => (
   <Field {...{ name }}>
-    {({ field, meta }) => (
-      <CheckboxField
-        checked={field.value}
-        {...{ ...field, ref }}
-        error={meta.touched ? meta.error : ""}
-        {...rest}
-      />
-    )}
+    {({ field, meta, form }) => {
+      const { status = {}, setStatus } = form;
+      const fieldStatus = getIn(status, name);
+
+      const fieldProps = {
+        ...field,
+        onChange: e => {
+          setStatus(dissoc(name, status));
+          field.onChange(e);
+        },
+      };
+
+      return (
+        <CheckboxField
+          checked={field.value}
+          {...{ ...fieldProps, ref }}
+          error={meta.touched ? meta.error || fieldStatus : ""}
+          {...rest}
+        />
+      );
+    }}
   </Field>
 ));
 

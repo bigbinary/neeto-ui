@@ -23,6 +23,40 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.1.6 - 2024-07-26
+
+<img width="1020" alt="image" src="https://github.com/user-attachments/assets/298408c6-60dc-4e29-a0c7-efb1c3350a29">
+Main story UI
+Before
+<img width="914" alt="image" src="https://github.com/user-attachments/assets/d7121a93-ad2d-4ac7-9353-6c5706ab1752">
+
+After
+<img width="1010" alt="image" src="https://github.com/user-attachments/assets/a322fb68-023c-4a3c-9ec1-d3a02238b5a6">
+
+## 8.1.4 - 2024-07-24
+
+- Changed: default font family to Inter on Windows.
+- Removed: font family overrides in Storybook.
+- Fixed: the usage of CSS font variable.
+
+@praveen-murali-ind _a
+
+## 8.1.0 - 2024-07-22
+
+Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
+
+## 8.0.0 - 2024-07-19
+
+- Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
+
+## 7.1.0 - 2024-07-16
+
+- Added a new TranslationProvider for initializing translations for external use of NeetoUI
+
+## 7.0.5 - 2024-07-15
+
+- Added support for displaying tooltips for disabled buttons in NoData component
+
 ## 7.0.4 - 2024-07-11
 
 - Updated framer-motion to 11.2.14
@@ -466,22 +500,16 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.2.10 - 2023-10-20
 - Added: Tooltip to `Kbd` component
 ## 5.2.8 - 2023-10-19
-
 - Fixed: Button click-ability when disabled
-
 ## 5.2.2 - 2023-10-05
-
 - The bug was due to a layout shift that happens when the formik error message
   is rendered. Details in
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1745953703.
 - The issue is fixed when we prevent the default behavior on mouseDown events
   for the cancel button, as suggesed by Sreerag in
   https://github.com/bigbinary/neeto-ui/issues/1810#issuecomment-1746360449
-
 ## 5.2.0 - 2023-09-24
-
 - Updated: `antd` and `dayjs` version.
-
 ## 5.1.19 - 2023-09-22
 
 - Added: Support for overriding props to `Alert` in `BlockNavigation`
@@ -1221,20 +1249,14 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.4.3
 - Added: `prefix` and `suffix` to *EmailInput*.
 ## 3.4.2
-
 - Fixed: issue with search not working with `isCreatable` *Select*.
-
 ## 3.4.1
-
 - Fixed: issue with `autoFocus` not working on *Input* when inside *Dropdown*.
-
 ## 3.4.0
-
 - Removed: all instances of TailwindCSS.
 - Added: `label` prop in *Tags* molecule.
 - Changed: Added `neetoCal` into *AppSwitcher* app list .
 - Removed: `count` limiting (to 99) logic from *MenuBar.Block*.
-
 ## 3.3.13
 
 - Added: Tags in the molecule section.

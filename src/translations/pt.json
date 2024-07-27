@@ -1,0 +1,33 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Todas as suas alterações não salvas serão perdidas. Isso não pode ser desfeito.",
+      "submitButtonLabel": "Descartar alterações",
+      "alertTitle": "Você tem alterações não salvas"
+    },
+    "actionBlock": {
+      "cancel": "Cancelar",
+      "saveChanges": "Salvar alterações"
+    },
+    "datePicker": {
+      "today": "Hoje"
+    },
+    "table": {
+      "insertColRight": "Inserir coluna à direita",
+      "insertColLeft": "Inserir coluna à esquerda",
+      "columnInfo": "Informações da coluna",
+      "hideColumn": "Ocultar coluna",
+      "deleteColumn": "Excluir coluna",
+      "ascending": "Crescente",
+      "descending": "Decrescente"
+    },
+    "timePicker": {
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "treeSelect": {
+      "noOptions": "Sem opções"
+    }
+  }
+}

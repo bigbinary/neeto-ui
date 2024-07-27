@@ -4,14 +4,17 @@ import { Form as FormikForm, useFormikContext } from "formik";
 import PropTypes from "prop-types";
 
 import ScrollToErrorField from "./ScrollToErrorField";
-import { scrollToError } from "./ScrollToErrorField/utils";
+import {
+  getFieldsWithServerError,
+  scrollToError,
+} from "./ScrollToErrorField/utils";
 
 const FormWrapper = forwardRef(
   ({ className, formProps, children, scrollToErrorField }, ref) => {
     const { validateForm, setErrors, setTouched, submitForm, ...formikBag } =
       useFormikContext();
 
-    const { dirty: isFormDirty, isSubmitting } = formikBag;
+    const { dirty: isFormDirty, isSubmitting, status } = formikBag;
 
     const formRefForScrollToErrorField = useRef();
 
@@ -34,11 +37,15 @@ const FormWrapper = forwardRef(
 
         try {
           const errors = await validateForm();
+          const fieldStatuses = getFieldsWithServerError(status);
 
-          if (Object.keys(errors).length > 0) {
+          if (
+            Object.keys(errors).length > 0 ||
+            Object.keys(fieldStatuses).length > 0
+          ) {
             setErrors(errors);
-            setTouched(errors);
-            scrollToErrorField && scrollToError(formRef, errors);
+            setTouched({ ...errors, ...status });
+            scrollToErrorField && scrollToError(formRef, errors, status);
           } else {
             submitForm();
           }
@@ -57,6 +64,7 @@ const FormWrapper = forwardRef(
         isFormDirty,
         isSubmitting,
         submitForm,
+        status,
       ]
     );
 

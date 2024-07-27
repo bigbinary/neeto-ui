@@ -22,7 +22,7 @@ const TreeSelectComponent = ({ onSubmit }) => (
       validationSchema: yup.object({
         formikTreeSelect: yup.string().required("Value is required"),
       }),
-      onSubmit: values => onSubmit(values),
+      onSubmit: (values, { setStatus }) => onSubmit(values, setStatus),
     }}
   >
     <FormikTreeSelect
@@ -69,16 +69,34 @@ describe("formik/TreeSelect", () => {
     await userEvent.click(select);
     await userEvent.click(screen.getByText(treeData[0].label));
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({
         formikTreeSelect: treeData[0].value,
-      })
-    );
+      });
+    });
   });
 
   it("should display validation error when invalid input is provided", async () => {
     render(<TreeSelectComponent />);
     await userEvent.click(screen.getByText("Submit"));
     expect(await screen.findByText("Value is required")).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Category does not exist";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ formikTreeSelect: serverErrorMessage });
+    };
+    render(<TreeSelectComponent {...{ onSubmit }} />);
+    const select = screen.getByRole("combobox");
+    await userEvent.click(select);
+    await userEvent.click(screen.getByText(treeData[0].label));
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.click(select);
+    await userEvent.click(screen.getByText(treeData[2].label));
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });

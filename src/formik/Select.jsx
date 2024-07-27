@@ -1,8 +1,8 @@
 import React, { forwardRef, useRef, startTransition } from "react";
 
-import { useField } from "formik";
+import { getIn, useFormikContext, useField } from "formik";
 import PropTypes from "prop-types";
-import { prop, either, isNil, isEmpty } from "ramda";
+import { prop, either, isNil, isEmpty, dissoc } from "ramda";
 
 import Select from "components/Select";
 
@@ -15,6 +15,8 @@ const SelectField = forwardRef((props, ref) => {
     ...otherProps
   } = props;
   const [field, meta, { setValue, setTouched }] = useField(name);
+  const { status = {}, setStatus } = useFormikContext();
+  const fieldStatus = getIn(status, name);
 
   const isMenuOpen = useRef(otherProps.defaultMenuIsOpen);
 
@@ -35,7 +37,7 @@ const SelectField = forwardRef((props, ref) => {
   return (
     <Select
       {...{ options }}
-      error={meta.touched ? meta.error : ""}
+      error={meta.touched ? meta.error || fieldStatus : ""}
       getOptionValue={getOptionValue || prop("value")}
       innerRef={ref}
       isMulti={!!isMulti}
@@ -45,12 +47,15 @@ const SelectField = forwardRef((props, ref) => {
           ? null
           : buildValueObj(field.value, options)
       }
-      onChange={value => setValue(value)}
       onBlur={() =>
         startTransition(() => {
           setTouched(true);
         })
       }
+      onChange={value => {
+        setStatus(dissoc(name, status));
+        setValue(value);
+      }}
       {...otherProps}
       onKeyDown={event => {
         if (event.key === "Enter" && isMenuOpen.current) {

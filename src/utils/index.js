@@ -7,10 +7,16 @@ import { preprocessForSerialization } from "neetocist";
 import { parse, stringify } from "qs";
 import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
 
+// eslint-disable-next-line import/extensions
+import en from "src/translations/en.json";
+
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(utc);
+
+const getEnTranslationValue = translationKey =>
+  translationKey.split(".").reduce((acc, key) => acc[key], en);
 
 const getScrollbarWidth = () => {
   const parentDiv = document.createElement("div");
@@ -161,4 +167,12 @@ export const buildUrl = (route, params) => {
   )(params);
 
   return isEmpty(queryParams) ? route : `${route}?${queryParams}`;
+};
+
+export const getLocale = (i18n, t, translationKey) => {
+  if (isEmpty(i18n)) return getEnTranslationValue(translationKey);
+
+  return i18n.exists(translationKey)
+    ? t(translationKey)
+    : getEnTranslationValue(translationKey);
 };

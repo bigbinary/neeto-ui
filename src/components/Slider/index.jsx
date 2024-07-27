@@ -2,7 +2,9 @@ import React from "react";
 
 import { Slider as AntdSlider, ConfigProvider } from "antd";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
+import { ANTD_LOCALE } from "components/constants";
 import Label from "components/Label";
 import { useId } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
@@ -24,8 +26,11 @@ const Slider = ({
   const errorId = `error_${id}`;
   const helpTextId = `helpText_${id}`;
 
+  const { i18n } = useTranslation();
+
   return (
     <ConfigProvider
+      locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
         components: {

@@ -8,8 +8,8 @@ import Form from "formikcomponents/Form";
 import Textarea from "formikcomponents/Textarea";
 
 const TestTextarea = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = (values, { setStatus }) => {
+    onSubmit(values, setStatus);
   };
 
   return (
@@ -42,11 +42,10 @@ describe("formik/Textarea", () => {
     render(<TestTextarea {...{ onSubmit }} />);
     await userEvent.type(screen.getByRole("textbox"), "Test input");
     await userEvent.click(screen.getByText("Submit"));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
-        textarea: "Test input",
-      })
-    );
+    await waitFor(() => {
+      const [submittedData] = onSubmit.mock.calls[0];
+      expect(submittedData).toStrictEqual({ textarea: "Test input" });
+    });
   });
 
   it("should display validation error when invalid input is provided", async () => {
@@ -60,5 +59,19 @@ describe("formik/Textarea", () => {
     expect(
       await screen.findByText("Must be atleast 10 characters long")
     ).toBeInTheDocument();
+  });
+
+  it("should display inline error when the status is set", async () => {
+    const serverErrorMessage = "Reason not valid";
+    const onSubmit = (_, setStatus) => {
+      setStatus({ textarea: serverErrorMessage });
+    };
+    render(<TestTextarea {...{ onSubmit }} />);
+    await userEvent.type(screen.getByRole("textbox"), "Weather is not good!");
+    await userEvent.click(screen.getByText("Submit"));
+    expect(await screen.findByText(serverErrorMessage)).toBeVisible();
+
+    await userEvent.type(screen.getByRole("textbox"), "Okay");
+    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
   });
 });

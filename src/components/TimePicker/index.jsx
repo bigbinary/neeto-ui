@@ -4,8 +4,10 @@ import { ConfigProvider } from "antd";
 import classnames from "classnames";
 import { Clock } from "neetoicons";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 import { Tag } from "components";
+import { ANTD_LOCALE } from "components/constants";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import {
@@ -13,6 +15,7 @@ import {
   noop,
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+  getLocale,
 } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
@@ -50,6 +53,7 @@ const TimePicker = forwardRef(
     },
     ref
   ) => {
+    const { t, i18n } = useTranslation();
     const id = useId(otherProps.id);
     const timePickerRef = useSyncedRef(ref);
 
@@ -82,17 +86,17 @@ const TimePicker = forwardRef(
           <ul className="neeto-ui-date-input-custom-panel__header-cols">
             {showTimeLabels.hour && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Hour
+                {getLocale(i18n, t, "neetoui.timePicker.hours")}
               </li>
             )}
             {showTimeLabels.minute && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Minutes
+                {getLocale(i18n, t, "neetoui.timePicker.minutes")}
               </li>
             )}
             {showTimeLabels.second && (
               <li className="neeto-ui-date-input-custom-panel__header-col">
-                Seconds
+                {getLocale(i18n, t, "neetoui.timePicker.seconds")}
               </li>
             )}
           </ul>
@@ -105,6 +109,7 @@ const TimePicker = forwardRef(
 
     return (
       <ConfigProvider
+        locale={ANTD_LOCALE[i18n.language || "en"]}
         theme={{
           token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
           components: {

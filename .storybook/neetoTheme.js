@@ -15,7 +15,7 @@ export default create({
 
   // Typography
   fontBase:
-    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+    '-apple-system, BlinkMacSystemFont, "Inter", Arial, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   fontCode: "monospace",
 
   // Text colors
