@@ -1,3 +1,4 @@
+import useFuncDebounce from "./useFuncDebounce";
 import useId from "./useId";
 import useNavPrompt from "./useNavPrompt";
 import useOnClickOutside from "./useOnClickOutside";
@@ -16,4 +17,5 @@ export {
   useSyncedRef,
   useTimeout,
   useQueryParams,
+  useFuncDebounce,
 };

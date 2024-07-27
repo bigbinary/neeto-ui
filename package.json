@@ -105,7 +105,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@tippyjs/react": "4.2.5",
     "@wojtekmaj/react-timerange-picker": "^5.5.0",
-    "antd": "5.15.2",
+    "antd": "5.16.0",
     "autoprefixer": "9.0.0",
     "avvvatars-react": "^0.4.2",
     "babel-loader": "^8.2.5",
@@ -183,7 +183,8 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tinycolor2": "^1.4.2",
     "use-eye-dropper": "^1.4.3",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "zustand": "4.3.2"
   },
   "peerDependencies": {
     "@babel/runtime": "7.19.0",
@@ -214,7 +215,8 @@
     "react-time-picker": "6.5.2",
     "react-toastify": "8.0.2",
     "tippy.js": "6.3.7",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "zustand": "4.3.2"
   },
   "resolutions": {
     "@storybook/addon-essentials/**/glob-parent": "5.1.2",

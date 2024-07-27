@@ -28,6 +28,7 @@ import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
+import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
 import { getHeaderCell, isIncludedIn } from "./utils";
 
@@ -98,8 +99,11 @@ const Table = ({
     )
   );
 
+  const scrollRef = useRef(null);
   const tableRef = useCallback(
     table => {
+      scrollRef.current = table;
+
       if (!fixedHeight) return;
 
       const observer = resizeObserver.current;
@@ -112,6 +116,12 @@ const Table = ({
     },
     [resizeObserver.current, fixedHeight]
   );
+
+  const { handleScroll } = useRestoreScrollPosition({
+    tableRef,
+    scrollRef,
+    loading,
+  });
 
   useTimeout(() => {
     const headerHeight = headerRef.current
@@ -374,6 +384,7 @@ const Table = ({
           ...scroll,
         }}
         onChange={handleTableChange}
+        onScroll={handleScroll}
         onHeaderRow={() => ({
           ref: headerRef,
           className: classnames("neeto-ui-table__header", {
