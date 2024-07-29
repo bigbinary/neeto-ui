@@ -28,7 +28,7 @@ export const useRestoreScrollPosition = ({ tableRef, scrollRef, loading }) => {
     setTimeout(() => {
       const position = scrollPositions[key];
       const config = position === 0 ? { index: 0 } : { top: position };
-      scrollRef.current.scrollTo(config);
+      scrollRef.current?.scrollTo(config);
     });
   }, [key, tableRef, loading]);
 
