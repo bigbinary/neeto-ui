@@ -116,8 +116,8 @@ Available components in neetoUI formik:
 - Slider
 
 You can refer the
-[formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/components/formik)
-to check for latest Formik components.
+[formik folder](https://github.com/bigbinary/neeto-ui/tree/main/src/formik) to
+check for latest Formik components.
 
 In order to use the neetoUI formik components, you need to wrap your form with
 the `Form` component.
