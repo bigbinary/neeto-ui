@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.1 - 2024-07-29
+
+- Fixed: Fixed the scrollTo property of tables from being undefined.
+
 ## 8.2.0 - 2024-07-27
 
 - Added: Persist scroll position of the table during navigation.
@@ -35,7 +39,6 @@ Before
 <img width="914" alt="image" src="https://github.com/user-attachments/assets/d7121a93-ad2d-4ac7-9353-6c5706ab1752">
 After
 <img width="1010" alt="image" src="https://github.com/user-attachments/assets/a322fb68-023c-4a3c-9ec1-d3a02238b5a6">
-
 ## 8.1.4 - 2024-07-24
 
 - Changed: default font family to Inter on Windows.
@@ -515,7 +518,6 @@ Fixed: scrollToErrorField not working for Select component.
 - Updated: `antd` and `dayjs` version.
 ## 5.1.19 - 2023-09-22
 - Added: Support for overriding props to `Alert` in `BlockNavigation`
-
 ## 5.1.18 - 2023-09-21
 
 - Added: Support for showing only the palette in `ColorPicker`
@@ -1261,7 +1263,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Removed: `count` limiting (to 99) logic from *MenuBar.Block*.
 ## 3.3.13
 - Added: Tags in the molecule section.
-
 ## 3.3.12
 
 - Fixed: loading state in *ActionBlock* component.
