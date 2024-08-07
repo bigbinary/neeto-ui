@@ -2,6 +2,7 @@ import React, { forwardRef, useState, useEffect } from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
+import dayjs from "dayjs";
 import { isNotPresent } from "neetocist";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
@@ -36,7 +37,6 @@ const DatePicker = forwardRef(
       onChange = noop,
       onOk = noop,
       picker = "date",
-      mode: inputMode = "date",
       showTime = false,
       type = "date",
       nakedInput = false,
@@ -55,7 +55,7 @@ const DatePicker = forwardRef(
     ref
   ) => {
     const [value, setValue] = useState(inputValue);
-    const [mode, setMode] = useState(inputMode);
+    const [mode, setMode] = useState(picker);
     const [pickerValue, setPickerValue] = useState();
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
@@ -68,6 +68,10 @@ const DatePicker = forwardRef(
     useEffect(() => {
       setValue(inputValue);
     }, [inputValue]);
+
+    useEffect(() => {
+      setMode(picker);
+    }, [picker]);
 
     const handleOnChange = (date, dateString) => {
       if (type === "range" && isNotPresent(date)) {
@@ -85,10 +89,10 @@ const DatePicker = forwardRef(
       return (
         <Today
           onClick={() => {
-            setMode("date");
-            setTimeout(() => {
-              document.querySelector(".ant-picker-now-btn").click();
-            });
+            const today = dayjs();
+            setValue(today);
+            onChange(today, formattedString(today, dateFormat));
+            setMode(picker);
           }}
         />
       );
