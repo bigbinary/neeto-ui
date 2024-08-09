@@ -10,7 +10,7 @@ import * as hooks from "hooks";
 
 import LivePlaygroundDocs from "!raw-loader!./LivePlaygroundDocs/LivePlaygroundUsage.mdx";
 
-const LivePlaygroundCard = () => {
+const LivePlayground = () => {
   const [code, setCode] = useState("\n");
 
   return (
@@ -42,10 +42,10 @@ const LivePlaygroundCard = () => {
 
 const metadata = {
   title: "Live Playground",
-  component: LivePlaygroundCard,
+  component: LivePlayground,
   parameters: { docs: { description: { component: LivePlaygroundDocs } } },
 };
 
 export default metadata;
 
-export { LivePlaygroundCard };
+export { LivePlayground };
