@@ -8,3 +8,29 @@ To use Formik components, please use them from the FormikComponents namespace:
 `<FormikComponents.Form>
   <FormikComponents.Button label="hello world" />
 </FormikComponents.Form>`
+
+Additionally, React is also set in the scope. To use hooks, you can call them as `React.useState`:
+
+`() => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  return (<div>
+    <Button label="Open pane" onClick={() => setIsOpen(true)} />
+    <Pane
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+    >
+      <Pane.Header>
+        <Typography style="h2" weight="semibold">
+          Typography
+        </Typography>
+      </Pane.Header>
+      <Pane.Body>
+        <Typography style="body2">
+          Somewhere out in space live the Herculoids! Zok, the laser-ray
+          dragon!
+        </Typography>
+      </Pane.Body>
+    </Pane>
+  </div>)
+}
+`
