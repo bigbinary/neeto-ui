@@ -14,8 +14,8 @@ const LivePlaygroundCard = () => {
   const [code, setCode] = useState("\n");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <div style={{ flex: "1", width: "100%" }}>
+    <div className="flex h-full flex-col">
+      <div className="w-full flex-grow">
         <MonacoEditor
           height="300px"
           language="jsx"
@@ -24,15 +24,11 @@ const LivePlaygroundCard = () => {
           onChange={setCode}
         />
       </div>
+      <h3 className="p-4">Preview</h3>
       <div
-        style={{
-          flex: "1",
-          width: "100%",
-          padding: "10px",
-          overflowY: "auto",
-        }}
+        className="min-h-96 m-4 mt-0 flex-grow overflow-y-auto border-2 p-4"
+        style={{ minHeight: "300px" }}
       >
-        <h3>Live Preview:</h3>
         <LiveProvider
           {...{ code }}
           scope={{ ...components, ...atoms, ...hooks, FormikComponents, React }}
