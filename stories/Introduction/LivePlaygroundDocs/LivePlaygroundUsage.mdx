@@ -1,0 +1,36 @@
+We use `react-live` to render the code you write in the editor. They have documented what it can [render](https://commerce.nearform.com/open-source/react-live/docs/usage).
+Please read the documentation for a better understanding of how to use the editor.
+
+All the NeetoUI components, atoms, and hooks are set in the scope. You can directly use them:
+`<Button label="hello world" />`
+
+To use Formik components, please use them from the FormikComponents namespace:
+`<FormikComponents.Form>
+  <FormikComponents.Button label="hello world" />
+</FormikComponents.Form>`
+
+Additionally, React is also set in the scope. To use hooks, you can call them as `React.useState`:
+
+`() => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  return (<div>
+    <Button label="Open pane" onClick={() => setIsOpen(true)} />
+    <Pane
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+    >
+      <Pane.Header>
+        <Typography style="h2" weight="semibold">
+          Typography
+        </Typography>
+      </Pane.Header>
+      <Pane.Body>
+        <Typography style="body2">
+          Somewhere out in space live the Herculoids! Zok, the laser-ray
+          dragon!
+        </Typography>
+      </Pane.Body>
+    </Pane>
+  </div>)
+}
+`
