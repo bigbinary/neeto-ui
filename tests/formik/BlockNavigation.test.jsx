@@ -3,15 +3,16 @@ import React from "react";
 
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Field } from "formik";
 import { repeat } from "ramda";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
+import * as yup from "yup";
 
-import { Input } from "components";
 import BlockNavigation from "formikcomponents/BlockNavigation";
 import Form from "formikcomponents/Form";
+import Input from "formikcomponents/Input";
 
-const firstName = "Oliver";
+const firstName = "Oliver",
+  lastName = "Smith";
 const TestComponent = () => <div>Home page</div>;
 const mockSubmit = jest.fn();
 const TestForm = ({ isDirty }) => (
@@ -19,21 +20,27 @@ const TestForm = ({ isDirty }) => (
     <Link to="/home">Home</Link>
     <Form
       formikProps={{
-        initialValues: { firstName },
+        initialValues: { firstName, lastName },
+        validationSchema: yup.object().shape({
+          firstName: yup.string().required("First name is required"),
+          lastName: yup.string().required("Last name is required"),
+        }),
         onSubmit: mockSubmit,
       }}
     >
       <BlockNavigation {...{ isDirty }} />
-      <Field name="firstName">
-        {({ field }) => (
-          <Input
-            {...field}
-            label="First name"
-            placeholder="First name"
-            type="text"
-          />
-        )}
-      </Field>
+      <Input
+        label="First name"
+        name="firstName"
+        placeholder="First name"
+        type="text"
+      />
+      <Input
+        label="Last name"
+        name="lastName"
+        placeholder="Last name"
+        type="text"
+      />
     </Form>
   </>
 );
@@ -50,10 +57,14 @@ const TestBlockNavigation = ({ isDirty }) => (
 );
 
 describe("formik/BlockNavigation", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render without errors", () => {
     render(<TestBlockNavigation />);
 
-    expect(screen.getByRole("textbox")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("First name")).toBeInTheDocument();
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
   });
 
@@ -67,8 +78,8 @@ describe("formik/BlockNavigation", () => {
   it("should not allow navigation when form isn't empty", async () => {
     render(<TestBlockNavigation />);
 
-    const input = screen.getByRole("textbox");
-    await userEvent.type(input, "Sam");
+    const firstNameInput = screen.getByPlaceholderText("First name");
+    await userEvent.type(firstNameInput, "Sam");
     await userEvent.click(screen.getByRole("link"));
 
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
@@ -98,7 +109,7 @@ describe("formik/BlockNavigation", () => {
   it("should close the modal and return to previous state on clicking the close button", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    const input = screen.getByRole("textbox");
+    const firstNameInput = screen.getByPlaceholderText("First name");
 
     await userEvent.click(screen.getByRole("link"));
 
@@ -108,20 +119,20 @@ describe("formik/BlockNavigation", () => {
     await waitFor(() =>
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
     );
-    expect(input).toBeInTheDocument();
+    expect(firstNameInput).toBeInTheDocument();
   });
 
   it("should allow navigation and reset the form if the Discard changes button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    const input = screen.getByRole("textbox");
+    const firstNameInput = screen.getByPlaceholderText("First name");
     await userEvent.type(
-      input,
+      firstNameInput,
       repeat("{backspace}", firstName.length).join("")
     );
-    await userEvent.type(input, "Testing discard changes");
+    await userEvent.type(firstNameInput, "Sam");
 
-    expect(input.value).toBe("Testing discard changes");
+    expect(firstNameInput.value).toBe("Sam");
 
     await userEvent.click(screen.getByRole("link"));
 
@@ -138,14 +149,14 @@ describe("formik/BlockNavigation", () => {
   it("should allow navigation and save the form if the Save and continue button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
 
-    const input = screen.getByRole("textbox");
+    const firstNameInput = screen.getByPlaceholderText("First name");
     await userEvent.type(
-      input,
+      firstNameInput,
       repeat("{backspace}", firstName.length).join("")
     );
-    await userEvent.type(input, "Testing save changes");
+    await userEvent.type(firstNameInput, "Sam");
 
-    expect(input.value).toBe("Testing save changes");
+    expect(firstNameInput.value).toBe("Sam");
 
     await userEvent.click(screen.getByRole("link"));
 
