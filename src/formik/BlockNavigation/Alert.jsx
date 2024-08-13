@@ -11,8 +11,6 @@ import { getLocale } from "utils";
 const Alert = ({
   isOpen = false,
   isSubmitting = false,
-  className = "",
-  closeOnOutsideClick = true,
   onClose,
   onSaveChanges,
   onDiscardChanges,
@@ -35,9 +33,10 @@ const Alert = ({
 
   return (
     <Modal
-      {...{ className, closeOnOutsideClick, isOpen, onClose }}
+      {...{ isOpen, onClose }}
       closeButton
       closeOnEsc
+      closeOnOutsideClick
       data-cy="alert-box"
       initialFocusRef={saveChangesButtonRef}
       size="medium"

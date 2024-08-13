@@ -33,7 +33,7 @@ const FormikStory = args => (
           />
           <Form
             formikProps={{
-              initialValues: { firstName: "", lastName: "" },
+              initialValues: { firstName: "Oliver", lastName: "" },
               validationSchema: yup.object({
                 firstName: yup.string().required("First name is required"),
                 lastName: yup.string().required("Last name is required"),
