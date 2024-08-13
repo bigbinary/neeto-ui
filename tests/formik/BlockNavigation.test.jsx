@@ -11,24 +11,25 @@ import { Input } from "components";
 import BlockNavigation from "formikcomponents/BlockNavigation";
 import Form from "formikcomponents/Form";
 
-const TestComponent = () => <div>Test page</div>;
+const firstName = "Oliver";
+const TestComponent = () => <div>Home page</div>;
 const mockSubmit = jest.fn();
 const TestForm = ({ isDirty }) => (
   <>
-    <Link to="/test">Navigate</Link>
+    <Link to="/home">Home</Link>
     <Form
       formikProps={{
-        initialValues: { formikInput: "test" },
+        initialValues: { firstName },
         onSubmit: mockSubmit,
       }}
     >
       <BlockNavigation {...{ isDirty }} />
-      <Field name="formikInput">
+      <Field name="firstName">
         {({ field }) => (
           <Input
             {...field}
-            label="Formik Input"
-            placeholder="Type Something"
+            label="First name"
+            placeholder="First name"
             type="text"
           />
         )}
@@ -43,7 +44,7 @@ const TestBlockNavigation = ({ isDirty }) => (
       <Route exact path="/">
         <TestForm {...{ isDirty }} />
       </Route>
-      <Route component={TestComponent} path="/test" />
+      <Route component={TestComponent} path="/home" />
     </Switch>
   </Router>
 );
@@ -53,31 +54,31 @@ describe("formik/BlockNavigation", () => {
     render(<TestBlockNavigation />);
 
     expect(screen.getByRole("textbox")).toBeInTheDocument();
-    expect(screen.queryByText(/Test page/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
   });
 
   it("should allow navigation when form is empty", async () => {
     render(<TestBlockNavigation />);
 
     await userEvent.click(screen.getByRole("link"));
-    expect(screen.getByText(/Test page/i)).toBeInTheDocument();
+    expect(screen.getByText(/Home page/i)).toBeInTheDocument();
   });
 
   it("should not allow navigation when form isn't empty", async () => {
     render(<TestBlockNavigation />);
 
     const input = screen.getByRole("textbox");
-    await userEvent.type(input, "test");
+    await userEvent.type(input, "Sam");
     await userEvent.click(screen.getByRole("link"));
 
-    expect(screen.queryByText(/Test page/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
   });
 
   it("should not allow navigation if isDirty prop is true", async () => {
     render(<TestBlockNavigation isDirty />);
 
     await userEvent.click(screen.getByRole("link"));
-    expect(screen.queryByText(/Test page/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
   });
 
   it("should display an Alert modal with Continue and Cancel buttons", async () => {
@@ -114,7 +115,10 @@ describe("formik/BlockNavigation", () => {
     render(<TestBlockNavigation isDirty />);
 
     const input = screen.getByRole("textbox");
-    await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await userEvent.type(
+      input,
+      repeat("{backspace}", firstName.length).join("")
+    );
     await userEvent.type(input, "Testing discard changes");
 
     expect(input.value).toBe("Testing discard changes");
@@ -127,7 +131,7 @@ describe("formik/BlockNavigation", () => {
     await userEvent.click(continueButton);
 
     await waitFor(() => expect(continueButton).not.toBeInTheDocument());
-    expect(screen.getByText(/Test page/i)).toBeInTheDocument();
+    expect(screen.getByText(/Home page/i)).toBeInTheDocument();
     expect(mockSubmit).not.toHaveBeenCalled();
   });
 
@@ -135,7 +139,25 @@ describe("formik/BlockNavigation", () => {
     render(<TestBlockNavigation isDirty />);
 
     const input = screen.getByRole("textbox");
-    await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await userEvent.type(
+      input,
+      repeat("{backspace}", firstName.length).join("")
+    );
+    await userEvent.type(input, "Testing save changes");
+
+    expect(input.value).toBe("Testing save changes");
+
+    await userEvent.click(screen.getByRole("link"));
+
+    const saveButton = screen.getByRole("button", {
+      name: "Save and continue",
+    });
+    await userEvent.click(saveButton);
+
+    await waitFor(() => expect(saveButton).not.toBeInTheDocument());
+    expect(screen.getByText(/Home page/i)).toBeInTheDocument();
+    expect(mockSubmit).toBeCalledTimes(1);
+  });
     await userEvent.type(input, "Testing save changes");
 
     expect(input.value).toBe("Testing save changes");
