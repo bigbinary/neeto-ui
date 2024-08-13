@@ -82,7 +82,10 @@ describe("formik/BlockNavigation", () => {
     expect(
       screen.getByRole("button", { name: "Discard changes" })
     ).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Cancel" })).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("button", { name: "Save and continue" })
+    ).toBeInTheDocument();
   });
 
   it("should close the modal and return to previous state on clicking the Cancel button", async () => {
