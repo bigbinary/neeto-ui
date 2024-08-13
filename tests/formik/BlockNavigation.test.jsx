@@ -4,6 +4,7 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Field } from "formik";
+import { repeat } from "ramda";
 import { MemoryRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { Input } from "components";
@@ -11,11 +12,16 @@ import BlockNavigation from "formikcomponents/BlockNavigation";
 import Form from "formikcomponents/Form";
 
 const TestComponent = () => <div>test page</div>;
-
+const mockSubmit = jest.fn();
 const TestForm = ({ isDirty }) => (
   <>
     <Link to="/test">Navigate</Link>
-    <Form formikProps={{ initialValues: { formikInput: "test" } }}>
+    <Form
+      formikProps={{
+        initialValues: { formikInput: "test" },
+        onSubmit: mockSubmit,
+      }}
+    >
       <BlockNavigation {...{ isDirty }} />
       <Field name="formikInput">
         {({ field }) => (
@@ -104,8 +110,14 @@ describe("formik/BlockNavigation", () => {
     expect(input).toBeInTheDocument();
   });
 
-  it("should allow navigation if the Continue button is clicked", async () => {
+  it("should allow navigation and reset the form if the Discard changes button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
+
+    const input = screen.getByRole("textbox");
+    await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
+    await userEvent.type(input, "testing discard changes");
+
+    expect(input.value).toBe("testing discard changes");
 
     await userEvent.click(screen.getByRole("link"));
 
@@ -116,5 +128,6 @@ describe("formik/BlockNavigation", () => {
 
     await waitFor(() => expect(continueButton).not.toBeInTheDocument());
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
+    expect(mockSubmit).not.toHaveBeenCalled();
   });
 });
