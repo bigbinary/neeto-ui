@@ -158,19 +158,4 @@ describe("formik/BlockNavigation", () => {
     expect(screen.getByText(/Home page/i)).toBeInTheDocument();
     expect(mockSubmit).toBeCalledTimes(1);
   });
-    await userEvent.type(input, "Testing save changes");
-
-    expect(input.value).toBe("Testing save changes");
-
-    await userEvent.click(screen.getByRole("link"));
-
-    const saveButton = screen.getByRole("button", {
-      name: "Save and continue",
-    });
-    await userEvent.click(saveButton);
-
-    await waitFor(() => expect(saveButton).not.toBeInTheDocument());
-    expect(screen.getByText(/Test page/i)).toBeInTheDocument();
-    expect(mockSubmit).toBeCalledTimes(1);
-  });
 });
