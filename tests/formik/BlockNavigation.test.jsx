@@ -88,17 +88,19 @@ describe("formik/BlockNavigation", () => {
     ).toBeInTheDocument();
   });
 
-  it("should close the modal and return to previous state on clicking the Cancel button", async () => {
+  it("should close the modal and return to previous state on clicking the close button", async () => {
     render(<TestBlockNavigation isDirty />);
 
     const input = screen.getByRole("textbox");
 
     await userEvent.click(screen.getByRole("link"));
 
-    const cancelButton = screen.getByRole("button", { name: "Cancel" });
-    await userEvent.click(cancelButton);
+    const alertCloseButton = screen.getByTestId("close-button");
+    await userEvent.click(alertCloseButton);
 
-    await waitFor(() => expect(cancelButton).not.toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+    );
     expect(input).toBeInTheDocument();
   });
 
