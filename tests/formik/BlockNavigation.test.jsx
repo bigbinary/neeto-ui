@@ -169,4 +169,26 @@ describe("formik/BlockNavigation", () => {
     expect(screen.getByText(/Home page/i)).toBeInTheDocument();
     expect(mockSubmit).toBeCalledTimes(1);
   });
+
+  it("should not allow navigation and save the form if the Save and continue button is clicked and the form has an error", async () => {
+    render(<TestBlockNavigation isDirty />);
+
+    const lastNameInput = screen.getByPlaceholderText("Last name");
+    await userEvent.type(
+      lastNameInput,
+      repeat("{backspace}", lastName.length).join("")
+    );
+    expect(lastNameInput.value).toBe("");
+
+    await userEvent.click(screen.getByRole("link"));
+
+    const saveButton = screen.getByRole("button", {
+      name: "Save and continue",
+    });
+    await userEvent.click(saveButton);
+
+    await waitFor(() => expect(saveButton).not.toBeInTheDocument());
+    expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
+    expect(mockSubmit).not.toBeCalled();
+  });
 });
