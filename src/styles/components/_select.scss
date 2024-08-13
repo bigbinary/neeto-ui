@@ -358,10 +358,16 @@
 }
 
 .neeto-ui-react-select--is-disabled {
-  cursor: not-allowed;
-  opacity: var(--neeto-ui-btn-disabled-opacity);
+  .neeto-ui-react-select__add-btn {
+    cursor: not-allowed;
+    opacity: var(--neeto-ui-btn-disabled-opacity);
+  }
+  .neeto-ui-react-select__value-container{
+    cursor: not-allowed;
+    opacity: var(--neeto-ui-btn-disabled-opacity);
+  }
   .neeto-ui-react-select__indicator{
-    opacity: 0.7;
+    opacity: var(--neeto-ui-btn-disabled-opacity);
   }
 }
 
