@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.3 - 2024-08-13
+
+<img width="1137" alt="Screenshot 2024-08-13 at 11 49 23 AM" src="https://github.com/user-attachments/assets/957cdb75-b0da-4470-8e33-d7c21b04ba23">
+<img width="1114" alt="Screenshot 2024-08-13 at 11 51 50 AM" src="https://github.com/user-attachments/assets/ea574af4-3804-4aa2-8a8b-f0eb85bbd988">
 ## 8.2.1 - 2024-07-29
 
 - Fixed: Fixed the scrollTo property of tables from being undefined.
@@ -40,7 +44,6 @@ Before
 After
 <img width="1010" alt="image" src="https://github.com/user-attachments/assets/a322fb68-023c-4a3c-9ec1-d3a02238b5a6">
 ## 8.1.4 - 2024-07-24
-
 - Changed: default font family to Inter on Windows.
 - Removed: font family overrides in Storybook.
 - Fixed: the usage of CSS font variable.
@@ -519,7 +522,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.1.19 - 2023-09-22
 - Added: Support for overriding props to `Alert` in `BlockNavigation`
 ## 5.1.18 - 2023-09-21
-
 - Added: Support for showing only the palette in `ColorPicker`
 
 ## 5.1.17 - 2023-09-19
@@ -1264,7 +1266,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.13
 - Added: Tags in the molecule section.
 ## 3.3.12
-
 - Fixed: loading state in *ActionBlock* component.
 
 ## 3.3.11
