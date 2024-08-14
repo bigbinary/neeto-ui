@@ -22,6 +22,9 @@ const ResizableHeaderCell = props => {
           onClick={e => e.stopPropagation()}
         />
       }
+      onResizeStart={e => {
+        e.preventDefault();
+      }}
     >
       <CellContent {...restProps} />
     </Resizable>

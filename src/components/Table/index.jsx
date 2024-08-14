@@ -41,7 +41,7 @@ const TABLE_ROW_HEIGHT = 52;
 
 const Table = ({
   allowRowClick = true,
-  enableColumnResize = false,
+  enableColumnResize = true,
   enableColumnReorder = false,
   enableAddColumn = false,
   className = "",
