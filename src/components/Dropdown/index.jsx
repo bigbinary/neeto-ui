@@ -158,6 +158,7 @@ const Dropdown = ({
     >
       {customTarget ? (
         <span
+          {...{ onClick }}
           className={classnames({ "neeto-ui-cursor-not-allowed": disabled })}
         >
           {typeof customTarget === "function" ? customTarget() : customTarget}
