@@ -154,10 +154,13 @@ const Dropdown = ({
         onClose();
         setMounted(false);
       }}
-      {...{ plugins, ...otherProps, ...controlledProps }}
+      {...{ disabled, plugins, ...otherProps, ...controlledProps }}
     >
       {customTarget ? (
-        <span {...{ onClick }}>
+        <span
+          {...{ onClick }}
+          className={classnames({ "neeto-ui-cursor-not-allowed": disabled })}
+        >
           {typeof customTarget === "function" ? customTarget() : customTarget}
         </span>
       ) : (

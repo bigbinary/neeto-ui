@@ -123,6 +123,18 @@ describe("Dropdown", () => {
     expect(listItems).toHaveLength(2);
   });
 
+  it("should not open dropdown on click of custom target if disabled", async () => {
+    const { getByText } = render(
+      <Dropdown disabled customTarget={<span>Click</span>} label="Dropdown">
+        {options}
+      </Dropdown>
+    );
+
+    await userEvent.click(getByText("Click"));
+    const listItems = screen.queryAllByRole("listitem");
+    expect(listItems).toHaveLength(0);
+  });
+
   it("should open another dropdown on click trigger when it is multilevel ", async () => {
     const { findByText } = render(
       <Dropdown isOpen label="Dropdown">
