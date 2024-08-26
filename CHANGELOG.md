@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.6 - 2024-08-26
+
+- Fixed: disabled prop of Dropdown not working when a customTarget is used
+
 ## 8.2.5 - 2024-08-14
 
 ![blocknavigation-changes](https://github.com/user-attachments/assets/40c1504a-6f47-4e75-8a54-515cdd4e4991)
@@ -33,7 +37,6 @@ Each change is prefixed with one of these keywords::
 <img width="1114" alt="Screenshot 2024-08-13 at 11 51 50 AM" src="https://github.com/user-attachments/assets/ea574af4-3804-4aa2-8a8b-f0eb85bbd988">
 ## 8.2.1 - 2024-07-29
 - Fixed: Fixed the scrollTo property of tables from being undefined.
-
 ## 8.2.0 - 2024-07-27
 
 - Added: Persist scroll position of the table during navigation.
@@ -51,7 +54,6 @@ After
 - Removed: font family overrides in Storybook.
 - Fixed: the usage of CSS font variable.
 @praveen-murali-ind _a
-
 ## 8.1.0 - 2024-07-22
 
 Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
@@ -526,7 +528,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.1.18 - 2023-09-21
 - Added: Support for showing only the palette in `ColorPicker`
 ## 5.1.17 - 2023-09-19
-
 - Fixed: Short hex code filling up the input in `ColorPicker`
 
 ## 5.1.16 - 2023-09-12
@@ -1269,7 +1270,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.12
 - Fixed: loading state in *ActionBlock* component.
 ## 3.3.11
-
 - Added: New input format for the *EmailInput* component.
 
 ## 3.3.10
