@@ -24,10 +24,10 @@ const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
   };
 
   const handleSaveChanges = () => {
-    if (formikContext.isValid) {
+    if (formikContext?.isValid) {
       formikContext.submitForm();
       continueNavigation();
-    } else formikContext.setTouched(formikContext.errors);
+    } else formikContext?.setTouched(formikContext.errors);
 
     hidePrompt();
   };
