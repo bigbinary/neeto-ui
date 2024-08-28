@@ -221,6 +221,43 @@ CSSCustomization.parameters = {
   docs: { description: { story: ActionDropdownCSSCustomization } },
 };
 
-export { Default, Styles, Sizes, CustomIcon, CSSCustomization };
+const PortalCustomClassName = args => {
+  const { Menu, MenuItem, Divider } = ActionDropdown;
+
+  return (
+    <div className="h-40">
+      <ActionDropdown {...args}>
+        <Menu>
+          {listItems.map((item, idx) => (
+            <MenuItem.Button key={idx} prefix={<Settings size={20} />}>
+              {item}
+            </MenuItem.Button>
+          ))}
+          <Divider />
+          <MenuItem.Button prefix={<Delete size={20} />} style="danger">
+            Delete
+          </MenuItem.Button>
+        </Menu>
+      </ActionDropdown>
+    </div>
+  );
+};
+
+PortalCustomClassName.storyName =
+  "ActionDropdown with custom classname for the dropdown menu";
+
+PortalCustomClassName.args = {
+  label: "Custom ActionDropdown",
+  portalProps: { classNames: "neeto-ui__action-menu" },
+};
+
+export {
+  Default,
+  Styles,
+  Sizes,
+  CustomIcon,
+  CSSCustomization,
+  PortalCustomClassName,
+};
 
 export default metadata;
