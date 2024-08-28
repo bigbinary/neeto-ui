@@ -232,6 +232,18 @@ CSSCustomization.parameters = {
   docs: { description: { story: DateInputCSSCustomization } },
 };
 
+const PortalCustomClassName = args => <DatePicker {...args} />;
+
+PortalCustomClassName.storyName =
+  "DatePicker with custom class name for the popup menu";
+
+PortalCustomClassName.args = {
+  label: "DatePicker with custom class for the popup",
+  type: "date",
+  picker: "date",
+  popupClassName: "neeto-ui__date-picker-popup-wrapper",
+};
+
 export {
   Default,
   RequiredDatePicker,
@@ -244,6 +256,7 @@ export {
   ShowTime,
   MinAndMaxDate,
   CSSCustomization,
+  PortalCustomClassName,
 };
 
 export default metadata;
