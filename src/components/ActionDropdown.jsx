@@ -23,10 +23,10 @@ const ActionDropdown = ({
   disabled = false,
   onClick = noop,
   buttonProps: { style, size, ...buttonProps } = {},
-  dropdownProps = {},
   className = "",
+  dropdownProps,
   children,
-  portalProps = {},
+  portalProps,
 }) => (
   <div className={classnames(["neeto-ui-action-dropdown", className])}>
     <Button
@@ -42,7 +42,7 @@ const ActionDropdown = ({
       buttonProps={{ size: size ?? buttonSize }}
       buttonStyle={style ?? buttonStyle}
       {...dropdownProps}
-      dropdownProps={{ ...dropdownProps.dropdownProps, ...portalProps }}
+      dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       {children}
     </Dropdown>
