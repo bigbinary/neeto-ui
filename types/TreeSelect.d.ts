@@ -18,6 +18,7 @@ type TreeItem = {
 export type TreeSelectProps = {
   allowClear?: Boolean;
   className?: string;
+  popupClassName?: string;
   disabled?: Boolean;
   error?: string;
   fieldNames?: { label?: string; value?: string };
