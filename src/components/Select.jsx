@@ -154,7 +154,7 @@ const MenuList = props => {
     totalOptionsCount,
     isAsyncLoadOptionEnabled,
     options,
-    menuListProps = {},
+    portalProps = {},
   } = props.selectProps;
 
   const hasMore =
@@ -182,7 +182,7 @@ const MenuList = props => {
   return (
     <components.MenuList
       {...props}
-      {...menuListProps}
+      {...portalProps}
       innerProps={{ ...props.innerProps, ["data-testid"]: "menu-list" }}
     >
       {props.children}
@@ -441,7 +441,7 @@ Select.propTypes = {
   /**
    * To specify the extra props to be passed to the menu list.
    */
-  menuListProps: PropTypes.object,
+  portalProps: PropTypes.object,
 };
 
 export default Select;
