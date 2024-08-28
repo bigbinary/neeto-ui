@@ -149,8 +149,13 @@ const ValueContainer = props => {
 };
 
 const MenuList = props => {
-  const { fetchMore, totalOptionsCount, isAsyncLoadOptionEnabled, options } =
-    props.selectProps;
+  const {
+    fetchMore,
+    totalOptionsCount,
+    isAsyncLoadOptionEnabled,
+    options,
+    menuListProps = {},
+  } = props.selectProps;
 
   const hasMore =
     isAsyncLoadOptionEnabled && totalOptionsCount > options.length;
@@ -177,6 +182,7 @@ const MenuList = props => {
   return (
     <components.MenuList
       {...props}
+      {...menuListProps}
       innerProps={{ ...props.innerProps, ["data-testid"]: "menu-list" }}
     >
       {props.children}
@@ -432,6 +438,10 @@ Select.propTypes = {
    * To specify the label for the button shown in multi select
    */
   addButtonLabel: PropTypes.string,
+  /**
+   * To specify the extra props to be passed to the menu list.
+   */
+  menuListProps: PropTypes.object,
 };
 
 export default Select;
