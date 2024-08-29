@@ -2,6 +2,7 @@ import React, { forwardRef, useState, useEffect } from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
+import dayjs from "dayjs";
 import { isNotPresent } from "neetocist";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
@@ -9,13 +10,7 @@ import PropTypes from "prop-types";
 import { Tag } from "components";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
-import {
-  convertToDayjsObjects,
-  noop,
-  hyphenize,
-  dayjs,
-  getTimezoneAppliedDateTime,
-} from "utils";
+import { convertToDayjsObjects, noop, hyphenize } from "utils";
 
 import IconOverride from "./IconOverride";
 import Provider from "./Provider";
@@ -82,12 +77,7 @@ const DatePicker = forwardRef(
       if (type === "range" && isNotPresent(date)) {
         return onChange([], dateString);
       }
-
-      const allowed = getAllowed(
-        getTimezoneAppliedDateTime(date),
-        minDate,
-        maxDate
-      );
+      const allowed = getAllowed(date, minDate, maxDate);
       setValue(allowed);
 
       return onChange(allowed, formattedString(allowed, dateFormat));

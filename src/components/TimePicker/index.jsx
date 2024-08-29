@@ -16,7 +16,6 @@ import {
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
   getLocale,
-  getTimezoneAppliedDateTime,
 } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
@@ -78,7 +77,7 @@ const TimePicker = forwardRef(
     const handleOnChange = (time, timeString) => {
       type === "range" && !time
         ? onChange([], timeString)
-        : onChange(getTimezoneAppliedDateTime(time), timeString);
+        : onChange(time, timeString);
     };
 
     const panelRender = originalPanel => (

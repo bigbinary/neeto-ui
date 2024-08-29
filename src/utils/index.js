@@ -1,6 +1,5 @@
-import pureDayjs from "dayjs";
+import dayjs from "dayjs";
 import localeData from "dayjs/plugin/localeData";
-import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
@@ -11,11 +10,10 @@ import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
 // eslint-disable-next-line import/extensions
 import en from "src/translations/en.json";
 
-pureDayjs.extend(weekOfYear);
-pureDayjs.extend(weekday);
-pureDayjs.extend(localeData);
-pureDayjs.extend(utc);
-pureDayjs.extend(timezone);
+dayjs.extend(weekOfYear);
+dayjs.extend(weekday);
+dayjs.extend(localeData);
+dayjs.extend(utc);
 
 const getEnTranslationValue = translationKey =>
   translationKey.split(".").reduce((acc, key) => acc[key], en);
@@ -31,38 +29,6 @@ const getScrollbarWidth = () => {
   parentDiv?.parentNode?.removeChild(parentDiv);
 
   return scrollbarWidth;
-};
-
-const hasTimezone = dateString => {
-  const timezoneRegex = /Z|[+-]\d{2}:\d{2}$|GMT([+-]\d{4})?$/;
-
-  return timezoneRegex.test(dateString);
-};
-
-// eslint-disable-next-line import/exports-last
-export const dayjs = (...args) => {
-  if (args.length > 0 && typeof args[0] === "string" && hasTimezone(args[0])) {
-    args[0] = pureDayjs(args[0]);
-  }
-
-  const timezone = pureDayjs.tz().$x.$timezone || pureDayjs.tz.guess();
-
-  return args.length === 2
-    ? pureDayjs.tz(...args, timezone)
-    : pureDayjs.tz(...args);
-};
-
-Object.assign(dayjs, { ...pureDayjs });
-
-export const getTimezoneAppliedDateTime = inputDateTime => {
-  if (!inputDateTime) return null;
-
-  const timezoneAppliedDateTime = date =>
-    dayjs(date.format("YYYY-MM-DD HH:mm:ss"));
-
-  return Array.isArray(inputDateTime)
-    ? inputDateTime.map(timezoneAppliedDateTime)
-    : timezoneAppliedDateTime(inputDateTime);
 };
 
 export const noop = () => {};
