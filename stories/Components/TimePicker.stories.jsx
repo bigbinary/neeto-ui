@@ -1,9 +1,10 @@
 import React from "react";
 
+import dayjs from "dayjs";
+
 import { Modal, Typography, Pane } from "components";
 import Button from "components/Button";
 import TimePicker from "components/TimePicker";
-import { dayjs } from "utils";
 
 import { disabledDateTime } from "./constants";
 
