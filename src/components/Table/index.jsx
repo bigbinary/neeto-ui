@@ -191,9 +191,16 @@ const Table = ({
     bulkSelectAllRowsProps && showBulkSelectionCallout;
 
   const handleRowChange = (selectedRowKeys, selectedRows) => {
+    const tableWrapper = document.querySelector(
+      '[data-testid="table-wrapper"]'
+    );
+
     if (selectedRowKeys.length !== defaultPageSize) {
       setBulkSelectedAllRows(false);
       handleSetBulkSelectedAllRows?.(false);
+      tableWrapper.classList.remove("neeto-ui-overflow-hidden");
+    } else {
+      tableWrapper.classList.add("neeto-ui-overflow-hidden");
     }
     onRowSelect?.(selectedRowKeys, selectedRows);
   };
