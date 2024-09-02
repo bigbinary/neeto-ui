@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
@@ -10,35 +10,43 @@ const STYLES = {
   success: "success",
 };
 
-const Callout = ({
-  icon = null,
-  style = STYLES.info,
-  className = "",
-  children,
-  ...otherProps
-}) => {
-  const Icon = icon;
+const Callout = forwardRef(
+  (
+    {
+      icon = null,
+      style = STYLES.info,
+      className = "",
+      children,
+      ...otherProps
+    },
+    ref
+  ) => {
+    const Icon = icon;
 
-  return (
-    <div
-      className={classnames("neeto-ui-callout", {
-        "neeto-ui-callout--info": style === STYLES.info,
-        "neeto-ui-callout--warning": style === STYLES.warning,
-        "neeto-ui-callout--danger": style === STYLES.danger,
-        "neeto-ui-callout--success": style === STYLES.success,
-        [className]: className,
-      })}
-      {...otherProps}
-    >
-      {icon && (
-        <div className="neeto-ui-callout__icon" data-testid="callout-icon">
-          <Icon />
-        </div>
-      )}
-      {children}
-    </div>
-  );
-};
+    return (
+      <div
+        {...{ ref }}
+        className={classnames("neeto-ui-callout", {
+          "neeto-ui-callout--info": style === STYLES.info,
+          "neeto-ui-callout--warning": style === STYLES.warning,
+          "neeto-ui-callout--danger": style === STYLES.danger,
+          "neeto-ui-callout--success": style === STYLES.success,
+          [className]: className,
+        })}
+        {...otherProps}
+      >
+        {icon && (
+          <div className="neeto-ui-callout__icon" data-testid="callout-icon">
+            <Icon />
+          </div>
+        )}
+        {children}
+      </div>
+    );
+  }
+);
+
+Callout.displayName = "Callout";
 
 Callout.propTypes = {
   /**
