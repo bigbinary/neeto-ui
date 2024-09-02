@@ -26,7 +26,7 @@ import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
-import { TABLE_SORT_ORDERS } from "./constants";
+import { SELECT_ALL_ROWS_CALLOUT_MARGIN, TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
@@ -92,6 +92,7 @@ const Table = ({
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
+  const selectAllRowsCalloutRef = useRef({});
 
   const resizeObserver = useRef(
     new ResizeObserver(([entry]) =>
@@ -186,6 +187,9 @@ const Table = ({
     [selectedRowKeys, rowKey, rowData, totalCount, bulkSelectedAllRows]
   );
 
+  const shouldShowSelectAllRowsCallout =
+    bulkSelectAllRowsProps && showBulkSelectionCallout;
+
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     if (selectedRowKeys.length !== defaultPageSize) {
       setBulkSelectedAllRows(false);
@@ -237,10 +241,18 @@ const Table = ({
     const isPaginationVisible =
       otherProps.pagination !== false && rowData.length > pageSize;
 
+    let selectAllRowsCalloutHeight = 0;
+    if (shouldShowSelectAllRowsCallout && selectAllRowsCalloutRef.current) {
+      selectAllRowsCalloutHeight =
+        selectAllRowsCalloutRef.current?.offsetHeight +
+        SELECT_ALL_ROWS_CALLOUT_MARGIN;
+    }
+
     return (
       containerHeight -
       headerHeight -
-      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0)
+      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0) -
+      selectAllRowsCalloutHeight
     );
   };
 
@@ -345,9 +357,10 @@ const Table = ({
         },
       }}
     >
-      {bulkSelectAllRowsProps && showBulkSelectionCallout && (
+      {shouldShowSelectAllRowsCallout && (
         <SelectAllRowsCallout
           {...bulkSelectAllRowsProps}
+          ref={selectAllRowsCalloutRef}
           onBulkSelectAllRows={() => {
             setBulkSelectedAllRows(true);
             handleSetBulkSelectedAllRows?.(true);
