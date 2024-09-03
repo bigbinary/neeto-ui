@@ -18,6 +18,7 @@ export interface ColorPickerProps {
   showTransparencyControl?: boolean;
   showPicker?: boolean;
   dropdownProps?: DropdownProps;
+  portalProps?: object;
 }
 
 const ColorPicker: React.FC<ColorPickerProps>;

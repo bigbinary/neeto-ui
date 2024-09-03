@@ -21,6 +21,7 @@ export type SelectProps = {
   isAsyncLoadOptionEnabled?: boolean;
   isMulti?: boolean;
   addButtonLabel?: string;
+  portalProps?: object;
 };
 
 const Select: React.ForwardRefExoticComponent<SelectProps>;

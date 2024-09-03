@@ -11,6 +11,7 @@ export interface ActionDropdownProps {
   className?: string;
   buttonProps?: ButtonProps;
   dropdownProps?: DropdownProps;
+  portalProps?: object;
   /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/
   style?: "primary" | "secondary";
   /** @deprecated Prop deprecated. Use `buttonStyle` prop instead*/

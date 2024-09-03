@@ -179,6 +179,10 @@ DatePicker.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * To provide external classnames to DatePicker popup.
+   */
+  popupClassName: PropTypes.string,
+  /**
    * To set the text to be displayed above the DatePicker.
    */
   label: PropTypes.string,

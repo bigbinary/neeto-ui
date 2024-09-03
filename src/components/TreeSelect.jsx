@@ -30,6 +30,7 @@ const TreeSelect = forwardRef(
       treeData,
       treeDataSimpleMode = true,
       value,
+      popupClassName,
       ...otherProps
     },
     ref
@@ -76,7 +77,6 @@ const TreeSelect = forwardRef(
             }}
             data-cy="neeto-ui-tree-select-wrapper"
             dropdownStyle={{ zIndex: 100000 }}
-            popupClassName="neeto-ui-tree-select-dropdown"
             suffixIcon={<SuffixIcon />}
             treeNodeFilterProp={fieldNames?.label ?? "label"}
             value={value || undefined}
@@ -89,6 +89,10 @@ const TreeSelect = forwardRef(
                 {getLocale(i18n, t, "neetoui.treeSelect.noOptions")}
               </div>
             }
+            popupClassName={classnames(
+              "neeto-ui-tree-select-dropdown",
+              popupClassName
+            )}
             switcherIcon={props => (
               <div {...props}>
                 <SwitcherIcon />
@@ -118,6 +122,10 @@ TreeSelect.propTypes = {
    * To specify additional classes.
    */
   className: PropTypes.string,
+  /**
+   * To specify additional classes to the popup.
+   */
+  popupClassName: PropTypes.string,
   /**
    * To disable the TreeSelect component.
    */

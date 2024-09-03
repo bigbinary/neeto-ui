@@ -48,6 +48,7 @@ Default.args = {
   optionRemapping: {},
   options: OPTIONS,
   strategy: "fixed",
+  portalProps: { className: "select-menu-list" },
 };
 
 const Sizes = args => (

@@ -184,6 +184,10 @@ TimePicker.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * To provide external classnames to TimePicker popup component.
+   */
+  popupClassName: PropTypes.string,
+  /**
    * To set the text to be displayed above the TimePicker.
    */
   label: PropTypes.string,
