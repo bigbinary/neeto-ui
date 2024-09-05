@@ -26,11 +26,15 @@ import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
-import { SELECT_ALL_ROWS_CALLOUT_MARGIN, TABLE_SORT_ORDERS } from "./constants";
+import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell, isIncludedIn } from "./utils";
+import {
+  getHeaderCell,
+  getSelectAllRowsCalloutHeight,
+  isIncludedIn,
+} from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -249,10 +253,8 @@ const Table = ({
       otherProps.pagination !== false && rowData.length > pageSize;
 
     let selectAllRowsCalloutHeight = 0;
-    if (shouldShowSelectAllRowsCallout && selectAllRowsCalloutRef.current) {
-      selectAllRowsCalloutHeight =
-        selectAllRowsCalloutRef.current?.offsetHeight +
-        SELECT_ALL_ROWS_CALLOUT_MARGIN;
+    if (shouldShowSelectAllRowsCallout) {
+      selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
     }
 
     return (
