@@ -12,7 +12,7 @@ const SelectAllRowsCallout = ({
 }) => (
   <Callout
     className="my-2"
-    {...{ ...calloutProps }}
+    {...calloutProps}
     data-testid="select-all-rows-callout"
   >
     <div className="flex space-x-3">
@@ -26,7 +26,5 @@ const SelectAllRowsCallout = ({
     </div>
   </Callout>
 );
-
-SelectAllRowsCallout.displayName = "SelectAllRowsCallout";
 
 export default SelectAllRowsCallout;
