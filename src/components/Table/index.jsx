@@ -369,7 +369,6 @@ const Table = ({
       {shouldShowSelectAllRowsCallout && (
         <SelectAllRowsCallout
           {...bulkSelectAllRowsProps}
-          ref={selectAllRowsCalloutRef}
           onBulkSelectAllRows={() => {
             setBulkSelectedAllRows(true);
             handleSetBulkSelectedAllRows?.(true);
