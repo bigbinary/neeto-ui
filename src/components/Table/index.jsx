@@ -96,7 +96,6 @@ const Table = ({
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
-  const selectAllRowsCalloutRef = useRef({});
 
   const resizeObserver = useRef(
     new ResizeObserver(([entry]) =>
