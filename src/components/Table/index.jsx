@@ -30,7 +30,11 @@ import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
-import { getHeaderCell, isIncludedIn } from "./utils";
+import {
+  getHeaderCell,
+  getSelectAllRowsCalloutHeight,
+  isIncludedIn,
+} from "./utils";
 
 import Button from "../Button";
 import Typography from "../Typography";
@@ -186,10 +190,20 @@ const Table = ({
     [selectedRowKeys, rowKey, rowData, totalCount, bulkSelectedAllRows]
   );
 
+  const shouldShowSelectAllRowsCallout =
+    bulkSelectAllRowsProps && showBulkSelectionCallout;
+
   const handleRowChange = (selectedRowKeys, selectedRows) => {
+    const tableWrapper = document.querySelector(
+      '[data-testid="table-wrapper"]'
+    );
+
     if (selectedRowKeys.length !== defaultPageSize) {
       setBulkSelectedAllRows(false);
       handleSetBulkSelectedAllRows?.(false);
+      tableWrapper?.classList.remove("neeto-ui-overflow-hidden");
+    } else {
+      tableWrapper?.classList.add("neeto-ui-overflow-hidden");
     }
     onRowSelect?.(selectedRowKeys, selectedRows);
   };
@@ -237,10 +251,16 @@ const Table = ({
     const isPaginationVisible =
       otherProps.pagination !== false && rowData.length > pageSize;
 
+    let selectAllRowsCalloutHeight = 0;
+    if (shouldShowSelectAllRowsCallout) {
+      selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
+    }
+
     return (
       containerHeight -
       headerHeight -
-      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0)
+      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0) -
+      selectAllRowsCalloutHeight
     );
   };
 
@@ -345,7 +365,7 @@ const Table = ({
         },
       }}
     >
-      {bulkSelectAllRowsProps && showBulkSelectionCallout && (
+      {shouldShowSelectAllRowsCallout && (
         <SelectAllRowsCallout
           {...bulkSelectAllRowsProps}
           onBulkSelectAllRows={() => {
