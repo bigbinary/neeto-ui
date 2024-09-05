@@ -3,6 +3,7 @@ import { LabelProps } from "./Label";
 
 export type TimePickerProps = {
   className?: string;
+  popupClassName?: string;
   label?: string;
   format?: string;
   placeholder?: string;

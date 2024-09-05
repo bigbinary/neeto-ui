@@ -288,6 +288,33 @@ CSSCustomization.parameters = {
   docs: { description: { story: ColorPickerCSSCustomization } },
 };
 
+const PortalCustomClassName = ({ color, ...args }) => {
+  const [currentColor, setCurrentColor] = useState("#4558F9");
+
+  const onChange = value => {
+    action("onChange")(value);
+    setCurrentColor(value.hex);
+  };
+
+  useEffect(() => {
+    setCurrentColor(color || "#4558F9");
+  }, [color]);
+
+  return (
+    <div className="h-60 w-40">
+      <ColorPicker {...{ onChange }} color={currentColor} {...args} />
+    </div>
+  );
+};
+
+PortalCustomClassName.storyName =
+  "ColorPicker with custom classname for the dropdown menu";
+
+PortalCustomClassName.args = {
+  color: "#4558F9",
+  portalProps: { classNames: "neeto-ui__color-pallette-wrapper" },
+};
+
 export {
   Default,
   Sizes,
@@ -297,6 +324,7 @@ export {
   ShowTransparencyControl,
   OnlyPalettePicker,
   CSSCustomization,
+  PortalCustomClassName,
 };
 
 export default metadata;

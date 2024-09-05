@@ -109,8 +109,11 @@ const Dropdown = ({
     ? { visible: isOpen }
     : { onClickOutside: () => closeOnOutsideClick };
 
-  const { classNames: dropdownClassname, ...otherDropdownProps } =
-    dropdownProps;
+  const {
+    classNames: dropdownClassnames,
+    className: dropdownClassName,
+    ...otherDropdownProps
+  } = dropdownProps;
 
   const close = () => instance.hide();
 
@@ -139,7 +142,8 @@ const Dropdown = ({
           <div
             data-cy={`${hyphenize(label)}-dropdown-container`}
             className={classnames("neeto-ui-dropdown__popup", {
-              [dropdownClassname]: dropdownClassname,
+              [dropdownClassName]: dropdownClassName,
+              [dropdownClassnames]: dropdownClassnames,
             })}
             onClick={closeOnSelect ? close : noop}
             {...otherDropdownProps}

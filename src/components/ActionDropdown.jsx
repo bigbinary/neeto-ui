@@ -23,9 +23,10 @@ const ActionDropdown = ({
   disabled = false,
   onClick = noop,
   buttonProps: { style, size, ...buttonProps } = {},
-  dropdownProps = {},
   className = "",
+  dropdownProps,
   children,
+  portalProps,
 }) => (
   <div className={classnames(["neeto-ui-action-dropdown", className])}>
     <Button
@@ -41,6 +42,7 @@ const ActionDropdown = ({
       buttonProps={{ size: size ?? buttonSize }}
       buttonStyle={style ?? buttonStyle}
       {...dropdownProps}
+      dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       {children}
     </Dropdown>
@@ -80,6 +82,10 @@ ActionDropdown.propTypes = {
    * To specify the props to be passed to the Dropdown target.
    */
   dropdownProps: PropTypes.object,
+  /**
+   * To specify the props to be passed to the Dropdown portal.
+   */
+  portalProps: PropTypes.object,
   /**
    * To provide external classnames to ActionDropdown target wrapper.
    */

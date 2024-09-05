@@ -5,6 +5,7 @@ export type DatePickerProps = {
   value: any;
   defaultValue?: any;
   className?: string;
+  popupClassName?: string;
   label?: string;
   size?: "small" | "medium" | "large";
   dropdownClassName?: string;

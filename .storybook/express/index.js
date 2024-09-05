@@ -5,7 +5,7 @@ const { execSync } = require("child_process");
 const server = express();
 const port = 3000;
 
-const commitHash = execSync("git rev-parse HEAD").toString().trim();
+const commitHash = process.env.NEETODEPLOY_SLUG_COMMIT;
 
 const generateUrlWithHash = req => {
   const parsedUrl = new URL(

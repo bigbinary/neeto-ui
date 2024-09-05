@@ -33,6 +33,7 @@ const ColorPicker = ({
   showHexValue = false,
   showTransparencyControl = false,
   showPicker = true,
+  portalProps,
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
@@ -119,6 +120,7 @@ const ColorPicker = ({
       label={colorValue}
       position="bottom-start"
       {...dropdownProps}
+      dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
         {colorPaletteProps && (
@@ -221,6 +223,10 @@ ColorPicker.propTypes = {
    * To show the color picker. Used to hide the picker in cases where only palette is required. By default it will be true.
    */
   showPicker: PropTypes.bool,
+  /**
+   * To specify the props to be passed to the dropdown portal.
+   */
+  portalProps: PropTypes.object,
 };
 
 export default ColorPicker;

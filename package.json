@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "8.2.9",
+  "version": "8.2.10",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
@@ -27,7 +27,7 @@
   "engines": {
     "node": ">=18.12",
     "npm": ">=9",
-    "yarn": ">=1.22"
+    "yarn": "1.22.x"
   },
   "exports": {
     ".": {
