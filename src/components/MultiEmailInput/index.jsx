@@ -59,6 +59,8 @@ const MultiEmailInput = forwardRef(
     const handleFilterEmails = () => onChange(renderValidEmails(value));
 
     const handleEmailChange = inputValue => {
+      if (!isCreateable) return;
+
       const inputValues = inputValue.match(EMAIL_SEPARATION_REGEX);
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
