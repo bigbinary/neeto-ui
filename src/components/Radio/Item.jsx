@@ -21,6 +21,7 @@ const Item = ({
       <input
         {...{ id, name }}
         className="neeto-ui-radio"
+        data-cy={`${hyphenize(label)}-radio-input`}
         type="radio"
         {...otherProps}
       />
