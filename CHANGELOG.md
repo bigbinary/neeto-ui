@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.13 - 2024-09-10
+
+Added: `data-cy` prop to *Radio* input
+
 ## 8.2.11 - 2024-09-05
 
 https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
@@ -48,7 +52,6 @@ Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.0 - 2024-07-27
 - Added: Persist scroll position of the table during navigation.
 ## 8.1.6 - 2024-07-26
-
 <img width="1020" alt="image" src="https://github.com/user-attachments/assets/298408c6-60dc-4e29-a0c7-efb1c3350a29">
 Main story UI
 Before
@@ -63,7 +66,6 @@ After
 ## 8.1.0 - 2024-07-22
 Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
 ## 8.0.0 - 2024-07-19
-
 - Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
 
 ## 7.1.0 - 2024-07-16
@@ -536,7 +538,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.1.16 - 2023-09-12
 - Changed: onChange function of `ColorPicker` to output hex-alpha value if the
   transparency option is turned on
-
 ## 5.1.15 - 2023-09-06
 
 - Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the
@@ -1276,7 +1277,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.10
 - Fixed: Removed unnecessary scrollbar in *Table* component.
 - Added: `maxHeight` prop to the *EmailInput* component.
-
 ## 3.3.9
 
 - Fixed: *ActionDropdown* issues with common props for button and dropdown
