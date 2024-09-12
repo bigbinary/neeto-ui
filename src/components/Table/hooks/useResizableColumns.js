@@ -16,6 +16,7 @@ const useResizableColumns = ({
   handleSort,
   sortedInfo,
   onColumnHide,
+  onColumnFreeze,
   onMoreActionClick,
   tableOnChangeProps,
 }) => {
@@ -40,6 +41,7 @@ const useResizableColumns = ({
             onSort: handleSort,
             sortedInfo,
             onColumnHide,
+            onColumnFreeze,
             onMoreActionClick,
             isAddEnabled: isAddEnabled && !col.fixed,
             onAddColumn: positionOffset => onColumnAdd(index + positionOffset),

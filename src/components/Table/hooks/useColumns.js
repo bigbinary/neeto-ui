@@ -16,6 +16,7 @@ const useColumns = ({
   sortedInfo,
   setSortedInfo,
   onColumnHide,
+  onColumnFreeze,
   onMoreActionClick,
   onTableChange,
   tableOnChangeProps,
@@ -72,6 +73,7 @@ const useColumns = ({
     onColumnHide,
     onMoreActionClick,
     tableOnChangeProps,
+    onColumnFreeze,
   });
 
   return { dragProps, columns: computedColumnsData };
