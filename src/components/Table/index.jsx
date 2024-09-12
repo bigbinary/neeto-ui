@@ -11,12 +11,13 @@ import classnames from "classnames";
 import {
   dynamicArray,
   isNotEmpty,
+  isPresent,
   modifyBy,
   snakeToCamelCase,
 } from "neetocist";
 import { Left, Right, MenuHorizontal } from "neetoicons";
 import PropTypes from "prop-types";
-import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
+import { assoc, isEmpty, mergeLeft, mergeRight, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
@@ -26,7 +27,7 @@ import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
-import { TABLE_SORT_ORDERS } from "./constants";
+import { COLUMN_FIXED_VALUES, TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
 import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
@@ -34,6 +35,7 @@ import {
   getHeaderCell,
   getSelectAllRowsCalloutHeight,
   isIncludedIn,
+  sortFrozenColumns,
 } from "./utils";
 
 import Button from "../Button";
@@ -135,6 +137,17 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
+  const onColumnFreeze = chosenColumn => {
+    const updatedColumns = columns.map(column => {
+      if (column.dataIndex !== chosenColumn.dataIndex) return column;
+
+      return mergeRight(column, {
+        fixed: isPresent(column.fixed) ? null : COLUMN_FIXED_VALUES.LEFT,
+      });
+    });
+    setColumns(sortFrozenColumns(updatedColumns, columnData));
+  };
+
   const { dragProps, columns: curatedColumnsData } = useColumns({
     isReorderEnabled: enableColumnReorder,
     isResizeEnabled: enableColumnResize,
@@ -150,6 +163,7 @@ const Table = ({
     onMoreActionClick,
     onColumnAdd,
     onColumnDelete,
+    onColumnFreeze,
     tableOnChangeProps,
     handleTableSortChange,
     isDefaultPageChangeHandler,
