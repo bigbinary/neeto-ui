@@ -4,9 +4,12 @@ import { isPresent, noop } from "neetocist";
 import { has } from "ramda";
 
 import SortIcon from "../components/SortIcon";
+import { COLUMN_FIXED_VALUES } from "../constants";
 
 const useResizableColumns = ({
   columns,
+  columnData,
+  frozenColumns,
   setColumns,
   isEnabled,
   isAddEnabled,
@@ -28,43 +31,47 @@ const useResizableColumns = ({
       setColumns(nextColumns);
     };
 
-  const computedColumnsData = useMemo(
-    () =>
-      columns.map((col, index) => {
-        const modifiedColumn = {
-          ...col,
-          onHeaderCell: column => ({
-            width: column.width,
-            onResize: isEnabled ? handleResize(index) : noop,
-            onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
-            isSortable: isPresent(col.sorter),
-            onSort: handleSort,
-            sortedInfo,
-            onColumnHide,
-            onColumnFreeze,
-            onMoreActionClick,
-            isAddEnabled: isAddEnabled && !col.fixed,
-            onAddColumn: positionOffset => onColumnAdd(index + positionOffset),
-            onColumnDelete,
-            isHidable: col.isHidable,
-            isDeletable: col.isDeletable,
-            moreActions: col.moreActions,
-            column: col,
-          }),
-          sortIcon: SortIcon,
-          sortOrder:
-            sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
-              ? sortedInfo.order
-              : null,
-        };
+  const computedColumnsData = useMemo(() =>
+    columns.map((col, index) => {
+      const fixed =
+        frozenColumns.indexOf(col.dataIndex) !== -1
+          ? COLUMN_FIXED_VALUES.LEFT
+          : null;
 
-        if (!has("ellipsis", col)) {
-          modifiedColumn.ellipsis = true;
-        }
+      const modifiedColumn = {
+        ...col,
+        onHeaderCell: column => ({
+          width: column.width,
+          onResize: isEnabled ? handleResize(index) : noop,
+          onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
+          isSortable: isPresent(col.sorter),
+          onSort: handleSort,
+          sortedInfo,
+          onColumnHide,
+          onColumnFreeze,
+          onMoreActionClick,
+          isAddEnabled: isAddEnabled && !fixed,
+          onAddColumn: positionOffset => onColumnAdd(index + positionOffset),
+          onColumnDelete,
+          isHidable: col.isHidable,
+          isDeletable: col.isDeletable,
+          moreActions: col.moreActions,
+          column: col,
+        }),
+        sortIcon: SortIcon,
+        sortOrder:
+          sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
+            ? sortedInfo.order
+            : null,
+        fixed,
+      };
 
-        return modifiedColumn;
-      }),
-    [columns, sortedInfo, tableOnChangeProps]
+      if (!has("ellipsis", col)) {
+        modifiedColumn.ellipsis = true;
+      }
+
+      return modifiedColumn;
+    })
   );
 
   return { columns: computedColumnsData };
