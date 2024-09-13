@@ -21,6 +21,7 @@ const HeaderCellMenu = ({
   sortedInfo,
   isSortable,
   isAddEnabled,
+  isFixedColumn,
   isColumnDeletable,
   isHidable,
   onColumnHide,
@@ -34,8 +35,6 @@ const HeaderCellMenu = ({
 }) => {
   const { t, i18n } = useTranslation();
   const columnInfoButtonReference = useRef();
-
-  const isFixedColumn = isPresent(column.fixed);
 
   return (
     <div onClick={event => event.stopPropagation()}>
