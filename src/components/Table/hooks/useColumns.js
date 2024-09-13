@@ -1,10 +1,18 @@
-import { equals, props } from "ramda";
+import { useCallback } from "react";
+
+import { isNotPresent } from "neetocist";
+import { equals, pluck, props } from "ramda";
+
+import useLocalStorage from "hooks/useLocalStorage";
 
 import useReorderColumns from "./useReorderColumns";
 import useResizableColumns from "./useResizableColumns";
 
+import { getInitialFixedColumns } from "../utils";
+
 const useColumns = ({
   columns,
+  columnData,
   setColumns,
   isResizeEnabled,
   isReorderEnabled,
@@ -16,13 +24,32 @@ const useColumns = ({
   sortedInfo,
   setSortedInfo,
   onColumnHide,
-  onColumnFreeze,
   onMoreActionClick,
   onTableChange,
   tableOnChangeProps,
   handleTableSortChange,
   isDefaultPageChangeHandler,
 }) => {
+  const [frozenColumns, setFrozenColumns] = useLocalStorage(
+    "NeetoUIFrozenCol",
+    getInitialFixedColumns(columns)
+  );
+
+  const onColumnFreeze = useCallback(
+    chosenColumn => {
+      const updatedColumns = columns.filter(column => {
+        if (column.dataIndex !== chosenColumn.dataIndex) {
+          return frozenColumns.indexOf(column.dataIndex) !== -1;
+        }
+
+        return isNotPresent(column.fixed);
+      });
+
+      setFrozenColumns(pluck("dataIndex", updatedColumns));
+    },
+    [columns, frozenColumns, setFrozenColumns]
+  );
+
   const { dragProps } = useReorderColumns({
     isEnabled: isReorderEnabled,
     columns,
@@ -62,6 +89,8 @@ const useColumns = ({
 
   const { columns: computedColumnsData } = useResizableColumns({
     columns,
+    columnData,
+    frozenColumns,
     setColumns,
     isEnabled: isResizeEnabled,
     isAddEnabled,
