@@ -144,7 +144,9 @@ const HeaderCellMenu = ({
               {getLocale(i18n, t, "neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
-          <MenuItem.Button onClick={() => onColumnFreeze(column)}>
+          <MenuItem.Button
+            onClick={() => onColumnFreeze(isFixedColumn, column)}
+          >
             {isFixedColumn
               ? getLocale(i18n, t, "neetoui.table.unFreezeColumn")
               : getLocale(i18n, t, "neetoui.table.freezeColumn")}

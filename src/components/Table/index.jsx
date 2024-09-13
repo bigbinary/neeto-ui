@@ -74,6 +74,7 @@ const Table = ({
   onChange,
   onMoreActionClick,
   bulkSelectAllRowsProps,
+  localStorageKeyPrefix,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
@@ -154,6 +155,7 @@ const Table = ({
     tableOnChangeProps,
     handleTableSortChange,
     isDefaultPageChangeHandler,
+    localStorageKeyPrefix,
   });
 
   const queryParams = useQueryParams();

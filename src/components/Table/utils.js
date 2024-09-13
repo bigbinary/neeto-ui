@@ -63,7 +63,7 @@ export const sortFrozenColumns = columnData => {
   };
 };
 
-export const getInitialFixedColumns = columnData =>
+export const getFixedColumns = columnData =>
   pipe(
     filter(({ fixed }) => isPresent(fixed)),
     pluck("dataIndex")

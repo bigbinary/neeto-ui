@@ -37,18 +37,14 @@ const useColumns = ({
   );
 
   const onColumnFreeze = useCallback(
-    chosenColumn => {
-      const updatedColumns = columns.filter(column => {
-        if (column.dataIndex !== chosenColumn.dataIndex) {
-          return frozenColumns.indexOf(column.dataIndex) !== -1;
-        }
+    (isFixedColumn, { dataIndex }) => {
+      const updatedColumns = isFixedColumn
+        ? without([dataIndex], frozenColumns)
+        : append(dataIndex, frozenColumns);
 
-        return isNotPresent(column.fixed);
-      });
-
-      setFrozenColumns(pluck("dataIndex", updatedColumns));
+      setFrozenColumns(updatedColumns);
     },
-    [columns, frozenColumns, setFrozenColumns]
+    [frozenColumns, setFrozenColumns]
   );
 
   const { dragProps } = useReorderColumns({
