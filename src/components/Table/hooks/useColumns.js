@@ -8,7 +8,7 @@ import useLocalStorage from "hooks/useLocalStorage";
 import useReorderColumns from "./useReorderColumns";
 import useResizableColumns from "./useResizableColumns";
 
-import { getInitialFixedColumns } from "../utils";
+import { getFrozenColumnsLocalStorageKey } from "../utils";
 
 const useColumns = ({
   columns,
@@ -29,9 +29,10 @@ const useColumns = ({
   tableOnChangeProps,
   handleTableSortChange,
   isDefaultPageChangeHandler,
+  localStorageKeyPrefix,
 }) => {
   const [frozenColumns, setFrozenColumns] = useLocalStorage(
-    "NeetoUIFrozenCol",
+    getFrozenColumnsLocalStorageKey(localStorageKeyPrefix),
     getInitialFixedColumns(columns)
   );
 

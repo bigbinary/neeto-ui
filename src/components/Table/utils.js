@@ -12,6 +12,22 @@ import {
   SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT,
 } from "./constants";
 
+const convertLocationPathnameToId = () => {
+  const pathname = decodeURIComponent(window.location.pathname).replace(
+    /^\//,
+    ""
+  );
+
+  let hash = 0;
+  for (let i = 0; i < pathname.length; i++) {
+    const char = pathname.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+
+  return Math.abs(hash).toString(16).toUpperCase();
+};
+
 export const getHeaderCell = ({ enableColumnResize, enableColumnReorder }) => {
   if (enableColumnReorder && enableColumnResize) return { cell: HeaderCell };
 
@@ -52,3 +68,11 @@ export const getInitialFixedColumns = columnData =>
     filter(({ fixed }) => isPresent(fixed)),
     pluck("dataIndex")
   )(columnData);
+
+export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
+  const prefix = isPresent(localStorageKeyPrefix)
+    ? localStorageKeyPrefix
+    : convertLocationPathnameToId();
+
+  return `NEETOUI-${prefix}-FIXED_COLUMNS`;
+};
