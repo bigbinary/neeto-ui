@@ -1,14 +1,13 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
-import { isNotPresent } from "neetocist";
-import { equals, pluck, props } from "ramda";
+import { append, equals, props, union, without } from "ramda";
 
 import useLocalStorage from "hooks/useLocalStorage";
 
 import useReorderColumns from "./useReorderColumns";
 import useResizableColumns from "./useResizableColumns";
 
-import { getFrozenColumnsLocalStorageKey } from "../utils";
+import { getFixedColumns, getFrozenColumnsLocalStorageKey } from "../utils";
 
 const useColumns = ({
   columns,
@@ -33,8 +32,13 @@ const useColumns = ({
 }) => {
   const [frozenColumns, setFrozenColumns] = useLocalStorage(
     getFrozenColumnsLocalStorageKey(localStorageKeyPrefix),
-    getInitialFixedColumns(columns)
+    getFixedColumns(columnData)
   );
+
+  useEffect(() => {
+    const fixedCols = getFixedColumns(columnData);
+    setFrozenColumns(union(fixedCols));
+  }, [columnData]);
 
   const onColumnFreeze = useCallback(
     (isFixedColumn, { dataIndex }) => {

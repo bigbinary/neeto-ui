@@ -4,8 +4,11 @@ import { isPresent, noop } from "neetocist";
 import { has } from "ramda";
 
 import SortIcon from "../components/SortIcon";
-import { COLUMN_FIXED_VALUES } from "../constants";
-import { sortFrozenColumns } from "../utils";
+import {
+  getColumFixedValue,
+  getColumnSortOrder,
+  sortFrozenColumns,
+} from "../utils";
 
 const useResizableColumns = ({
   columns,
@@ -36,10 +39,7 @@ const useResizableColumns = ({
     () =>
       columns
         .map((col, index) => {
-          const fixed =
-            frozenColumns.indexOf(col.dataIndex) !== -1
-              ? COLUMN_FIXED_VALUES.LEFT
-              : null;
+          const fixed = getColumFixedValue(col, frozenColumns);
 
           const modifiedColumn = {
             ...col,
@@ -64,16 +64,11 @@ const useResizableColumns = ({
               column: col,
             }),
             sortIcon: SortIcon,
-            sortOrder:
-              sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
-                ? sortedInfo.order
-                : null,
+            sortOrder: getColumnSortOrder(col, sortedInfo),
             fixed,
           };
 
-          if (!has("ellipsis", col)) {
-            modifiedColumn.ellipsis = true;
-          }
+          if (!has("ellipsis", col)) modifiedColumn.ellipsis = true;
 
           return modifiedColumn;
         })

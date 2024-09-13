@@ -8,6 +8,7 @@ import {
   ResizableHeaderCell,
 } from "./components/HeaderCell";
 import {
+  COLUMN_FIXED_VALUES,
   SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT,
   SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT,
 } from "./constants";
@@ -68,6 +69,14 @@ export const getFixedColumns = columnData =>
     filter(({ fixed }) => isPresent(fixed)),
     pluck("dataIndex")
   )(columnData);
+
+export const getColumnSortOrder = (col, sortedInfo) =>
+  sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
+    ? sortedInfo.order
+    : null;
+
+export const getColumFixedValue = (col, frozenColumns) =>
+  frozenColumns.indexOf(col.dataIndex) !== -1 ? COLUMN_FIXED_VALUES.LEFT : null;
 
 export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
   const prefix = isPresent(localStorageKeyPrefix)
