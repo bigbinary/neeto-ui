@@ -1,5 +1,5 @@
 import { isPresent } from "neetocist";
-import { __, all, includes } from "ramda";
+import { __, all, filter, includes, pipe, pluck } from "ramda";
 
 import {
   CellContent,
@@ -30,12 +30,12 @@ export const getSelectAllRowsCalloutHeight = () =>
     ? SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT
     : SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT;
 
-export const sortFrozenColumns = (columns, columnData) => {
+export const sortFrozenColumns = columnData => {
   const originalIndices = new Map(
     columnData.map((col, index) => [col.dataIndex, index])
   );
 
-  return columns.sort((a, b) => {
+  return (a, b) => {
     const aFixed = isPresent(a.fixed);
     const bFixed = isPresent(b.fixed);
     const aIndex = originalIndices.get(a.dataIndex);
@@ -44,5 +44,11 @@ export const sortFrozenColumns = (columns, columnData) => {
     if (aFixed !== bFixed) return aFixed ? -1 : 1;
 
     return aIndex - bIndex;
-  });
+  };
 };
+
+export const getInitialFixedColumns = columnData =>
+  pipe(
+    filter(({ fixed }) => isPresent(fixed)),
+    pluck("dataIndex")
+  )(columnData);
