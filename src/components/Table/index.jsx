@@ -549,6 +549,10 @@ Table.propTypes = {
     selectAllRowButtonLabel: PropTypes.string.isRequired,
     setBulkSelectedAllRows: PropTypes.func.isRequired,
   }),
+  /**
+   * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.
+   */
+  localStorageKeyPrefix: PropTypes.string,
 };
 
 export default Table;
