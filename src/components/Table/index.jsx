@@ -37,6 +37,7 @@ import {
 } from "./utils";
 
 import Button from "../Button";
+import Spinner from "../Spinner";
 import Typography from "../Typography";
 
 const TABLE_PAGINATION_HEIGHT = 64;
@@ -375,10 +376,11 @@ const Table = ({
         />
       )}
       <AntTable
-        {...{ bordered, loading, locale, rowKey }}
+        {...{ bordered, locale, rowKey }}
         columns={sortedColumnsWithAlignment}
         components={componentOverrides}
         dataSource={rowData}
+        loading={{ spinning: loading, indicator: <Spinner /> }}
         ref={tableRef}
         rowSelection={rowSelectionProps}
         showSorterTooltip={false}
