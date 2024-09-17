@@ -23,6 +23,17 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.14 - 2024-09-17
+
+- Replaced AntdTable loader with NeetoUI Spinner.
+
+### Before
+
+<img width="1103" alt="Screenshot 2024-09-13 at 12 03 35 PM" src="https://github.com/user-attachments/assets/24602fa3-9cb9-487e-bcaa-e88ea73276c3">
+### After
+
+<img width="1438" alt="Screenshot 2024-09-13 at 12 58 28 PM" src="https://github.com/user-attachments/assets/ab934456-c014-4bdb-b03b-709333e98d6a">
+<img width="1159" alt="Screenshot 2024-09-13 at 12 26 11 PM" src="https://github.com/user-attachments/assets/73317b59-15f5-429b-8458-359934b216de">
 ## 8.2.13 - 2024-09-10
 
 Added: `data-cy` prop to *Radio* input
@@ -67,7 +78,6 @@ After
 Updates all formik components in neetoUI to use status to show server error and reset the status when the value changes.
 ## 8.0.0 - 2024-07-19
 - Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
-
 ## 7.1.0 - 2024-07-16
 
 - Added a new TranslationProvider for initializing translations for external use of NeetoUI
@@ -539,7 +549,6 @@ Fixed: scrollToErrorField not working for Select component.
 - Changed: onChange function of `ColorPicker` to output hex-alpha value if the
   transparency option is turned on
 ## 5.1.15 - 2023-09-06
-
 - Fixed: bug with sortable columns trying to access a `null` `headerRef ` in the
   `handleHeaderClasses` function.
 - Achieved the same behavior of center aligning table header content for
@@ -1278,7 +1287,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: Removed unnecessary scrollbar in *Table* component.
 - Added: `maxHeight` prop to the *EmailInput* component.
 ## 3.3.9
-
 - Fixed: *ActionDropdown* issues with common props for button and dropdown
 
 ## 3.3.7
