@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import * as yup from "yup";
 
@@ -17,31 +17,45 @@ const metadata = {
   },
 };
 
-const FormikStory = args => (
-  <Form
-    formikProps={{
-      initialValues: { firstName: "", lastName: "", email: "" },
-      validationSchema: yup.object().shape({
-        firstName: yup.string().required(),
-        lastName: yup.string().required(),
-        email: yup.string().required(),
-      }),
-      onSubmit: () => {
-        window.alert("Form submitted without errors");
+const responseStatuses = ["success", "error"];
 
-        return Promise.resolve();
-      },
-    }}
-    {...args}
-  >
-    <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
-      <Input required className="w-80" label="First name" name="firstName" />
-      <Input required className="w-80" label="Last name" name="lastName" />
-      <Input required className="w-80" label="Email" name="email" />
-      <Button className="w-20" disabled={false} label="Submit" type="submit" />
-    </div>
-  </Form>
-);
+const FormikStory = args => {
+  const [status, setStatus] = useState();
+
+  return (
+    <Form
+      formikProps={{
+        initialValues: { firstName: "", lastName: "", email: "" },
+        validationSchema: yup.object().shape({
+          firstName: yup.string().required(),
+          lastName: yup.string().required(),
+          email: yup.string().required(),
+        }),
+        onSubmit: (_, actions) =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              actions.setSubmitting(false);
+              resolve();
+              const randomStatus =
+                responseStatuses[
+                  Math.round(Math.random() * 10) % responseStatuses.length
+                ];
+
+              setStatus(randomStatus);
+            }, 1500);
+          }),
+      }}
+      {...args}
+    >
+      <div className="flex h-auto w-full flex-col items-start gap-4 p-6">
+        <Input required className="w-80" label="First name" name="firstName" />
+        <Input required className="w-80" label="Last name" name="lastName" />
+        <Input required className="w-80" label="Email" name="email" />
+        <Button {...{ status }} disabled={false} label="Submit" type="submit" />
+      </div>
+    </Form>
+  );
+};
 
 FormikStory.storyName = "Form";
 FormikStory.args = { scrollToErrorField: true };
