@@ -243,6 +243,11 @@ Button.propTypes = {
    * To specify the status of the user action, a check or cross icon will be rendered based on the status
    */
   status: PropTypes.oneOf(Object.values(STATUS)),
+  /**
+   * This callback will be triggered at the timeout to reset the feedback icon, the host application
+   * can use this to reset the status if they are using a local state.
+   */
+  onStatusReset: PropTypes.func,
 };
 
 export default Button;
