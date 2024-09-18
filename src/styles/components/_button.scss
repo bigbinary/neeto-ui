@@ -64,7 +64,7 @@
     --neeto-ui-btn-padding-y: 6px;
 
     .neeto-ui-btn__icon,
-    .neeto-ui-btn__spinner svg {
+    .neeto-ui-btn__feedback-icon svg {
       pointer-events: none;
       width: var(--neeto-ui-btn-icon-size) !important;
       height: var(--neeto-ui-btn-icon-size) !important;
@@ -126,7 +126,7 @@
     opacity: var(--neeto-ui-btn-disabled-opacity);
   }
 
-  .neeto-ui-btn__spinner{
+  .neeto-ui-btn__feedback-icon{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -143,8 +143,8 @@
 }
 
 .neeto-ui-btn__icon,
-.neeto-ui-btn__spinner,
-.neeto-ui-btn__spinner-wrapper {
+.neeto-ui-btn__feedback-icon,
+.neeto-ui-btn__feedback-icon-wrapper {
   pointer-events: none;
   color: inherit;
   svg {
@@ -250,7 +250,7 @@
     opacity: 0;
     visibility: hidden;
   }
-  .neeto-ui-btn__spinner{
+  .neeto-ui-btn__feedback-icon{
     opacity: 1;
     visibility: visible;
   }

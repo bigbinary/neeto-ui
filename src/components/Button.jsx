@@ -148,12 +148,12 @@ const Button = React.forwardRef(
             />
           )}
           {loading && (
-            <span className="neeto-ui-btn__spinner">
+            <span className="neeto-ui-btn__feedback-icon">
               <Spinner aria-hidden="true" size="small" />
             </span>
           )}
           {isFeedbackIconVisible && status && (
-            <span className="neeto-ui-btn__spinner">
+            <span className="neeto-ui-btn__feedback-icon">
               <FeedbackIcon aria-hidden="true" size="20" />
             </span>
           )}
