@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import classnames from "classnames";
+import { noop } from "neetocist";
+import { Check, Error } from "neetoicons";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -19,6 +21,7 @@ const BUTTON_STYLES = {
 const SIZES = { small: "small", medium: "medium", large: "large" };
 const ICON_POSITIONS = { left: "left", right: "right" };
 const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
+const STATUS = { SUCCESS: "success", ERROR: "error" };
 
 const Button = React.forwardRef(
   (
@@ -39,12 +42,18 @@ const Button = React.forwardRef(
       href = "",
       tooltipProps = null,
       children,
+      status,
+      onStatusReset,
       ...otherProps
     },
     ref
   ) => {
     let Parent = "button";
     let elementSpecificProps = { type };
+    const resetFeedbackIconTimeout = useRef();
+
+    const [didStartAction, setDidStartAction] = useState(false);
+    const [isFeedbackIconVisible, setIsFeedbackIconVisible] = useState(false);
 
     const renderLabel = label || children;
 
@@ -58,8 +67,42 @@ const Button = React.forwardRef(
       }
     }
 
+    useEffect(() => {
+      if (!loading) return;
+
+      setDidStartAction(true);
+    }, [loading]);
+
+    useEffect(() => {
+      if (loading || !didStartAction) return noop;
+
+      if (didStartAction && !status) {
+        setDidStartAction(false);
+
+        return noop;
+      }
+
+      setIsFeedbackIconVisible(true);
+      setDidStartAction(false);
+      resetFeedbackIconTimeout.current = setTimeout(() => {
+        setIsFeedbackIconVisible(false);
+        onStatusReset?.();
+      }, 5000);
+
+      return () => {
+        clearTimeout(resetFeedbackIconTimeout.current);
+      };
+    }, [didStartAction, loading]);
+
+    let FeedbackIcon = null;
+    if (status === STATUS.SUCCESS) FeedbackIcon = Check;
+
+    if (status === STATUS.ERROR) FeedbackIcon = Error;
+
     const handleClick = e => {
       if (loading || disabled) return;
+      setIsFeedbackIconVisible(false);
+      clearTimeout(resetFeedbackIconTimeout.current);
       onClick(e);
     };
 
@@ -72,6 +115,9 @@ const Button = React.forwardRef(
             />
           )
         : icon || React.Fragment;
+
+    const isFeedbackIconsVisible =
+      loading || didStartAction || (isFeedbackIconVisible && status);
 
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
@@ -90,7 +136,7 @@ const Button = React.forwardRef(
             "neeto-ui-btn--width-full": fullWidth,
             "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
             "neeto-ui-btn--icon-only": !renderLabel,
-            "neeto-ui-btn--loading": loading,
+            "neeto-ui-btn--feedback-visible": isFeedbackIconsVisible,
             disabled,
           })}
           onClick={handleClick}
@@ -109,6 +155,11 @@ const Button = React.forwardRef(
           {loading && (
             <span className="neeto-ui-btn__spinner">
               <Spinner aria-hidden="true" size="small" />
+            </span>
+          )}
+          {isFeedbackIconVisible && status && (
+            <span className="neeto-ui-btn__spinner">
+              <FeedbackIcon aria-hidden="true" size="20" />
             </span>
           )}
         </Parent>
@@ -188,6 +239,10 @@ Button.propTypes = {
    * To specify the children to be rendered inside the Button.
    */
   children: PropTypes.string,
+  /**
+   * To specify the status of the user action, a check or cross icon will be rendered based on the status
+   */
+  status: PropTypes.oneOf(Object.values(STATUS)),
 };
 
 export default Button;
