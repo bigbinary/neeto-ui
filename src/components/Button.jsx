@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import classnames from "classnames";
-import { noop } from "neetocist";
 import { Check, Error } from "neetoicons";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -74,12 +73,12 @@ const Button = React.forwardRef(
     }, [loading]);
 
     useEffect(() => {
-      if (loading || !didStartAction) return noop;
+      if (loading || !didStartAction) return;
 
       if (didStartAction && !status) {
         setDidStartAction(false);
 
-        return noop;
+        return;
       }
 
       setIsFeedbackIconVisible(true);
@@ -88,10 +87,6 @@ const Button = React.forwardRef(
         setIsFeedbackIconVisible(false);
         onStatusReset?.();
       }, 5000);
-
-      return () => {
-        clearTimeout(resetFeedbackIconTimeout.current);
-      };
     }, [didStartAction, loading]);
 
     let FeedbackIcon = null;
