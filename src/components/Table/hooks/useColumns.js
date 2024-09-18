@@ -1,6 +1,6 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
-import { append, equals, props, union, without } from "ramda";
+import { append, equals, props, without } from "ramda";
 
 import useLocalStorage from "hooks/useLocalStorage";
 
@@ -34,11 +34,6 @@ const useColumns = ({
     getFrozenColumnsLocalStorageKey(localStorageKeyPrefix),
     getFixedColumns(columnData)
   );
-
-  useEffect(() => {
-    const fixedCols = getFixedColumns(columnData);
-    setFrozenColumns(union(fixedCols));
-  }, [columnData]);
 
   const onColumnFreeze = useCallback(
     (isFixedColumn, { dataIndex }) => {

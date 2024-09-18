@@ -73,7 +73,14 @@ const useResizableColumns = ({
           return modifiedColumn;
         })
         .sort(sortFrozenColumns(columnData)),
-    [columns, sortedInfo, tableOnChangeProps, onColumnFreeze, frozenColumns]
+    [
+      columns,
+      sortedInfo,
+      tableOnChangeProps,
+      onColumnFreeze,
+      frozenColumns,
+      columnData,
+    ]
   );
 
   return { columns: computedColumnsData };
