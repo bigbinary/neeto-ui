@@ -25,6 +25,8 @@ export interface ButtonProps {
   href?: string;
   tooltipProps?: TooltipProps;
   children?: string;
+  status?: string;
+  onStatusReset?: () => void;
   [key: string]: any;
 }
 
