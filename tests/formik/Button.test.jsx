@@ -9,8 +9,8 @@ import Form from "formikcomponents/Form";
 import Input from "formikcomponents/Input";
 
 const TestButtonForm = ({ onSubmit }) => {
-  const handleSubmit = values => {
-    onSubmit(values);
+  const handleSubmit = async values => {
+    await onSubmit(values);
   };
 
   return (
