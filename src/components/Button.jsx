@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import classnames from "classnames";
-import { Check, Error } from "neetoicons";
+import { Error } from "neetoicons";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Spinner from "./Spinner";
 import Tooltip from "./Tooltip";
+
+const ThumbsUp = () => <span>👍</span>;
 
 const BUTTON_STYLES = {
   primary: "primary",
@@ -90,7 +92,7 @@ const Button = React.forwardRef(
     }, [didStartAction, loading]);
 
     let FeedbackIcon = null;
-    if (status === STATUS.SUCCESS) FeedbackIcon = Check;
+    if (status === STATUS.SUCCESS) FeedbackIcon = ThumbsUp;
 
     if (status === STATUS.ERROR) FeedbackIcon = Error;
 
