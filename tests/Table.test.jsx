@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { Table } from "components";
 import { getQueryParams } from "utils";
 
 const columnData = [
-  { dataIndex: "id", key: "id", title: "ID", width: 150 },
+  { dataIndex: "id", key: "id", title: "ID", width: 150, fixed: "left" },
   {
     title: "First Name",
     dataIndex: "first_name",
@@ -422,5 +422,64 @@ describe("Table", () => {
     });
 
     expect(setBulkSelectedAllRows).toBeCalledTimes(1);
+  });
+
+  it("should show the freeze and unfreeze menu on top of the columns", async () => {
+    const NeetoUITableWithWrapper = () => (
+      <NeetoUITable
+        {...{ columnData, rowData }}
+        rowSelection
+        defaultPageSize={2}
+        totalCount={rowData.length}
+      />
+    );
+
+    render(<NeetoUITableWithWrapper />);
+    const firstNameColumn = screen.getByText("First Name");
+    const menuButton = within(firstNameColumn.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Freeze column")).toBeInTheDocument();
+
+    const idColumn = screen.getByText("ID");
+    const idMenuButton = within(idColumn.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(idMenuButton);
+    expect(await screen.findByText("Unfreeze column")).toBeInTheDocument();
+  });
+
+  it("should freeze and unfreeze the column when the menu item is clicked", async () => {
+    const NeetoUITableWithWrapper = () => (
+      <NeetoUITable
+        {...{ columnData, rowData }}
+        rowSelection
+        defaultPageSize={2}
+        totalCount={rowData.length}
+      />
+    );
+
+    render(<NeetoUITableWithWrapper />);
+    const firstNameColumn = screen.getByText("First Name");
+    const firstNameHeader = firstNameColumn.closest("th");
+    const menuButton = within(firstNameColumn.closest("th")).getByTestId(
+      "column-menu-button"
+    );
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Freeze column")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Freeze column"));
+
+    await waitFor(() => {
+      expect(firstNameHeader).toHaveClass("ant-table-cell-fix-left");
+    });
+
+    await userEvent.click(menuButton);
+    expect(await screen.findByText("Unfreeze column")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Unfreeze column"));
+
+    await waitFor(() => {
+      expect(firstNameHeader).not.toHaveClass("ant-table-cell-fix-left");
+    });
   });
 });

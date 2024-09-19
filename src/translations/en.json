@@ -20,7 +20,9 @@
       "hideColumn": "Hide column",
       "deleteColumn": "Delete column",
       "ascending": "Ascending",
-      "descending": "Descending"
+      "descending": "Descending",
+      "freezeColumn": "Freeze column",
+      "unFreezeColumn": "Unfreeze column"
     },
     "timePicker": {
       "hours": "Hours",

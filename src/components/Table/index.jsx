@@ -75,6 +75,7 @@ const Table = ({
   onChange,
   onMoreActionClick,
   bulkSelectAllRowsProps,
+  localStorageKeyPrefix,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
@@ -142,6 +143,7 @@ const Table = ({
     isAddEnabled: enableAddColumn,
     onTableChange: onChange,
     columns,
+    columnData,
     setColumns,
     onColumnUpdate,
     rowSelection,
@@ -154,6 +156,7 @@ const Table = ({
     tableOnChangeProps,
     handleTableSortChange,
     isDefaultPageChangeHandler,
+    localStorageKeyPrefix,
   });
 
   const queryParams = useQueryParams();
@@ -548,6 +551,10 @@ Table.propTypes = {
     selectAllRowButtonLabel: PropTypes.string.isRequired,
     setBulkSelectedAllRows: PropTypes.func.isRequired,
   }),
+  /**
+   * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.
+   */
+  localStorageKeyPrefix: PropTypes.string,
 };
 
 export default Table;

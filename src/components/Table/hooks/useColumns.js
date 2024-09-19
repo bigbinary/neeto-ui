@@ -1,10 +1,17 @@
-import { equals, props } from "ramda";
+import { useCallback } from "react";
+
+import { append, equals, props, without } from "ramda";
+
+import useLocalStorage from "hooks/useLocalStorage";
 
 import useReorderColumns from "./useReorderColumns";
 import useResizableColumns from "./useResizableColumns";
 
+import { getFixedColumns, getFrozenColumnsLocalStorageKey } from "../utils";
+
 const useColumns = ({
   columns,
+  columnData,
   setColumns,
   isResizeEnabled,
   isReorderEnabled,
@@ -21,7 +28,24 @@ const useColumns = ({
   tableOnChangeProps,
   handleTableSortChange,
   isDefaultPageChangeHandler,
+  localStorageKeyPrefix,
 }) => {
+  const [frozenColumns, setFrozenColumns] = useLocalStorage(
+    getFrozenColumnsLocalStorageKey(localStorageKeyPrefix),
+    getFixedColumns(columnData)
+  );
+
+  const onColumnFreeze = useCallback(
+    (isFixedColumn, { dataIndex }) => {
+      const updatedColumns = isFixedColumn
+        ? without([dataIndex], frozenColumns)
+        : append(dataIndex, frozenColumns);
+
+      setFrozenColumns(updatedColumns);
+    },
+    [frozenColumns, setFrozenColumns]
+  );
+
   const { dragProps } = useReorderColumns({
     isEnabled: isReorderEnabled,
     columns,
@@ -61,6 +85,8 @@ const useColumns = ({
 
   const { columns: computedColumnsData } = useResizableColumns({
     columns,
+    columnData,
+    frozenColumns,
     setColumns,
     isEnabled: isResizeEnabled,
     isAddEnabled,
@@ -72,6 +98,7 @@ const useColumns = ({
     onColumnHide,
     onMoreActionClick,
     tableOnChangeProps,
+    onColumnFreeze,
   });
 
   return { dragProps, columns: computedColumnsData };

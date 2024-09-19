@@ -4,9 +4,16 @@ import { isPresent, noop } from "neetocist";
 import { has } from "ramda";
 
 import SortIcon from "../components/SortIcon";
+import {
+  getColumFixedValue,
+  getColumnSortOrder,
+  sortFrozenColumns,
+} from "../utils";
 
 const useResizableColumns = ({
   columns,
+  columnData,
+  frozenColumns,
   setColumns,
   isEnabled,
   isAddEnabled,
@@ -16,6 +23,7 @@ const useResizableColumns = ({
   handleSort,
   sortedInfo,
   onColumnHide,
+  onColumnFreeze,
   onMoreActionClick,
   tableOnChangeProps,
 }) => {
@@ -29,40 +37,50 @@ const useResizableColumns = ({
 
   const computedColumnsData = useMemo(
     () =>
-      columns.map((col, index) => {
-        const modifiedColumn = {
-          ...col,
-          onHeaderCell: column => ({
-            width: column.width,
-            onResize: isEnabled ? handleResize(index) : noop,
-            onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
-            isSortable: isPresent(col.sorter),
-            onSort: handleSort,
-            sortedInfo,
-            onColumnHide,
-            onMoreActionClick,
-            isAddEnabled: isAddEnabled && !col.fixed,
-            onAddColumn: positionOffset => onColumnAdd(index + positionOffset),
-            onColumnDelete,
-            isHidable: col.isHidable,
-            isDeletable: col.isDeletable,
-            moreActions: col.moreActions,
-            column: col,
-          }),
-          sortIcon: SortIcon,
-          sortOrder:
-            sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
-              ? sortedInfo.order
-              : null,
-        };
+      columns
+        .map((col, index) => {
+          const fixed = getColumFixedValue(col, frozenColumns);
 
-        if (!has("ellipsis", col)) {
-          modifiedColumn.ellipsis = true;
-        }
+          const modifiedColumn = {
+            ...col,
+            onHeaderCell: column => ({
+              width: column.width,
+              onResize: isEnabled ? handleResize(index) : noop,
+              onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
+              isSortable: isPresent(col.sorter),
+              onSort: handleSort,
+              sortedInfo,
+              onColumnHide,
+              onColumnFreeze,
+              onMoreActionClick,
+              isAddEnabled: isAddEnabled && !fixed,
+              onAddColumn: positionOffset =>
+                onColumnAdd(index + positionOffset),
+              isFixedColumn: !!fixed,
+              onColumnDelete,
+              isHidable: col.isHidable,
+              isDeletable: col.isDeletable,
+              moreActions: col.moreActions,
+              column: col,
+            }),
+            sortIcon: SortIcon,
+            sortOrder: getColumnSortOrder(col, sortedInfo),
+            fixed,
+          };
 
-        return modifiedColumn;
-      }),
-    [columns, sortedInfo, tableOnChangeProps]
+          if (!has("ellipsis", col)) modifiedColumn.ellipsis = true;
+
+          return modifiedColumn;
+        })
+        .sort(sortFrozenColumns(columnData)),
+    [
+      columns,
+      sortedInfo,
+      tableOnChangeProps,
+      onColumnFreeze,
+      frozenColumns,
+      columnData,
+    ]
   );
 
   return { columns: computedColumnsData };

@@ -176,3 +176,10 @@ export const getLocale = (i18n, t, translationKey) => {
     ? t(translationKey)
     : getEnTranslationValue(translationKey);
 };
+
+export const setToLocalStorage = (key, value) =>
+  // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+  localStorage.setItem(key, JSON.stringify(value));
+
+// eslint-disable-next-line @bigbinary/neeto/no-local-storage
+export const removeFromLocalStorage = key => localStorage.removeItem(key);
