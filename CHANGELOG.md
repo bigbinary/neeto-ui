@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.16 - 2024-09-20
+
+- Updated the handleSubmit function on the Form component from Formik to be asynchronous.
+
 ## 8.2.15 - 2024-09-19
 
 - Implements freeze/unfreeze column feature in the Table.
@@ -39,7 +43,6 @@ Each change is prefixed with one of these keywords::
 <img width="1159" alt="Screenshot 2024-09-13 at 12 26 11 PM" src="https://github.com/user-attachments/assets/73317b59-15f5-429b-8458-359934b216de">
 ## 8.2.13 - 2024-09-10
 Added: `data-cy` prop to *Radio* input
-
 ## 8.2.11 - 2024-09-05
 
 https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
@@ -82,7 +85,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Removed: **BREAKING** *TimePickerInput* and *DateTimePicker* components.
 ## 7.1.0 - 2024-07-16
 - Added a new TranslationProvider for initializing translations for external use of NeetoUI
-
 ## 7.0.5 - 2024-07-15
 
 - Added support for displaying tooltips for disabled buttons in NoData component
@@ -555,7 +557,6 @@ Fixed: scrollToErrorField not working for Select component.
 - Achieved the same behavior of center aligning table header content for
   sortable columns, without depending on `headerRef` to do so.
 ## 5.1.14 - 2023-09-05
-
 - Added: forwardRef to `Tag` component.
 
 ## 5.1.13 - 2023-09-01
@@ -1289,7 +1290,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.9
 - Fixed: *ActionDropdown* issues with common props for button and dropdown
 ## 3.3.7
-
 - Changed: Updated React version to 17.0.2.
 
 ## 3.3.6
