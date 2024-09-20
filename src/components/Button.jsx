@@ -22,7 +22,7 @@ const BUTTON_STYLES = {
 const SIZES = { small: "small", medium: "medium", large: "large" };
 const ICON_POSITIONS = { left: "left", right: "right" };
 const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
-const STATUS = { SUCCESS: "success", ERROR: "error" };
+const STATUS = { SUCCESS: "success", ERROR: "error", NONE: "" };
 
 const Button = React.forwardRef(
   (
@@ -150,12 +150,18 @@ const Button = React.forwardRef(
             />
           )}
           {loading && (
-            <span className="neeto-ui-btn__feedback-icon">
+            <span
+              className="neeto-ui-btn__feedback-icon"
+              data-testid="loading-icon"
+            >
               <Spinner aria-hidden="true" size="small" />
             </span>
           )}
-          {j && (
-            <span className="neeto-ui-btn__feedback-icon">
+          {isFeedbackIconVisible && status && (
+            <span
+              className="neeto-ui-btn__feedback-icon"
+              data-testid="user-feedback-icon"
+            >
               <FeedbackIcon aria-hidden="true" size="20" />
             </span>
           )}
