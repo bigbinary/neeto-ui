@@ -13,7 +13,7 @@ const Form = forwardRef(
   ) => {
     const formikRef = useRef();
 
-    const handleSubmit = (values, actions) => {
+    const handleSubmit = async (values, actions) => {
       const fieldsWithServerError = getFieldsWithServerError(
         formikRef.current?.status
       );
@@ -24,7 +24,7 @@ const Form = forwardRef(
         return;
       }
 
-      formikProps.onSubmit(values, actions);
+      await formikProps.onSubmit(values, actions);
     };
 
     return (

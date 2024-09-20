@@ -14,8 +14,8 @@ const TestActionBlock = ({
   submitButtonProps = {},
   cancelButtonProps = {},
 }) => {
-  const handleSubmit = value => {
-    onSubmit(value);
+  const handleSubmit = async value => {
+    await onSubmit(value);
   };
 
   return (
