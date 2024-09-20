@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
 import Tooltip from "./Tooltip";
 
-const ThumbsUp = () => <span>👍</span>;
+const ThumbsUp = () => <>👍</>;
 
 const BUTTON_STYLES = {
   primary: "primary",
@@ -154,7 +154,7 @@ const Button = React.forwardRef(
               <Spinner aria-hidden="true" size="small" />
             </span>
           )}
-          {isFeedbackIconVisible && status && (
+          {j && (
             <span className="neeto-ui-btn__feedback-icon">
               <FeedbackIcon aria-hidden="true" size="20" />
             </span>
