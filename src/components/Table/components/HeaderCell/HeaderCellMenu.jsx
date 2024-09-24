@@ -44,6 +44,7 @@ const HeaderCellMenu = ({
         icon={MenuHorizontal}
         position="auto"
         strategy="fixed"
+        zIndex={99999}
         buttonProps={{
           className: "min-h-0 flex-shrink-0",
           style: "text",
