@@ -36,6 +36,7 @@ export interface TableProps {
   onColumnHide?: (columnKey: string) => void;
   onMoreActionClick?: (actionType: string, column: any) => void;
   localStorageKeyPrefix?: string;
+  enableColumnFreeze?: boolean;
   [key: string]: any;
 }
 const Table: React.FC<TableProps>;

@@ -14,6 +14,7 @@ const CellContent = ({
   isHidable = true,
   isDeletable = false,
   isFixedColumn,
+  isColumnFreezeEnabled,
   onColumnHide,
   onAddColumn,
   onColumnDelete,
@@ -26,7 +27,13 @@ const CellContent = ({
   const isColumnHidable = isHidable && isPresent(onColumnHide);
   const isColumnDeletable = isDeletable && isPresent(onColumnDelete);
   const hasMoreActions = !isEmpty(moreActions) && isPresent(onMoreActionClick);
-  const hasMoreMenu = isPresent(column);
+  const hasMoreMenu =
+    isSortable ||
+    isPresent(column?.description) ||
+    isColumnHidable ||
+    isAddEnabled ||
+    hasMoreActions ||
+    (isPresent(column) && isColumnFreezeEnabled);
 
   return (
     <th
@@ -43,6 +50,7 @@ const CellContent = ({
               hasMoreActions,
               isAddEnabled,
               isColumnDeletable,
+              isColumnFreezeEnabled,
               isFixedColumn,
               isSortable,
               moreActions,

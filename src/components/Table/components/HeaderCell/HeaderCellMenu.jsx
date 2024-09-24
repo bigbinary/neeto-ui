@@ -23,6 +23,7 @@ const HeaderCellMenu = ({
   isAddEnabled,
   isFixedColumn,
   isColumnDeletable,
+  isColumnFreezeEnabled,
   isHidable,
   onColumnHide,
   onAddColumn,
@@ -145,13 +146,15 @@ const HeaderCellMenu = ({
               {getLocale(i18n, t, "neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
-          <MenuItem.Button
-            onClick={() => onColumnFreeze(isFixedColumn, column)}
-          >
-            {isFixedColumn
-              ? getLocale(i18n, t, "neetoui.table.unFreezeColumn")
-              : getLocale(i18n, t, "neetoui.table.freezeColumn")}
-          </MenuItem.Button>
+          {isColumnFreezeEnabled && (
+            <MenuItem.Button
+              onClick={() => onColumnFreeze(isFixedColumn, column)}
+            >
+              {isFixedColumn
+                ? getLocale(i18n, t, "neetoui.table.unFreezeColumn")
+                : getLocale(i18n, t, "neetoui.table.freezeColumn")}
+            </MenuItem.Button>
+          )}
           {hasMoreActions &&
             moreActions.map((item, index) => (
               <MenuItem.Button
