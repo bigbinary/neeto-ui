@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.17 - 2024-09-24
+
+The existing implementation was ignoring the already set fixed columns. This will merge the frozen columns with the fixed columns in the columnData in the initial render.
+
 ## 8.2.16 - 2024-09-20
 
 - Updated the handleSubmit function on the Form component from Formik to be asynchronous.
@@ -44,7 +48,6 @@ Each change is prefixed with one of these keywords::
 ## 8.2.13 - 2024-09-10
 Added: `data-cy` prop to *Radio* input
 ## 8.2.11 - 2024-09-05
-
 https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 
 ## 8.2.7 - 2024-08-26
@@ -86,7 +89,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.1.0 - 2024-07-16
 - Added a new TranslationProvider for initializing translations for external use of NeetoUI
 ## 7.0.5 - 2024-07-15
-
 - Added support for displaying tooltips for disabled buttons in NoData component
 
 ## 7.0.4 - 2024-07-11
@@ -558,7 +560,6 @@ Fixed: scrollToErrorField not working for Select component.
   sortable columns, without depending on `headerRef` to do so.
 ## 5.1.14 - 2023-09-05
 - Added: forwardRef to `Tag` component.
-
 ## 5.1.13 - 2023-09-01
 
 - Updated the delay for calculating the height of the table header. This is to
@@ -1291,7 +1292,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: *ActionDropdown* issues with common props for button and dropdown
 ## 3.3.7
 - Changed: Updated React version to 17.0.2.
-
 ## 3.3.6
 
 - Fixed: Reset Formik data on continue action in *BlockNavigation* component.
