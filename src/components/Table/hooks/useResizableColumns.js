@@ -17,6 +17,7 @@ const useResizableColumns = ({
   setColumns,
   isEnabled,
   isAddEnabled,
+  isColumnFreezeEnabled,
   onColumnAdd,
   onColumnUpdate,
   onColumnDelete,
@@ -53,6 +54,7 @@ const useResizableColumns = ({
               onColumnHide,
               onColumnFreeze,
               onMoreActionClick,
+              isColumnFreezeEnabled,
               isAddEnabled: isAddEnabled && !fixed,
               onAddColumn: positionOffset =>
                 onColumnAdd(index + positionOffset),
