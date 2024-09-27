@@ -179,6 +179,11 @@ Modal.propTypes = {
    * To specify whether the scroll should be blocked when the Modal is opened.
    * */
   blockScrollOnMount: PropTypes.bool,
+  /**
+   * The modal children will be force re-rendered if the boolean is set to `true`. Ideally the modal won't update
+   * if the `isOpen` is `false`. You can use this prop to override that nature.
+   */
+  forceRender: PropTypes.bool,
 };
 
 Modal.Header = Header;
