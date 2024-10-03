@@ -1,9 +1,9 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "All of your unsaved changes will be lost. This can't be undone.",
-      "submitButtonLabel": "Save and continue",
-      "cancelButtonLabel": "Discard changes",
+      "alertMessage": "Leaving this page will discard your unsaved data. This action cannot be undone.",
+      "submitButtonLabel": "Stay on this page",
+      "cancelButtonLabel": "Discard and leave this page",
       "alertTitle": "You have unsaved changes"
     },
     "actionBlock": {
