@@ -8,16 +8,10 @@ import Modal from "components/Modal";
 import Typography from "components/Typography";
 import { getLocale } from "utils";
 
-const Alert = ({
-  isOpen = false,
-  isSubmitting = false,
-  onClose,
-  onSaveChanges,
-  onDiscardChanges,
-}) => {
+const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
   const { t, i18n } = useTranslation();
 
-  const saveChangesButtonRef = useRef(null);
+  const submitButtonRef = useRef(null);
 
   const cancelButtonLabel = getLocale(
     i18n,
@@ -38,7 +32,7 @@ const Alert = ({
       closeOnEsc
       closeOnOutsideClick
       data-cy="alert-box"
-      initialFocusRef={saveChangesButtonRef}
+      initialFocusRef={submitButtonRef}
       size="medium"
     >
       <Modal.Header>
@@ -60,12 +54,10 @@ const Alert = ({
         />
         <Button
           data-cy="alert-submit-button"
-          disabled={!isOpen}
           label={submitButtonLabel}
-          loading={isSubmitting}
-          ref={saveChangesButtonRef}
+          ref={submitButtonRef}
           style="primary"
-          onClick={onSaveChanges}
+          onClick={onSubmit}
         />
       </Modal.Footer>
     </Modal>
