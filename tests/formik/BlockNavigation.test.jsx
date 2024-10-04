@@ -98,11 +98,11 @@ describe("formik/BlockNavigation", () => {
     await userEvent.click(screen.getByRole("link"));
     expect(screen.getByText(/You have unsaved changes/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Discard changes" })
+      screen.getByRole("button", { name: "Discard and leave this page" })
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("button", { name: "Save and continue" })
+      screen.getByRole("button", { name: "Stay on this page" })
     ).toBeInTheDocument();
   });
 
@@ -122,7 +122,7 @@ describe("formik/BlockNavigation", () => {
     expect(firstNameInput).toBeInTheDocument();
   });
 
-  it("should allow navigation and reset the form if the Discard changes button is clicked", async () => {
+  it("should allow navigation and reset the form if the Discard and leave this page button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
 
     const firstNameInput = screen.getByPlaceholderText("First name");
@@ -137,7 +137,7 @@ describe("formik/BlockNavigation", () => {
     await userEvent.click(screen.getByRole("link"));
 
     const continueButton = screen.getByRole("button", {
-      name: "Discard changes",
+      name: "Discard and leave this page",
     });
     await userEvent.click(continueButton);
 
@@ -146,7 +146,7 @@ describe("formik/BlockNavigation", () => {
     expect(mockSubmit).not.toHaveBeenCalled();
   });
 
-  it("should allow navigation and save the form if the Save and continue button is clicked", async () => {
+  it("should stay on the page and retain the changes in the form if the `Stay on this page` button is clicked", async () => {
     render(<TestBlockNavigation isDirty />);
 
     const firstNameInput = screen.getByPlaceholderText("First name");
@@ -160,34 +160,12 @@ describe("formik/BlockNavigation", () => {
 
     await userEvent.click(screen.getByRole("link"));
 
-    const saveButton = screen.getByRole("button", {
-      name: "Save and continue",
+    const submitButton = screen.getByRole("button", {
+      name: "Stay on this page",
     });
-    await userEvent.click(saveButton);
+    await userEvent.click(submitButton);
 
-    await waitFor(() => expect(saveButton).not.toBeInTheDocument());
-    expect(screen.getByText(/Home page/i)).toBeInTheDocument();
-    expect(mockSubmit).toBeCalledTimes(1);
-  });
-
-  it("should not allow navigation and save the form if the Save and continue button is clicked and the form has an error", async () => {
-    render(<TestBlockNavigation isDirty />);
-
-    const lastNameInput = screen.getByPlaceholderText("Last name");
-    await userEvent.type(
-      lastNameInput,
-      repeat("{backspace}", lastName.length).join("")
-    );
-    expect(lastNameInput.value).toBe("");
-
-    await userEvent.click(screen.getByRole("link"));
-
-    const saveButton = screen.getByRole("button", {
-      name: "Save and continue",
-    });
-    await userEvent.click(saveButton);
-
-    await waitFor(() => expect(saveButton).not.toBeInTheDocument());
+    await waitFor(() => expect(submitButton).not.toBeInTheDocument());
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
     expect(mockSubmit).not.toBeCalled();
   });
