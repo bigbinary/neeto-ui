@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.19 - 2024-10-04
+
+- Removes the save and continue navigation functionality and replaces it with stay on the page.
+
 ## 8.2.18 - 2024-09-25
 
 The menu was not visible in the overlay components like Pane. To fix that increased the zIndex from the 9999 which was the default value of Tippy to 99999.
@@ -54,7 +58,6 @@ Added: `data-cy` prop to *Radio* input
 ## 8.2.11 - 2024-09-05
 https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 ## 8.2.7 - 2024-08-26
-
 Handles the case where `BlockNavigation` is used without formik.
 
 ## 8.2.6 - 2024-08-26
@@ -94,7 +97,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.0.5 - 2024-07-15
 - Added support for displaying tooltips for disabled buttons in NoData component
 ## 7.0.4 - 2024-07-11
-
 - Updated framer-motion to 11.2.14
 
 ## 7.0.3 - 2024-07-11
@@ -566,7 +568,6 @@ Fixed: scrollToErrorField not working for Select component.
 - Updated the delay for calculating the height of the table header. This is to
   ensure that the height of the table is not affected by the flaky animation
   within the header during render process.
-
 ## 5.1.11 - 2023-08-31
 
 Added truncating feature when more than 3 emails are shown on the MultiEmail
@@ -1295,7 +1296,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Changed: Updated React version to 17.0.2.
 ## 3.3.6
 - Fixed: Reset Formik data on continue action in *BlockNavigation* component.
-
 ## 3.3.5
 
 - Added: active state to `NavLink` in *Sidebar* component.
