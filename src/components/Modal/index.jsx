@@ -13,6 +13,7 @@ import { useOverlayManager, useOverlay } from "hooks";
 import Body from "./Body";
 import Footer from "./Footer";
 import Header from "./Header";
+import MemoizedChildren from "./MemoizedChildren";
 
 const SIZES = {
   small: "small",
@@ -34,6 +35,7 @@ const Modal = ({
   backdropClassName = "",
   blockScrollOnMount = true,
   closeOnOutsideClick = true,
+  forceRender = false,
   ...otherProps
 }) => {
   const [hasTransitionCompleted, setHasTransitionCompleted] = useState(false);
@@ -107,9 +109,11 @@ const Modal = ({
                 onClick={handleOverlayClose}
               />
             )}
-            {typeof children === "function"
-              ? children({ setFocusField })
-              : children}
+            <MemoizedChildren shouldUpdate={isOpen || forceRender}>
+              {typeof children === "function"
+                ? children({ setFocusField })
+                : children}
+            </MemoizedChildren>
           </div>
         </Backdrop>
       </CSSTransition>
@@ -175,6 +179,11 @@ Modal.propTypes = {
    * To specify whether the scroll should be blocked when the Modal is opened.
    * */
   blockScrollOnMount: PropTypes.bool,
+  /**
+   * The modal children will be force re-rendered if the boolean is set to `true`. Ideally the modal won't update
+   * if the `isOpen` is `false`. You can use this prop to override that nature.
+   */
+  forceRender: PropTypes.bool,
 };
 
 Modal.Header = Header;

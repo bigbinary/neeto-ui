@@ -26,10 +26,10 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
+        {...{ onClose }}
         isOpen
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.click(getByTestId("close-button"));
@@ -40,11 +40,11 @@ describe("Alert", () => {
     const onSubmit = jest.fn();
     const { getByText } = render(
       <Alert
+        {...{ onSubmit }}
         isOpen
         message="Alert message"
         submitButtonLabel="Submit"
         title="Alert title"
-        onSubmit={onSubmit}
       />
     );
     await userEvent.click(getByText("Submit"));
@@ -55,11 +55,11 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { getByText } = render(
       <Alert
+        {...{ onClose }}
         isOpen
         cancelButtonLabel="Cancel"
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.click(getByText("Cancel"));
@@ -70,11 +70,11 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { getAllByRole } = render(
       <Alert
+        {...{ onClose }}
         closeOnEsc
         isOpen
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.click(getAllByRole("button")[0]);
@@ -86,11 +86,11 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { container } = render(
       <Alert
+        {...{ onClose }}
         isOpen
         closeOnEsc={false}
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.type(container, "{esc}");
@@ -101,11 +101,11 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
+        {...{ onClose }}
         closeOnOutsideClick
         isOpen
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.click(getByTestId("backdrop"));
@@ -116,32 +116,15 @@ describe("Alert", () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Alert
+        {...{ onClose }}
         isOpen
         closeOnOutsideClick={false}
         message="Alert message"
         title="Alert title"
-        onClose={onClose}
       />
     );
     await userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
-  });
-
-  it("should not call onSubmit while alert is closing", async () => {
-    const onSubmit = jest.fn();
-
-    const { getByText, rerender } = render(
-      <Alert isOpen submitButtonLabel="Submit" onSubmit={onSubmit} />
-    );
-    await userEvent.click(getByText("Submit"));
-
-    rerender(
-      <Alert isOpen={false} submitButtonLabel="Submit" onSubmit={onSubmit} />
-    );
-
-    await userEvent.click(getByText("Submit"));
-
-    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
   it("should not show cancel button when hideCancelButton is true", () => {
