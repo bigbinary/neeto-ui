@@ -23,21 +23,12 @@ const BlockNavigation = ({ isDirty = false, ...otherProps }) => {
     continueNavigation();
   };
 
-  const handleSaveChanges = () => {
-    if (formikContext?.isValid) {
-      formikContext.submitForm();
-      continueNavigation();
-    } else formikContext?.setTouched(formikContext.errors);
-
-    hidePrompt();
-  };
-
   return (
     <Alert
       isOpen={isBlocked}
       onClose={hidePrompt}
       onDiscardChanges={handleDiscardChanges}
-      onSaveChanges={handleSaveChanges}
+      onSubmit={hidePrompt}
       {...otherProps}
     />
   );
