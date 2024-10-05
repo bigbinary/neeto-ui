@@ -50,9 +50,19 @@ const Switch = forwardRef(
               })}
             >
               {checked ? (
-                <Check data-testid="check-icon" size="12" strokeWidth={4} />
+                <Check
+                  data-cy="check-icon"
+                  data-testid="check-icon"
+                  size="12"
+                  strokeWidth={4}
+                />
               ) : (
-                <Close data-testid="close-icon" size="12" strokeWidth={3} />
+                <Close
+                  data-cy="close-icon"
+                  data-testid="close-icon"
+                  size="12"
+                  strokeWidth={3}
+                />
               )}
             </span>
           </label>
