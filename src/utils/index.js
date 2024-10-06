@@ -41,6 +41,13 @@ const hasTimezone = dateString => {
 
 // eslint-disable-next-line import/exports-last
 export const dayjs = (...args) => {
+  if (
+    pureDayjs.tz().$x.$timezone === pureDayjs.tz.guess() ||
+    pureDayjs.tz().$x.$timezone === undefined
+  ) {
+    return pureDayjs(...args);
+  }
+
   if (args.length > 0 && typeof args[0] === "string") {
     const pureDayjsArgs = args.slice(0, Math.min(args.length, 2));
 
