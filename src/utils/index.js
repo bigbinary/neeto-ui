@@ -42,15 +42,17 @@ const hasTimezone = dateString => {
 // eslint-disable-next-line import/exports-last
 export const dayjs = (...args) => {
   if (args.length > 0 && typeof args[0] === "string") {
-    if (hasTimezone(args[0])) {
-      args[0] = pureDayjs(args[0]);
-    } else {
-      const pureDayjsArgs = args.slice(0, Math.min(args.length, 2));
+    const pureDayjsArgs = args.slice(0, Math.min(args.length, 2));
 
+    if (hasTimezone(args[0])) {
+      args[0] = pureDayjs(...pureDayjsArgs);
+    } else {
       args[0] = pureDayjs(...pureDayjsArgs).format("YYYY-MM-DD HH:mm:ss");
       args[1] = "YYYY-MM-DD HH:mm:ss";
     }
   }
+
+  if (args[0]?.toString() === "Invalid Date") return pureDayjs(...args);
 
   const timezone = pureDayjs.tz().$x.$timezone || pureDayjs.tz.guess();
 
