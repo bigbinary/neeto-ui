@@ -1,3 +1,5 @@
+import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
+
 const path = require("path");
 const { mergeDeepLeft } = require("ramda");
 
@@ -31,6 +33,13 @@ module.exports = {
       src: path.resolve(__dirname, "..", "src"),
       "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
     };
+
+    config.plugins = [
+      ...config.plugins,
+      new MonacoWebpackPlugin({
+        languages: ["javascript"],
+      }),
+    ];
 
     return config;
   },
