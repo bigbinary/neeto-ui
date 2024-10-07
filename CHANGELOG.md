@@ -23,6 +23,16 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.22 - 2024-10-07
+
+This PR contains the following changes:
+
+Added following improvements to the live playground:
+
+- Added Syntax highlighting
+- Changed the Editor to use light theme
+- Added Default code to the Editor and removed the example code snippet
+
 ## 8.2.21 - 2024-10-07
 
 - Fixed dayjs timezone issue with *DatePicker* and *TimePicker* components.
@@ -64,7 +74,6 @@ https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 ## 8.2.7 - 2024-08-26
 Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.6 - 2024-08-26
-
 - Fixed: disabled prop of Dropdown not working when a customTarget is used
 
 ## 8.2.5 - 2024-08-14
@@ -102,7 +111,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.0.4 - 2024-07-11
 - Updated framer-motion to 11.2.14
 ## 7.0.3 - 2024-07-11
-
 - Disabled mask format in DatePicker and TimePicker
 
 ## 7.0.2 - 2024-07-03
@@ -573,7 +581,6 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.1.11 - 2023-08-31
 Added truncating feature when more than 3 emails are shown on the MultiEmail
 input.
-
 ## 5.1.9 - 2023-08-25
 
 Fixed: scroll to error is not triggered on submitting form with enter key.
@@ -1299,7 +1306,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: Reset Formik data on continue action in *BlockNavigation* component.
 ## 3.3.5
 - Added: active state to `NavLink` in *Sidebar* component.
-
 ## 3.3.4
 
 - Added: `hideOnTargetExit` prop to *Tooltip* component
