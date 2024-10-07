@@ -8,23 +8,15 @@ import * as components from "components";
 import * as FormikComponents from "formikcomponents";
 import * as hooks from "hooks";
 
+import { DEFAULT_PLAYGROUND_CODE } from "./constants";
+
 import LivePlaygroundDocs from "!raw-loader!./LivePlaygroundDocs/LivePlaygroundUsage.mdx";
 
 const LivePlayground = () => {
-  const [code, setCode] = useState("\n");
+  const [code, setCode] = useState(DEFAULT_PLAYGROUND_CODE);
 
   return (
     <div className="flex h-full flex-col">
-      <div className="w-full flex-grow">
-        <MonacoEditor
-          height="300px"
-          language="jsx"
-          theme="vs-dark"
-          value={code}
-          onChange={setCode}
-        />
-      </div>
-      <h3 className="p-4">Preview</h3>
       <div
         className="min-h-96 m-4 mt-0 flex-grow overflow-y-auto border-2 p-4"
         style={{ minHeight: "300px" }}
@@ -35,6 +27,14 @@ const LivePlayground = () => {
         >
           <LivePreview />
         </LiveProvider>
+      </div>
+      <div className="w-full flex-grow">
+        <MonacoEditor
+          height="300px"
+          language="javascript"
+          value={code}
+          onChange={setCode}
+        />
       </div>
     </div>
   );

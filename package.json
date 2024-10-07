@@ -148,6 +148,7 @@
     "linkifyjs": "4.1.2",
     "lint-staged": "11.0.0",
     "monaco-editor": "^0.50.0",
+    "monaco-editor-webpack-plugin": "^7.1.0",
     "postcss": "^8.4.17",
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
