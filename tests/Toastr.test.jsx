@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { init } from "i18next";
+import i18next from "i18next";
 import { act } from "react-dom/test-utils";
 import { ToastContainer } from "react-toastify";
 
@@ -82,21 +82,13 @@ const testToastrErrorMessages = async (errorResponse, expectedMessage) => {
 };
 
 beforeAll(() =>
-  init({
-    lng: "en",
-    debug: true,
-    resources: {
-      en: {
-        translation: {
-          message: {
-            success: "This is a Success {{entityName}}.",
-            info: "This is a Info {{entityName}}.",
-            warning: "This is a Warning {{entityName}}.",
-            error: "This is a Error {{entityName}}.",
-            toastr: "This is a toastr.",
-          },
-        },
-      },
+  i18next.addResourceBundle("en", "translation", {
+    message: {
+      success: "This is a Success {{entityName}}.",
+      info: "This is a Info {{entityName}}.",
+      warning: "This is a Warning {{entityName}}.",
+      error: "This is a Error {{entityName}}.",
+      toastr: "This is a toastr.",
     },
   })
 );
