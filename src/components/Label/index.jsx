@@ -13,14 +13,14 @@ const Label = ({
   className = "",
   required = false,
   helpIconProps = null,
-  ...otherProps
+  ...props
 }) => (
   <label
     className={classnames(
       "neeto-ui-label neeto-ui-flex neeto-ui-items-center",
       className
     )}
-    {...otherProps}
+    {...props}
   >
     {children}
     {required && <span aria-hidden>*</span>}
