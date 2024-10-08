@@ -173,7 +173,6 @@
     "react-toastify": "9.0.1",
     "rfs": "^10.0.0",
     "rollup": "^4.24.0",
-    "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
