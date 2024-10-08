@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.23 - 2024-10-08
+
+Added: `data-cy` prop to *Check* and *Close* icons in *Switch* component.
+
 ## 8.2.22 - 2024-10-07
 
 This PR contains the following changes:
@@ -75,7 +79,6 @@ https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.6 - 2024-08-26
 - Fixed: disabled prop of Dropdown not working when a customTarget is used
-
 ## 8.2.5 - 2024-08-14
 
 ![blocknavigation-changes](https://github.com/user-attachments/assets/40c1504a-6f47-4e75-8a54-515cdd4e4991)
@@ -112,7 +115,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated framer-motion to 11.2.14
 ## 7.0.3 - 2024-07-11
 - Disabled mask format in DatePicker and TimePicker
-
 ## 7.0.2 - 2024-07-03
 
 - Added: placeholder for TimePicker and DateTimePicker
@@ -582,7 +584,6 @@ Fixed: scrollToErrorField not working for Select component.
 Added truncating feature when more than 3 emails are shown on the MultiEmail
 input.
 ## 5.1.9 - 2023-08-25
-
 Fixed: scroll to error is not triggered on submitting form with enter key.
 
 ## 5.1.8 - 2023-08-24
@@ -1307,7 +1308,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.5
 - Added: active state to `NavLink` in *Sidebar* component.
 ## 3.3.4
-
 - Added: `hideOnTargetExit` prop to *Tooltip* component
 
 ## 3.3.3
