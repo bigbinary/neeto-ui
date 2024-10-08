@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import "@testing-library/jest-dom";
+import { failOnConsoleOptions } from "jest-config/config";
 import failOnConsole from "jest-fail-on-console";
 
 import { initializeI18n } from "components/TranslationProvider/i18n";
@@ -31,14 +32,6 @@ Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
 
-const ignoredMessages = [
-  "Note: Not match any format. Please help to fire a issue about this.",
-];
-
-const failOnConsoleOptions = {
-  allowMessage: message => ignoredMessages.includes(message),
-  silenceMessage: message => ignoredMessages.includes(message),
-};
 failOnConsole(failOnConsoleOptions);
 
 beforeAll(() => {
