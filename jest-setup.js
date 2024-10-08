@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import "@testing-library/jest-dom";
 
+import { initializeI18n } from "components/TranslationProvider/i18n";
+
 // Fixes element.getTotalLength is not a function. Refer: https://github.com/framer/motion/issues/204
 if (!SVGElement.prototype.getTotalLength) {
   SVGElement.prototype.getTotalLength = () => 1;
@@ -28,10 +30,6 @@ Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
 
-jest.mock("react-i18next", () => ({
-  useTranslation: () => ({
-    t: str => str,
-    i18n: { changeLanguage: () => new Promise(() => {}), exists: () => true },
-  }),
-  initReactI18next: { type: "3rdParty", init: () => {} },
-}));
+beforeAll(() => {
+  initializeI18n();
+});
