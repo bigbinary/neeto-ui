@@ -30,6 +30,40 @@ Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
 
+const ignoredWarnings = [
+  "Note: Not match any format. Please help to fire a issue about this",
+];
+
+const captureConsoleErrors = () => {
+  // eslint-disable-next-line no-console
+  const error = console.error;
+  // eslint-disable-next-line no-console
+  const warn = console.warn;
+
+  // eslint-disable-next-line no-console
+  console.error = message => {
+    error.apply(console, arguments);
+    if (!ignoredWarnings.includes(message)) {
+      throw new Error(
+        "Test failed because of an error message in the console, please fix.",
+        { cause: message }
+      );
+    }
+  };
+
+  // eslint-disable-next-line no-console
+  console.warn = message => {
+    warn.apply(console, arguments);
+    if (!ignoredWarnings.includes(message)) {
+      throw new Error(
+        "Test failed because of a warning message in the console, please fix.",
+        { cause: message }
+      );
+    }
+  };
+};
+
 beforeAll(() => {
   initializeI18n();
+  captureConsoleErrors();
 });
