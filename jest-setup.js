@@ -27,3 +27,11 @@ Element.prototype.scrollIntoView = jest.fn();
 Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
+
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: str => str,
+    i18n: { changeLanguage: () => new Promise(() => {}) },
+  }),
+  initReactI18next: { type: "3rdParty", init: () => {} },
+}));
