@@ -8,11 +8,11 @@ import Form from "formikcomponents/Form";
 import FormikTreeSelect from "formikcomponents/TreeSelect";
 
 const treeData = [
-  { id: 1, value: 1, label: "Category 1", pId: null },
-  { id: 2, value: 2, label: "Category 2", pId: null },
-  { id: 3, value: 3, label: "Category 3", pId: null },
-  { id: 4, value: 4, label: "Category 1-1", pId: 1 },
-  { id: 5, value: 5, label: "Category 2-1", pId: 2 },
+  { id: "1", value: "1", label: "Category 1" },
+  { id: "2", value: "2", label: "Category 2" },
+  { id: "3", value: "3", label: "Category 3" },
+  { id: "4", value: "4", label: "Category 1-1", pId: "1" },
+  { id: "5", value: "5", label: "Category 2-1", pId: "2" },
 ];
 
 const TreeSelectComponent = ({ onSubmit }) => (

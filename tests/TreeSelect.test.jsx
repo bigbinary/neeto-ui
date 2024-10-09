@@ -7,21 +7,21 @@ import { DownArrow } from "neetoicons";
 import { TreeSelect } from "components";
 
 const treeData = [
-  { id: 1, value: 1, label: "Category 1", pId: null },
-  { id: 2, value: 2, label: "Category 2", pId: null },
-  { id: 3, value: 3, label: "Category 3", pId: null },
-  { id: 4, value: 4, label: "Category 1-1", pId: 1 },
-  { id: 5, value: 5, label: "Category 2-1", pId: 2 },
+  { id: "1", value: "1", label: "Category 1" },
+  { id: "2", value: "2", label: "Category 2" },
+  { id: "3", value: "3", label: "Category 3" },
+  { id: "4", value: "4", label: "Category 1-1", pId: "1" },
+  { id: "5", value: "5", label: "Category 2-1", pId: "2" },
 ];
 
 describe("TreeSelect", () => {
   it("should render without error", () => {
-    render(<TreeSelect label="Select" treeData={treeData} />);
+    render(<TreeSelect {...{ treeData }} label="Select" />);
     expect(screen.getByText("Select")).toBeInTheDocument();
   });
 
   it("should show options on clicking", async () => {
-    render(<TreeSelect label="Select" treeData={treeData} />);
+    render(<TreeSelect {...{ treeData }} label="Select" />);
     const select = screen.getByRole("combobox");
     await userEvent.click(select);
     expect(screen.getByText("Category 1")).toBeInTheDocument();
@@ -31,9 +31,7 @@ describe("TreeSelect", () => {
 
   it("should call onChange on select option", async () => {
     const onChange = jest.fn();
-    render(
-      <TreeSelect label="Select" treeData={treeData} onChange={onChange} />
-    );
+    render(<TreeSelect {...{ onChange, treeData }} label="Select" />);
     const select = screen.getByRole("combobox");
     await userEvent.click(select);
     await userEvent.click(screen.getByText("Category 2"));
@@ -46,9 +44,8 @@ describe("TreeSelect", () => {
 
       return (
         <TreeSelect
+          {...{ treeData, value }}
           label="Select"
-          treeData={treeData}
-          value={value}
           onChange={value => setValue(value)}
         />
       );
@@ -71,20 +68,20 @@ describe("TreeSelect", () => {
   });
 
   it("should not render label if label is not provided", () => {
-    render(<TreeSelect treeData={treeData} />);
+    render(<TreeSelect {...{ treeData }} />);
     expect(screen.queryByTestId("treeselect-label")).not.toBeInTheDocument();
   });
 
   it("should show error message if provided", () => {
     render(
-      <TreeSelect error="Error message" label="Select" treeData={treeData} />
+      <TreeSelect {...{ treeData }} error="Error message" label="Select" />
     );
     expect(screen.getByTestId("treeselect-error")).toBeInTheDocument();
     expect(screen.getByText("Error message")).toBeInTheDocument();
   });
 
   it("should be searchable", async () => {
-    render(<TreeSelect showSearch label="Select" treeData={treeData} />);
+    render(<TreeSelect {...{ treeData }} showSearch label="Select" />);
 
     const select = screen.getByRole("combobox");
     await userEvent.click(select);
@@ -97,11 +94,11 @@ describe("TreeSelect", () => {
 
   it("should show option list and be searchable when fieldNames are provided", async () => {
     const remappedTreeData = [
-      { id: 1, value: 1, newLabel: "Category 1", pId: null },
-      { id: 2, value: 2, newLabel: "Category 2", pId: null },
-      { id: 3, value: 3, newLabel: "Category 3", pId: null },
-      { id: 4, value: 4, newLabel: "Category 1-1", pId: 1 },
-      { id: 5, value: 5, newLabel: "Category 2-1", pId: 2 },
+      { id: "1", value: "1", newLabel: "Category 1", pId: null },
+      { id: "2", value: "2", newLabel: "Category 2", pId: null },
+      { id: "3", value: "3", newLabel: "Category 3", pId: null },
+      { id: "4", value: "4", newLabel: "Category 1-1", pId: "1" },
+      { id: "5", value: "5", newLabel: "Category 2-1", pId: "2" },
     ];
 
     render(
@@ -126,9 +123,9 @@ describe("TreeSelect", () => {
   it("should override custom suffix and switcher icons", async () => {
     render(
       <TreeSelect
+        {...{ treeData }}
         suffixIcon={() => <DownArrow data-testid="custom-suffix" />}
         switcherIcon={() => <DownArrow data-testid="custom-switcher" />}
-        treeData={treeData}
       />
     );
 
@@ -142,8 +139,8 @@ describe("TreeSelect", () => {
   it("should show child options when switcher icon is clicked", async () => {
     render(
       <TreeSelect
+        {...{ treeData }}
         switcherIcon={() => <DownArrow data-testid="custom-switcher" />}
-        treeData={treeData}
       />
     );
 

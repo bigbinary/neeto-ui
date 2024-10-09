@@ -216,6 +216,7 @@ application to test out changes and see how your component behaves in the
 storybook for **neetoUI**
 
 - To see if tests associated with your components pass run `yarn test`.
+  > Tests will fail if there are some warnings or errors in the console.
 - To see if **neetoUI** gets built and bundled after changes run `yarn bundle`.
 - To see if the storybook gets built run `yarn build`.
 
