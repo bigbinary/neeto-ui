@@ -160,10 +160,7 @@ Tag.propTypes = {
    */
   color: PropTypes.string,
   /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Use `indicatorStatus` prop instead._
+   * Accepts a color in hexadecimal format (#000000). It overrides the colors added by the `style` prop.
    */
   indicatorColor: PropTypes.string,
   /**
