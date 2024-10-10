@@ -23,7 +23,10 @@ const Tooltip = ({
 
   if (hideAfter > 0) {
     localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
+      setTimeout(
+        () => !instance.state?.isDestroyed && instance.hide(),
+        hideAfter
+      );
   }
 
   useEffect(() => {
@@ -43,14 +46,10 @@ const Tooltip = ({
     <Tippy
       animation="scale-subtle"
       arrow={ARROW}
-      content={content}
-      disabled={disabled}
       duration={[100, 200]}
-      interactive={interactive}
       placement={position}
       plugins={[followCursor]}
       role="tooltip"
-      theme={theme}
       zIndex={100001}
       onCreate={instance => {
         setInstance(instance);
@@ -59,8 +58,14 @@ const Tooltip = ({
           "tooltip-box"
         );
       }}
-      {...localProps}
-      {...otherProps}
+      {...{
+        content,
+        disabled,
+        interactive,
+        theme,
+        ...localProps,
+        ...otherProps,
+      }}
     >
       {React.isValidElement(children) ? children : <span>{children}</span>}
     </Tippy>
