@@ -23,7 +23,10 @@ const Tooltip = ({
 
   if (hideAfter > 0) {
     localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
+      setTimeout(
+        () => !instance.state?.isDestroyed && instance.hide(),
+        hideAfter
+      );
   }
 
   useEffect(() => {

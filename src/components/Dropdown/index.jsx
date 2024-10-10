@@ -227,10 +227,6 @@ Dropdown.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * To specify whether the Dropdown menu width needs to be set to auto or not.
-   */
-  autoWidth: PropTypes.bool,
-  /**
    * To provide external classnames to Dropdown target wrapper.
    */
   className: PropTypes.string,
@@ -273,10 +269,6 @@ Dropdown.propTypes = {
    * To provide custom modifiers to Dropdown component.
    */
   dropdownModifiers: PropTypes.array,
-  /**
-   * To specify whether the Dropdown should be multilevel.
-   */
-  isMultiLevel: PropTypes.bool,
   /**
    * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
    * Removed

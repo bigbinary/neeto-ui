@@ -203,7 +203,7 @@ const MultiDropdownWithClickTrigger = args => {
 
   return (
     <div className="flex h-80 items-start">
-      <Dropdown {...args} isMultiLevel label="Dropdown">
+      <Dropdown {...args} label="Dropdown">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -246,7 +246,7 @@ const MultiDropdownWithHoverTrigger = args => {
 
   return (
     <div className="flex h-80 items-start">
-      <Dropdown {...args} isMultiLevel label="Dropdown">
+      <Dropdown {...args} label="Dropdown">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
