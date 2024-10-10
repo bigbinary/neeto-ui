@@ -81,6 +81,33 @@ const Types = args => (
   </div>
 );
 
+const Colors = args => (
+  <div className="space-y-4">
+    <div>
+      <h5 className="mb-4 capitalize">Outline</h5>
+      <div className="space-x-3">
+        <Tag {...args} color="green" label="green" type="outline" />
+        <Tag {...args} color="#08397B" label="#08397B" type="outline" />
+        <Tag {...args} color="#5319E7" label="#5319E7" type="outline" />
+        <Tag {...args} color="#0E8A16" label="#0E8A16" type="outline" />
+        <Tag {...args} color="#FBCA04" label="#FBCA04" type="outline" />
+        <Tag {...args} color="red" label="red" type="outline" />
+      </div>
+    </div>
+    <div>
+      <h5 className="mb-4 capitalize">Solid</h5>
+      <div className="space-x-3">
+        <Tag {...args} color="green" label="green" type="solid" />
+        <Tag {...args} color="#08397B" label="#08397B" type="solid" />
+        <Tag {...args} color="#5319E7" label="#5319E7" type="solid" />
+        <Tag {...args} color="#0E8A16" label="#0E8A16" type="solid" />
+        <Tag {...args} color="#FBCA04" label="#FBCA04" type="solid" />
+        <Tag {...args} color="red" label="red" type="solid" />
+      </div>
+    </div>
+  </div>
+);
+
 const WithIndicator = args => (
   <div className="flex flex-row items-start justify-start space-x-4">
     <Tag {...args} indicatorStyle="primary" label="Primary" style="secondary" />
@@ -132,6 +159,7 @@ export {
   Sizes,
   Styles,
   Types,
+  Colors,
   WithIndicator,
   WithIcon,
   WithOnClose,
