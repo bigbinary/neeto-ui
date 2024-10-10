@@ -1,6 +1,7 @@
 import React, { Fragment, forwardRef } from "react";
 
 import classnames from "classnames";
+import { isPresent } from "neetocist";
 import { Close } from "neetoicons";
 import PropTypes from "prop-types";
 
@@ -29,6 +30,7 @@ const Tag = forwardRef(
       disabled = false,
       size = SIZES.small,
       type = TYPES.outline,
+      color,
       children,
       ...otherProps
     },
@@ -39,6 +41,19 @@ const Tag = forwardRef(
         ? () => <i className={icon} />
         : icon || Fragment;
     const renderLabel = label || children;
+
+    const internalColor = color?.replace("#", "");
+    const colorStyles = `
+      .neeto-ui-tag--type-outline.neeto-ui-tag--color-${internalColor},
+      .neeto-ui-tag--type-solid.neeto-ui-tag--color-${internalColor} {
+        --neeto-ui-tag-bg-color: rgb(from ${color} r g b / 0.1);
+        --neeto-ui-tag-border-color: rgb(from ${color} r g b / 0.1);
+      }
+      .neeto-ui-tag--type-outline.neeto-ui-tag--color-${internalColor} {
+        --neeto-ui-tag-color: ${color};
+        --neeto-ui-tag-border-color: ${color};
+      }
+    `;
 
     return (
       <div
@@ -58,11 +73,13 @@ const Tag = forwardRef(
             "neeto-ui-tag--style-info": style === STYLES.info,
             "neeto-ui-tag--style-warning": style === STYLES.warning,
             "neeto-ui-tag--style-danger": style === STYLES.danger,
+            [`neeto-ui-tag--color-${internalColor}`]: isPresent(color),
           },
           className
         )}
         {...otherProps}
       >
+        {isPresent(color) && <style>{colorStyles}</style>}
         {indicatorStyle && (
           <span
             data-testid="tag-indicator"
@@ -137,19 +154,9 @@ Tag.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Use `status` prop instead._
+   * Accepts a color in hexadecimal format (#000000). It overrides the colors added by the `style` prop.
    */
   color: PropTypes.string,
-  /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Use `indicatorStatus` prop instead._
-   */
-  indicatorColor: PropTypes.string,
   /**
    * To specify the children to be rendered inside the Tag.
    */
