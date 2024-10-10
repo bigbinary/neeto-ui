@@ -16,10 +16,7 @@ export interface TagProps {
     | "primary"
     | "secondary"
     | "info";
-  /** @deprecated Prop deprecated. Use `style` prop instead*/
   color?: string;
-  /** @deprecated Prop deprecated. Use `indicatorStyle` prop instead*/
-  indicatorColor?: string;
   children?: string;
 }
 
