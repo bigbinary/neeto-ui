@@ -153,16 +153,9 @@ Tag.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * <div class="neeto-ui-tag neeto-ui-tag--size-small neeto-ui-tag--style-outline neeto-ui-tag--style-danger mb-2">
-   * Removed
-   * </div>
-   * _Use `status` prop instead._
-   */
-  color: PropTypes.string,
-  /**
    * Accepts a color in hexadecimal format (#000000). It overrides the colors added by the `style` prop.
    */
-  indicatorColor: PropTypes.string,
+  color: PropTypes.string,
   /**
    * To specify the children to be rendered inside the Tag.
    */
