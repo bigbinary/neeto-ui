@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.26 - 2024-10-10
+
+- Prevents calling hide tooltip if already destroyed, calling hide on a destroyed instance was throwing a warning in jest test.
+- The removed props from the Dropdown component is no longer supported by Tippy, using those in the molecules was throwing warnings in the console.
+
 ## 8.2.25 - 2024-10-09
 
 - Fixes existing jest warnings.
@@ -91,7 +96,6 @@ Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.5 - 2024-08-14
 ![blocknavigation-changes](https://github.com/user-attachments/assets/40c1504a-6f47-4e75-8a54-515cdd4e4991)
 ## 8.2.3 - 2024-08-13
-
 <img width="1137" alt="Screenshot 2024-08-13 at 11 49 23 AM" src="https://github.com/user-attachments/assets/957cdb75-b0da-4470-8e33-d7c21b04ba23">
 <img width="1114" alt="Screenshot 2024-08-13 at 11 51 50 AM" src="https://github.com/user-attachments/assets/ea574af4-3804-4aa2-8a8b-f0eb85bbd988">
 ## 8.2.1 - 2024-07-29
@@ -126,7 +130,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: placeholder for TimePicker and DateTimePicker
 - Added: enabled masked format
 ## 7.0.1 - 2024-07-01
-
 - Fixed the scrollbar visibility issue in Tables
 
 ## 7.0.0 - 2024-06-27
@@ -592,7 +595,6 @@ input.
 Fixed: scroll to error is not triggered on submitting form with enter key.
 ## 5.1.8 - 2023-08-24
 Added `type = "button"` attribute to *Tab.Item* component
-
 ## 5.1.7 - 2023-08-21
 
 Added: `rejectCharsRegex` prop to *Input* component.
@@ -1314,7 +1316,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Added: `hideOnTargetExit` prop to *Tooltip* component
 ## 3.3.3
 - Added: data-cy for in *Alert* component elements
-
 ## 3.3.2
 
 - Fixed: Added override for `onClick` prop in *Dropdown* component
