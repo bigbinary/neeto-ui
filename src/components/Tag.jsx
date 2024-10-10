@@ -47,6 +47,7 @@ const Tag = forwardRef(
       .neeto-ui-tag--type-outline.neeto-ui-tag--color-${internalColor},
       .neeto-ui-tag--type-solid.neeto-ui-tag--color-${internalColor} {
         --neeto-ui-tag-bg-color: rgb(from ${color} r g b / 0.1);
+        --neeto-ui-tag-border-color: rgb(from ${color} r g b / 0.1);
       }
       .neeto-ui-tag--type-outline.neeto-ui-tag--color-${internalColor} {
         --neeto-ui-tag-color: ${color};
