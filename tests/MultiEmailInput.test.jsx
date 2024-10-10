@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { MultiEmailInput } from "components";
@@ -97,7 +97,9 @@ describe("MultiEmailInput", () => {
     const onChange = jest.fn();
     render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
-    emailInput.focus();
+    act(() => {
+      emailInput.focus();
+    });
     await userEvent.type(emailInput, "test@email.com");
     await userEvent.click(document.body);
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -217,7 +219,9 @@ describe("MultiEmailInput", () => {
     const user = userEvent.setup({ document });
     render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
-    emailInput.focus();
+    act(() => {
+      emailInput.focus();
+    });
     await user.type(emailInput, "John Doe <john@example.com>");
     await user.tab();
     expect(onChange).toHaveBeenCalledTimes(3);

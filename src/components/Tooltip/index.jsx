@@ -42,6 +42,11 @@ const Tooltip = ({
     return undefined;
   }, [instance, hideOnTargetExit]);
 
+  const handleCreate = instance => {
+    setInstance(instance);
+    instance.popper.firstElementChild?.setAttribute("data-cy", "tooltip-box");
+  };
+
   return (
     <Tippy
       animation="scale-subtle"
@@ -51,13 +56,7 @@ const Tooltip = ({
       plugins={[followCursor]}
       role="tooltip"
       zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
-      }}
+      onCreate={handleCreate}
       {...{
         content,
         disabled,
@@ -67,7 +66,9 @@ const Tooltip = ({
         ...otherProps,
       }}
     >
-      {React.isValidElement(children) ? children : <span>{children}</span>}
+      {React.isValidElement(children)
+        ? children
+        : children && <span>{children}</span>}
     </Tippy>
   );
 };

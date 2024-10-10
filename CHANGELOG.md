@@ -23,6 +23,15 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.25 - 2024-10-09
+
+- Fixes existing jest warnings.
+- Adds [`jest-fail-on-console`](https://www.npmjs.com/package/jest-fail-on-console) package to prevent checking in changes with warnings and errors in console.
+
+## 8.2.24 - 2024-10-09
+
+Upgraded the Rollup package to latest version(4.24.1), and its plugins as well!
+
 ## 8.2.23 - 2024-10-08
 
 Added: `data-cy` prop to *Check* and *Close* icons in *Switch* component.
@@ -80,9 +89,7 @@ Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.6 - 2024-08-26
 - Fixed: disabled prop of Dropdown not working when a customTarget is used
 ## 8.2.5 - 2024-08-14
-
 ![blocknavigation-changes](https://github.com/user-attachments/assets/40c1504a-6f47-4e75-8a54-515cdd4e4991)
-
 ## 8.2.3 - 2024-08-13
 
 <img width="1137" alt="Screenshot 2024-08-13 at 11 49 23 AM" src="https://github.com/user-attachments/assets/957cdb75-b0da-4470-8e33-d7c21b04ba23">
@@ -116,10 +123,8 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.0.3 - 2024-07-11
 - Disabled mask format in DatePicker and TimePicker
 ## 7.0.2 - 2024-07-03
-
 - Added: placeholder for TimePicker and DateTimePicker
 - Added: enabled masked format
-
 ## 7.0.1 - 2024-07-01
 
 - Fixed the scrollbar visibility issue in Tables
@@ -585,9 +590,7 @@ Added truncating feature when more than 3 emails are shown on the MultiEmail
 input.
 ## 5.1.9 - 2023-08-25
 Fixed: scroll to error is not triggered on submitting form with enter key.
-
 ## 5.1.8 - 2023-08-24
-
 Added `type = "button"` attribute to *Tab.Item* component
 
 ## 5.1.7 - 2023-08-21
@@ -1309,9 +1312,7 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Added: active state to `NavLink` in *Sidebar* component.
 ## 3.3.4
 - Added: `hideOnTargetExit` prop to *Tooltip* component
-
 ## 3.3.3
-
 - Added: data-cy for in *Alert* component elements
 
 ## 3.3.2

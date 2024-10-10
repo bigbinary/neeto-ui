@@ -1,5 +1,10 @@
 /* eslint-disable no-undef */
 import "@testing-library/jest-dom";
+import failOnConsole from "jest-fail-on-console";
+
+import { initializeI18n } from "components/TranslationProvider/i18n";
+
+import { failOnConsoleOptions } from "./jest-config/config";
 
 // Fixes element.getTotalLength is not a function. Refer: https://github.com/framer/motion/issues/204
 if (!SVGElement.prototype.getTotalLength) {
@@ -27,3 +32,6 @@ Element.prototype.scrollIntoView = jest.fn();
 Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
+
+failOnConsole(failOnConsoleOptions);
+initializeI18n();
