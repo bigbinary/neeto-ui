@@ -37,6 +37,13 @@ describe("Tag", () => {
     ).toBeInTheDocument();
   });
 
+  it("should render with a different color", () => {
+    const { container } = render(<Tag color="#ff0000" label="Tag" />);
+    expect(
+      container.querySelector(".neeto-ui-tag--color-ff0000")
+    ).toBeInTheDocument();
+  });
+
   it("should show close button if onClose function is provided", () => {
     const { getByTestId } = render(<Tag onClose={() => {}} />);
     expect(getByTestId("tag-close-button")).toBeInTheDocument();
