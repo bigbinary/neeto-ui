@@ -16,9 +16,25 @@ describe("Tag", () => {
     expect(getByTestId("class-icon")).toBeInTheDocument();
   });
 
-  it("should show indicator when indicatorStatus is provided", () => {
-    const { getByTestId } = render(<Tag indicatorStyle="success" />);
-    expect(getByTestId("tag-indicator")).toBeInTheDocument();
+  it("should render a with style 'success'", () => {
+    const { container } = render(<Tag label="Tag" style="success" />);
+    expect(
+      container.querySelector(".neeto-ui-tag--style-success")
+    ).toBeInTheDocument();
+  });
+
+  it("should render with a 'large' size", () => {
+    const { container } = render(<Tag label="Tag" size="large" />);
+    expect(
+      container.querySelector(".neeto-ui-tag--size-large")
+    ).toBeInTheDocument();
+  });
+
+  it("should render a 'outline' type", () => {
+    const { container } = render(<Tag label="Tag" type="outline" />);
+    expect(
+      container.querySelector(".neeto-ui-tag--type-outline")
+    ).toBeInTheDocument();
   });
 
   it("should show close button if onClose function is provided", () => {
@@ -28,14 +44,14 @@ describe("Tag", () => {
 
   it("should call onClose on button click", async () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(<Tag onClose={onClose} />);
+    const { getByTestId } = render(<Tag {...{ onClose }} />);
     await userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it("should not call onClose function if tag is disabled", async () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(<Tag disabled onClose={onClose} />);
+    const { getByTestId } = render(<Tag {...{ onClose }} disabled />);
     await userEvent.click(getByTestId("tag-close-button"));
     expect(onClose).toHaveBeenCalledTimes(0);
   });
