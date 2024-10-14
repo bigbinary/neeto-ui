@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.27 - 2024-10-14
+
+- Added caching logic in days util function.
+
 ## 8.2.26 - 2024-10-10
 
 - Prevents calling hide tooltip if already destroyed, calling hide on a destroyed instance was throwing a warning in jest test.
@@ -131,7 +135,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: enabled masked format
 ## 7.0.1 - 2024-07-01
 - Fixed the scrollbar visibility issue in Tables
-
 ## 7.0.0 - 2024-06-27
 
 ### Color palette
@@ -596,7 +599,6 @@ Fixed: scroll to error is not triggered on submitting form with enter key.
 ## 5.1.8 - 2023-08-24
 Added `type = "button"` attribute to *Tab.Item* component
 ## 5.1.7 - 2023-08-21
-
 Added: `rejectCharsRegex` prop to *Input* component.
 
 ## 5.1.6 - 2023-08-17
@@ -1317,7 +1319,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.3
 - Added: data-cy for in *Alert* component elements
 ## 3.3.2
-
 - Fixed: Added override for `onClick` prop in *Dropdown* component
 
 ## 3.3.1
