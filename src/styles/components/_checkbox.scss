@@ -25,6 +25,7 @@
 
   // Margin
   --neeto-ui-checkbox-label-margin: 8px;
+  --neeto-ui-checkbox-label-line-height: 1.2;
 }
 
 .neeto-ui-checkbox__wrapper {
@@ -38,10 +39,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: start;
 
     .neeto-ui-label {
       margin-left: var(--neeto-ui-checkbox-label-margin);
+      line-height: var(--neeto-ui-checkbox-label-line-height);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
