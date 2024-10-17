@@ -29,7 +29,7 @@ const HelpContent = ({ helpIconProps }) => {
       <>
         <HelpIcon {...otherHelpIconProps} ref={popoverReferenceElement} />
         <Popover reference={popoverReferenceElement} {...otherPopoverProps}>
-          <div className="flex flex-col">
+          <div className="neeto-ui-flex neeto-ui-flex-col">
             {title && (
               <Popover.Title
                 data-cy="help-popover-title"

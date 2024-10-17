@@ -55,7 +55,7 @@ const HeaderCellMenu = ({
         }}
       >
         <Menu
-          className="cursor-auto"
+          className="neeto-ui-cursor-auto"
           onMouseDown={event => event.preventDefault()}
         >
           {isSortable && (
@@ -116,7 +116,7 @@ const HeaderCellMenu = ({
                 {getLocale(i18n, t, "neetoui.table.columnInfo")}
               </MenuItem.Button>
               <Popover
-                className="cursor-auto"
+                className="neeto-ui-cursor-auto"
                 hideOnClick={false}
                 interactiveDebounce={20}
                 offset={[0, 15]}
@@ -126,7 +126,7 @@ const HeaderCellMenu = ({
               >
                 {columnTitle && <Popover.Title>{columnTitle}</Popover.Title>}
                 <Typography
-                  className="w-72 max-w-full whitespace-normal normal-case"
+                  className="neeto-ui-whitespace-normal neeto-ui-normal-case neeto-ui-max-w-full neeto-ui-table__column-description"
                   lineHeight="normal"
                   style="body2"
                   weight="normal"

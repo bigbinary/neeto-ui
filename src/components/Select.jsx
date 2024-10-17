@@ -188,7 +188,7 @@ const MenuList = props => {
       {props.children}
       {hasMore && (
         <div
-          className="flex w-full items-center justify-center py-3"
+          className="neeto-ui-flex neeto-ui-w-full neeto-ui-items-center neeto-ui-justify-center neeto-ui-py-3"
           data-testid="loader"
           ref={loaderRef}
         >
