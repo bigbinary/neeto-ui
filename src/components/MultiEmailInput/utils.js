@@ -2,10 +2,11 @@ import { pluck } from "ramda";
 
 import { EMAIL_REGEX } from "./constants";
 
-export const formatEmailInputOptions = label => ({
-  label,
-  value: label,
-  valid: EMAIL_REGEX.test(label),
+export const formatEmailInputOption = ({ label, value, ...otherDetails }) => ({
+  label: label ?? value,
+  value,
+  ...otherDetails,
+  valid: EMAIL_REGEX.test(value),
 });
 
 export const pruneDuplicates = inputValues => {
