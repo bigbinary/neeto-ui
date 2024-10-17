@@ -9,7 +9,7 @@ export const formatEmailInputOption = ({ label, value, ...otherDetails }) => ({
   valid: EMAIL_REGEX.test(value),
 });
 
-export const pruneDuplicates = inputValues => {
+export const pruneDuplicates = (inputValues, options = []) => {
   const values = pluck("value", inputValues);
   const caseInsensitiveValues = values.map(value => value.toLowerCase());
   const uniqueValuesSet = new Set();
@@ -23,7 +23,7 @@ export const pruneDuplicates = inputValues => {
 
   const uniqueValues = Array.from(uniqueValuesSet);
   const uniqueEmails = uniqueValues.map(email => {
-    const emailDetails = inputValues.find(({ value }) => value === email) ?? {
+    const emailDetails = options.find(({ value }) => value === email) ?? {
       value: email,
     };
 

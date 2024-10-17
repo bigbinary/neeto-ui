@@ -69,10 +69,10 @@ const MultiEmailInput = forwardRef(
         formatEmailInputOption({ value: email })
       );
 
-      const { uniqueEmails, duplicates } = pruneDuplicates([
-        ...value,
-        ...emails,
-      ]);
+      const { uniqueEmails, duplicates } = pruneDuplicates(
+        [...value, ...emails],
+        otherProps.options
+      );
       onChange(uniqueEmails);
       setDuplicateEmails(duplicates);
       setInputValue("");
@@ -101,7 +101,10 @@ const MultiEmailInput = forwardRef(
 
     const onCreateOption = input => {
       const email = formatEmailInputOption({ value: input });
-      const { uniqueEmails, duplicates } = pruneDuplicates([...value, email]);
+      const { uniqueEmails, duplicates } = pruneDuplicates(
+        [...value, email],
+        otherProps.options
+      );
       onChange(uniqueEmails);
       setDuplicateEmails(duplicates);
       otherProps?.onCreateOption?.(input);
