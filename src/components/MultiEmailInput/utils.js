@@ -2,30 +2,41 @@ import { pluck } from "ramda";
 
 import { EMAIL_REGEX } from "./constants";
 
-export const formatEmailInputOptions = label => ({
-  label,
-  value: label,
-  valid: EMAIL_REGEX.test(label),
+const getEmailsMap = (options = [], inputEmails = []) =>
+  new Map([...inputEmails, ...options].map(option => [option.value, option]));
+
+const processEmailOptions = (options = [], inputEmails = []) => {
+  const emailsMap = getEmailsMap(options, inputEmails);
+
+  return email => {
+    const emailDetails = emailsMap.get(email) || { value: email };
+
+    return formatEmailInputOption(emailDetails);
+  };
+};
+
+export const formatEmailInputOption = ({ label, value, ...otherDetails }) => ({
+  label: label ?? value,
+  value,
+  ...otherDetails,
+  valid: EMAIL_REGEX.test(value),
 });
 
-export const pruneDuplicates = inputValues => {
-  const values = pluck("value", inputValues);
-  const caseInsensitiveValues = values.map(value => value.toLowerCase());
+export const pruneDuplicates = (inputValues, options) => {
+  const emailProcessor = processEmailOptions(options, inputValues);
+  const emails = pluck("value", inputValues);
   const uniqueValuesSet = new Set();
   const duplicates = [];
 
-  caseInsensitiveValues.forEach((value, index) => {
-    if (uniqueValuesSet.has(value)) {
-      duplicates.push(values[index]);
-    } else {
-      uniqueValuesSet.add(value);
-    }
+  emails.forEach(pristineEmail => {
+    const email = pristineEmail.toLowerCase();
+    if (uniqueValuesSet.has(email)) duplicates.push(pristineEmail);
+
+    uniqueValuesSet.add(email);
   });
 
   const uniqueValues = Array.from(uniqueValuesSet);
-  const uniqueEmails = uniqueValues.map(email =>
-    formatEmailInputOptions(email)
-  );
+  const uniqueEmails = uniqueValues.map(emailProcessor);
 
   return { uniqueEmails, duplicates };
 };

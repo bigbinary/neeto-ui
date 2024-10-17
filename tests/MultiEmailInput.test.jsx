@@ -7,28 +7,33 @@ import { MultiEmailInput } from "components";
 
 const SAMPLE_EMAILS = [
   {
-    label: "test@example.com",
+    label: "Test person 1 (test@example.com)",
     value: "test@example.com",
+    userId: 1,
     valid: true,
   },
   {
-    label: "test2@example.com",
+    label: "Test person 2 (test2@example.com)",
     value: "test2@example.com",
+    userId: 2,
     valid: true,
   },
   {
-    label: "test3@example.com",
+    label: "Test person 3 (test3@example.com)",
     value: "test3@example.com",
+    userId: 3,
     valid: true,
   },
   {
-    label: "test4@example.com",
+    label: "Test person 4 (test4@example.com)",
     value: "test4@example.com",
+    userId: 4,
     valid: true,
   },
   {
-    label: "test5@example.com",
+    label: "Test person 5 (test5@example.com)",
     value: "test5@example.com",
+    userId: 5,
     valid: true,
   },
 ];
@@ -272,5 +277,17 @@ describe("MultiEmailInput", () => {
         "Duplicate emails that were removed case insensitively: test@Example.com"
       )
     ).toBeInTheDocument();
+  });
+
+  it("should call onChange when Enter key is pressed and retain all the properties in the selected emails", async () => {
+    const onChange = jest.fn();
+    const selectedEmails = SAMPLE_EMAILS.slice(0, 2);
+    render(<MultiEmailInput {...{ onChange }} value={selectedEmails} />);
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.type(emailInput, "email@domain.com{enter}");
+    expect(onChange).toHaveBeenCalledWith([
+      ...selectedEmails,
+      { label: "email@domain.com", valid: true, value: "email@domain.com" },
+    ]);
   });
 });
