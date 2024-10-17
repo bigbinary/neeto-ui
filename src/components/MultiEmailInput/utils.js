@@ -16,17 +16,19 @@ export const pruneDuplicates = inputValues => {
   const duplicates = [];
 
   caseInsensitiveValues.forEach((value, index) => {
-    if (uniqueValuesSet.has(value)) {
-      duplicates.push(values[index]);
-    } else {
-      uniqueValuesSet.add(value);
-    }
+    if (uniqueValuesSet.has(value)) duplicates.push(values[index]);
+
+    uniqueValuesSet.add(value);
   });
 
   const uniqueValues = Array.from(uniqueValuesSet);
-  const uniqueEmails = uniqueValues.map(email =>
-    formatEmailInputOptions(email)
-  );
+  const uniqueEmails = uniqueValues.map(email => {
+    const emailDetails = inputValues.find(({ value }) => value === email) ?? {
+      value: email,
+    };
+
+    return formatEmailInputOption(emailDetails);
+  });
 
   return { uniqueEmails, duplicates };
 };
