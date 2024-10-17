@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.30 - 2024-10-17
+
+- Fixed issues with the *MultiEmailInput* component when `isCreatable` option is enabled.
+
 ## 8.2.29 - 2024-10-17
 
 - Added: Text truncation for table column titles.
@@ -152,7 +156,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.0.0 - 2024-06-27
 ### Color palette
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
-  
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
   
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
@@ -615,7 +618,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.6 - 2023-08-17
 - Added: Mechanism to set the pagination and sorting config in URL query
   parameters for `Table`.
-
 ## 5.1.5 - 2023-08-08
 
 - Added: `initialFocusRef` prop to *Alert*
@@ -1333,7 +1335,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.1
 - Fixed: Typography of Header in *Alert* component.
 - Fixed: Max width issue in *Dropdown* component.
-
 ## 3.3.0
 
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
