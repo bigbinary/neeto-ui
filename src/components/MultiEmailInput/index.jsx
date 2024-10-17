@@ -14,7 +14,6 @@ import {
   CUSTOM_COMPONENTS,
 } from "./constants";
 import {
-  formatEmailInputOption,
   pruneDuplicates,
   renderValidEmails,
   renderDefaultText,
@@ -65,9 +64,7 @@ const MultiEmailInput = forwardRef(
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
 
-      const emails = emailMatches.map(email =>
-        formatEmailInputOption({ value: email })
-      );
+      const emails = emailMatches.map(email => ({ value: email }));
 
       const { uniqueEmails, duplicates } = pruneDuplicates(
         [...value, ...emails],
@@ -100,9 +97,8 @@ const MultiEmailInput = forwardRef(
     };
 
     const onCreateOption = input => {
-      const email = formatEmailInputOption({ value: input });
       const { uniqueEmails, duplicates } = pruneDuplicates(
-        [...value, email],
+        [...value, { value: input }],
         otherProps.options
       );
       onChange(uniqueEmails);
