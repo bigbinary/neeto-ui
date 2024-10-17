@@ -186,6 +186,7 @@ const MultiEmailInput = forwardRef(
           onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
           {...{
+            handleEmailChange,
             inputValue,
             isAlwaysExpanded,
             isFocused,
