@@ -41,13 +41,13 @@ const HeaderCellMenu = ({
     <div onClick={event => event.stopPropagation()}>
       <Dropdown
         appendTo={() => document.body}
-        className="flex"
+        className="neeto-ui-flex"
         icon={MenuHorizontal}
         position="auto"
         strategy="fixed"
         zIndex={99999}
         buttonProps={{
-          className: "min-h-0 flex-shrink-0",
+          className: "neeto-ui-min-h-0 neeto-ui-flex-shrink-0",
           style: "text",
           size: "medium",
           "data-testid": "column-menu-button",
@@ -61,7 +61,7 @@ const HeaderCellMenu = ({
           {isSortable && (
             <>
               <MenuItem.Button
-                className="flex items-center justify-between"
+                className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
                 onClick={() =>
                   onSort({
                     column,
@@ -78,7 +78,7 @@ const HeaderCellMenu = ({
                   )}
               </MenuItem.Button>
               <MenuItem.Button
-                className="flex items-center justify-between"
+                className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
                 onClick={() =>
                   onSort({
                     column,

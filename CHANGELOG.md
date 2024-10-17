@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.29 - 2024-10-17
+
+- Added: Text truncation for table column titles.
+
+https://github.com/user-attachments/assets/f8eda9f5-56c9-46eb-90f2-96718e5137f8
+
+@praveen-murali-ind _a
+
 ## 8.2.28 - 2024-10-16
 
 - Changed: default vertical alignment of checkbox and radio buttons from `center` to `top`.
@@ -143,7 +151,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Fixed the scrollbar visibility issue in Tables
 ## 7.0.0 - 2024-06-27
 ### Color palette
-
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
   
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
@@ -606,7 +613,6 @@ Added `type = "button"` attribute to *Tab.Item* component
 ## 5.1.7 - 2023-08-21
 Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.6 - 2023-08-17
-
 - Added: Mechanism to set the pagination and sorting config in URL query
   parameters for `Table`.
 
@@ -1325,7 +1331,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.2
 - Fixed: Added override for `onClick` prop in *Dropdown* component
 ## 3.3.1
-
 - Fixed: Typography of Header in *Alert* component.
 - Fixed: Max width issue in *Dropdown* component.
 
