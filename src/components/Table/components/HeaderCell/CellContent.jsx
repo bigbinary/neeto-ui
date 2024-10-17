@@ -41,8 +41,10 @@ const CellContent = ({
       title=""
       onClick={isSortable ? noop : headerProps.onClick}
     >
-      <div className="flex items-center justify-between">
-        <div className="min-w-0 flex-grow">{children}</div>
+      <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between">
+        <div className="neeto-ui-min-w-0 neeto-ui-flex-grow neeto-ui-truncate">
+          {children}
+        </div>
         {hasMoreMenu && (
           <HeaderCellMenu
             {...{
