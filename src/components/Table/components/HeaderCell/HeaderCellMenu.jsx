@@ -126,7 +126,7 @@ const HeaderCellMenu = ({
               >
                 {columnTitle && <Popover.Title>{columnTitle}</Popover.Title>}
                 <Typography
-                  className="neeto-ui-whitespace-normal neeto-ui-normal-case neeto-ui-max-w-full w-72"
+                  className="neeto-ui-whitespace-normal neeto-ui-normal-case neeto-ui-max-w-full neeto-ui-table__column-description"
                   lineHeight="normal"
                   style="body2"
                   weight="normal"
