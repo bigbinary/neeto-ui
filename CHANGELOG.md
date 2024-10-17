@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.31 - 2024-10-17
+
+- Removed: Tailwind utility classes from components.
+- Added: Utility classes for `text-transform`.
+- Added: Utility classes for `max-width` and `min-width`.
+- Added: Utility classes for `cursor`.
+- Added: Utility classes for `font-size: inherit`.
+
 ## 8.2.30 - 2024-10-17
 
 - Fixed issues with the *MultiEmailInput* component when `isCreatable` option is enabled.
@@ -157,7 +165,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ### Color palette
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
-  
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
   
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
@@ -619,7 +626,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - Added: Mechanism to set the pagination and sorting config in URL query
   parameters for `Table`.
 ## 5.1.5 - 2023-08-08
-
 - Added: `initialFocusRef` prop to *Alert*
 
 ## 5.1.4 - 2023-08-04
@@ -1336,7 +1342,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: Typography of Header in *Alert* component.
 - Fixed: Max width issue in *Dropdown* component.
 ## 3.3.0
-
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
 - Changed: Implemented *Dropdown* component with Tippy.js and removed
   `react-popper`
