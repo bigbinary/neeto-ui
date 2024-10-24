@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.32 - 2024-10-24
+
+- The `async` `handleSubmit` will always return a `Promise`, even if the submit handler inside doesn’t return one. This leads to unexpected bugs, as the `Promise` resolves immediately when using the `mutate` function of `useMutation` while the API call might still be in progress.
+- In Formik, if a Promise is returned, it waits for it to resolve before setting isSubmitting to false. In our case, this happens immediately after the button click.
+- Since we weren’t returning the result of the submit handler, it consistently returned a Promise once the handler executed, which caused this behavior.
+
 ## 8.2.31 - 2024-10-17
 
 - Removed: Tailwind utility classes from components.
@@ -166,7 +172,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
-  
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
   
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
@@ -627,7 +632,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
   parameters for `Table`.
 ## 5.1.5 - 2023-08-08
 - Added: `initialFocusRef` prop to *Alert*
-
 ## 5.1.4 - 2023-08-04
 
 - Fixed: Handled dot paths in *ScrollToErrorField*.
@@ -1348,7 +1352,6 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert*
   components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
-
 #### UI
 
 - Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
