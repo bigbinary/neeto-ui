@@ -1,13 +1,14 @@
 import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
+import path from "path";
+import remarkGfm from "remark-gfm";
+import { mergeDeepLeft } from "ramda";
 
-const path = require("path");
-const { mergeDeepLeft } = require("ramda");
+import commonResolve from "@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js";
+import projectResolve from "../resolve.js";
 
-const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
-const projectResolve = require("../resolve.js");
 const rootResolve = mergeDeepLeft(projectResolve, commonResolve);
 
-module.exports = {
+const config = {
   staticDirs: ["./public"],
 
   stories: [
@@ -20,28 +21,66 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
     "@storybook/addon-postcss",
-    "@storybook/addon-docs",
-    "storybook-addon-designs",
     "@storybook/addon-console",
     "storybook-dark-mode",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
 
   webpackFinal: async config => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      ...rootResolve.alias,
-      src: path.resolve(__dirname, "..", "src"),
-      "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
+    config.module.rules.push({
+      test: /\.(js|jsx|mjs|ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+      },
+    });
+
+    // Add MDX loader configuration
+    // config.module.rules.push({
+    //   test: /\.mdx?$/,
+    //   use: [
+    //     {
+    //       loader: '@mdx-js/loader',
+    //       options: {}
+    //     }
+    //   ]
+    // });
+
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          ...rootResolve.alias,
+          src: path.resolve(__dirname, "..", "src"),
+          "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
+        },
+        extensions: [
+          ...(config.resolve.extensions || []),
+          ".js",
+          ".jsx",
+          ".mdx",
+          ".ts",
+          ".tsx",
+        ],
+      },
+      plugins: [
+        ...config.plugins,
+        new MonacoWebpackPlugin({
+          languages: ["javascript"],
+        }),
+      ],
     };
-
-    config.plugins = [
-      ...config.plugins,
-      new MonacoWebpackPlugin({
-        languages: ["javascript"],
-      }),
-    ];
-
-    return config;
   },
 
   framework: {
@@ -53,3 +92,5 @@ module.exports = {
     autodocs: true,
   },
 };
+
+export default config;
