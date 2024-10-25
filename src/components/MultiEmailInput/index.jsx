@@ -74,6 +74,7 @@ const MultiEmailInput = forwardRef(
       onChange(uniqueEmails);
       setDuplicateEmails(duplicates);
       setInputValue("");
+      setIsMenuOpen(false);
     };
 
     const handleKeyDown = event => {
