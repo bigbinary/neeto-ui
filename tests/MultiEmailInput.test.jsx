@@ -290,4 +290,26 @@ describe("MultiEmailInput", () => {
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
   });
+
+  it("should not render the menu when clicked on the input field", async () => {
+    const onChange = jest.fn();
+    const selectedEmails = SAMPLE_EMAILS.slice(0, 2);
+    const { container } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        options={SAMPLE_EMAILS}
+        value={selectedEmails}
+      />
+    );
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.click(emailInput);
+    expect(
+      container.querySelector(".neeto-ui-react-select__menu")
+    ).not.toBeInTheDocument();
+
+    await userEvent.type(emailInput, "test");
+    await expect(
+      container.querySelector(".neeto-ui-react-select__menu")
+    ).toBeInTheDocument();
+  });
 });

@@ -131,17 +131,25 @@ const SelectContainer = props => (
   />
 );
 
-const Input = props => (
-  <components.Input
-    {...props}
-    data-cy="email-select-input-field"
-    onPaste={e => {
-      const clipboardData = e.clipboardData.getData("Text");
+const Input = props => {
+  const handlePaste = event => {
+    const { handleEmailChange } = props.selectProps;
 
-      setTimeout(() => props.selectProps.handleEmailChange(clipboardData));
-    }}
-  />
-);
+    const text = event.clipboardData.getData("Text");
+    if (!EMAIL_REGEX.test(text)) return;
+
+    event?.preventDefault();
+    setTimeout(() => handleEmailChange(text));
+  };
+
+  return (
+    <components.Input
+      {...props}
+      data-cy="email-select-input-field"
+      onPaste={handlePaste}
+    />
+  );
+};
 
 export const EMAIL_REGEX = new RegExp(
   "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$",
