@@ -16,6 +16,49 @@ const metadata = {
     docs: { description: { component: LabelDocs } },
   },
   subcomponents: { Tooltip },
+  argTypes: {
+    children: {
+      description: "To specify the content to be rendered inside the Label.",
+      control: "text",
+      table: { type: { summary: "node" } },
+    },
+    className: {
+      description: "Provide external classnames to Label component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    required: {
+      description: "To specify whether to show the required asterisk.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    helpIconProps: {
+      description: "Props for the help icon",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+  onClick: func,
+  icon: oneOfType([element, func]),
+  tooltipProps: shape(Tooltip.propTypes),
+  popoverProps: shape({
+    title: node,
+    description: node,
+    helpLinkProps: shape(Button.propTypes)
+  }),
+  className: string
+}`,
+        },
+      },
+    },
+  },
 };
 
 const Template = ({ children, ...args }) => <Label {...args}>{children}</Label>;
