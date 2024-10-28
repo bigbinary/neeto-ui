@@ -12,6 +12,23 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: KbdDocs } },
   },
+  argTypes: {
+    keyName: {
+      description: "To specify keyboard key",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    className: {
+      description: "To provide additional class names to the Kbd.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    tooltipProps: {
+      description: "To specify the props to be passed to the tooltip.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+  },
 };
 
 const Template = args => (
