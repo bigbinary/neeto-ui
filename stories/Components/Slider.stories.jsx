@@ -12,6 +12,45 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: SliderDocs } },
   },
+  argTypes: {
+    min: {
+      description: "The minimum value the slider can slide to.",
+      control: "number",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: "0" },
+      },
+    },
+    max: {
+      description: "The maximum value the slider can slide to.",
+      control: "number",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: "100" },
+      },
+    },
+    onChange: {
+      description:
+        "Callback function that is fired when the user changes the slider's value.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    value: {
+      description:
+        "The value of slider. When `range` is false, use number, otherwise, use [number, number]",
+      control: "object",
+      table: { type: { summary: "oneOfType([number, array])" } },
+    },
+    defaultValue: {
+      description:
+        "The value of slider. When `range` is false, use number, otherwise, use [number, number]",
+      control: "object",
+      table: {
+        type: { summary: "oneOfType([number, array])" },
+        defaultValue: { summary: "0" },
+      },
+    },
+  },
 };
 
 const Default = args => <Slider {...args} />;
