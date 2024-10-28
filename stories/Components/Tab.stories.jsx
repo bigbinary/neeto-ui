@@ -15,6 +15,35 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: TabDocs } },
   },
+  argTypes: {
+    noUnderline: {
+      description: "To hide the underline",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      description: "Set the size of the Tabs.",
+      control: "radio",
+      options: Object.values({ large: "large", small: "small" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "small" },
+      },
+    },
+    children: {
+      description: "To add content inside the Tab",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    className: {
+      description: "Extra classes can be provided to the Tab",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+  },
 };
 
 const Template = args => (
