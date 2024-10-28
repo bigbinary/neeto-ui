@@ -8,12 +8,120 @@ const metadata = {
   parameters: {
     layout: "padded",
     viewMode: "docs",
-    previewTabs: {
-      canvas: { hidden: true },
-    },
+    previewTabs: { canvas: { hidden: true } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/t2CLe7RVJYwUq9E8Or1mQA/01-Fundamentals?node-id=20%3A3",
+    },
+  },
+  argTypes: {
+    style: {
+      description: "Typography style variant",
+      control: "select",
+      options: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "body1",
+        "body2",
+        "body3",
+        "nano",
+      ],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "body1" },
+      },
+    },
+    className: {
+      description: "Additional CSS classes",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    weight: {
+      description: "Font weight",
+      control: "select",
+      options: [
+        "black",
+        "bold",
+        "extrabold",
+        "extralight",
+        "light",
+        "medium",
+        "normal",
+        "semibold",
+        "thin",
+      ],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "normal" },
+      },
+    },
+    component: {
+      description: "The component used for the root node",
+      control: "select",
+      options: [
+        "b",
+        "blockquote",
+        "code",
+        "del",
+        "em",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "i",
+        "ins",
+        "mark",
+        "p",
+        "s",
+        "span",
+        "strong",
+        "sub",
+        "sup",
+        "u",
+      ],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "p" },
+      },
+    },
+    textTransform: {
+      description: "To transform the text",
+      control: "select",
+      options: [
+        "capitalize",
+        "fullwidth",
+        "inherit",
+        "initial",
+        "lowercase",
+        "none",
+        "revert",
+        "unset",
+        "uppercase",
+      ],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "capitalize" },
+      },
+    },
+    lineHeight: {
+      description: "Controls the line height",
+      control: "select",
+      options: ["loose", "none", "normal", "relaxed", "snug", "tight"],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "normal" },
+      },
+    },
+    otherProp: {
+      description: "Other Prop",
+      control: "object",
+      table: { type: { summary: "object" } },
     },
   },
 };
@@ -21,49 +129,31 @@ const metadata = {
 const Template = args => <Typography {...args}>Typography</Typography>;
 
 const Heading1 = Template.bind({});
-Heading1.args = {
-  style: "h1",
-};
+Heading1.args = { style: "h1" };
 
 const Heading2 = Template.bind({});
-Heading2.args = {
-  style: "h2",
-};
+Heading2.args = { style: "h2" };
 
 const Heading3 = Template.bind({});
-Heading3.args = {
-  style: "h3",
-};
+Heading3.args = { style: "h3" };
 
 const Heading4 = Template.bind({});
-Heading4.args = {
-  style: "h4",
-};
+Heading4.args = { style: "h4" };
 
 const Heading5 = Template.bind({});
-Heading5.args = {
-  style: "h5",
-};
+Heading5.args = { style: "h5" };
 
 const Body1 = Template.bind({});
-Body1.args = {
-  style: "body1",
-};
+Body1.args = { style: "body1" };
 
 const Body2 = Template.bind({});
-Body2.args = {
-  style: "body2",
-};
+Body2.args = { style: "body2" };
 
 const Body3 = Template.bind({});
-Body3.args = {
-  style: "body3",
-};
+Body3.args = { style: "body3" };
 
 const Nano = Template.bind({});
-Nano.args = {
-  style: "nano",
-};
+Nano.args = { style: "nano" };
 
 const Variants = args => (
   <>
