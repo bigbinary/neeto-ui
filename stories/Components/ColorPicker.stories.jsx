@@ -32,6 +32,86 @@ const metadata = {
     docs: { description: { component: ColorPickerDocs } },
   },
   argTypes: {
+    color: {
+      description: "To specify the color value.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    size: {
+      description: "To set the size of the target.",
+      control: "radio",
+      options: Object.values({
+        large: "large",
+        medium: "medium",
+        small: "small",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "large" },
+        category: "New",
+      },
+    },
+    colorPaletteProps: {
+      description:
+        "To specify the props to be passed to the Palette component.",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+  color: {
+    from: string,
+    to: string
+  },
+  colorList: Array<{
+    from: string,
+    to: string
+  }>,
+  onChange: func
+}`,
+        },
+      },
+    },
+    showEyeDropper: {
+      description: "Shows eye dropper to pick color.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    showHexValue: {
+      description:
+        "To show hex value near to the color in the dropdown. By default it will be hidden.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    showTransparencyControl: {
+      description:
+        "To show transparency control. By default it will be hidden.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    showPicker: {
+      description:
+        "To show the color picker. Used to hide the picker in cases where only palette is required. By default it will be true.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: true },
+      },
+    },
+    portalProps: {
+      description: "To specify the props to be passed to the dropdown portal.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
     onChange: {
       table: {
         type: { summary: "func" },
