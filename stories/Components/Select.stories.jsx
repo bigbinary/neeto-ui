@@ -23,6 +23,154 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
     },
   },
+  argTypes: {
+    defaultValue: {
+      description: "To specify the default selected option.",
+      control: "object",
+      table: { type: { summary: "oneOfType([object, array])" } },
+    },
+    placeholder: {
+      description: "To specify the placeholder text.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    isDisabled: {
+      description: "To specify whether the Select input is disabled.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    isClearable: {
+      description: "To specify whether the Select input is clearable.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    isSearchable: {
+      description: "To specify whether the Select input is searchable.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    name: {
+      description: "To specify the name for the Select input.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    optionRemapping: {
+      description:
+        'The `options` prop expects an array of objects of the format `{ label: "", value: "" }`. If your array has different keys, you can specify them using this prop. Eg: `{ label: "name", value: "id" }` if `options` is an array of  `{ name: "", id: "" }` objects.',
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: "{ label: string, value: string }",
+        },
+      },
+    },
+    options: {
+      description: "To provide the options for the Select input.",
+      control: "array",
+      table: { type: { summary: "array" } },
+    },
+    size: {
+      description: "To specify the size of the Select component.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    strategy: {
+      description: "To specify positioning strategy for Select component.",
+      control: "select",
+      options: Object.values({ default: "default", fixed: "fixed" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    label: {
+      description:
+        "To specify the text to be displayed above the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    required: {
+      description: "To specify whether the Select field is required or not.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    error: {
+      description:
+        "To specify the error message to be displayed in the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    helpText: {
+      description:
+        "To specify the help text that appears below the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    className: {
+      description:
+        "To specify external classnames as overrides to the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    isCreateable: {
+      description:
+        "To specify whether the Select component is a creatable Select component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaltValue: { summary: "false" },
+      },
+    },
+    innerRef: {
+      description: "To specify the ref to the Select component.",
+      control: "object",
+      table: { type: { summary: "oneOfType([func, object])" } },
+    },
+    fetchMore: {
+      description: "Callback to load more options",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    totalOptionsCount: {
+      description:
+        "To specify if the total number of option available when lazy option load is enabled.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    isAsyncLoadOptionEnabled: {
+      description: "To specify if async options loading is enabled",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    addButtonLabel: {
+      description: "To specify the label for the button shown in multi select",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    portalProps: {
+      description: "To specify the extra props to be passed to the menu list.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+  },
 };
 
 const Template = args => (
