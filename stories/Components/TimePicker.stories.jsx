@@ -18,10 +18,137 @@ const metadata = {
     docs: { description: { component: TimePickerDocs } },
   },
   argTypes: {
-    onChange: {
+    className: {
+      description: "To provide external classnames to TimePicker component.",
+      control: "text",
       table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "-" },
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    popupClassName: {
+      description:
+        "To provide external classnames to TimePicker popup component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    label: {
+      description: "To set the text to be displayed above the TimePicker.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    size: {
+      description: "To set the size of the TimePicker.",
+      control: "radio",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    nakedInput: {
+      description: "To set the TimePicker as naked Input field.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    error: {
+      description:
+        "To specify the error message to be shown in the TimePicker.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    format: {
+      description: "To specify the time format.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "HH:mm:ss" },
+      },
+    },
+    timezone: {
+      description: "To specify the timezone.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    placeholder: {
+      description:
+        "To set the placeholder text for the TimePicker, if not provided, the format will be used as placeholder.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    interval: {
+      description: "To specify the time interval.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: {
+          summary: "{ hourStep: 1, minuteStep: 1, secondStep: 1 }",
+        },
+      },
+    },
+    onChange: {
+      description:
+        "For `TimeInput`,(time, timeString) => {} \nFor `TimeRange`, (time, [startTime, endTime]) => {}",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    type: {
+      description: "To specify the type of the TimePicker.",
+      control: "radio",
+      options: ["time", "range"],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "time" },
+      },
+    },
+    disabled: {
+      description: "To set TimePicker as disabled.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    value: {
+      description:
+        "To specify the values to be displayed inside the TimePicker.",
+      control: "object",
+      table: { type: { summary: "oneOfType([array, object])" } },
+    },
+    dropdownClassName: {
+      description:
+        "To specify custom classnames to be applied to the TimePicker dropdown.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    defaultValue: {
+      description:
+        "To specify the default values to be displayed inside the TimePicker.",
+      control: "object",
+      table: { type: { summary: "oneOfType([array, object])" } },
+    },
+    required: {
+      description: "To specify whether the Time picker is required or not.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
       },
     },
   },
