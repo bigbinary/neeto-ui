@@ -13,6 +13,76 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: NoDataDocs } },
   },
+  argTypes: {
+    image: {
+      description: "To specify the image.",
+      control: "text",
+      table: { type: { summary: "oneOfType([string, node])" } },
+    },
+    title: {
+      description: "To specify the title text.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    description: {
+      description: "To specify the description text.",
+      control: "object",
+      table: {
+        type: { summary: "node" },
+        defaultValue: { summary: "" },
+      },
+    },
+    helpText: {
+      description: "To specify the text that appears below the description.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    className: {
+      description: "Provide external classnames to NoData component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    primaryButtonProps: {
+      description: "To specify the props to be passed to the primary button.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    secondaryButtonProps: {
+      description: "To specify the props to be passed to the secondary button.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    showTooltipWhenButtonDisabled: {
+      description:
+        "To specify if the tooltip should be shown when the button is disabled.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    buttonSeparatorText: {
+      description:
+        "To specify the text that appears between the primary and secondary buttons.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+  },
 };
 
 const Template = args => (
