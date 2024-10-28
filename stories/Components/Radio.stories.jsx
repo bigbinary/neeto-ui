@@ -13,13 +13,56 @@ import RadioDocs from "!raw-loader!./RadioStoriesDocs/RadioDocs.mdx";
 const metadata = {
   title: "Components/Radio",
   component: Radio,
-  subcomponents: { "Radio.Item": Radio.Item },
+  subcomponents: { Item: Radio.Item },
   parameters: {
     layout: "padded",
-    docs: { description: { component: RadioDocs } },
+    docs: { autodocs: true, description: { component: RadioDocs } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A10",
+    },
+  },
+  argTypes: {
+    label: {
+      description: "To specify the label to be displayed for Radio component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    children: {
+      description:
+        "To specify the content to be rendered inside the Radio component.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    stacked: {
+      description:
+        "To specify whether the Radio items should be stacked vertically or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    className: {
+      description:
+        "To specify external classnames as overrides to the Radio component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    containerClassName: {
+      description:
+        "To specify external classnames for the container of Radio component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    error: {
+      description:
+        "To specify the error message to be displayed when the Radio input is invalid.",
+      control: "text",
+      table: { type: { summary: "string" } },
     },
   },
 };
