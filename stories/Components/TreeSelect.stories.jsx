@@ -17,6 +17,156 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: TreeSelectDocs } },
   },
+  argTypes: {
+    allowClear: {
+      description:
+        "Controls whether the value is allowed to be cleared or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    className: {
+      description: "To specify additional classes.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    popupClassName: {
+      description: "To specify additional classes to the popup.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    disabled: {
+      description: "To disable the TreeSelect component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    error: {
+      description: "To display the specified error.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    fieldNames: {
+      description:
+        "This prop can be used to override the default keys of label and value pairs in options.",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+      label: string,
+      value: string
+    }`,
+        },
+      },
+    },
+    label: {
+      description: "To display a label above the TreeSelect component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    onChange: {
+      description:
+        "The callback function that will be triggered when value changes.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onSearch: {
+      description:
+        "Callback function to be executed when search input changes that can be used for advanced usecases. This is not necessary as basic search works when `showSearch` is enabled.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    placeholder: {
+      description: "The placeholder string to be displayed.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    required: {
+      description: "To specify whether TreeSelect field is required or not.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    searchValue: {
+      description:
+        "The search value to make search controlled. This is not required as basic search works when `showSearch` is enabled.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    showSearch: {
+      description: "To enable search for the TreeSelect component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      description: "To specify the size of the TreeSelect component.",
+      control: "radio",
+      options: ["small", "middle", "large"],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "middle" },
+      },
+    },
+    suffixIcon: {
+      description:
+        "To specify the icon at the end of the TreeSelect component.",
+      control: "object",
+      table: { type: { summary: "elementType" } },
+    },
+    switcherIcon: {
+      description: "To specify the icon next to options that have children.",
+      control: "object",
+      table: { type: { summary: "elementType" } },
+    },
+    treeData: {
+      description: "The options to be passed to the TreeSelect component.",
+      control: "object",
+      table: {
+        type: {
+          summary: "arrayOf(shape)",
+          detail: `Array<{
+      label: string,
+      value: string,
+      disabled?: boolean,
+      children?: array
+    } | {
+      id: string,
+      label: string,
+      value: string,
+      disabled?: boolean,
+      pId: string
+    }>`,
+        },
+      },
+    },
+    treeDataSimpleMode: {
+      description:
+        "This prop specifies the format of data that has to be passed in the `treeData` prop. When enabled, treeData can be a flat array of the form `{ id, label, value, pId }`.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: true },
+      },
+    },
+    value: {
+      description: "The currently selected option.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+  },
 };
 
 const treeData = [
