@@ -4,8 +4,6 @@ import { Favorite } from "neetoicons";
 
 import Tag from "components/Tag";
 
-import { icons } from "../constants";
-
 import TagCSSCustomization from "!raw-loader!./TagStoriesDocs/TagCSSCustomization.mdx";
 import TagDocs from "!raw-loader!./TagStoriesDocs/TagDocs.mdx";
 
@@ -26,8 +24,97 @@ const metadata = {
     docs: { description: { component: TagDocs } },
   },
   argTypes: {
-    icon: { options: Object.keys(icons), mapping: icons },
-    ...DEPRECATED_PROPS,
+    icon: {
+      description: "To specify the icon to be used in the Tag.",
+      control: "object",
+      table: {
+        type: { summary: "oneOfType([string, elementType])" },
+      },
+    },
+    size: {
+      description: "To specify the size of the Tag.",
+      control: "radio",
+      options: Object.keys({ small: "small", large: "large" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "small" },
+      },
+    },
+    label: {
+      description: "To specify the label to be used in the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    type: {
+      description: "To specify the type of a Tag.",
+      control: "radio",
+      options: Object.keys({ outline: "outline", solid: "solid" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "outline" },
+      },
+    },
+    style: {
+      description: "To specify the style of a Tag.",
+      control: "select",
+      options: Object.keys({
+        primary: "primary",
+        secondary: "secondary",
+        info: "info",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
+      },
+    },
+    indicatorStyle: {
+      description: "To specify the style of the indication icon in a Tag.",
+      control: "select",
+      options: Object.keys({
+        primary: "primary",
+        secondary: "secondary",
+        info: "info",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+      }),
+      table: { type: { summary: "string" } },
+    },
+    onClose: {
+      description:
+        "To specify the callback function to be called when the close icon is clicked.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    disabled: {
+      description:
+        "To specify whether to disable any action on click of the close icon.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    className: {
+      description: "To provide additional class names to the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    color: {
+      description: "Use `status` prop instead.",
+      control: false,
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    indicatorColor: {
+      description: "Use `indicatorStatus` prop instead.",
+      control: false,
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    children: {
+      description: "To specify the children to be rendered inside the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
   },
 };
 
