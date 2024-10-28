@@ -21,12 +21,134 @@ const metadata = {
     },
   },
   argTypes: {
-    icon: { options: Object.keys(icons), mapping: icons },
+    style: {
+      description: "To specify the style of the Button.",
+      control: "select",
+      options: Object.values({
+        primary: "primary",
+        secondary: "secondary",
+        tertiary: "tertiary",
+        danger: "danger",
+        danger_text: "danger-text",
+        text: "text",
+        link: "link",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
+      },
+    },
+    size: {
+      description: "To set the size of the Button.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    iconPosition: {
+      description: "To specify the position of the icon.",
+      control: "radio",
+      options: Object.values({ left: "left", right: "right" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "right" },
+      },
+    },
+    iconSize: {
+      description: "To specify the size of the icon.",
+      control: "number",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: 16 },
+      },
+    },
+    label: {
+      description: "To set the text to be displayed inside the Button.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    loading: {
+      description:
+        "Indicates if a Button is in loading state and shows spinner if true.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    disabled: {
+      description: "To set Button as disabled.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    icon: {
+      description: "To set the icon to be shown in the Button.",
+      options: Object.keys(icons),
+      mapping: icons,
+    },
     onClick: {
+      description:
+        "To specify the action to be triggered on clicking the Button.",
       table: {
         type: { summary: "func" },
         defaultValue: { summary: "(event) => void" },
       },
+    },
+    to: {
+      description:
+        "To specify an internal route to which the Button points to.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    href: {
+      description: "To specify an external link to which the Button points to.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    type: {
+      description: "To specify the type of Button.",
+      control: "select",
+      options: Object.values({
+        button: "button",
+        reset: "reset",
+        submit: "submit",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "button" },
+      },
+    },
+    fullWidth: {
+      description: "To set the Button to full width of the container.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    className: {
+      description: "To provide external classnames to Button component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    tooltipProps: {
+      description: "To specify the props to be passed to the tooltip.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    children: {
+      description: "To specify the children to be rendered inside the Button.",
+      control: "text",
+      table: { type: { summary: "string" } },
     },
   },
 };
