@@ -12,6 +12,34 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: SpinnerDocs } },
   },
+  argTypes: {
+    theme: {
+      description: "To specify the theme of the Spinner.",
+      control: "radio",
+      options: Object.values({ dark: "dark", light: "light" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    size: {
+      description: "To set the size of the spinner",
+      control: "radio",
+      options: Object.values({ small: "small", medium: "medium" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    className: {
+      description: "Provide external classnames to Spinner component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "dark" },
+      },
+    },
+  },
 };
 
 const Template = args => (
