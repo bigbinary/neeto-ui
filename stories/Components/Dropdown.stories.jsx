@@ -6,14 +6,8 @@ import { Button, Dropdown, Tag, Input, Typography } from "components";
 
 import { EVENT_BUBBLING_CAPTURING } from "./constants";
 
-import { icons } from "../constants";
-
 import DropdownCSSCustomization from "!raw-loader!./DropdownStoriesDocs/DropdownCSSCustomization.mdx";
 import DropdownDocs from "!raw-loader!./DropdownStoriesDocs/DropdownDocs.mdx";
-
-const DEPRECATED_PROPS = {
-  ulProps: { control: false, table: { type: { summary: null } } },
-};
 
 const metadata = {
   title: "Components/Dropdown",
@@ -33,14 +27,175 @@ const metadata = {
     },
   },
   argTypes: {
-    icon: { options: Object.keys(icons), mapping: icons },
+    icon: {
+      description: "To specify the icon to be rendered in the Dropdown target.",
+      control: "object",
+      table: { type: { summary: "oneOfType([element, func])" } },
+    },
+    label: {
+      description: "To specify the label for Dropdown target button.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    isOpen: {
+      description: "To specify whether the Dropdown is open or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
     onClose: {
+      description:
+        "To specify the action to be triggered on closing the Dropdown.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    trigger: {
+      description: "To specify the triggering action for Dropdown.",
+      control: "select",
+      options: Object.keys({
+        click: "click",
+        hover: "mouseenter focus",
+        all: "mouseenter focus click",
+        manual: "manual",
+      }),
       table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
+        type: { summary: "string" },
+        defaultValue: { summary: "click" },
       },
     },
-    ...DEPRECATED_PROPS,
+    strategy: {
+      description:
+        "To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown.\n\nIf your reference element is in a fixed container, use the fixed strategy",
+      control: "select",
+      options: Object.values({ absolute: "absolute", fixed: "fixed" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "absolute" },
+      },
+    },
+    dropdownProps: {
+      description: "To specify the classes to be passed to the Dropdown menu.",
+      control: "object",
+      table: { type: { summary: "object" }, defaultValue: { summary: "{}" } },
+    },
+    position: {
+      description: "To specify the position of the Dropdown menu.",
+      control: "select",
+      options: Object.values({
+        auto: "auto",
+        autoStart: "auto-start",
+        autoEnd: "auto-end",
+        top: "top",
+        topStart: "top-start",
+        topEnd: "top-end",
+        bottom: "bottom",
+        bottomStart: "bottom-start",
+        bottomEnd: "bottom-end",
+        right: "right",
+        rightStart: "right-start",
+        rightEnd: "right-end",
+        left: "left",
+        leftStart: "left-start",
+        leftEnd: "left-end",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "bottom-end" },
+      },
+    },
+    children: {
+      description: "To specify the content to be rendered inside the Dropdown.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    className: {
+      description: "To provide external classnames to Dropdown target wrapper.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    buttonSize: {
+      description:
+        "To specify the size of the button to be rendered as the Dropdown target.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        category: "New",
+        defaultValue: { summary: "medium" },
+      },
+    },
+    buttonStyle: {
+      description:
+        "To specify the style of the button to be rendered as the Dropdown target.",
+      control: "select",
+      options: Object.values({
+        primary: "primary",
+        secondary: "secondary",
+        tertiary: "tertiary",
+        danger: "danger",
+        danger_text: "danger-text",
+        text: "text",
+        link: "link",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
+      },
+    },
+    buttonProps: {
+      description:
+        "To specify the props to be passed to the Dropdown target button.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    customTarget: {
+      description:
+        "To provide a custom target to be rendered instead of the default button target.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    disabled: {
+      description: "To specify whether the Dropdown is disabled or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    closeOnEsc: {
+      description:
+        "To specify whether the Dropdown should close on pressing esc key.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: true } },
+    },
+    closeOnSelect: {
+      description:
+        "To specify whether the Dropdown should close on selecting an option.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: true } },
+    },
+    closeOnOutsideClick: {
+      description:
+        "To specify whether the Dropdown should close on clicking outside the Dropdown content. (will not have any effect if the component is controlled.)",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    dropdownModifiers: {
+      description: "To provide custom modifiers to Dropdown component.",
+      control: "array",
+      table: { type: { summary: "array" } },
+    },
+    onClickOutside: {
+      description:
+        "To specify the action that should be triggered when clicking outside of the controlled dropdown component.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    ulProps: {
+      description: "Use `dropdownProps` props instead.",
+      control: "object",
+      table: { type: { summary: "object" }, category: "Removed" },
+    },
   },
 };
 
