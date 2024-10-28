@@ -22,7 +22,112 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A11",
     },
   },
-  argTypes: { rejectCharsRegex: { control: "text" } },
+  argTypes: {
+    id: {
+      description: "To specify a unique ID to the Input component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    size: {
+      description: "To specify the size of Input.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: { type: { summary: "string" } },
+    },
+    type: {
+      description: "To specify the type of Input field.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    maxLength: {
+      description:
+        "To specify a maximum character limit to the Input. Charater limit is visible only if the Input value is greater than or equal to 85% of the maximum character limit.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    unlimitedChars: {
+      description:
+        "To be used along with maxLength prop. When set to true the character limit will not be enforced and character count will be shown in error state if the character limit is exceeded.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    label: {
+      description: "To specify the text to be displayed above the Input.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    error: {
+      description:
+        "To specify the error message to be shown in the Input field.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    suffix: {
+      description:
+        "To specify the content to be added at the end of the Input field.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    prefix: {
+      description:
+        "To specify the content to be added at the beginning of the Input field.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    disabled: {
+      description: "To specify whether the Input field is disabled or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    helpText: {
+      description: "To specify the text that appears below the Input field.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    className: {
+      description:
+        "To specify external classNames that can be provided as overrides to the main wrapper.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    nakedInput: {
+      description: "To create an Input field without any borders.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    contentSize: {
+      description:
+        "To specify the value to be passed as size attribute to the Input field.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    required: {
+      description: "To specify whether the Input field is required or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    rejectCharsRegex: {
+      description:
+        "To specify a regex to be matched against the user input. Any character that matches it cannot be input by the user. It will also prevent such characters from being pasted into the input.",
+      control: "object",
+      table: { type: { summary: "RegExp" } },
+    },
+    disableTrimOnBlur: {
+      description: "To disable leading and trailing white spaces onBlur.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+  },
 };
 
 const Template = args => <Input {...args} />;
