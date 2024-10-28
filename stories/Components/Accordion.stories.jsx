@@ -17,6 +17,41 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A15",
     },
   },
+  argTypes: {
+    children: {
+      description:
+        "To specify the content to be rendered inside the Accordion.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    style: {
+      description: "To set the style of the Accordion.",
+      control: "radio",
+      options: Object.values({
+        primary: "primary",
+        secondary: "secondary",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
+      },
+    },
+    padded: {
+      description: "To add padding to the Accordion container.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    defaultActiveKey: {
+      description: "Index of the Accordion item to be opened initially.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    className: {
+      description: "To provide external classnames to Accordion container.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+  },
 };
 
 const AccordionStory = args => (
