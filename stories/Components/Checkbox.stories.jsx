@@ -16,6 +16,46 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A4",
     },
   },
+  argTypes: {
+    id: {
+      description: "To specify a unique ID to the Checkbox component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    label: {
+      description: "To specify the text to be displayed next to the Checkbox.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    error: {
+      description: "To specify the error message to be shown.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    className: {
+      description: "To provide external classnames to Checkbox component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    required: {
+      description:
+        "To specify whether the Checkbox is a required field or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    children: {
+      description:
+        "To specify the children label to be rendered inside the Checkbox.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+  },
 };
 
 const Template = args => <Checkbox {...args} />;
