@@ -12,6 +12,31 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: StepperDocs } },
   },
+  argTypes: {
+    steps: {
+      description: "To provide the array of steps",
+      control: "object",
+      table: {
+        type: {
+          summary: "array",
+          detail: `Array<{
+  id: string | number,
+  label: string
+}>`,
+        },
+      },
+    },
+    activeIndex: {
+      description: "To specify the active step",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    setActiveIndex: {
+      description: "To specify the function to set the active step",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+  },
 };
 
 const STEPS = [
