@@ -18,6 +18,48 @@ const metadata = {
     },
   },
   argTypes: {
+    label: {
+      description: "Text to be displayed above the component",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    required: {
+      description: "To specify whether to show the required asterisk.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    className: {
+      description: "Provide external classnames to spinner component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    error: {
+      description: "To specify the error message to be shown.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    checked: {
+      description: "Checks whether the Switch is checked or not",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    disabled: {
+      description: "To disable the component",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    children: {
+      description:
+        "To specify the children label to be rendered inside the Checkbox.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
     onChange: {
       table: {
         type: { summary: "func" },
