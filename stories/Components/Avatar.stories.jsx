@@ -20,6 +20,73 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
     },
   },
+  argTypes: {
+    size: {
+      description: "Specify the dimension for Avatar component.",
+      control: "radio",
+      options: Object.keys({
+        small: 24,
+        medium: 32,
+        large: 40,
+        extraLarge: 64,
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    user: {
+      description: "User object containing image URL and name",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+  imageUrl: string,
+  name: string
+}`,
+        },
+      },
+    },
+    onClick: {
+      description:
+        "To specify the action to be triggered on clicking the Avatar.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    status: {
+      description:
+        "To specify the status of the user if needed in Avatar component.",
+      control: "radio",
+      options: Object.keys({
+        online: "online",
+        idle: "idle",
+        offline: "offline",
+      }),
+      table: { type: { summary: "string" } },
+    },
+    showTooltip: {
+      description: "To display a tooltip with name of the user.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    tooltipProps: {
+      description: "To specify the props to be passed to the tooltip.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    className: {
+      description: "To provide external classnames to Avatar component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+  },
 };
 
 const Template = args => <Avatar {...args} />;
