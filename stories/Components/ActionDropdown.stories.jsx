@@ -27,11 +27,87 @@ const metadata = {
     },
   },
   argTypes: {
-    onClick: {
+    label: {
+      description: "To specify the text to be displayed inside the button.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    buttonStyle: {
+      description:
+        "To specify the style of the button to be rendered as the ActionDropdown target.",
+      control: "radio",
+      options: Object.values({ primary: "primary", secondary: "secondary" }),
       table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
       },
+    },
+    buttonSize: {
+      description: "To specify the size of the ActionDropdown.",
+      control: "radio",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    disabled: {
+      description: "To specify whether the ActionDropdown is disabled or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    nClick: {
+      description:
+        "To specify the action to be triggered on click of the button.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    buttonProps: {
+      description:
+        "To specify the props to be passed to the action button and Dropdown target button.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    dropdownProps: {
+      description: "To specify the props to be passed to the Dropdown target.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    portalProps: {
+      description: "To specify the props to be passed to the Dropdown portal.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    className: {
+      description:
+        "To provide external classnames to ActionDropdown target wrapper.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    children: {
+      description: "To specify the content to be rendered inside the Dropdown.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    style: {
+      description: "Use `buttonStyle` prop instead.",
+      control: "select",
+      options: Object.values({ primary: "primary", secondary: "secondary" }),
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    size: {
+      description: "Use `buttonSize` prop instead.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: { type: { summary: "string" }, category: "Removed" },
     },
   },
 };
