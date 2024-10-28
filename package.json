@@ -96,6 +96,7 @@
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-links": "^8.0.0",
+    "@storybook/blocks": "^8.3.6",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^8.3.6",
     "@storybook/react-webpack5": "^8.3.6",
