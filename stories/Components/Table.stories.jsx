@@ -30,19 +30,149 @@ const metadata = {
     },
   },
   argTypes: {
-    rowData: { control: false },
-
-    columnData: { control: false },
+    allowRowClick: {
+      description: "Enables row click event. Accepts boolean values.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    shouldDynamicallyRenderRowSize: {
+      description:
+        "Dynamically renders the number of rows based on the viewport height.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    className: {
+      description: "Custom classnames for each row.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    fixedHeight: {
+      description: "To make the Table fixed height.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    columnData: {
+      description:
+        "Columns of the Table. Accepts an array of [column definitions](#column_data).",
+      control: "object",
+      table: { type: { summary: "array" } },
+      required: true,
+    },
+    currentPageNumber: {
+      description: "Active page number.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    defaultPageSize: {
+      description: "Sets the number of rows in a page.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
     handlePageChange: {
-      table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "-" },
-      },
+      description:
+        "Handles page change events. Accepts a callback with `page` and `pageSize` as parameters. If not provided, component will handle page query parameters.\n\n`handlePageChange={(page, pageSize) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    loading: {
+      description: "Show loading state in Table.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    onRowClick: {
+      description:
+        "Handles click event on each row. Accepts a callback with `event`, `record`, and `index` as parameters.\n\n`onRowClick={(event, record, rowIndex) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onRowSelect: {
+      description:
+        "Handles select event on each row. Accepts a callback with `selectedRowKeys` and `selectedRows` as parameters. Make sure to pass `id` in `rowData` for this to work.\n`onRowSelect={(selectedRowKeys, selectedRows) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    selectedRowKeys: {
+      description: "Keys of the rows that are selected.",
+      control: "object",
+      table: { type: { summary: "array" } },
+    },
+    paginationProps: {
+      description:
+        "Additional props for pagination. Refer [pagination docs](https://ant.design/components/pagination/#API) from AntD Table.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    rowData: {
+      description:
+        "Data for rows to be displayed. Accepts an array of JavaScript Objects.",
+      control: "object",
+      table: { type: { summary: "array" } },
+      required: true,
+    },
+    totalCount: {
+      description: "Total number of data items.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    enableColumnResize: {
+      description: "Enables resizing of columns. Accepts boolean values.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    enableColumnReorder: {
+      description: "Enables reordering of columns. Accepts boolean values.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    enableAddColumn: {
+      description:
+        "Enables adding of columns to the left or right of the current column. Accepts boolean values.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
     },
     onColumnUpdate: {
+      description:
+        "Handles column update events. Accepts a callback with `columns` as parameters.\n\n`onColumnUpdate={(columns) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onColumnAdd: {
+      description:
+        "Function that gets called when a new column is added. Gets called with the 'position' to add the new column to as parameter.\n\n`onColumnAdd={(position) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onColumnDelete: {
+      description:
+        "Function that gets called when a custom field column is deleted. Gets called with the 'id' of the column getting deleted as parameter.\n\n`onColumnDelete={(key) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onMoreActionClick: {
+      description:
+        "Function that gets called when a more action item in header is clicked.\n\n`onMoreActionClick={(type, column) => {}}`",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    rowSelection: {
+      description:
+        "Additional props for row selection. Refer [row selection docs](https://ant.design/components/table/#rowSelection) from AntD Table\nMake sure to pass `id` in `rowData` for this to work.",
+      control: "object",
+      table: { type: { summary: "oneOfType([bool, object])" } },
+    },
+    bulkSelectAllRowsProps: {
+      description:
+        "Props for adding `Select all rows` option for multi-page table.",
+      control: "object",
       table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "-" },
+        type: {
+          summary: "shape",
+          detail: `{
+  selectAllRowMessage: string,
+  selectAllRowButtonLabel: string,
+  setBulkSelectedAllRows: func
+}`,
+        },
       },
     },
   },
