@@ -23,6 +23,179 @@ const metadata = {
     layout: "padded",
     docs: { description: { component: TreeDocs } },
   },
+  argTypes: {
+    allowDrop: {
+      description: "Whether to allow dropping on the node",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    autoExpandParent: {
+      description: "Whether to automatically expand a parent treeNode",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    blockNode: {
+      description: "Whether treeNode fill remaining horizontal space",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    checkable: {
+      description: "Add a Checkbox before the treeNodes.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    checkedKeys: {
+      description: "Specifies the keys of the checked treeNodes",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    checkStrictly: {
+      description:
+        "Check treeNode precisely; parent treeNode and children treeNodes are not associated",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    defaultCheckedKeys: {
+      description: "Specifies the keys of the default checked treeNodes.",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    defaultExpandedKeys: {
+      description: "Specify the keys of the default expanded treeNodes.",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    defaultSelectedKeys: {
+      description: "Specifies the keys of the default selected treeNodes.",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    onCheck: {
+      description: "Callback function for when the onCheck event occurs.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    disabled: {
+      description: "Whether disabled the tree",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    treeData: {
+      description:
+        "The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array).",
+      control: "object",
+      table: { type: { summary: "array" } },
+    },
+    onSelect: {
+      description: "Callback function for when the user clicks a treeNode.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    showLine: {
+      description: "Shows a connecting line.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    height: {
+      description:
+        "Config virtual scroll height. Will not support horizontal scroll when enable this.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    draggable: {
+      description: "Specifies whether this Tree or the node is draggable.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    onDragEnter: {
+      description: "Callback function for when the onDragEnter event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onDragStart: {
+      description: "Callback function for when the onDragStart event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onDragEnd: {
+      description: "Callback function for when the onDragEnter event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onDragLeave: {
+      description: "Callback function for when the onDragLeave event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onDragOver: {
+      description: "Callback function for when the onDragOver event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onDrop: {
+      description: "Callback function for when the onDrop event occurs",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    filterTreeNode: {
+      description:
+        "Defines a function to filter (highlight) treeNodes. When the function returns true, the corresponding treeNode will be highlighted",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    loadData: {
+      description: "Load data asynchronously",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    loadedKeys: {
+      description: "Set loaded tree nodes. Need work with loadData",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    selectable: {
+      description: "Whether can be selected",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    selectedKeys: {
+      description:
+        "Specifies the keys of the selected treeNodes, multiple selection needs to set multiple to true",
+      control: "object",
+      table: { type: { summary: "string[]" } },
+    },
+    multiple: {
+      description: "Allows selecting multiple treeNodes",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    titleRender: {
+      description: "Customize tree node title render",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    virtual: {
+      description: "Disable virtual scroll when set to false",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    onExpand: {
+      description:
+        "Callback function for when a treeNode is expanded or collapsed",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onLoad: {
+      description: "Callback function for when a treeNode is loaded",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    switcherIcon: {
+      description: "Customize collapse/expand icon of tree node",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+  },
 };
 
 const Default = args => <Tree {...args} />;
