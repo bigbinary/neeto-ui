@@ -6,9 +6,6 @@ import ColorPicker from "components/ColorPicker";
 
 import { PALETTE_PICKER_CODE } from "./constants";
 
-import ColorPickerCSSCustomization from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerCSSCustomization.mdx";
-import ColorPickerDocs from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerDocs.mdx";
-
 const DEFAULT_COLORS = {
   "red-500": "#f22d2d",
   "yellow-500": "#f57c00",
@@ -24,12 +21,18 @@ const DEFAULT_COLORS = {
   "gray-900": "#111827",
 };
 
+const description = `
+\`import { ColorPicker } from "@bigbinary/neetoui";\`
+
+\`ColorPicker\` allows users to select and choose colors.
+`;
+
 const metadata = {
   title: "Components/ColorPicker",
   component: ColorPicker,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ColorPickerDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     color: {
@@ -356,6 +359,85 @@ const CSSCustomization = ({ color, ...args }) => {
     </div>
   );
 };
+
+const ColorPickerCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`ColorPicker\`
+component.
+
+\`\`\`css
+// Popover
+--neeto-ui-colorpicker-popover-width: 224px;
+--neeto-ui-colorpicker-popover-padding: 12px;
+
+// Pointer
+--neeto-ui-colorpicker-pointer-width: 20px;
+--neeto-ui-colorpicker-pointer-height: 20px;
+
+// Palette Wrapper
+--neeto-ui-colorpicker-palette-wrapper-margin-top: 12px;
+
+// Palette Item
+--neeto-ui-colorpicker-palette-item-width: 32px;
+--neeto-ui-colorpicker-palette-item-height: 32px;
+--neeto-ui-colorpicker-palette-item-border-width: 1px;
+--neeto-ui-colorpicker-palette-item-border-color: transparent;
+--neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-md);
+--neeto-ui-colorpicker-palette-item-padding: 2px;
+--neeto-ui-colorpicker-palette-item-margin-left: 1.25px;
+
+// Target Wrapper
+--neeto-ui-colorpicker-target-wrapper-gap: 8px;
+
+// Target
+--neeto-ui-colorpicker-target-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-colorpicker-target-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-colorpicker-target-border-width: 1px;
+--neeto-ui-colorpicker-target-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-colorpicker-target-height: 28px;
+--neeto-ui-colorpicker-target-padding: 8px;
+--neeto-ui-colorpicker-target-gap: 12px;
+
+// Targer: Hover
+--neeto-ui-colorpicker-target-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+// Targer: Focus Visible
+--neeto-ui-colorpicker-target-focus-visible-border-color: rgb(
+  var(--neeto-ui-primary-500)
+);
+--neeto-ui-colorpicker-target-focus-visible-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+--neeto-ui-colorpicker-target-focus-visible-outline: none;
+
+// Target - Color
+--neeto-ui-colorpicker-target-color-block-border-radius: var(
+  --neeto-ui-rounded
+);
+--neeto-ui-colorpicker-target-color-block-width: 20px;
+--neeto-ui-colorpicker-target-color-block-height: 20px;
+
+// Target - Hexcode
+--neeto-ui-colorpicker-target-hexcode-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-colorpicker-target-hexcode-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-colorpicker-target-hexcode-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-colorpicker-target-hexcode-min-width: 72px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-colorpicker {
+  --neeto-ui-colorpicker-palette-item-border-radius: var(
+    --neeto-ui-rounded-full
+  );
+  --neeto-ui-colorpicker-target-color-block-border-radius: var(
+    --neeto-ui-rounded-full
+  );
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.storyName = "ColorPicker CSS Customization";
 
