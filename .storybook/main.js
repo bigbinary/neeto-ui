@@ -13,10 +13,8 @@ const config = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
 
   addons: [
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
-    "@storybook/addon-console",
     "storybook-dark-mode",
   ],
 
@@ -28,17 +26,6 @@ const config = {
         loader: "babel-loader",
       },
     });
-
-    // Add MDX loader configuration
-    // config.module.rules.push({
-    //   test: /\.mdx?$/,
-    //   use: [
-    //     {
-    //       loader: '@mdx-js/loader',
-    //       options: {}
-    //     }
-    //   ]
-    // });
 
     return {
       ...config,
