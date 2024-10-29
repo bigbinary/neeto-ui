@@ -4,8 +4,33 @@ import { Settings, Delete, MenuHorizontal } from "neetoicons";
 
 import ActionDropdown from "components/ActionDropdown";
 
-import ActionDropdownCSSCustomization from "!raw-loader!./ActionDropdownStoriesDocs/ActionDropdownCSSCustomization.mdx";
-import ActionDropdownDocs from "!raw-loader!./ActionDropdownStoriesDocs/ActionDropdownDocs.mdx";
+const description = `
+\`import { ActionDropdown } from "@bigbinary/neetoui";\`
+
+\`ActionDropdown\` combines a dropdown menu with a button, allowing users to
+select an option from the dropdown and perform the corresponding action using
+the button.
+
+The \`ActionDropdown\` component has three subcomponents:
+
+- \`ActionDropdown.Menu\`: Defines the container for organizing and displaying a
+  list of clickable items.
+- \`ActionDropdown.MenuItem\`: Represents an individual item or option in the
+  dropdown menu. \`ActionDropdown.MenuItem.Button\` provides a button-like element
+  within a menu item.
+- \`ActionDropdown.Divider\`: Creates a visual separation or divider between
+  groups of menu items.
+
+You can use destructuring assignment to conveniently access subcomponents of the
+\`ActionDropdown\` component as follows:
+
+\`\`\`code
+const { Menu, MenuItem, Divider } = ActionDropdown;
+\`\`\`
+
+This simplifies the code and allows you to work with these subcomponents
+directly.
+`;
 
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
@@ -20,7 +45,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: ActionDropdownDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
@@ -283,6 +308,28 @@ const CSSCustomization = args => {
     </div>
   );
 };
+
+const ActionDropdownCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the
+\`ActionDropdown\` component.
+
+\`\`\`css
+--neeto-ui-action-dropdown-gap: 1px;
+--neeto-ui-action-dropdown-border-radius: 0px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-actiondropdown {
+  --neeto-ui-action-dropdown-border-radius: 1px;
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.storyName = "ActionDropdown CSS Customization";
 
