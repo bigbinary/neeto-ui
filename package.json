@@ -73,12 +73,11 @@
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "7.17.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.19.1",
-    "@babel/preset-env": "^7.25.9",
-    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-env": "7.17.10",
+    "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "^7.18.6",
-    "@babel/runtime": "^7.19.0",
+    "@babel/runtime": "7.19.0",
     "@bigbinary/babel-preset-neeto": "^1.0.3",
     "@bigbinary/eslint-plugin-neeto": "^1.1.30",
     "@bigbinary/neeto-cist": "1.0.3",
@@ -109,9 +108,9 @@
     "antd": "5.16.0",
     "autoprefixer": "9.0.0",
     "avvvatars-react": "^0.4.2",
-    "babel-loader": "^9.2.1",
+    "babel-loader": "^8.2.5",
     "babel-plugin-dynamic-import-node": "^2.3.3",
-    "babel-plugin-import": "^1.13.5",
+    "babel-plugin-import": "^1.13.8",
     "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-js-logger": "1.0.17",
     "babel-plugin-macros": "3.1.0",
@@ -194,7 +193,7 @@
     "zustand": "4.3.2"
   },
   "peerDependencies": {
-    "@babel/runtime": "^7.19.0",
+    "@babel/runtime": "7.19.0",
     "@bigbinary/neeto-cist": "1.0.3",
     "@bigbinary/neeto-commons-frontend": "^3.0.10",
     "@bigbinary/neeto-hotkeys": "1.0.4",
@@ -226,9 +225,6 @@
     "zustand": "4.3.2"
   },
   "resolutions": {
-    "@storybook/addon-essentials/**/glob-parent": "5.1.2",
-    "@storybook/builder-webpack5/**/glob-parent": "5.1.2",
-    "@storybook/react/**/glob-parent": "5.1.2",
     "**/trim": "0.0.3",
     "tailwindcss/**/postcss": "7.0.36",
     "cssnano/**/nth-check": "2.0.1"
