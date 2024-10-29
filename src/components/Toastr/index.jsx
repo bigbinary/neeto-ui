@@ -54,9 +54,9 @@ const parseToastrConfig = config => {
 const getToastrMessage = message => {
   if (message?.noticeCode === "custom_message" && "customMessage" in message) {
     return message.customMessage;
-  } else if (typeof message === "object" && message.noticeCode) {
+  } else if (message && typeof message === "object" && message.noticeCode) {
     return t(message.noticeCode, message);
-  } else if (typeof message === "object" && message.notice) {
+  } else if (message && typeof message === "object" && message.notice) {
     return message.notice;
   }
 
