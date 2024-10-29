@@ -6,15 +6,18 @@ import Button from "components/Button";
 
 import { icons } from "../constants";
 
-import ButtonCSSCustomization from "!raw-loader!./ButtonStoriesDocs/ButtonCSSCustomization.mdx";
-import ButtonDocs from "!raw-loader!./ButtonStoriesDocs/ButtonDocs.mdx";
+const description = `
+\`import { Button } from "@bigbinary/neetoui";\`
+
+\`Button\` allows users to trigger actions or functions with a single click.
+`;
 
 const metadata = {
   title: "Components/Button",
   component: Button,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ButtonDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A18",
@@ -238,6 +241,66 @@ Tooltip.args = {
   label: "Tooltip button",
   tooltipProps: { content: "Top", position: "top" },
 };
+
+const ButtonCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Button\`
+component.
+
+\`\`\`css
+--neeto-ui-btn-padding-x: 8px;
+--neeto-ui-btn-padding-y: 6px;
+--neeto-ui-btn-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-btn-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-btn-line-height: 16px;
+--neeto-ui-btn-color: rgb(var(--neeto-ui-black));
+--neeto-ui-btn-bg-color: transparent;
+--neeto-ui-btn-border-width: 0;
+--neeto-ui-btn-border-color: transparent;
+--neeto-ui-btn-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-btn-gap: 4px;
+--neeto-ui-btn-icon-size: 16px;
+--neeto-ui-btn-box-shadow: none;
+--neeto-ui-btn-outline: none;
+
+// Disabled
+--neeto-ui-btn-disabled-opacity: 0.5;
+
+// Hover
+--neeto-ui-btn-hover-color: rgb(var(--neeto-ui-black));
+--neeto-ui-btn-hover-bg-color: transparent;
+--neeto-ui-btn-hover-box-shadow: none;
+--neeto-ui-btn-hover-opacity: 1;
+
+// Focus
+--neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));
+--neeto-ui-btn-focus-box-shadow: none;
+--neeto-ui-btn-focus-opacity: 1;
+
+// Focus Visible
+--neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-black));
+--neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-btn-focus-visible-outline-offset: 1px;
+--neeto-ui-btn-focus-visible-box-shadow: none;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-button--primary {
+  --neeto-ui-btn-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-btn-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-btn-hover-bg-color: rgb(var(--neeto-ui-black));
+  --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-gray-500), 15%);
+  --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-white));
+}
+\`\`\`
+
+#### Output
+`;
 
 const CSSCustomization = args => <Button {...args} />;
 
