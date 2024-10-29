@@ -4,15 +4,19 @@ import { Warning, CloseCircle, CheckCircle, Info } from "neetoicons";
 
 import Callout from "components/Callout";
 
-import CalloutCSSCustomization from "!raw-loader!./CalloutStoriesDocs/CalloutCSSCustomization.mdx";
-import CalloutDocs from "!raw-loader!./CalloutStoriesDocs/CalloutDocs.mdx";
+const description = `
+\`import { Callout } from "@bigbinary/neetoui";\`
+
+\`Callout\` is a visually distinct element used to draw attention to important
+information, messages, or notifications on a web page.
+`;
 
 const metadata = {
   title: "Components/Callout",
   component: Callout,
   parameters: {
     layout: "padded",
-    docs: { description: { component: CalloutDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     icon: {
@@ -91,6 +95,41 @@ const Variants = args => (
     </Callout>
   </div>
 );
+
+const CalloutCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Callout\`
+component.
+
+\`\`\`css
+--neeto-ui-callout-padding-x: 12px;
+--neeto-ui-callout-padding-y: 9px;
+--neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-callout-line-height: 16px;
+--neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-callout-bg-color: transparent;
+--neeto-ui-callout-border-width: 1px;
+--neeto-ui-callout-border-color: transparent;
+--neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);
+--neeto-ui-callout-gap: 12px;
+--neeto-ui-callout-icon-size: 20px;
+--neeto-ui-callout-icon-color: rgb(var(--neeto-ui-gray-800));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-callout--success {
+  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-primary-100));
+  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-500));
+}
+\`\`\`
+
+#### Output
+`;
 
 const CSSCustomization = args => (
   <Callout className="neetix-callout--success" style="success" {...args}>
