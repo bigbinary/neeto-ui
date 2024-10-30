@@ -153,6 +153,7 @@ const DatePicker = forwardRef(
                 },
               }),
             }}
+            getNow={dayjs}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
             superNextIcon={<IconOverride icon={Right} />}
