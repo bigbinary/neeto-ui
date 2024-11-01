@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.35 - 2024-11-01
+
+- Fixed: Added `@bigbinary/neeto-datepicker` to peer dependencies.
+
 ## 8.2.34 - 2024-11-01
 
 - Updated NeetoDatePicker to accept `getNow` as an optional prop and replaces the `generateConfig.getNow` with the external `getNow` when availabel.
@@ -181,7 +185,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
-  
 - Added: `--neeto-ui-gray-50` - `#fafafa`.
   
 - Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
@@ -640,7 +643,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - Added: `initialFocusRef` prop to *Alert*
 ## 5.1.4 - 2023-08-04
 - Fixed: Handled dot paths in *ScrollToErrorField*.
-
 ## 5.1.3 - 2023-08-02
 
 - Fixed: Disabled click in selected option close button if select is disabled.
