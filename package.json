@@ -82,6 +82,7 @@
     "@bigbinary/eslint-plugin-neeto": "^1.1.30",
     "@bigbinary/neeto-cist": "1.0.3",
     "@bigbinary/neeto-commons-frontend": "^3.0.10",
+    "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
     "@bigbinary/neeto-icons": "^1.9.22",
     "@reach/auto-id": "0.15.0",
@@ -228,7 +229,8 @@
     "@storybook/react/**/glob-parent": "5.1.2",
     "**/trim": "0.0.3",
     "tailwindcss/**/postcss": "7.0.36",
-    "cssnano/**/nth-check": "2.0.1"
+    "cssnano/**/nth-check": "2.0.1",
+    "rc-picker": "@bigbinary/neeto-datepicker"
   },
   "directories": {
     "src": "src"
