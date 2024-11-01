@@ -23,6 +23,13 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.34 - 2024-11-01
+
+- Updated NeetoDatePicker to accept `getNow` as an optional prop and replaces the `generateConfig.getNow` with the external `getNow` when availabel.
+- set the `getNow` prop with value `dayjs` which will return the current time in the set timezone.
+
+Demo: https://deepak-jose.neetorecord.com/watch/ace8d14e-ca06-42ac-aaa9-affe51287990
+
 ## 8.2.32 - 2024-10-24
 
 - The `async` `handleSubmit` will always return a `Promise`, even if the submit handler inside doesn’t return one. This leads to unexpected bugs, as the `Promise` resolves immediately when using the `mutate` function of `useMutation` while the API call might still be in progress.
@@ -173,7 +180,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
-  
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
   
 - Added: `--neeto-ui-gray-50` - `#fafafa`.
@@ -633,7 +639,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.5 - 2023-08-08
 - Added: `initialFocusRef` prop to *Alert*
 ## 5.1.4 - 2023-08-04
-
 - Fixed: Handled dot paths in *ScrollToErrorField*.
 
 ## 5.1.3 - 2023-08-02
@@ -1353,7 +1358,6 @@ Fixed: `TypeError` issue in *Toastr* component.
   components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
 #### UI
-
 - Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
   Palette*
 - Changed: the text color in *Table* to `$neeto-ui-black`
