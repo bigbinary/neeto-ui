@@ -195,6 +195,7 @@
     "@babel/runtime": "7.19.0",
     "@bigbinary/neeto-cist": "1.0.3",
     "@bigbinary/neeto-commons-frontend": "latest",
+    "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
     "@bigbinary/neeto-icons": "latest",
     "@tippyjs/react": "4.2.6",
