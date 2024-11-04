@@ -5,14 +5,20 @@ import * as yup from "yup";
 import { ActionBlock, Input } from "formikcomponents";
 import Form from "formikcomponents/Form";
 
-import ActionBlockDocs from "!raw-loader!./ActionBlockStories.mdx";
+const description = `
+\`import { ActionBlock } from "@bigbinary/neetoui/formik";\`
+
+The neetoUI \`ActionBlock\` component serves as a standardized footer element for Formik forms.
+It features a primary and secondary button, both fully customizable to suit various form needs.
+This ensures a consistent layout and user experience across forms, saving developers time and effort.
+`;
 
 const metadata = {
   title: "Formik/ActionBlock",
   component: ActionBlock,
   parameters: {
     layout: "fullscreen",
-    docs: { description: { component: ActionBlockDocs } },
+    docs: { description: { component: description } },
   },
 };
 

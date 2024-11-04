@@ -8,14 +8,22 @@ import { Input, BlockNavigation } from "formikcomponents";
 import Button from "formikcomponents/Button";
 import Form from "formikcomponents/Form";
 
-import BlockNavigationStoriesDocs from "!raw-loader!./BlockNavigationStories.mdx";
+const description = `
+\`import { BlockNavigation } from "@bigbinary/neetoui/formik";\`
+
+The neetoUI \`BlockNavigation\` component is used to prevent navigation when there
+are unsaved changes. It is designed to enhance the user experience by alerting
+users to the presence of pending modifications and giving them the option to
+save or discard those changes before navigating away from the current page or
+route.
+`;
 
 const metadata = {
   title: "Formik/BlockNavigation",
   component: BlockNavigation,
   parameters: {
     layout: "fullscreen",
-    docs: { description: { component: BlockNavigationStoriesDocs } },
+    docs: { description: { component: description } },
   },
 };
 
@@ -23,7 +31,7 @@ const FormikStory = args => (
   <Router>
     <Switch>
       <Route exact path="*">
-        <div className="sp space-y-5 space-x-5 p-10">
+        <div className="sp space-x-5 space-y-5 p-10">
           <NeetoUIButton
             iconPosition="left"
             label="Go back"
