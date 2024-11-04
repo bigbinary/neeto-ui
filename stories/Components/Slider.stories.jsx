@@ -2,15 +2,19 @@ import React from "react";
 
 import Slider from "components/Slider";
 
-import SliderCSSCustomization from "!raw-loader!./SliderStoriesDocs/SliderCSSCustomization.mdx";
-import SliderDocs from "!raw-loader!./SliderStoriesDocs/SliderDocs.mdx";
+const description = `
+\`import { Slider } from "@bigbinary/neetoui";\`
+
+We use Ant Design's \`Slider\` component under the hood. For extra customization,
+refer [AntD Slider](https://ant.design/components/slider#api).
+`;
 
 const metadata = {
   title: "Components/Slider",
   component: Slider,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SliderDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     min: {
@@ -71,6 +75,29 @@ CSSCustomization.args = {
   defaultValue: 20,
   label: "Slider",
 };
+
+const SliderCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Slider\`
+component.
+
+\`\`\`css
+--neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-primary-600));
+--neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-primary-500));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-slider {
+  --neeto-ui-slider-handle-box-shadow: 0 0 0 2px rgb(var(--neeto-ui-success-600));
+  --neeto-ui-slider-handle-focus-box-shadow: 0 0 0 4px rgb(var(--neeto-ui-success-500));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: SliderCSSCustomization } },
