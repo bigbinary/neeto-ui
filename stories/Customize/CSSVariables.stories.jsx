@@ -1,18 +1,14 @@
-import { Meta, Story } from "@storybook/addon-docs";
-import StorybookDarkMode from "../assets/images/storybook-darkmode.gif";
+import React from "react";
 
-<Meta
-  title="Customize/CSS Variables"
-  parameters={{
-    viewMode: "docs",
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-  }}
-/>
+import { useDarkMode } from "storybook-dark-mode";
 
-# CSS variables
+import ButtonCustomizationComp from "./ButtonCustomization";
+import CustomizeNeetoUIComp from "./CustomizeNeetoUI";
+import DarkModeComp from "./DarkMode";
+import GlobalCustomizationComp from "./GlobalCustomization";
+import ToggleDarkModeComp from "./ToggleDarkMode";
 
+const description = `
 neetoUI supports CSS variables for real-time customization and easier theming.
 All the CSS variables are prefixed with neeto-ui to avoid conflicts with
 third-party CSS.
@@ -25,7 +21,7 @@ Here are the variables we include that are accessible from any location where
 neetoUI's CSS is loaded. They’re located in our \_root.scss file and included in
 our compiled CSS file.
 
-```css
+\`\`\`css
 :root {
   --neeto-ui-black: 0, 0, 0;
   --neeto-ui-white: 255, 255, 255;
@@ -133,62 +129,60 @@ our compiled CSS file.
   --neeto-ui-pastel-color-7: 221, 214, 254;
   --neeto-ui-pastel-color-8: 251, 207, 232;
 }
-```
+\`\`\`
 
 ### Using CSS Variables
 
 CSS variables offer similar flexibility to Sass’s variables, but without the
 need for compilation before being served to the browser.
 
-```
+\`\`\`
 a {
   color: rgb(var(--neeto-ui-primary-600));
 }
-```
+\`\`\`
 
 #### Adding transparency in color
 
-```
+\`\`\`
 a {
   color: rgba(var(--neeto-ui-primary-600), 0.5);
 }
-```
+\`\`\`
 
 #### Using other CSS variables
 
-```
+\`\`\`
 a {
    border-radius: var(--neeto-ui-rounded);
 }
-```
+\`\`\`
+`;
 
-## Theming
+const metadata = {
+  title: "Customize/CSS Variables",
+  parameters: {
+    layout: "padded",
+    docs: { description: { component: description } },
+  },
+};
 
-By default, all neetoUI components inherit values from the default theme. You
-may need to customise the theme to match your brand identity or visual style.
+const GlobalCustomization = () => {
+  const isDarkMode = useDarkMode();
 
-<Story name="Global Customization">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/mlxvmt?fontsize=14&view=preview&module=%2Fsrc%2Fstyles.scss&hidenavigation=1"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="CSS Customization v2"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
+  return <GlobalCustomizationComp {...{ isDarkMode }} />;
+};
+GlobalCustomization.storyName = "Theming";
+GlobalCustomization.parameters = {
+  docs: {
+    description: {
+      story:
+        "By default, all neetoUI components inherit values from the default theme. You may need to customise the theme to match your brand identity or visual style.",
+    },
+  },
+};
 
-<br />
-
-### Component Customization
-
+const ButtonCustomizationDescription = `
 With neetoUI v6, we have taken the customization options to the next level. You
 can now customize each component to your liking. Be it padding, font size,
 border-radius, etc. you can customize each aspect of a component and make it
@@ -202,87 +196,73 @@ By default, neetoUI provides
 However, you have the flexibility to create custom buttons using CSS variables.
 To do so, just find the
 [CSS variables used by the button component](/docs/components-button--docs#button-css-customization)
-and override it.
+and override it.`;
 
-<Story name="Button Customization">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/n53f9m?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="CSS Customization v2"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
+const ButtonCustomization = () => {
+  const isDarkMode = useDarkMode();
 
-<br />
+  return <ButtonCustomizationComp {...{ isDarkMode }} />;
+};
+ButtonCustomization.storyName = "Component Customization";
+ButtonCustomization.parameters = {
+  docs: { description: { story: ButtonCustomizationDescription } },
+};
 
-You can also create custom classes overriding the CSS variables and use that as
-well.
+const CustomizeNeetoUI = () => {
+  const isDarkMode = useDarkMode();
 
-<Story name="Customize neetoUI">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/branding-54hfvm?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="branding"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
+  return <CustomizeNeetoUIComp {...{ isDarkMode }} />;
+};
+CustomizeNeetoUI.storyName = "Customize neetoUI";
+CustomizeNeetoUI.parameters = {
+  docs: {
+    description: {
+      story:
+        "You can also create custom classes overriding the CSS variables and use that as well.",
+    },
+  },
+};
 
-<br />
+const DarkMode = () => {
+  const isDarkMode = useDarkMode();
 
-### Dark mode
+  return <DarkModeComp {...{ isDarkMode }} />;
+};
 
-neetoUI supports dark mode.
+DarkMode.parameters = {
+  docs: { description: { story: "neetoUI supports dark mode." } },
+};
 
-<Story name="Dark mode">
-  <div className="h-screen">
-    <iframe
-      src="https://codesandbox.io/embed/dark-theme-2dhsl0?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.scss&theme=dark&view=preview"
-      style={{
-        width: "100%",
-        height: "100vh",
-        border: "0",
-        borderRadius: "4px",
-        overflow: "hidden",
-      }}
-      title="dark-theme"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</Story>
+const ToggleDarkMode = () => {
+  const isDarkMode = useDarkMode();
 
-#### Toggling dark mode in a neeto product
+  return <ToggleDarkModeComp {...{ isDarkMode }} />;
+};
 
+const ToggleDarkModeDescription = `
 To enable the dark mode for the product, apply the
 
 <code>neeto-ui-theme--dark</code> class to the <code>body</code> tag.
 
-#### Toggling dark mode in Storybook
-
-`storybook-dark-mode` addon is used to toggle between dark and light mode in
-Storybook.
-
+<br />
 <br />
 
-<img
-  src={StorybookDarkMode}
-  className="neeto-ui-rounded-lg border-2 border-solid p-1"
-/>
+#### Toggling dark mode in Storybook
+
+\`storybook-dark-mode\` addon is used to toggle between dark and light mode in
+Storybook.
+`;
+ToggleDarkMode.storyName = "Toggling dark mode in a neeto product";
+ToggleDarkMode.parameters = {
+  docs: { description: { story: ToggleDarkModeDescription } },
+};
+
+export {
+  GlobalCustomization,
+  ButtonCustomization,
+  CustomizeNeetoUI,
+  DarkMode,
+  ToggleDarkMode,
+};
+
+export default metadata;
