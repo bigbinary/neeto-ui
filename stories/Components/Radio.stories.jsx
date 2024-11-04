@@ -7,8 +7,13 @@ import Radio from "components/Radio";
 import Typography from "components/Typography";
 import { Radio as FormikRadio } from "formikcomponents";
 
-import RadioCSSCustomization from "!raw-loader!./RadioStoriesDocs/RadioCSSCustomization.mdx";
-import RadioDocs from "!raw-loader!./RadioStoriesDocs/RadioDocs.mdx";
+const description = `
+\`import { Radio } from "@bigbinary/neetoui";\`
+
+\`Radio\` button allows users to select one option from a set of mutually
+exclusive choices.
+
+`;
 
 const metadata = {
   title: "Components/Radio",
@@ -16,7 +21,7 @@ const metadata = {
   subcomponents: { Item: Radio.Item },
   parameters: {
     layout: "padded",
-    docs: { autodocs: true, description: { component: RadioDocs } },
+    docs: { autodocs: true, description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A10",
@@ -155,6 +160,64 @@ CSSCustomization.args = {
   label: "Custom Radio options",
   className: "neetix-radio",
 };
+
+const RadioCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Radio\`
+component.
+
+\`\`\`css
+--neeto-ui-radio-size: 16px;
+--neeto-ui-radio-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-radio-border-width: 2px;
+--neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-400));
+
+// Disabled
+--neeto-ui-radio-disabled-opacity: 0.5;
+
+// Hover
+--neeto-ui-radio-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+// Focus
+--neeto-ui-radio-focus-outline: transparent;
+--neeto-ui-radio-focus-outline-offset: 0px;
+
+// Focus Visible
+--neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-radio-focus-visible-outline-offset: 1px;
+--neeto-ui-radio-focus-visible-box-shadow: none;
+
+// Checked
+--neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-500));
+
+// Error
+--neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
+
+// Margin
+--neeto-ui-radio-wrapper-label-margin: 12px;
+--neeto-ui-radio-wrapper-error-margin: 4px;
+--neeto-ui-radio-label-margin: 8px;
+--neeto-ui-radio-margin: 16px;
+
+// Label
+--neeto-ui-radio-label-line-height: 1.2;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-radio {
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-gray-800), 50%);
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-gray-800));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: RadioCSSCustomization } },
