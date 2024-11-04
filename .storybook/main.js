@@ -15,6 +15,7 @@ const config = {
   addons: [
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
+    "@storybook/addon-docs",
     "storybook-dark-mode",
   ],
 
