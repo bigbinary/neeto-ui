@@ -10,8 +10,6 @@ import * as hooks from "hooks";
 
 import { DEFAULT_PLAYGROUND_CODE } from "./constants";
 
-import LivePlaygroundDocs from "!raw-loader!./LivePlaygroundDocs/LivePlaygroundUsage.mdx";
-
 const LivePlayground = () => {
   const [code, setCode] = useState(DEFAULT_PLAYGROUND_CODE);
 
@@ -40,10 +38,23 @@ const LivePlayground = () => {
   );
 };
 
+const description = `
+We use \`react-live\` to render the code you write in the editor. They have documented what it can [render](https://commerce.nearform.com/open-source/react-live/docs/usage).
+Please read the documentation for a better understanding of how to use the editor.
+
+All the NeetoUI components, atoms, and hooks are set in the scope. You can directly use them:
+\`<Button label="hello world" />\`
+
+To use Formik components, please use them from the FormikComponents namespace:
+
+
+Additionally, React is also set in the scope. To use hooks, you can call them as \`React.useState\`:
+`;
+
 const metadata = {
   title: "Live Playground",
   component: LivePlayground,
-  parameters: { docs: { description: { component: LivePlaygroundDocs } } },
+  parameters: { docs: { description: { component: description } } },
 };
 
 export default metadata;
