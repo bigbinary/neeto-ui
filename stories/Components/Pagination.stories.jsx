@@ -4,15 +4,23 @@ import { BrowserRouter } from "react-router-dom";
 
 import Pagination from "components/Pagination";
 
-import PaginationCSSCustomization from "!raw-loader!./PaginationStoriesDocs/PaginationCSSCustomization.mdx";
-import PaginationDocs from "!raw-loader!./PaginationStoriesDocs/PaginationDocs.mdx";
+const description = `
+\`import { Pagination } from "@bigbinary/neetoui";\`
+
+\`Pagination\` allows users to navigate through a large set of content by dividing
+it into smaller, manageable pages.
+
+We use Ant Design's \`Pagination\` component under the hood. For extra
+customization, refer
+[AntD Pagination](https://ant.design/components/pagination/#API).
+`;
 
 const metadata = {
   title: "Components/Pagination",
   component: Pagination,
   parameters: {
     layout: "padded",
-    docs: { description: { component: PaginationDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1070%3A3918",
@@ -92,6 +100,59 @@ CSSCustomization.args = {
 };
 
 CSSCustomization.storyName = "Pagination CSS Customization";
+
+const PaginationCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Pagination\`
+component.
+
+\`\`\`css
+--neeto-ui-pagination-item-padding-x: 4px;
+--neeto-ui-pagination-item-padding-y: 4px;
+--neeto-ui-pagination-item-width: 28px;
+--neeto-ui-pagination-item-height: 28px;
+--neeto-ui-pagination-item-margin-x: 4px;
+--neeto-ui-pagination-item-margin-y: 0px;
+--neeto-ui-pagination-item-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-pagination-item-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-pagination-item-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-pagination-item-line-height: 1;
+--neeto-ui-pagination-item-border-width: 1px;
+--neeto-ui-pagination-item-border-color: transparent;
+--neeto-ui-pagination-item-border-radius: var(--neeto-ui-rounded);
+
+// Hover
+--neeto-ui-pagination-item-hover-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-pagination-item-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+
+// Focus Visible
+--neeto-ui-pagination-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-pagination-item-focus-visible-outline-offset: 1px;
+--neeto-ui-pagination-item-focus-visible-box-shadow: none;
+
+// Active
+--neeto-ui-pagination-item-active-border-color: rgb(
+  var(--neeto-ui-primary-500)
+);
+--neeto-ui-pagination-item-active-bg-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-pagination-item-active-color: rgb(var(--neeto-ui-white));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-pagination {
+  --neeto-ui-pagination-item-width: 32px;
+  --neeto-ui-pagination-item-height: 32px;
+  --neeto-ui-pagination-item-active-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-pagination-item-active-bg-color: rgb(var(--neeto-ui-gray-800));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: PaginationCSSCustomization } },
