@@ -9,12 +9,172 @@ import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
 
-import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
-import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
-import TableDocs from "!raw-loader!./TableStoriesDocs/TableDocs.mdx";
-import TableFixedHeightDocs from "!raw-loader!./TableStoriesDocs/TableFixedHeightDocs.mdx";
-import TableSortingDocs from "!raw-loader!./TableStoriesDocs/TableSortingDocs.mdx";
-import TableWithoutCheckboxDocs from "!raw-loader!./TableStoriesDocs/TableWithoutCheckboxDocs.mdx";
+const description = `
+\`import { Table } from "@bigbinary/neetoui";\`
+
+\`Table\` is an arrangement of rows and columns used to display data in a
+structured and readable format.
+
+We use Ant Design's \`Table\` component under the hood. For extra customization,
+refer [AntD Table](https://ant.design/components/table/).
+
+\`\`\`jsx
+const columnData = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: 75,
+    sorter: (a, b) => a.id - b.id,
+  },
+  // Other column definitions
+];
+
+const rowData = [
+  {
+    id: 1,
+    // Data for other columns
+  },
+  {
+    id: 2,
+    // Data for other columns
+  },
+
+  // Other rows
+];
+
+<Table columnData={columnData} rowData={rowData} />;
+\`\`\`
+
+##### columnData <a id="column_data" />
+
+Unlike Antd Table \`columnData\` prop is used to set the column definition.
+
+\`\`\`jsx
+const columnData = [
+  {
+    title: "First Name",
+    dataIndex: "first_name",
+    key: "first_name",
+    width: 150,
+    // the 'key' property from all the columns is available as the argument to the render method
+    render: (first_name, last_name) => {
+      return (
+        <div className="flex flex-row items-center">
+          <Avatar
+            user={{ name: \`\${first_name} \${last_name}\` }}
+            size="small"
+            className="mr-2"
+          />
+          {first_name}
+        </div>
+      );
+    },
+  },
+  {
+    title: "Last Name",
+    dataIndex: "last_name",
+    key: "last_name",
+    width: 150,
+  },
+  // other columns
+];
+\`\`\`
+
+Keys for a column definition:
+
+- \`title\` : The title of a column. Accepts a valid React Node(string | number |
+  JSX) or a callback that returns a React Node. A hash with \`sortOrder\`,
+  \`sortColumn\` and \`filters\` as keys are available as a parameter to the
+  callback.
+- \`dataIndex\` : The unique key over which, the row data is mapped over for the
+  particular column. Accepts a string or an array of strings.
+- \`key\` : Unique identifier of a column. Accepts a string.
+- \`render\` : Defines how data should be rendered within the column. Accepts a
+  callback that returns a React Node.
+- \`width\` : Width of a column. Accepts a string or a number. Default value is
+  \`auto\`.
+
+Refer [column docs](https://ant.design/components/table/#Column) from AntD for
+more customizations.
+
+#### Using dropdown inside the Table
+
+While using \`Dropdown\` inside the Table, it is recommended to pass the
+\`strategy\` prop as \`fixed\` for the \`Dropdown\` component, in order to avoid the
+dropdown getting hidden by the Table container overflow. Especially for tables
+with very few rows of data.
+
+##### With fixed columns
+
+While using a \`Dropdown\` inside fixed columns, to avoid clipping or \`z-index\`
+issues, please use \`appendTo={() => document.body}\` along with the
+\`strategy="fixed"\` props for the \`Dropdown\`.
+
+#### Better support and performance on horizontal scroll
+
+To support cross browser horizontal scroll and improve performance, we recommend
+to provide a width to the columns to the \`Table\`. Having a width on the columns
+will also prevent the \`ResizeObserver - limit exceeded\` error.
+
+\`\`\`jsx
+const columns = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: 75,
+    sorter: (a, b) => a.id - b.id,
+  },
+  {
+    title: "GUID",
+    dataIndex: "guid",
+    key: "guid",
+    width: 150,
+    ellipsis: {
+      showTitle: false,
+    },
+  },
+  {
+    title: "First Name",
+    dataIndex: "first_name",
+    key: "first_name",
+    width: 150,
+  },
+  {
+    title: "Last Name",
+    dataIndex: "last_name",
+    key: "last_name",
+    width: 150,
+  },
+  {
+    title: "Email",
+    dataIndex: "email",
+    key: "email",
+    width: 200,
+    ellipsis: {
+      showTitle: false,
+    },
+  },
+  {
+    title: "Company Name",
+    dataIndex: "company_name",
+    key: "company_name",
+    ellipsis: {
+      showTitle: false,
+    },
+    width: 75,
+  },
+];
+
+const UserTable = () => (
+  <Table
+    columnData={columns}
+    // other props
+  />
+);
+\`\`\`
+`;
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -23,7 +183,7 @@ const metadata = {
   component: NeetoTable,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TableDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=602%3A2",
@@ -521,7 +681,55 @@ const TableWithSorting = args => (
     {...args}
   />
 );
+
 TableWithSorting.storyName = "Table with sorting";
+
+const TableSortingDocs = `
+
+- A custom sort function can be supplied to the \`sorter\` key.
+- In order to pass a custom sort function, keep \`sorter: true\` for that particular column.
+
+\`\`\`js
+const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      width: 75,
+      sorter: true;
+    },
+    // other columns
+  ];
+
+  // custom sort function
+  const handleTableChange = (pagination, filters, sorter) => {
+    // Logic for sorting
+  };
+
+\`\`\`
+
+- The \`onChange\` function returns the current \`pagination, filters and sorter\` of the Table.
+
+\`\`\`jsx
+<Table
+  rowData={TABLE_DATA}
+  columnData={columns}
+  onChange={(pagination, filters, sorter) =>
+    handleTableChange(pagination, filters, sorter)
+  }
+/>
+\`\`\`
+
+- The \`onChange\` function is utilized to set the pagination and sorting configuration like
+  current page, page size, sort column and sort order in the URL query parameters with the following keys:
+  - \`sort_by\`: The \`dataIndex\` of the particular column in \`snake_case\`.
+  - \`order_by\`: The sort order, whether \`ascend\`, \`descend\` or \`undefined\`.
+  - \`page\`: The current page number.
+  - \`page_size\`: The page size specified by the product.
+
+  By default, this functionality is enabled. However, it will only take effect if the \`handlePageChange\` handler is not provided.
+`;
+
 TableWithSorting.parameters = {
   docs: {
     description: { story: TableSortingDocs },
@@ -552,6 +760,16 @@ TableWithFixedHeight.args = {
   fixedHeight: true,
 };
 
+const TableFixedHeightDocs = `
+In order to allow vertical scroll on the Table element. We need to wrap the Table component inside a div with a fixed height and set the \`fixedHeight\` prop on \`Table\` component to \`true\`.
+
+\`\`\`jsx
+<div style={{ height: "100vh" }}>
+  <Table fixedHeight rowData={TABLE_DATA} columnData={columns} />
+</div>
+\`\`\`
+`;
+
 TableWithFixedHeight.parameters = {
   docs: {
     description: { story: TableFixedHeightDocs },
@@ -574,8 +792,20 @@ const TableWithoutCheckbox = args => {
     </div>
   );
 };
+
 TableWithoutCheckbox.storyName = "Table without checkbox";
+
 TableWithoutCheckbox.args = { rowSelection: false };
+
+const TableWithoutCheckboxDocs = `
+To render a Table where you don't need a checkbox to select row, pass
+
+\`\`\`jsx
+<div>
+  <Table rowSelection={false} />
+</div>
+\`\`\`
+`;
 
 TableWithoutCheckbox.parameters = {
   docs: {
@@ -728,6 +958,40 @@ const TableWithMoreActionOnHeader = args => {
   );
 };
 
+const MoreActionsOnHeaderDocs = `
+To add more actions to table header
+
+- Add \`moreActions\` key to column definitions. Each action should have a \`type\`
+  and \`label\`. eg:
+
+\`\`\`js
+const columns = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+    width: 75,
+    moreActions: [{ type: "action1", label: "Action 1" }],
+  },
+  // other columns
+];
+\`\`\`
+
+- Add \`onMoreActionClick\` prop to \`Table\` component. When user click on an
+  action this function will be called with action \`type\` and \`column\` object.
+  eg:
+
+\`\`\`jsx
+<Table
+  rowData={TABLE_DATA}
+  columnData={columns}
+  onMoreActionClick={(type, column) => {
+    // Do your actions here.
+  }}
+/>
+\`\`\`
+`;
+
 TableWithMoreActionOnHeader.storyName = "Table with more actions on header";
 TableWithMoreActionOnHeader.args = { defaultPageSize: 10 };
 TableWithMoreActionOnHeader.parameters = {
@@ -755,6 +1019,32 @@ const CSSCustomization = args => {
   );
 };
 CSSCustomization.storyName = "Table CSS Customization";
+
+const TableCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Table\`
+component.
+
+\`\`\`css
+--neeto-ui-table-header-font-size: var(--neeto-ui-text-xs);
+--neeto-ui-table-header-text-transform: uppercase;
+--neeto-ui-table-header-border-bottom-width: 2px;
+--neeto-ui-table-resize-handle-width: 10px;
+--neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-table {
+  --neeto-ui-table-header-font-size: var(--neeto-ui-text-sm);
+  --neeto-ui-table-header-text-transform: capitalize;
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TableCSSCustomization } },
