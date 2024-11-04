@@ -67,7 +67,14 @@ describe("TimePicker", () => {
 
   it("should be able to select time in a range", async () => {
     const onChange = jest.fn();
-    render(<TimePicker {...{ onChange }} format="HH:mm:ss" type="range" />);
+    render(
+      <TimePicker
+        {...{ onChange }}
+        format="HH:mm:ss"
+        interval={{ hourStep: 1, minuteStep: 1, secondStep: 1 }}
+        type="range"
+      />
+    );
     const startTimeInput = getAllByRole("textbox")[0];
     const endTimeInput = getAllByRole("textbox")[1];
     await userEvent.click(startTimeInput);

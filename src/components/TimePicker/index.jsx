@@ -25,8 +25,8 @@ const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
 const TIME_PICKER_INTERVAL = {
   hourStep: 1,
-  minuteStep: 1,
-  secondStep: 1,
+  minuteStep: 15,
+  secondStep: 10,
 };
 
 const TimePicker = forwardRef(
@@ -135,6 +135,7 @@ const TimePicker = forwardRef(
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
+            format={{ format, type: "mask" }}
             hourStep={interval.hourStep}
             minuteStep={interval.minuteStep}
             ref={timePickerRef}
@@ -152,7 +153,7 @@ const TimePicker = forwardRef(
               popupClassName,
             ])}
             onChange={handleOnChange}
-            {...{ disabled, format, ...otherProps, panelRender }}
+            {...{ disabled, ...otherProps, panelRender }}
             defaultValue={convertToDayjsObjects(defaultValue)}
             mode={undefined}
             picker="time"
