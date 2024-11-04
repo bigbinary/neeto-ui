@@ -2,15 +2,18 @@ import React from "react";
 
 import ProgressBar from "components/ProgressBar";
 
-import ProgressBarCSSCustomization from "!raw-loader!./ProgressBarDocs/ProgressBarCSSCustomization.mdx";
-import ProgressBarDocs from "!raw-loader!./ProgressBarDocs/ProgressBarDocs.mdx";
+const description = `
+\`import { ProgressBar } from "@bigbinary/neetoui";\`
+
+\`ProgressBar\` allows users to visualize the progress of a task or a process.
+`;
 
 const metadata = {
   title: "Components/ProgressBar",
   component: ProgressBar,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ProgressBarDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     progressPercentage: {
@@ -51,6 +54,31 @@ CSSCustomization.args = {
   progressValue: "50%",
   className: "",
 };
+
+const ProgressBarCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`ProgressBar\`
+component.
+
+\`\`\`css
+--progress-bar-background: rgb(var(--neeto-ui-gray-200));
+--progress-bar-color: rgb(var(--neeto-ui-primary-600));
+--progress-value-text-color: rgb(var(--neeto-ui-primary-100));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-progress-bar {
+  --progress-bar-background: rgb(var(--neeto-ui-success-100));
+  --progress-bar-color: rgb(var(--neeto-ui-success-600));
+  --progress-value-text-color: rgb(var(--neeto-ui-primary-100));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: ProgressBarCSSCustomization } },
