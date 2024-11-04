@@ -14,16 +14,19 @@ import {
 
 import { EMAILS } from "./constants";
 
-import MultiEmailInputCounterDocs from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputCounterDocs.mdx";
-import MultiEmailInputCSSCustomization from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputCSSCustomization.mdx";
-import MultiEmailInputDocs from "!raw-loader!./MultiEmailInputStoriesDocs/MultiEmailInputDocs.mdx";
+const description = `
+\`import { MultiEmailInput } from "@bigbinary/neetoui";\`
+
+\`MultiEmailInput\` allows users to input multiple email addresses in a single
+input field.
+`;
 
 const metadata = {
   title: "Components/MultiEmailInput",
   component: MultiEmailInput,
   parameters: {
     layout: "padded",
-    docs: { description: { component: MultiEmailInputDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=926%3A2379",
@@ -209,8 +212,28 @@ const Counter = _args => {
   );
 };
 
+const MultiEmailInputCounterDescription = `
+Basic implementation:
+
+\`\`\`jsx
+<MultiEmailInput counter />
+\`\`\`
+
+Specify the counter label for i18n purposes:
+
+\`\`\`jsx
+<MultiEmailInput counter={{ label: "E-mail" }} />
+\`\`\`
+
+Start showing counter label after a specific number of emails:
+
+\`\`\`jsx
+<MultiEmailInput counter={{ startsFrom: 3 }} />
+\`\`\`
+`;
+
 Counter.parameters = {
-  docs: { description: { story: MultiEmailInputCounterDocs } },
+  docs: { description: { story: MultiEmailInputCounterDescription } },
 };
 
 const WithPrefixAndSuffix = args => {
@@ -311,6 +334,35 @@ const CSSCustomization = args => {
 CSSCustomization.storyName = "MultiEmailInput CSS Customization";
 
 CSSCustomization.args = { value: [EMAILS[0]] };
+
+const MultiEmailInputCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the
+\`MultiEmailInput\` component.
+
+\`\`\`css
+// Label Wrapper
+--neeto-ui-multi-email-input-label-wrapper-gap: 8px;
+--neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-multi-email-input-counter-line-height: 1;
+--neeto-ui-multi-email-input-counter-margin-bottom: 8px;
+
+// Prefx & Suffix
+--neeto-ui-multi-email-input-prefix-suffix-icon-size: 16px;
+--neeto-ui-multi-email-input-prefix-margin-left: 12px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-email-input {
+  --neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-primary-500));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: MultiEmailInputCSSCustomization } },
