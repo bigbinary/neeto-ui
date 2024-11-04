@@ -7,15 +7,19 @@ import Button from "components/Button";
 import TreeSelect from "components/TreeSelect";
 import { TreeSelect as FormikTreeSelect, Form } from "formikcomponents";
 
-import TreeSelectCSSCustomization from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectCSSCustomization.mdx";
-import TreeSelectDocs from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectDocs.mdx";
+const description = `
+\`import { TreeSelect } from "@bigbinary/neetoui";\`
+
+We use antd TreeSelect under the hood. For more customization options, see
+[TreeSelect](https://ant.design/components/tree-select).
+`;
 
 const metadata = {
   title: "Components/TreeSelect",
   component: TreeSelect,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TreeSelectDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     allowClear: {
@@ -287,6 +291,82 @@ CSSCustomization.args = {
   ...commonProps,
   className: "neetix-tree-select",
 };
+
+const TreeSelectCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`TreeSelect\`
+component.
+
+\`\`\`css
+// Select
+--neeto-ui-tree-select-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-tree-select-border-width: 1px;
+--neeto-ui-tree-select-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-tree-select-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-color: rgb(var(--neeto-ui-gray-800));
+
+// Placeholder
+--neeto-ui-tree-select-placeholder-color: rgb(var(--neeto-ui-gray-400));
+
+// Hover
+--neeto-ui-tree-select-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+// Disabled
+--neeto-ui-tree-select-disabled-bg-color: rgb(var(--neeto-ui-gray-100));
+
+// Focus Within
+--neeto-ui-tree-select-focus-within-border-color: rgb(
+  var(--neeto-ui-primary-500)
+);
+--neeto-ui-tree-select-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+
+// Dropdown
+--neeto-ui-tree-select-dropdown-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-dropdown-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-tree-select-dropdown-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-tree-select-dropdown-border-width: 1px;
+--neeto-ui-tree-select-dropdown-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-tree-select-dropdown-box-shadow: var(--neeto-ui-shadow-lg);
+
+// Tree
+--neeto-ui-tree-select-dropdown-tree-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-dropdown-tree-color: rgb(var(--neeto-ui-gray-800));
+
+// Tree Hover
+--neeto-ui-tree-select-dropdown-tree-hover-bg-color: rgb(
+  var(--neeto-ui-gray-200)
+);
+
+// Tree Selected
+--neeto-ui-tree-select-dropdown-tree-selected-color: rgb(var(--neeto-ui-white));
+
+// Tree Switcher
+--neeto-ui-tree-select-dropdown-tree-switcher-width: 32px;
+
+// Tree Switcher Icon
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-margin-top: 4px;
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-width: 32px;
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-svg-size: 16px;
+
+// Tree List Holder
+--neeto-ui-tree-select-dropdown-tree-list-holder-padding-right: 24px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-tree-select {
+  --neeto-ui-tree-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-tree-select-focus-within-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-tree-select-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TreeSelectCSSCustomization } },
