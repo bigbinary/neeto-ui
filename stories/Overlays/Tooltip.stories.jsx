@@ -2,8 +2,30 @@ import React, { forwardRef, useState } from "react";
 
 import { Button, Tooltip, Typography, Input } from "components";
 
-import TooltipCSSCustomization from "!raw-loader!./TooltipStoriesDocs/TooltipCSSCustomization.mdx";
-import TooltipDocs from "!raw-loader!./TooltipStoriesDocs/TooltipDocs.mdx";
+const description = `
+If you want to use a custom component element as a child of the Tooltip, ensure you forward the ref to the DOM node:
+
+\`\`\`
+import React, { forwardRef } from 'react';
+import { Tooltip } from '@bigbinary/neetoui';
+
+const ThisWontWork = () => {
+  return <button>Reference</button>;
+}
+
+const ThisWillWork = forwardRef((props, ref) => {
+  return <button ref={ref}>Reference</button>;
+});
+
+function App() {
+  return (
+    <Tooltip content="Tooltip">
+      <ThisWillWork />
+    </Tooltip>
+  );
+}
+\`\`\`
+`;
 
 const metadata = {
   title: "Overlays/Tooltip",
@@ -200,7 +222,7 @@ const AutoHidingTooltip = args => {
 };
 AutoHidingTooltip.storyName = "Auto hiding Tooltip";
 TooltipOnCustomComponent.parameters = {
-  docs: { description: { story: TooltipDocs } },
+  docs: { description: { story: description } },
 };
 
 const HidingTooltipOnTargetExit = args => (
@@ -245,6 +267,51 @@ const CSSCustomization = args => (
 );
 
 CSSCustomization.storyName = "Tooltip CSS Customization";
+
+const TooltipCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Tooltip\`
+component.
+
+\`\`\`css
+--neeto-ui-tooltip-max-width: calc(100vw - 10px);
+--neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
+--neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-tooltip-line-height: 1.4;
+--neeto-ui-tooltip-word-wrap: break-word;
+--neeto-ui-tooltip-padding-x: 8px;
+--neeto-ui-tooltip-padding-y: 4px;
+--neeto-ui-tooltip-z-index: 1;
+
+// Arrow
+--neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
+
+// Light theme
+--neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-tooltip-light-theme-box-shadow: var(--neeto-ui-shadow-sm);
+--neeto-ui-tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
+
+// Light theme arrow
+--neeto-ui-tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tooltip-light-theme-arrow-border-color: rgb(var(--neeto-ui-white));
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-tooltip {
+  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-primary-800));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TooltipCSSCustomization } },

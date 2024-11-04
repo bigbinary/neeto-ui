@@ -5,15 +5,31 @@ import { ToastContainer } from "react-toastify";
 import Button from "components/Button";
 import Toastr from "components/Toastr";
 
-import ToastrCSSCustomization from "!raw-loader!./ToastrStoriesDocs/ToastrCSSCustomization.mdx";
-import ToastrDocs from "!raw-loader!./ToastrStoriesDocs/ToastrDocs.mdx";
+const description = `
+\`import { Toastr } from "@bigbinary/neetoui";\`
+
+\`Toastr\` is a user interface component that displays transient messages near the
+edge of the screen and then fades away after a short duration, providing a
+non-intrusive way to communicate updates, alerts, or information to the user.
+
+We use React-Toastify under the hood. For extra customization, refer
+[React-Toastify](https://fkhadra.github.io/react-toastify) documentation.
+
+| Following props are not supported as of now |
+| ------------------------------------------- |
+| style                                       |
+| onClick                                     |
+| render                                      |
+| isLoading                                   |
+| data                                        |
+`;
 
 const metadata = {
   title: "Overlays/Toastr",
   component: Toastr,
   parameters: {
     layout: "padded",
-    docs: { description: { component: ToastrDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A21",
@@ -204,6 +220,59 @@ const CSSCustomization = () => {
 };
 
 CSSCustomization.storyName = "Toastr CSS Customization";
+
+const ToastrCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Toastr\`
+component.
+
+\`\`\`css
+// Container
+--neeto-ui-toastr-min-width: 320px;
+--neeto-ui-toastr-max-width: 640px;
+--neeto-ui-toastr-z-index: 100000;
+
+// Styles
+--neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-800));
+--neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-800));
+--neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-800));
+--neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-800));
+
+// Toastr
+--neeto-ui-toastr-min-height: 48px;
+--neeto-ui-toastr-padding-x: 1rem;
+--neeto-ui-toastr-padding-y: 0.75rem;
+--neeto-ui-toastr-margin-x: 0;
+--neeto-ui-toastr-margin-y: 1rem;
+--neeto-ui-toastr-box-shadow: none;
+--neeto-ui-toastr-border-radius: var(--neeto-ui-rounded-md);
+--neeto-ui-toastr-icon-size: 24px;
+--neeto-ui-toastr-gap: 12px;
+--neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
+--neeto-ui-toastr-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
+
+// Close Button
+--neeto-ui-toastr-close-btn-color: rgb(var(--neeto-ui-white));
+--neeto-ui-toastr-close-btn-margin-y: auto;
+--neeto-ui-toastr-close-btn-margin-right: 0px;
+--neeto-ui-toastr-close-btn-margin-left: 8px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-toastr {
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: ToastrCSSCustomization } },

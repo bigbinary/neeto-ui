@@ -8,8 +8,12 @@ import Pane from "components/Pane";
 import Typography from "components/Typography";
 import { manager as OverlayManager } from "managers";
 
-import PaneCSSCustomization from "!raw-loader!./PaneStoriesDocs/PaneCSSCustomization.mdx";
-import PaneDocs from "!raw-loader!./PaneStoriesDocs/PaneDocs.mdx";
+const description = `
+\`import { Pane } from "@bigbinary/neetoui";\`
+
+\`Pane\` temporarily covers a portion of the main content to provide
+context-specific interactions.
+`;
 
 const metadata = {
   title: "Overlays/Pane",
@@ -22,7 +26,7 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: PaneDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/Ebh2R78Ia9FEVpC4tw6d3N/03-Layouts?node-id=616%3A4342",
@@ -734,6 +738,60 @@ const CSSCustomization = args => {
 };
 
 CSSCustomization.storyName = "Pane CSS Customization";
+
+const PaneCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Pane\`
+component.
+
+\`\`\`css
+--neeto-ui-pane-spacing: 24px;
+
+// Backdrop
+--neeto-ui-pane-backdrop-z-index: var(--neeto-ui-modal-z-index);
+--neeto-ui-pane-backdrop-bg-color: #1b1f23dd;
+--neeto-ui-pane-backdrop-backdrop-filter: blur(2px);
+
+// Wrapper
+--neeto-ui-pane-wrapper-width: auto;
+--neeto-ui-pane-wrapper-max-width: 100%;
+--neeto-ui-pane-wrapper-height: auto;
+--neeto-ui-pane-wrapper-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-pane-wrapper-backdrop-filter: blur(2px);
+
+// Close Button
+--neeto-ui-pane-close-btn-top: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-close-btn-right: var(--neeto-ui-pane-spacing);
+
+// Header
+--neeto-ui-pane-header-padding-y: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-header-padding-right: 64px;
+--neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
+
+// Body
+--neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-body-padding-y: 0px;
+--neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+--neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
+
+// Footer
+--neeto-ui-pane-footer-padding: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
+--neeto-ui-pane-footer-box-shadow: var(--neeto-ui-shadow-m);
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-pane {
+  --neeto-ui-pane-wrapper-bg-color: rgb(var(--neeto-ui-gray-100));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: PaneCSSCustomization } },
