@@ -13,15 +13,21 @@ import {
 } from "./constants";
 import { handleOnDrop } from "./utils";
 
-import TreeCSSCustomization from "!raw-loader!./TreeStoriesDocs/TreeCSSCustomization.mdx";
-import TreeDocs from "!raw-loader!./TreeStoriesDocs/TreeDocs.mdx";
+const description = `
+\`import { Tree } from "@bigbinary/neetoui";\`
+
+\`Tree\` is a graphical representation used to depict and interact with
+hierarchical relationships, such as directories, organizational structures, or
+biological classifications, allowing users to expand, collapse, and select tree
+nodes.
+`;
 
 const metadata = {
   title: "Components/Tree",
   component: Tree,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TreeDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     allowDrop: {
@@ -318,6 +324,46 @@ CSSCustomization.args = {
   checkable: true,
   className: "neetix-tree",
 };
+
+const TreeCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Tree\`
+component.
+
+\`\`\`css
+--neeto-ui-tree-checkbox-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-tree-checkbox-border-color: rgb(var(--neeto-ui-gray-300));
+--neeto-ui-tree-checkbox-border-radius: var(--neeto-ui-rounded-sm);
+
+// Hover
+--neeto-ui-tree-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+
+// Checked
+--neeto-ui-tree-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-tree-checkbox-checked-bg-color: rgb(var(--neeto-ui-primary-500));
+
+// Drag Icon
+--neeto-ui-tree-drag-icon-opacity: 0.4;
+
+// Search Value
+--neeto-ui-tree-search-value: #f50;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-tree {
+  --neeto-ui-tree-checkbox-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-tree-checkbox-checked-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-tree-checkbox-checked-bg-color: rgb(var(--neeto-ui-success-500));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TreeCSSCustomization } },
