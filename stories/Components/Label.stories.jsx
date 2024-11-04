@@ -5,15 +5,19 @@ import { Help } from "neetoicons";
 import Label from "components/Label";
 import Tooltip from "components/Tooltip";
 
-import LabelCSSCustomization from "!raw-loader!./LabelStoriesDocs/LabelCSSCustomization.mdx";
-import LabelDocs from "!raw-loader!./LabelStoriesDocs/LabelDocs.mdx";
+const description = `
+\`import { Label } from "@bigbinary/neetoui";\`
+
+\`Label\` is a descriptive element in a user interface that provides information
+to identify and describe an associated form field, button, or component.
+`;
 
 const metadata = {
   title: "Components/Label",
   component: Label,
   parameters: {
     layout: "padded",
-    docs: { description: { component: LabelDocs } },
+    docs: { description: { component: description } },
   },
   subcomponents: { Tooltip },
   argTypes: {
@@ -108,6 +112,34 @@ CSSCustomization.args = {
   children: "This is a custom label",
   className: "neetix-label",
 };
+
+const LabelCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Label\`
+component.
+
+\`\`\`css
+--neeto-ui-label-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-label-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-label-line-height: 1;
+--neeto-ui-label-color: rgb(var(--neeto-ui-black));
+
+// Icon
+--neeto-ui-label-icon-margin-left: 4px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-label {
+  --neeto-ui-label-font-size: var(--neeto-ui-text-base);
+  --neeto-ui-label-font-weight: var(--neeto-ui-font-normal);
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: LabelCSSCustomization } },
