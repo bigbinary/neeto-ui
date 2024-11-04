@@ -4,8 +4,12 @@ import { Favorite } from "neetoicons";
 
 import Tag from "components/Tag";
 
-import TagCSSCustomization from "!raw-loader!./TagStoriesDocs/TagCSSCustomization.mdx";
-import TagDocs from "!raw-loader!./TagStoriesDocs/TagDocs.mdx";
+const description = `
+\`import { Tag } from "@bigbinary/neetoui";\`
+
+\`Tag\` allows users to categorize or identify content, items, or entities in a
+user interface.
+`;
 
 const DEPRECATED_PROPS = {
   color: { table: { type: { summary: null } }, control: false },
@@ -21,7 +25,7 @@ const metadata = {
   component: Tag,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TagDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
     icon: {
@@ -209,6 +213,47 @@ CSSCustomization.args = {
   label: "Custom Tag",
   className: "neetix-tag--primary",
 };
+
+const TagCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Tag\`
+component.
+
+\`\`\`css
+--neeto-ui-tag-padding-x: 8px;
+--neeto-ui-tag-padding-y: 3px;
+--neeto-ui-tag-font-size: var(--neeto-ui-text-xs);
+--neeto-ui-tag-font-weight: var(--neeto-ui-font-normal);
+--neeto-ui-tag-line-height: 12px;
+--neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+--neeto-ui-tag-bg-color: transparent;
+--neeto-ui-tag-border-width: 1px;
+--neeto-ui-tag-border-color: transparent;
+--neeto-ui-tag-border-radius: var(--neeto-ui-rounded-full);
+--neeto-ui-tag-gap: 4px;
+--neeto-ui-tag-icon-size: 12px;
+
+// Indicator
+--neeto-ui-tag-indicator-size: 8px;
+--neeto-ui-tag-indicator-border-radius: var(--neeto-ui-rounded-full);
+
+// Hover
+--neeto-ui-tag-icon-hover-opacity: 0.8;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neeto-ui-tag--type-outline.neetix-tag--primary {
+  --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TagCSSCustomization } },
