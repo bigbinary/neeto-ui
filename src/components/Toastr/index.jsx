@@ -1,7 +1,7 @@
 import React from "react";
 
 import { t } from "i18next";
-import { CheckCircle, Warning, CloseCircle, Info, Close } from "neetoicons";
+import { CheckCircle, Warning, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
 
 import { UniqueArray } from "utils";
@@ -43,7 +43,7 @@ const TOAST_ICON = {
     />
   ),
   error: (
-    <CloseCircle
+    <Warning
       className="neeto-ui-white"
       data-cy="error-toast-icon"
       data-testid="error-toast-icon"

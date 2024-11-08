@@ -59,8 +59,7 @@ const Toastrs = ({}) => {
               Toastr.error(
                 Error(
                   "Some error occured! Please visit https://github.com/bigbinary/neeto-ui."
-                ),
-                { showIcon: true }
+                )
               )
             }
           />
