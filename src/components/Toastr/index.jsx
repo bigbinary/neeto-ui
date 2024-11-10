@@ -117,7 +117,7 @@ const showWarningToastr = withUniqueCheck(
 );
 
 const isError = e => e && e.stack && e.message;
-const isAxiosError = e => typeof e === "object" && e.isAxiosError === true;
+const isAxiosError = e => e && typeof e === "object" && e.isAxiosError === true;
 const isString = s => typeof s === "string" || s instanceof String;
 const isErrorCodeObject = e =>
   typeof e === "object" && "key" in e && "context" in e;
