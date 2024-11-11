@@ -382,4 +382,17 @@ describe("Toastr", () => {
       expect(toastrIcon).not.toBeInTheDocument();
     });
   });
+
+  ["success", "info", "warning", "error"].forEach(type => {
+    it(`should render ${type} Toastr with icon if specified`, async () => {
+      const button = renderToastrButton(type, () =>
+        Toastr[type.toLowerCase()](`This is a ${type} toastr.`, {
+          showIcon: true,
+        })
+      );
+      await userEvent.click(button);
+      const toastrIcon = await screen.findByTestId(`${type}-toast-icon`);
+      expect(toastrIcon).toBeInTheDocument();
+    });
+  });
 });
