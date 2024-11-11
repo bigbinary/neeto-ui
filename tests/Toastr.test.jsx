@@ -377,7 +377,9 @@ describe("Toastr", () => {
   ["success", "info", "warning", "error"].forEach(type => {
     it(`should render ${type} Toastr without icon if not specified`, async () => {
       const button = renderToastrButton(type);
-      await userEvent.click(button);
+      await act(() => {
+        userEvent.click(button);
+      });
       const toastrIcon = await screen.queryByTestId(`${type}-toast-icon`);
       expect(toastrIcon).not.toBeInTheDocument();
     });
@@ -390,7 +392,10 @@ describe("Toastr", () => {
           showIcon: true,
         })
       );
-      await userEvent.click(button);
+
+      await act(() => {
+        userEvent.click(button);
+      });
       const toastrIcon = await screen.findByTestId(`${type}-toast-icon`);
       expect(toastrIcon).toBeInTheDocument();
     });
