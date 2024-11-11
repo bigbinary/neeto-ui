@@ -398,7 +398,7 @@ describe("Toastr", () => {
       const toastrIcon = await screen.findByTestId(
         `${type.toLowerCase()}-toast-icon`
       );
-      await expect(toastrIcon).toBeInTheDocument();
+      expect(toastrIcon).toBeInTheDocument();
     });
   });
 });
