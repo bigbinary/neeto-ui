@@ -370,7 +370,7 @@ describe("Toastr", () => {
   });
 
   ["Success", "Info", "Warning", "Error"].forEach(type => {
-    it(`should return toastId when ${type} Toastr is called`, async () => {
+    it(`should return toastId when ${type} Toastr is called`, () => {
       const toastId = Toastr[type.toLowerCase()](`This is a ${type} toastr.`);
       expect(toastId).toBeDefined();
     });
