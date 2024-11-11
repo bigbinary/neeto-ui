@@ -374,13 +374,13 @@ describe("Toastr", () => {
     });
   });
 
-  ["success", "info", "warning", "error"].forEach(type => {
+  ["Success", "Info", "Warning", "Error"].forEach(type => {
     it(`should render ${type} Toastr without icon if not specified`, async () => {
       const button = renderToastrButton(type);
-      await act(() => {
-        userEvent.click(button);
-      });
-      const toastrIcon = await screen.queryByTestId(`${type}-toast-icon`);
+      userEvent.click(button);
+      const toastrIcon = await screen.queryByTestId(
+        `${type.toLowerCase()}-toast-icon`
+      );
       expect(toastrIcon).not.toBeInTheDocument();
     });
   });
@@ -392,11 +392,10 @@ describe("Toastr", () => {
           showIcon: true,
         })
       );
-
-      await act(() => {
-        userEvent.click(button);
-      });
-      const toastrIcon = await screen.findByTestId(`${type}-toast-icon`);
+      userEvent.click(button);
+      const toastrIcon = await screen.findByTestId(
+        `${type.toLowerCase()}-toast-icon`
+      );
       expect(toastrIcon).toBeInTheDocument();
     });
   });
