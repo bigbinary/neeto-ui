@@ -205,10 +205,10 @@ describe("Toastr", () => {
     expect(errorToastr).toBeInTheDocument();
   });
 
-  it("should render Axios Error Toastr when response is undefined", () => {
+  it("should render Axios Error Toastr when response is undefined", async () => {
     const errorResponse = undefined;
     const expectedMessage = "Default Message";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
   it("should render Error Toastr with 'Something went wrong.' when there is no message passed explicitly", async () => {
@@ -277,16 +277,16 @@ describe("Toastr", () => {
     });
   });
 
-  it("should render Axios Error Toastr using noticeCode without error", () => {
+  it("should render Axios Error Toastr using noticeCode without error", async () => {
     const errorResponse = {
       noticeCode: "message.error",
       entityName: "toastr",
     };
     const expectedMessage = "This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr when errorCode and errors are passed", () => {
+  it("should render Axios Error Toastr when errorCode and errors are passed", async () => {
     const errorResponse = {
       errors: ["Error message one.", "Error message two."],
       errorCode: "message.error",
@@ -295,20 +295,20 @@ describe("Toastr", () => {
 
     const expectedMessage =
       "Error message one. Error message two. This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr when errorCode and error are passed", () => {
+  it("should render Axios Error Toastr when errorCode and error are passed", async () => {
     const errorResponse = {
       error: "Error Message.",
       errorCode: "message.error",
       entityName: "toastr",
     };
     const expectedMessage = "Error Message. This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr when errorCodes and error are passed", () => {
+  it("should render Axios Error Toastr when errorCodes and error are passed", async () => {
     const errorResponse = {
       error: "Error Message.",
       errorCodes: [
@@ -316,11 +316,13 @@ describe("Toastr", () => {
         "message.toastr",
       ],
     };
-    const expectedMessage = "Error Message. This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+
+    const expectedMessage =
+      "Error Message. This is a Error toastr. This is a toastr.";
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr with errorCode when errorCode and errorCodes are passed", () => {
+  it("should render Axios Error Toastr with errorCode when errorCode and errorCodes are passed", async () => {
     const errorResponse = {
       errorCode: "message.error",
       errorCodes: [
@@ -330,19 +332,19 @@ describe("Toastr", () => {
       entityName: "toastr",
     };
     const expectedMessage = "This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr with error when error and errors are passed", () => {
+  it("should render Axios Error Toastr with error when error and errors are passed", async () => {
     const errorResponse = {
       error: "Error message.",
       errors: ["Error message one. Error message two."],
     };
     const expectedMessage = "Error message.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr using when errorCodes and errors are passed", () => {
+  it("should render Axios Error Toastr using when errorCodes and errors are passed", async () => {
     const errorResponse = {
       errors: ["Error message one.", "Error message two."],
       errorCodes: [
@@ -353,10 +355,10 @@ describe("Toastr", () => {
 
     const expectedMessage =
       "Error message one. Error message two. This is a Error toastr. This is a toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
-  it("should render Axios Error Toastr using error_code when errorCodes and errors are null", () => {
+  it("should render Axios Error Toastr using error_code when errorCodes and errors are null", async () => {
     const errorResponse = {
       errors: null,
       errorCodes: null,
@@ -364,13 +366,39 @@ describe("Toastr", () => {
       entityName: "toastr",
     };
     const expectedMessage = "This is a Error toastr.";
-    testToastrErrorMessages(errorResponse, expectedMessage);
+    await testToastrErrorMessages(errorResponse, expectedMessage);
   });
 
   ["Success", "Info", "Warning", "Error"].forEach(type => {
     it(`should return toastId when ${type} Toastr is called`, () => {
       const toastId = Toastr[type.toLowerCase()](`This is a ${type} toastr.`);
       expect(toastId).toBeDefined();
+    });
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach(type => {
+    it(`should render ${type} Toastr without icon if not specified`, async () => {
+      const button = renderToastrButton(type);
+      userEvent.click(button);
+      const toastrIcon = await screen.queryByTestId(
+        `${type.toLowerCase()}-toast-icon`
+      );
+      expect(toastrIcon).not.toBeInTheDocument();
+    });
+  });
+
+  ["success", "info", "warning", "error"].forEach(type => {
+    it(`should render ${type} Toastr with icon if specified`, async () => {
+      const button = renderToastrButton(type, () =>
+        Toastr[type.toLowerCase()](`This is a ${type} toastr.`, {
+          showIcon: true,
+        })
+      );
+      userEvent.click(button);
+      const toastrIcon = await screen.findByTestId(
+        `${type.toLowerCase()}-toast-icon`
+      );
+      expect(toastrIcon).toBeInTheDocument();
     });
   });
 });
