@@ -22,13 +22,13 @@ const Item = ({
       <input
         {...{ id, name }}
         className="neeto-ui-radio"
-        data-cy={`${hyphenize(dataCy || label)}-radio-input`}
+        data-cy={dataCy || `${hyphenize(label)}-radio-input`}
         type="radio"
         {...otherProps}
       />
       {label && (
         <Label
-          data-cy={`${hyphenize(dataCy || label)}-radio-label`}
+          data-cy={dataCy || `${hyphenize(label)}-radio-input`}
           htmlFor={id}
           {...labelProps}
         >
