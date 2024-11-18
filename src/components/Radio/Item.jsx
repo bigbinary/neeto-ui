@@ -28,7 +28,7 @@ const Item = ({
       />
       {label && (
         <Label
-          data-cy={dataCy || `${hyphenize(label)}-radio-input`}
+          data-cy={dataCy || `${hyphenize(label)}-radio-label`}
           htmlFor={id}
           {...labelProps}
         >
