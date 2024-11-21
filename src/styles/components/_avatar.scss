@@ -1,8 +1,8 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Container
   --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-avatar-container-width: 24px;
-  --neeto-ui-avatar-container-height: 24px;
+  --neeto-ui-avatar-container-width: 1.5rem;
+  --neeto-ui-avatar-container-height: 1.5rem;
 
   // Avatar
   --neeto-ui-avatar-width: 1.5rem;
@@ -10,8 +10,8 @@
   --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
 
   // Status
-  --neeto-ui-avatar-status-width: 12px;
-  --neeto-ui-avatar-status-height: 12px;
+  --neeto-ui-avatar-status-width: 0.75rem;
+  --neeto-ui-avatar-status-height: 0.75rem;
   --neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
   --neeto-ui-avatar-status-border-width: 2px;
   --neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
@@ -34,18 +34,18 @@
   }
 
   &--medium {
-    --neeto-ui-avatar-container-width: 32px;
-    --neeto-ui-avatar-container-height: 32px;
+    --neeto-ui-avatar-container-width: 2rem;
+    --neeto-ui-avatar-container-height: 2rem;
   }
 
   &--large {
-    --neeto-ui-avatar-container-width: 40px;
-    --neeto-ui-avatar-container-height: 40px;
+    --neeto-ui-avatar-container-width: 2.5rem;
+    --neeto-ui-avatar-container-height: 2.5rem;
   }
 
   &--xlarge {
-    --neeto-ui-avatar-container-width: 64px;
-    --neeto-ui-avatar-container-height: 64px;
+    --neeto-ui-avatar-container-width: 4rem;
+    --neeto-ui-avatar-container-height: 4rem;
   }
 
   .neeto-ui-avatar__status {
@@ -61,18 +61,18 @@
     z-index: 4;
 
     &.neeto-ui-avatar__status-medium {
-      --neeto-ui-avatar-status-width: 12px;
-      --neeto-ui-avatar-status-height: 12px;
+      --neeto-ui-avatar-status-width: 0.75rem;
+      --neeto-ui-avatar-status-height: 0.75rem;
     }
 
     &.neeto-ui-avatar__status-large {
-      --neeto-ui-avatar-status-width: 14px;
-      --neeto-ui-avatar-status-height: 14px;
+      --neeto-ui-avatar-status-width: 0.875rem;
+      --neeto-ui-avatar-status-height: 0.875rem;
     }
 
     &.neeto-ui-avatar__status-xlarge {
-      --neeto-ui-avatar-status-width: 16px;
-      --neeto-ui-avatar-status-height: 16px;
+      --neeto-ui-avatar-status-width: 1rem;
+      --neeto-ui-avatar-status-height: 1rem;
     }
 
     &.online {
