@@ -1,6 +1,6 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-spinner-size: 20px;
-  --neeto-ui-spinner-border-width: 3px;
+  --neeto-ui-spinner-size: 1.25rem;
+  --neeto-ui-spinner-border-width: 0.1875rem;
   --neeto-ui-spinner-color: rgb(var(--neeto-ui-gray-600));
 }
 
@@ -23,8 +23,8 @@
   }
 
   &--size-small {
-    --neeto-ui-spinner-size: 16px;
-    --neeto-ui-spinner-border-width: 3px;
+    --neeto-ui-spinner-size: 1rem;
+    --neeto-ui-spinner-border-width: 0.1875rem;
   }
 }
 
@@ -115,6 +115,6 @@
 }
 
 .neetix-spinner {
-  --neeto-ui-spinner-size: 32px;
+  --neeto-ui-spinner-size: 2rem;
   --neeto-ui-spinner-color: rgb(var(--neeto-ui-primary-500));
 }
