@@ -4,9 +4,9 @@
   --neeto-ui-kbd-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-kbd-bg-color: rgb(var(--neeto-ui-gray-200));
   --neeto-ui-kbd-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-kbd-min-width: 24px;
-  --neeto-ui-kbd-height: 24px;
-  --neeto-ui-kbd-padding: 4px;
+  --neeto-ui-kbd-min-width: 1.5rem;
+  --neeto-ui-kbd-height: 1.5rem;
+  --neeto-ui-kbd-padding: 0.25rem;
 }
 
 .neeto-ui-kbd {
@@ -28,6 +28,6 @@
   --neeto-ui-kbd-color: rgb(var(--neeto-ui-primary-800));
   --neeto-ui-kbd-bg-color: rgb(var(--neeto-ui-primary-100));
   --neeto-ui-kbd-border-radius: var(--neeto-ui-rounded-sm);
-  --neeto-ui-kbd-min-width: 32px;
-  --neeto-ui-kbd-height: 32px;
+  --neeto-ui-kbd-min-width: 2rem;
+  --neeto-ui-kbd-height: 2rem;
 }
