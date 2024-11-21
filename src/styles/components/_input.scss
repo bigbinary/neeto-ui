@@ -3,11 +3,11 @@
   --neeto-ui-input-wrapper-flex-grow: 1;
 
   // Label Wrapper
-  --neeto-ui-input-label-wrapper-gap: 8px;
+  --neeto-ui-input-label-wrapper-gap: 0.5rem;
 
   // Label
   --neeto-ui-input-label-overflow-wrap: break-word;
-  --neeto-ui-input-label-margin: 8px;
+  --neeto-ui-input-label-margin: 0.5rem;
 
   // Max Length
   --neeto-ui-input-max-length-font-size: var(--neeto-ui-text-sm);
@@ -30,7 +30,7 @@
   --neeto-ui-textarea-padding-x: 0px;
   --neeto-ui-textarea-padding-y: 0px;
   --neeto-ui-textarea-line-height: 1.5;
-  --neeto-ui-textarea-max-height: 224px;
+  --neeto-ui-textarea-max-height: 14rem;
 
   // Placeholder
   --neeto-ui-input-placeholder-color: rgb(var(--neeto-ui-gray-400));
@@ -50,26 +50,26 @@
   --neeto-ui-input-prefix-suffix-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-prefix-suffix-bg-color: transparent;
   --neeto-ui-input-prefix-suffix-line-height: 1;
-  --neeto-ui-input-prefix-suffix-icon-size: 16px;
+  --neeto-ui-input-prefix-suffix-icon-size: 1rem;
   --neeto-ui-input-prefix-suffix-margin: 0px;
   --neeto-ui-input-prefix-suffix-padding-x: 0px;
   --neeto-ui-input-prefix-suffix-border-width: 0px;
   --neeto-ui-input-prefix-suffix-border-color: transparent;
 
   // Help Text
-  --neeto-ui-input-help-text-margin: 8px;
+  --neeto-ui-input-help-text-margin: 0.5rem;
   --neeto-ui-input-help-text-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-input-help-text-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-input-help-text-line-height: 1.1;
 
   // Warning Text
-  --neeto-ui-input-warning-text-margin: 8px;
+  --neeto-ui-input-warning-text-margin: 0.5rem;
   --neeto-ui-input-warning-text-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-input-warning-text-color: rgb(var(--neeto-ui-warning-800));
   --neeto-ui-input-warning-text-line-height: 1.1;
 
   // Error Text
-  --neeto-ui-input-error-text-margin: 8px;
+  --neeto-ui-input-error-text-margin: 0.5rem;
   --neeto-ui-input-error-text-font-size: var(--neeto-ui-text-xs);
   --neeto-ui-input-error-text-color: rgb(var(--neeto-ui-error-800));
   --neeto-ui-input-error-text-line-height: 1.1;
@@ -213,36 +213,36 @@
     }
 
     &.neeto-ui-input--small {
-      --neeto-ui-input-padding-x: 8px;
-      --neeto-ui-input-padding-y: 4px;
-      --neeto-ui-input-min-height: 26px;
+      --neeto-ui-input-padding-x: 0.5rem;
+      --neeto-ui-input-padding-y: 0.25rem;
+      --neeto-ui-input-min-height: 1.625rem;
 
-      --neeto-ui-input-prefix-suffix-margin: 8px;
+      --neeto-ui-input-prefix-suffix-margin: 0.5rem;
 
-      --neeto-ui-textarea-padding-x: 8px;
-      --neeto-ui-textarea-padding-y: 4px;
+      --neeto-ui-textarea-padding-x: 0.5rem;
+      --neeto-ui-textarea-padding-y: 0.25rem;
     }
 
     &.neeto-ui-input--medium {
-      --neeto-ui-input-padding-x: 8px;
-      --neeto-ui-input-padding-y: 5px;
-      --neeto-ui-input-min-height: 30px;
+      --neeto-ui-input-padding-x: 0.5rem;
+      --neeto-ui-input-padding-y: 0.3125rem;
+      --neeto-ui-input-min-height: 1.875rem;
 
-      --neeto-ui-input-prefix-suffix-margin: 8px;
+      --neeto-ui-input-prefix-suffix-margin: 0.5rem;
 
-      --neeto-ui-textarea-padding-x: 8px;
-      --neeto-ui-textarea-padding-y: 8px;
+      --neeto-ui-textarea-padding-x: 0.5rem;
+      --neeto-ui-textarea-padding-y: 0.5rem;
     }
 
     &.neeto-ui-input--large {
-      --neeto-ui-input-padding-x: 12px;
-      --neeto-ui-input-padding-y: 8px;
-      --neeto-ui-input-min-height: 38px;
+      --neeto-ui-input-padding-x: 0.75rem;
+      --neeto-ui-input-padding-y: 0.5rem;
+      --neeto-ui-input-min-height: 2.375rem;
 
-      --neeto-ui-input-prefix-suffix-margin: 12px;
+      --neeto-ui-input-prefix-suffix-margin: 0.75rem;
 
-      --neeto-ui-textarea-padding-x: 12px;
-      --neeto-ui-textarea-padding-y: 12px;
+      --neeto-ui-textarea-padding-x: 0.75rem;
+      --neeto-ui-textarea-padding-y: 0.75rem;
     }
 
     &.neeto-ui-input--naked {
@@ -258,7 +258,7 @@
 
     &.neeto-ui-input--block-add-on {
       --neeto-ui-input-prefix-suffix-margin: 0px;
-      --neeto-ui-input-prefix-suffix-padding-x: 12px;
+      --neeto-ui-input-prefix-suffix-padding-x: 0.75rem;
       --neeto-ui-input-prefix-suffix-bg-color: rgb(var(--neeto-ui-gray-100));
       --neeto-ui-input-prefix-suffix-border-width: 1px;
       --neeto-ui-input-prefix-suffix-border-color: rgb(var(--neeto-ui-gray-400));
