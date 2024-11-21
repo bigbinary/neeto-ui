@@ -257,6 +257,11 @@
     --neeto-ui-time-input-padding-y: 0.125rem;
   }
 
+  .ant-picker-input > input {
+    color: var(--neeto-ui-time-input-color);
+    font-size: var(--neeto-ui-time-input-font-size);
+  }
+
   &:hover:not(.neeto-ui-time-input--naked, .neeto-ui-time-input--disabled) {
     border-color: var(--neeto-ui-time-input-hover-border-color);
   }
