@@ -190,4 +190,23 @@ describe("DatePicker", () => {
       );
     });
   });
+
+  it("it should render the saved value though it's outside the allowed ranges", async () => {
+    const value = dayjs("2024-10-25T09:30:00.434Z");
+    const expectedValue = value.format("MM/DD/YYYY HH:mm:ss");
+
+    render(
+      <DatePicker
+        {...{ value }}
+        showTime
+        dateFormat="MM/DD/YYYY"
+        maxDate={dayjs("2024-10-30T09:30:00.434Z")}
+        minDate={dayjs()}
+        placeholder="Select date"
+      />
+    );
+
+    const dateInputBox = screen.getByRole("textbox");
+    expect(dateInputBox).toHaveValue(expectedValue);
+  });
 });
