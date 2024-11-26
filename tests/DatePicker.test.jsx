@@ -191,7 +191,7 @@ describe("DatePicker", () => {
     });
   });
 
-  it("it should render the saved value though it's outside the allowed ranges", async () => {
+  it("it should render the saved value though it's outside the allowed ranges", () => {
     const value = dayjs("2024-10-25T09:30:00.434Z");
     const expectedValue = value.format("MM/DD/YYYY HH:mm:ss");
 
