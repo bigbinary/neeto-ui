@@ -44,7 +44,7 @@ const TOAST_ICON = {
   ),
   error: (
     <Warning
-      className="neeto-ui-white"
+      className="neeto-ui-text-white"
       data-cy="error-toast-icon"
       data-testid="error-toast-icon"
     />
@@ -99,7 +99,12 @@ const withUniqueCheck =
     if (toastrList.add({ type, message, buttonLabel })) {
       const config = {
         ...TOAST_CONFIG,
-        icon: showIcon && TOAST_ICON[type],
+        // The false value of the icon was ignored in the implementations before v9.0.2.
+        // After 9.0.2, the implementation is such that the icon is rendered as passed in the config.
+        // Since the `false` value used to show the default icon set internally, used a function that returns null
+        // which solved the problem.
+        // PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
+        icon: showIcon ? TOAST_ICON[type] : () => null,
         onClose: () => toastrList.remove({ type, message, buttonLabel }),
         ...customConfig,
       };
