@@ -162,13 +162,12 @@ const ColorPicker = ({
         {colorPaletteProps && (
           <div
             data-testid="color-palette"
-            className={classnames(
-              "neeto-ui-colorpicker__palette-wrapper neeto-ui-pt-3",
-              {
-                "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                  !showPicker,
-              }
-            )}
+            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                !showPicker,
+              "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
+                showPicker,
+            })}
           >
             <Palette {...colorPaletteProps} />
           </div>

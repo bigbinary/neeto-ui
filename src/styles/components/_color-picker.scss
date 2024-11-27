@@ -63,7 +63,6 @@
 
   .neeto-ui-colorpicker__palette-wrapper {
     margin-top: var(--neeto-ui-colorpicker-palette-wrapper-margin);
-    border-top: 1px solid rgb(var(--neeto-ui-gray-200));
 
     &--hidden-picker {
       --neeto-ui-colorpicker-palette-wrapper-margin: 0px;
