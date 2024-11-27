@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.39 - 2024-11-27
+
+- Updates the value and default value fixed to the allowed range only if the user has touched the fields. This will fix the values outside the allowed ranges until not properly rendered initially.
+
 ## 8.2.36 - 2024-11-12
 
 - Removed the toastr icon by default.
@@ -191,7 +195,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
 - Added: `--neeto-ui-gray-50` - `#fafafa`.
 - Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
-  
 - Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
   
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
@@ -648,7 +651,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - Fixed: Handled dot paths in *ScrollToErrorField*.
 ## 5.1.3 - 2023-08-02
 - Fixed: Disabled click in selected option close button if select is disabled.
-
 ## 5.1.2 - 2023-08-02
 
 - FIxed: Updated deprecated CSS property `color-adjust`
