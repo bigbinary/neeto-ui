@@ -160,6 +160,7 @@ const ColorPicker = ({
                 >
                   <HexColorInput
                     {...{ onBlur }}
+                    prefixed
                     alpha={!!showTransparencyControl}
                     color={colorValue}
                     onChange={onColorInputChange}
