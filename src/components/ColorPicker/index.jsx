@@ -102,7 +102,7 @@ const ColorPicker = ({
       )}
       <span className="neeto-ui-colorpicker-target__color-wrapper">
         <span
-          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-400 border"
+          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-200"
           style={{ backgroundColor: colorValue }}
         />
         <span className="neeto-ui-colorpicker-target__icon">

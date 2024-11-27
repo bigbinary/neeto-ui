@@ -9,7 +9,7 @@ const Palette = ({ color, colorList = [], onChange }) => (
       <div
         data-testid="color-palette-item"
         key={index}
-        className={classnames("neeto-ui-color-palette__item", {
+        className={classnames("neeto-ui-color-palette__item neeto-ui-border", {
           active: color && color.from === item.from && color.to === item.to,
         })}
         onClick={() => onChange(item.from, item.to)}
