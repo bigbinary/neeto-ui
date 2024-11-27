@@ -29,7 +29,7 @@ const ColorPicker = ({
   onChange = noop,
   colorPaletteProps,
   dropdownProps,
-  showEyeDropper = false,
+  showEyeDropper = true,
   showHexValue = false,
   showTransparencyControl = false,
   showPicker = true,
@@ -123,17 +123,6 @@ const ColorPicker = ({
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
-        {colorPaletteProps && (
-          <div
-            data-testid="color-palette"
-            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
-              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                !showPicker,
-            })}
-          >
-            <Palette {...colorPaletteProps} />
-          </div>
-        )}
         {showPicker && (
           <>
             <div
@@ -142,7 +131,7 @@ const ColorPicker = ({
             >
               <PickerComponent color={colorValue} onChange={onPickerChange} />
             </div>
-            <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
+            <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-3 neeto-ui-gap-2">
               {showEyeDropper && isSupported() && (
                 <Button
                   className="neeto-ui-colorpicker__eyedropper-btn"
@@ -169,6 +158,20 @@ const ColorPicker = ({
               </div>
             </div>
           </>
+        )}
+        {colorPaletteProps && (
+          <div
+            data-testid="color-palette"
+            className={classnames(
+              "neeto-ui-colorpicker__palette-wrapper neeto-ui-pt-3",
+              {
+                "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                  !showPicker,
+              }
+            )}
+          >
+            <Palette {...colorPaletteProps} />
+          </div>
         )}
       </div>
     </Dropdown>
@@ -213,7 +216,7 @@ ColorPicker.propTypes = {
   showEyeDropper: PropTypes.bool,
   /**
    * To show hex value near to the color in the dropdown.
-   * By default it will be hidden.
+   * By default it will be enabled.
    */
   showHexValue: PropTypes.bool,
   /**
