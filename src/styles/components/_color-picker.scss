@@ -28,7 +28,7 @@
   --neeto-ui-colorpicker-target-border-width: 1px;
   --neeto-ui-colorpicker-target-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-colorpicker-target-height: 1.75rem;
-  --neeto-ui-colorpicker-target-padding: 0.5rem;
+  --neeto-ui-colorpicker-target-padding: 0.1875rem;
   --neeto-ui-colorpicker-target-gap: 0.75rem;
 
   // Targer: Hover
@@ -152,14 +152,14 @@
 
   &-size--medium {
     --neeto-ui-colorpicker-target-height: 2rem;
-    --neeto-ui-colorpicker-target-padding: 0.5rem;
+    --neeto-ui-colorpicker-target-padding: 0.25rem;
     --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
     --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }
 
   &-size--large {
     --neeto-ui-colorpicker-target-height: 2.5rem;
-    --neeto-ui-colorpicker-target-padding: 0.75rem;
+    --neeto-ui-colorpicker-target-padding: 0.4375rem;
     --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
     --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }
