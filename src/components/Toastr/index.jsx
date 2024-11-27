@@ -44,7 +44,7 @@ const TOAST_ICON = {
   ),
   error: (
     <Warning
-      className="neeto-ui-white"
+      className="neeto-ui-text-white"
       data-cy="error-toast-icon"
       data-testid="error-toast-icon"
     />
