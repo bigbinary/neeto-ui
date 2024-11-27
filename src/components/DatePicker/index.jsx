@@ -1,4 +1,10 @@
-import React, { forwardRef, useState, useEffect } from "react";
+import React, {
+  forwardRef,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
@@ -62,6 +68,7 @@ const DatePicker = forwardRef(
     const [value, setValue] = useState(inputValue);
     const [mode, setMode] = useState(picker);
     const [pickerValue, setPickerValue] = useState();
+    const [touched, setTouched] = useState(false);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
 
@@ -78,17 +85,19 @@ const DatePicker = forwardRef(
       setMode(picker);
     }, [picker]);
 
+    const getAllowedValue = useCallback(
+      date => getAllowed(date, minDate, maxDate),
+      [minDate, maxDate]
+    );
+
     const handleOnChange = (date, dateString) => {
       if (type === "range" && isNotPresent(date)) {
         return onChange([], dateString);
       }
 
-      const allowed = getAllowed(
-        getTimezoneAppliedDateTime(date),
-        minDate,
-        maxDate
-      );
+      const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
+      setTouched(true);
 
       return onChange(allowed, formattedString(allowed, dateFormat));
     };
@@ -108,16 +117,29 @@ const DatePicker = forwardRef(
       );
     };
 
+    const { sanitizedValue, sanitizedDefaultValue } = useMemo(() => {
+      let sanitizedDefaultValue = convertToDayjsObjects(defaultValue);
+      let sanitizedValue = convertToDayjsObjects(value);
+
+      if (touched) {
+        sanitizedValue = getAllowedValue(sanitizedValue);
+        sanitizedDefaultValue = getAllowedValue(sanitizedDefaultValue);
+      }
+
+      return { sanitizedDefaultValue, sanitizedValue };
+    }, [defaultValue, value, touched, getAllowedValue]);
+
     return (
       <Provider>
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            defaultValue={sanitizedDefaultValue}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat, ...timePickerProps }}
-            value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
+            value={sanitizedValue}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
               "neeto-ui-date-input--medium": size === "medium",
@@ -126,11 +148,6 @@ const DatePicker = forwardRef(
               "neeto-ui-date-input--naked": nakedInput,
               "neeto-ui-date-input--error": !!error,
             })}
-            defaultValue={getAllowed(
-              convertToDayjsObjects(defaultValue),
-              minDate,
-              maxDate
-            )}
             popupClassName={classnames("neeto-ui-date-time-dropdown", [
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
