@@ -1,18 +1,18 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Popover
-  --neeto-ui-colorpicker-popover-width: 224px;
-  --neeto-ui-colorpicker-popover-padding: 12px;
+  --neeto-ui-colorpicker-popover-width: 14rem;
+  --neeto-ui-colorpicker-popover-padding: 0.75rem;
 
   // Pointer
-  --neeto-ui-colorpicker-pointer-width: 20px;
-  --neeto-ui-colorpicker-pointer-height: 20px;
+  --neeto-ui-colorpicker-pointer-width: 1.25rem;
+  --neeto-ui-colorpicker-pointer-height: 1.25rem;
 
   // Palette Wrapper
-  --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 12px;
+  --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 0.75rem;
 
   // Palette Item
-  --neeto-ui-colorpicker-palette-item-width: 32px;
-  --neeto-ui-colorpicker-palette-item-height: 32px;
+  --neeto-ui-colorpicker-palette-item-width: 2rem;
+  --neeto-ui-colorpicker-palette-item-height: 2rem;
   --neeto-ui-colorpicker-palette-item-border-width: 1px;
   --neeto-ui-colorpicker-palette-item-border-color: transparent;
   --neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-md);
@@ -20,16 +20,16 @@
   --neeto-ui-colorpicker-palette-item-margin-left: 1.25px;
 
   // Target Wrapper
-  --neeto-ui-colorpicker-target-wrapper-gap: 8px;
+  --neeto-ui-colorpicker-target-wrapper-gap: 0.5rem;
 
   // Target
   --neeto-ui-colorpicker-target-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-colorpicker-target-border-radius: var(--neeto-ui-rounded);
   --neeto-ui-colorpicker-target-border-width: 1px;
   --neeto-ui-colorpicker-target-border-color: rgb(var(--neeto-ui-gray-400));
-  --neeto-ui-colorpicker-target-height: 28px;
-  --neeto-ui-colorpicker-target-padding: 8px;
-  --neeto-ui-colorpicker-target-gap: 12px;
+  --neeto-ui-colorpicker-target-height: 1.75rem;
+  --neeto-ui-colorpicker-target-padding: 0.5rem;
+  --neeto-ui-colorpicker-target-gap: 0.75rem;
 
   // Targer: Hover
   --neeto-ui-colorpicker-target-hover-border-color: rgb(var(--neeto-ui-gray-700));
@@ -41,14 +41,14 @@
 
   // Target - Color
   --neeto-ui-colorpicker-target-color-block-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-colorpicker-target-color-block-width: 20px;
-  --neeto-ui-colorpicker-target-color-block-height: 20px;
+  --neeto-ui-colorpicker-target-color-block-width: 1.25rem;
+  --neeto-ui-colorpicker-target-color-block-height: 1.25rem;
 
   // Target - Hexcode
   --neeto-ui-colorpicker-target-hexcode-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-colorpicker-target-hexcode-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-colorpicker-target-hexcode-font-weight: var(--neeto-ui-font-medium);
-  --neeto-ui-colorpicker-target-hexcode-min-width: 72px;
+  --neeto-ui-colorpicker-target-hexcode-min-width: 4.5rem;
 }
 
 .neeto-ui-colorpicker__dropdown{
@@ -151,17 +151,17 @@
   }
 
   &-size--medium {
-    --neeto-ui-colorpicker-target-height: 32px;
-    --neeto-ui-colorpicker-target-padding: 8px;
-    --neeto-ui-colorpicker-target-color-block-width: 24px;
-    --neeto-ui-colorpicker-target-color-block-height: 24px;
+    --neeto-ui-colorpicker-target-height: 2rem;
+    --neeto-ui-colorpicker-target-padding: 0.5rem;
+    --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
+    --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }
 
   &-size--large {
-    --neeto-ui-colorpicker-target-height: 40px;
-    --neeto-ui-colorpicker-target-padding: 12px;
-    --neeto-ui-colorpicker-target-color-block-width: 24px;
-    --neeto-ui-colorpicker-target-color-block-height: 24px;
+    --neeto-ui-colorpicker-target-height: 2.5rem;
+    --neeto-ui-colorpicker-target-padding: 0.75rem;
+    --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
+    --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }
 }
 

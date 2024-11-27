@@ -28,7 +28,7 @@
 
   // Indicators
   --neeto-ui-select-indicators-padding: 0px;
-  --neeto-ui-select-indicators-gap: 8px;
+  --neeto-ui-select-indicators-gap: 0.5rem;
   --neeto-ui-select-indicators-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-select-indicators-hover-color: rgb(var(--neeto-ui-gray-700));
 
@@ -36,19 +36,19 @@
   --neeto-ui-select-menu-border-width: 1px;
   --neeto-ui-select-menu-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-select-menu-margin-top: 6px;
-  --neeto-ui-select-menu-margin-bottom: 16px;
+  --neeto-ui-select-menu-margin-top: 0.375rem;
+  --neeto-ui-select-menu-margin-bottom: 1rem;
   --neeto-ui-select-menu-z-index: 20;
   --neeto-ui-select-menu-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-select-menu-box-shadow: var(--neeto-ui-shadow-lg);
-  --neeto-ui-select-menu-max-height: 480px;
+  --neeto-ui-select-menu-max-height: 30rem;
 
   // Menu Option
   --neeto-ui-select-menu-option-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-select-menu-option-padding-x: 12px;
-  --neeto-ui-select-menu-option-padding-y: 8px;
+  --neeto-ui-select-menu-option-padding-x: 0.75rem;
+  --neeto-ui-select-menu-option-padding-y: 0.5rem;
   --neeto-ui-select-menu-option-line-height: 1.1;
-  --neeto-ui-select-menu-option-min-height: 32px;
+  --neeto-ui-select-menu-option-min-height: 2rem;
 
   // Menu Option Focus
   --neeto-ui-select-menu-option-focus-bg-color: rgb(var(--neeto-ui-gray-200));
@@ -64,20 +64,20 @@
   --neeto-ui-select-menu-fixed-option-border-top-width: 1px;
   --neeto-ui-select-menu-fixed-option-border-top-color: rgb(var(--neeto-ui-gray-100));
   --neeto-ui-select-menu-fixed-option-padding-x: 0px;
-  --neeto-ui-select-menu-fixed-option-padding-y: 2px;
+  --neeto-ui-select-menu-fixed-option-padding-y: 0.125rem;
   --neeto-ui-select-menu-fixed-option-link-color: rgb(var(--neeto-ui-gray-700));
-  --neeto-ui-select-menu-fixed-option-link-padding-x: 12px;
-  --neeto-ui-select-menu-fixed-option-link-padding-y: 8px;
+  --neeto-ui-select-menu-fixed-option-link-padding-x: 0.75rem;
+  --neeto-ui-select-menu-fixed-option-link-padding-y: 0.5rem;
   --neeto-ui-select-menu-fixed-option-link-hover-color: rgb(var(--neeto-ui-gray-800));
 
   // Multi Value
   --neeto-ui-select-multi-value-bg-color: transparent;
   --neeto-ui-select-multi-value-border-width: 1px;
   --neeto-ui-select-multi-value-border-color: rgb(var(--neeto-ui-gray-400));
-  --neeto-ui-select-multi-value-border-radius: 100px;
-  --neeto-ui-select-multi-value-margin-right: 4px;
-  --neeto-ui-select-multi-value-margin-y: 4px;
-  --neeto-ui-select-multi-value-padding-x: 8px;
+  --neeto-ui-select-multi-value-border-radius: 6.25rem;
+  --neeto-ui-select-multi-value-margin-right: 0.25rem;
+  --neeto-ui-select-multi-value-margin-y: 0.25rem;
+  --neeto-ui-select-multi-value-padding-x: 0.5rem;
   --neeto-ui-select-multi-value-padding-y: 0px;
   --neeto-ui-select-multi-value-color: rgb(var(--neeto-ui-gray-800));
 
@@ -85,14 +85,14 @@
   --neeto-ui-select-multi-value-label-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-select-multi-value-label-line-height: 1;
   --neeto-ui-select-multi-value-label-padding-x: 0px;
-  --neeto-ui-select-multi-value-label-padding-y: 2px;
+  --neeto-ui-select-multi-value-label-padding-y: 0.125rem;
 
   --neeto-ui-select-multi-value-remove-hover-opacity: 0.7;
 
   // Add Button
   --neeto-ui-select-add-btn-font-size: var(--neeto-ui-text-xs);
-  --neeto-ui-select-add-btn-padding-x: 8px;
-  --neeto-ui-select-add-btn-padding-y: 4px;
+  --neeto-ui-select-add-btn-padding-x: 0.5rem;
+  --neeto-ui-select-add-btn-padding-y: 0.25rem;
   --neeto-ui-select-add-btn-margin-left: 0px;
 }
 
@@ -160,21 +160,21 @@
   }
 
   &.neeto-ui-react-select__container--small {
-    --neeto-ui-select-min-height: 26px;
-    --neeto-ui-select-padding-x: 8px;
-    --neeto-ui-select-indicators-padding: 8px;
+    --neeto-ui-select-min-height: 1.625rem;
+    --neeto-ui-select-padding-x: 0.5rem;
+    --neeto-ui-select-indicators-padding: 0.5rem;
   }
 
   &.neeto-ui-react-select__container--medium {
-    --neeto-ui-select-min-height: 30px;
-    --neeto-ui-select-padding-x: 8px;
-    --neeto-ui-select-indicators-padding: 8px;
+    --neeto-ui-select-min-height: 1.875rem;
+    --neeto-ui-select-padding-x: 0.5rem;
+    --neeto-ui-select-indicators-padding: 0.5rem;
   }
 
   &.neeto-ui-react-select__container--large {
-    --neeto-ui-select-min-height: 38px;
-    --neeto-ui-select-padding-x: 12px;
-    --neeto-ui-select-indicators-padding: 12px;
+    --neeto-ui-select-min-height: 2.375rem;
+    --neeto-ui-select-padding-x: 0.75rem;
+    --neeto-ui-select-indicators-padding: 0.75rem;
   }
 
   .neeto-ui-react-select__placeholder {
@@ -231,7 +231,7 @@
       max-height: var(--neeto-ui-select-menu-max-height);
 
       @media (max-height: 1000px) {
-        max-height: calc(40vh - 50px);
+        max-height: calc(40vh - 3.125rem);
       }
     }
 
