@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import classnames from "classnames";
-import { Down, Focus } from "neetoicons";
+import { Down, ColorPicker as ColorPickerIcon } from "neetoicons";
 import PropTypes from "prop-types";
 import {
   HexColorPicker,
@@ -135,7 +135,7 @@ const ColorPicker = ({
               {showEyeDropper && isSupported() && (
                 <Button
                   className="neeto-ui-colorpicker__eyedropper-btn"
-                  icon={Focus}
+                  icon={ColorPickerIcon}
                   size="small"
                   style="text"
                   type="button"
