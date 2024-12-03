@@ -23,16 +23,25 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.41 - 2024-11-28
+
+- Removed the logic to sanitize the value of the datepicker.
+- The values are already sanitized in the onChange handler.
+
 ## 8.2.40 - 2024-11-27
 
 - The false value of the prop `icon` was ignored in the implementations before v9.0.2.
+  
 - After 9.0.2, the [implementation](https://github.com/fkhadra/react-toastify/blob/main/src/components/Toast.tsx#L108-L117) is such that the icon is rendered as passed in the config.
+  
 - Since the `false` value was used to show the default icon set internally, replaced it with a function that returns null
   which solved the problem.
+  
   - Code ref: https://github.com/fkhadra/react-toastify/blob/v8.0.1/src/components/Toast.tsx#L65-L75.
   - The `if (icon === false)` statement was never success for some reason.
   
 - PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
+  
 
 ## 8.2.39 - 2024-11-27
 
@@ -208,7 +217,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
 - Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
-  
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
   
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
@@ -663,7 +671,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - Fixed: Disabled click in selected option close button if select is disabled.
 ## 5.1.2 - 2023-08-02
 - FIxed: Updated deprecated CSS property `color-adjust`
-
 ## 5.1.1 - 2023-08-02
 
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
