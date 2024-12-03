@@ -84,7 +84,7 @@
     "@bigbinary/neeto-commons-frontend": "^3.0.10",
     "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
-    "@bigbinary/neeto-icons": "^1.20.21",
+    "@bigbinary/neeto-icons": "1.9.22",
     "@reach/auto-id": "0.15.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",

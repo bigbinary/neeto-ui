@@ -3071,10 +3071,10 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-hotkeys/-/neeto-hotkeys-1.0.4.tgz#03358c7eb27c430b69d8bf786a4a278fdf7a280f"
   integrity sha512-/DEbXYPeg/Pbljd/k2GhRvCaDEpQG2JTnSWz0soSlw5m6VkPY7NdC0PR+PIwvHFZUjGtRU7liSBZoWPTleTtHA==
 
-"@bigbinary/neeto-icons@^1.20.21":
-  version "1.20.21"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.20.21.tgz#a6a8b23dc83ad765bd91a68b8727becd74de379a"
-  integrity sha512-euiy9lQi0RMf25g7HOQEdZ/TVRTwZ1immtt71fvHJTX0Y1deYhhcskjVO9Pl4ddDHxQQS6yxtX8BOmdhN9H6FQ==
+"@bigbinary/neeto-icons@1.9.22":
+  version "1.9.22"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.9.22.tgz#e018fef34b1b0f09175eeac4cf5f40a8ce8cccd3"
+  integrity sha512-BiBsqk8ZNuZY7ODdrl1WwiW2WG7WmVnr/6KMTbFnLUKAjErB4T9n4aKZ3LwplKsG0tkPs5tCkR+3Es9v72K8TA==
 
 "@colors/colors@1.5.0":
   version "1.5.0"
