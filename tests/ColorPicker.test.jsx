@@ -19,7 +19,7 @@ describe("ColorPicker", () => {
       expect(color.rgb).toEqual(rgb);
     });
 
-    render(<ColorPicker onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} />);
     expect(screen.getByTestId("neeto-color-picker")).toBeInTheDocument();
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     await (await screen.findByRole("textbox")).focus();
@@ -41,22 +41,19 @@ describe("ColorPicker", () => {
 
   it("should trigger onChange when a color is selected from palette", async () => {
     const selectedColor = "#ffffff";
-    const DEFAULT_COLORS = {
-      "red-500": "#f22d2d",
-      "yellow-500": "#f57c00",
-      "green-500": "#00ba88",
-      "blue-500": "#276ef1",
-    };
+    const DEFAULT_COLORS = [
+      { hex: "#f22d2d" },
+      { hex: "#f57c00" },
+      { hex: "#00ba88" },
+      { hex: "#276ef1" },
+    ];
     const onChange = jest.fn();
     render(
       <ColorPicker
         color={selectedColor}
         colorPaletteProps={{
-          color: { from: "red-500", to: "red-500" },
-          colorList: Object.keys(DEFAULT_COLORS).map(key => ({
-            from: key,
-            to: key,
-          })),
+          color: { hex: "#f57c00" },
+          colorList: DEFAULT_COLORS,
           onChange,
         }}
       />
@@ -65,12 +62,12 @@ describe("ColorPicker", () => {
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("red-500", "red-500");
+    expect(onChange).toHaveBeenCalledWith({ hex: "#f22d2d" });
   });
 
   it("should call onChange when user touches Hue slider", async () => {
     const onChange = jest.fn();
-    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     const hueSlider = await screen.findByLabelText("Hue");
     await userEvent.click(hueSlider, { clientX: 0 });
@@ -88,7 +85,7 @@ describe("ColorPicker", () => {
       expect(color.rgb).toEqual(rgb);
     });
 
-    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
 
     await waitFor(() =>
