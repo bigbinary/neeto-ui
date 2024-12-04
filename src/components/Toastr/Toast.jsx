@@ -6,7 +6,7 @@ import { noop } from "utils";
 
 const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
   <div
-    data-cy="toastr-message-container"
+    data-cy={`toastr-${type}-container`}
     data-test={`toastr-${type}-container`}
   >
     <Linkify
