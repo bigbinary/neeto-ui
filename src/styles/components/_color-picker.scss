@@ -8,16 +8,16 @@
   --neeto-ui-colorpicker-pointer-height: 1.25rem;
 
   // Palette Wrapper
-  --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 0.75rem;
+  --neeto-ui-colorpicker-palette-wrapper-margin: 0.75rem;
 
   // Palette Item
-  --neeto-ui-colorpicker-palette-item-width: 2rem;
-  --neeto-ui-colorpicker-palette-item-height: 2rem;
+  --neeto-ui-colorpicker-palette-item-width: 1.5rem;
+  --neeto-ui-colorpicker-palette-item-height: 1.5rem;
   --neeto-ui-colorpicker-palette-item-border-width: 1px;
-  --neeto-ui-colorpicker-palette-item-border-color: transparent;
-  --neeto-ui-colorpicker-palette-item-border-radius: var(--neeto-ui-rounded-md);
-  --neeto-ui-colorpicker-palette-item-padding: 2px;
-  --neeto-ui-colorpicker-palette-item-margin-left: 1.25px;
+  --neeto-ui-colorpicker-palette-item-border-color: rgb(var(--neeto-ui-gray-200));
+  --neeto-ui-colorpicker-palette-item-border-radius: 0.3125rem;
+  --neeto-ui-colorpicker-palette-item-padding: 0;
+  --neeto-ui-colorpicker-palette-item-margin-left: 0;
 
   // Target Wrapper
   --neeto-ui-colorpicker-target-wrapper-gap: 0.5rem;
@@ -28,7 +28,7 @@
   --neeto-ui-colorpicker-target-border-width: 1px;
   --neeto-ui-colorpicker-target-border-color: rgb(var(--neeto-ui-gray-400));
   --neeto-ui-colorpicker-target-height: 1.75rem;
-  --neeto-ui-colorpicker-target-padding: 0.5rem;
+  --neeto-ui-colorpicker-target-padding: 0.1875rem;
   --neeto-ui-colorpicker-target-gap: 0.75rem;
 
   // Targer: Hover
@@ -61,17 +61,11 @@
   width: var(--neeto-ui-colorpicker-popover-width);
   padding: var(--neeto-ui-colorpicker-popover-padding);
 
-  .neeto-ui-colorpicker__eyedropper-btn {
-    svg {
-      fill: currentColor;
-    }
-  }
-
   .neeto-ui-colorpicker__palette-wrapper {
-    margin-bottom: var(--neeto-ui-colorpicker-palette-wrapper-margin-bottom);
+    margin-top: var(--neeto-ui-colorpicker-palette-wrapper-margin);
 
     &--hidden-picker {
-      --neeto-ui-colorpicker-palette-wrapper-margin-bottom: 0px;
+      --neeto-ui-colorpicker-palette-wrapper-margin: 0px;
     }
   }
 
@@ -90,6 +84,7 @@
   border-radius: var(--neeto-ui-colorpicker-palette-item-border-radius);
   margin-left: var(--neeto-ui-colorpicker-palette-item-margin-left);
   cursor: pointer;
+  overflow: hidden;
 
   &.active {
     --neeto-ui-colorpicker-palette-item-border-color: rgb(var(--neeto-ui-gray-500));
@@ -98,8 +93,6 @@
   div {
     width: 100%;
     min-height: 100%;
-    border-radius: var(--neeto-ui-colorpicker-palette-item-border-radius);
-    overflow: hidden;
   }
 }
 
@@ -141,6 +134,8 @@
     border-radius: var(--neeto-ui-colorpicker-target-color-block-border-radius);
     width: var(--neeto-ui-colorpicker-target-color-block-width);
     height: var(--neeto-ui-colorpicker-target-color-block-height);
+    border-width: 1px;
+    border-style: solid;
   }
 
   .neeto-ui-colorpicker-target__code {
@@ -152,14 +147,14 @@
 
   &-size--medium {
     --neeto-ui-colorpicker-target-height: 2rem;
-    --neeto-ui-colorpicker-target-padding: 0.5rem;
+    --neeto-ui-colorpicker-target-padding: 0.25rem;
     --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
     --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }
 
   &-size--large {
     --neeto-ui-colorpicker-target-height: 2.5rem;
-    --neeto-ui-colorpicker-target-padding: 0.75rem;
+    --neeto-ui-colorpicker-target-padding: 0.4375rem;
     --neeto-ui-colorpicker-target-color-block-width: 1.5rem;
     --neeto-ui-colorpicker-target-color-block-height: 1.5rem;
   }

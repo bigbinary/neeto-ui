@@ -6,17 +6,45 @@ module.exports = () => ({
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "identity-obj-proxy",
     "^@bigbinary/neetoui/(.*)$": path.resolve(__dirname, "src", "$1"),
-    "neetoicons/logos": path.resolve(
+    "^(@bigbinary/neeto-icons|neetoicons)$": path.resolve(
       __dirname,
-      "node_modules/@bigbinary/neeto-icons/dist/neeto-logos.js"
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/icons/index.js"
     ),
-    "neetoicons/app-icons": path.resolve(
+    "^(@bigbinary/neeto-icons|neetoicons)/logos$": path.resolve(
       __dirname,
-      "node_modules/@bigbinary/neeto-icons/dist/app-icons.js"
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/logos/index.js"
     ),
-    neetoicons: path.resolve(
+    "^(@bigbinary/neeto-icons|neetoicons)/app-icons$": path.resolve(
       __dirname,
-      "node_modules/@bigbinary/neeto-icons/dist/neeto-icons.js"
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/app-icons/index.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/typeface-logos$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/typeface-logos/index.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/misc$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/misc/index.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/logos/(.*)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/logos/$2.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/app-icons/(.*)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/app-icons/$2.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/typeface-logos/(.*)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/typeface-logos/$2.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/misc/(.*)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/misc/$2.js"
+    ),
+    "^(@bigbinary/neeto-icons|neetoicons)/(.*)$": path.resolve(
+      __dirname,
+      "node_modules/@bigbinary/neeto-icons/dist/cjs/icons/$2.js"
     ),
     neetocist: path.resolve(
       __dirname,

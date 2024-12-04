@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import classnames from "classnames";
-import { Down, Focus } from "neetoicons";
+import { Down, ColorPicker as ColorPickerIcon } from "neetoicons";
 import PropTypes from "prop-types";
 import {
   HexColorPicker,
@@ -29,7 +29,7 @@ const ColorPicker = ({
   onChange = noop,
   colorPaletteProps,
   dropdownProps,
-  showEyeDropper = false,
+  showEyeDropper = true,
   showHexValue = false,
   showTransparencyControl = false,
   showPicker = true,
@@ -102,7 +102,7 @@ const ColorPicker = ({
       )}
       <span className="neeto-ui-colorpicker-target__color-wrapper">
         <span
-          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-400 border"
+          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-200"
           style={{ backgroundColor: colorValue }}
         />
         <span className="neeto-ui-colorpicker-target__icon">
@@ -123,17 +123,6 @@ const ColorPicker = ({
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
-        {colorPaletteProps && (
-          <div
-            data-testid="color-palette"
-            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
-              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                !showPicker,
-            })}
-          >
-            <Palette {...colorPaletteProps} />
-          </div>
-        )}
         {showPicker && (
           <>
             <div
@@ -142,11 +131,11 @@ const ColorPicker = ({
             >
               <PickerComponent color={colorValue} onChange={onPickerChange} />
             </div>
-            <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-2 neeto-ui-gap-2">
+            <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-3 neeto-ui-gap-2">
               {showEyeDropper && isSupported() && (
                 <Button
                   className="neeto-ui-colorpicker__eyedropper-btn"
-                  icon={Focus}
+                  icon={ColorPickerIcon}
                   size="small"
                   style="text"
                   type="button"
@@ -160,6 +149,7 @@ const ColorPicker = ({
                 >
                   <HexColorInput
                     {...{ onBlur }}
+                    prefixed
                     alpha={!!showTransparencyControl}
                     color={colorValue}
                     onChange={onColorInputChange}
@@ -168,6 +158,19 @@ const ColorPicker = ({
               </div>
             </div>
           </>
+        )}
+        {colorPaletteProps && (
+          <div
+            data-testid="color-palette"
+            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                !showPicker,
+              "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
+                showPicker,
+            })}
+          >
+            <Palette {...colorPaletteProps} />
+          </div>
         )}
       </div>
     </Dropdown>
@@ -212,7 +215,7 @@ ColorPicker.propTypes = {
   showEyeDropper: PropTypes.bool,
   /**
    * To show hex value near to the color in the dropdown.
-   * By default it will be hidden.
+   * By default it will be enabled.
    */
   showHexValue: PropTypes.bool,
   /**
