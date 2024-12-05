@@ -198,13 +198,8 @@ const OnlyPalettePicker = args => {
   const [selectedColor, setSelectedColor] = useState("#4558F9");
 
   useEffect(() => {
-    selectedColor({ hex: args.color || "#4558F9c9" });
+    setSelectedColor({ hex: args.color || "#4558F9c9" });
   }, [args.color]);
-
-  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
-    from: key,
-    to: key,
-  }));
 
   const handleColorChange = color => {
     action("colorPaletteProps.onChange")(color);
@@ -214,11 +209,11 @@ const OnlyPalettePicker = args => {
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={selectedColor}
+        color={selectedColor.hex}
         showPicker={false}
         colorPaletteProps={{
           color: selectedColor,
-          colorList,
+          colorList: DEFAULT_COLORS,
           onChange: handleColorChange,
         }}
       />
