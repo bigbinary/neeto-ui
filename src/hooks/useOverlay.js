@@ -69,7 +69,10 @@ const useOverlay = ({
     manager.isTopOverlay(overlayWrapper)
   );
 
-  useHotKeys("escape", handleOverlayClose, { enabled: closeOnEsc });
+  useHotKeys("escape", handleOverlayClose, {
+    enabled: closeOnEsc,
+    mode: "global",
+  });
 
   useEffect(() => {
     let cleanUp = noop;
