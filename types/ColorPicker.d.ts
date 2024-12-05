@@ -16,7 +16,7 @@ export interface ColorPickerProps {
   colorPaletteProps?: {
     color: PaletteColor;
     colorList: PaletteColor[];
-    onChange: (PaletteColor) => void;
+    onChange: (color: PaletteColor) => void;
   };
   showEyeDropper?: boolean;
   showHexValue?: boolean;
