@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.43 - 2024-12-05
+
+- Updates the color palette to support hex values and removes the tailwind dependency.
+
 ## 8.2.41 - 2024-11-28
 
 - Removed the logic to sanitize the value of the datepicker.
@@ -218,7 +222,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
-  
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
   
 - Added: `--neeto-ui-accent-800` - `#095aba`.
@@ -672,7 +675,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.2 - 2023-08-02
 - FIxed: Updated deprecated CSS property `color-adjust`
 ## 5.1.1 - 2023-08-02
-
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
 
 ## 5.1.0 - 2023-08-02
