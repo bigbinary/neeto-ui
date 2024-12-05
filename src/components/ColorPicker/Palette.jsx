@@ -1,7 +1,6 @@
 import React from "react";
 
 import classnames from "classnames";
-import { isPresent } from "neetocist";
 import PropTypes from "prop-types";
 
 import { TRANSPARENT } from "./constants";
@@ -12,11 +11,10 @@ const Palette = ({ color, colorList = [], onChange }) => (
       const { hex, colorClassName } = item;
       const isTransparent = hex === TRANSPARENT;
 
-      let isActive = false;
-      if (isPresent(color?.hex)) isActive = color.hex === hex;
-      else if (isPresent(color?.colorClassName)) {
-        isActive = color.colorClassName === colorClassName;
-      }
+      const isActive = Boolean(
+        (color?.hex && color.hex === hex) ||
+          (color?.colorClassName && color.colorClassName === colorClassName)
+      );
 
       return (
         <div
