@@ -198,13 +198,13 @@ ColorPicker.propTypes = {
    */
   colorPaletteProps: PropTypes.shape({
     color: PropTypes.shape({
-      from: PropTypes.string,
-      to: PropTypes.string,
+      hex: PropTypes.string,
+      colorClassName: PropTypes.string,
     }),
     colorList: PropTypes.arrayOf(
       PropTypes.shape({
-        from: PropTypes.string,
-        to: PropTypes.string,
+        hex: PropTypes.string,
+        colorClassName: PropTypes.string,
       })
     ),
     onChange: PropTypes.func,

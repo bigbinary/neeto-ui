@@ -1,6 +1,11 @@
 import React from "react";
 import { DropdownProps } from "./Dropdown";
 
+type PaletteColor = {
+  hex?: string;
+  colorClassName?: string;
+}
+
 export interface ColorPickerProps {
   color: string;
   size: "small" | "medium" | "large";
@@ -9,9 +14,9 @@ export interface ColorPickerProps {
     rgb: { r: number; g: number; b: number, a: number };
   }) => void;
   colorPaletteProps?: {
-    color: { from: string; to: string };
-    colorList: { from: string; to: string }[];
-    onChange: (from: string, to: string) => void;
+    color: PaletteColor;
+    colorList: PaletteColor[];
+    onChange: (color: PaletteColor) => void;
   };
   showEyeDropper?: boolean;
   showHexValue?: boolean;

@@ -9,20 +9,21 @@ import { PALETTE_PICKER_CODE } from "./constants";
 import ColorPickerCSSCustomization from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerCSSCustomization.mdx";
 import ColorPickerDocs from "!raw-loader!./ColorPickerStoriesDocs/ColorPickerDocs.mdx";
 
-const DEFAULT_COLORS = {
-  "red-500": "#f22d2d",
-  "yellow-500": "#f57c00",
-  "green-500": "#00ba88",
-  "blue-500": "#276ef1",
-  "indigo-500": "#4c6ef5",
-  "purple-500": "#7c3aed",
-  "pink-500": "#f22d9e",
-  "gray-500": "#6b7280",
-  "gray-600": "#4b5563",
-  "gray-700": "#374151",
-  "gray-800": "#1f2937",
-  "gray-900": "#111827",
-};
+const DEFAULT_COLORS = [
+  { hex: "#f22d2d" },
+  { hex: "#f57c00" },
+  { hex: "#00ba88" },
+  { hex: "#276ef1" },
+  { hex: "#4c6ef5" },
+  { hex: "#7c3aed" },
+  { hex: "#4558F9" },
+  { hex: "#f22d9e" },
+  { hex: "#6b7280" },
+  { hex: "#4b5563" },
+  { hex: "#374151" },
+  { hex: "#1f2937" },
+  { hex: "#111827" },
+];
 
 const metadata = {
   title: "Components/ColorPicker",
@@ -96,45 +97,31 @@ Sizes.storyName = "Sizes";
 Sizes.args = { color: "#4558F9" };
 
 const WithColorPalette = args => {
-  const [color, setColor] = useState("#4558F9");
+  const [activeColor] = DEFAULT_COLORS;
+  const [selectedColor, setSelectedColor] = useState(activeColor);
 
   const onChange = value => {
     action("onChange")(value);
-    setColor(value.hex);
+    setSelectedColor(value);
   };
 
-  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
-    from: key,
-    to: key,
-  }));
-
-  const findColorByHex = hex => {
-    const colorClass = Object.keys(DEFAULT_COLORS).find(
-      key => hex === DEFAULT_COLORS[key]
-    );
-
-    return { from: colorClass, to: colorClass };
-  };
-
-  const selectedColor = findColorByHex(color);
-
-  const handleColorChange = (fromValue, toValue) => {
-    action("colorPaletteProps.onChange")(fromValue, toValue);
-    const fromColor = DEFAULT_COLORS[fromValue];
-    onChange({ hex: fromColor });
+  const handleColorChange = color => {
+    action("colorPaletteProps.onChange")(color);
+    onChange(color);
   };
 
   useEffect(() => {
-    setColor(args.color || "#4558F9");
+    setSelectedColor({ hex: args.color });
   }, [args.color]);
 
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        {...{ color, onChange }}
+        {...{ onChange }}
+        color={selectedColor.hex}
         colorPaletteProps={{
           color: selectedColor,
-          colorList,
+          colorList: DEFAULT_COLORS,
           onChange: handleColorChange,
         }}
       />
@@ -208,41 +195,25 @@ ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = { color: "#4558F9c9" };
 
 const OnlyPalettePicker = args => {
-  const [color, setColor] = useState("#4558F9");
+  const [selectedColor, setSelectedColor] = useState("#4558F9");
 
   useEffect(() => {
-    setColor(args.color || "#4558F9c9");
+    setSelectedColor({ hex: args.color || "#4558F9c9" });
   }, [args.color]);
 
-  const colorList = Object.keys(DEFAULT_COLORS).map(key => ({
-    from: key,
-    to: key,
-  }));
-
-  const findColorByHex = hex => {
-    const colorClass = Object.keys(DEFAULT_COLORS).find(
-      key => hex === DEFAULT_COLORS[key]
-    );
-
-    return { from: colorClass, to: colorClass };
-  };
-
-  const selectedColor = findColorByHex(color);
-
-  const handleColorChange = (fromValue, toValue) => {
-    action("colorPaletteProps.onChange")(fromValue, toValue);
-    const fromColor = DEFAULT_COLORS[fromValue];
-    setColor(fromColor);
+  const handleColorChange = color => {
+    action("colorPaletteProps.onChange")(color);
+    setSelectedColor(color);
   };
 
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        {...{ color }}
+        color={selectedColor.hex}
         showPicker={false}
         colorPaletteProps={{
           color: selectedColor,
-          colorList,
+          colorList: DEFAULT_COLORS,
           onChange: handleColorChange,
         }}
       />
