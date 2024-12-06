@@ -23,6 +23,16 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.44 - 2024-12-06
+
+- The MouseTrap lib by default will not fire callbacks for events inside fields like input, textarea etc.. We have to use `bindGlobal` if we want the key bindings for work for form fields as well.
+
+> By default all keyboard events will not fire if you are inside of a textarea, input, or select to prevent undesirable things from happening.
+
+> This means that a keyboard event bound using Mousetrap.bind will only work outside of form input fields, but using Mousetrap.bindGlobal will work in both places.
+
+Documentation - https://craig.is/killing/mice
+
 ## 8.2.43 - 2024-12-05
 
 - Updates the color palette to support hex values and removes the tailwind dependency.
@@ -223,7 +233,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
-  
 - Added: `--neeto-ui-accent-800` - `#095aba`.
   
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
@@ -676,7 +685,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - FIxed: Updated deprecated CSS property `color-adjust`
 ## 5.1.1 - 2023-08-02
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
-
 ## 5.1.0 - 2023-08-02
 
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
