@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.45 - 2024-12-06
+
+Changed the `data-cy` prop for *Toast* message component.
+
 ## 8.2.44 - 2024-12-06
 
 - The MouseTrap lib by default will not fire callbacks for events inside fields like input, textarea etc.. We have to use `bindGlobal` if we want the key bindings for work for form fields as well.
@@ -234,7 +238,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
 - Added: `--neeto-ui-accent-800` - `#095aba`.
-  
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
   
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
@@ -686,7 +689,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.1 - 2023-08-02
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
 ## 5.1.0 - 2023-08-02
-
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
 
 ## 5.0.18 - 2023-08-01
