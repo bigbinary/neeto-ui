@@ -1,12 +1,22 @@
+import { isPresent } from "neetocist";
 import { pluck } from "ramda";
 
 import { EMAIL_REGEX } from "./constants";
 
-const getEmailsMap = (options = [], inputEmails = []) =>
-  new Map([...inputEmails, ...options].map(option => [option.value, option]));
+const getEmailsMap = (inputEmails = [], options = []) => {
+  const emails = [...inputEmails, ...options];
+  const emailsMap = new Map();
 
-const processEmailOptions = (options = [], inputEmails = []) => {
-  const emailsMap = getEmailsMap(options, inputEmails);
+  emails.forEach(option => {
+    const hasPersistedEntry = isPresent(emailsMap.get(option.value)?.id);
+    if (!hasPersistedEntry) emailsMap.set(option.value, option);
+  });
+
+  return emailsMap;
+};
+
+const processEmailOptions = (inputEmails = [], options = []) => {
+  const emailsMap = getEmailsMap(inputEmails, options);
 
   return email => {
     const emailDetails = emailsMap.get(email) || { value: email };
@@ -23,7 +33,7 @@ export const formatEmailInputOption = ({ label, value, ...otherDetails }) => ({
 });
 
 export const pruneDuplicates = (inputValues, options) => {
-  const emailProcessor = processEmailOptions(options, inputValues);
+  const emailProcessor = processEmailOptions(inputValues, options);
   const emails = pluck("value", inputValues);
   const uniqueValuesSet = new Set();
   const duplicates = [];
