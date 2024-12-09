@@ -55,8 +55,8 @@ const Default = ({ color, ...args }) => {
   }, [color]);
 
   return (
-    <div className="h-60 w-40">
-      <ColorPicker {...{ onChange }} color={currentColor} {...args} />
+    <div className="h-96 w-40">
+      <ColorPicker {...{ ...args, onChange }} color={currentColor} />
     </div>
   );
 };
@@ -96,18 +96,13 @@ const Sizes = args => {
 Sizes.storyName = "Sizes";
 Sizes.args = { color: "#4558F9" };
 
-const WithColorPalette = args => {
+const WithCustomColorPalette = args => {
   const [activeColor] = DEFAULT_COLORS;
   const [selectedColor, setSelectedColor] = useState(activeColor);
 
   const onChange = value => {
     action("onChange")(value);
     setSelectedColor(value);
-  };
-
-  const handleColorChange = color => {
-    action("colorPaletteProps.onChange")(color);
-    onChange(color);
   };
 
   useEffect(() => {
@@ -119,17 +114,13 @@ const WithColorPalette = args => {
       <ColorPicker
         {...{ onChange }}
         color={selectedColor.hex}
-        colorPaletteProps={{
-          color: selectedColor,
-          colorList: DEFAULT_COLORS,
-          onChange: handleColorChange,
-        }}
+        colorPalette={DEFAULT_COLORS}
       />
     </div>
   );
 };
-WithColorPalette.storyName = "With color palette";
-WithColorPalette.args = { color: "#4558F9" };
+WithCustomColorPalette.storyName = "With custom color palette";
+WithCustomColorPalette.args = { color: "#4558F9" };
 
 const WithEyeDropper = args => {
   const [color, setColor] = useState("#4558F9");
@@ -195,34 +186,31 @@ ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = { color: "#4558F9c9" };
 
 const OnlyPalettePicker = args => {
-  const [selectedColor, setSelectedColor] = useState("#4558F9");
+  const [selectedColor, setSelectedColor] = useState("#00ba88");
 
   useEffect(() => {
-    setSelectedColor({ hex: args.color || "#4558F9c9" });
+    setSelectedColor(args.color ?? "#00ba88");
   }, [args.color]);
 
-  const handleColorChange = color => {
-    action("colorPaletteProps.onChange")(color);
-    setSelectedColor(color);
+  const onChange = value => {
+    action("onChange")(value);
+    setSelectedColor(value.hex);
   };
 
   return (
     <div className="h-60 w-40">
       <ColorPicker
-        color={selectedColor.hex}
+        {...{ onChange }}
+        color={selectedColor}
+        colorPalette={DEFAULT_COLORS}
         showPicker={false}
-        colorPaletteProps={{
-          color: selectedColor,
-          colorList: DEFAULT_COLORS,
-          onChange: handleColorChange,
-        }}
       />
     </div>
   );
 };
 
 OnlyPalettePicker.storyName = "Show only palette picker";
-OnlyPalettePicker.args = { color: "#4558F9c9" };
+OnlyPalettePicker.args = { color: "#00ba88" };
 OnlyPalettePicker.parameters = {
   docs: { source: { code: PALETTE_PICKER_CODE } },
 };
@@ -242,7 +230,7 @@ const CSSCustomization = ({ color, ...args }) => {
   return (
     <div className="h-60 w-40">
       <div className="neetix-colorpicker">
-        <ColorPicker {...{ onChange }} color={currentColor} {...args} />
+        <ColorPicker {...{ ...args, onChange }} color={currentColor} />
       </div>
     </div>
   );
@@ -268,12 +256,12 @@ const PortalCustomClassName = ({ color, ...args }) => {
   };
 
   useEffect(() => {
-    setCurrentColor(color || "#4558F9");
+    setCurrentColor(color ?? "#4558F9");
   }, [color]);
 
   return (
     <div className="h-60 w-40">
-      <ColorPicker {...{ onChange }} color={currentColor} {...args} />
+      <ColorPicker {...{ ...args, onChange }} color={currentColor} />
     </div>
   );
 };
@@ -289,7 +277,7 @@ PortalCustomClassName.args = {
 export {
   Default,
   Sizes,
-  WithColorPalette,
+  WithCustomColorPalette,
   WithEyeDropper,
   ShowHexValue,
   ShowTransparencyControl,

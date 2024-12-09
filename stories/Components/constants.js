@@ -19,7 +19,7 @@ export const PALETTE_PICKER_CODE = `const OnlyPalettePicker = () => {
   const selectedColor = findColorByHex(color);
 
   const handleColorChange = (fromValue, toValue) => {
-    action("colorPaletteProps.onChange")(fromValue, toValue);
+    action("onChange")(fromValue, toValue);
     const fromColor = DEFAULT_COLORS[fromValue];
     setColor(fromColor);
   };
@@ -29,11 +29,7 @@ export const PALETTE_PICKER_CODE = `const OnlyPalettePicker = () => {
       <ColorPicker
         color={color}
         showPicker={false}
-        colorPaletteProps={{
-          color: selectedColor,
-          colorList,
-          onChange: handleColorChange,
-        }}
+        colorPalette={colorList}
       />
     </div>
   );

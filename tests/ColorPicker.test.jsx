@@ -27,8 +27,8 @@ describe("ColorPicker", () => {
     await expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should display color palette when colorPaletteProps is provided", async () => {
-    render(<ColorPicker color="#ffffff" colorPaletteProps={{}} />);
+  it("should display color palette", async () => {
+    render(<ColorPicker color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     expect(await screen.findByTestId("color-palette")).toBeInTheDocument();
   });
@@ -50,19 +50,19 @@ describe("ColorPicker", () => {
     const onChange = jest.fn();
     render(
       <ColorPicker
+        {...{ onChange }}
         color={selectedColor}
-        colorPaletteProps={{
-          color: { hex: "#f57c00" },
-          colorList: DEFAULT_COLORS,
-          onChange,
-        }}
+        colorPalette={DEFAULT_COLORS}
       />
     );
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith({ hex: "#f22d2d" });
+    expect(onChange).toHaveBeenCalledWith({
+      hex: "#f22d2d",
+      rgb: { a: 1, r: 242, g: 45, b: 45 },
+    });
   });
 
   it("should call onChange when user touches Hue slider", async () => {
