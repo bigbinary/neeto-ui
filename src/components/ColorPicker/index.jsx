@@ -27,13 +27,13 @@ const ColorPicker = ({
   color = "",
   size = TARGET_SIZES.large,
   onChange = noop,
-  colorPaletteProps,
   dropdownProps,
   showEyeDropper = true,
   showHexValue = false,
   showTransparencyControl = false,
   showPicker = true,
   portalProps,
+  colorPalette,
 }) => {
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
@@ -159,19 +159,20 @@ const ColorPicker = ({
             </div>
           </>
         )}
-        {colorPaletteProps && (
-          <div
-            data-testid="color-palette"
-            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
-              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                !showPicker,
-              "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
-                showPicker,
-            })}
-          >
-            <Palette {...colorPaletteProps} />
-          </div>
-        )}
+        <div
+          data-testid="color-palette"
+          className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+            "neeto-ui-colorpicker__palette-wrapper--hidden-picker": !showPicker,
+            "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
+              showPicker,
+          })}
+        >
+          <Palette
+            {...{ color }}
+            colorList={colorPalette}
+            onChange={onColorChange}
+          />
+        </div>
       </div>
     </Dropdown>
   );
