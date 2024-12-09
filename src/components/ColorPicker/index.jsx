@@ -202,21 +202,11 @@ ColorPicker.propTypes = {
    */
   onChange: PropTypes.func,
   /**
-   * To specify the props to be passed to the Palette component.
+   * To specify the colors shown in the palette.
    */
-  colorPaletteProps: PropTypes.shape({
-    color: PropTypes.shape({
-      hex: PropTypes.string,
-      colorClassName: PropTypes.string,
-    }),
-    colorList: PropTypes.arrayOf(
-      PropTypes.shape({
-        hex: PropTypes.string,
-        colorClassName: PropTypes.string,
-      })
-    ),
-    onChange: PropTypes.func,
-  }),
+  colorPalette: PropTypes.arrayOf(
+    PropTypes.shape({ hex: PropTypes.string, rgb: PropTypes.string })
+  ),
   /**
    * Shows eye dropper to pick color.
    */

@@ -3,7 +3,7 @@ import { DropdownProps } from "./Dropdown";
 
 type PaletteColor = {
   hex?: string;
-  colorClassName?: string;
+  rgb?: string;
 }
 
 export interface ColorPickerProps {
@@ -13,11 +13,7 @@ export interface ColorPickerProps {
     hex: string;
     rgb: { r: number; g: number; b: number, a: number };
   }) => void;
-  colorPaletteProps?: {
-    color: PaletteColor;
-    colorList: PaletteColor[];
-    onChange: (color: PaletteColor) => void;
-  };
+  colorPalette: PaletteColor[];
   showEyeDropper?: boolean;
   showHexValue?: boolean;
   showTransparencyControl?: boolean;
