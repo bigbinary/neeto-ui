@@ -105,11 +105,6 @@ const WithCustomColorPalette = args => {
     setSelectedColor(value);
   };
 
-  const handleColorChange = color => {
-    action("colorPaletteProps.onChange")(color);
-    onChange(color);
-  };
-
   useEffect(() => {
     setSelectedColor({ hex: args.color });
   }, [args.color]);
