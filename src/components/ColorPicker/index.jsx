@@ -45,39 +45,46 @@ const ColorPicker = ({
 
   const colorValue = color ?? colorInternal ?? "";
 
-  const onChangeInternal = onChange || setColorInternal;
-
   const getColor = colorValue => {
     const color = tinycolor(colorValue);
 
-    return {
-      hex: showTransparencyControl ? color.toHex8String() : color.toHexString(),
-      rgb: color.toRgb(),
-    };
+    if (color.isValid()) {
+      let hex = color.toHexString();
+      // return `transparent` for transparent colors.
+      if (color.getAlpha() === 0) hex = colorValue;
+      else if (showTransparencyControl) hex = color.toHex8String();
+
+      return { hex, rgb: color.toRgb() };
+    }
+
+    return { hex: colorValue, rgb: colorValue };
+  };
+
+  const onColorChange = color => {
+    const changeHandler = onChange ?? setColorInternal;
+
+    changeHandler(getColor(color));
   };
 
   const onColorInputChange = hex => {
-    const color = tinycolor(hex);
-    const rgb = color.toRgb();
     isInputChanged.current = true;
 
-    onChangeInternal({ hex, rgb });
+    onColorChange(hex);
   };
-
-  const onPickerChange = hex => onChangeInternal(getColor(hex));
 
   const onBlur = () => {
     // If input is not changed, don't call onChange on blur
     if (!isInputChanged.current) return;
+
     isInputChanged.current = false;
-    onChangeInternal(getColor(colorValue));
+    onColorChange(colorValue);
   };
 
   const pickColor = async () => {
     try {
       const colorResponse = await open();
-      const colorHex = tinycolor(colorResponse.sRGBHex).toHexString();
-      onPickerChange(colorHex);
+      const hex = tinycolor(colorResponse.sRGBHex).toHexString();
+      onColorChange(hex);
     } catch {
       // Ensures component is still mounted
       // before calling setState
@@ -129,7 +136,7 @@ const ColorPicker = ({
               className="neeto-ui-colorpicker__pointer"
               data-testid="neeto-color-picker-section"
             >
-              <PickerComponent color={colorValue} onChange={onPickerChange} />
+              <PickerComponent color={colorValue} onChange={onColorChange} />
             </div>
             <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-3 neeto-ui-gap-2">
               {showEyeDropper && isSupported() && (
