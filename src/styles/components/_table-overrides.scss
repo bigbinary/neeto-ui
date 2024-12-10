@@ -1,5 +1,7 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-table-header-font-size: 13px;
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
+  --neeto-ui-table-header-font-size: 0.8125rem;
   --neeto-ui-table-header-font-weight: 600;
   --neeto-ui-table-header-text-transform: uppercase;
   --neeto-ui-table-header-border-bottom-width: 1px;
@@ -8,6 +10,9 @@
 }
 
 .ant-table-wrapper {
+  .ant-table {
+    font-size: 0.875rem;
+  }
   table {
     font-family: var(--neeto-ui-body-font-family) !important;
     thead {
@@ -16,7 +21,9 @@
           font-size: var(--neeto-ui-table-header-font-size);
           font-weight: var(--neeto-ui-table-header-font-weight) !important;
           text-transform: var(--neeto-ui-table-header-text-transform);
-          border-bottom-width: var(--neeto-ui-table-header-border-bottom-width) !important;
+          border-bottom-width: var(
+            --neeto-ui-table-header-border-bottom-width
+          ) !important;
 
           .ant-table-column-sorters {
             .ant-table-column-title {
@@ -112,6 +119,6 @@
   }
 }
 
-.neeto-ui-table__column-description{
+.neeto-ui-table__column-description {
   width: 288px;
 }
