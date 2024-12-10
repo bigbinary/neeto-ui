@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.46 - 2024-12-10
+
+- Skips over writing the saved email details with the duplicate email entered by the user.
+
 ## 8.2.45 - 2024-12-06
 
 Changed the `data-cy` prop for *Toast* message component.
@@ -239,7 +243,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
 - Added: `--neeto-ui-accent-800` - `#095aba`.
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
-  
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
   
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
@@ -690,7 +693,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
 ## 5.1.0 - 2023-08-02
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
-
 ## 5.0.18 - 2023-08-01
 
 - Fixed: error value output in color picker when the initial value is undefined
