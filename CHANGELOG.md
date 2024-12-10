@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.47 - 2024-12-10
+
+- Shows the color palette in the color picker by default.
+- Updates the color list and the onChange handler to align with the color and onChange handler of the picker.
+- Refactors and cleans up the onChange handlers and the associated functions.
+
 ## 8.2.46 - 2024-12-10
 
 - Skips over writing the saved email details with the duplicate email entered by the user.
@@ -244,7 +250,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-800` - `#095aba`.
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
-  
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
   
 - Added: `--neeto-ui-accent-50` - `#eff8ff`.
@@ -694,7 +699,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 ## 5.1.0 - 2023-08-02
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
 ## 5.0.18 - 2023-08-01
-
 - Fixed: error value output in color picker when the initial value is undefined
 
 ## 5.0.17 - 2023-07-31
