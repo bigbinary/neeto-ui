@@ -12,7 +12,10 @@ const Palette = ({ color, colorList = DEFAULT_PALETTE_COLORS, onChange }) => (
       const { hex, rgb } = item;
       const colorObject = tinycolor(hex ?? rgb);
       const isTransparent = colorObject.getAlpha() === 0;
-      const isActive = Boolean(color === hex || color === rgb);
+      const isActive = Boolean(
+        // hex is case insensitive.
+        color?.toLocaleLowerCase() === hex?.toLocaleLowerCase() || color === rgb
+      );
 
       return (
         <div
