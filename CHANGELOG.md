@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.48 - 2024-12-10
+
+- Changed: *Table* font size unit from px to rem.
+
 ## 8.2.47 - 2024-12-10
 
 - Shows the color palette in the color picker by default.
@@ -251,7 +255,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
-  
 - Added: `--neeto-ui-accent-50` - `#eff8ff`.
   
 - Updated: `--neeto-ui-success-800` from `#107154` to `#01795d`.
@@ -700,7 +703,6 @@ Added: `rejectCharsRegex` prop to *Input* component.
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
 ## 5.0.18 - 2023-08-01
 - Fixed: error value output in color picker when the initial value is undefined
-
 ## 5.0.17 - 2023-07-31
 
 Changed: Disabled auto close for error toasters.
