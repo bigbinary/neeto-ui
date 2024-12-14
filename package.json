@@ -29,47 +29,6 @@
     "npm": ">=9",
     "yarn": "1.22.x"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/cjs/index.js",
-      "style": "./dist/index.css",
-      "types": "./index.d.ts"
-    },
-    "./layouts": {
-      "import": "./dist/layouts.js",
-      "require": "./dist/cjs/layouts.js",
-      "types": "./layouts.d.ts"
-    },
-    "./formik": {
-      "import": "./dist/formik/index.js",
-      "require": "./dist/cjs/formik/index.js",
-      "types": "./formik.d.ts"
-    },
-    "./managers": {
-      "import": "./dist/managers.js",
-      "require": "./dist/cjs/managers.js",
-      "types": "./managers.d.ts"
-    },
-    "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/cjs/*.js",
-      "types": "./types/*.d.ts"
-    },
-    "./formik/*": {
-      "import": "./dist/formik/*.js",
-      "require": "./dist/cjs/formik/*.js",
-      "types": "./types/formik/*.d.ts"
-    },
-    "./translations": {
-      "import": "./src/translations/index.js",
-      "require": "./src/translations/index.js"
-    },
-    "./translations/*": {
-      "import": "./src/translations/*.json",
-      "require": "./src/translations/*.json"
-    }
-  },
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "7.17.0",
