@@ -37,12 +37,9 @@ const Pane = ({
   const backdropRef = useRef(null);
 
   const observerRef = useRef(
-    new ResizeObserver(([entry]) => {
-      const header = entry.target;
-      const paneWrapper = entry.target.parentElement;
-
-      updateHeaderHeight(paneWrapper, header);
-    })
+    new ResizeObserver(([entry]) =>
+      updateHeaderHeight(entry.target, paneWrapperRef)
+    )
   );
 
   useOverlayManager(paneWrapperRef, isOpen);
@@ -65,9 +62,10 @@ const Pane = ({
     const header = getHeader(paneWrapperRef);
     if (!header) return undefined;
 
-    observerRef.current.observe(header);
+    const observer = observerRef.current;
+    observer.observe(header);
 
-    return () => observerRef.current.disconnect();
+    return () => observer.disconnect();
   }, [hasTransitionCompleted]);
 
   return (
