@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.50 - 2025-01-21
+
+- Fixed issue with table height computation when reorder column is enabled.
+
 ## 8.2.49 - 2025-01-10
 
 - Added: Click functionality to the *Switch* component
@@ -261,7 +265,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
 - Added: `--neeto-ui-accent-50` - `#eff8ff`.
 - Updated: `--neeto-ui-success-800` from `#107154` to `#01795d`.
-  
 - Updated: `--neeto-ui-success-600` from `#12805c` to `#018d6d`.
   
 - Updated: `--neeto-ui-success-500` from `#268e6c` to `#02a27c`.
@@ -708,7 +711,6 @@ Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
 - Fixed: error value output in color picker when the initial value is undefined
 ## 5.0.17 - 2023-07-31
 Changed: Disabled auto close for error toasters.
-
 ## 5.0.15 - 2023-07-18
 
 - Removed: default empty box image from NoData component.
