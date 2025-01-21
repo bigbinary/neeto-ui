@@ -116,12 +116,16 @@ const Table = ({
       const observer = resizeObserver.current;
 
       if (table !== null) {
-        observer.observe(table?.parentNode);
+        const targetNode = enableColumnReorder
+          ? table?.parentNode?.parentNode
+          : table?.parentNode;
+
+        observer.observe(targetNode);
       } else if (observer) {
         observer.disconnect();
       }
     },
-    [resizeObserver.current, fixedHeight]
+    [resizeObserver.current, fixedHeight, enableColumnReorder]
   );
 
   const { handleScroll } = useRestoreScrollPosition({
