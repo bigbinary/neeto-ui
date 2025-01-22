@@ -8,12 +8,15 @@ import {
   HexColorInput,
   HexAlphaColorPicker,
 } from "react-colorful";
+import { useTranslation } from "react-i18next";
 import tinycolor from "tinycolor2";
 import useEyeDropper from "use-eye-dropper";
 
 import Button from "components/Button";
 import Dropdown from "components/Dropdown";
-import { noop } from "utils";
+import Typography from "components/Typography";
+import useLocalStorage from "hooks/useLocalStorage";
+import { getLocale, noop } from "utils";
 
 import Palette from "./Palette";
 
@@ -35,9 +38,14 @@ const ColorPicker = ({
   portalProps,
   colorPalette,
 }) => {
+  const { t, i18n } = useTranslation();
   const [colorInternal, setColorInternal] = useState(color);
   const isInputChanged = useRef(false);
   const { open, isSupported } = useEyeDropper({ pickRadius: 3 });
+  const [recentlyUsedColors, setRecentlyUsedColors] = useLocalStorage(
+    "recently-used-colors",
+    []
+  );
 
   const PickerComponent = showTransparencyControl
     ? HexAlphaColorPicker
@@ -92,6 +100,20 @@ const ColorPicker = ({
     }
   };
 
+  const onClose = () => {
+    const newColor = getColor(colorValue);
+
+    const recentColorsExcludingNew = recentlyUsedColors.filter(
+      ({ hex, rgb }) => hex !== newColor.hex && rgb !== newColor.rgb
+    );
+
+    const updatedColors = [newColor, ...recentColorsExcludingNew];
+
+    if (updatedColors.length > 14) updatedColors.pop();
+
+    setRecentlyUsedColors(updatedColors);
+  };
+
   const Target = ({ size }) => (
     <button
       data-cy="color-picker-target"
@@ -126,7 +148,7 @@ const ColorPicker = ({
       customTarget={<Target {...{ size }} />}
       label={colorValue}
       position="bottom-start"
-      {...dropdownProps}
+      {...{ ...dropdownProps, onClose }}
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
@@ -180,6 +202,30 @@ const ColorPicker = ({
             onChange={onColorChange}
           />
         </div>
+        {recentlyUsedColors.length > 0 && (
+          <div
+            data-testid="color-palette"
+            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
+              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
+                !showPicker,
+              "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
+                showPicker,
+            })}
+          >
+            <Typography
+              className="neeto-ui-text-gray-600 mb-2"
+              style="body3"
+              weight="medium"
+            >
+              {getLocale(i18n, t, "neetoui.colorPicker.recentlyUsed")}
+            </Typography>
+            <Palette
+              {...{ color }}
+              colorList={recentlyUsedColors}
+              onChange={onColorChange}
+            />
+          </div>
+        )}
       </div>
     </Dropdown>
   );
