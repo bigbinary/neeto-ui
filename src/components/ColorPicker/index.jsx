@@ -104,7 +104,7 @@ const ColorPicker = ({
     const newColor = getColor(colorValue);
 
     const recentColorsExcludingNew = recentlyUsedColors.filter(
-      ({ hex, rgb }) => hex !== newColor.hex && rgb !== newColor.rgb
+      ({ hex, rgb }) => hex !== newColor.hex || rgb !== newColor.rgb
     );
 
     const updatedColors = [newColor, ...recentColorsExcludingNew];
