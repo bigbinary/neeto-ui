@@ -4,6 +4,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { ColorPicker } from "components";
+import { removeFromLocalStorage } from "utils";
 
 describe("ColorPicker", () => {
   it("should render without error", () => {
@@ -107,7 +108,7 @@ describe("ColorPicker", () => {
   });
 
   it("should display recently used colors", async () => {
-    localStorage.removeItem("recently-used-colors");
+    removeFromLocalStorage("recently-used-colors");
 
     render(<ColorPicker />);
 
@@ -137,7 +138,7 @@ describe("ColorPicker", () => {
   });
 
   it("should not display recently used colors if there are no recently used colors", () => {
-    localStorage.removeItem("recently-used-colors");
+    removeFromLocalStorage("recently-used-colors");
 
     render(<ColorPicker />);
 
