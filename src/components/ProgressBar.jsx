@@ -14,6 +14,7 @@ const ProgressBar = ({ progressPercentage, progressValue, className = "" }) => (
     <motion.div
       animate={{ width: `${progressPercentage}%` }}
       className="neeto-ui-progress-bar neeto-ui-rounded-full"
+      data-cy="progress-bar"
       initial={{ width: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
