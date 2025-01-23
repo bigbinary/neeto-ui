@@ -37,6 +37,7 @@ const ColorPicker = ({
   showPicker = true,
   portalProps,
   colorPalette,
+  showRecentlyUsedColors = showPicker,
 }) => {
   const { t, i18n } = useTranslation();
   const [colorInternal, setColorInternal] = useState(color);
@@ -101,10 +102,12 @@ const ColorPicker = ({
   };
 
   const onClose = () => {
+    if (!showRecentlyUsedColors) return;
+
     const newColor = getColor(colorValue);
 
     const recentColorsExcludingNew = recentlyUsedColors.filter(
-      ({ hex, rgb }) => hex !== newColor.hex || rgb !== newColor.rgb
+      ({ hex }) => hex !== newColor.hex
     );
 
     const updatedColors = [newColor, ...recentColorsExcludingNew];
@@ -202,15 +205,10 @@ const ColorPicker = ({
             onChange={onColorChange}
           />
         </div>
-        {recentlyUsedColors.length > 0 && (
+        {showRecentlyUsedColors && recentlyUsedColors.length > 0 && (
           <div
-            data-testid="color-palette"
-            className={classnames("neeto-ui-colorpicker__palette-wrapper", {
-              "neeto-ui-colorpicker__palette-wrapper--hidden-picker":
-                !showPicker,
-              "neeto-ui-pt-3 neeto-ui-border-t neeto-ui-border-gray-200":
-                showPicker,
-            })}
+            className="neeto-ui-colorpicker__palette-wrapper neeto-ui-border-t neeto-ui-border-gray-200 neeto-ui-pt-3"
+            data-testid="color-palette-recently-used"
           >
             <Typography
               className="neeto-ui-text-gray-600 mb-2"
@@ -219,11 +217,7 @@ const ColorPicker = ({
             >
               {getLocale(i18n, t, "neetoui.colorPicker.recentlyUsed")}
             </Typography>
-            <Palette
-              {...{ color }}
-              colorList={recentlyUsedColors}
-              onChange={onColorChange}
-            />
+            <Palette colorList={recentlyUsedColors} onChange={onColorChange} />
           </div>
         )}
       </div>
@@ -274,6 +268,10 @@ ColorPicker.propTypes = {
    * To specify the props to be passed to the dropdown portal.
    */
   portalProps: PropTypes.object,
+  /**
+   * To show the recently used colors.
+   */
+  showRecentlyUsedColors: PropTypes.bool,
 };
 
 export default ColorPicker;
