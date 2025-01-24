@@ -15,9 +15,9 @@ import useEyeDropper from "use-eye-dropper";
 import Button from "components/Button";
 import Dropdown from "components/Dropdown";
 import Typography from "components/Typography";
-import useLocalStorage from "hooks/useLocalStorage";
 import { getLocale, noop } from "utils";
 
+import useRecentlyUsedColors from "./hooks/useRecentlyUsedColors";
 import Palette from "./Palette";
 
 const TARGET_SIZES = {
@@ -41,12 +41,10 @@ const ColorPicker = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [colorInternal, setColorInternal] = useState(color);
+  const [isColorSelected, setIsColorSelected] = useState(false);
   const isInputChanged = useRef(false);
   const { open, isSupported } = useEyeDropper({ pickRadius: 3 });
-  const [recentlyUsedColors, setRecentlyUsedColors] = useLocalStorage(
-    "recently-used-colors",
-    []
-  );
+  const [recentlyUsedColors, setRecentlyUsedColors] = useRecentlyUsedColors();
 
   const PickerComponent = showTransparencyControl
     ? HexAlphaColorPicker
@@ -70,6 +68,7 @@ const ColorPicker = ({
   };
 
   const onColorChange = color => {
+    setIsColorSelected(true);
     const changeHandler = onChange ?? setColorInternal;
 
     changeHandler(getColor(color));
@@ -102,7 +101,7 @@ const ColorPicker = ({
   };
 
   const onClose = () => {
-    if (!showRecentlyUsedColors) return;
+    if (!showRecentlyUsedColors || !isColorSelected) return;
 
     const newColor = getColor(colorValue);
 
@@ -115,6 +114,7 @@ const ColorPicker = ({
     if (updatedColors.length > 14) updatedColors.pop();
 
     setRecentlyUsedColors(updatedColors);
+    setIsColorSelected(false);
   };
 
   const Target = ({ size }) => (
