@@ -75,6 +75,7 @@ const CustomInput = props => {
 
 const CustomOption = props => {
   const ref = useRef();
+  const { dataCy } = props.data;
 
   useEffect(() => {
     props.isSelected && ref.current.scrollIntoView();
@@ -86,7 +87,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...props.innerProps,
-        "data-cy": `${hyphenize(props.label)}-select-option`,
+        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
       }}
     />
   );
