@@ -10,6 +10,9 @@
       "cancel": "Cancel",
       "saveChanges": "Save changes"
     },
+    "colorPicker": {
+      "recentlyUsed": "Recently used"
+    },
     "datePicker": {
       "today": "Today"
     },

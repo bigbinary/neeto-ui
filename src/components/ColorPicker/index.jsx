@@ -8,13 +8,16 @@ import {
   HexColorInput,
   HexAlphaColorPicker,
 } from "react-colorful";
+import { useTranslation } from "react-i18next";
 import tinycolor from "tinycolor2";
 import useEyeDropper from "use-eye-dropper";
 
 import Button from "components/Button";
 import Dropdown from "components/Dropdown";
-import { noop } from "utils";
+import Typography from "components/Typography";
+import { getLocale, noop } from "utils";
 
+import useRecentlyUsedColors from "./hooks/useRecentlyUsedColors";
 import Palette from "./Palette";
 
 const TARGET_SIZES = {
@@ -34,10 +37,14 @@ const ColorPicker = ({
   showPicker = true,
   portalProps,
   colorPalette,
+  showRecentlyUsedColors = showPicker,
 }) => {
+  const { t, i18n } = useTranslation();
   const [colorInternal, setColorInternal] = useState(color);
+  const [isColorSelected, setIsColorSelected] = useState(false);
   const isInputChanged = useRef(false);
   const { open, isSupported } = useEyeDropper({ pickRadius: 3 });
+  const [recentlyUsedColors, setRecentlyUsedColors] = useRecentlyUsedColors();
 
   const PickerComponent = showTransparencyControl
     ? HexAlphaColorPicker
@@ -61,6 +68,7 @@ const ColorPicker = ({
   };
 
   const onColorChange = color => {
+    setIsColorSelected(true);
     const changeHandler = onChange ?? setColorInternal;
 
     changeHandler(getColor(color));
@@ -90,6 +98,23 @@ const ColorPicker = ({
       // before calling setState
       // if (!e.canceled) setError(e);
     }
+  };
+
+  const onClose = () => {
+    if (!showRecentlyUsedColors || !isColorSelected) return;
+
+    const newColor = getColor(colorValue);
+
+    const recentColorsExcludingNew = recentlyUsedColors.filter(
+      ({ hex }) => hex !== newColor.hex
+    );
+
+    const updatedColors = [newColor, ...recentColorsExcludingNew];
+
+    if (updatedColors.length > 14) updatedColors.pop();
+
+    setRecentlyUsedColors(updatedColors);
+    setIsColorSelected(false);
   };
 
   const Target = ({ size }) => (
@@ -126,7 +151,7 @@ const ColorPicker = ({
       customTarget={<Target {...{ size }} />}
       label={colorValue}
       position="bottom-start"
-      {...dropdownProps}
+      {...{ ...dropdownProps, onClose }}
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
@@ -180,6 +205,21 @@ const ColorPicker = ({
             onChange={onColorChange}
           />
         </div>
+        {showRecentlyUsedColors && recentlyUsedColors.length > 0 && (
+          <div
+            className="neeto-ui-colorpicker__palette-wrapper neeto-ui-border-t neeto-ui-border-gray-200 neeto-ui-pt-3"
+            data-testid="color-palette-recently-used"
+          >
+            <Typography
+              className="neeto-ui-text-gray-600 mb-2"
+              style="body3"
+              weight="medium"
+            >
+              {getLocale(i18n, t, "neetoui.colorPicker.recentlyUsed")}
+            </Typography>
+            <Palette colorList={recentlyUsedColors} onChange={onColorChange} />
+          </div>
+        )}
       </div>
     </Dropdown>
   );
@@ -228,6 +268,10 @@ ColorPicker.propTypes = {
    * To specify the props to be passed to the dropdown portal.
    */
   portalProps: PropTypes.object,
+  /**
+   * To show the recently used colors.
+   */
+  showRecentlyUsedColors: PropTypes.bool,
 };
 
 export default ColorPicker;

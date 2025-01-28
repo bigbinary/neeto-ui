@@ -42,7 +42,17 @@ const Palette = ({ color, colorList = DEFAULT_PALETTE_COLORS, onChange }) => (
 Palette.propTypes = {
   color: PropTypes.string,
   colorList: PropTypes.arrayOf(
-    PropTypes.shape({ hex: PropTypes.string, rgb: PropTypes.string })
+    PropTypes.shape({
+      hex: PropTypes.string,
+      rgb: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          r: PropTypes.number,
+          g: PropTypes.number,
+          b: PropTypes.number,
+        }),
+      ]),
+    })
   ),
   onChange: PropTypes.func,
 };
