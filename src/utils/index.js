@@ -187,4 +187,11 @@ export const setToLocalStorage = (key, value) =>
 // eslint-disable-next-line @bigbinary/neeto/no-local-storage
 export const removeFromLocalStorage = key => localStorage.removeItem(key);
 
+export const getFromLocalStorage = (key, defaultValue) => {
+  // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+  const storedValue = localStorage.getItem(key);
+
+  return storedValue ? JSON.parse(storedValue) : defaultValue;
+};
+
 export { dayjs };
