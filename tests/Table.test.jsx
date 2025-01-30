@@ -424,6 +424,64 @@ describe("Table", () => {
     expect(setBulkSelectedAllRows).toBeCalledTimes(1);
   });
 
+  it("should show the clear selection callout when all rows are selected", async () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        rowSelection
+        defaultPageSize={2}
+        rowData={[rowData[0], rowData[1]]}
+        selectedRowKeys={[rowData[0].id, rowData[1].id]}
+        totalCount={rowData.length}
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows: () => {},
+          selectAllRowButtonLabel: "Select all",
+          selectAllRowMessage: "Selected 2 rows in this page",
+        }}
+      />
+    );
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionCallout = screen.getByTestId(
+      "clear-selections-callout"
+    );
+    expect(clearSelectionCallout).toBeInTheDocument();
+  });
+
+  it("should show the select all rows callout when clear selection button is clicked", async () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        rowSelection
+        defaultPageSize={2}
+        rowData={[rowData[0], rowData[1]]}
+        selectedRowKeys={[rowData[0].id, rowData[1].id]}
+        totalCount={rowData.length}
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows: () => {},
+          selectAllRowButtonLabel: "Select all",
+          selectAllRowMessage: "Selected 2 rows in this page",
+        }}
+      />
+    );
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionButton = screen.getByTestId("clear-selections-button");
+
+    await userEvent.click(clearSelectionButton);
+
+    const selectAllCallout = screen.getByTestId("select-all-rows-callout");
+    expect(selectAllCallout).toBeInTheDocument();
+  });
+
   it("should show the freeze and unfreeze menu on top of the columns", async () => {
     const NeetoUITableWithWrapper = () => (
       <NeetoUITable

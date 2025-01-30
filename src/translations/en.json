@@ -25,7 +25,9 @@
       "ascending": "Ascending",
       "descending": "Descending",
       "freezeColumn": "Freeze column",
-      "unFreezeColumn": "Unfreeze column"
+      "unFreezeColumn": "Unfreeze column",
+      "allRowsSelected": "All rows are selected",
+      "clearSelection": "Clear selection"
     },
     "timePicker": {
       "hours": "Hours",

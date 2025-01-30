@@ -9,6 +9,9 @@
       "cancel": "Anulować",
       "saveChanges": "Zapisz zmiany"
     },
+    "colorPicker": {
+      "recentlyUsed": "Ostatnio używany"
+    },
     "datePicker": {
       "today": "Dzisiaj"
     },
@@ -19,7 +22,9 @@
       "hideColumn": "Ukryj kolumnę",
       "deleteColumn": "Usuń kolumnę",
       "ascending": "Rosnąco",
-      "descending": "Malejąco"
+      "descending": "Malejąco",
+      "allRowsSelected": "Wszystkie wiersze są zaznaczone",
+      "clearSelection": "Wyczyść wybór"
     },
     "timePicker": {
       "hours": "godziny",

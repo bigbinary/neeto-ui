@@ -25,6 +25,7 @@ import { ANTD_LOCALE } from "components/constants";
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
+import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
@@ -32,8 +33,8 @@ import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
 import {
   getHeaderCell,
-  getSelectAllRowsCalloutHeight,
   isIncludedIn,
+  getBulkSelectCalloutHeight,
 } from "./utils";
 
 import Button from "../Button";
@@ -203,6 +204,9 @@ const Table = ({
   const shouldShowSelectAllRowsCallout =
     bulkSelectAllRowsProps && showBulkSelectionCallout;
 
+  const shouldShowAllRowsSelectedCallout =
+    bulkSelectAllRowsProps && bulkSelectedAllRows;
+
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     const tableWrapper = document.querySelector(
       '[data-testid="table-wrapper"]'
@@ -261,16 +265,16 @@ const Table = ({
     const isPaginationVisible =
       otherProps.pagination !== false && rowData.length > pageSize;
 
-    let selectAllRowsCalloutHeight = 0;
-    if (shouldShowSelectAllRowsCallout) {
-      selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
+    let bulkSelectCalloutHeight = 0;
+    if (shouldShowSelectAllRowsCallout || shouldShowAllRowsSelectedCallout) {
+      bulkSelectCalloutHeight = getBulkSelectCalloutHeight();
     }
 
     return (
       containerHeight -
       headerHeight -
       (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0) -
-      selectAllRowsCalloutHeight
+      bulkSelectCalloutHeight
     );
   };
 
@@ -381,6 +385,15 @@ const Table = ({
           onBulkSelectAllRows={() => {
             setBulkSelectedAllRows(true);
             handleSetBulkSelectedAllRows?.(true);
+          }}
+        />
+      )}
+      {shouldShowAllRowsSelectedCallout && (
+        <AllRowsSelectedCallout
+          {...bulkSelectAllRowsProps}
+          onClearSelection={() => {
+            setBulkSelectedAllRows(false);
+            handleSetBulkSelectedAllRows?.(false);
           }}
         />
       )}
@@ -556,6 +569,8 @@ Table.propTypes = {
     selectAllRowMessage: PropTypes.string.isRequired,
     selectAllRowButtonLabel: PropTypes.string.isRequired,
     setBulkSelectedAllRows: PropTypes.func.isRequired,
+    allRowsSelectedMessage: PropTypes.string,
+    clearSelectionButtonLabel: PropTypes.string,
   }),
   /**
    * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.

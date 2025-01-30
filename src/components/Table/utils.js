@@ -9,8 +9,8 @@ import {
 } from "./components/HeaderCell";
 import {
   COLUMN_FIXED_VALUES,
-  SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT,
-  SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT,
+  BULK_SELECT_CALLOUT_DESKTOP_HEIGHT,
+  BULK_SELECT_CALLOUT_MOBILE_HEIGHT,
 } from "./constants";
 
 const convertLocationPathnameToId = () => {
@@ -42,10 +42,10 @@ export const getHeaderCell = ({ enableColumnResize, enableColumnReorder }) => {
 export const isIncludedIn = (array1, array2) =>
   all(includes(__, array1), array2);
 
-export const getSelectAllRowsCalloutHeight = () =>
+export const getBulkSelectCalloutHeight = () =>
   window.innerWidth < 768
-    ? SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT
-    : SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT;
+    ? BULK_SELECT_CALLOUT_MOBILE_HEIGHT
+    : BULK_SELECT_CALLOUT_DESKTOP_HEIGHT;
 
 export const sortFrozenColumns = columnData => {
   const originalIndices = new Map(
