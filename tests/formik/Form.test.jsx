@@ -14,30 +14,24 @@ const FormikForm = ({
   validateOnBlur,
   validateOnChange,
   scrollToErrorField,
-}) => {
-  const handleSubmit = values => {
-    onSubmit(values);
-  };
-
-  return (
-    <Form
-      {...{ scrollToErrorField }}
-      className="nui-form-wrapper"
-      formikProps={{
-        initialValues: { name: "Oliver Smith" },
-        validationSchema: yup.object().shape({
-          name: yup.string().required("Name is required"),
-        }),
-        onSubmit: handleSubmit,
-        validateOnBlur,
-        validateOnChange,
-      }}
-    >
-      <Input label="First Name" name="name" />
-      <Button type="submit">Submit</Button>
-    </Form>
-  );
-};
+}) => (
+  <Form
+    {...{ scrollToErrorField }}
+    className="nui-form-wrapper"
+    formikProps={{
+      initialValues: { name: "Oliver Smith" },
+      validationSchema: yup.object().shape({
+        name: yup.string().required("Name is required"),
+      }),
+      onSubmit: values => onSubmit(values),
+      validateOnBlur,
+      validateOnChange,
+    }}
+  >
+    <Input label="First Name" name="name" />
+    <Button type="submit">Submit</Button>
+  </Form>
+);
 
 const EmptyMultiLineForm = ({ onSubmit }) => {
   const handleSubmit = values => {
@@ -161,5 +155,31 @@ describe("formik/Form", () => {
     await userEvent.type(addressInput, "{enter}");
     expect(screen.queryByText("Address is required")).not.toBeInTheDocument();
     await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
+  });
+
+  it("should prevent submit form until the async submit handler is resolved", async () => {
+    const onSubmit = jest.fn().mockImplementation(
+      () =>
+        new Promise(resolve => {
+          setTimeout(resolve, 2000);
+        })
+    );
+
+    render(<FormikForm {...{ onSubmit }} />);
+    const input = screen.getByLabelText("First Name");
+    const button = screen.getByRole("button");
+
+    await userEvent.clear(input);
+    await userEvent.type(input, "Oliver");
+
+    expect(button).not.toBeDisabled();
+    await userEvent.click(button);
+
+    jest.useFakeTimers();
+    await jest.advanceTimersByTime(1000);
+    await expect(button).toBeDisabled();
+    jest.useRealTimers();
+
+    waitFor(expect(button).not.toBeDisabled);
   });
 });

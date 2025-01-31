@@ -1,34 +1,39 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { MultiEmailInput } from "components";
 
 const SAMPLE_EMAILS = [
   {
-    label: "test@example.com",
+    label: "Test person 1 (test@example.com)",
     value: "test@example.com",
+    userId: 1,
     valid: true,
   },
   {
-    label: "test2@example.com",
+    label: "Test person 2 (test2@example.com)",
     value: "test2@example.com",
+    userId: 2,
     valid: true,
   },
   {
-    label: "test3@example.com",
+    label: "Test person 3 (test3@example.com)",
     value: "test3@example.com",
+    userId: 3,
     valid: true,
   },
   {
-    label: "test4@example.com",
+    label: "Test person 4 (test4@example.com)",
     value: "test4@example.com",
+    userId: 4,
     valid: true,
   },
   {
-    label: "test5@example.com",
+    label: "Test person 5 (test5@example.com)",
     value: "test5@example.com",
+    userId: 5,
     valid: true,
   },
 ];
@@ -97,7 +102,9 @@ describe("MultiEmailInput", () => {
     const onChange = jest.fn();
     render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
-    emailInput.focus();
+    act(() => {
+      emailInput.focus();
+    });
     await userEvent.type(emailInput, "test@email.com");
     await userEvent.click(document.body);
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -217,7 +224,9 @@ describe("MultiEmailInput", () => {
     const user = userEvent.setup({ document });
     render(<MultiEmailInput {...{ onChange }} />);
     const emailInput = screen.getByRole("combobox");
-    emailInput.focus();
+    act(() => {
+      emailInput.focus();
+    });
     await user.type(emailInput, "John Doe <john@example.com>");
     await user.tab();
     expect(onChange).toHaveBeenCalledTimes(3);
@@ -267,6 +276,40 @@ describe("MultiEmailInput", () => {
       screen.getByText(
         "Duplicate emails that were removed case insensitively: test@Example.com"
       )
+    ).toBeInTheDocument();
+  });
+
+  it("should call onChange when Enter key is pressed and retain all the properties in the selected emails", async () => {
+    const onChange = jest.fn();
+    const selectedEmails = SAMPLE_EMAILS.slice(0, 2);
+    render(<MultiEmailInput {...{ onChange }} value={selectedEmails} />);
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.type(emailInput, "email@domain.com{enter}");
+    expect(onChange).toHaveBeenCalledWith([
+      ...selectedEmails,
+      { label: "email@domain.com", valid: true, value: "email@domain.com" },
+    ]);
+  });
+
+  it("should not render the menu when clicked on the input field", async () => {
+    const onChange = jest.fn();
+    const selectedEmails = SAMPLE_EMAILS.slice(0, 2);
+    const { container } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        options={SAMPLE_EMAILS}
+        value={selectedEmails}
+      />
+    );
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.click(emailInput);
+    expect(
+      container.querySelector(".neeto-ui-react-select__menu")
+    ).not.toBeInTheDocument();
+
+    await userEvent.type(emailInput, "test");
+    await expect(
+      container.querySelector(".neeto-ui-react-select__menu")
     ).toBeInTheDocument();
   });
 });

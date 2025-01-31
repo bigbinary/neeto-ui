@@ -1,15 +1,15 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-tab-wrapper-border-width: 2px;
   --neeto-ui-tab-wrapper-border-color: rgb(var(--neeto-ui-gray-200));
-  --neeto-ui-tab-padding-x: 8px;
-  --neeto-ui-tab-padding-y: 12px;
+  --neeto-ui-tab-padding-x: 0.5rem;
+  --neeto-ui-tab-padding-y: 0.75rem;
   --neeto-ui-tab-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-tab-font-weight: var(--neeto-ui-font-semibold);
   --neeto-ui-tab-line-height: 1;
   --neeto-ui-tab-color: rgb(var(--neeto-ui-gray-600));
   --neeto-ui-tab-border-color: transparent;
-  --neeto-ui-tab-gap: 12px;
-  --neeto-ui-tab-icon-size: 16px;
+  --neeto-ui-tab-gap: 0.75rem;
+  --neeto-ui-tab-icon-size: 1rem;
   --neeto-ui-tab-text-decoration: none;
   --neeto-ui-tab-outline: none;
 
@@ -43,7 +43,7 @@
   &--size-large {
     .neeto-ui-tab {
       --neeto-ui-tab-font-size: var(--neeto-ui-text-xl);
-      --neeto-ui-tab-padding-x: 12px;
+      --neeto-ui-tab-padding-x: 0.75rem;
     }
   }
 

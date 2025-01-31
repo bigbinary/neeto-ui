@@ -11,18 +11,18 @@
   --neeto-ui-accordion-wrapper-border-radius: 0px;
 
   // Item
-  --neeto-ui-accordion-item-padding-x: 8px;
-  --neeto-ui-accordion-item-padding-y: 16px;
+  --neeto-ui-accordion-item-padding-x: 0.5rem;
+  --neeto-ui-accordion-item-padding-y: 1rem;
   --neeto-ui-accordion-item-font-size: var(--neeto-ui-text-base);
   --neeto-ui-accordion-item-font-weight: var(--neeto-ui-font-medium);
-  --neeto-ui-accordion-item-line-height: 16px;
+  --neeto-ui-accordion-item-line-height: 1rem;
   --neeto-ui-accordion-item-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-accordion-item-bg-color: transparent;
 
   // Drop
-  --neeto-ui-accordion-drop-padding-x: 8px;
-  --neeto-ui-accordion-drop-padding-top: 4px;
-  --neeto-ui-accordion-drop-padding-bottom: 16px;
+  --neeto-ui-accordion-drop-padding-x: 0.5rem;
+  --neeto-ui-accordion-drop-padding-top: 0.25rem;
+  --neeto-ui-accordion-drop-padding-bottom: 1rem;
   --neeto-ui-accordion-drop-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-accordion-drop-margin-bottom: 0px;
 
@@ -45,8 +45,8 @@
   background-color: var(--neeto-ui-accordion-outer-wrapper-bg-color);
 
   &--padded {
-    --neeto-ui-accordion-outer-wrapper-padding-x: 24px;
-    --neeto-ui-accordion-outer-wrapper-padding-y: 24px;
+    --neeto-ui-accordion-outer-wrapper-padding-x: 1.5rem;
+    --neeto-ui-accordion-outer-wrapper-padding-y: 1.5rem;
     --neeto-ui-accordion-outer-wrapper-border-radius: var(--neeto-ui-rounded-lg);
   }
 

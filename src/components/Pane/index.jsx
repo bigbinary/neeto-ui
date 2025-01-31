@@ -11,10 +11,9 @@ import Button from "components/Button";
 import { useOverlay, useOverlayManager } from "hooks";
 
 import Body from "./Body";
-import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";
 import Footer from "./Footer";
 import Header from "./Header";
-import { getHeaderHeight } from "./utils";
+import { getHeader, updateHeaderHeight } from "./utils";
 
 const SIZES = { small: "small", large: "large" };
 
@@ -34,13 +33,19 @@ const Pane = ({
 }) => {
   const [hasTransitionCompleted, setHasTransitionCompleted] = useState(false);
 
-  const paneWrapper = useRef(null);
+  const paneWrapperRef = useRef(null);
   const backdropRef = useRef(null);
 
-  useOverlayManager(paneWrapper, isOpen);
+  const observerRef = useRef(
+    new ResizeObserver(([entry]) =>
+      updateHeaderHeight(entry.target, paneWrapperRef)
+    )
+  );
+
+  useOverlayManager(paneWrapperRef, isOpen);
 
   const { handleOverlayClose, setFocusField } = useOverlay({
-    overlayWrapper: paneWrapper,
+    overlayWrapper: paneWrapperRef,
     backdropRef,
     closeOnOutsideClick,
     closeOnEsc,
@@ -52,14 +57,15 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (!hasTransitionCompleted) return;
-    const headerHeight = getHeaderHeight(paneWrapper);
-    if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
-      paneWrapper.current.style.setProperty(
-        "--neeto-ui-pane-header-height",
-        `${headerHeight}px`
-      );
-    }
+    if (!hasTransitionCompleted) return undefined;
+
+    const header = getHeader(paneWrapperRef);
+    if (!header) return undefined;
+
+    const observer = observerRef.current;
+    observer.observe(header);
+
+    return () => observer.disconnect();
   }, [hasTransitionCompleted]);
 
   return (
@@ -85,7 +91,7 @@ const Pane = ({
           <div
             data-cy="pane-wrapper"
             key="pane-wrapper"
-            ref={paneWrapper}
+            ref={paneWrapperRef}
             className={classnames("neeto-ui-pane__wrapper", {
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,

@@ -1,5 +1,5 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-modal-spacing: 24px;
+  --neeto-ui-modal-spacing: 1.5rem;
 
   // Backdrop
   --neeto-ui-modal-backdrop-z-index: var(--neeto-ui-modal-z-index);
@@ -20,12 +20,12 @@
 
   // Header
   --neeto-ui-modal-header-padding-top: var(--neeto-ui-modal-spacing);
-  --neeto-ui-modal-header-padding-right: 64px;
-  --neeto-ui-modal-header-padding-bottom: 16px;
+  --neeto-ui-modal-header-padding-right: 4rem;
+  --neeto-ui-modal-header-padding-bottom: 1rem;
   --neeto-ui-modal-header-padding-left: var(--neeto-ui-modal-spacing);
 
   // Header Description
-  --neeto-ui-modal-header-description-margin-top: 8px;
+  --neeto-ui-modal-header-description-margin-top: 0.5rem;
   --neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-700));
 
   // Body
@@ -36,7 +36,7 @@
   --neeto-ui-modal-body-line-height: 1.5;
 
   // Footer
-  --neeto-ui-modal-footer-padding-y: 16px;
+  --neeto-ui-modal-footer-padding-y: 1rem;
   --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
   --neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-gray-100));
   --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
@@ -97,15 +97,15 @@
     }
 
     &.neeto-ui-modal__wrapper--small {
-      --neeto-ui-modal-wrapper-width: 320px;
+      --neeto-ui-modal-wrapper-width: 20rem;
     }
 
     &.neeto-ui-modal__wrapper--medium {
-      --neeto-ui-modal-wrapper-width: 480px;
+      --neeto-ui-modal-wrapper-width: 30rem;
     }
 
     &.neeto-ui-modal__wrapper--large {
-      --neeto-ui-modal-wrapper-width: 720px;
+      --neeto-ui-modal-wrapper-width: 45rem;
     }
 
     &.neeto-ui-modal__wrapper--fullscreen {
@@ -113,7 +113,7 @@
       --neeto-ui-modal-wrapper-max-width: 100vw;
       --neeto-ui-modal-wrapper-height: 100%;
       --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
-      --neeto-ui-modal-header-padding-top: 28px;
+      --neeto-ui-modal-header-padding-top: 1.75rem;
 
       max-height: 100vh;
       transform: scale(1);
@@ -181,13 +181,13 @@
 }
 
 .neetix-alert, .neetix-modal {
-  --neeto-ui-modal-close-btn-top: 32px;
-  --neeto-ui-modal-close-btn-right: 32px;
-  --neeto-ui-modal-header-padding-top: 32px;
-  --neeto-ui-modal-header-padding-left: 32px;
-  --neeto-ui-modal-body-padding-bottom: 32px;
-  --neeto-ui-modal-body-padding-x: 32px;
-  --neeto-ui-modal-footer-padding-bottom: 32px;
-  --neeto-ui-modal-footer-padding-x: 32px;
+  --neeto-ui-modal-close-btn-top: 2rem;
+  --neeto-ui-modal-close-btn-right: 2rem;
+  --neeto-ui-modal-header-padding-top: 2rem;
+  --neeto-ui-modal-header-padding-left: 2rem;
+  --neeto-ui-modal-body-padding-bottom: 2rem;
+  --neeto-ui-modal-body-padding-x: 2rem;
+  --neeto-ui-modal-footer-padding-bottom: 2rem;
+  --neeto-ui-modal-footer-padding-x: 2rem;
   --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
 }

@@ -14,7 +14,6 @@ import {
   CUSTOM_COMPONENTS,
 } from "./constants";
 import {
-  formatEmailInputOptions,
   pruneDuplicates,
   renderValidEmails,
   renderDefaultText,
@@ -49,6 +48,7 @@ const MultiEmailInput = forwardRef(
     const [inputValue, setInputValue] = useState("");
     const [isFocused, setIsFocused] = useState(false);
     const [duplicateEmails, setDuplicateEmails] = useState([]);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const isCounterVisible =
       !!counter &&
@@ -65,14 +65,16 @@ const MultiEmailInput = forwardRef(
       const emailMatches =
         inputValue.match(UNSTRICT_EMAIL_REGEX) || inputValues || [];
 
-      const emails = emailMatches.map(email => formatEmailInputOptions(email));
-      const { uniqueEmails, duplicates } = pruneDuplicates([
-        ...value,
-        ...emails,
-      ]);
+      const emails = emailMatches.map(email => ({ value: email }));
+
+      const { uniqueEmails, duplicates } = pruneDuplicates(
+        [...value, ...emails],
+        otherProps.options
+      );
       onChange(uniqueEmails);
       setDuplicateEmails(duplicates);
       setInputValue("");
+      setIsMenuOpen(false);
     };
 
     const handleKeyDown = event => {
@@ -97,8 +99,10 @@ const MultiEmailInput = forwardRef(
     };
 
     const onCreateOption = input => {
-      const email = formatEmailInputOptions(input);
-      const { uniqueEmails, duplicates } = pruneDuplicates([...value, email]);
+      const { uniqueEmails, duplicates } = pruneDuplicates(
+        [...value, { value: input }],
+        otherProps.options
+      );
       onChange(uniqueEmails);
       setDuplicateEmails(duplicates);
       otherProps?.onCreateOption?.(input);
@@ -167,6 +171,7 @@ const MultiEmailInput = forwardRef(
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
           isDisabled={disabled}
+          menuIsOpen={isMenuOpen}
           className={classnames(
             "neeto-ui-react-select__container neeto-ui-react-select__container--medium neeto-ui-email-input__select",
             { "neeto-ui-react-select__container--error": !!error }
@@ -180,8 +185,11 @@ const MultiEmailInput = forwardRef(
           }}
           onBlur={handleBlur}
           onFocus={() => setIsFocused(true)}
-          onInputChange={inputValue => setInputValue(inputValue)}
           onKeyDown={handleKeyDown}
+          onInputChange={inputValue => {
+            setIsMenuOpen(Boolean(inputValue));
+            setInputValue(inputValue);
+          }}
           {...{
             handleEmailChange,
             inputValue,

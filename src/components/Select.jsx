@@ -75,6 +75,7 @@ const CustomInput = props => {
 
 const CustomOption = props => {
   const ref = useRef();
+  const { dataCy } = props.data;
 
   useEffect(() => {
     props.isSelected && ref.current.scrollIntoView();
@@ -86,7 +87,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...props.innerProps,
-        "data-cy": `${hyphenize(props.label)}-select-option`,
+        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
       }}
     />
   );
@@ -188,7 +189,7 @@ const MenuList = props => {
       {props.children}
       {hasMore && (
         <div
-          className="flex w-full items-center justify-center py-3"
+          className="neeto-ui-flex neeto-ui-w-full neeto-ui-items-center neeto-ui-justify-center neeto-ui-py-3"
           data-testid="loader"
           ref={loaderRef}
         >

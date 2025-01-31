@@ -1,16 +1,16 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-btn-padding-x: 8px;
-  --neeto-ui-btn-padding-y: 6px;
+  --neeto-ui-btn-padding-x: 0.5rem;
+  --neeto-ui-btn-padding-y: 0.375rem;
   --neeto-ui-btn-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-btn-font-weight: var(--neeto-ui-font-medium);
-  --neeto-ui-btn-line-height: 16px;
+  --neeto-ui-btn-line-height: 1rem;
   --neeto-ui-btn-color: rgb(var(--neeto-ui-black));
   --neeto-ui-btn-bg-color: transparent;
   --neeto-ui-btn-border-width: 0;
   --neeto-ui-btn-border-color: transparent;
   --neeto-ui-btn-border-radius: var(--neeto-ui-rounded);
-  --neeto-ui-btn-gap: 4px;
-  --neeto-ui-btn-icon-size: 16px;
+  --neeto-ui-btn-gap: 0.25rem;
+  --neeto-ui-btn-icon-size: 1rem;
   --neeto-ui-btn-box-shadow: none;
   --neeto-ui-btn-outline: none;
 
@@ -60,8 +60,8 @@
   cursor: pointer;
 
   &.neeto-ui-btn--icon-only {
-    --neeto-ui-btn-padding-x: 6px;
-    --neeto-ui-btn-padding-y: 6px;
+    --neeto-ui-btn-padding-x: 0.375rem;
+    --neeto-ui-btn-padding-y: 0.375rem;
 
     .neeto-ui-btn__icon,
     .neeto-ui-btn__spinner svg {
@@ -73,23 +73,23 @@
 
   // size - medium - 32px
   &--size-medium {
-    --neeto-ui-btn-padding-x: 16px;
-    --neeto-ui-btn-padding-y: 8px;
-    --neeto-ui-btn-gap: 8px;
-    --neeto-ui-btn-icon-size: 20px;
+    --neeto-ui-btn-padding-x: 1rem;
+    --neeto-ui-btn-padding-y: 0.5rem;
+    --neeto-ui-btn-gap: 0.5rem;
+    --neeto-ui-btn-icon-size: 1.25rem;
   }
 
   // size - large - 40px
   &--size-large {
     --neeto-ui-btn-font-size: var(--neeto-ui-text-base);
-    --neeto-ui-btn-padding-x: 20px;
-    --neeto-ui-btn-padding-y: 12px;
-    --neeto-ui-btn-gap: 10px;
-    --neeto-ui-btn-icon-size: 24px;
+    --neeto-ui-btn-padding-x: 1.25rem;
+    --neeto-ui-btn-padding-y: 0.75rem;
+    --neeto-ui-btn-gap: 0.625rem;
+    --neeto-ui-btn-icon-size: 1.5rem;
 
     &.neeto-ui-btn--icon-only {
-      --neeto-ui-btn-padding-x: 8px;
-      --neeto-ui-btn-padding-y: 8px;
+      --neeto-ui-btn-padding-x: 0.5rem;
+      --neeto-ui-btn-padding-y: 0.5rem;
     }
   }
 

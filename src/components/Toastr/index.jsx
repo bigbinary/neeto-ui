@@ -1,7 +1,7 @@
 import React from "react";
 
 import { t } from "i18next";
-import { CheckCircle, Warning, CloseCircle, Info, Close } from "neetoicons";
+import { CheckCircle, Warning, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
 
 import { UniqueArray } from "utils";
@@ -29,34 +29,54 @@ const TOAST_CONFIG = {
 
 const TOAST_ICON = {
   success: (
-    <CheckCircle className="neeto-ui-text-white" data-cy="success-toast-icon" />
+    <CheckCircle
+      className="neeto-ui-text-white"
+      data-cy="success-toast-icon"
+      data-testid="success-toast-icon"
+    />
   ),
   warning: (
-    <Warning className="neeto-ui-text-white" data-cy="warning-toast-icon" />
+    <Warning
+      className="neeto-ui-text-white"
+      data-cy="warning-toast-icon"
+      data-testid="warning-toast-icon"
+    />
   ),
-  error: <CloseCircle className="neeto-ui-white" data-cy="error-toast-icon" />,
-  info: <Info className="neeto-ui-text-white" data-cy="info-toast-icon" />,
+  error: (
+    <Warning
+      className="neeto-ui-text-white"
+      data-cy="error-toast-icon"
+      data-testid="error-toast-icon"
+    />
+  ),
+  info: (
+    <Info
+      className="neeto-ui-text-white"
+      data-cy="info-toast-icon"
+      data-testid="info-toast-icon"
+    />
+  ),
 };
 
 const toastrList = new UniqueArray();
 
 const parseToastrConfig = config => {
   if (typeof config[0] === "object") {
-    const { buttonLabel, onClick, ...customConfig } = config[0];
+    const { buttonLabel, onClick, showIcon, ...customConfig } = config[0];
 
-    return { buttonLabel, onClick, customConfig };
+    return { buttonLabel, onClick, showIcon, customConfig };
   }
-  const [buttonLabel, onClick, customConfig] = config;
+  const [buttonLabel, onClick, customConfig, showIcon] = config;
 
-  return { buttonLabel, onClick, customConfig };
+  return { buttonLabel, onClick, customConfig, showIcon };
 };
 
 const getToastrMessage = message => {
   if (message?.noticeCode === "custom_message" && "customMessage" in message) {
     return message.customMessage;
-  } else if (typeof message === "object" && message.noticeCode) {
+  } else if (message && typeof message === "object" && message.noticeCode) {
     return t(message.noticeCode, message);
-  } else if (typeof message === "object" && message.notice) {
+  } else if (message && typeof message === "object" && message.notice) {
     return message.notice;
   }
 
@@ -70,6 +90,7 @@ const withUniqueCheck =
     const {
       buttonLabel,
       onClick,
+      showIcon = false,
       customConfig = {},
     } = parseToastrConfig(toastrConfig);
 
@@ -78,7 +99,12 @@ const withUniqueCheck =
     if (toastrList.add({ type, message, buttonLabel })) {
       const config = {
         ...TOAST_CONFIG,
-        icon: TOAST_ICON[type],
+        // The false value of the icon was ignored in the implementations before v9.0.2.
+        // After 9.0.2, the implementation is such that the icon is rendered as passed in the config.
+        // Since the `false` value used to show the default icon set internally, used a function that returns null
+        // which solved the problem.
+        // PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
+        icon: showIcon ? TOAST_ICON[type] : () => null,
         onClose: () => toastrList.remove({ type, message, buttonLabel }),
         ...customConfig,
       };
@@ -117,7 +143,7 @@ const showWarningToastr = withUniqueCheck(
 );
 
 const isError = e => e && e.stack && e.message;
-const isAxiosError = e => typeof e === "object" && e.isAxiosError === true;
+const isAxiosError = e => e && typeof e === "object" && e.isAxiosError === true;
 const isString = s => typeof s === "string" || s instanceof String;
 const isErrorCodeObject = e =>
   typeof e === "object" && "key" in e && "context" in e;
@@ -169,7 +195,7 @@ const withParsedErrorMsg =
     else if (isString(errorObject)) errorMessage = errorObject;
     else errorMessage = "Something went wrong.";
 
-    const { buttonLabel, onClick, customConfig } =
+    const { buttonLabel, onClick, customConfig, showIcon } =
       parseToastrConfig(toastrConfig);
 
     return toastrFunc(errorMessage, {
@@ -177,16 +203,19 @@ const withParsedErrorMsg =
       onClick,
       role: "alert",
       autoClose: false,
+      showIcon,
       ...customConfig,
     });
   };
 
 const showErrorToastr = withParsedErrorMsg(
-  withUniqueCheck("error", ({ message, buttonLabel, onClick, config }) =>
-    toast.error(
-      <Toast {...{ buttonLabel, message, onClick }} type="error" />,
-      config
-    )
+  withUniqueCheck(
+    "error",
+    ({ message, buttonLabel, onClick, showIcon, config }) =>
+      toast.error(
+        <Toast {...{ buttonLabel, message, onClick, showIcon }} type="error" />,
+        config
+      )
   )
 );
 

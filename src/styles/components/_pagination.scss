@@ -1,9 +1,9 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-pagination-item-padding-x: 4px;
-  --neeto-ui-pagination-item-padding-y: 4px;
-  --neeto-ui-pagination-item-width: 28px;
-  --neeto-ui-pagination-item-height: 28px;
-  --neeto-ui-pagination-item-margin-x: 4px;
+  --neeto-ui-pagination-item-padding-x: 0.25rem;
+  --neeto-ui-pagination-item-padding-y: 0.25rem;
+  --neeto-ui-pagination-item-width: 1.75rem;
+  --neeto-ui-pagination-item-height: 1.75rem;
+  --neeto-ui-pagination-item-margin-x: 0.25rem;
   --neeto-ui-pagination-item-margin-y: 0px;
   --neeto-ui-pagination-item-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-medium);
@@ -104,8 +104,8 @@
 }
 
 .neetix-pagination {
-  --neeto-ui-pagination-item-width: 32px;
-  --neeto-ui-pagination-item-height: 32px;
+  --neeto-ui-pagination-item-width: 2rem;
+  --neeto-ui-pagination-item-height: 2rem;
   --neeto-ui-pagination-item-active-border-color: rgb(var(--neeto-ui-gray-800));
   --neeto-ui-pagination-item-active-bg-color: rgb(var(--neeto-ui-gray-800));
 }

@@ -1,9 +1,3 @@
-import pureDayjs from "dayjs";
-import localeData from "dayjs/plugin/localeData";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-import weekday from "dayjs/plugin/weekday";
-import weekOfYear from "dayjs/plugin/weekOfYear";
 import { preprocessForSerialization } from "neetocist";
 import { parse, stringify } from "qs";
 import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
@@ -11,11 +5,7 @@ import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
 // eslint-disable-next-line import/extensions
 import en from "src/translations/en.json";
 
-pureDayjs.extend(weekOfYear);
-pureDayjs.extend(weekday);
-pureDayjs.extend(localeData);
-pureDayjs.extend(utc);
-pureDayjs.extend(timezone);
+import dayjs from "./dayjs";
 
 const getEnTranslationValue = translationKey =>
   translationKey.split(".").reduce((acc, key) => acc[key], en);
@@ -32,43 +22,6 @@ const getScrollbarWidth = () => {
 
   return scrollbarWidth;
 };
-
-const hasTimezone = dateString => {
-  const timezoneRegex = /Z|[+-]\d{2}:\d{2}$|GMT([+-]\d{4})?$/;
-
-  return timezoneRegex.test(dateString);
-};
-
-// eslint-disable-next-line import/exports-last
-export const dayjs = (...args) => {
-  if (
-    pureDayjs.tz().$x.$timezone === pureDayjs.tz.guess() ||
-    pureDayjs.tz().$x.$timezone === undefined
-  ) {
-    return pureDayjs(...args);
-  }
-
-  if (args.length > 0 && typeof args[0] === "string") {
-    const pureDayjsArgs = args.slice(0, Math.min(args.length, 2));
-
-    if (hasTimezone(args[0])) {
-      args[0] = pureDayjs(...pureDayjsArgs);
-    } else {
-      args[0] = pureDayjs(...pureDayjsArgs).format("YYYY-MM-DD HH:mm:ss");
-      args[1] = "YYYY-MM-DD HH:mm:ss";
-    }
-  }
-
-  if (args[0]?.toString() === "Invalid Date") return pureDayjs(...args);
-
-  const timezone = pureDayjs.tz().$x.$timezone || pureDayjs.tz.guess();
-
-  return args.length === 2
-    ? pureDayjs.tz(...args, timezone)
-    : pureDayjs.tz(...args);
-};
-
-Object.assign(dayjs, { ...pureDayjs });
 
 export const getTimezoneAppliedDateTime = inputDateTime => {
   if (!inputDateTime) return null;
@@ -233,3 +186,12 @@ export const setToLocalStorage = (key, value) =>
 
 // eslint-disable-next-line @bigbinary/neeto/no-local-storage
 export const removeFromLocalStorage = key => localStorage.removeItem(key);
+
+export const getFromLocalStorage = (key, defaultValue) => {
+  // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+  const storedValue = localStorage.getItem(key);
+
+  return storedValue ? JSON.parse(storedValue) : defaultValue;
+};
+
+export { dayjs };

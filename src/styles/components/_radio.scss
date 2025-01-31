@@ -1,5 +1,5 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-radio-size: 16px;
+  --neeto-ui-radio-size: 1rem;
   --neeto-ui-radio-color: rgb(var(--neeto-ui-primary-500));
   --neeto-ui-radio-border-width: 2px;
   --neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-400));
@@ -28,10 +28,11 @@
   --neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
 
   // Margin
-  --neeto-ui-radio-wrapper-label-margin: 12px;
-  --neeto-ui-radio-wrapper-error-margin: 4px;
-  --neeto-ui-radio-label-margin: 8px;
-  --neeto-ui-radio-margin: 16px;
+  --neeto-ui-radio-wrapper-label-margin: 0.75rem;
+  --neeto-ui-radio-wrapper-error-margin: 0.25rem;
+  --neeto-ui-radio-label-margin: 0.5rem;
+  --neeto-ui-radio-label-line-height: 1.2;
+  --neeto-ui-radio-margin: 1rem;
 }
 
 .neeto-ui-radio__wrapper {
@@ -62,10 +63,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: start;
 
     .neeto-ui-label {
       margin-left: var(--neeto-ui-radio-label-margin);
+      line-height: var(--neeto-ui-radio-label-line-height);
     }
 
     &:not(:last-child) {

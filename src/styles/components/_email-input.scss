@@ -1,13 +1,13 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Label Wrapper
-  --neeto-ui-multi-email-input-label-wrapper-gap: 8px;
+  --neeto-ui-multi-email-input-label-wrapper-gap: 0.5rem;
   --neeto-ui-multi-email-input-counter-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-multi-email-input-counter-line-height: 1;
-  --neeto-ui-multi-email-input-counter-margin-bottom: 8px;
+  --neeto-ui-multi-email-input-counter-margin-bottom: 0.5rem;
 
   // Prefx & Suffix
-  --neeto-ui-multi-email-input-prefix-suffix-icon-size: 16px;
-  --neeto-ui-multi-email-input-prefix-margin-left: 12px;
+  --neeto-ui-multi-email-input-prefix-suffix-icon-size: 1rem;
+  --neeto-ui-multi-email-input-prefix-margin-left: 0.75rem;
 }
 
 .neeto-ui-email-input__wrapper {
@@ -58,7 +58,7 @@
   .neeto-ui-email-input__suffix,
   .neeto-ui-email-input__prefix{
     line-height: 1.1;
-    min-height: 16px;
+    min-height: 1rem;
   }
 }
 

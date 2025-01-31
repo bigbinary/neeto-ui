@@ -1,0 +1,16 @@
+export const DEFAULT_PALETTE_COLORS = [
+  { hex: "#FFFFFF" },
+  { hex: "#D6D6D6" },
+  { hex: "#0A0E13" },
+  { hex: "#FECE1E" },
+  { hex: "#F32E48" },
+  { hex: "#02C39A" },
+  { hex: "#2A79C4" },
+  { hex: "#B3E5FC" },
+  { hex: "#C3C6F9" },
+  { hex: "#8064CE" },
+  { hex: "#FE861E" },
+  { hex: "#FF7DC9" },
+  { hex: "#028090" },
+  { hex: "#095482" },
+];

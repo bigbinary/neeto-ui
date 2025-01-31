@@ -23,7 +23,10 @@ const Tooltip = ({
 
   if (hideAfter > 0) {
     localProps["onShow"] = instance =>
-      setTimeout(() => instance.hide(), hideAfter);
+      setTimeout(
+        () => !instance.state?.isDestroyed && instance.hide(),
+        hideAfter
+      );
   }
 
   useEffect(() => {
@@ -39,30 +42,33 @@ const Tooltip = ({
     return undefined;
   }, [instance, hideOnTargetExit]);
 
+  const handleCreate = instance => {
+    setInstance(instance);
+    instance.popper.firstElementChild?.setAttribute("data-cy", "tooltip-box");
+  };
+
   return (
     <Tippy
       animation="scale-subtle"
       arrow={ARROW}
-      content={content}
-      disabled={disabled}
       duration={[100, 200]}
-      interactive={interactive}
       placement={position}
       plugins={[followCursor]}
       role="tooltip"
-      theme={theme}
       zIndex={100001}
-      onCreate={instance => {
-        setInstance(instance);
-        instance.popper.firstElementChild?.setAttribute(
-          "data-cy",
-          "tooltip-box"
-        );
+      onCreate={handleCreate}
+      {...{
+        content,
+        disabled,
+        interactive,
+        theme,
+        ...localProps,
+        ...otherProps,
       }}
-      {...localProps}
-      {...otherProps}
     >
-      {React.isValidElement(children) ? children : <span>{children}</span>}
+      {React.isValidElement(children)
+        ? children
+        : children && <span>{children}</span>}
     </Tippy>
   );
 };

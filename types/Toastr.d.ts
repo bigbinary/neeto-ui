@@ -3,7 +3,9 @@ import React from "react";
 type ToastrFunction = (
   message: React.ReactNode,
   buttonLabel?: React.ReactNode,
-  onClick?: () => void
+  onClick?: () => void,
+  customConfig?: object,
+  showIcon?: boolean
 ) => string | null;
 
 const Toastr: {

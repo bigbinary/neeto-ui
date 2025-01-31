@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect } from "react";
+import React, { forwardRef, useState, useEffect, useCallback } from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
@@ -78,16 +78,17 @@ const DatePicker = forwardRef(
       setMode(picker);
     }, [picker]);
 
+    const getAllowedValue = useCallback(
+      date => getAllowed(date, minDate, maxDate),
+      [minDate, maxDate]
+    );
+
     const handleOnChange = (date, dateString) => {
       if (type === "range" && isNotPresent(date)) {
         return onChange([], dateString);
       }
 
-      const allowed = getAllowed(
-        getTimezoneAppliedDateTime(date),
-        minDate,
-        maxDate
-      );
+      const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
 
       return onChange(allowed, formattedString(allowed, dateFormat));
@@ -114,10 +115,11 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            defaultValue={convertToDayjsObjects(defaultValue)}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat, ...timePickerProps }}
-            value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
+            value={convertToDayjsObjects(value)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
               "neeto-ui-date-input--medium": size === "medium",
@@ -126,11 +128,6 @@ const DatePicker = forwardRef(
               "neeto-ui-date-input--naked": nakedInput,
               "neeto-ui-date-input--error": !!error,
             })}
-            defaultValue={getAllowed(
-              convertToDayjsObjects(defaultValue),
-              minDate,
-              maxDate
-            )}
             popupClassName={classnames("neeto-ui-date-time-dropdown", [
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
@@ -153,6 +150,7 @@ const DatePicker = forwardRef(
                 },
               }),
             }}
+            getNow={dayjs}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
             superNextIcon={<IconOverride icon={Right} />}

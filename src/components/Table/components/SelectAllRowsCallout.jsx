@@ -15,7 +15,7 @@ const SelectAllRowsCallout = ({
     {...calloutProps}
     data-testid="select-all-rows-callout"
   >
-    <div className="flex space-x-3">
+    <div className="neeto-ui-flex neeto-ui-gap-3">
       <Typography style="body2">{selectAllRowMessage}</Typography>
       <Button
         data-testid="select-all-rows-button"

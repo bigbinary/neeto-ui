@@ -4,6 +4,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { ColorPicker } from "components";
+import { removeFromLocalStorage } from "utils";
 
 describe("ColorPicker", () => {
   it("should render without error", () => {
@@ -19,7 +20,7 @@ describe("ColorPicker", () => {
       expect(color.rgb).toEqual(rgb);
     });
 
-    render(<ColorPicker onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} />);
     expect(screen.getByTestId("neeto-color-picker")).toBeInTheDocument();
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     await (await screen.findByRole("textbox")).focus();
@@ -27,8 +28,8 @@ describe("ColorPicker", () => {
     await expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should display color palette when colorPaletteProps is provided", async () => {
-    render(<ColorPicker color="#ffffff" colorPaletteProps={{}} />);
+  it("should display color palette", async () => {
+    render(<ColorPicker color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     expect(await screen.findByTestId("color-palette")).toBeInTheDocument();
   });
@@ -41,36 +42,33 @@ describe("ColorPicker", () => {
 
   it("should trigger onChange when a color is selected from palette", async () => {
     const selectedColor = "#ffffff";
-    const DEFAULT_COLORS = {
-      "red-500": "#f22d2d",
-      "yellow-500": "#f57c00",
-      "green-500": "#00ba88",
-      "blue-500": "#276ef1",
-    };
+    const DEFAULT_COLORS = [
+      { hex: "#f22d2d" },
+      { hex: "#f57c00" },
+      { hex: "#00ba88" },
+      { hex: "#276ef1" },
+    ];
     const onChange = jest.fn();
     render(
       <ColorPicker
+        {...{ onChange }}
         color={selectedColor}
-        colorPaletteProps={{
-          color: { from: "red-500", to: "red-500" },
-          colorList: Object.keys(DEFAULT_COLORS).map(key => ({
-            from: key,
-            to: key,
-          })),
-          onChange,
-        }}
+        colorPalette={DEFAULT_COLORS}
       />
     );
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("red-500", "red-500");
+    expect(onChange).toHaveBeenCalledWith({
+      hex: "#f22d2d",
+      rgb: { a: 1, r: 242, g: 45, b: 45 },
+    });
   });
 
   it("should call onChange when user touches Hue slider", async () => {
     const onChange = jest.fn();
-    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
     const hueSlider = await screen.findByLabelText("Hue");
     await userEvent.click(hueSlider, { clientX: 0 });
@@ -88,7 +86,7 @@ describe("ColorPicker", () => {
       expect(color.rgb).toEqual(rgb);
     });
 
-    render(<ColorPicker color="#ffffff" onChange={onChange} />);
+    render(<ColorPicker {...{ onChange }} color="#ffffff" />);
     await userEvent.click(screen.getByTestId("neeto-color-picker"));
 
     await waitFor(() =>
@@ -106,6 +104,46 @@ describe("ColorPicker", () => {
     render(<ColorPicker showPicker={false} />);
     expect(
       screen.queryByTestId("neeto-color-picker-section")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should display recently used colors", async () => {
+    removeFromLocalStorage("recently-used-colors");
+
+    render(<ColorPicker />);
+
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    const paletteItems = await screen.findAllByTestId("color-palette-item");
+    await userEvent.click(paletteItems[0]);
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+
+    expect(
+      screen.getByTestId("color-palette-recently-used")
+    ).toBeInTheDocument();
+  });
+
+  it("should not display recently used colors if showPicker is false", async () => {
+    render(<ColorPicker showPicker={false} />);
+
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    const paletteItems = await screen.findAllByTestId("color-palette-item");
+    await userEvent.click(paletteItems[0]);
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+
+    expect(
+      screen.queryByTestId("color-palette-recently-used")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should not display recently used colors if there are no recently used colors", () => {
+    removeFromLocalStorage("recently-used-colors");
+
+    render(<ColorPicker />);
+
+    expect(
+      screen.queryByTestId("color-palette-recently-used")
     ).not.toBeInTheDocument();
   });
 });

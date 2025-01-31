@@ -8,6 +8,7 @@
 ** Represent a version as second level heading and write the version number inside a square bracket, eg: ##  [3.3.2]
 
 --->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -16,32 +17,220 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Each change is prefixed with one of these keywords::
 
-- *Added*: Describes new features.
-- *Changed*: Highlights modifications to existing functionality.
-- *Deprecated*: Marks features that will be removed in the future.
-- *Removed*: Indicates features that have been taken out.
-- *Fixed*: Denotes bug fixes.
-- *Security*: Pertains to actions taken in response to vulnerabilities.
+- _Added_: Describes new features.
+- _Changed_: Highlights modifications to existing functionality.
+- _Deprecated_: Marks features that will be removed in the future.
+- _Removed_: Indicates features that have been taken out.
+- _Fixed_: Denotes bug fixes.
+- _Security_: Pertains to actions taken in response to vulnerabilities.
+
+## 8.2.53 - 2025-01-23
+
+- Added: `data-cy` label for _ProgressBar_
+
+## 8.2.52 - 2025-01-22
+
+- Fixed TypeError in Pane component.
+
+## 8.2.51 - 2025-01-21
+
+- Fixed height computation issue in Pane component.
+
+## 8.2.50 - 2025-01-21
+
+- Fixed issue with table height computation when reorder column is enabled.
+
+## 8.2.49 - 2025-01-10
+
+- Added: Click functionality to the _Switch_ component
+
+## 8.2.48 - 2024-12-10
+
+- Changed: _Table_ font size unit from px to rem.
+
+## 8.2.47 - 2024-12-10
+
+- Shows the color palette in the color picker by default.
+- Updates the color list and the onChange handler to align with the color and
+  onChange handler of the picker.
+- Refactors and cleans up the onChange handlers and the associated functions.
+
+## 8.2.46 - 2024-12-10
+
+- Skips over writing the saved email details with the duplicate email entered by
+  the user.
+
+## 8.2.45 - 2024-12-06
+
+Changed the `data-cy` prop for _Toast_ message component.
+
+## 8.2.44 - 2024-12-06
+
+- The MouseTrap lib by default will not fire callbacks for events inside fields
+  like input, textarea etc.. We have to use `bindGlobal` if we want the key
+  bindings for work for form fields as well.
+
+> By default all keyboard events will not fire if you are inside of a textarea,
+> input, or select to prevent undesirable things from happening.
+
+> This means that a keyboard event bound using Mousetrap.bind will only work
+> outside of form input fields, but using Mousetrap.bindGlobal will work in both
+> places.
+
+Documentation - https://craig.is/killing/mice
+
+## 8.2.43 - 2024-12-05
+
+- Updates the color palette to support hex values and removes the tailwind
+  dependency.
+
+## 8.2.41 - 2024-11-28
+
+- Removed the logic to sanitize the value of the datepicker.
+- The values are already sanitized in the onChange handler.
+
+## 8.2.40 - 2024-11-27
+
+- The false value of the prop `icon` was ignored in the implementations before
+  v9.0.2.
+- After 9.0.2, the
+  [implementation](https://github.com/fkhadra/react-toastify/blob/main/src/components/Toast.tsx#L108-L117)
+  is such that the icon is rendered as passed in the config.
+- Since the `false` value was used to show the default icon set internally,
+  replaced it with a function that returns null which solved the problem.
+
+  - Code ref:
+    https://github.com/fkhadra/react-toastify/blob/v8.0.1/src/components/Toast.tsx#L65-L75.
+  - The `if (icon === false)` statement was never success for some reason.
+
+- PR which addressed this issue:
+  https://github.com/fkhadra/react-toastify/pull/758
+
+## 8.2.39 - 2024-11-27
+
+- Updates the value and default value fixed to the allowed range only if the
+  user has touched the fields. This will fix the values outside the allowed
+  ranges until not properly rendered initially.
+
+## 8.2.36 - 2024-11-12
+
+- Removed the toastr icon by default.
+
+## 8.2.35 - 2024-11-01
+
+- Fixed: Added `@bigbinary/neeto-datepicker` to peer dependencies.
+
+## 8.2.34 - 2024-11-01
+
+- Updated NeetoDatePicker to accept `getNow` as an optional prop and replaces
+  the `generateConfig.getNow` with the external `getNow` when availabel.
+- set the `getNow` prop with value `dayjs` which will return the current time in
+  the set timezone.
+
+Demo:
+https://deepak-jose.neetorecord.com/watch/ace8d14e-ca06-42ac-aaa9-affe51287990
+
+## 8.2.32 - 2024-10-24
+
+- The `async` `handleSubmit` will always return a `Promise`, even if the submit
+  handler inside doesn’t return one. This leads to unexpected bugs, as the
+  `Promise` resolves immediately when using the `mutate` function of
+  `useMutation` while the API call might still be in progress.
+- In Formik, if a Promise is returned, it waits for it to resolve before setting
+  isSubmitting to false. In our case, this happens immediately after the button
+  click.
+- Since we weren’t returning the result of the submit handler, it consistently
+  returned a Promise once the handler executed, which caused this behavior.
+
+## 8.2.31 - 2024-10-17
+
+- Removed: Tailwind utility classes from components.
+- Added: Utility classes for `text-transform`.
+- Added: Utility classes for `max-width` and `min-width`.
+- Added: Utility classes for `cursor`.
+- Added: Utility classes for `font-size: inherit`.
+
+## 8.2.30 - 2024-10-17
+
+- Fixed issues with the _MultiEmailInput_ component when `isCreatable` option is
+  enabled.
+
+## 8.2.29 - 2024-10-17
+
+- Added: Text truncation for table column titles.
+
+https://github.com/user-attachments/assets/f8eda9f5-56c9-46eb-90f2-96718e5137f8
+
+@praveen-murali-ind \_a
+
+## 8.2.28 - 2024-10-16
+
+- Changed: default vertical alignment of checkbox and radio buttons from
+  `center` to `top`.
+
+@praveen-murali-ind \_a
+
+## 8.2.27 - 2024-10-14
+
+- Added caching logic in days util function.
+
+## 8.2.26 - 2024-10-10
+
+- Prevents calling hide tooltip if already destroyed, calling hide on a
+  destroyed instance was throwing a warning in jest test.
+- The removed props from the Dropdown component is no longer supported by Tippy,
+  using those in the molecules was throwing warnings in the console.
+
+## 8.2.25 - 2024-10-09
+
+- Fixes existing jest warnings.
+- Adds
+  [`jest-fail-on-console`](https://www.npmjs.com/package/jest-fail-on-console)
+  package to prevent checking in changes with warnings and errors in console.
+
+## 8.2.24 - 2024-10-09
+
+Upgraded the Rollup package to latest version(4.24.1), and its plugins as well!
+
+## 8.2.23 - 2024-10-08
+
+Added: `data-cy` prop to _Check_ and _Close_ icons in _Switch_ component.
+
+## 8.2.22 - 2024-10-07
+
+This PR contains the following changes:
+
+Added following improvements to the live playground:
+
+- Added Syntax highlighting
+- Changed the Editor to use light theme
+- Added Default code to the Editor and removed the example code snippet
 
 ## 8.2.21 - 2024-10-07
 
-- Fixed dayjs timezone issue with *DatePicker* and *TimePicker* components.
+- Fixed dayjs timezone issue with _DatePicker_ and _TimePicker_ components.
 
 ## 8.2.19 - 2024-10-04
 
-- Removes the save and continue navigation functionality and replaces it with stay on the page.
+- Removes the save and continue navigation functionality and replaces it with
+  stay on the page.
 
 ## 8.2.18 - 2024-09-25
 
-The menu was not visible in the overlay components like Pane. To fix that increased the zIndex from the 9999 which was the default value of Tippy to 99999.
+The menu was not visible in the overlay components like Pane. To fix that
+increased the zIndex from the 9999 which was the default value of Tippy
+to 99999.
 
 ## 8.2.17 - 2024-09-24
 
-The existing implementation was ignoring the already set fixed columns. This will merge the frozen columns with the fixed columns in the columnData in the initial render.
+The existing implementation was ignoring the already set fixed columns. This
+will merge the frozen columns with the fixed columns in the columnData in the
+initial render.
 
 ## 8.2.16 - 2024-09-20
 
-- Updated the handleSubmit function on the Form component from Formik to be asynchronous.
+- Updated the handleSubmit function on the Form component from Formik to be
+  asynchronous.
 
 ## 8.2.15 - 2024-09-19
 
@@ -64,15 +253,10 @@ https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 ## 8.2.7 - 2024-08-26
 Handles the case where `BlockNavigation` is used without formik.
 ## 8.2.6 - 2024-08-26
-
 - Fixed: disabled prop of Dropdown not working when a customTarget is used
-
 ## 8.2.5 - 2024-08-14
-
 ![blocknavigation-changes](https://github.com/user-attachments/assets/40c1504a-6f47-4e75-8a54-515cdd4e4991)
-
 ## 8.2.3 - 2024-08-13
-
 <img width="1137" alt="Screenshot 2024-08-13 at 11 49 23 AM" src="https://github.com/user-attachments/assets/957cdb75-b0da-4470-8e33-d7c21b04ba23">
 <img width="1114" alt="Screenshot 2024-08-13 at 11 51 50 AM" src="https://github.com/user-attachments/assets/ea574af4-3804-4aa2-8a8b-f0eb85bbd988">
 ## 8.2.1 - 2024-07-29
@@ -102,103 +286,55 @@ Updates all formik components in neetoUI to use status to show server error and 
 ## 7.0.4 - 2024-07-11
 - Updated framer-motion to 11.2.14
 ## 7.0.3 - 2024-07-11
-
 - Disabled mask format in DatePicker and TimePicker
-
 ## 7.0.2 - 2024-07-03
-
 - Added: placeholder for TimePicker and DateTimePicker
 - Added: enabled masked format
-
 ## 7.0.1 - 2024-07-01
-
 - Fixed the scrollbar visibility issue in Tables
-
 ## 7.0.0 - 2024-06-27
-
 ### Color palette
-
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
-  
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
-  
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
-  
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
-  
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
-  
 - Added: `--neeto-ui-gray-50` - `#fafafa`.
-  
 - Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
-  
 - Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
-  
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
-  
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
-  
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
-  
 - Added: `--neeto-ui-accent-800` - `#095aba`.
-  
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
-  
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
-  
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
-  
 - Added: `--neeto-ui-accent-50` - `#eff8ff`.
-  
 - Updated: `--neeto-ui-success-800` from `#107154` to `#01795d`.
-  
 - Updated: `--neeto-ui-success-600` from `#12805c` to `#018d6d`.
-  
 - Updated: `--neeto-ui-success-500` from `#268e6c` to `#02a27c`.
-  
 - Updated: `--neeto-ui-success-100` from `#e1f3ee` to `#ebfffa`.
-  
-
 ### Dark mode
 
 - Added: `--neeto-ui-gray-50` - `#0a0a0a`.
-  
 - Updated: `--neeto-ui-primary-800` from `#39b990` to `#00f5c8`.
-  
 - Updated: `--neeto-ui-primary-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-primary-500` from `#2d9d78` to `#00cca7`.
-  
 - Updated: `--neeto-ui-primary-100` from `#175541` to `#003d31`.
-  
 - Added: `--neeto-ui-primary-50` - `#002921`.
-  
 - Added: `--neeto-ui-accent-800` - `#8ebdf5`.
-  
 - Added: `--neeto-ui-accent-600` - `#69a7f2`.
-  
 - Added: `--neeto-ui-accent-500` - `#4390ef`.
-  
 - Added: `--neeto-ui-accent-100` - `#0a3871`.
-  
 - Added: `--neeto-ui-accent-50` - `#07254b`.
-  
 - Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
-  
 - Updated: `--neeto-ui-success-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-success-500` from `#2d9d78` to `#00cca7`.
-  
 - Updated: `--neeto-ui-success-100` from `#175541` to `#003d31`.
-  
 - Updated: `--neeto-ui-info-800` from `#4b9cf5` to `#8ebdf5`.
-  
 - Updated: `--neeto-ui-info-600` from `#378ef0` to `#69a7f2`.
-  
 - Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
-  
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
-  
 
 ### Utility classes
 
@@ -206,10 +342,14 @@ Updates all formik components in neetoUI to use status to show server error and 
 
 ### Box shadows
 
-- Updated: `--neeto-ui-shadow-xs` to `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
-- Updated: `--neeto-ui-shadow-sm` to `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
-- Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
-- Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
+- Updated: `--neeto-ui-shadow-xs` to
+  `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
+- Updated: `--neeto-ui-shadow-sm` to
+  `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
+- Updated: `--neeto-ui-shadow-md` to
+  `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
+- Updated: `--neeto-ui-shadow-lg` to
+  `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
 
 ### Component updates
 
@@ -235,23 +375,26 @@ https://navaneeth-d.neetorecord.com/watch/f777bc32-f8f1-4dd0-85bb-04be9c369c7b
 
 ## 6.8.1 - 2024-06-06
 
-- Added: Autoscroll and autoformatting features in the *MultiEmailInput* component.
+- Added: Autoscroll and autoformatting features in the _MultiEmailInput_
+  component.
 
 ## 6.8.0 - 2024-06-04
 
-- Changed: **BREAKING**: Added @babel/runtime, @bigbinary/neeto-hotkeys, @tippyjs/react, classnames, dayjs, linkify-react, and qs and peer dependencies.
+- Changed: **BREAKING**: Added @babel/runtime, @bigbinary/neeto-hotkeys,
+  @tippyjs/react, classnames, dayjs, linkify-react, and qs and peer
+  dependencies.
 
 ## 6.7.5 - 2024-06-04
 
-Adds logic to prevent multiple submissions when enter is pressed
-Video: https://navaneeth-d.neetorecord.com/watch/91e0358f-dbaf-468a-a615-09bf4cfc90dc
+Adds logic to prevent multiple submissions when enter is pressed Video:
+https://navaneeth-d.neetorecord.com/watch/91e0358f-dbaf-468a-a615-09bf4cfc90dc
 
 ## 6.7.4 - 2024-05-30
 
 - Changed: status position to the bottom right.
 - Changed: status size.
 
-@praveen-murali-ind _a
+@praveen-murali-ind \_a
 
 ## 6.7.3 - 2024-05-30
 
@@ -573,62 +716,34 @@ Fixed: scrollToErrorField not working for Select component.
 ## 5.1.11 - 2023-08-31
 Added truncating feature when more than 3 emails are shown on the MultiEmail
 input.
-
 ## 5.1.9 - 2023-08-25
-
 Fixed: scroll to error is not triggered on submitting form with enter key.
-
 ## 5.1.8 - 2023-08-24
-
 Added `type = "button"` attribute to *Tab.Item* component
-
 ## 5.1.7 - 2023-08-21
-
 Added: `rejectCharsRegex` prop to *Input* component.
-
 ## 5.1.6 - 2023-08-17
-
 - Added: Mechanism to set the pagination and sorting config in URL query
   parameters for `Table`.
-
 ## 5.1.5 - 2023-08-08
-
 - Added: `initialFocusRef` prop to *Alert*
-
 ## 5.1.4 - 2023-08-04
-
 - Fixed: Handled dot paths in *ScrollToErrorField*.
-
 ## 5.1.3 - 2023-08-02
-
 - Fixed: Disabled click in selected option close button if select is disabled.
-
 ## 5.1.2 - 2023-08-02
-
 - FIxed: Updated deprecated CSS property `color-adjust`
-
 ## 5.1.1 - 2023-08-02
-
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
-
 ## 5.1.0 - 2023-08-02
-
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
-
 ## 5.0.18 - 2023-08-01
-
 - Fixed: error value output in color picker when the initial value is undefined
-
 ## 5.0.17 - 2023-07-31
-
 Changed: Disabled auto close for error toasters.
-
 ## 5.0.15 - 2023-07-18
-
 - Removed: default empty box image from NoData component.
-
 ## 5.0.14 - 2023-07-12
-
 Fixed warnings in jest tests.
 
 ## 5.0.13 - 2023-06-30
@@ -637,15 +752,15 @@ Fixed warnings in jest tests.
 
 ## 5.0.12 - 2023-06-29
 
-- Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
+- Changed: Default value of`scrollToErrorField` prop of formik _Form_ to false.
 
 ## 5.0.11 - 2023-06-27
 
-- Added: `hasScrollToErrorField` prop to formik *Form* component.
+- Added: `hasScrollToErrorField` prop to formik _Form_ component.
 
 ## 5.0.10 - 2023-06-20
 
-- Removed: condition to disable *FormikButton* when the form is invalid.
+- Removed: condition to disable _FormikButton_ when the form is invalid.
 
 ## 5.0.9 - 2023-06-17
 
@@ -666,30 +781,30 @@ Fixed warnings in jest tests.
 
 ## 5.0.6 - 2023-06-06
 
-- Fixes janky animation in *Pane* when form fields have the `autoFocus` prop.
+- Fixes janky animation in _Pane_ when form fields have the `autoFocus` prop.
 
 ## 5.0.5 - 2023-06-05
 
 Added: `optionRemapping` prop to map the label and value properties of `options`
-prop in *Select* component.
+prop in _Select_ component.
 
 ## 5.0.4 - 2023-05-29
 
 - Fixed: Overrided `onChange` function to output empty array if value is null in
-  *DatePicker*
+  _DatePicker_
 
 ## 5.0.3 - 2023-05-29
 
 - Fixed: the issue of filter invalid emails link for valid emails in
-  *MultiEmailInput* component
+  _MultiEmailInput_ component
 
 ## 5.0.2 - 2023-05-23
 
-- Added: `required` prop to *MultiEmailInput*.
+- Added: `required` prop to _MultiEmailInput_.
 
 ## 5.0.1 - 2023-05-07
 
-- Added: resize and reorder columns functionality to *Table* component.
+- Added: resize and reorder columns functionality to _Table_ component.
 
 ## 5.0.0 - 2023-04-28
 
@@ -707,7 +822,7 @@ Removed following components from `neetoui`:
 
 ## 4.4.27 - 2023-04-24
 
-- Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the
+- Added: `unlmitedChars` prop to _Input_ and _Textarea_ and reverted the
   behaviour of maxlength prop to the native one.
 
 ## 4.4.26 - 2023-04-14
@@ -729,7 +844,7 @@ Removed following components from `neetoui`:
 
 ## 4.4.22 - 2023-04-04
 
-Added: Support for children array in *Tooltip* component.
+Added: Support for children array in _Tooltip_ component.
 
 ## 4.4.21 - 2023-03-28
 
@@ -746,11 +861,11 @@ Added: `children` prop for button and tag components
 ## 4.4.18 - 2023-03-24
 
 - Changed: -the default row size to 30 and hidden the page size changer in the
-  *Table* component.
+  _Table_ component.
 
 ## 4.4.17 - 2023-03-22
 
-- Fixed: weird behavior or create new option in *MultiEmailInput*.
+- Fixed: weird behavior or create new option in _MultiEmailInput_.
 
 ## 4.4.16 - 2023-03-20
 
@@ -772,15 +887,15 @@ Added terser plugin to rollup config to minimise bundle size.
 
 ## 4.4.12 - 2023-03-15
 
-This PR adds the following changes to the *Switch* component.
+This PR adds the following changes to the _Switch_ component.
 
-- Added `forwardRef` to the *Switch* component so that it supports adding
-  *Tooltip* to it, as per this
+- Added `forwardRef` to the _Switch_ component so that it supports adding
+  _Tooltip_ to it, as per this
   [guide](https://github.com/atomiks/tippyjs-react#component-children).
 
 ## 4.4.11 - 2023-03-14
 
-- Added: `liveChat` prop to *HelpSection* component.
+- Added: `liveChat` prop to _HelpSection_ component.
 - Added: data-cy to `helpLink` prop.
 - Changed: label into an optional value in LinkType.
 
@@ -1299,35 +1414,23 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Fixed: Reset Formik data on continue action in *BlockNavigation* component.
 ## 3.3.5
 - Added: active state to `NavLink` in *Sidebar* component.
-
 ## 3.3.4
-
 - Added: `hideOnTargetExit` prop to *Tooltip* component
-
 ## 3.3.3
-
 - Added: data-cy for in *Alert* component elements
-
 ## 3.3.2
-
 - Fixed: Added override for `onClick` prop in *Dropdown* component
-
 ## 3.3.1
-
 - Fixed: Typography of Header in *Alert* component.
 - Fixed: Max width issue in *Dropdown* component.
-
 ## 3.3.0
-
 - Changed: **BREAKING** `isLoading` prop of *Table* to `loading`.
 - Changed: Implemented *Dropdown* component with Tippy.js and removed
   `react-popper`
 - Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert*
   components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
-
 #### UI
-
 - Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
   Palette*
 - Changed: the text color in *Table* to `$neeto-ui-black`

@@ -93,8 +93,8 @@ const TreeSelect = forwardRef(
               "neeto-ui-tree-select-dropdown",
               popupClassName
             )}
-            switcherIcon={props => (
-              <div {...props}>
+            switcherIcon={({ className, style, onMouseMove, id, title }) => (
+              <div {...{ className, id, onMouseMove, style, title }}>
                 <SwitcherIcon />
               </div>
             )}
@@ -179,11 +179,11 @@ TreeSelect.propTypes = {
   /**
    * To specify the icon at the end of the TreeSelect component.
    */
-  suffixIcon: PropTypes.node,
+  suffixIcon: PropTypes.elementType,
   /**
    * To specify the icon next to options that have children.
    */
-  switcherIcon: PropTypes.node,
+  switcherIcon: PropTypes.elementType,
   /**
    * The options to be passed to the TreeSelect component.
    */
