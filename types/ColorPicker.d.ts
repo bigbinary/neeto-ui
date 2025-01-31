@@ -20,6 +20,7 @@ export interface ColorPickerProps {
   showPicker?: boolean;
   dropdownProps?: DropdownProps;
   portalProps?: object;
+  showRecentlyUsedColors?: boolean;
 }
 
 const ColorPicker: React.FC<ColorPickerProps>;

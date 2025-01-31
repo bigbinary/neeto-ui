@@ -4,6 +4,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { ColorPicker } from "components";
+import { removeFromLocalStorage } from "utils";
 
 describe("ColorPicker", () => {
   it("should render without error", () => {
@@ -103,6 +104,46 @@ describe("ColorPicker", () => {
     render(<ColorPicker showPicker={false} />);
     expect(
       screen.queryByTestId("neeto-color-picker-section")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should display recently used colors", async () => {
+    removeFromLocalStorage("recently-used-colors");
+
+    render(<ColorPicker />);
+
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    const paletteItems = await screen.findAllByTestId("color-palette-item");
+    await userEvent.click(paletteItems[0]);
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+
+    expect(
+      screen.getByTestId("color-palette-recently-used")
+    ).toBeInTheDocument();
+  });
+
+  it("should not display recently used colors if showPicker is false", async () => {
+    render(<ColorPicker showPicker={false} />);
+
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    const paletteItems = await screen.findAllByTestId("color-palette-item");
+    await userEvent.click(paletteItems[0]);
+    await userEvent.click(document.body);
+    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+
+    expect(
+      screen.queryByTestId("color-palette-recently-used")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should not display recently used colors if there are no recently used colors", () => {
+    removeFromLocalStorage("recently-used-colors");
+
+    render(<ColorPicker />);
+
+    expect(
+      screen.queryByTestId("color-palette-recently-used")
     ).not.toBeInTheDocument();
   });
 });
