@@ -452,22 +452,31 @@ describe("Table", () => {
     expect(clearSelectionCallout).toBeInTheDocument();
   });
 
-  it("should show the select all rows callout when clear selection button is clicked", async () => {
-    render(
-      <NeetoUITable
-        {...{ columnData }}
-        rowSelection
-        defaultPageSize={2}
-        rowData={[rowData[0], rowData[1]]}
-        selectedRowKeys={[rowData[0].id, rowData[1].id]}
-        totalCount={rowData.length}
-        bulkSelectAllRowsProps={{
-          setBulkSelectedAllRows: () => {},
-          selectAllRowButtonLabel: "Select all",
-          selectAllRowMessage: "Selected 2 rows in this page",
-        }}
-      />
-    );
+  it("should clear the selected rows when clear selection button is clicked", async () => {
+    const NeetoUITableWithWrapper = () => {
+      const [selectedRowKeys, setSelectedRowKeys] = useState([
+        rowData[0].id,
+        rowData[1].id,
+      ]);
+
+      return (
+        <NeetoUITable
+          {...{ columnData, selectedRowKeys }}
+          rowSelection
+          defaultPageSize={2}
+          rowData={[rowData[0], rowData[1]]}
+          totalCount={rowData.length}
+          bulkSelectAllRowsProps={{
+            setBulkSelectedAllRows: () => {},
+            selectAllRowButtonLabel: "Select all",
+            selectAllRowMessage: "Selected 2 rows in this page",
+          }}
+          onRowSelect={setSelectedRowKeys}
+        />
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
 
     const selectAllRowsBulkButton = screen.getByTestId(
       "select-all-rows-button"
@@ -478,8 +487,11 @@ describe("Table", () => {
 
     await userEvent.click(clearSelectionButton);
 
-    const selectAllCallout = screen.getByTestId("select-all-rows-callout");
-    expect(selectAllCallout).toBeInTheDocument();
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    checkboxes.forEach(checkbox => {
+      expect(checkbox).not.toBeChecked();
+    });
   });
 
   it("should show the freeze and unfreeze menu on top of the columns", async () => {

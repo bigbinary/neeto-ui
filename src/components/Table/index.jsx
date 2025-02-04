@@ -394,6 +394,7 @@ const Table = ({
           onClearSelection={() => {
             setBulkSelectedAllRows(false);
             handleSetBulkSelectedAllRows?.(false);
+            handleRowChange([], []);
           }}
         />
       )}
