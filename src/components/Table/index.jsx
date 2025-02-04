@@ -34,7 +34,7 @@ import useTableSort from "./hooks/useTableSort";
 import {
   getHeaderCell,
   isIncludedIn,
-  getBulkSelectCalloutHeight,
+  getSelectAllRowsCalloutHeight,
 } from "./utils";
 
 import Button from "../Button";
@@ -265,16 +265,16 @@ const Table = ({
     const isPaginationVisible =
       otherProps.pagination !== false && rowData.length > pageSize;
 
-    let bulkSelectCalloutHeight = 0;
+    let selectAllRowsCalloutHeight = 0;
     if (shouldShowSelectAllRowsCallout || shouldShowAllRowsSelectedCallout) {
-      bulkSelectCalloutHeight = getBulkSelectCalloutHeight();
+      selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
     }
 
     return (
       containerHeight -
       headerHeight -
       (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0) -
-      bulkSelectCalloutHeight
+      selectAllRowsCalloutHeight
     );
   };
 
