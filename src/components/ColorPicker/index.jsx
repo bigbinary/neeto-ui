@@ -42,7 +42,7 @@ const ColorPicker = ({
   const { t, i18n } = useTranslation();
   const [colorInternal, setColorInternal] = useState(color);
   const [isColorSelected, setIsColorSelected] = useState(false);
-  const isInputChanged = useRef(false);
+  const hexColorInputValue = useRef("");
   const { open, isSupported } = useEyeDropper({ pickRadius: 3 });
   const [recentlyUsedColors, setRecentlyUsedColors] = useRecentlyUsedColors();
 
@@ -75,17 +75,19 @@ const ColorPicker = ({
   };
 
   const onColorInputChange = hex => {
-    isInputChanged.current = true;
+    // HexColorInput onChange will trigger only if the input value is a valid color
+    hexColorInputValue.current = hex;
+    if (hex.length !== (showTransparencyControl ? 9 : 7)) return;
 
+    hexColorInputValue.current = "";
     onColorChange(hex);
   };
 
   const onBlur = () => {
-    // If input is not changed, don't call onChange on blur
-    if (!isInputChanged.current) return;
+    if (!hexColorInputValue.current) return;
 
-    isInputChanged.current = false;
-    onColorChange(colorValue);
+    onColorChange(hexColorInputValue.current);
+    hexColorInputValue.current = "";
   };
 
   const pickColor = async () => {
