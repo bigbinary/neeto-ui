@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.56 - 2025-02-06
+
+- Added logic to show clear selection callout when all table rows are selected
+
 ## 8.2.53 - 2025-01-23
 
 - Added: `data-cy` label for *ProgressBar*
@@ -281,7 +285,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-success-500` from `#268e6c` to `#02a27c`.
 - Updated: `--neeto-ui-success-100` from `#e1f3ee` to `#ebfffa`.
 ### Dark mode
-
 - Added: `--neeto-ui-gray-50` - `#0a0a0a`.
   
 - Updated: `--neeto-ui-primary-800` from `#39b990` to `#00f5c8`.
@@ -723,7 +726,6 @@ Changed: Disabled auto close for error toasters.
 - Removed: default empty box image from NoData component.
 ## 5.0.14 - 2023-07-12
 Fixed warnings in jest tests.
-
 ## 5.0.13 - 2023-06-30
 
 - Added `neeto-commons-frontend` and `neeto-icons` to peer dependencies.
