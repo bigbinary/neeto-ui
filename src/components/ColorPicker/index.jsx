@@ -79,8 +79,8 @@ const ColorPicker = ({
     hexColorInputValue.current = hex;
     if (hex.length !== (showTransparencyControl ? 9 : 7)) return;
 
-    hexColorInputValue.current = "";
     onColorChange(hex);
+    hexColorInputValue.current = "";
   };
 
   const onBlur = () => {
