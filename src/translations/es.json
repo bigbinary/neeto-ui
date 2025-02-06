@@ -12,6 +12,9 @@
     "datePicker": {
       "today": "Hoy"
     },
+    "colorPicker": {
+      "recentlyUsed": "Usado recientemente"
+    },
     "table": {
       "insertColRight": "Insertar columna a la derecha",
       "insertColLeft": "Insertar columna a la izquierda",
@@ -19,7 +22,9 @@
       "hideColumn": "Ocultar columna",
       "deleteColumn": "Eliminar columna",
       "ascending": "Ascendente",
-      "descending": "Descendente"
+      "descending": "Descendente",
+      "allRowsSelected": "Todas las filas están seleccionadas",
+      "clearSelection": "Borrar selección"
     },
     "timePicker": {
       "hours": "Horas",

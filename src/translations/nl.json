@@ -9,6 +9,9 @@
       "cancel": "Annuleren",
       "saveChanges": "Wijzigingen opslaan"
     },
+    "colorPicker": {
+      "recentlyUsed": "Recent gebruikt"
+    },
     "datePicker": {
       "today": "Vandaag"
     },
@@ -19,7 +22,9 @@
       "hideColumn": "Kolom verbergen",
       "deleteColumn": "Kolom verwijderen",
       "ascending": "Oplopend",
-      "descending": "Aflopend"
+      "descending": "Aflopend",
+      "allRowsSelected": "Alle rijen zijn geselecteerd",
+      "clearSelection": "Duidelijke selectie"
     },
     "timePicker": {
       "hours": "Uur",
