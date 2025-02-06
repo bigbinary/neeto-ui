@@ -424,6 +424,76 @@ describe("Table", () => {
     expect(setBulkSelectedAllRows).toBeCalledTimes(1);
   });
 
+  it("should show the clear selection callout when all rows are selected", async () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        rowSelection
+        defaultPageSize={2}
+        rowData={[rowData[0], rowData[1]]}
+        selectedRowKeys={[rowData[0].id, rowData[1].id]}
+        totalCount={rowData.length}
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows: () => {},
+          selectAllRowButtonLabel: "Select all",
+          selectAllRowMessage: "Selected 2 rows in this page",
+        }}
+      />
+    );
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionCallout = screen.getByTestId(
+      "clear-selections-callout"
+    );
+    expect(clearSelectionCallout).toBeInTheDocument();
+  });
+
+  it("should clear the selected rows when clear selection button is clicked", async () => {
+    const NeetoUITableWithWrapper = () => {
+      const [selectedRowKeys, setSelectedRowKeys] = useState([
+        rowData[0].id,
+        rowData[1].id,
+      ]);
+
+      return (
+        <NeetoUITable
+          {...{ columnData, selectedRowKeys }}
+          rowSelection
+          defaultPageSize={2}
+          rowData={[rowData[0], rowData[1]]}
+          totalCount={rowData.length}
+          bulkSelectAllRowsProps={{
+            setBulkSelectedAllRows: () => {},
+            selectAllRowButtonLabel: "Select all",
+            selectAllRowMessage: "Selected 2 rows in this page",
+          }}
+          onRowSelect={setSelectedRowKeys}
+        />
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionButton = screen.getByTestId("clear-selections-button");
+
+    await userEvent.click(clearSelectionButton);
+
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    checkboxes.forEach(checkbox => {
+      expect(checkbox).not.toBeChecked();
+    });
+  });
+
   it("should show the freeze and unfreeze menu on top of the columns", async () => {
     const NeetoUITableWithWrapper = () => (
       <NeetoUITable
