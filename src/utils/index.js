@@ -180,12 +180,23 @@ export const getLocale = (i18n, t, translationKey) => {
     : getEnTranslationValue(translationKey);
 };
 
-export const setToLocalStorage = (key, value) =>
-  // eslint-disable-next-line @bigbinary/neeto/no-local-storage
-  localStorage.setItem(key, JSON.stringify(value));
+export const setToLocalStorage = (key, value) => {
+  try {
+    // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // The catch was added due to handle situations where localstorage goes null
+  }
+};
 
-// eslint-disable-next-line @bigbinary/neeto/no-local-storage
-export const removeFromLocalStorage = key => localStorage.removeItem(key);
+export const removeFromLocalStorage = key => {
+  try {
+    // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+    localStorage.removeItem(key);
+  } catch {
+    // The catch was added due to handle situations where localstorage goes null
+  }
+};
 
 export const getFromLocalStorage = (key, defaultValue) => {
   try {
