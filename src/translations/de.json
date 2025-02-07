@@ -9,6 +9,9 @@
       "cancel": "Stornieren",
       "saveChanges": "Änderungen speichern"
     },
+    "colorPicker": {
+      "recentlyUsed": "Kürzlich verwendet"
+    },
     "datePicker": {
       "today": "Heute"
     },
@@ -19,7 +22,9 @@
       "hideColumn": "Spalte ausblenden",
       "deleteColumn": "Spalte löschen",
       "ascending": "Aufsteigend",
-      "descending": "Absteigend"
+      "descending": "Absteigend",
+      "allRowsSelected": "Alle Zeilen sind ausgewählt",
+      "clearSelection": "Klare Auswahl"
     },
     "timePicker": {
       "hours": "Stunden",

@@ -185,7 +185,7 @@ export const setToLocalStorage = (key, value) => {
     // eslint-disable-next-line @bigbinary/neeto/no-local-storage
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
-    // The catch was added due to handle situations where localstorage goes null
+    // localStorage access can fail due to private browsing mode or storage restrictions
   }
 };
 
@@ -194,7 +194,7 @@ export const removeFromLocalStorage = key => {
     // eslint-disable-next-line @bigbinary/neeto/no-local-storage
     localStorage.removeItem(key);
   } catch {
-    // The catch was added due to handle situations where localstorage goes null
+    // localStorage access can fail due to private browsing mode or storage restrictions
   }
 };
 
@@ -205,6 +205,7 @@ export const getFromLocalStorage = (key, defaultValue) => {
 
     return storedValue ? JSON.parse(storedValue) : defaultValue;
   } catch {
+    // localStorage access can fail due to private browsing mode or storage restrictions
     return defaultValue;
   }
 };
