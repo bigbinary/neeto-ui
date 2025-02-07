@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.59 - 2025-02-07
+
+- Fixed TypeError in `useOverlay` hook.
+
 ## 8.2.58 - 2025-02-07
 
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
@@ -296,7 +300,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-gray-50` - `#0a0a0a`.
 - Updated: `--neeto-ui-primary-800` from `#39b990` to `#00f5c8`.
 - Updated: `--neeto-ui-primary-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-primary-500` from `#2d9d78` to `#00cca7`.
   
 - Updated: `--neeto-ui-primary-100` from `#175541` to `#003d31`.
@@ -735,7 +738,6 @@ Fixed warnings in jest tests.
 ## 5.0.13 - 2023-06-30
 - Added `neeto-commons-frontend` and `neeto-icons` to peer dependencies.
 ## 5.0.12 - 2023-06-29
-
 - Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
 
 ## 5.0.11 - 2023-06-27
