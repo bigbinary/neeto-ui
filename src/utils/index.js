@@ -118,12 +118,16 @@ export const focusFirstFocusableElement = ref => {
 };
 
 export const hideScrollAndAddMargin = () => {
+  if (!document.body) return;
+
   const scrollbarWidth = getScrollbarWidth();
   document.body.style.overflow = "hidden";
   document.body.style.marginRight = `${scrollbarWidth}px`;
 };
 
 export const showScrollAndRemoveMargin = () => {
+  if (!document.body) return;
+
   document.body.style.overflow = "auto";
   document.body.style.marginRight = "0px";
 };
