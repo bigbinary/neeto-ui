@@ -4,24 +4,15 @@ import { useState } from "react";
 
 import { isNil } from "ramda";
 
-import { removeFromLocalStorage, setToLocalStorage } from "utils";
-
-const getStorageValue = (key, defaultValue) => {
-  try {
-    const storedValue = localStorage.getItem(key);
-
-    return storedValue ? JSON.parse(storedValue) : defaultValue;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-
-    return defaultValue;
-  }
-};
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  setToLocalStorage,
+} from "utils";
 
 const useLocalStorage = (key, defaultValue) => {
   const [storedValue, setStoredValue] = useState(() =>
-    getStorageValue(key, defaultValue)
+    getFromLocalStorage(key, defaultValue)
   );
 
   const setValue = value =>
