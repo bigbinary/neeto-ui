@@ -27,7 +27,7 @@ const useOverlay = ({
 }) => {
   const elementToFocusRef = useRef(null);
 
-  const bodyHeight = document.body.offsetHeight;
+  const bodyHeight = document.body?.offsetHeight;
   const windowHeight = window.innerHeight;
   const hasScroll = bodyHeight > windowHeight;
 
