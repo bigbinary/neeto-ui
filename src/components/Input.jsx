@@ -17,6 +17,7 @@ const Input = forwardRef(
       size = SIZES.medium,
       type = "text",
       label = "",
+      name = "",
       error = "",
       suffix = null,
       prefix = null,
@@ -80,13 +81,16 @@ const Input = forwardRef(
       onBlur?.(e);
     };
 
+    const dataCyLabel =
+      typeof label === "string" ? hyphenize(label) : hyphenize(name);
+
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(label)}-input-label`}
+              data-cy={`${dataCyLabel}-input-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -104,7 +108,7 @@ const Input = forwardRef(
           )}
         </div>
         <div
-          data-cy={`${hyphenize(label)}-input`}
+          data-cy={`${dataCyLabel}-input`}
           className={classnames("neeto-ui-input", {
             "neeto-ui-input--naked": !!nakedInput,
             "neeto-ui-input--error": !!error,
@@ -117,7 +121,7 @@ const Input = forwardRef(
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
             aria-invalid={!!error}
-            data-cy={`${hyphenize(label)}-input-field`}
+            data-cy={`${dataCyLabel}-input-field`}
             size={contentSize}
             aria-describedby={classnames({
               [errorId]: !!error,
@@ -141,7 +145,7 @@ const Input = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
+            data-cy={`${dataCyLabel}-input-error`}
             id={errorId}
           >
             {error}
@@ -150,7 +154,7 @@ const Input = forwardRef(
         {helpText && (
           <p
             className="neeto-ui-input__help-text"
-            data-cy={`${hyphenize(label)}-input-help`}
+            data-cy={`${dataCyLabel}-input-help`}
             id={helpTextId}
           >
             {helpText}
