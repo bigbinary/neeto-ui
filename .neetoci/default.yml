@@ -5,7 +5,7 @@ plan: standard-2
 global_job_config:
   setup:
     - checkout
-    - neetoci-version node 18.12.0
+    - neetoci-version node 22.13
     - cache restore
     - yarn install
     - cache store
