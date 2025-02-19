@@ -98,7 +98,7 @@
 
     &.neeto-ui-pane__body--has-footer {
       --neeto-ui-pane-body-height: calc(
-        100vh - var(--neeto-ui-pane-header-height) -
+        100dvh - var(--neeto-ui-pane-header-height) -
           var(--neeto-ui-pane-footer-height));
     }
   }
