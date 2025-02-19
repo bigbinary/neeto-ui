@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.62 - 2025-02-19
+
+- Fixed: Pane footer cut-off issue in iOS Safari.
+
+iPad Pro (11-inch) - Tested using Xcode
+
+![Simulator Screenshot - iPad Pro (11-inch) (4th generation) - 2025-02-19 at 20 04 00](https://github.com/user-attachments/assets/987f5448-c67f-4b76-b3c9-c58b9364249e)
+
 ## 8.2.60 - 2025-02-11
 
 Fixed data-cy label for *Input*.
@@ -306,7 +314,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-primary-600` from `#33ab84` to `#00e0b7`.
 - Updated: `--neeto-ui-primary-500` from `#2d9d78` to `#00cca7`.
 - Updated: `--neeto-ui-primary-100` from `#175541` to `#003d31`.
-  
 - Added: `--neeto-ui-primary-50` - `#002921`.
   
 - Added: `--neeto-ui-accent-800` - `#8ebdf5`.
@@ -743,7 +750,6 @@ Fixed warnings in jest tests.
 ## 5.0.12 - 2023-06-29
 - Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
 ## 5.0.11 - 2023-06-27
-
 - Added: `hasScrollToErrorField` prop to formik *Form* component.
 
 ## 5.0.10 - 2023-06-20
