@@ -1,5 +1,5 @@
 import React from "react";
-import { DataNode, AntTreeNodeProps } from "antd";
+import { DataNode, AntTreeNodeProps, ConfigProviderProps } from "antd";
 
 export type TreeProps = {
   className?: string;
@@ -45,6 +45,7 @@ export type TreeProps = {
   titleRender: Function;
   treeData: array<{ key; title; children; [disabled, selectable] }>;
   virtual: boolean;
+  componentToken: ConfigProviderProps["theme"]["components"]["Tree"];
   onCheck: Function;
   onDragEnd: Function;
   onDragEnter: Function;
