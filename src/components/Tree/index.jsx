@@ -10,7 +10,7 @@ import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES } from "utils";
 
 import SwitcherIcon from "./SwitcherIcon";
 
-const Tree = props => {
+const Tree = ({ componentToken, ...props }) => {
   const { i18n } = useTranslation();
 
   return (
@@ -24,6 +24,7 @@ const Tree = props => {
             directoryNodeSelectedColor: "rgb(var(--neeto-ui-white))",
             nodeHoverBg: "rgb(var(--neeto-ui-gray-100))",
             nodeSelectedBg: "rgb(var(--neeto-ui-primary-100))",
+            ...componentToken,
           },
         },
       }}
@@ -102,6 +103,10 @@ Tree.propTypes = {
    * Specifies whether this Tree or the node is draggable.
    */
   draggable: PropTypes.bool,
+  /**
+   * Object to override default theme styles for the component
+   */
+  componentToken: PropTypes.object,
   /**
    * Callback function for when the onDragEnter event occurs
    */
