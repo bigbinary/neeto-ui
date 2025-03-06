@@ -1,4 +1,10 @@
-import React, { forwardRef, useState, useEffect, useCallback } from "react";
+import React, {
+  forwardRef,
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
@@ -55,6 +61,8 @@ const DatePicker = forwardRef(
       minDate,
       timePickerProps,
       timezone,
+      onOpenChange,
+      onKeyDown,
       ...otherProps
     },
     ref
@@ -64,6 +72,7 @@ const DatePicker = forwardRef(
     const [pickerValue, setPickerValue] = useState();
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
+    const isOpen = useRef(otherProps.open ?? false);
 
     const Component = datePickerTypes[type?.toLowerCase()];
     const format = showTime ? `${dateFormat} ${timeFormat}` : dateFormat;
@@ -92,6 +101,18 @@ const DatePicker = forwardRef(
       setValue(allowed);
 
       return onChange(allowed, formattedString(allowed, dateFormat));
+    };
+
+    const handleOnOpenChange = open => {
+      isOpen.current = open;
+      onOpenChange?.(open);
+    };
+
+    const handleOnKeyDown = e => {
+      if (!isOpen.current) return;
+
+      e.stopPropagation();
+      onKeyDown?.(e);
     };
 
     const renderExtraFooter = () => {
@@ -133,6 +154,8 @@ const DatePicker = forwardRef(
               popupClassName,
             ])}
             onChange={handleOnChange}
+            onKeyDown={handleOnKeyDown}
+            onOpenChange={handleOnOpenChange}
             {...{
               format,
               maxDate,

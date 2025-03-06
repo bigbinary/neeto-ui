@@ -216,9 +216,15 @@ const Select = ({
   defaultValue,
   components: componentOverrides,
   optionRemapping = {},
+  onMenuClose,
+  onMenuOpen,
+  onKeyDown,
   ...otherProps
 }) => {
   const inputId = useId(id);
+  const isMenuOpen = useRef(
+    otherProps.isMenuOpen ?? otherProps.defaultMenuIsOpen ?? false
+  );
 
   let Parent = SelectInput;
 
@@ -274,6 +280,23 @@ const Select = ({
     );
   };
 
+  const handleMenuOpen = () => {
+    isMenuOpen.current = true;
+    onMenuOpen?.();
+  };
+
+  const handleMenuClose = () => {
+    isMenuOpen.current = false;
+    onMenuClose?.();
+  };
+
+  const handleKeyDown = e => {
+    if (!isMenuOpen.current) return;
+
+    e.stopPropagation();
+    onKeyDown?.(e);
+  };
+
   return (
     <div
       className={classnames(["neeto-ui-input__wrapper", className])}
@@ -319,6 +342,9 @@ const Select = ({
           Control,
           ...componentOverrides,
         }}
+        onKeyDown={handleKeyDown}
+        onMenuClose={handleMenuClose}
+        onMenuOpen={handleMenuOpen}
         {...{ inputId, label, ...portalProps, ...otherProps }}
       />
       {!!error && (

@@ -70,7 +70,7 @@ const useOverlay = ({
   );
 
   useHotKeys("escape", handleOverlayClose, {
-    enabled: closeOnEsc && isOpen,
+    enabled: closeOnEsc && isOpen && isTopOverlay,
     mode: "global",
   });
 
