@@ -27,6 +27,8 @@ export type DatePickerProps = {
   allowClear?: boolean;
   minDate?: Dayjs;
   maxDate?: Dayjs;
+  onOpenChange?: (open: boolean) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   [key: string]: any;
 };
 

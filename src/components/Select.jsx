@@ -469,6 +469,18 @@ Select.propTypes = {
    * To specify the extra props to be passed to the menu list.
    */
   portalProps: PropTypes.object,
+  /**
+   * Callback function which will be invoked when the menu is opened.
+   */
+  onMenuOpen: PropTypes.func,
+  /**
+   * Callback function which will be invoked when the menu is closed.
+   */
+  onMenuClose: PropTypes.func,
+  /**
+   * Callback function which will be invoked when a key is pressed.
+   */
+  onKeyDown: PropTypes.func,
 };
 
 export default Select;

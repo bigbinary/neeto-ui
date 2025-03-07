@@ -72,7 +72,7 @@ const DatePicker = forwardRef(
     const [pickerValue, setPickerValue] = useState();
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
-    const isOpen = useRef(otherProps.open ?? false);
+    const isDatePickerOpen = useRef(otherProps.open ?? false);
 
     const Component = datePickerTypes[type?.toLowerCase()];
     const format = showTime ? `${dateFormat} ${timeFormat}` : dateFormat;
@@ -104,12 +104,12 @@ const DatePicker = forwardRef(
     };
 
     const handleOnOpenChange = open => {
-      isOpen.current = open;
+      isDatePickerOpen.current = open;
       onOpenChange?.(open);
     };
 
     const handleOnKeyDown = e => {
-      if (!isOpen.current) return;
+      if (!isDatePickerOpen.current) return;
 
       e.stopPropagation();
       onKeyDown?.(e);
@@ -306,6 +306,14 @@ DatePicker.propTypes = {
    * To specify the maximum date of the DatePicker.
    */
   maxDate: PropTypes.object,
+  /**
+   * Callback function which will be invoked when the DatePicker is opened or closed.
+   */
+  onOpenChange: PropTypes.func,
+  /**
+   * Callback function which will be invoked when a key is pressed.
+   */
+  onKeyDown: PropTypes.func,
 };
 
 export default DatePicker;
