@@ -11,8 +11,7 @@ import {
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
 import Typography from "components/Typography";
-import { getLocale } from "utils";
-import { hyphenize } from "utils";
+import { getLocale, hyphenize } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
 
