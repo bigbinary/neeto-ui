@@ -3,6 +3,8 @@ import React from "react";
 import { isPresent, noop } from "neetocist";
 import { isEmpty } from "ramda";
 
+import { hyphenize } from "utils";
+
 import HeaderCellMenu from "./HeaderCellMenu";
 
 const CellContent = ({
@@ -41,7 +43,10 @@ const CellContent = ({
       title=""
       onClick={isSortable ? noop : headerProps.onClick}
     >
-      <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between">
+      <div
+        className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+        data-cy={`${hyphenize(headerProps.title)}-header-title`}
+      >
         <div className="neeto-ui-min-w-0 neeto-ui-flex-grow neeto-ui-truncate">
           {children}
         </div>

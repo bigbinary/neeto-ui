@@ -11,7 +11,7 @@ import {
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
 import Typography from "components/Typography";
-import { getLocale } from "utils";
+import { getLocale, hyphenize } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -51,6 +51,7 @@ const HeaderCellMenu = ({
           style: "text",
           size: "medium",
           "data-testid": "column-menu-button",
+          "data-cy": "column-menu-button",
           "data-dropdown-button-style": "more-dropdown",
         }}
       >
@@ -62,6 +63,7 @@ const HeaderCellMenu = ({
             <>
               <MenuItem.Button
                 className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+                data-cy="ascending-column-menu-button"
                 onClick={() =>
                   onSort({
                     column,
@@ -79,6 +81,7 @@ const HeaderCellMenu = ({
               </MenuItem.Button>
               <MenuItem.Button
                 className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+                data-cy="descending-column-menu-button"
                 onClick={() =>
                   onSort({
                     column,
@@ -99,11 +102,13 @@ const HeaderCellMenu = ({
           {isAddEnabled && (
             <>
               <MenuItem.Button
+                data-cy="insert-right-column-menu-button"
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               >
                 {getLocale(i18n, t, "neetoui.table.insertColRight")}
               </MenuItem.Button>
               <MenuItem.Button
+                data-cy="insert-left-column-menu-button"
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               >
                 {getLocale(i18n, t, "neetoui.table.insertColLeft")}
@@ -112,7 +117,10 @@ const HeaderCellMenu = ({
           )}
           {isPresent(column?.description) && (
             <>
-              <MenuItem.Button ref={columnInfoButtonReference}>
+              <MenuItem.Button
+                data-cy="info-column-menu-button"
+                ref={columnInfoButtonReference}
+              >
                 {getLocale(i18n, t, "neetoui.table.columnInfo")}
               </MenuItem.Button>
               <Popover
@@ -137,17 +145,24 @@ const HeaderCellMenu = ({
             </>
           )}
           {isHidable && (
-            <MenuItem.Button onClick={() => onColumnHide(column)}>
+            <MenuItem.Button
+              data-cy="hide-column-menu-button"
+              onClick={() => onColumnHide(column)}
+            >
               {getLocale(i18n, t, "neetoui.table.hideColumn")}
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
-            <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
+            <MenuItem.Button
+              data-cy="delete-column-menu-button"
+              onClick={() => onColumnDelete(column.id)}
+            >
               {getLocale(i18n, t, "neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
           {isColumnFreezeEnabled && (
             <MenuItem.Button
+              data-cy="freeze-unfreeze-column-menu-button"
               onClick={() => onColumnFreeze(isFixedColumn, column)}
             >
               {isFixedColumn
@@ -158,6 +173,7 @@ const HeaderCellMenu = ({
           {hasMoreActions &&
             moreActions.map((item, index) => (
               <MenuItem.Button
+                data-cy={`${hyphenize(item.label)}-column-menu-button`}
                 key={index}
                 onClick={() => onMoreActionClick(item.type, column)}
               >
