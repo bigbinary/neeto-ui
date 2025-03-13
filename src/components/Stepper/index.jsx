@@ -16,6 +16,7 @@ const Stepper = ({ steps, activeIndex, setActiveIndex }) => (
       >
         <button
           className="neeto-ui-stepper-item"
+          data-cy="stepper-navigation-button"
           onClick={() => setActiveIndex(index)}
         >
           <span className="neeto-ui-stepper-item__stage">
