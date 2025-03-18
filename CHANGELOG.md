@@ -23,6 +23,22 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.68 - 2025-03-18
+
+- Updated: dark mode primary color palette.
+- Updated: dark mode pastel color palette.
+- Updated: dark mode accent color palette.
+- Updated: dark mode status color palette.
+- Added: CSS `[color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)`.
+- Added: `font-smoothing` in dark mode.
+- Updated: Modal footer background color.
+
+### Before
+
+<img width="1440" alt="Screenshot 2025-03-18 at 5 18 43 PM" src="https://github.com/user-attachments/assets/596c5757-144d-483b-8857-98c8b723b3ec" />
+### After
+
+<img width="1440" alt="Screenshot 2025-03-18 at 5 19 03 PM" src="https://github.com/user-attachments/assets/9819091d-0d3f-458e-8bf6-f95a6835b7c2" />
 ## 8.2.67 - 2025-03-18
 
 - Fixed issue with *Table* column reordering
@@ -325,7 +341,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-primary-50` - `#002921`.
 - Added: `--neeto-ui-accent-800` - `#8ebdf5`.
 - Added: `--neeto-ui-accent-600` - `#69a7f2`.
-  
 - Added: `--neeto-ui-accent-500` - `#4390ef`.
   
 - Added: `--neeto-ui-accent-100` - `#0a3871`.
@@ -759,7 +774,6 @@ Fixed warnings in jest tests.
 - Added: `hasScrollToErrorField` prop to formik *Form* component.
 ## 5.0.10 - 2023-06-20
 - Removed: condition to disable *FormikButton* when the form is invalid.
-
 ## 5.0.9 - 2023-06-17
 
 - Updated `ramda` version to `^0.29.0` in devDependencies.
