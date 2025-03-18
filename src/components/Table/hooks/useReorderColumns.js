@@ -20,12 +20,16 @@ const useReorderColumns = ({
         to = toIndex - 1;
       }
 
+      if (!columns[from] || !columns[to]) return;
+
       if (isColumnFixed(columns[from]) || isColumnFixed(columns[to])) return;
+
       const newColumns = move(from, to, columns);
       setColumns(newColumns);
       onColumnUpdate(newColumns);
     },
-    nodeSelector: "th",
+    nodeSelector:
+      "th:not(.ant-table-cell-fix-left):not(.ant-table-cell-scrollbar)",
     handleSelector: ".drag-handler",
     ignoreSelector: ".react-resizable-handle",
   };
