@@ -21,7 +21,8 @@
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
-      ".scripts/fix-lints.sh"
+      "prettier --write",
+      "eslint --cache --fix"
     ]
   },
   "engines": {
