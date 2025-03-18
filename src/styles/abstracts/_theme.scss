@@ -4,6 +4,7 @@
 
 .neeto-ui-theme--dark {
   color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
   // Body
   --neeto-ui-body-color: 200, 200, 200;
   --neeto-ui-body-bg: 18, 18, 18;
