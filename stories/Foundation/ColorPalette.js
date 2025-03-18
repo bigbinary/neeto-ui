@@ -74,17 +74,17 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-primary-800",
-        value: { light: "0, 102, 83", dark: "0, 245, 200" },
+        value: { light: "0, 102, 83", dark: "0, 224, 183" },
         usage: "Use for link buttons",
       },
       {
         name: "neeto-ui-primary-600",
-        value: { light: "0, 122, 100", dark: "0, 224, 183" },
+        value: { light: "0, 122, 100", dark: "6, 207, 156" },
         usage: "Use for primary button hover",
       },
       {
         name: "neeto-ui-primary-500",
-        value: { light: "0, 128, 104", dark: "0, 204, 167" },
+        value: { light: "0, 128, 104", dark: "0, 168, 132" },
         usage:
           "Use for primary actions or elements that communicate the brand.",
       },
@@ -119,12 +119,12 @@ export const colorPalette = {
       {
         name: "neeto-ui-accent-100",
         text: "black",
-        value: { light: "230, 244, 255", dark: "10, 56, 113" },
+        value: { light: "230, 244, 255", dark: "17, 26, 44" },
       },
       {
         name: "neeto-ui-accent-50",
         text: "black",
-        value: { light: "239, 248, 255", dark: "7, 37, 75" },
+        value: { light: "239, 248, 255", dark: "11, 17, 29" },
       },
     ],
     title: "ACCENT",
@@ -133,15 +133,15 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: { light: "1, 121, 93", dark: "0, 245, 200" },
+        value: { light: "1, 121, 93", dark: "0, 224, 183" },
       },
       {
         name: "neeto-ui-success-600",
-        value: { light: "1, 141, 109", dark: "0, 224, 183" },
+        value: { light: "1, 141, 109", dark: "6, 207, 156" },
       },
       {
         name: "neeto-ui-success-500",
-        value: { light: "2, 162, 124", dark: "0, 204, 167" },
+        value: { light: "2, 162, 124", dark: "0, 168, 132" },
         usage: "Use to emphasize a positive message",
       },
       {
@@ -226,37 +226,37 @@ export const colorPalette = {
       {
         name: "neeto-ui-pastel-silver",
         text: "black",
-        value: { light: "232, 233, 237", dark: "104, 104, 106" },
+        value: { light: "232, 233, 237", dark: "64, 66, 74" },
       },
       {
         name: "neeto-ui-pastel-red",
         text: "black",
-        value: { light: "255, 229, 229", dark: "137, 0, 0" },
+        value: { light: "255, 229, 229", dark: "115, 45, 45" },
       },
       {
         name: "neeto-ui-pastel-yellow",
         text: "black",
-        value: { light: "254, 243, 197", dark: "234, 110, 33" },
+        value: { light: "254, 243, 197", dark: "130, 100, 20" },
       },
       {
         name: "neeto-ui-pastel-green",
         text: "black",
-        value: { light: "211, 249, 232", dark: "41, 145, 103" },
+        value: { light: "211, 249, 232", dark: "50, 125, 110" },
       },
       {
         name: "neeto-ui-pastel-blue",
         text: "black",
-        value: { light: "236, 244, 255", dark: "108, 79, 169" },
+        value: { light: "236, 244, 255", dark: "45, 80, 120" },
       },
       {
         name: "neeto-ui-pastel-purple",
         text: "black",
-        value: { light: "238, 235, 255", dark: "0, 61, 187" },
+        value: { light: "238, 235, 255", dark: "75, 60, 125" },
       },
       {
         name: "neeto-ui-pastel-pink",
         text: "black",
-        value: { light: "253, 226, 241", dark: "126, 4, 93" },
+        value: { light: "253, 226, 241", dark: "125, 50, 90" },
       },
     ],
     title: "PASTEL",
