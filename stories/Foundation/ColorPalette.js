@@ -74,17 +74,17 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-primary-800",
-        value: { light: "0, 102, 83", dark: "0, 245, 200" },
+        value: { light: "0, 102, 83", dark: "0, 224, 183" },
         usage: "Use for link buttons",
       },
       {
         name: "neeto-ui-primary-600",
-        value: { light: "0, 122, 100", dark: "0, 224, 183" },
+        value: { light: "0, 122, 100", dark: "6, 207, 156" },
         usage: "Use for primary button hover",
       },
       {
         name: "neeto-ui-primary-500",
-        value: { light: "0, 128, 104", dark: "0, 204, 167" },
+        value: { light: "0, 128, 104", dark: "0, 168, 132" },
         usage:
           "Use for primary actions or elements that communicate the brand.",
       },
@@ -133,15 +133,15 @@ export const colorPalette = {
     colors: [
       {
         name: "neeto-ui-success-800",
-        value: { light: "1, 121, 93", dark: "0, 245, 200" },
+        value: { light: "1, 121, 93", dark: "0, 224, 183" },
       },
       {
         name: "neeto-ui-success-600",
-        value: { light: "1, 141, 109", dark: "0, 224, 183" },
+        value: { light: "1, 141, 109", dark: "6, 207, 156" },
       },
       {
         name: "neeto-ui-success-500",
-        value: { light: "2, 162, 124", dark: "0, 204, 167" },
+        value: { light: "2, 162, 124", dark: "0, 168, 132" },
         usage: "Use to emphasize a positive message",
       },
       {
