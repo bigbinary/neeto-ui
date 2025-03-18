@@ -119,12 +119,12 @@ export const colorPalette = {
       {
         name: "neeto-ui-accent-100",
         text: "black",
-        value: { light: "230, 244, 255", dark: "10, 56, 113" },
+        value: { light: "230, 244, 255", dark: "17, 26, 44" },
       },
       {
         name: "neeto-ui-accent-50",
         text: "black",
-        value: { light: "239, 248, 255", dark: "7, 37, 75" },
+        value: { light: "239, 248, 255", dark: "11, 17, 29" },
       },
     ],
     title: "ACCENT",
