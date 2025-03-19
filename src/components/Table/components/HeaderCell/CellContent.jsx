@@ -31,7 +31,6 @@ const CellContent = ({
   const hasMoreActions = !isEmpty(moreActions) && isPresent(onMoreActionClick);
   const hasMoreMenu =
     isSortable ||
-    isPresent(column?.description) ||
     isColumnHidable ||
     isAddEnabled ||
     hasMoreActions ||
@@ -69,7 +68,6 @@ const CellContent = ({
               onSort,
               sortedInfo,
             }}
-            columnTitle={headerProps.title}
             isHidable={isColumnHidable}
           />
         )}

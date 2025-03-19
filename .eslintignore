@@ -14,3 +14,4 @@ dist
 rollup.config.js
 .eslintrc.js
 .prettierrc.js
+.eslintcache

@@ -1,20 +1,18 @@
-import React, { useRef } from "react";
+import React from "react";
 
-import { isPresent } from "neetocist";
 import { Check, MenuHorizontal } from "neetoicons";
 import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
-import Popover from "components/Popover";
 import {
   COLUMN_ADD_DIRECTION,
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
-import Typography from "components/Typography";
 import { getLocale, hyphenize } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
 
+// eslint-disable-next-line @bigbinary/neeto/no-dumb-components-with-use-translation
 const HeaderCellMenu = ({
   onSort,
   column = {},
@@ -31,11 +29,9 @@ const HeaderCellMenu = ({
   onColumnFreeze,
   hasMoreActions,
   onMoreActionClick,
-  columnTitle = null,
   moreActions = [],
 }) => {
   const { t, i18n } = useTranslation();
-  const columnInfoButtonReference = useRef();
 
   return (
     <div onClick={event => event.stopPropagation()}>
@@ -113,35 +109,6 @@ const HeaderCellMenu = ({
               >
                 {getLocale(i18n, t, "neetoui.table.insertColLeft")}
               </MenuItem.Button>
-            </>
-          )}
-          {isPresent(column?.description) && (
-            <>
-              <MenuItem.Button
-                data-cy="info-column-menu-button"
-                ref={columnInfoButtonReference}
-              >
-                {getLocale(i18n, t, "neetoui.table.columnInfo")}
-              </MenuItem.Button>
-              <Popover
-                className="neeto-ui-cursor-auto"
-                hideOnClick={false}
-                interactiveDebounce={20}
-                offset={[0, 15]}
-                position="right"
-                reference={columnInfoButtonReference}
-                strategy="fixed"
-              >
-                {columnTitle && <Popover.Title>{columnTitle}</Popover.Title>}
-                <Typography
-                  className="neeto-ui-whitespace-normal neeto-ui-normal-case neeto-ui-max-w-full neeto-ui-table__column-description"
-                  lineHeight="normal"
-                  style="body2"
-                  weight="normal"
-                >
-                  {column?.description}
-                </Typography>
-              </Popover>
             </>
           )}
           {isHidable && (
