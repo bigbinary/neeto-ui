@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 
-import { Info } from "neetoicons";
+import { InfoRound } from "neetoicons";
 
-import Tooltip from "components/Tooltip";
+import Popover from "components/Popover";
+import Typography from "components/Typography";
 
-const TitleWithInfoIcon = ({ title, description, ...rest }) => (
-  <span className="neeto-ui-flex neeto-ui-items-center neeto-ui-gap-1">
-    {typeof title === "function" ? title(rest) : title}
-    {description && (
-      <Tooltip content={description}>
-        <span className="neeto-ui-cursor-pointer">
-          <Info size={16} />
-        </span>
-      </Tooltip>
-    )}
-  </span>
-);
+const TitleWithInfoIcon = ({ title, description, ...rest }) => {
+  const popoverRef = useRef();
+
+  return (
+    <span className="relative pr-5">
+      {typeof title === "function" ? title(rest) : title}
+      {description && (
+        <>
+          <span
+            className="neeto-ui-table__column-title-info-icon"
+            ref={popoverRef}
+          >
+            <InfoRound color="currentColor" size={14} />
+          </span>
+          <Popover appendTo={() => document.body} reference={popoverRef}>
+            <Typography lineHeight="normal" style="body2">
+              {description}
+            </Typography>
+          </Popover>
+        </>
+      )}
+    </span>
+  );
+};
 
 export default TitleWithInfoIcon;
