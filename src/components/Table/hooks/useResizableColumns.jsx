@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 import { isPresent, noop } from "neetocist";
 import { has } from "ramda";
 
 import SortIcon from "../components/SortIcon";
+import TitleWithInfoIcon from "../components/TitleWithInfoIcon";
 import {
   getColumFixedValue,
   getColumnSortOrder,
@@ -64,10 +65,20 @@ const useResizableColumns = ({
               isDeletable: col.isDeletable,
               moreActions: col.moreActions,
               column: col,
+              "data-text-align": column.align,
             }),
             sortIcon: SortIcon,
             sortOrder: getColumnSortOrder(col, sortedInfo),
             fixed,
+            title: col.description
+              ? props => (
+                  <TitleWithInfoIcon
+                    {...props}
+                    description={col.description}
+                    title={col.title}
+                  />
+                )
+              : col.title,
           };
 
           if (!has("ellipsis", col)) modifiedColumn.ellipsis = true;

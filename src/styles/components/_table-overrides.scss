@@ -33,7 +33,7 @@
               max-width: calc(100% - 20px);
             }
             justify-content: flex-start !important;
-            gap: 8px;
+            gap: 4px;
 
             .ant-table-column-sorter-inner {
               .anticon-caret-up {
@@ -121,4 +121,18 @@
 
 .neeto-ui-table__column-description {
   width: 288px;
+}
+
+.neeto-ui-table__column-title-info-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.neeto-ui-table__column-title-content{
+  svg {
+    opacity: 0.6;
+  }
 }

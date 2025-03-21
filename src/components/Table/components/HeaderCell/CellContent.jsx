@@ -31,7 +31,6 @@ const CellContent = ({
   const hasMoreActions = !isEmpty(moreActions) && isPresent(onMoreActionClick);
   const hasMoreMenu =
     isSortable ||
-    isPresent(column?.description) ||
     isColumnHidable ||
     isAddEnabled ||
     hasMoreActions ||
@@ -47,7 +46,7 @@ const CellContent = ({
         className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
         data-cy={`${hyphenize(headerProps.title)}-header-title`}
       >
-        <div className="neeto-ui-min-w-0 neeto-ui-flex-grow neeto-ui-truncate">
+        <div className="neeto-ui-min-w-0 neeto-ui-flex-grow neeto-ui-truncate neeto-ui-table__column-title-content">
           {children}
         </div>
         {hasMoreMenu && (
@@ -69,7 +68,6 @@ const CellContent = ({
               onSort,
               sortedInfo,
             }}
-            columnTitle={headerProps.title}
             isHidable={isColumnHidable}
           />
         )}

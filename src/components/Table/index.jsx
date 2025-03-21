@@ -181,14 +181,6 @@ const Table = ({
 
   const locale = { emptyText: <Typography style="body2">No Data</Typography> };
 
-  const sortedColumnsWithAlignment = sortedColumns.map(sortedColumn => ({
-    ...sortedColumn,
-    onHeaderCell: column => ({
-      ...sortedColumn.onHeaderCell?.(column),
-      "data-text-align": column.align,
-    }),
-  }));
-
   const selectedRowKeys = bulkSelectedAllRows
     ? pluck(rowKey, rowData)
     : initialSelectedRowKeys;
@@ -400,7 +392,7 @@ const Table = ({
       )}
       <AntTable
         {...{ bordered, locale, rowKey }}
-        columns={sortedColumnsWithAlignment}
+        columns={sortedColumns}
         components={componentOverrides}
         dataSource={rowData}
         loading={{ spinning: loading, indicator: <Spinner /> }}

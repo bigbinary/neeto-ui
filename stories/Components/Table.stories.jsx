@@ -145,13 +145,9 @@ const getColumns = (fixed = false) => [
     ),
   },
   {
-    title: () => (
-      <div className="text-left">
-        <Tooltip content="A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.">
-          <span>GUID</span>
-        </Tooltip>
-      </div>
-    ),
+    title: "GUID",
+    description:
+      "A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.",
     fixed: fixed ? "left" : false,
     dataIndex: "guid",
     key: "guid",
