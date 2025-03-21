@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.70 - 2025-03-21
+
+- Added info icon to table columns with tooltips.
+
 ## 8.2.69 - 2025-03-21
 
 - Fixed table sorting when array is passed to dataIndex.
@@ -44,7 +48,6 @@ Each change is prefixed with one of these keywords::
 <img width="1440" alt="Screenshot 2025-03-18 at 5 19 03 PM" src="https://github.com/user-attachments/assets/9819091d-0d3f-458e-8bf6-f95a6835b7c2" />
 ## 8.2.67 - 2025-03-18
 - Fixed issue with *Table* column reordering
-
 ## 8.2.65 - 2025-03-10
 
 Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
@@ -345,7 +348,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-600` - `#69a7f2`.
 - Added: `--neeto-ui-accent-500` - `#4390ef`.
 - Added: `--neeto-ui-accent-100` - `#0a3871`.
-  
 - Added: `--neeto-ui-accent-50` - `#07254b`.
   
 - Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
@@ -780,7 +782,6 @@ Fixed warnings in jest tests.
 - Updated `eslint-plugin-neeto` version to `^1.0.54` in devDependencies.
 - Updated `neeto-commons-frontend` version to `^2.0.87` in devDependencies.
 - Disabled `no-missing-localization` rule.
-
 ## 5.0.8 - 2023-06-16
 
 - Removed: CSS font smoothing.
