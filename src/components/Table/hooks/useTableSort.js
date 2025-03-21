@@ -1,27 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { camelToSnakeCase, isPresent, snakeToCamelCase } from "neetocist";
 import { mergeLeft } from "ramda";
 import { useHistory } from "react-router-dom";
 
 import { useQueryParams } from "hooks";
 import { buildUrl } from "utils";
 
-import { URL_SORT_ORDERS, TABLE_SORT_ORDERS } from "../constants";
-
-const getSortInfoFromQueryParams = queryParams => {
-  const sortedInfo = {};
-  if (
-    isPresent(queryParams.sort_by) &&
-    isPresent(queryParams.order_by) &&
-    isPresent(TABLE_SORT_ORDERS[queryParams.order_by])
-  ) {
-    sortedInfo.field = snakeToCamelCase(queryParams.sort_by);
-    sortedInfo.order = TABLE_SORT_ORDERS[queryParams.order_by];
-  }
-
-  return sortedInfo;
-};
+import { URL_SORT_ORDERS } from "../constants";
+import { getSortInfoFromQueryParams, getSortField } from "../utils";
 
 const useTableSort = () => {
   const queryParams = useQueryParams();
@@ -37,7 +23,7 @@ const useTableSort = () => {
 
   const handleTableChange = (pagination, sorter) => {
     const params = {
-      sort_by: sorter.order ? camelToSnakeCase(sorter.field) : undefined,
+      sort_by: sorter.order ? getSortField(sorter.field) : undefined,
       order_by: URL_SORT_ORDERS[sorter.order],
       page: pagination.current,
     };

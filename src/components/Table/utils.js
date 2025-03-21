@@ -1,5 +1,5 @@
-import { isPresent } from "neetocist";
-import { __, all, filter, includes, pipe, pluck } from "ramda";
+import { isPresent, snakeToCamelCase, camelToSnakeCase } from "neetocist";
+import { __, all, equals, filter, includes, pipe, pluck } from "ramda";
 
 import {
   CellContent,
@@ -11,6 +11,7 @@ import {
   COLUMN_FIXED_VALUES,
   SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT,
   SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT,
+  TABLE_SORT_ORDERS,
 } from "./constants";
 
 const convertLocationPathnameToId = () => {
@@ -71,7 +72,7 @@ export const getFixedColumns = columnData =>
   )(columnData);
 
 export const getColumnSortOrder = (col, sortedInfo) =>
-  sortedInfo.field === col.dataIndex || sortedInfo.field === col.key
+  equals(sortedInfo.field, col.dataIndex) || equals(sortedInfo.field, col.key)
     ? sortedInfo.order
     : null;
 
@@ -84,4 +85,28 @@ export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
     : convertLocationPathnameToId();
 
   return `NEETOUI-${prefix}-FIXED_COLUMNS`;
+};
+
+export const getSortInfoFromQueryParams = queryParams => {
+  const sortedInfo = {};
+  if (
+    isPresent(queryParams.sort_by) &&
+    isPresent(queryParams.order_by) &&
+    isPresent(TABLE_SORT_ORDERS[queryParams.order_by])
+  ) {
+    sortedInfo.field = queryParams.sort_by.includes("+")
+      ? queryParams.sort_by.split("+").map(snakeToCamelCase)
+      : snakeToCamelCase(queryParams.sort_by);
+    sortedInfo.order = TABLE_SORT_ORDERS[queryParams.order_by];
+  }
+
+  return sortedInfo;
+};
+
+export const getSortField = field => {
+  if (Array.isArray(field)) {
+    return field.map(camelToSnakeCase).join("+");
+  }
+
+  return camelToSnakeCase(field);
 };

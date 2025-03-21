@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Check, MenuHorizontal } from "neetoicons";
+import { equals } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
@@ -71,7 +72,7 @@ const HeaderCellMenu = ({
               >
                 <span>{getLocale(i18n, t, "neetoui.table.ascending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
-                  sortedInfo.field === column.dataIndex && (
+                  equals(sortedInfo.field, column.dataIndex) && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
@@ -89,7 +90,7 @@ const HeaderCellMenu = ({
               >
                 <span>{getLocale(i18n, t, "neetoui.table.descending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
-                  sortedInfo.field === column.dataIndex && (
+                  equals(sortedInfo.field, column.dataIndex) && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
