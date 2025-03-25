@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.71 - 2025-03-25
+
+- Fixed issue with Select dropdown not opening in pane when custom styles are passed.
+
 ## 8.2.70 - 2025-03-21
 
 - Added info icon to table columns with tooltips.
@@ -49,7 +53,6 @@ Each change is prefixed with one of these keywords::
 ## 8.2.67 - 2025-03-18
 - Fixed issue with *Table* column reordering
 ## 8.2.65 - 2025-03-10
-
 Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
 
 ## 8.2.62 - 2025-02-19
@@ -349,7 +352,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-500` - `#4390ef`.
 - Added: `--neeto-ui-accent-100` - `#0a3871`.
 - Added: `--neeto-ui-accent-50` - `#07254b`.
-  
 - Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
   
 - Updated: `--neeto-ui-success-600` from `#33ab84` to `#00e0b7`.
@@ -783,7 +785,6 @@ Fixed warnings in jest tests.
 - Updated `neeto-commons-frontend` version to `^2.0.87` in devDependencies.
 - Disabled `no-missing-localization` rule.
 ## 5.0.8 - 2023-06-16
-
 - Removed: CSS font smoothing.
 - Updated: neeto language page - added rule for "Archive vs. deactivate"
 
