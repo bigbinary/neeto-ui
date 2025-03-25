@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { _existsBy, isPresent } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc, flatten, pluck } from "ramda";
+import { prop, assoc, flatten, pluck, mergeDeepRight } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -219,6 +219,7 @@ const Select = ({
   onMenuClose,
   onMenuOpen,
   onKeyDown,
+  styles = {},
   ...otherProps
 }) => {
   const inputId = useId(id);
@@ -246,7 +247,7 @@ const Select = ({
 
   const portalProps = strategy === STRATEGIES.fixed && {
     menuPortalTarget: document.body,
-    styles: { menuPortal: assoc("zIndex", 999999) },
+    styles: mergeDeepRight({ menuPortal: assoc("zIndex", 999999) }, styles),
     menuPosition: "fixed",
   };
 
@@ -345,7 +346,7 @@ const Select = ({
         onKeyDown={handleKeyDown}
         onMenuClose={handleMenuClose}
         onMenuOpen={handleMenuOpen}
-        {...{ inputId, label, ...portalProps, ...otherProps }}
+        {...{ inputId, label, ...styles, ...portalProps, ...otherProps }}
       />
       {!!error && (
         <p
@@ -481,6 +482,10 @@ Select.propTypes = {
    * Callback function which will be invoked when a key is pressed.
    */
   onKeyDown: PropTypes.func,
+  /**
+   * To specify the styles for the Select component.
+   */
+  styles: PropTypes.object,
 };
 
 export default Select;
