@@ -60,30 +60,31 @@ const Pane = ({
     if (!hasTransitionCompleted || !paneWrapperRef.current) return undefined;
 
     const observer = observerRef.current;
-    const paneWrapper = paneWrapperRef.current;
-
-    const header = getHeader(paneWrapper);
+    const header = getHeader(paneWrapperRef);
 
     if (header) {
       observer.observe(header);
-    } else {
-      const mutationObserver = new MutationObserver(() => {
-        const header = getHeader(paneWrapper);
-        if (!header) return;
 
-        observer.observe(header);
-        mutationObserver.disconnect();
-      });
-
-      mutationObserver.observe(paneWrapper, { childList: true, subtree: true });
-
-      return () => {
-        mutationObserver.disconnect();
-        observer.disconnect();
-      };
+      return () => observer.disconnect();
     }
 
-    return () => observer.disconnect();
+    const mutationObserver = new MutationObserver(() => {
+      const header = getHeader(paneWrapperRef);
+      if (!header) return;
+
+      observer.observe(header);
+      mutationObserver.disconnect();
+    });
+
+    mutationObserver.observe(paneWrapperRef.current, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, [hasTransitionCompleted]);
 
   return (
