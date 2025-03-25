@@ -1,17 +1,19 @@
 import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";
 
-export const updateHeaderHeight = paneWrapper => {
-  const header = paneWrapper?.querySelector(".neeto-ui-pane__header");
-  if (!header) return;
+export const getHeader = paneWrapperRef =>
+  paneWrapperRef.current.querySelector(".neeto-ui-pane__header");
 
-  const headerHeight = header.offsetHeight;
+export const updateHeaderHeight = (header, paneWrapperRef) => {
+  const headerHeight = header?.offsetHeight;
 
   if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
-    paneWrapper.style.setProperty(
+    paneWrapperRef.current?.style.setProperty(
       "--neeto-ui-pane-header-height",
       `${headerHeight}px`
     );
   } else {
-    paneWrapper.style.removeProperty("--neeto-ui-pane-header-height");
+    paneWrapperRef.current?.style.removeProperty(
+      "--neeto-ui-pane-header-height"
+    );
   }
 };

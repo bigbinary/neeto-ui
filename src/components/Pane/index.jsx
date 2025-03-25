@@ -13,7 +13,7 @@ import { useOverlay, useOverlayManager } from "hooks";
 import Body from "./Body";
 import Footer from "./Footer";
 import Header from "./Header";
-import { updateHeaderHeight } from "./utils";
+import { getHeader, updateHeaderHeight } from "./utils";
 
 const SIZES = { small: "small", large: "large" };
 
@@ -37,7 +37,9 @@ const Pane = ({
   const backdropRef = useRef(null);
 
   const observerRef = useRef(
-    new ResizeObserver(([entry]) => updateHeaderHeight(entry.target))
+    new ResizeObserver(([entry]) =>
+      updateHeaderHeight(entry.target, paneWrapperRef)
+    )
   );
 
   useOverlayManager(paneWrapperRef, isOpen);
@@ -58,7 +60,28 @@ const Pane = ({
     if (!hasTransitionCompleted || !paneWrapperRef.current) return undefined;
 
     const observer = observerRef.current;
-    observer.observe(paneWrapperRef.current);
+    const paneWrapper = paneWrapperRef.current;
+
+    const header = getHeader(paneWrapper);
+
+    if (header) {
+      observer.observe(header);
+    } else {
+      const mutationObserver = new MutationObserver(() => {
+        const header = getHeader(paneWrapper);
+        if (!header) return;
+
+        observer.observe(header);
+        mutationObserver.disconnect();
+      });
+
+      mutationObserver.observe(paneWrapper, { childList: true, subtree: true });
+
+      return () => {
+        mutationObserver.disconnect();
+        observer.disconnect();
+      };
+    }
 
     return () => observer.disconnect();
   }, [hasTransitionCompleted]);
