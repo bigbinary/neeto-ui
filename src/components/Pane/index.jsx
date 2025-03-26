@@ -44,7 +44,7 @@ const Pane = ({
 
   useOverlayManager(paneWrapperRef, isOpen);
 
-  const { handleOverlayClose, setFocusField } = useOverlay({
+  const { handleOverlayClose, setFocusField, isTopOverlay } = useOverlay({
     overlayWrapper: paneWrapperRef,
     backdropRef,
     closeOnOutsideClick,
@@ -85,7 +85,7 @@ const Pane = ({
       mutationObserver.disconnect();
       observer.disconnect();
     };
-  }, [hasTransitionCompleted]);
+  }, [hasTransitionCompleted, isTopOverlay]);
 
   return (
     <Portal rootId="neeto-ui-portal">

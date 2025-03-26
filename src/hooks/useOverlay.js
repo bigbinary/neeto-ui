@@ -98,7 +98,7 @@ const useOverlay = ({
     if (hasTransitionCompleted) focusRequiredElementInOverlay();
   };
 
-  return { handleOverlayClose, setFocusField };
+  return { handleOverlayClose, setFocusField, isTopOverlay };
 };
 
 export default useOverlay;
