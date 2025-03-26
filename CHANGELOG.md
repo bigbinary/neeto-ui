@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.73 - 2025-03-26
+
+- Fixed height computation issue in nested panes.
+
 ## 8.2.72 - 2025-03-26
 
 - Fixed height computation issue in *Pane* component.
@@ -59,7 +63,6 @@ Each change is prefixed with one of these keywords::
 ## 8.2.65 - 2025-03-10
 Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
 ## 8.2.62 - 2025-02-19
-
 - Fixed: Pane footer cut-off issue in iOS Safari.
 
 iPad Pro (11-inch) - Tested using Xcode
@@ -357,7 +360,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Added: `--neeto-ui-accent-50` - `#07254b`.
 - Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
 - Updated: `--neeto-ui-success-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-success-500` from `#2d9d78` to `#00cca7`.
   
 - Updated: `--neeto-ui-success-100` from `#175541` to `#003d31`.
@@ -790,7 +792,6 @@ Fixed warnings in jest tests.
 - Removed: CSS font smoothing.
 - Updated: neeto language page - added rule for "Archive vs. deactivate"
 ## 5.0.7 - 2023-06-11
-
 - Fixed: Misalignment between input and prefix for large screens. Line break in
   prefix when hyphens are added.
 
