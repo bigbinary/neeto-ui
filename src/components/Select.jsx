@@ -346,7 +346,7 @@ const Select = ({
         onKeyDown={handleKeyDown}
         onMenuClose={handleMenuClose}
         onMenuOpen={handleMenuOpen}
-        {...{ inputId, label, ...styles, ...portalProps, ...otherProps }}
+        {...{ inputId, label, styles, ...portalProps, ...otherProps }}
       />
       {!!error && (
         <p

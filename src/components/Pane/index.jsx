@@ -57,15 +57,34 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (!hasTransitionCompleted) return undefined;
-
-    const header = getHeader(paneWrapperRef);
-    if (!header) return undefined;
+    if (!hasTransitionCompleted || !paneWrapperRef.current) return undefined;
 
     const observer = observerRef.current;
-    observer.observe(header);
+    const header = getHeader(paneWrapperRef);
 
-    return () => observer.disconnect();
+    if (header) {
+      observer.observe(header);
+
+      return () => observer.disconnect();
+    }
+
+    const mutationObserver = new MutationObserver(() => {
+      const header = getHeader(paneWrapperRef);
+      if (!header) return;
+
+      observer.observe(header);
+      mutationObserver.disconnect();
+    });
+
+    mutationObserver.observe(paneWrapperRef.current, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, [hasTransitionCompleted]);
 
   return (

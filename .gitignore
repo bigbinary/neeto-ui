@@ -39,3 +39,6 @@
 
 #logs
 /*.log
+
+#eslint
+.eslintcache
