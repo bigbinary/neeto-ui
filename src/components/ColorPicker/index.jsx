@@ -186,6 +186,7 @@ const ColorPicker = ({
                     prefixed
                     alpha={!!showTransparencyControl}
                     color={colorValue}
+                    data-cy="colorpicker-editable-input-textbox"
                     onChange={onColorInputChange}
                   />
                 </div>
