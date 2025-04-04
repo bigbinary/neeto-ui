@@ -15,7 +15,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { getHeader, updateHeaderHeight } from "./utils";
 
-const SIZES = { small: "small", large: "large" };
+const SIZES = { small: "small", large: "large", extraLarge: "extraLarge" };
 
 const Pane = ({
   size = SIZES.small,
@@ -114,6 +114,7 @@ const Pane = ({
             className={classnames("neeto-ui-pane__wrapper", {
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,
+              "neeto-ui-pane__wrapper--extralarge": size === SIZES.extraLarge,
               [className]: className,
             })}
             {...otherProps}

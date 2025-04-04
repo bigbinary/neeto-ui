@@ -91,6 +91,7 @@ const Default = args => {
 const Sizes = args => {
   const [showPaneExtraSmall, setShowPaneExtraSmall] = useState(false);
   const [showPaneLarge, setShowPaneLarge] = useState(false);
+  const [showPaneExtraLarge, setShowPaneExtraLarge] = useState(false);
 
   return (
     <div className="w-full">
@@ -99,6 +100,10 @@ const Sizes = args => {
           <div className="flex flex-row flex-wrap items-center justify-start gap-6">
             <Button label="Small" onClick={() => setShowPaneExtraSmall(true)} />
             <Button label="Large" onClick={() => setShowPaneLarge(true)} />
+            <Button
+              label="Extra Large"
+              onClick={() => setShowPaneExtraLarge(true)}
+            />
           </div>
         </div>
       </div>
@@ -154,6 +159,37 @@ const Sizes = args => {
             label="Cancel"
             style="text"
             onClick={() => setShowPaneLarge(false)}
+          />
+        </Pane.Footer>
+      </Pane>
+      <Pane
+        {...args}
+        isOpen={showPaneExtraLarge}
+        size="extraLarge"
+        onClose={() => setShowPaneExtraLarge(false)}
+      >
+        <Pane.Header>
+          <Typography style="h2">They're creepy & they're kooky</Typography>
+        </Pane.Header>
+        <Pane.Body>
+          <Typography lineHeight="normal" style="body2">
+            Somewhere out in space live the Herculoids! Zok, the laser-ray
+            dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
+            Gleep, the formless, fearless wonders! With Zandor, their leader,
+            and his wife, Tara, and son, Dorno, they team up to protect their
+            planet from sinister invaders! All-strong! All-brave! All-heroes!
+            They're the Herculoids!
+          </Typography>
+        </Pane.Body>
+        <Pane.Footer className="space-x-2">
+          <Button
+            label="Continue"
+            onClick={() => setShowPaneExtraLarge(false)}
+          />
+          <Button
+            label="Cancel"
+            style="text"
+            onClick={() => setShowPaneExtraLarge(false)}
           />
         </Pane.Footer>
       </Pane>
