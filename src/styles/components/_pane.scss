@@ -68,6 +68,10 @@
       --neeto-ui-pane-wrapper-width: 50vw;
     }
 
+    &--extralarge {
+      --neeto-ui-pane-wrapper-width: min(90%,1280px);
+    }
+
     @include viewport(tab-min) {
       width: 50%;
     }
