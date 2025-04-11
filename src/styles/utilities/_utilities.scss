@@ -1064,3 +1064,10 @@
 .neeto-ui-font-size-inherit {
   font-size: inherit !important;
 }
+
+// divide-y
+
+.divide-y > :not([hidden]) ~ :not([hidden]){
+  border-color: rgb(var(--neeto-ui-gray-200));
+}
+
