@@ -87,7 +87,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...props.innerProps,
-        "data-cy": dataCy || `${props.hyphenatedDataCyLabel}-select-option`,
+        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
       }}
     />
   );
@@ -101,7 +101,7 @@ const Placeholder = props => {
       {...props}
       innerProps={{
         ...props.innerProps,
-        "data-cy": selectProps
+        "data-cy": selectProps?.hyphenatedDataCyLabel
           ? `${selectProps.hyphenatedDataCyLabel}-select-placeholder`
           : "select-placeholder",
       }}
