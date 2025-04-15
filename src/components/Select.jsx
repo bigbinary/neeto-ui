@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { _existsBy, isPresent } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc, flatten, pluck, mergeDeepRight } from "ramda";
+import { prop, assoc, flatten, pluck, mergeDeepRight, isEmpty } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -87,7 +87,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...props.innerProps,
-        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
+        "data-cy": dataCy || `${props.hyphenatedDataCyLabel}-select-option`,
       }}
     />
   );
@@ -102,7 +102,7 @@ const Placeholder = props => {
       innerProps={{
         ...props.innerProps,
         "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-placeholder`
+          ? `${selectProps.hyphenatedDataCyLabel}-select-placeholder`
           : "select-placeholder",
       }}
     />
@@ -118,7 +118,7 @@ const Menu = props => {
       innerProps={{
         ...props.innerProps,
         "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-menu`
+          ? `${selectProps.hyphenatedDataCyLabel}-select-menu`
           : "select-menu",
       }}
     />
@@ -142,7 +142,7 @@ const ValueContainer = props => {
         ...props.innerProps,
         name: selectProps.name,
         "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-value-container`
+          ? `${selectProps.hyphenatedDataCyLabel}-select-value-container`
           : "select-value-container",
       }}
     />
@@ -220,12 +220,17 @@ const Select = ({
   onMenuOpen,
   onKeyDown,
   styles = {},
+  dataCy = "nui",
   ...otherProps
 }) => {
   const inputId = useId(id);
   const isMenuOpen = useRef(
     otherProps.isMenuOpen ?? otherProps.defaultMenuIsOpen ?? false
   );
+
+  const hyphenatedDataCyLabel = isEmpty(label)
+    ? hyphenize(dataCy)
+    : hyphenize(label);
 
   let Parent = SelectInput;
 
@@ -301,13 +306,13 @@ const Select = ({
   return (
     <div
       className={classnames(["neeto-ui-input__wrapper", className])}
-      data-cy={`${hyphenize(label)}-select-container-wrapper`}
+      data-cy={`${hyphenatedDataCyLabel}-select-container-wrapper`}
       data-testid="select"
     >
       {label && (
         <Label
           {...{ required }}
-          data-cy={`${hyphenize(label)}-input-label`}
+          data-cy={`${hyphenatedDataCyLabel}-input-label`}
           data-testid="select-label"
           htmlFor={inputId}
           {...labelProps}
@@ -319,7 +324,7 @@ const Select = ({
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
         closeMenuOnSelect={!otherProps.isMulti}
-        data-cy={`${hyphenize(label)}-select-container`}
+        data-cy={`${hyphenatedDataCyLabel}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         ref={innerRef}
         value={findInOptions(value)}
@@ -346,12 +351,19 @@ const Select = ({
         onKeyDown={handleKeyDown}
         onMenuClose={handleMenuClose}
         onMenuOpen={handleMenuOpen}
-        {...{ inputId, label, styles, ...portalProps, ...otherProps }}
+        {...{
+          inputId,
+          label,
+          styles,
+          ...portalProps,
+          ...otherProps,
+          hyphenatedDataCyLabel,
+        }}
       />
       {!!error && (
         <p
           className="neeto-ui-input__error"
-          data-cy={`${hyphenize(label)}-select-error`}
+          data-cy={`${hyphenatedDataCyLabel}-select-error`}
           data-testid="select-error"
         >
           {error}
@@ -360,7 +372,7 @@ const Select = ({
       {helpText && (
         <p
           className="neeto-ui-input__help-text"
-          data-cy={`${hyphenize(label)}-select-help-text`}
+          data-cy={`${hyphenatedDataCyLabel}-select-help-text`}
           data-testid="select-help-text"
         >
           {helpText}
@@ -486,6 +498,10 @@ Select.propTypes = {
    * To specify the styles for the Select component.
    */
   styles: PropTypes.object,
+  /**
+   * To specify the custom data-cy label for the Select component and its child components.
+   */
+  dataCy: PropTypes.string,
 };
 
 export default Select;
