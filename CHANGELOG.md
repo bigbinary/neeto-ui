@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.2.78 - 2025-04-15
+
+- Added: `dataCy` prop to *Select* component.
+
 ## 8.2.77 - 2025-04-11
 
 - Added: Dark mode support for `divide-y` utility class.
@@ -79,7 +83,6 @@ Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
 iPad Pro (11-inch) - Tested using Xcode
 ![Simulator Screenshot - iPad Pro (11-inch) (4th generation) - 2025-02-19 at 20 04 00](https://github.com/user-attachments/assets/987f5448-c67f-4b76-b3c9-c58b9364249e)
 ## 8.2.60 - 2025-02-11
-
 Fixed data-cy label for *Input*.
 
 ## 8.2.59 - 2025-02-07
@@ -373,7 +376,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-success-100` from `#175541` to `#003d31`.
 - Updated: `--neeto-ui-info-800` from `#4b9cf5` to `#8ebdf5`.
 - Updated: `--neeto-ui-info-600` from `#378ef0` to `#69a7f2`.
-  
 - Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
   
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
@@ -803,7 +805,6 @@ Fixed warnings in jest tests.
 ## 5.0.6 - 2023-06-06
 - Fixes janky animation in *Pane* when form fields have the `autoFocus` prop.
 ## 5.0.5 - 2023-06-05
-
 Added: `optionRemapping` prop to map the label and value properties of `options`
 prop in *Select* component.
 
