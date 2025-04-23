@@ -100,7 +100,7 @@ const Textarea = forwardRef(
           )}
         </div>
         <div
-          data-cy={`${hyphenize(label)}-text-input`}
+          data-cy={`${hyphenize(label)}-text-input-label`}
           className={classnames("neeto-ui-input", "neeto-ui-input--textarea", {
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,
@@ -114,6 +114,7 @@ const Textarea = forwardRef(
         >
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <textarea
+            data-cy={`${hyphenize(label)}-text-input`}
             ref={textareaRef}
             rows={ROWS[size]}
             {...{
