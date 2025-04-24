@@ -21,8 +21,8 @@
       "columnInfo": "Informações da coluna",
       "hideColumn": "Ocultar coluna",
       "deleteColumn": "Excluir coluna",
-      "ascending": "Crescente",
-      "descending": "Decrescente",
+      "ascending": "Ordenar crescente",
+      "descending": "Ordenar decrescente",
       "allRowsSelected": "Todas as linhas estão selecionadas",
       "clearSelection": "Limpar seleção"
     },

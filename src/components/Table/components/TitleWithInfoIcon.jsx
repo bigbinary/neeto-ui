@@ -19,7 +19,11 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
           >
             <InfoRound color="currentColor" size={14} />
           </span>
-          <Popover appendTo={() => document.body} reference={popoverRef}>
+          <Popover
+            appendTo={() => document.body}
+            position="bottom"
+            reference={popoverRef}
+          >
             <Typography lineHeight="normal" style="body2">
               {description}
             </Typography>

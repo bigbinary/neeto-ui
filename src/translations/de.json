@@ -21,8 +21,8 @@
       "columnInfo": "Spalteninformationen",
       "hideColumn": "Spalte ausblenden",
       "deleteColumn": "Spalte löschen",
-      "ascending": "Aufsteigend",
-      "descending": "Absteigend",
+      "ascending": "Aufsteigend sortieren",
+      "descending": "Absteigend sortieren",
       "allRowsSelected": "Alle Zeilen sind ausgewählt",
       "clearSelection": "Klare Auswahl"
     },

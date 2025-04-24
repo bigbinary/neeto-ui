@@ -40,7 +40,7 @@ const HeaderCellMenu = ({
         appendTo={() => document.body}
         className="neeto-ui-flex"
         icon={MenuHorizontal}
-        position="auto"
+        position="bottom"
         strategy="fixed"
         zIndex={99999}
         buttonProps={{
