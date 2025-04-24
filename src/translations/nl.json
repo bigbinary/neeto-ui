@@ -21,8 +21,8 @@
       "columnInfo": "Kolominformatie",
       "hideColumn": "Kolom verbergen",
       "deleteColumn": "Kolom verwijderen",
-      "ascending": "Oplopend",
-      "descending": "Aflopend",
+      "ascending": "Sorteer oplopend",
+      "descending": "Sorteer aflopend",
       "allRowsSelected": "Alle rijen zijn geselecteerd",
       "clearSelection": "Duidelijke selectie"
     },
