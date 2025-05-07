@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Date Input
   --neeto-ui-date-input-font-size: var(--neeto-ui-text-sm);
@@ -369,7 +371,7 @@
 
     .ant-picker-body {
 
-      @include viewport(xs-mob) {
+      @include mixins.viewport(xs-mob) {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
       }
@@ -495,7 +497,7 @@
     align-items: center;
     border-bottom: var(--neeto-ui-date-panel-header-border-bottom-width);
 
-    @include viewport(xs-mob) {
+    @include mixins.viewport(xs-mob) {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
@@ -532,7 +534,7 @@
   .ant-picker-date-panel {
     width: var(--neeto-ui-date-panel-width);
 
-    @include viewport(xs-mob) {
+    @include mixins.viewport(xs-mob) {
       width: 18.5rem;
     }
   }

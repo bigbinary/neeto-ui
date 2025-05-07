@@ -1,57 +1,59 @@
 //Abstracts
-@import "~rfs/scss";
-@import "./abstracts/mixins";
-@import "./abstracts/normalize";
-@import "./abstracts/variables";
-@import "./abstracts/root";
-@import "./abstracts/theme";
+@use "~rfs/scss";
+@use "abstracts/mixins";
+@use "abstracts/normalize";
+@use "abstracts/variables";
+@use "abstracts/root";
+@use "abstracts/theme";
 
 //Base
-@import "./base/base";
+@use "base/base";
 
 //Utilities
-@import "./utilities/animations";
-@import "./utilities/helpers";
-@import "./utilities/utilities";
+@use "utilities/animations";
+@use "utilities/helpers";
+@use "utilities/utilities";
 
 //Components
-@import "./components/accordion";
-@import "./components/action-dropdown";
-@import "./components/avatar";
-@import "./components/button";
-@import "./components/callout";
-@import "./components/checkbox";
-@import "./components/color-picker";
-@import "./components/label";
-@import "./components/date-time-picker";
-@import "./components/dropdown";
-@import "./components/input";
-@import "./components/modal";
-@import "./components/pagination";
-@import "./components/pane";
-@import "./components/radio";
-@import "./components/select";
-@import "./components/switch";
-@import "./components/tab";
-@import "./components/table-overrides";
-@import "./components/tag";
-@import "./components/tooltip";
-@import "./components/spinner";
-@import "./components/email-input";
-@import "./components/toast";
-@import "./components/kbd";
-@import "./components/popover";
-@import "./components/no-data";
-@import "./components/tree-select";
-@import "./components/tree";
-@import "./components/slider";
-@import "./components/time-picker-input";
-@import "./components/stepper";
-@import "./components/action-block";
-@import "./components/progress-bar";
+
+@use "components/accordion";
+@use "components/action-dropdown";
+@use "components/avatar";
+@use "components/button";
+@use "components/callout";
+@use "components/checkbox";
+@use "components/color-picker";
+@use "components/label";
+
+@use "components/date-time-picker";
+@use "components/dropdown";
+@use "components/input";
+@use "components/modal";
+@use "components/pagination";
+@use "components/pane";
+@use "components/radio";
+@use "components/select";
+@use "components/switch";
+@use "components/tab";
+@use "components/table-overrides";
+@use "components/tag";
+@use "components/tooltip";
+@use "components/spinner";
+@use "components/email-input";
+@use "components/toast";
+@use "components/kbd";
+@use "components/popover";
+@use "components/no-data";
+@use "components/tree-select";
+@use "components/tree";
+@use "components/slider";
+@use "components/time-picker-input";
+@use "components/stepper";
+@use "components/action-block";
+@use "components/progress-bar";
 
 //Layouts
-@import "./layout/common";
+@use "layout/common";
 
 //Tooltip animations
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";

@@ -1,61 +1,64 @@
+@use "~rfs/scss";
+@use "variables";
+
 :root, .neeto-ui-theme--light{
   // Body
   --neeto-ui-body-color: 16, 24, 40;
   --neeto-ui-body-bg: 255, 255, 255;
   // Color
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     --neeto-ui-#{$color}: #{$value};
   }
 }
 
 :root {
   // Body
-  --neeto-ui-body-font-family: #{$neeto-ui-body-font-family};
-  --neeto-ui-body-font-size: #{$neeto-ui-body-font-size};
-  --neeto-ui-body-font-weight: #{$neeto-ui-body-font-weight};
-  --neeto-ui-body-line-height: #{$neeto-ui-body-line-height};
+  --neeto-ui-body-font-family: #{variables.$neeto-ui-body-font-family};
+  --neeto-ui-body-font-size: #{variables.$neeto-ui-body-font-size};
+  --neeto-ui-body-font-weight: #{variables.$neeto-ui-body-font-weight};
+  --neeto-ui-body-line-height: #{variables.$neeto-ui-body-line-height};
 
   // Box shadow
-  @each $shadow, $value in $neeto-ui-shadows {
+  @each $shadow, $value in variables.$neeto-ui-shadows {
     --neeto-ui-shadow-#{$shadow}: #{$value};
   }
 
   // Font sizes
-  @each $size, $value in $neeto-ui-font-sizes {
-    @include rfs($value, --neeto-ui-text-#{$size});
+  @each $size, $value in variables.$neeto-ui-font-sizes {
+    @include scss.rfs($value, --neeto-ui-text-#{$size});
   }
 
   // Font weights
-  @each $weight, $value in $neeto-ui-font-weights {
+  @each $weight, $value in variables.$neeto-ui-font-weights {
     --neeto-ui-font-#{$weight}: #{$value};
   }
 
   // Line height
-  @each $lh, $value in $neeto-ui-line-heights {
+  @each $lh, $value in variables.$neeto-ui-line-heights {
     --neeto-ui-leading-#{$lh}: #{$value};
   }
 
   // Text transform
-  @each $tt, $value in $neeto-ui-text-transform {
+  @each $tt, $value in variables.$neeto-ui-text-transform {
     --neeto-ui-text-transform-#{$tt}: #{$value};
   }
 
   // Border Radius
-  --neeto-ui-rounded-none: #{$neeto-ui-rounded-none};
-  --neeto-ui-rounded-sm: #{$neeto-ui-rounded-sm};
-  --neeto-ui-rounded: #{$neeto-ui-rounded};
-  --neeto-ui-rounded-md: #{$neeto-ui-rounded-md};
-  --neeto-ui-rounded-lg: #{$neeto-ui-rounded-lg};
-  --neeto-ui-rounded-xl: #{$neeto-ui-rounded-xl};
-  --neeto-ui-rounded-full: #{$neeto-ui-rounded-full};
+  --neeto-ui-rounded-none: #{variables.$neeto-ui-rounded-none};
+  --neeto-ui-rounded-sm: #{variables.$neeto-ui-rounded-sm};
+  --neeto-ui-rounded: #{variables.$neeto-ui-rounded};
+  --neeto-ui-rounded-md: #{variables.$neeto-ui-rounded-md};
+  --neeto-ui-rounded-lg: #{variables.$neeto-ui-rounded-lg};
+  --neeto-ui-rounded-xl: #{variables.$neeto-ui-rounded-xl};
+  --neeto-ui-rounded-full: #{variables.$neeto-ui-rounded-full};
 
   // Transition
-  --neeto-ui-transition: #{$neeto-ui-transition};
+  --neeto-ui-transition: #{variables.$neeto-ui-transition};
 
   // Z Indexes
-  --neeto-ui-modal-z-index: #{$neeto-ui-modal-z-index};
+  --neeto-ui-modal-z-index: #{variables.$neeto-ui-modal-z-index};
 
   // Layout constants
-  --neeto-ui-pane-header-height: #{$neeto-ui-pane-header-height};
-  --neeto-ui-pane-footer-height: #{$neeto-ui-pane-footer-height};
+  --neeto-ui-pane-header-height: #{variables.$neeto-ui-pane-header-height};
+  --neeto-ui-pane-footer-height: #{variables.$neeto-ui-pane-footer-height};
 }

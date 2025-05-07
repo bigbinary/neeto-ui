@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Wrapper
   --neeto-ui-stepper-wrapper-gap: 8px;
@@ -44,7 +46,7 @@
   --neeto-ui-stepper-label-active-color: rgb(var(--neeto-ui-black));
   --neeto-ui-stepper-label-active-font-weight: var(--neeto-ui-font-semibold);
 
-  @include viewport(mob) {
+  @include mixins.viewport(mob) {
     --neeto-ui-stepper-item-separator-width: 20px;
   }
 }
@@ -86,7 +88,7 @@
       justify-content: space-between;
       text-align: left;
 
-      @include viewport(mob) {
+      @include mixins.viewport(mob) {
         display: none;
         --neeto-ui-stepper-item-separator-width: 24px;
       }
