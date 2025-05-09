@@ -1,24 +1,26 @@
+@use "variables";
+
 // media queries
 
 @mixin viewport($media) {
   @if $media==desk {
-    @media screen and (min-width: $neeto-ui-desk-1200) {
+    @media screen and (min-width: variables.$neeto-ui-desk-1200) {
       @content;
     }
   } @else if $media==tab-min {
-    @media screen and (max-width: $neeto-ui-tab-1024) {
+    @media screen and (max-width: variables.$neeto-ui-tab-1024) {
       @content;
     }
   } @else if $media==tab-only {
-    @media screen and (min-width: $neeto-ui-tab-768) and (max-width: $neeto-ui-tab-1024 - 1) {
+    @media screen and (min-width: variables.$neeto-ui-tab-768) and (max-width: variables.$neeto-ui-tab-1024 - 1) {
       @content;
     }
   } @else if $media==mob {
-    @media screen and (max-width: $neeto-ui-tab-768 - 1) {
+    @media screen and (max-width: variables.$neeto-ui-tab-768 - 1) {
       @content;
     }
   } @else if $media==xs-mob {
-    @media screen and (max-width: $neeto-ui-mob-479) {
+    @media screen and (max-width: variables.$neeto-ui-mob-479) {
       @content;
     }
   }

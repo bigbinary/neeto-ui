@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-pane-spacing: 24px;
 
@@ -72,11 +74,11 @@
       --neeto-ui-pane-wrapper-width: 90vw;
     }
 
-    @include viewport(tab-min) {
+    @include mixins.viewport(tab-min) {
       width: 50%;
     }
 
-    @include viewport(mob) {
+    @include mixins.viewport(mob) {
       width: 100%;
     }
   }

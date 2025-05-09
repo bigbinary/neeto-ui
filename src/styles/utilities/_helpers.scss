@@ -1,6 +1,8 @@
+@use "../abstracts/variables";
+
 body {
   // color utility classes
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .neeto-ui-text-#{$color} {
       color: rgb(var(--neeto-ui-#{$color}));
     }
@@ -11,14 +13,14 @@ body {
       color: rgb(var(--neeto-ui-#{$color}));
     }
   }
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-text-#{$color}:focus-visible {
       color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 
   // background utility classes
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .neeto-ui-bg-#{$color} {
       background-color: rgb(var(--neeto-ui-#{$color}));
     }
@@ -29,14 +31,14 @@ body {
       background-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-bg-#{$color}:focus-visible {
       background-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 
   // border color
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .neeto-ui-border-#{$color} {
       border-color: rgb(var(--neeto-ui-#{$color}));
     }
@@ -47,14 +49,14 @@ body {
       border-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
-  @each $color, $value in $neeto-ui-theme-colors {
+  @each $color, $value in variables.$neeto-ui-theme-colors {
     .focus-visible\:neeto-ui-border-#{$color}:focus-visible {
       border-color: rgb(var(--neeto-ui-#{$color}));
     }
   }
 
   // box shadows
-  @each $shadow, $value in $neeto-ui-shadows {
+  @each $shadow, $value in variables.$neeto-ui-shadows {
     .neeto-ui-shadow-#{$shadow} {
       box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
@@ -65,35 +67,35 @@ body {
       box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
   }
-  @each $shadow, $value in $neeto-ui-shadows {
+  @each $shadow, $value in variables.$neeto-ui-shadows {
     .focus-visible\:neeto-ui-shadow-#{$shadow}:focus-visible {
       box-shadow: var(--neeto-ui-shadow-#{$shadow});
     }
   }
 
   // font sizes
-  @each $size, $value in $neeto-ui-font-sizes {
+  @each $size, $value in variables.$neeto-ui-font-sizes {
     .neeto-ui-text-#{$size} {
       font-size: var(--neeto-ui-text-#{$size});
     }
   }
 
   // font weights
-  @each $weight, $value in $neeto-ui-font-weights {
+  @each $weight, $value in variables.$neeto-ui-font-weights {
     .neeto-ui-font-#{$weight} {
       font-weight: var(--neeto-ui-font-#{$weight});
     }
   }
 
   // line height
-  @each $lh, $value in $neeto-ui-line-heights {
+  @each $lh, $value in variables.$neeto-ui-line-heights {
     .neeto-ui-leading-#{$lh} {
       line-height: var(--neeto-ui-leading-#{$lh});
     }
   }
 
   // text transform
-  @each $tt, $value in $neeto-ui-text-transform {
+  @each $tt, $value in variables.$neeto-ui-text-transform {
     .neeto-ui-text-transform-#{$tt} {
       text-transform: var(--neeto-ui-text-transform-#{$tt});
     }

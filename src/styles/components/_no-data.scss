@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Description
   --neeto-ui-no-data-description-margin-top: 0.5rem;
@@ -46,7 +48,7 @@
     justify-content: center;
     align-items: center;
 
-    @include viewport(mob) {
+    @include mixins.viewport(mob) {
       flex-direction: column;
     }
   }

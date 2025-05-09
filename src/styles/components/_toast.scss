@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   // Container
   --neeto-ui-toastr-min-width: 320px;
@@ -70,7 +72,7 @@ body {
 
       font-family: var(--neeto-ui-body-font-family) !important;
 
-      @include viewport(xs-mob) {
+      @include mixins.viewport(xs-mob) {
         max-width: calc(100% - 24px);
       }
 
