@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.1 - 2025-05-20
+
+- Updated: the duplicate email error message and style.
+
 ## 8.3.0 - 2025-05-09
 
 Migrated to new SASS module system.
@@ -91,7 +95,6 @@ iPad Pro (11-inch) - Tested using Xcode
 ## 8.2.60 - 2025-02-11
 Fixed data-cy label for *Input*.
 ## 8.2.59 - 2025-02-07
-
 - Fixed TypeError in `useOverlay` hook.
 
 ## 8.2.58 - 2025-02-07
@@ -383,7 +386,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-info-600` from `#378ef0` to `#69a7f2`.
 - Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
-
 ### Utility classes
 
 - Added: Utility classes for the newly added colors.
@@ -811,7 +813,6 @@ Fixed warnings in jest tests.
 Added: `optionRemapping` prop to map the label and value properties of `options`
 prop in *Select* component.
 ## 5.0.4 - 2023-05-29
-
 - Fixed: Overrided `onChange` function to output empty array if value is null in
   *DatePicker*
 
