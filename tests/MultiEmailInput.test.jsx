@@ -274,7 +274,7 @@ describe("MultiEmailInput", () => {
 
     expect(
       screen.getByText(
-        "Duplicate emails that were removed case insensitively: test@Example.com"
+        "Duplicate emails detected and removed (matched case-insensitively): test@Example.com"
       )
     ).toBeInTheDocument();
   });
