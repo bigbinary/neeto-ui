@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
+import classnames from "classnames";
 import { Resizable } from "react-resizable";
 
 import CellContent from "./CellContent";
 
 const ResizableHeaderCell = props => {
-  const { onResize, width, onResizeStop, ...restProps } = props;
+  const { onResize, width, onResizeStop, onResizeStart, ...restProps } = props;
+  const [isResizing, setIsResizing] = useState(false);
 
   if (!width) {
     return <CellContent {...restProps} />;
@@ -18,12 +20,25 @@ const ResizableHeaderCell = props => {
       height={0}
       handle={
         <span
-          className="react-resizable-handle"
+          aria-label="Resize column"
+          role="slider"
+          tabIndex={0}
+          className={classnames("react-resizable-handle", {
+            "react-resizable-handle--resizing": isResizing,
+          })}
           onClick={e => e.stopPropagation()}
-        />
+        >
+          <span className="neeto-ui-table-react-resizable-handle__inner" />
+        </span>
       }
-      onResizeStart={e => {
+      onResizeStart={(e, data) => {
         e.preventDefault();
+        setIsResizing(true);
+        onResizeStart?.(e, data);
+      }}
+      onResizeStop={(e, data) => {
+        setIsResizing(false);
+        onResizeStop?.(e, data);
       }}
     >
       <CellContent {...restProps} />
