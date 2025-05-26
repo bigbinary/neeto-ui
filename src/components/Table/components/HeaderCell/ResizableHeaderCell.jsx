@@ -20,9 +20,6 @@ const ResizableHeaderCell = props => {
       height={0}
       handle={
         <span
-          aria-label="Resize column"
-          role="slider"
-          tabIndex={0}
           className={classnames("react-resizable-handle", {
             "react-resizable-handle--resizing": isResizing,
           })}
