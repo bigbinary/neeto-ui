@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.2 - 2025-05-26
+
+- Updated: the column resizing handle styles.
+
 ## 8.3.1 - 2025-05-20
 
 - Updated: the duplicate email error message and style.
@@ -96,7 +100,6 @@ iPad Pro (11-inch) - Tested using Xcode
 Fixed data-cy label for *Input*.
 ## 8.2.59 - 2025-02-07
 - Fixed TypeError in `useOverlay` hook.
-
 ## 8.2.58 - 2025-02-07
 
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
@@ -387,7 +390,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
 ### Utility classes
-
 - Added: Utility classes for the newly added colors.
 
 ### Box shadows
@@ -815,7 +817,6 @@ prop in *Select* component.
 ## 5.0.4 - 2023-05-29
 - Fixed: Overrided `onChange` function to output empty array if value is null in
   *DatePicker*
-
 ## 5.0.3 - 2023-05-29
 
 - Fixed: the issue of filter invalid emails link for valid emails in
