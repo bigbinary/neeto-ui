@@ -7,7 +7,9 @@ import { replace } from "ramda";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import Label from "./Label";
+import { formatWithPrecision } from "./utils";
+
+import Label from "../Label";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -33,6 +35,7 @@ const Input = forwardRef(
       rejectCharsRegex,
       onBlur,
       disableTrimOnBlur = false,
+      precision = -1,
       ...otherProps
     },
     ref
@@ -76,8 +79,14 @@ const Input = forwardRef(
       handleChange(e);
     };
 
+    const handlePrecisionFormatting = e => {
+      e.target.value = formatWithPrecision(value, precision);
+      handleChange(e);
+    };
+
     const handleOnBlur = e => {
       handleTrimmedChangeOnBlur(e);
+      handlePrecisionFormatting(e);
       onBlur?.(e);
     };
 
