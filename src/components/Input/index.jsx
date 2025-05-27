@@ -7,7 +7,7 @@ import { replace } from "ramda";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import { formatWithPrecision } from "./utils";
+import { getFormattedValue, getTrimmedValue } from "./utils";
 
 import Label from "../Label";
 
@@ -69,20 +69,8 @@ const Input = forwardRef(
 
     const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
 
-    const getTrimmedValue = value => {
-      if (disableTrimOnBlur || typeof value !== "string") return value;
-
-      return value.trim();
-    };
-
-    const getFormattedValue = (value, precision) => {
-      if (precision < 0) return value;
-
-      return formatWithPrecision(value, precision);
-    };
-
     const handleOnBlur = e => {
-      const trimmedValue = getTrimmedValue(value);
+      const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
       const formattedValue = getFormattedValue(trimmedValue, precision);
 
       if (formattedValue !== value) {
@@ -192,6 +180,15 @@ Input.propTypes = {
    * To specify the type of Input field.
    */
   type: PropTypes.string,
+  /**
+   * To specify how many decimal places to show in the input.
+   *
+   * For example, if precision is 2:
+   * 10 will be shown as "10.00"
+   * 10.1 will be shown as "10.10"
+   * 9.758 will be rounded and shown as "9.76"
+   */
+  precision: PropTypes.number,
   /**
    * To specify the label props to be passed to the Label component.
    */

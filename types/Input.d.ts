@@ -15,13 +15,13 @@ export interface InputProps
   helpText?: string;
   className?: string;
   nakedInput?: boolean;
+  precision?: number;
   contentSize?: number;
   required?: boolean;
   labelProps?: LabelProps;
   maxLength?: number;
   unlimitedChars: boolean;
   rejectCharsRegex?: RegExp;
-  precision?: number;
 }
 
 const Input: React.ForwardRefExoticComponent<InputProps>;

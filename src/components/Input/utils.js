@@ -11,10 +11,18 @@ const isValidNumberString = numStr => {
   return !Number.isNaN(Number(numStr.trim()));
 };
 
-export const formatWithPrecision = (value, precision) => {
+export const getFormattedValue = (value, precision) => {
+  if (precision < 0) return value;
+
   const str = value.toString();
 
   if (isValidNumberString(str)) return toFixed(str, precision);
 
   return str;
+};
+
+export const getTrimmedValue = (value, disableTrimOnBlur) => {
+  if (disableTrimOnBlur || typeof value !== "string") return value;
+
+  return value.trim();
 };
