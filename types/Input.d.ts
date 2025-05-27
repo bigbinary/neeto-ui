@@ -21,6 +21,7 @@ export interface InputProps
   maxLength?: number;
   unlimitedChars: boolean;
   rejectCharsRegex?: RegExp;
+  precision?: number;
 }
 
 const Input: React.ForwardRefExoticComponent<InputProps>;

@@ -69,24 +69,27 @@ const Input = forwardRef(
 
     const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
 
-    const handleTrimmedChangeOnBlur = e => {
-      if (disableTrimOnBlur || typeof value !== "string") return;
+    const getTrimmedValue = value => {
+      if (disableTrimOnBlur || typeof value !== "string") return value;
 
-      const trimmedValue = value.trim();
-      if (value === trimmedValue) return;
-
-      e.target.value = trimmedValue;
-      handleChange(e);
+      return value.trim();
     };
 
-    const handlePrecisionFormatting = e => {
-      e.target.value = formatWithPrecision(value, precision);
-      handleChange(e);
+    const getFormattedValue = (value, precision) => {
+      if (precision < 0) return value;
+
+      return formatWithPrecision(value, precision);
     };
 
     const handleOnBlur = e => {
-      handleTrimmedChangeOnBlur(e);
-      handlePrecisionFormatting(e);
+      const trimmedValue = getTrimmedValue(value);
+      const formattedValue = getFormattedValue(trimmedValue, precision);
+
+      if (formattedValue !== value) {
+        e.target.value = formattedValue;
+        handleChange(e);
+      }
+
       onBlur?.(e);
     };
 

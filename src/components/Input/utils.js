@@ -14,7 +14,7 @@ const isValidNumberString = numStr => {
 export const formatWithPrecision = (value, precision) => {
   const str = value.toString();
 
-  if (precision < 0 || !isValidNumberString(str)) return str;
+  if (isValidNumberString(str)) return toFixed(str, precision);
 
-  return toFixed(str, precision);
+  return str;
 };
