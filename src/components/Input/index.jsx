@@ -2,12 +2,18 @@ import React, { useState, forwardRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { replace } from "ramda";
 
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import Label from "./Label";
+import {
+  enforceDecimalPrecision,
+  formatWithPrecision,
+  formatWithRejectCharsRegex,
+  getTrimmedValue,
+} from "./utils";
+
+import Label from "../Label";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -33,6 +39,7 @@ const Input = forwardRef(
       rejectCharsRegex,
       onBlur,
       disableTrimOnBlur = false,
+      precision = -1,
       ...otherProps
     },
     ref
@@ -43,7 +50,8 @@ const Input = forwardRef(
     const errorId = `error_${id}`;
     const helpTextId = `helpText_${id}`;
 
-    const value = otherProps.value ?? valueInternal ?? "";
+    const value =
+      formatWithPrecision(otherProps.value, precision) ?? valueInternal ?? "";
 
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
@@ -58,26 +66,27 @@ const Input = forwardRef(
 
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleRegexChange = e => {
-      const globalRegex = new RegExp(rejectCharsRegex, "g");
-      e.target.value = replace(globalRegex, "", e.target.value);
+    const handleChange = e => {
+      let formattedValue = formatWithRejectCharsRegex(
+        e.target.value,
+        rejectCharsRegex
+      );
+
+      formattedValue = enforceDecimalPrecision(formattedValue, precision);
+
+      e.target.value = formattedValue;
       onChange(e);
     };
 
-    const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
-
-    const handleTrimmedChangeOnBlur = e => {
-      if (disableTrimOnBlur || typeof value !== "string") return;
-
-      const trimmedValue = value.trim();
-      if (value === trimmedValue) return;
-
-      e.target.value = trimmedValue;
-      handleChange(e);
-    };
-
     const handleOnBlur = e => {
-      handleTrimmedChangeOnBlur(e);
+      const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
+      const formattedValue = formatWithPrecision(trimmedValue, precision);
+
+      if (formattedValue !== value) {
+        e.target.value = formattedValue;
+        handleChange(e);
+      }
+
       onBlur?.(e);
     };
 
@@ -180,6 +189,15 @@ Input.propTypes = {
    * To specify the type of Input field.
    */
   type: PropTypes.string,
+  /**
+   * To specify how many decimal places to show in the input.
+   *
+   * For example, if precision is 2:
+   * 10 will be shown as "10.00"
+   * 10.1 will be shown as "10.10"
+   * 9.758 will be rounded and shown as "9.76"
+   */
+  precision: PropTypes.number,
   /**
    * To specify the label props to be passed to the Label component.
    */

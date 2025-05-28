@@ -15,6 +15,7 @@ export interface InputProps
   helpText?: string;
   className?: string;
   nakedInput?: boolean;
+  precision?: number;
   contentSize?: number;
   required?: boolean;
   labelProps?: LabelProps;

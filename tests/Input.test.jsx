@@ -158,4 +158,43 @@ describe("Input", () => {
     await userEvent.type(getByLabelText("label"), "Test");
     expect(getByLabelText("label")).toHaveValue("Test");
   });
+
+  it("should format input value correctly based on precision prop", async () => {
+    const { getByLabelText, rerender } = render(
+      <Input label="label" precision={2} />
+    );
+    const input = getByLabelText("label");
+    await userEvent.type(input, "12345.6789");
+    expect(input).toHaveValue("12345.67");
+
+    rerender(<Input label="label" precision={3} />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "9876.54321");
+    expect(input).toHaveValue("9876.543");
+
+    rerender(<Input label="label" precision={2} />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "45");
+    await userEvent.tab();
+    expect(input).toHaveValue("45.00");
+
+    rerender(<Input label="label" precision={0} />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "45.67");
+    expect(input).toHaveValue("4567");
+
+    rerender(<Input label="label" />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "45.677");
+    expect(input).toHaveValue("45.677");
+
+    rerender(<Input label="label" precision={2} value={45.677} />);
+    expect(input).toHaveValue("45.68");
+
+    rerender(<Input label="label" precision={3} value={45.6} />);
+    expect(input).toHaveValue("45.600");
+
+    rerender(<Input label="label" value={45.677} />);
+    expect(input).toHaveValue("45.677");
+  });
 });

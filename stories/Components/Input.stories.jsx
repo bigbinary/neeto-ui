@@ -198,6 +198,21 @@ RejectCharsInputStory.parameters = {
   },
 };
 
+const PrecisionInputStory = args => (
+  <Input label={`Input (up to ${args.precision} decimal places)`} {...args} />
+);
+
+PrecisionInputStory.storyName = "Precision";
+PrecisionInputStory.parameters = {
+  docs: {
+    description: {
+      story: `The prop \`precision\` will accept a number and limit the number of decimal places to the specified value.`,
+    },
+  },
+};
+
+PrecisionInputStory.args = { precision: 2, type: "number" };
+
 const CSSCustomization = args => <Input {...args} />;
 
 CSSCustomization.storyName = "Input CSS Customization";
@@ -227,6 +242,7 @@ export {
   FormikInputStory,
   RejectCharsInputStory,
   CSSCustomization,
+  PrecisionInputStory,
 };
 
 export default metadata;
