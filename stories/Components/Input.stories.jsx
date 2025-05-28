@@ -199,10 +199,17 @@ RejectCharsInputStory.parameters = {
 };
 
 const PrecisionInputStory = args => (
-  <Input {...args} label="Precision" precision={2} />
+  <Input {...args} label="Input (up to 2 decimal places)" precision={2} />
 );
 
 PrecisionInputStory.storyName = "Precision";
+PrecisionInputStory.parameters = {
+  docs: {
+    description: {
+      story: `The prop \`precision\` will accept a number and limit the number of decimal places to the specified value.`,
+    },
+  },
+};
 
 const CSSCustomization = args => <Input {...args} />;
 
