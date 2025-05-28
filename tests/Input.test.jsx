@@ -159,7 +159,7 @@ describe("Input", () => {
     expect(getByLabelText("label")).toHaveValue("Test");
   });
 
-  it("should properly handle precision with decimal", async () => {
+  it("should format input value correctly based on precision prop", async () => {
     const { getByLabelText, rerender } = render(
       <Input label="label" precision={2} />
     );
@@ -182,5 +182,19 @@ describe("Input", () => {
     await userEvent.clear(input);
     await userEvent.type(input, "45.67");
     expect(input).toHaveValue("4567");
+
+    rerender(<Input label="label" />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "45.677");
+    expect(input).toHaveValue("45.677");
+
+    rerender(<Input label="label" precision={2} value={45.677} />);
+    expect(input).toHaveValue("45.68");
+
+    rerender(<Input label="label" precision={3} value={45.6} />);
+    expect(input).toHaveValue("45.600");
+
+    rerender(<Input label="label" value={45.677} />);
+    expect(input).toHaveValue("45.677");
   });
 });

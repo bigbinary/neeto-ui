@@ -1,4 +1,3 @@
-import { isNotPresent } from "neetocist";
 import { replace } from "ramda";
 
 const toFixed = (numStr, precision) => {
@@ -15,7 +14,7 @@ const isValidNumberString = numStr => {
 };
 
 export const formatWithPrecision = (value, precision) => {
-  if (precision < 0) return value;
+  if (precision < 0 || !value) return value;
 
   const str = value.toString();
 
@@ -25,10 +24,9 @@ export const formatWithPrecision = (value, precision) => {
 };
 
 export const enforceDecimalPrecision = (value, precision) => {
-  if (precision < 0) return value;
+  if (precision < 0 || !value) return value;
 
   const valueStr = value.toString();
-  if (isNotPresent(valueStr)) return "";
 
   if (precision === 0) return valueStr.split(".")[0];
 

@@ -50,7 +50,8 @@ const Input = forwardRef(
     const errorId = `error_${id}`;
     const helpTextId = `helpText_${id}`;
 
-    const value = otherProps.value ?? valueInternal ?? "";
+    const value =
+      formatWithPrecision(otherProps.value, precision) ?? valueInternal ?? "";
 
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;

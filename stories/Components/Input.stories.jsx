@@ -199,7 +199,7 @@ RejectCharsInputStory.parameters = {
 };
 
 const PrecisionInputStory = args => (
-  <Input {...args} label="Input (up to 2 decimal places)" precision={2} />
+  <Input label={`Input (up to ${args.precision} decimal places)`} {...args} />
 );
 
 PrecisionInputStory.storyName = "Precision";
@@ -210,6 +210,8 @@ PrecisionInputStory.parameters = {
     },
   },
 };
+
+PrecisionInputStory.args = { precision: 2, type: "number" };
 
 const CSSCustomization = args => <Input {...args} />;
 
