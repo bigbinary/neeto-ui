@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.3 - 2025-05-28
+
+- Added: support for `precision` prop for *Input* component
+
 ## 8.3.2 - 2025-05-26
 
 - Updated: the column resizing handle styles.
@@ -101,7 +105,6 @@ Fixed data-cy label for *Input*.
 ## 8.2.59 - 2025-02-07
 - Fixed TypeError in `useOverlay` hook.
 ## 8.2.58 - 2025-02-07
-
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
 
 ## 8.2.57 - 2025-02-07
@@ -391,7 +394,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
 ### Utility classes
 - Added: Utility classes for the newly added colors.
-
 ### Box shadows
 
 - Updated: `--neeto-ui-shadow-xs` to `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
@@ -818,7 +820,6 @@ prop in *Select* component.
 - Fixed: Overrided `onChange` function to output empty array if value is null in
   *DatePicker*
 ## 5.0.3 - 2023-05-29
-
 - Fixed: the issue of filter invalid emails link for valid emails in
   *MultiEmailInput* component
 
