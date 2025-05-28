@@ -163,25 +163,24 @@ describe("Input", () => {
     const { getByLabelText, rerender } = render(
       <Input label="label" precision={2} />
     );
-
     const input = getByLabelText("label");
-
     await userEvent.type(input, "12345.6789");
-    await userEvent.tab();
-    expect(input).toHaveValue("12345.68");
+    expect(input).toHaveValue("12345.67");
 
     rerender(<Input label="label" precision={3} />);
-
     await userEvent.clear(input);
     await userEvent.type(input, "9876.54321");
-    await userEvent.tab();
     expect(input).toHaveValue("9876.543");
 
-    rerender(<Input label="label" precision={0} />);
+    rerender(<Input label="label" precision={2} />);
+    await userEvent.clear(input);
+    await userEvent.type(input, "45");
+    await userEvent.tab();
+    expect(input).toHaveValue("45.00");
 
+    rerender(<Input label="label" precision={0} />);
     await userEvent.clear(input);
     await userEvent.type(input, "45.67");
-    await userEvent.tab();
-    expect(input).toHaveValue("46");
+    expect(input).toHaveValue("4567");
   });
 });

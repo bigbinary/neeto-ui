@@ -198,6 +198,12 @@ RejectCharsInputStory.parameters = {
   },
 };
 
+const PrecisionInputStory = args => (
+  <Input {...args} label="Precision" precision={2} />
+);
+
+PrecisionInputStory.storyName = "Precision";
+
 const CSSCustomization = args => <Input {...args} />;
 
 CSSCustomization.storyName = "Input CSS Customization";
@@ -227,6 +233,7 @@ export {
   FormikInputStory,
   RejectCharsInputStory,
   CSSCustomization,
+  PrecisionInputStory,
 };
 
 export default metadata;

@@ -2,12 +2,16 @@ import React, { useState, forwardRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { replace } from "ramda";
 
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import { getFormattedValue, getTrimmedValue } from "./utils";
+import {
+  enforceDecimalPrecision,
+  formatWithPrecision,
+  formatWithRejectCharsRegex,
+  getTrimmedValue,
+} from "./utils";
 
 import Label from "../Label";
 
@@ -61,17 +65,21 @@ const Input = forwardRef(
 
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleRegexChange = e => {
-      const globalRegex = new RegExp(rejectCharsRegex, "g");
-      e.target.value = replace(globalRegex, "", e.target.value);
+    const handleChange = e => {
+      let formattedValue = formatWithRejectCharsRegex(
+        e.target.value,
+        rejectCharsRegex
+      );
+
+      formattedValue = enforceDecimalPrecision(formattedValue, precision);
+
+      e.target.value = formattedValue;
       onChange(e);
     };
 
-    const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
-
     const handleOnBlur = e => {
       const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
-      const formattedValue = getFormattedValue(trimmedValue, precision);
+      const formattedValue = formatWithPrecision(trimmedValue, precision);
 
       if (formattedValue !== value) {
         e.target.value = formattedValue;
