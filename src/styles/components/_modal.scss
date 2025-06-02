@@ -51,6 +51,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;
@@ -118,6 +119,7 @@
       --neeto-ui-modal-header-padding-top: 1.75rem;
 
       max-height: 100vh;
+      max-height: 100dvh;
       transform: scale(1);
       animation: nuifadeIn 0s forwards;
 
