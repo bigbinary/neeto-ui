@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.4 - 2025-06-02
+
+- Replaced `100vh` with `100dvh` to fix layout issues on mobile browsers and iPads caused by dynamic browser UI elements.
+
 ## 8.3.3 - 2025-05-28
 
 - Added: support for `precision` prop for *Input* component
@@ -106,7 +110,6 @@ Fixed data-cy label for *Input*.
 - Fixed TypeError in `useOverlay` hook.
 ## 8.2.58 - 2025-02-07
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
-
 ## 8.2.57 - 2025-02-07
 
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
@@ -395,7 +398,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 ### Utility classes
 - Added: Utility classes for the newly added colors.
 ### Box shadows
-
 - Updated: `--neeto-ui-shadow-xs` to `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
 - Updated: `--neeto-ui-shadow-sm` to `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
 - Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
@@ -822,7 +824,6 @@ prop in *Select* component.
 ## 5.0.3 - 2023-05-29
 - Fixed: the issue of filter invalid emails link for valid emails in
   *MultiEmailInput* component
-
 ## 5.0.2 - 2023-05-23
 
 - Added: `required` prop to *MultiEmailInput*.
