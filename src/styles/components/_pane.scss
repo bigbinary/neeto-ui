@@ -69,18 +69,17 @@
 
     &--large {
       --neeto-ui-pane-wrapper-width: 50vw;
+      min-width: 600px;
     }
 
     &--extralarge {
       --neeto-ui-pane-wrapper-width: 90vw;
-    }
-
-    @include mixins.viewport(tab-min) {
-      width: 50%;
+      min-width: 700px;
     }
 
     @include mixins.viewport(mob) {
       width: 100%;
+      min-width: 0;
     }
   }
 
