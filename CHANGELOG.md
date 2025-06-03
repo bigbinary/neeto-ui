@@ -23,6 +23,21 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.5 - 2025-06-03
+
+- Fixed: pane width on iPad viewport
+
+Ensures the pane maintains a minimum width for better usability on iPad devices.
+
+small
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (1)](https://github.com/user-attachments/assets/e0958443-c39a-47eb-a978-f465815ad931)
+
+large
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (2)](https://github.com/user-attachments/assets/e5b5118f-bb3c-48a9-97eb-79f6efc6b894)
+
+extraLarge
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (3)](https://github.com/user-attachments/assets/e0229228-5f3b-4857-8ed0-a22a851e9eae)
+
 ## 8.3.4 - 2025-06-02
 
 - Replaced `100vh` with `100dvh` to fix layout issues on mobile browsers and iPads caused by dynamic browser UI elements.
@@ -111,7 +126,6 @@ Fixed data-cy label for *Input*.
 ## 8.2.58 - 2025-02-07
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
 ## 8.2.57 - 2025-02-07
-
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
 
 ## 8.2.56 - 2025-02-06
@@ -402,7 +416,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-shadow-sm` to `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
 - Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
 - Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
-
 ### Component updates
 
 - Updated: Button hover/focus states.
@@ -825,7 +838,6 @@ prop in *Select* component.
 - Fixed: the issue of filter invalid emails link for valid emails in
   *MultiEmailInput* component
 ## 5.0.2 - 2023-05-23
-
 - Added: `required` prop to *MultiEmailInput*.
 
 ## 5.0.1 - 2023-05-07
