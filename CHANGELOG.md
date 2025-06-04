@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.6 - 2025-06-04
+
+- Removed: Unused container and wrapper classes
+
 ## 8.3.5 - 2025-06-03
 
 - Fixed: pane width on iPad viewport
@@ -127,7 +131,6 @@ Fixed data-cy label for *Input*.
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
 ## 8.2.57 - 2025-02-07
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
-
 ## 8.2.56 - 2025-02-06
 
 - Added logic to show clear selection callout when all table rows are selected
@@ -417,7 +420,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
 - Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
 ### Component updates
-
 - Updated: Button hover/focus states.
 - Improved: Callout styles.
 - Improved: Table styles.
@@ -839,7 +841,6 @@ prop in *Select* component.
   *MultiEmailInput* component
 ## 5.0.2 - 2023-05-23
 - Added: `required` prop to *MultiEmailInput*.
-
 ## 5.0.1 - 2023-05-07
 
 - Added: resize and reorder columns functionality to *Table* component.
