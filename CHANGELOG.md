@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.7 - 2025-06-06
+
+- Added: `ref` support in *Radio.Item*.
+
 ## 8.3.6 - 2025-06-04
 
 - Removed: Unused container and wrapper classes
@@ -132,7 +136,6 @@ Fixed data-cy label for *Input*.
 ## 8.2.57 - 2025-02-07
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
 ## 8.2.56 - 2025-02-06
-
 - Added logic to show clear selection callout when all table rows are selected
 
 ## 8.2.53 - 2025-01-23
@@ -426,7 +429,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Improved: Toast bg.
 - Updated: Toast button style to tertiary.
 - Updated: Tab border color.
-
 ### Storybook updates
 
 - Updated: Storybook theme to match the branding.
@@ -842,7 +844,6 @@ prop in *Select* component.
 ## 5.0.2 - 2023-05-23
 - Added: `required` prop to *MultiEmailInput*.
 ## 5.0.1 - 2023-05-07
-
 - Added: resize and reorder columns functionality to *Table* component.
 
 ## 5.0.0 - 2023-04-28
