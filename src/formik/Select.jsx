@@ -1,8 +1,9 @@
 import React, { forwardRef, useRef, startTransition } from "react";
 
 import { getIn, useFormikContext, useField } from "formik";
+import { existsBy } from "neetocist";
 import PropTypes from "prop-types";
-import { prop, either, isNil, isEmpty, dissoc } from "ramda";
+import { prop, either, isNil, isEmpty, dissoc, flatten, pluck } from "ramda";
 
 import Select from "components/Select";
 
@@ -31,7 +32,17 @@ const SelectField = forwardRef((props, ref) => {
   const buildValueObj = (value, options) => {
     if (typeof value === "object") return value;
 
-    return options.filter(option => getRealOptionValue(option) === value)[0];
+    const isGrouped = existsBy({ options: Array.isArray }, options);
+
+    let searchOptions = options;
+
+    if (isGrouped) {
+      searchOptions = flatten(pluck("options", options));
+    }
+
+    return searchOptions.filter(
+      option => getRealOptionValue(option) === value
+    )[0];
   };
 
   return (
