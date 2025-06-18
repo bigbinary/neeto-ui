@@ -23,6 +23,12 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.8 - 2025-06-18
+
+This PR makes changes to handle the case when the options passed to the Select component are grouped.
+The `buildValueObj` method has been modified to get the deeply nested options after checking for grouping.
+This change fixes issues with initial values not being displayed in the dropdown when using formik.
+
 ## 8.3.7 - 2025-06-06
 
 - Added: `ref` support in *Radio.Item*.
@@ -137,7 +143,6 @@ Fixed data-cy label for *Input*.
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
 ## 8.2.56 - 2025-02-06
 - Added logic to show clear selection callout when all table rows are selected
-
 ## 8.2.53 - 2025-01-23
 
 - Added: `data-cy` label for *ProgressBar*
@@ -430,7 +435,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: Toast button style to tertiary.
 - Updated: Tab border color.
 ### Storybook updates
-
 - Updated: Storybook theme to match the branding.
 - Improved: Documentation readability.
 
@@ -845,7 +849,6 @@ prop in *Select* component.
 - Added: `required` prop to *MultiEmailInput*.
 ## 5.0.1 - 2023-05-07
 - Added: resize and reorder columns functionality to *Table* component.
-
 ## 5.0.0 - 2023-04-28
 
 Removed following components from `neetoui`:
