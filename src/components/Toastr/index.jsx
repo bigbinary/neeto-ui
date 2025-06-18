@@ -145,6 +145,7 @@ const showWarningToastr = withUniqueCheck(
 const isError = e => e && e.stack && e.message;
 const isAxiosError = e => e && typeof e === "object" && e.isAxiosError === true;
 const isString = s => typeof s === "string" || s instanceof String;
+const isArray = a => Array.isArray(a);
 const isErrorCodeObject = e =>
   typeof e === "object" && "key" in e && "context" in e;
 
@@ -160,7 +161,12 @@ const errorCodeTranslation = errorCode => {
 
 const getErrorMessage = response => {
   const { error = "", errors = [], errorCode = "", errorCodes = [] } = response;
-  const errorMessages = error || errors?.join("\n");
+
+  let errorMessages = "";
+
+  if (error) errorMessages = error;
+  else if (isArray(errors)) errorMessages = errors.join("\n");
+
   const errorCodeTranslations =
     (errorCode && t(errorCode, response)) ||
     errorCodes?.map(errorCodeTranslation).join("\n");
