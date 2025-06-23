@@ -15,6 +15,7 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 import Spinner from "./Spinner";
+import Tooltip from "./Tooltip";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -75,21 +76,32 @@ const CustomInput = props => {
 
 const CustomOption = props => {
   const ref = useRef();
-  const { dataCy } = props.data;
+  const {
+    innerProps,
+    data: { dataCy, tooltipProps = {} },
+  } = props;
 
   useEffect(() => {
     props.isSelected && ref.current.scrollIntoView();
   }, [props.isSelected]);
 
-  return (
+  const optionComponent = (
     <components.Option
       {...props}
       innerRef={ref}
       innerProps={{
-        ...props.innerProps,
+        ...innerProps,
         "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
       }}
     />
+  );
+
+  return isPresent(tooltipProps) ? (
+    <Tooltip position="bottom-start" zIndex={1_000_001} {...tooltipProps}>
+      <div>{optionComponent}</div>
+    </Tooltip>
+  ) : (
+    optionComponent
   );
 };
 

@@ -331,4 +331,24 @@ describe("Select", () => {
       "group2-option1"
     );
   });
+
+  it("should show tooltip when hovering over an option with tooltipProps", async () => {
+    const tooltipText = "Tooltip content";
+    const optionsWithTooltip = [
+      {
+        label: "Option 1",
+        value: "option-1",
+        tooltipProps: { content: tooltipText },
+      },
+    ];
+
+    render(<Select label="Select" options={optionsWithTooltip} />);
+
+    const select = screen.getByRole("combobox");
+    await userEvent.click(select);
+    const option = screen.getByText("Option 1");
+    await userEvent.hover(option);
+
+    expect(await screen.findByText(tooltipText)).toBeInTheDocument();
+  });
 });
