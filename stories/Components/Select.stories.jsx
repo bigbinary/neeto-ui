@@ -162,23 +162,26 @@ Grouped.args = {
   ],
 };
 
-const OptionTooltips = Template.bind({});
-OptionTooltips.storyName = "Option Tooltip";
-OptionTooltips.args = {
+const OptionWithTooltip = Template.bind({});
+OptionWithTooltip.storyName = "Option with Tooltip";
+OptionWithTooltip.args = {
   label: "Select with Tooltips",
   placeholder: "Hover any option",
   strategy: "fixed",
   options: OPTIONS.map(option => ({
     value: option.value,
     label: option.label,
-    tooltipContent: `Tooltip content for ${option.label}`,
+    tooltipProps: {
+      position: "top-start",
+      content: `Tooltip content for ${option.label}`,
+    },
   })),
 };
 
-OptionTooltips.parameters = {
+OptionWithTooltip.parameters = {
   docs: {
     description: {
-      story: `Use the \`tooltipContent\` field on each option to show a tooltip when hovering.`,
+      story: `Use the \`tooltipProps\` field on each option to show a tooltip when hovering.`,
     },
   },
 };
@@ -581,7 +584,7 @@ export {
   Sizes,
   MultiSelect,
   Grouped,
-  OptionTooltips,
+  OptionWithTooltip,
   Creatable,
   AsyncCreatable,
   Searchable,

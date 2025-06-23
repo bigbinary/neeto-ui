@@ -332,10 +332,14 @@ describe("Select", () => {
     );
   });
 
-  it("should show tooltip when hovering over an option with tooltipContent", async () => {
+  it("should show tooltip when hovering over an option with tooltipProps", async () => {
     const tooltipText = "Tooltip content";
     const optionsWithTooltip = [
-      { label: "Option 1", value: "option-1", tooltipContent: tooltipText },
+      {
+        label: "Option 1",
+        value: "option-1",
+        tooltipProps: { content: tooltipText },
+      },
     ];
 
     render(<Select label="Select" options={optionsWithTooltip} />);

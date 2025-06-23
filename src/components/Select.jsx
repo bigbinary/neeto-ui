@@ -78,7 +78,7 @@ const CustomOption = props => {
   const ref = useRef();
   const {
     innerProps,
-    data: { dataCy, tooltipContent = "" },
+    data: { dataCy, tooltipProps = {} },
   } = props;
 
   useEffect(() => {
@@ -96,9 +96,15 @@ const CustomOption = props => {
     />
   );
 
-  if (tooltipContent) {
+  if (isPresent(tooltipProps)) {
+    const mergedTooltipProps = {
+      zIndex: 1_000_001,
+      position: "bottom-start",
+      ...tooltipProps,
+    };
+
     return (
-      <Tooltip content={tooltipContent} zIndex={1_000_001}>
+      <Tooltip {...mergedTooltipProps}>
         <div>{optionComponent}</div>
       </Tooltip>
     );
