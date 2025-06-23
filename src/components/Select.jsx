@@ -87,7 +87,7 @@ const CustomOption = props => {
 
   if (tooltipContent) {
     return (
-      <Tooltip content={tooltipContent}>
+      <Tooltip content={tooltipContent} zIndex={1_000_001}>
         <div
           {...{ ref, ...innerProps }}
           data-cy={dataCy || `${hyphenize(props.label)}-select-option`}
