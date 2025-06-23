@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.10 - 2025-06-23
+
+Adds support to display a tooltip over the options in Select dropdown.
+
 ## 8.3.9 - 2025-06-18
 
 - Fixed: TypeError in *Toastr* component
@@ -149,7 +153,6 @@ Fixed data-cy label for *Input*.
 - Added logic to show clear selection callout when all table rows are selected
 ## 8.2.53 - 2025-01-23
 - Added: `data-cy` label for *ProgressBar*
-
 ## 8.2.52 - 2025-01-22
 
 - Fixed TypeError in Pane component.
@@ -441,7 +444,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: Storybook theme to match the branding.
 - Improved: Documentation readability.
 ## 6.8.3 - 2024-06-24
-
 - Added option to pass data-cy to accordion
 
 ## 6.8.2 - 2024-06-19
@@ -853,7 +855,6 @@ prop in *Select* component.
 - Added: resize and reorder columns functionality to *Table* component.
 ## 5.0.0 - 2023-04-28
 Removed following components from `neetoui`:
-
 - `Header`
 - `SubHeader`
 - `MenuBar`
