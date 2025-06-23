@@ -163,7 +163,7 @@ Grouped.args = {
 };
 
 const OptionTooltips = Template.bind({});
-OptionTooltips.storyName = "With Option Tooltips";
+OptionTooltips.storyName = "Option Tooltip";
 OptionTooltips.args = {
   label: "Select with Tooltips",
   placeholder: "Hover any option",

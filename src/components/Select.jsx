@@ -85,20 +85,7 @@ const CustomOption = props => {
     props.isSelected && ref.current.scrollIntoView();
   }, [props.isSelected]);
 
-  if (tooltipContent) {
-    return (
-      <Tooltip content={tooltipContent} zIndex={1_000_001}>
-        <div
-          {...{ ref, ...innerProps }}
-          data-cy={dataCy || `${hyphenize(props.label)}-select-option`}
-        >
-          <components.Option {...props} />
-        </div>
-      </Tooltip>
-    );
-  }
-
-  return (
+  const optionComponent = (
     <components.Option
       {...props}
       innerRef={ref}
@@ -108,6 +95,16 @@ const CustomOption = props => {
       }}
     />
   );
+
+  if (tooltipContent) {
+    return (
+      <Tooltip content={tooltipContent} zIndex={1_000_001}>
+        <div>{optionComponent}</div>
+      </Tooltip>
+    );
+  }
+
+  return optionComponent;
 };
 
 const Placeholder = props => {
