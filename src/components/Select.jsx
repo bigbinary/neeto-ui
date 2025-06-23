@@ -96,21 +96,13 @@ const CustomOption = props => {
     />
   );
 
-  if (isPresent(tooltipProps)) {
-    const mergedTooltipProps = {
-      zIndex: 1_000_001,
-      position: "bottom-start",
-      ...tooltipProps,
-    };
-
-    return (
-      <Tooltip {...mergedTooltipProps}>
-        <div>{optionComponent}</div>
-      </Tooltip>
-    );
-  }
-
-  return optionComponent;
+  return isPresent(tooltipProps) ? (
+    <Tooltip position="bottom-start" zIndex={1_000_001} {...tooltipProps}>
+      <div>{optionComponent}</div>
+    </Tooltip>
+  ) : (
+    optionComponent
+  );
 };
 
 const Placeholder = props => {
