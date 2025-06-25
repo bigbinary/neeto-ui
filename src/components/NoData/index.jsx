@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { isEmpty, isNil, omit } from "ramda";
 
 import Button from "components/Button";
+import { HelpContent } from "components/commons";
 import Tooltip from "components/Tooltip";
 import Typography from "components/Typography";
 
@@ -20,11 +21,13 @@ const NoData = ({
   secondaryButtonProps = {},
   buttonSeparatorText = "",
   showTooltipWhenButtonDisabled = false,
+  helpIconProps = {},
   ...otherProps
 }) => {
   const hasPrimaryButtonProps = !isEmpty(primaryButtonProps);
   const hasSecondaryButtonProps = !isEmpty(secondaryButtonProps);
   const hasButtonSeparatorText = !isEmpty(buttonSeparatorText);
+  const hasHelpIconProps = !isEmpty(helpIconProps);
 
   const showButtonSeparator =
     hasButtonSeparatorText && hasPrimaryButtonProps && hasSecondaryButtonProps;
@@ -78,12 +81,13 @@ const NoData = ({
                 (!showTooltipWhenButtonDisabled && primaryButtonProps?.disabled)
               }
             >
-              <div>
+              <div className="flex items-center gap-1">
                 <Button
                   data-cy="no-data-primary-button"
                   data-testid="no-data-primary-button"
                   {...omit(["tooltipProps"], primaryButtonProps)}
                 />
+                {hasHelpIconProps && <HelpContent {...{ helpIconProps }} />}
               </div>
             </Tooltip>
           )}

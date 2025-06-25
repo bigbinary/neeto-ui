@@ -3,7 +3,7 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-import HelpContent from "./HelpContent";
+import { HelpContent } from "components/commons";
 
 import Button from "../Button";
 import Tooltip from "../Tooltip";
