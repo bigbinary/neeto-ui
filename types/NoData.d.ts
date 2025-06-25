@@ -9,7 +9,7 @@ export type NoDataProps = {
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   showTooltipWhenButtonDisabled?: boolean;
-  helpIconProps?: HelpContentProps;
+  disabledButtonHelpIconProps?: HelpContentProps;
   className?: string;
 };
 
