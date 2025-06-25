@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonProps } from "./Button";
+import { HelpContentProps } from "./HelpContent";
 
 export type NoDataProps = {
   title?: string;
@@ -8,6 +9,7 @@ export type NoDataProps = {
   primaryButtonProps?: ButtonProps;
   secondaryButtonProps?: ButtonProps;
   showTooltipWhenButtonDisabled?: boolean;
+  helpIconProps?: HelpContentProps;
   className?: string;
 };
 

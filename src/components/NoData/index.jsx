@@ -21,13 +21,13 @@ const NoData = ({
   secondaryButtonProps = {},
   buttonSeparatorText = "",
   showTooltipWhenButtonDisabled = false,
-  helpIconProps = {},
+  disabledButtonHelpIconProps = {},
   ...otherProps
 }) => {
   const hasPrimaryButtonProps = !isEmpty(primaryButtonProps);
   const hasSecondaryButtonProps = !isEmpty(secondaryButtonProps);
   const hasButtonSeparatorText = !isEmpty(buttonSeparatorText);
-  const hasHelpIconProps = !isEmpty(helpIconProps);
+  const hasDisabledButtonHelpIconProps = !isEmpty(disabledButtonHelpIconProps);
 
   const showButtonSeparator =
     hasButtonSeparatorText && hasPrimaryButtonProps && hasSecondaryButtonProps;
@@ -87,7 +87,9 @@ const NoData = ({
                   data-testid="no-data-primary-button"
                   {...omit(["tooltipProps"], primaryButtonProps)}
                 />
-                {hasHelpIconProps && <HelpContent {...{ helpIconProps }} />}
+                {hasDisabledButtonHelpIconProps && (
+                  <HelpContent helpIconProps={disabledButtonHelpIconProps} />
+                )}
               </div>
             </Tooltip>
           )}
@@ -158,6 +160,10 @@ NoData.propTypes = {
    * To specify the text that appears between the primary and secondary buttons.
    * */
   buttonSeparatorText: PropTypes.string,
+  /**
+   * To specify the props to be passed to the help popover for the disabled button.
+   */
+  disabledButtonHelpIconProps: PropTypes.object,
 };
 
 export default NoData;
