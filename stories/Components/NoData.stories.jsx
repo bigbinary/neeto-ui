@@ -134,6 +134,27 @@ const WithHelpText = args => (
 
 WithHelpText.storyName = "No Data with help text";
 
+const WithHelpIcon = args => (
+  <div className="flex w-full items-center justify-center">
+    <NoData
+      {...args}
+      description="You can try adding a new ticket or learn more about how tickets work."
+      primaryButtonProps={{ label: "Add new ticket" }}
+      title="There are no tickets to show"
+      helpIconProps={{
+        popoverProps: {
+          title: "What is KB keywords?",
+          description:
+            "Keywords represent the key concepts of an article. These will be shown on the KB and will be used for SEO",
+          helpLinkProps: { label: "View help article" },
+        },
+      }}
+    />
+  </div>
+);
+
+WithHelpIcon.storyName = "No Data with help icon";
+
 const WithCustomImageAsSVG = args => (
   <div className="flex w-full items-center justify-center">
     <NoData
@@ -208,6 +229,7 @@ export {
   WithDescription,
   WithSecondaryButton,
   WithHelpText,
+  WithHelpIcon,
   WithCustomImageAsSVG,
   WithCustomImageFromURL,
   CSSCustomization,

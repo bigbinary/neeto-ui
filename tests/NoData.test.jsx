@@ -95,4 +95,31 @@ describe("Typography", () => {
     await userEvent.hover(secondaryButton);
     await expect(screen.getByText("Secondary tooltip")).toBeInTheDocument();
   });
+
+  it("should display help icon popover when hovered", async () => {
+    const { container } = render(
+      <NoData
+        primaryButtonProps={{ label: "Add new ticket" }}
+        title="There are no tickets to show"
+        helpIconProps={{
+          popoverProps: {
+            title: "About Tickets",
+            description: "Tickets help you track customer issues.",
+            helpLinkProps: { label: "Learn more" },
+          },
+        }}
+      />
+    );
+
+    const helpIcon = container.querySelector(".neeto-ui-label__help-icon-wrap");
+    expect(helpIcon).toBeInTheDocument();
+
+    await userEvent.hover(helpIcon);
+
+    await expect(screen.getByText("About Tickets")).toBeInTheDocument();
+    await expect(
+      screen.getByText("Tickets help you track customer issues.")
+    ).toBeInTheDocument();
+    await expect(screen.getByText("Learn more")).toBeInTheDocument();
+  });
 });
