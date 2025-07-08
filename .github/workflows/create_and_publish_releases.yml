@@ -99,10 +99,11 @@ jobs:
           wait-interval: 10
 
       - name: Merge Pull Request
-        uses: peter-evans/merge-pull-request@v1
+        uses: pascalgn/automerge-action@v0.15.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.create-pr.outputs.number }}
+          pull-request-number: ${{ steps.create-pr.outputs.number }}
           merge-method: squash
           delete-branch: true
 
