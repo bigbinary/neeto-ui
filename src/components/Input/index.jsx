@@ -90,6 +90,10 @@ const Input = forwardRef(
       onBlur?.(e);
     };
 
+    const handleOnWheel = e => {
+      if (type === "number") e.target.blur();
+    };
+
     const dataCyLabel =
       typeof label === "string" ? hyphenize(label) : hyphenize(dataCy);
 
@@ -148,6 +152,7 @@ const Input = forwardRef(
             }}
             onBlur={handleOnBlur}
             onChange={handleChange}
+            onWheel={handleOnWheel}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
