@@ -1,3 +1,4 @@
+#!/bin/bash
 
 install_gh() {
   type -p curl >/dev/null || sudo apt install curl -y
@@ -8,14 +9,24 @@ install_gh() {
   sudo apt install gh -y
 }
 
+handle_error() {
+  if [ $? -ne 0 ]; then
+    echo "Error: $1 failed. Please check the logs and resolve the issue before retrying."
+    exit 1
+  fi
+}
+
 bump_package() {
   echo "== Bump the NPM package version =="
   yarn install
+  handle_error "yarn install"
   yarn bundle
+  handle_error "yarn bundle"
   yarn config set version-tag-prefix "v"
   yarn version --"$VERSION_LABEL" --no-git-tag-version
   echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >~/.npmrc
   yarn publish --non-interactive
+  handle_error "yarn publish"
 }
 
 raise_pr() {
@@ -62,7 +73,6 @@ echo "Version label selected: $VERSION_LABEL"
 
 if [[ -n "$VERSION_LABEL" ]]; then
   bump_package
-  yarn upload
 else
   echo "PR label doesn't exist"
 fi
