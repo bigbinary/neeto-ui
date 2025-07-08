@@ -86,17 +86,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bump-version
           base: main
-          title: "Bump versions"
+          title: "Bump version"
           body: "This is an automated PR."
+          commit-message: "Bump version"
           delete-branch: true
-
-      - name: Wait for status checks
-        uses: lewagon/wait-on-check-action@v1.3.1
-        with:
-          ref: bump-version
-          check-name: 'ci/neeto-ci/pull_request/default'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
 
       - name: Merge Pull Request
         uses: pascalgn/automerge-action@v0.15.3
