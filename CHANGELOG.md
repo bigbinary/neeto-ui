@@ -23,6 +23,28 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.10 - 2025-06-23
+
+Adds support to display a tooltip over the options in Select dropdown.
+
+## 8.3.9 - 2025-06-18
+
+- Fixed: TypeError in *Toastr* component
+
+## 8.3.8 - 2025-06-18
+
+This PR makes changes to handle the case when the options passed to the Select component are grouped.
+The `buildValueObj` method has been modified to get the deeply nested options after checking for grouping.
+This change fixes issues with initial values not being displayed in the dropdown when using formik.
+
+## 8.3.7 - 2025-06-06
+
+- Added: `ref` support in *Radio.Item*.
+
+## 8.3.6 - 2025-06-04
+
+- Removed: Unused container and wrapper classes
+
 ## 8.3.5 - 2025-06-03
 
 - Fixed: pane width on iPad viewport
@@ -127,15 +149,10 @@ Fixed data-cy label for *Input*.
 - Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
 ## 8.2.57 - 2025-02-07
 - Fixed: Hex color input field auto-population issue in *ColorPicker*.
-
 ## 8.2.56 - 2025-02-06
-
 - Added logic to show clear selection callout when all table rows are selected
-
 ## 8.2.53 - 2025-01-23
-
 - Added: `data-cy` label for *ProgressBar*
-
 ## 8.2.52 - 2025-01-22
 
 - Fixed TypeError in Pane component.
@@ -417,21 +434,16 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
 - Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
 ### Component updates
-
 - Updated: Button hover/focus states.
 - Improved: Callout styles.
 - Improved: Table styles.
 - Improved: Toast bg.
 - Updated: Toast button style to tertiary.
 - Updated: Tab border color.
-
 ### Storybook updates
-
 - Updated: Storybook theme to match the branding.
 - Improved: Documentation readability.
-
 ## 6.8.3 - 2024-06-24
-
 - Added option to pass data-cy to accordion
 
 ## 6.8.2 - 2024-06-19
@@ -839,15 +851,10 @@ prop in *Select* component.
   *MultiEmailInput* component
 ## 5.0.2 - 2023-05-23
 - Added: `required` prop to *MultiEmailInput*.
-
 ## 5.0.1 - 2023-05-07
-
 - Added: resize and reorder columns functionality to *Table* component.
-
 ## 5.0.0 - 2023-04-28
-
 Removed following components from `neetoui`:
-
 - `Header`
 - `SubHeader`
 - `MenuBar`

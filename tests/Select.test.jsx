@@ -2,9 +2,11 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useField, Formik } from "formik";
 import { evolve } from "ramda";
 
 import { Select } from "components";
+import SelectField from "formikcomponents/Select";
 
 const options = [
   { label: "Option 1", value: "option-1" },
@@ -250,5 +252,103 @@ describe("Select", () => {
 
     expect(screen.getByText("Group 2 - Option 1")).toBeInTheDocument();
     expect(screen.queryByText("Group 2 - Option 2")).not.toBeInTheDocument();
+  });
+
+  it("should correctly fetch initial value for non-grouped options", () => {
+    const FormikSelectWrapper = () => {
+      const [field] = useField("test-select");
+
+      return (
+        <div>
+          <span data-testid="field-value">{field.value}</span>
+          <SelectField
+            {...{ options }}
+            label="Test Select"
+            name="test-select"
+          />
+        </div>
+      );
+    };
+
+    const TestComponent = () => (
+      <Formik initialValues={{ "test-select": "option-2" }} onSubmit={() => {}}>
+        <FormikSelectWrapper />
+      </Formik>
+    );
+
+    render(<TestComponent />);
+
+    expect(screen.getByText("Option 2")).toBeInTheDocument();
+    expect(screen.getByTestId("field-value")).toHaveTextContent("option-2");
+  });
+
+  it("should correctly fetch initial value for grouped options", () => {
+    const groupedOptions = [
+      {
+        label: "Group 1",
+        options: [
+          { label: "Group 1 - Option 1", value: "group1-option1" },
+          { label: "Group 1 - Option 2", value: "group1-option2" },
+        ],
+      },
+      {
+        label: "Group 2",
+        options: [
+          { label: "Group 2 - Option 1", value: "group2-option1" },
+          { label: "Group 2 - Option 2", value: "group2-option2" },
+        ],
+      },
+    ];
+
+    const FormikSelectWrapper = () => {
+      const [field] = useField("test-grouped-select");
+
+      return (
+        <div>
+          <span data-testid="field-value">{field.value}</span>
+          <SelectField
+            label="Test Grouped Select"
+            name="test-grouped-select"
+            options={groupedOptions}
+          />
+        </div>
+      );
+    };
+
+    const TestComponent = () => (
+      <Formik
+        initialValues={{ "test-grouped-select": "group2-option1" }}
+        onSubmit={() => {}}
+      >
+        <FormikSelectWrapper />
+      </Formik>
+    );
+
+    render(<TestComponent />);
+
+    expect(screen.getByText("Group 2 - Option 1")).toBeInTheDocument();
+    expect(screen.getByTestId("field-value")).toHaveTextContent(
+      "group2-option1"
+    );
+  });
+
+  it("should show tooltip when hovering over an option with tooltipProps", async () => {
+    const tooltipText = "Tooltip content";
+    const optionsWithTooltip = [
+      {
+        label: "Option 1",
+        value: "option-1",
+        tooltipProps: { content: tooltipText },
+      },
+    ];
+
+    render(<Select label="Select" options={optionsWithTooltip} />);
+
+    const select = screen.getByRole("combobox");
+    await userEvent.click(select);
+    const option = screen.getByText("Option 1");
+    await userEvent.hover(option);
+
+    expect(await screen.findByText(tooltipText)).toBeInTheDocument();
   });
 });
