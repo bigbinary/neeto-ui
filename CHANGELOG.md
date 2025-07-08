@@ -23,6 +23,10 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.11 - 2025-07-08
+
+- Fixed release workflow.
+
 ## 8.3.10 - 2025-06-23
 
 Adds support to display a tooltip over the options in Select dropdown.
@@ -154,7 +158,6 @@ Fixed data-cy label for *Input*.
 ## 8.2.53 - 2025-01-23
 - Added: `data-cy` label for *ProgressBar*
 ## 8.2.52 - 2025-01-22
-
 - Fixed TypeError in Pane component.
 
 ## 8.2.51 - 2025-01-21
@@ -445,7 +448,6 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Improved: Documentation readability.
 ## 6.8.3 - 2024-06-24
 - Added option to pass data-cy to accordion
-
 ## 6.8.2 - 2024-06-19
 
 https://navaneeth-d.neetorecord.com/watch/f777bc32-f8f1-4dd0-85bb-04be9c369c7b
@@ -864,7 +866,6 @@ Removed following components from `neetoui`:
 - `Container`
 - `Scrollable`
 - `Page`
-
 ## 4.4.27 - 2023-04-24
 
 - Added: `unlmitedChars` prop to *Input* and *Textarea* and reverted the
