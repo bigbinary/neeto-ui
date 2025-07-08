@@ -22,8 +22,8 @@ jobs:
 
       - name: Setup git user
         run: |
-          git config user.name "Amal dinesh"
-          git config user.email "amalkdinesh@gmail.com"
+          git config user.name "Joseph Mathew"
+          git config user.email "joseph.mathew@bigbinary.com"
 
       - name: Setup NodeJS LTS version
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
@@ -79,11 +79,32 @@ jobs:
           latest-version: ${{ steps.package-version.outputs.version }}
           release-notes: ${{ fromJson(env.CHANGELOG) }}
 
-      - name: Commit and Push changes
-        uses: EndBug/add-and-commit@v7
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v5
         with:
-          branch: main
-          message: "New version release"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bump-version
+          base: main
+          title: "Bump versions"
+          body: "This is an automated PR."
+          delete-branch: true
+
+      - name: Wait for status checks
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: bump-version
+          check-name: 'ci/neeto-ci/pull_request/default'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+
+      - name: Merge Pull Request
+        uses: peter-evans/merge-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.create-pr.outputs.number }}
+          merge-method: squash
+          delete-branch: true
 
       - name: Create a release draft on release
         uses: release-drafter/release-drafter@ac463ffd9cc4c6ad5682af93dc3e3591c4657ee3
