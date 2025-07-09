@@ -1,0 +1,14 @@
+version: v1.0
+fail_fast: true
+is_cypress: false
+plan: professional-1
+
+triggers:
+  - event: branch
+    branch_name: main
+
+commands:
+  - checkout
+  - neetoci-version node 22.13
+  - neetoci-version ruby 3.3.5
+  - bash ./.scripts/bump_version.sh

@@ -197,4 +197,32 @@ describe("Input", () => {
     rerender(<Input label="label" value={45.677} />);
     expect(input).toHaveValue("45.677");
   });
+
+  it("should prevent wheel scrolling on number input fields", () => {
+    const { getByLabelText } = render(
+      <Input label="Number Input" type="number" />
+    );
+    const input = getByLabelText("Number Input");
+
+    const wheelEvent = new Event("wheel", { bubbles: true });
+    const blurSpy = jest.spyOn(input, "blur");
+
+    input.dispatchEvent(wheelEvent);
+
+    expect(blurSpy).toHaveBeenCalled();
+    blurSpy.mockRestore();
+  });
+
+  it("should not prevent wheel scrolling on non-number input fields", () => {
+    const { getByLabelText } = render(<Input label="Text Input" type="text" />);
+    const input = getByLabelText("Text Input");
+
+    const wheelEvent = new Event("wheel", { bubbles: true });
+    const blurSpy = jest.spyOn(input, "blur");
+
+    input.dispatchEvent(wheelEvent);
+
+    expect(blurSpy).not.toHaveBeenCalled();
+    blurSpy.mockRestore();
+  });
 });
