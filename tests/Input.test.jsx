@@ -225,4 +225,17 @@ describe("Input", () => {
     expect(blurSpy).not.toHaveBeenCalled();
     blurSpy.mockRestore();
   });
+
+  it("should handle file inputs without formatting errors", async () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input {...{ onChange }} id="file-input" label="File Input" type="file" />
+    );
+    const fileInput = getByLabelText("File Input");
+
+    const file = new File(["test content"], "test.txt", { type: "text/plain" });
+    await userEvent.upload(fileInput, file);
+
+    expect(onChange).toHaveBeenCalled();
+  });
 });

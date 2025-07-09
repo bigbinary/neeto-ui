@@ -67,6 +67,12 @@ const Input = forwardRef(
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     const handleChange = e => {
+      if (type === "file") {
+        onChange(e);
+
+        return;
+      }
+
       let formattedValue = formatWithRejectCharsRegex(
         e.target.value,
         rejectCharsRegex
@@ -79,6 +85,12 @@ const Input = forwardRef(
     };
 
     const handleOnBlur = e => {
+      if (type === "file") {
+        onBlur?.(e);
+
+        return;
+      }
+
       const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
       const formattedValue = formatWithPrecision(trimmedValue, precision);
 
