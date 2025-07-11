@@ -3,7 +3,8 @@
     "blockNavigation": {
       "alertMessage": "Alle Ihre nicht gespeicherten Änderungen gehen verloren. Dies kann nicht rückgängig gemacht werden.",
       "submitButtonLabel": "Änderungen verwerfen",
-      "alertTitle": "Du hast nicht gespeicherte Änderungen"
+      "alertTitle": "Du hast nicht gespeicherte Änderungen",
+      "cancelButtonLabel": "Verwerfen und diese Seite verlassen"
     },
     "actionBlock": {
       "cancel": "Stornieren",
@@ -24,7 +25,9 @@
       "ascending": "Aufsteigend sortieren",
       "descending": "Absteigend sortieren",
       "allRowsSelected": "Alle Zeilen sind ausgewählt",
-      "clearSelection": "Klare Auswahl"
+      "clearSelection": "Klare Auswahl",
+      "freezeColumn": "Spalte einfrieren",
+      "unFreezeColumn": "Spalte aufheben"
     },
     "timePicker": {
       "hours": "Stunden",

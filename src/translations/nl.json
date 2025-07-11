@@ -3,7 +3,8 @@
     "blockNavigation": {
       "alertMessage": "Al uw niet-opgeslagen wijzigingen gaan verloren. Dit kan niet ongedaan worden gemaakt.",
       "submitButtonLabel": "Veranderingen ongedaan maken",
-      "alertTitle": "U heeft niet-opgeslagen wijzigingen"
+      "alertTitle": "U heeft niet-opgeslagen wijzigingen",
+      "cancelButtonLabel": "Verwerp en verlaat deze pagina"
     },
     "actionBlock": {
       "cancel": "Annuleren",
@@ -24,7 +25,9 @@
       "ascending": "Sorteer oplopend",
       "descending": "Sorteer aflopend",
       "allRowsSelected": "Alle rijen zijn geselecteerd",
-      "clearSelection": "Duidelijke selectie"
+      "clearSelection": "Duidelijke selectie",
+      "freezeColumn": "Kolom vastzetten",
+      "unFreezeColumn": "Kolom ontgrendelen"
     },
     "timePicker": {
       "hours": "Uur",
