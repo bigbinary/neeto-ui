@@ -3,7 +3,8 @@
     "blockNavigation": {
       "alertMessage": "Wszystkie niezapisane zmiany zostaną utracone. Tego nie można cofnąć.",
       "submitButtonLabel": "Odrzucać zmiany",
-      "alertTitle": "masz niezapisane zmiany"
+      "alertTitle": "masz niezapisane zmiany",
+      "cancelButtonLabel": "Anuluj i opuść tę stronę"
     },
     "actionBlock": {
       "cancel": "Anulować",
@@ -24,7 +25,9 @@
       "ascending": "Sortuj rosnąco",
       "descending": "Sortuj malejąco",
       "allRowsSelected": "Wszystkie wiersze są zaznaczone",
-      "clearSelection": "Wyczyść wybór"
+      "clearSelection": "Wyczyść wybór",
+      "freezeColumn": "Zablokuj kolumnę",
+      "unFreezeColumn": "Odblokuj kolumnę"
     },
     "timePicker": {
       "hours": "godziny",
