@@ -3,7 +3,8 @@
     "blockNavigation": {
       "alertMessage": "Todas as suas alterações não salvas serão perdidas. Isso não pode ser desfeito.",
       "submitButtonLabel": "Descartar alterações",
-      "alertTitle": "Você tem alterações não salvas"
+      "alertTitle": "Você tem alterações não salvas",
+      "cancelButtonLabel": "Descartar e sair desta página"
     },
     "actionBlock": {
       "cancel": "Cancelar",
@@ -24,7 +25,9 @@
       "ascending": "Ordenar crescente",
       "descending": "Ordenar decrescente",
       "allRowsSelected": "Todas as linhas estão selecionadas",
-      "clearSelection": "Limpar seleção"
+      "clearSelection": "Limpar seleção",
+      "freezeColumn": "Congelar coluna",
+      "unFreezeColumn": "Descongelar coluna"
     },
     "timePicker": {
       "hours": "Horas",
