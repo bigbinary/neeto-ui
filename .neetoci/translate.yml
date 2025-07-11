@@ -8,7 +8,7 @@ commands:
   - checkout
   - neetoci-version ruby 3.3.5
   - gem install neeto-translate-cli
-  - neeto-translate-cli
+  - neeto-translate-cli --frontend src/translations
 
 triggers:
   - event: cron
