@@ -65,21 +65,20 @@ const Switch = forwardRef(
                 />
               )}
             </span>
-          </label>
-          {renderLabel && (
-            <Label
-              {...{ required }}
-              data-cy={`${hyphenize(renderLabel).replace(
-                /[^a-z0-9-]/gi,
-                ""
-              )}-switch-label`}
-            
-              htmlFor={id}
-              {...labelProps}
-            >
-              {renderLabel}
-            </Label>
-          )}
+            </label>
+            {renderLabel && (
+              <Label
+                {...{ required }}
+                htmlFor={id}
+                {...labelProps}
+                data-cy={`${hyphenize(renderLabel).replace(
+                  /[^a-z0-9-]/gi,
+                  ""
+                )}-switch-label`}
+              >
+                {renderLabel}
+              </Label>
+            )}
         </div>
         {!!error && (
           <p
