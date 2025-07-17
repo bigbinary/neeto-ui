@@ -67,6 +67,12 @@ const Input = forwardRef(
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
     const handleChange = e => {
+      if (type === "file") {
+        onChange(e);
+
+        return;
+      }
+
       let formattedValue = formatWithRejectCharsRegex(
         e.target.value,
         rejectCharsRegex
@@ -79,6 +85,12 @@ const Input = forwardRef(
     };
 
     const handleOnBlur = e => {
+      if (type === "file") {
+        onBlur?.(e);
+
+        return;
+      }
+
       const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
       const formattedValue = formatWithPrecision(trimmedValue, precision);
 
@@ -88,6 +100,10 @@ const Input = forwardRef(
       }
 
       onBlur?.(e);
+    };
+
+    const handleOnWheel = e => {
+      if (type === "number") e.target.blur();
     };
 
     const dataCyLabel =
@@ -148,6 +164,7 @@ const Input = forwardRef(
             }}
             onBlur={handleOnBlur}
             onChange={handleChange}
+            onWheel={handleOnWheel}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>

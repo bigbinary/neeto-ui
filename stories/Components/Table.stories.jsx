@@ -131,7 +131,7 @@ const getColumns = (fixed = false) => [
       <div className="flex flex-row items-center justify-between gap-2">
         <Typography style="body2">{id}</Typography>
         <Dropdown
-          appendTo={fixed ? () => document.body : undefined}
+          appendTo={document.body}
           buttonStyle="text"
           icon={MenuHorizontal}
           strategy="fixed"

@@ -3,7 +3,8 @@
     "blockNavigation": {
       "alertMessage": "Toutes vos modifications non enregistrées seront perdues. Cela ne peut pas être annulé.",
       "submitButtonLabel": "Annuler les modifications",
-      "alertTitle": "Vous avez des changements non enregistrés"
+      "alertTitle": "Vous avez des changements non enregistrés",
+      "cancelButtonLabel": "Annuler et quitter cette page"
     },
     "actionBlock": {
       "cancel": "Annuler",
@@ -24,7 +25,9 @@
       "ascending": "Trier ascendant",
       "descending": "Trier descendant",
       "allRowsSelected": "Toutes les lignes sont sélectionnées",
-      "clearSelection": "Effacer la sélection"
+      "clearSelection": "Effacer la sélection",
+      "freezeColumn": "Geler la colonne",
+      "unFreezeColumn": "Dégeler la colonne"
     },
     "timePicker": {
       "hours": "Heures",
