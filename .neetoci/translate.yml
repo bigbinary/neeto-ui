@@ -1,0 +1,16 @@
+version: v1.0
+
+fail_fast: true
+
+plan: standard-2
+
+commands:
+  - checkout
+  - neetoci-version ruby 3.3.5
+  - gem install neeto-translate-cli
+  - neeto-translate-cli --frontend src/translations
+
+triggers:
+  - event: cron
+    cron_line: "0 5 * * *"
+    branch: main
