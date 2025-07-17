@@ -69,9 +69,12 @@ const Switch = forwardRef(
           {renderLabel && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(renderLabel)}-switch-label`}
               htmlFor={id}
               {...labelProps}
+              data-cy={`${hyphenize(renderLabel).replace(
+                /[^a-z0-9-]/gi,
+                ""
+              )}-switch-label`}
             >
               {renderLabel}
             </Label>
