@@ -62,7 +62,7 @@ const rowData = [
 
 const NeetoUITable = props => (
   <BrowserRouter>
-    <Table {...props} />
+    <Table {...props} scroll={{ x: 1000 }} virtual={false} />
   </BrowserRouter>
 );
 

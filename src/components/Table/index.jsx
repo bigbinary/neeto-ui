@@ -79,10 +79,13 @@ const Table = ({
   bulkSelectAllRowsProps,
   localStorageKeyPrefix,
   tableHeight = 800,
+  virtual = true,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
-  const [containerHeight, setContainerHeight] = useState(tableHeight);
+  const [containerHeight, setContainerHeight] = useState(
+    virtual ? tableHeight : null
+  );
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
@@ -392,8 +395,7 @@ const Table = ({
         />
       )}
       <AntTable
-        {...{ bordered, locale, rowKey }}
-        virtual
+        {...{ bordered, locale, rowKey, virtual }}
         columns={sortedColumns}
         components={componentOverrides}
         dataSource={rowData}
@@ -571,6 +573,14 @@ Table.propTypes = {
    * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.
    */
   localStorageKeyPrefix: PropTypes.string,
+  /**
+   * Whether to use virtual scrolling.
+   */
+  virtual: PropTypes.bool,
+  /**
+   * Height of the table when virtual is enabled.
+   */
+  tableHeight: PropTypes.number,
 };
 
 export default Table;
