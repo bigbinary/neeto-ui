@@ -80,8 +80,12 @@ const Input = forwardRef(
 
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
-      e.target.value = formattedValue;
-      onChange(e);
+      if (type === "number") {
+        onChange({ target: { value: formattedValue } });
+      } else {
+        e.target.value = formattedValue;
+        onChange(e);
+      }
     };
 
     const handleOnBlur = e => {
