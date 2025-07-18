@@ -81,7 +81,11 @@ const Input = forwardRef(
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
       if (type === "number") {
-        onChange({ target: { value: formattedValue } });
+        const clonedEvent = {
+          ...e,
+          target: { ...e.target, value: formattedValue },
+        };
+        onChange(clonedEvent);
       } else {
         e.target.value = formattedValue;
         onChange(e);
