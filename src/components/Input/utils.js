@@ -23,26 +23,6 @@ export const formatWithPrecision = (value, precision) => {
   return str;
 };
 
-export const preserveCursor = handler => event => {
-  const input = event.target;
-  const isNumberType = input.type === "number";
-
-  const prevCursorPos = isNumberType ? null : input.selectionStart;
-
-  handler(event);
-
-  if (document.activeElement === input) {
-    if (isNumberType) {
-      const prevType = input.type;
-      input.type = "text";
-      input.setSelectionRange(input.value.length, input.value.length);
-      input.type = prevType;
-    } else if (prevCursorPos !== null) {
-      input.setSelectionRange(prevCursorPos, prevCursorPos);
-    }
-  }
-};
-
 export const enforceDecimalPrecision = (value, precision) => {
   if (precision < 0 || !value) return value;
 
@@ -73,4 +53,20 @@ export const getTrimmedValue = (value, disableTrimOnBlur) => {
   if (disableTrimOnBlur || typeof value !== "string") return value;
 
   return value.trim();
+};
+
+export const preserveCursor = (e, updateValueFn) => {
+  const input = e.target;
+  const prevCursor = input.selectionStart;
+  const prevValue = input.value;
+
+  updateValueFn();
+
+  const lengthDiff = input.value.length - prevValue.length;
+  const newCursor = Math.max(0, prevCursor + lengthDiff);
+
+  requestAnimationFrame(() => {
+    if (document.activeElement !== input) return;
+    input.setSelectionRange(newCursor, newCursor);
+  });
 };

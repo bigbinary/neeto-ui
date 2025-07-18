@@ -67,7 +67,7 @@ const Input = forwardRef(
 
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleChange = preserveCursor(e => {
+    const handleChange = e => {
       if (type === "file") {
         onChange(e);
 
@@ -81,9 +81,12 @@ const Input = forwardRef(
 
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
-      e.target.value = formattedValue;
+      if (formattedValue !== e.target.value) {
+        preserveCursor(e, () => (e.target.value = formattedValue));
+      }
+
       onChange(e);
-    });
+    };
 
     const handleOnBlur = e => {
       if (type === "file") {
