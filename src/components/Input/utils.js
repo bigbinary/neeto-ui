@@ -23,6 +23,26 @@ export const formatWithPrecision = (value, precision) => {
   return str;
 };
 
+export const preserveCursor = handler => event => {
+  const input = event.target;
+  const isNumberType = input.type === "number";
+
+  const prevCursorPos = isNumberType ? null : input.selectionStart;
+
+  handler(event);
+
+  if (document.activeElement === input) {
+    if (isNumberType) {
+      const prevType = input.type;
+      input.type = "text";
+      input.setSelectionRange(input.value.length, input.value.length);
+      input.type = prevType;
+    } else if (prevCursorPos !== null) {
+      input.setSelectionRange(prevCursorPos, prevCursorPos);
+    }
+  }
+};
+
 export const enforceDecimalPrecision = (value, precision) => {
   if (precision < 0 || !value) return value;
 

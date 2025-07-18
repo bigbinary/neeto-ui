@@ -11,6 +11,7 @@ import {
   formatWithPrecision,
   formatWithRejectCharsRegex,
   getTrimmedValue,
+  preserveCursor,
 } from "./utils";
 
 import Label from "../Label";
@@ -66,7 +67,7 @@ const Input = forwardRef(
 
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleChange = e => {
+    const handleChange = preserveCursor(e => {
       if (type === "file") {
         onChange(e);
 
@@ -80,17 +81,9 @@ const Input = forwardRef(
 
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
-      if (type === "number") {
-        const clonedEvent = {
-          ...e,
-          target: { ...e.target, value: formattedValue },
-        };
-        onChange(clonedEvent);
-      } else {
-        e.target.value = formattedValue;
-        onChange(e);
-      }
-    };
+      e.target.value = formattedValue;
+      onChange(e);
+    });
 
     const handleOnBlur = e => {
       if (type === "file") {
