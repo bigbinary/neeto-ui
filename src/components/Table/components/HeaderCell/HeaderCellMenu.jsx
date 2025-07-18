@@ -154,4 +154,4 @@ const HeaderCellMenu = ({
   );
 };
 
-export default HeaderCellMenu;
+export default React.memo(HeaderCellMenu);

@@ -44,6 +44,8 @@ export interface TableProps {
     allRowsSelectedMessage?: string;
     clearSelectionButtonLabel?: string;
   };
+  virtual?: boolean;
+  tableHeight?: number;
   [key: string]: any;
 }
 const Table: React.FC<TableProps>;

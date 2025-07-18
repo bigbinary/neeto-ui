@@ -43,4 +43,4 @@ const ResizableHeaderCell = props => {
   );
 };
 
-export default ResizableHeaderCell;
+export default React.memo(ResizableHeaderCell);
