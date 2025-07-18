@@ -151,13 +151,9 @@ const Table = ({
       const originalCol = columnData.find(c => c.dataIndex === col.dataIndex);
       const changes = {};
 
-      // Only width for now
       if (col.width && col.width !== originalCol?.width) {
         changes.width = col.width;
       }
-
-      // Future properties go here:
-      // if (col.fixed !== originalCol?.fixed) changes.fixed = col.fixed;
 
       if (Object.keys(changes).length > 0) {
         newChanges[col.dataIndex] = changes;
