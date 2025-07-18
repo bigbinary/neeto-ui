@@ -34,4 +34,4 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
   );
 };
 
-export default TitleWithInfoIcon;
+export default React.memo(TitleWithInfoIcon);

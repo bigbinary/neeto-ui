@@ -78,10 +78,11 @@ const Table = ({
   onMoreActionClick,
   bulkSelectAllRowsProps,
   localStorageKeyPrefix,
+  tableHeight = 800,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
-  const [containerHeight, setContainerHeight] = useState(null);
+  const [containerHeight, setContainerHeight] = useState(tableHeight);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
@@ -392,6 +393,7 @@ const Table = ({
       )}
       <AntTable
         {...{ bordered, locale, rowKey }}
+        virtual
         columns={sortedColumns}
         components={componentOverrides}
         dataSource={rowData}
