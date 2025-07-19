@@ -10,17 +10,17 @@ describe("Typography", () => {
     const { getByText } = render(
       <NoData
         primaryButtonProps={{ label: "Add new ticket" }}
-        title="There are no tickets to show"
+        title="There are no tickets to show."
       />
     );
-    expect(getByText("There are no tickets to show")).toBeInTheDocument();
+    expect(getByText("There are no tickets to show.")).toBeInTheDocument();
   });
 
   it("should display primary and secondary button tooltips when button is disabled and showTooltipWhenButtonDisabled is true", async () => {
     const { getByTestId } = render(
       <NoData
         showTooltipWhenButtonDisabled
-        title="There are no tickets to show"
+        title="There are no tickets to show."
         primaryButtonProps={{
           label: "Add new ticket",
           tooltipProps: { content: "Primary tooltip" },
@@ -47,7 +47,7 @@ describe("Typography", () => {
     const { getByTestId } = render(
       <NoData
         showTooltipWhenButtonDisabled={false}
-        title="There are no tickets to show"
+        title="There are no tickets to show."
         primaryButtonProps={{
           label: "Add new ticket",
           tooltipProps: { content: "Primary tooltip" },
@@ -75,7 +75,7 @@ describe("Typography", () => {
   it("should display primary and secondary button tooltips when button is not disabled", async () => {
     const { getByTestId } = render(
       <NoData
-        title="There are no tickets to show"
+        title="There are no tickets to show."
         primaryButtonProps={{
           label: "Add new ticket",
           tooltipProps: { content: "Primary tooltip" },
