@@ -78,14 +78,11 @@ const Table = ({
   onMoreActionClick,
   bulkSelectAllRowsProps,
   localStorageKeyPrefix,
-  tableHeight = 800,
   virtual = true,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
-  const [containerHeight, setContainerHeight] = useState(
-    virtual ? tableHeight : null
-  );
+  const [containerRect, setContainerRect] = useState({ top: 0, left: 0 });
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
@@ -104,12 +101,9 @@ const Table = ({
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
+  const tableContainerRef = useRef(null);
 
-  const resizeObserver = useRef(
-    new ResizeObserver(([entry]) =>
-      setContainerHeight(entry.contentRect.height)
-    )
-  );
+  const resizeObserver = useRef(null);
 
   const scrollRef = useRef(null);
   const tableRef = useCallback(
@@ -267,6 +261,8 @@ const Table = ({
       selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
     }
 
+    const containerHeight = window.innerHeight - containerRect.top;
+
     return (
       containerHeight -
       headerHeight -
@@ -316,6 +312,25 @@ const Table = ({
 
   useEffect(() => setColumns(columnData), [columnData]);
 
+  // Calculate container dimensions based on rect
+  useEffect(() => {
+    const updateContainerRect = () => {
+      if (!tableContainerRef.current) return;
+      const rect = tableContainerRef.current.getBoundingClientRect();
+      setContainerRect(rect);
+    };
+
+    updateContainerRect();
+
+    window.addEventListener("scroll", updateContainerRect);
+    window.addEventListener("resize", updateContainerRect);
+
+    return () => {
+      window.removeEventListener("scroll", updateContainerRect);
+      window.removeEventListener("resize", updateContainerRect);
+    };
+  }, []);
+
   const neetoUIFontBold = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue(
       "--neeto-ui-font-bold"
@@ -324,123 +339,129 @@ const Table = ({
   );
 
   const renderTable = () => (
-    <ConfigProvider
-      locale={ANTD_LOCALE[i18n.language || "en"]}
-      theme={{
-        token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
-        components: {
-          Pagination: {
-            itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
-            itemActiveBgDisabled: "rgb(var(--neeto-ui-gray-50))",
-            itemActiveColorDisabled: "rgb(var(--neeto-ui-gray-300))",
-            itemBg: "rgb(var(--neeto-ui-white))",
-            itemInputBg: "rgb(var(--neeto-ui-white))",
-            itemLinkBg: "rgb(var(--neeto-ui-white))",
+    <div ref={tableContainerRef}>
+      <ConfigProvider
+        locale={ANTD_LOCALE[i18n.language || "en"]}
+        theme={{
+          token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
+          components: {
+            Pagination: {
+              itemActiveBg: "rgb(var(--neeto-ui-primary-500))",
+              itemActiveBgDisabled: "rgb(var(--neeto-ui-gray-50))",
+              itemActiveColorDisabled: "rgb(var(--neeto-ui-gray-300))",
+              itemBg: "rgb(var(--neeto-ui-white))",
+              itemInputBg: "rgb(var(--neeto-ui-white))",
+              itemLinkBg: "rgb(var(--neeto-ui-white))",
 
-            // Global overrides
-            colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
-            colorPrimary: "rgb(var(--neeto-ui-white))",
-            colorPrimaryHover: "rgb(var(--neeto-ui-white))",
-            colorBgTextHover: "rgb(var(--neeto-ui-gray-200))",
-            borderRadius: 6,
-          },
-          Table: {
-            headerBorderRadius: 0,
-            bodySortBg: "rgb(var(--neeto-ui-gray-50))",
-            borderColor: "rgb(var(--neeto-ui-gray-200))",
-            expandIconBg: "rgb(var(--neeto-ui-white))",
-            filterDropdownBg: "rgb(var(--neeto-ui-white))",
-            filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
-            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            footerBg: "rgb(var(--neeto-ui-gray-100))",
-            footerColor: "rgb(var(--neeto-ui-black))",
-            headerBg: "rgb(var(--neeto-ui-gray-100))",
-            headerColor: "rgb(var(--neeto-ui-black))",
-            headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
-            headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSplitColor: "rgb(var(--neeto-ui-gray-100))",
-            rowExpandedBg: "rgb(var(--neeto-ui-gray-100))",
-            rowHoverBg: "rgb(var(--neeto-ui-gray-50))",
-            rowSelectedBg: "rgb(var(--neeto-ui-accent-50))",
-            rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-50))",
-            stickyScrollBarBg: "rgb(var(--neeto-ui-gray-300))",
-            cellPaddingBlock: 11,
+              // Global overrides
+              colorBgContainer: "rgb(var(--neeto-ui-primary-500))",
+              colorPrimary: "rgb(var(--neeto-ui-white))",
+              colorPrimaryHover: "rgb(var(--neeto-ui-white))",
+              colorBgTextHover: "rgb(var(--neeto-ui-gray-200))",
+              borderRadius: 6,
+            },
+            Table: {
+              headerBorderRadius: 0,
+              bodySortBg: "rgb(var(--neeto-ui-gray-50))",
+              borderColor: "rgb(var(--neeto-ui-gray-200))",
+              expandIconBg: "rgb(var(--neeto-ui-white))",
+              filterDropdownBg: "rgb(var(--neeto-ui-white))",
+              filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
+              fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+              footerBg: "rgb(var(--neeto-ui-gray-100))",
+              footerColor: "rgb(var(--neeto-ui-black))",
+              headerBg: "rgb(var(--neeto-ui-gray-100))",
+              headerColor: "rgb(var(--neeto-ui-black))",
+              headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
+              headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
+              headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
+              headerSplitColor: "rgb(var(--neeto-ui-gray-100))",
+              rowExpandedBg: "rgb(var(--neeto-ui-gray-100))",
+              rowHoverBg: "rgb(var(--neeto-ui-gray-50))",
+              rowSelectedBg: "rgb(var(--neeto-ui-accent-50))",
+              rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-50))",
+              stickyScrollBarBg: "rgb(var(--neeto-ui-gray-300))",
+              cellPaddingBlock: 11,
 
-            // Global overrides
-            colorPrimary: "rgb(var(--neeto-ui-primary-500))",
-            fontSize: 14,
-            fontWeightStrong: neetoUIFontBold,
-            paddingContentVerticalLG: 11,
+              // Global overrides
+              colorPrimary: "rgb(var(--neeto-ui-primary-500))",
+              fontSize: 14,
+              fontWeightStrong: neetoUIFontBold,
+              paddingContentVerticalLG: 11,
+            },
           },
-        },
-      }}
-    >
-      {shouldShowSelectAllRowsCallout && (
-        <SelectAllRowsCallout
-          {...bulkSelectAllRowsProps}
-          onBulkSelectAllRows={() => {
-            setBulkSelectedAllRows(true);
-            handleSetBulkSelectedAllRows?.(true);
-          }}
-        />
-      )}
-      {shouldShowAllRowsSelectedCallout && (
-        <AllRowsSelectedCallout
-          {...bulkSelectAllRowsProps}
-          onClearSelection={() => {
-            setBulkSelectedAllRows(false);
-            handleSetBulkSelectedAllRows?.(false);
-            handleRowChange([], []);
-          }}
-        />
-      )}
-      <AntTable
-        {...{ bordered, locale, rowKey, virtual }}
-        columns={sortedColumns}
-        components={componentOverrides}
-        dataSource={rowData}
-        loading={{ spinning: loading, indicator: <Spinner /> }}
-        ref={tableRef}
-        rowSelection={rowSelectionProps}
-        showSorterTooltip={false}
-        pagination={{
-          hideOnSinglePage: true,
-          ...paginationProps,
-          showSizeChanger: false,
-          total: totalCount ?? 0,
-          current: currentPageNumber,
-          defaultPageSize: pageSize,
-          pageSizeOptions: calculatePageSizeOptions(),
-          onChange: handlePageChange,
-          itemRender,
         }}
-        rowClassName={classnames(
-          "neeto-ui-table--row",
-          { "neeto-ui-table--row_hover": allowRowClick },
-          [className]
+      >
+        {shouldShowSelectAllRowsCallout && (
+          <SelectAllRowsCallout
+            {...bulkSelectAllRowsProps}
+            onBulkSelectAllRows={() => {
+              setBulkSelectedAllRows(true);
+              handleSetBulkSelectedAllRows?.(true);
+            }}
+          />
         )}
-        scroll={{
-          x: "max-content",
-          y: calculateTableContainerHeight(),
-          ...scroll,
-        }}
-        onChange={handleTableChange}
-        onScroll={handleScroll}
-        onHeaderRow={() => ({
-          ref: headerRef,
-          className: classnames("neeto-ui-table__header", {
-            "neeto-ui-table-reorderable": enableColumnReorder,
-          }),
-          id: "neeto-ui-table__header",
-        })}
-        onRow={(record, rowIndex) => ({
-          onClick: event =>
-            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
-        })}
-        {...otherProps}
-      />
-    </ConfigProvider>
+        {shouldShowAllRowsSelectedCallout && (
+          <AllRowsSelectedCallout
+            {...bulkSelectAllRowsProps}
+            onClearSelection={() => {
+              setBulkSelectedAllRows(false);
+              handleSetBulkSelectedAllRows?.(false);
+              handleRowChange([], []);
+            }}
+          />
+        )}
+        <AntTable
+          {...{ bordered, locale, rowKey, virtual }}
+          columns={sortedColumns}
+          components={componentOverrides}
+          dataSource={rowData}
+          loading={{ spinning: loading, indicator: <Spinner /> }}
+          ref={tableRef}
+          rowSelection={rowSelectionProps}
+          showSorterTooltip={false}
+          pagination={{
+            hideOnSinglePage: true,
+            ...paginationProps,
+            showSizeChanger: false,
+            total: totalCount ?? 0,
+            current: currentPageNumber,
+            defaultPageSize: pageSize,
+            pageSizeOptions: calculatePageSizeOptions(),
+            onChange: handlePageChange,
+            itemRender,
+          }}
+          rowClassName={classnames(
+            "neeto-ui-table--row",
+            { "neeto-ui-table--row_hover": allowRowClick },
+            [className]
+          )}
+          scroll={{
+            x: virtual
+              ? window.innerWidth - containerRect?.left
+              : "max-content",
+            y: calculateTableContainerHeight(),
+            ...scroll,
+          }}
+          onChange={handleTableChange}
+          onScroll={handleScroll}
+          onHeaderRow={() => ({
+            ref: headerRef,
+            className: classnames("neeto-ui-table__header", {
+              "neeto-ui-table-reorderable": enableColumnReorder,
+            }),
+            id: "neeto-ui-table__header",
+          })}
+          onRow={(record, rowIndex) => ({
+            onClick: event =>
+              allowRowClick &&
+              onRowClick &&
+              onRowClick(event, record, rowIndex),
+          })}
+          {...otherProps}
+        />
+      </ConfigProvider>
+    </div>
   );
 
   return enableColumnReorder ? (
@@ -578,10 +599,6 @@ Table.propTypes = {
    * Whether to use virtual scrolling.
    */
   virtual: PropTypes.bool,
-  /**
-   * Height of the table when virtual is enabled.
-   */
-  tableHeight: PropTypes.number,
 };
 
 export default Table;
