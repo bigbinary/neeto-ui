@@ -222,6 +222,7 @@ const Table = ({
     ? {
         type: "checkbox",
         preserveSelectedRowKeys: true,
+        columnWidth: 48,
         ...rowSelection,
         onChange: handleRowChange,
         selectedRowKeys,
