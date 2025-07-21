@@ -62,7 +62,7 @@ const rowData = [
 
 const NeetoUITable = props => (
   <BrowserRouter>
-    <Table {...props} scroll={{ x: 1000 }} virtual={false} />
+    <Table {...props} scroll={{ x: 1000 }} />
   </BrowserRouter>
 );
 
@@ -80,7 +80,7 @@ describe("Table", () => {
   });
 
   it("should render all the rows", () => {
-    render(<NeetoUITable {...{ columnData, rowData }} />);
+    render(<NeetoUITable {...{ columnData, rowData }} virtual={false} />);
     const row = screen.getAllByRole("row");
     expect(row.length).toBe(4);
   });
@@ -150,6 +150,7 @@ describe("Table", () => {
         {...{ columnData, rowData }}
         defaultPageSize={2}
         shouldDynamicallyRenderRowSize={false}
+        virtual={false}
       />
     );
     const row = screen.getAllByRole("row");
