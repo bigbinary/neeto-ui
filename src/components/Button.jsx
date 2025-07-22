@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import Spinner from "./Spinner";
 import Tooltip from "./Tooltip";
+import { hyphenize } from "utils";
 
 const BUTTON_STYLES = {
   primary: "primary",
@@ -97,7 +98,7 @@ const Button = React.forwardRef(
           {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >
           {renderLabel && (
-            <span className="neeto-ui-btn__label">{renderLabel}</span>
+            <span className="neeto-ui-btn__label" data-cy={hyphenize(renderLabel)}>{renderLabel}</span>
           )}
           {icon && (
             <Icon
