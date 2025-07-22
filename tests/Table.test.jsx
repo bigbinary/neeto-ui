@@ -552,4 +552,48 @@ describe("Table", () => {
       expect(firstNameHeader).not.toHaveClass("ant-table-cell-fix-left");
     });
   });
+
+  it("should preserve column width after resize when pagination changes", async () => {
+    const onColumnUpdate = jest.fn();
+
+    const NeetoUITableWithWrapper = () => {
+      const [page, setPage] = useState(1);
+
+      return (
+        <div>
+          <button
+            data-testid="change-page"
+            onClick={() => setPage(page === 1 ? 2 : 1)}
+          >
+            Change Page
+          </button>
+          <NeetoUITable
+            {...{ columnData, onColumnUpdate, rowData }}
+            enableColumnResize
+            currentPageNumber={page}
+            defaultPageSize={2}
+            totalCount={4}
+          />
+        </div>
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
+    // Simulate column resize
+    const resizedColumns = [...columnData];
+    resizedColumns[1] = { ...resizedColumns[1], width: 300 }; // Change First Name width from 150 to 300
+    onColumnUpdate(resizedColumns);
+    expect(onColumnUpdate).toHaveBeenCalledWith(resizedColumns);
+    const pageButton = screen.getByTestId("change-page");
+    await userEvent.click(pageButton);
+
+    expect(onColumnUpdate).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({
+          dataIndex: "first_name",
+          width: 300, // The resized width should be preserved
+        }),
+      ])
+    );
+  });
 });

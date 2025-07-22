@@ -79,7 +79,9 @@ export const getColumnSortOrder = (col, sortedInfo) =>
     : null;
 
 export const getColumFixedValue = (col, frozenColumns) =>
-  frozenColumns.indexOf(col.dataIndex) !== -1 ? COLUMN_FIXED_VALUES.LEFT : null;
+  frozenColumns?.indexOf(col.dataIndex) !== -1
+    ? COLUMN_FIXED_VALUES.LEFT
+    : null;
 
 export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
   const prefix = isPresent(localStorageKeyPrefix)

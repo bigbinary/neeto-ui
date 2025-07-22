@@ -72,6 +72,7 @@ const Table = ({
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
+  const [columnChanges, setColumnChanges] = useState({});
   const {
     handleTableChange: handleTableSortChange,
     sortedInfo,
@@ -96,6 +97,26 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
+  const handleColumnUpdateWithChanges = updatedColumns => {
+    const newChanges = {};
+
+    updatedColumns.forEach(col => {
+      const originalCol = columnData.find(c => c.dataIndex === col.dataIndex);
+      const changes = {};
+
+      if (col.width && col.width !== originalCol?.width) {
+        changes.width = col.width;
+      }
+
+      if (Object.keys(changes).length > 0) {
+        newChanges[col.dataIndex] = changes;
+      }
+    });
+
+    setColumnChanges(prev => ({ ...prev, ...newChanges }));
+    onColumnUpdate(updatedColumns);
+  };
+
   const { dragProps, columns: curatedColumnsData } = useColumns({
     isReorderEnabled: enableColumnReorder,
     isResizeEnabled: enableColumnResize,
@@ -105,7 +126,7 @@ const Table = ({
     columns,
     columnData,
     setColumns,
-    onColumnUpdate,
+    onColumnUpdate: handleColumnUpdateWithChanges,
     rowSelection,
     sortedInfo,
     setSortedInfo,
@@ -251,7 +272,13 @@ const Table = ({
       : handlePageChange(page, pageSize);
   }, [rowData]);
 
-  useEffect(() => setColumns(columnData), [columnData]);
+  useEffect(() => {
+    const mergedColumns = columnData.map(col => ({
+      ...col,
+      ...columnChanges[col.dataIndex], // Apply any column changes
+    }));
+    setColumns(mergedColumns);
+  }, [columnData, columnChanges]);
 
   const neetoUIFontBold = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue(
