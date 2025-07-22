@@ -15,13 +15,13 @@ import ReactDragListView from "react-drag-listview";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
-import { ANTD_LOCALE, TABLE_DEFAULT_HEADER_HEIGHT } from "components/constants";
+import { ANTD_LOCALE } from "components/constants";
 import { useQueryParams, useTimeout } from "hooks";
 import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
-import { TABLE_SORT_ORDERS } from "./constants";
+import { TABLE_SORT_ORDERS, TABLE_DEFAULT_HEADER_HEIGHT } from "./constants";
 import useColumns from "./hooks/useColumns";
 import { useScroll } from "./hooks/useScroll";
 import useTableSort from "./hooks/useTableSort";
