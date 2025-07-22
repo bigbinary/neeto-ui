@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 
-import { append, equals, isEmpty, props, union, without } from "ramda";
+import { append, equals, isEmpty, props, without } from "ramda";
 
 import useLocalStorage from "hooks/useLocalStorage";
 
@@ -31,11 +31,8 @@ const useColumns = ({
   isDefaultPageChangeHandler,
   localStorageKeyPrefix,
 }) => {
-  const didSetInitialFrozenColumnsRef = useRef(false);
-
   const [frozenColumns, setFrozenColumns] = useLocalStorage(
-    getFrozenColumnsLocalStorageKey(localStorageKeyPrefix),
-    getFixedColumns(columnData)
+    getFrozenColumnsLocalStorageKey(localStorageKeyPrefix)
   );
 
   const onColumnFreeze = useCallback(
@@ -50,11 +47,10 @@ const useColumns = ({
   );
 
   useEffect(() => {
-    if (isEmpty(columnData) || didSetInitialFrozenColumnsRef.current) return;
+    if (isEmpty(columnData) || frozenColumns) return;
 
     const fixedCols = getFixedColumns(columnData);
-    setFrozenColumns(union(fixedCols));
-    didSetInitialFrozenColumnsRef.current = true;
+    setFrozenColumns(fixedCols);
   }, [columnData, setFrozenColumns]);
 
   const { dragProps } = useReorderColumns({

@@ -54,3 +54,19 @@ export const getTrimmedValue = (value, disableTrimOnBlur) => {
 
   return value.trim();
 };
+
+export const preserveCursor = (e, updateValueFn) => {
+  const input = e.target;
+  const prevCursor = input.selectionStart;
+  const prevValue = input.value;
+
+  updateValueFn();
+
+  const lengthDiff = input.value.length - prevValue.length;
+  const newCursor = Math.max(0, prevCursor + lengthDiff);
+
+  requestAnimationFrame(() => {
+    if (document.activeElement !== input) return;
+    input.setSelectionRange(newCursor, newCursor);
+  });
+};
