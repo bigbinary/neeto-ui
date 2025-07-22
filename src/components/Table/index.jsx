@@ -103,8 +103,7 @@ const Table = ({
   const tableOnChangeProps = useRef({});
   const tableContainerRef = useRef(null);
 
-  const resizeObserver = useRef(null);
-
+  const resizeObserver = useRef(new ResizeObserver(noop));
   const scrollRef = useRef(null);
   const tableRef = useCallback(
     table => {
