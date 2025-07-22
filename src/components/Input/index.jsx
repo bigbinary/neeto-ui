@@ -11,6 +11,7 @@ import {
   formatWithPrecision,
   formatWithRejectCharsRegex,
   getTrimmedValue,
+  preserveCursor,
 } from "./utils";
 
 import Label from "../Label";
@@ -80,7 +81,10 @@ const Input = forwardRef(
 
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
-      e.target.value = formattedValue;
+      if (formattedValue !== e.target.value) {
+        preserveCursor(e, () => (e.target.value = formattedValue));
+      }
+
       onChange(e);
     };
 
