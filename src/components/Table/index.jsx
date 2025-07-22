@@ -29,7 +29,6 @@ import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
 import { TABLE_SORT_ORDERS } from "./constants";
 import useColumns from "./hooks/useColumns";
-import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
 import useTableSort from "./hooks/useTableSort";
 import {
   getHeaderCell,
@@ -126,11 +125,11 @@ const Table = ({
     [resizeObserver.current, fixedHeight, enableColumnReorder]
   );
 
-  const { handleScroll } = useRestoreScrollPosition({
-    tableRef,
-    scrollRef,
-    loading,
-  });
+  // const { handleScroll } = useRestoreScrollPosition({
+  //   tableRef,
+  //   scrollRef,
+  //   loading,
+  // });
 
   useTimeout(() => {
     const headerHeight = headerRef.current
@@ -443,7 +442,7 @@ const Table = ({
             ...scroll,
           }}
           onChange={handleTableChange}
-          onScroll={handleScroll}
+          // onScroll={handleScroll}
           onHeaderRow={() => ({
             ref: headerRef,
             className: classnames("neeto-ui-table__header", {
