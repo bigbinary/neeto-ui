@@ -5,7 +5,7 @@ import { noop } from "neetocist";
 import { TABLE_PAGINATION_HEIGHT } from "../constants";
 import { getSelectAllRowsCalloutHeight } from "../utils";
 
-export const useScroll = ({
+export const useVirtualScroll = ({
   otherProps,
   rowData,
   pageSize,
@@ -54,7 +54,8 @@ export const useScroll = ({
   };
 
   return {
-    tableRef: tableContainerRef,
+    tableRef: null,
+    tableContainerRef,
     handleScroll: noop,
     calculatedScroll: {
       x: window.innerWidth - containerRect?.left,

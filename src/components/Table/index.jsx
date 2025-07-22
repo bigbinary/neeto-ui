@@ -156,7 +156,7 @@ const Table = ({
     ? calculateRowsPerPage()
     : paginationProps.pageSize || defaultPageSize;
 
-  const { tableRef, handleScroll, calculatedScroll } = (
+  const { tableRef, tableContainerRef, handleScroll, calculatedScroll } = (
     virtual ? useVirtualScroll : useScroll
   )({
     fixedHeight,
@@ -377,7 +377,11 @@ const Table = ({
   );
 
   const renderTableVirtual = () =>
-    virtual ? <div ref={tableRef}>{renderTable()}</div> : renderTable();
+    virtual ? (
+      <div ref={tableContainerRef}>{renderTable()}</div>
+    ) : (
+      renderTable()
+    );
 
   return enableColumnReorder ? (
     <ReactDragListView.DragColumn {...dragProps}>

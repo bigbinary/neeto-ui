@@ -70,6 +70,7 @@ export const useScroll = ({
 
   return {
     tableRef,
+    tableContainerRef: null,
     handleScroll,
     calculatedScroll: {
       x: "max-content",

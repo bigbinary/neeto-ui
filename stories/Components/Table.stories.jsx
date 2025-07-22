@@ -482,6 +482,7 @@ const TableWithResizableColumns = args => {
     <div className="h-96">
       <Table
         enableColumnResize
+        virtual
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
