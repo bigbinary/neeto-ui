@@ -8,7 +8,6 @@ import { Tooltip, Tag, Avatar, Button, Dropdown, Typography } from "components";
 import NeetoTable from "components/Table";
 
 import { getTableSource, TABLE_DATA, SIMPLE_TABLE_DATA } from "../constants";
-import { generateTableDataArray } from "../dataGenerator";
 
 import MoreActionsOnHeaderDocs from "!raw-loader!./TableStoriesDocs/MoreActionsOnHeaderDocs.mdx";
 import TableCSSCustomization from "!raw-loader!./TableStoriesDocs/TableCSSCustomization.mdx";
@@ -486,7 +485,7 @@ const TableWithResizableColumns = args => {
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}
-        rowData={generateTableDataArray(500)}
+        rowData={TABLE_DATA}
         onColumnUpdate={() => {
           alert("Columns changed");
         }}
@@ -496,7 +495,7 @@ const TableWithResizableColumns = args => {
   );
 };
 TableWithResizableColumns.storyName = "Table with resizable columns";
-TableWithResizableColumns.args = { defaultPageSize: 200 };
+TableWithResizableColumns.args = { defaultPageSize: 10 };
 
 const TableWithReordableColumns = args => {
   const [pageNumber, setPageNumber] = useState(1);
