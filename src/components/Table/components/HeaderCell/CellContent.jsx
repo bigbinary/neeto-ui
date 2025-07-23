@@ -76,4 +76,4 @@ const CellContent = ({
   );
 };
 
-export default CellContent;
+export default React.memo(CellContent);

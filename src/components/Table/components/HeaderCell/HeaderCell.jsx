@@ -40,4 +40,4 @@ const HeaderCell = props => {
   );
 };
 
-export default HeaderCell;
+export default React.memo(HeaderCell);

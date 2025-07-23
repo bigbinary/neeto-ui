@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { Table as AntTable, ConfigProvider } from "antd";
 import classnames from "classnames";
@@ -27,23 +21,16 @@ import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
 
 import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
-import { TABLE_SORT_ORDERS } from "./constants";
+import { TABLE_SORT_ORDERS, TABLE_DEFAULT_HEADER_HEIGHT } from "./constants";
 import useColumns from "./hooks/useColumns";
-import { useRestoreScrollPosition } from "./hooks/useRestoreScrollPosition";
+import { useScroll } from "./hooks/useScroll";
 import useTableSort from "./hooks/useTableSort";
-import {
-  getHeaderCell,
-  isIncludedIn,
-  getSelectAllRowsCalloutHeight,
-} from "./utils";
+import { useVirtualScroll } from "./hooks/useVirtualScroll";
+import { getHeaderCell, isIncludedIn, calculateRowsPerPage } from "./utils";
 
 import Button from "../Button";
 import Spinner from "../Spinner";
 import Typography from "../Typography";
-
-const TABLE_PAGINATION_HEIGHT = 64;
-const TABLE_DEFAULT_HEADER_HEIGHT = 40;
-const TABLE_ROW_HEIGHT = 52;
 
 const Table = ({
   allowRowClick = true,
@@ -78,10 +65,10 @@ const Table = ({
   onMoreActionClick,
   bulkSelectAllRowsProps,
   localStorageKeyPrefix,
+  virtual = false,
   ...otherProps
 }) => {
   const { i18n } = useTranslation();
-  const [containerHeight, setContainerHeight] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(TABLE_DEFAULT_HEADER_HEIGHT);
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
@@ -101,40 +88,6 @@ const Table = ({
 
   const headerRef = useRef();
   const tableOnChangeProps = useRef({});
-
-  const resizeObserver = useRef(
-    new ResizeObserver(([entry]) =>
-      setContainerHeight(entry.contentRect.height)
-    )
-  );
-
-  const scrollRef = useRef(null);
-  const tableRef = useCallback(
-    table => {
-      scrollRef.current = table;
-
-      if (!fixedHeight) return;
-
-      const observer = resizeObserver.current;
-
-      if (table !== null) {
-        const targetNode = enableColumnReorder
-          ? table?.parentNode?.parentNode
-          : table?.parentNode;
-
-        observer.observe(targetNode);
-      } else if (observer) {
-        observer.disconnect();
-      }
-    },
-    [resizeObserver.current, fixedHeight, enableColumnReorder]
-  );
-
-  const { handleScroll } = useRestoreScrollPosition({
-    tableRef,
-    scrollRef,
-    loading,
-  });
 
   useTimeout(() => {
     const headerHeight = headerRef.current
@@ -220,6 +173,24 @@ const Table = ({
   const shouldShowAllRowsSelectedCallout =
     bulkSelectAllRowsProps && bulkSelectedAllRows;
 
+  const pageSize = shouldDynamicallyRenderRowSize
+    ? calculateRowsPerPage()
+    : paginationProps.pageSize || defaultPageSize;
+
+  const { tableRef, tableContainerRef, handleScroll, calculatedScroll } = (
+    virtual ? useVirtualScroll : useScroll
+  )({
+    fixedHeight,
+    enableColumnReorder,
+    loading,
+    otherProps,
+    rowData,
+    pageSize,
+    shouldShowSelectAllRowsCallout,
+    shouldShowAllRowsSelectedCallout,
+    headerHeight,
+  });
+
   const handleRowChange = (selectedRowKeys, selectedRows) => {
     const tableWrapper = document.querySelector(
       '[data-testid="table-wrapper"]'
@@ -239,6 +210,7 @@ const Table = ({
     ? {
         type: "checkbox",
         preserveSelectedRowKeys: true,
+        columnWidth: 48,
         ...rowSelection,
         onChange: handleRowChange,
         selectedRowKeys,
@@ -259,36 +231,6 @@ const Table = ({
       enableColumnResize,
       enableColumnReorder,
     }),
-  };
-
-  const calculateRowsPerPage = () => {
-    const viewportHeight = window.innerHeight;
-    const rowsPerPage = Math.floor(
-      ((viewportHeight - TABLE_PAGINATION_HEIGHT) / TABLE_ROW_HEIGHT) * 3
-    );
-
-    return Math.ceil(rowsPerPage / 10) * 10;
-  };
-
-  const pageSize = shouldDynamicallyRenderRowSize
-    ? calculateRowsPerPage()
-    : paginationProps.pageSize || defaultPageSize;
-
-  const calculateTableContainerHeight = () => {
-    const isPaginationVisible =
-      otherProps.pagination !== false && rowData.length > pageSize;
-
-    let selectAllRowsCalloutHeight = 0;
-    if (shouldShowSelectAllRowsCallout || shouldShowAllRowsSelectedCallout) {
-      selectAllRowsCalloutHeight = getSelectAllRowsCalloutHeight();
-    }
-
-    return (
-      containerHeight -
-      headerHeight -
-      (isPaginationVisible ? TABLE_PAGINATION_HEIGHT : 0) -
-      selectAllRowsCalloutHeight
-    );
   };
 
   const calculatePageSizeOptions = () =>
@@ -418,13 +360,14 @@ const Table = ({
         />
       )}
       <AntTable
-        {...{ bordered, locale, rowKey }}
+        {...{ bordered, locale, rowKey, virtual }}
         columns={sortedColumns}
         components={componentOverrides}
         dataSource={rowData}
         loading={{ spinning: loading, indicator: <Spinner /> }}
         ref={tableRef}
         rowSelection={rowSelectionProps}
+        scroll={{ ...calculatedScroll, ...scroll }}
         showSorterTooltip={false}
         pagination={{
           hideOnSinglePage: true,
@@ -442,11 +385,6 @@ const Table = ({
           { "neeto-ui-table--row_hover": allowRowClick },
           [className]
         )}
-        scroll={{
-          x: "max-content",
-          y: calculateTableContainerHeight(),
-          ...scroll,
-        }}
         onChange={handleTableChange}
         onScroll={handleScroll}
         onHeaderRow={() => ({
@@ -465,12 +403,19 @@ const Table = ({
     </ConfigProvider>
   );
 
+  const renderTableVirtual = () =>
+    virtual ? (
+      <div ref={tableContainerRef}>{renderTable()}</div>
+    ) : (
+      renderTable()
+    );
+
   return enableColumnReorder ? (
     <ReactDragListView.DragColumn {...dragProps}>
-      {renderTable()}
+      {renderTableVirtual()}
     </ReactDragListView.DragColumn>
   ) : (
-    renderTable()
+    renderTableVirtual()
   );
 };
 
@@ -596,6 +541,10 @@ Table.propTypes = {
    * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.
    */
   localStorageKeyPrefix: PropTypes.string,
+  /**
+   * Whether to use virtual scrolling (beta).
+   */
+  virtual: PropTypes.bool,
 };
 
 export default Table;
