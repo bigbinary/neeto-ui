@@ -58,7 +58,7 @@ describe("formik/TreeSelect", () => {
     const select = screen.getByRole("combobox");
     await userEvent.click(select);
     await userEvent.type(select, "Invalid Option");
-    expect(screen.getByText("No options")).toBeInTheDocument();
+    expect(screen.getByText("No options.")).toBeInTheDocument();
   });
 
   it("should submit with the chosen option", async () => {

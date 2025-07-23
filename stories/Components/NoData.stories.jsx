@@ -139,7 +139,7 @@ const WithCustomImageAsSVG = args => (
     <NoData
       {...args}
       primaryButtonProps={{ label: "Back to home" }}
-      title="The page you're looking for can't be found"
+      title="The page you're looking for can't be found."
       image={
         <svg
           fill="none"
