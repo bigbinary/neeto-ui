@@ -57,3 +57,11 @@ export const renderValidEmails = values =>
 export const getValidEmailsCount = values => renderValidEmails(values).length;
 
 export const renderDefaultText = count => (count === 1 ? "email" : "emails");
+
+export const renderDuplicateEmailsWarningMessage = duplicateEmails => {
+  const count = duplicateEmails.length;
+
+  return `Removed ${count} duplicate ${renderDefaultText(
+    count
+  )} from the list: ${duplicateEmails.join(", ")}`;
+};
