@@ -4,6 +4,8 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import { hyphenize } from "utils";
+
 import Spinner from "./Spinner";
 import Tooltip from "./Tooltip";
 
@@ -97,7 +99,12 @@ const Button = React.forwardRef(
           {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >
           {renderLabel && (
-            <span className="neeto-ui-btn__label">{renderLabel}</span>
+            <span
+              className="neeto-ui-btn__label"
+              data-cy={hyphenize(renderLabel)}
+            >
+              {renderLabel}
+            </span>
           )}
           {icon && (
             <Icon
