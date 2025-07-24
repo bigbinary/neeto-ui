@@ -18,6 +18,7 @@ import {
   renderValidEmails,
   renderDefaultText,
   getValidEmailsCount,
+  renderDuplicateEmailsWarningMessage,
 } from "./utils";
 
 import Label from "../Label";
@@ -237,8 +238,7 @@ const MultiEmailInput = forwardRef(
             className="neeto-ui-input__error"
             data-cy={`${hyphenize(label)}-duplicate-emails-warning`}
           >
-            Duplicate emails detected and removed (matched case-insensitively):{" "}
-            {duplicateEmails.join(", ")}
+            {renderDuplicateEmailsWarningMessage(duplicateEmails)}
           </p>
         )}
       </div>
